@@ -1,0 +1,52 @@
+{
+  "name": "dk-plus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C play dev",
+    "build": "gulp -f build/gulpfile.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dk-ui"
+  ],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@types/gulp": "^4.0.9",
+    "@types/gulp-autoprefixer": "^0.0.33",
+    "@types/gulp-clean-css": "^4.3.0",
+    "@types/gulp-sass": "^5.0.0",
+    "@types/sass": "^1.16.1",
+    "fast-glob": "^3.2.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-strip-debug": "^5.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "6.0.0",
+    "sass": "^1.43.2",
+    "sucrase": "^3.20.3",
+    "ts-morph": "^12.2.0",
+    "typescript": "^4.4.4",
+    "vue": "^3.2.20"
+  },
+  "dependencies": {
+    "@dk-plus/components": "workspace:^1.0.0",
+    "@dk-plus/theme-chalk": "workspace:^1.0.0",
+    "@dk-plus/utils": "workspace:^1.0.0"
+  }
+}

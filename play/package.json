@@ -1,0 +1,36 @@
+{
+  "name": "@dk-plus/play",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@types/node": "^18.11.15",
+    "@types/nprogress": "^0.2.0",
+    "@vitejs/plugin-vue": "^2.0.0",
+    "babel-polyfill": "^6.26.0",
+    "highlight.js": "^11.7.0",
+    "nprogress": "^0.2.0",
+    "sass": "^1.56.2",
+    "vite": "^2.7.2",
+    "vite-plugin-compression": "^0.4.0",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "@vitejs/plugin-legacy": "^1.7.1",
+    "dk-plus": "^1.0.4",
+    "eslint": "^8.30.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "rollup-plugin-visualizer": "^5.6.0",
+    "unplugin-auto-import": "^0.8.6",
+    "unplugin-vue-components": "^0.19.6",
+    "vite-plugin-zip": "^1.0.1"
+  }
+}

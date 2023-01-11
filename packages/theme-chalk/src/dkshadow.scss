@@ -1,0 +1,28 @@
+@use './mixins/mixin.scss' as *;
+
+.#{$namespace}-shadow{
+  width: 100%;
+  box-shadow: 0 0 4px #e4e7ed;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.#{$namespace}-title{
+    width:100%;
+    display: flex;
+}
+.#{$namespace}-shadow-left{
+    flex: 1;
+    text-align: left;
+}
+.#{$namespace}-shadow-right{
+    flex: 1;
+    text-align: right;
+}
+
+.#{$namespace}-shadow-hover{
+    transform: translateY(-2%);
+    box-shadow: 1px 4px 10px 2px #ccc;
+}

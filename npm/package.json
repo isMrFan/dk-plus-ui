@@ -1,0 +1,23 @@
+{
+  "name": "dk-plus",
+  "version": "1.0.4",
+  "description": "测试",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "测试UI"
+  ],
+  "author": "cadwaladers <cadwaladers@vip.qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CadWalaDers/timeFun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CadWalaDers/timeFun.git/issues"
+  },
+  "homepage": "https://github.com/CadWalaDers/timeFun"
+}
