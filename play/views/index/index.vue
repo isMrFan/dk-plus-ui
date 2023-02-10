@@ -51,11 +51,37 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 8px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 9px;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background-color: rgb(28, 177, 164);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
 .index {
   width: 100%;
   height: 100vh;
-  overflow: scroll;
   background: #fff;
+  overflow: hidden;
 
   .index-h1 {
     text-align: center;
@@ -86,6 +112,10 @@ export default defineComponent({
 
     .index-conten-right {
       width: calc(100% - 200px);
+      height: 100vh;
+      overflow: scroll;
+      padding-bottom: 150px;
+      box-sizing: border-box;
     }
   }
 }

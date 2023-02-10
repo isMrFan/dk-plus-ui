@@ -94,3 +94,5 @@ npm publish
 npm install --save highlight.js
 ## 安装支持vue3 的@highlightjs/vue-plugin 依赖
 npm install --save @highlightjs/vue-plugin
+
+16.16.0

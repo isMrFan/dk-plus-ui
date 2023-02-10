@@ -71,8 +71,8 @@ router.beforeEach((to: any, from, next) => {
   NProgress.start()
   const title =
     to.meta.title == undefined
-      ? "dkyao-UI"
-      : "dkyao-UI-" + to.meta.title;
+      ? "dk-UI"
+      : "dk-UI-" + to.meta.title;
   window.document.title = title;
   next()
 })

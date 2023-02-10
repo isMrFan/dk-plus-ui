@@ -1,9 +1,7 @@
 <template>
   <div class="dk-button" ref="DkButton">
-    12  
-    <dkIcon class="dk-icon-fuwutiaokuanjiyinsi" :size="24" :color="'red'"></dkIcon>
-    <!-- <slot></slot> -->
-    
+    <button type="button"><slot></slot></button>
+    <!-- <dkIcon class="dk-icon-fuwutiaokuanjiyinsi" :size="24" :color="'red'"></dkIcon> -->    
   </div>
 </template>
 <script lang="ts">
@@ -17,13 +15,10 @@
  **/
 import {  defineComponent, ref } from "vue";
 import { DKbutton } from "./button";
-import { dkIcon } from '@dk-plus/components/icon'
 export default defineComponent({
   name: "DkButton",
   props: DKbutton,
   setup(props) {
-    console.log("dkIcon", dkIcon)
-    console.log("props", props)
     const DkButton: any = ref(null);
     return {
       DkButton,

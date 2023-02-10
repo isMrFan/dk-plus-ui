@@ -1,7 +1,6 @@
 <template>
   <div class="Dkbutton">
-    <dkIcon :class="'dk-icon-yinsi'" :size="24" :color="'#606266'"></dkIcon>
-    <Dk-Button></Dk-Button>
+    <Dk-Button>查询</Dk-Button>
   </div>
 </template>
 <script lang="ts">

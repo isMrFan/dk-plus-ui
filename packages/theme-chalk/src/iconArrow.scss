@@ -1,0 +1,168 @@
+@use './mixins/mixin.scss' as *;
+
+@font-face {
+  font-family: "dk-ui-icons"; /* Project id 3849940 */
+  src: url('./iconArrow/iconfont.woff2?t=1675822794850') format('woff2'),
+       url('./iconArrow/iconfont.woff?t=1675822794850') format('woff'),
+       url('./iconArrow/iconfont.ttf?t=1675822794850') format('truetype');
+}
+
+[class^='#{$namespace}-icon'],[class*='#{$namespace}-icon'] {
+  font-family: "dk-ui-icons" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$namespace}-icon-arrow-down-filling:before {
+  content: "\e689";
+}
+
+.#{$namespace}-icon-arrow-left-filling:before {
+  content: "\e68a";
+}
+
+.#{$namespace}-icon-arrow-right-filling:before {
+  content: "\e68b";
+}
+
+.#{$namespace}-icon-arrow-go-forward-fill:before {
+  content: "\e842";
+}
+
+.#{$namespace}-icon-icf_narrow_screen_arrow:before {
+  content: "\e76a";
+}
+
+.#{$namespace}-icon-box-arrow-in-down-right:before {
+  content: "\e6a0";
+}
+
+.#{$namespace}-icon-box-arrow-in-up-left:before {
+  content: "\e6a3";
+}
+
+.#{$namespace}-icon-arrowgraphdownleft:before {
+  content: "\e6bd";
+}
+
+.#{$namespace}-icon-jiantouarrow482:before {
+  content: "\e694";
+}
+
+.#{$namespace}-icon-jianarrows67:before {
+  content: "\e69f";
+}
+
+.#{$namespace}-icon-arrows_rotate:before {
+  content: "\e6aa";
+}
+
+.#{$namespace}-icon-arrowup:before {
+  content: "\e7ee";
+}
+
+.#{$namespace}-icon-arrowdown:before {
+  content: "\e7ef";
+}
+
+.#{$namespace}-icon-arrows-alt:before {
+  content: "\e833";
+}
+
+.#{$namespace}-icon-arrow-to-bottom:before {
+  content: "\e83c";
+}
+
+.#{$namespace}-icon-arrow-to-top:before {
+  content: "\e83d";
+}
+
+.#{$namespace}-icon-long-arrow-down:before {
+  content: "\e83e";
+}
+
+.#{$namespace}-icon-long-arrow-up:before {
+  content: "\e83f";
+}
+
+.#{$namespace}-icon-arrow-right:before {
+  content: "\e840";
+}
+
+.#{$namespace}-icon-arrow-left:before {
+  content: "\e841";
+}
+
+.#{$namespace}-icon-arrows-v:before {
+  content: "\e847";
+}
+
+.#{$namespace}-icon-arrow-alt-from-top:before {
+  content: "\e86c";
+}
+
+.#{$namespace}-icon-arrow-alt-from-botto:before {
+  content: "\e86d";
+}
+
+.#{$namespace}-icon-narrow:before {
+  content: "\e711";
+}
+
+.#{$namespace}-icon--arrow-:before {
+  content: "\e60d";
+}
+
+.#{$namespace}-icon-arrow-growth:before {
+  content: "\e618";
+}
+
+.#{$namespace}-icon-right-arrow-rect:before {
+  content: "\e884";
+}
+
+.#{$namespace}-icon-left-arrow-rect:before {
+  content: "\e885";
+}
+
+.#{$namespace}-icon-arrow-growth1:before {
+  content: "\e7df";
+}
+
+.#{$namespace}-icon-arrow-left1:before {
+  content: "\e743";
+}
+
+.#{$namespace}-icon-arrow-down:before {
+  content: "\e7b2";
+}
+
+.#{$namespace}-icon-arrow_up_arrow_down:before {
+  content: "\e612";
+}
+
+.#{$namespace}-icon-tray_arrow_down:before {
+  content: "\e6de";
+}
+
+.#{$namespace}-icon-arrow-right1:before {
+  content: "\e665";
+}
+
+.#{$namespace}-icon-arrow-double-left:before {
+  content: "\e666";
+}
+
+.#{$namespace}-icon-arrow-double-right:before {
+  content: "\e667";
+}
+
+.#{$namespace}-icon-arrow-up-bold:before {
+  content: "\e685";
+}
+
+.#{$namespace}-icon-arrow-up-filling:before {
+  content: "\e688";
+}

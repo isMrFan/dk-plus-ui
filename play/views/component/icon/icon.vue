@@ -12,16 +12,41 @@
       </div>
       <!--基础使用结束-->
     </div>
-    <h4 class="template_icon_title">
-      2.自定义大小和颜色(颜色只支持16进制 和英文单词)
-    </h4>
-    <dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>
-    <div class="index_Dk_code">
-      <highlightjs language="javascript" :code="htmlJson.zidingyis" />
-      <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
+    <div class="template_icon_jcsy">
+      <h4 class="template_icon_title">
+        2.自定义大小和颜色(颜色只支持16进制 和英文单词)
+      </h4>
+      <dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>
+      <div class="index_Dk_code">
+        <highlightjs language="javascript" :code="htmlJson.zidingyis" />
+        <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
+      </div>
     </div>
+    <h3 class="cont_template_icon_title">(1).System</h3>
     <div class="icon_library">
       <div class="icon_library_item" v-for="item in iconList" :key="item" @click="oncopy('dk-'+item)">
+        <div class="icon_library_item_icon">
+          <dkIcon :class="'dk-'+item" :size="24" :color="'#606266'"></dkIcon>
+        </div>
+        <div class="icon_library_item_name">
+          {{ 'dk-'+item }}
+        </div>
+      </div>
+    </div>
+    <h3 class="cont_template_icon_title">(2).other</h3>
+    <div class="icon_library">
+      <div class="icon_library_item" v-for="item in iconnamespace" :key="item" @click="oncopy('dk-'+item)">
+        <div class="icon_library_item_icon">
+          <dkIcon :class="'dk-'+item" :size="24" :color="'#606266'"></dkIcon>
+        </div>
+        <div class="icon_library_item_name">
+          {{ 'dk-'+item }}
+        </div>
+      </div>
+    </div>
+    <h3 class="cont_template_icon_title">(3).Arrow</h3>
+      <div class="icon_library">
+      <div class="icon_library_item" v-for="item in iconother" :key="item" @click="oncopy('dk-'+item)">
         <div class="icon_library_item_icon">
           <dkIcon :class="'dk-'+item" :size="24" :color="'#606266'"></dkIcon>
         </div>
@@ -42,34 +67,31 @@ export default defineComponent({
       zidingyis: `<dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>`,
     };
     const iconList = [
-      "icon-yinsi", 'icon-yinsi1', 'icon-fuwutiaokuanjiyinsi', 'icon-icon-test', 'icon-anquanyinsi', 'icon-yinsijimi', 'icon-a-yinsibaohuyanzhengma', 'icon-a-yinsisimibaomi',
-      'icon-shezhi7', 'icon-fangxiang-xiangxia', 'icon-fangxiang-xiangxia', 'icon-fangxiang-xiangshang', 'icon-fangxiang-xiangzuo', 'icon-fangxiangsanjiao-xiangshang', 'icon-fangxiangsanjiao-xiangyou',
-      'icon-fangxiangsanjiao-xiangxia', 'icon-fangxiangsanjiao-xiangzuo', 'icon-tongshezhi', 'icon-zhongqizhifu', 'icon-shezhi8', 'icon-zhifu', 'icon-jurassic_nav', 'icon-jurassic_nav1',
-      'icon-fuzhushezhi', 'icon-gaojishezhi', 'icon-shezhi9', 'icon-shanchu1', 'icon-shezhi10', 'icon-gaojingshezhi', 'icon-geshuishezhi', 'icon-yunshezhi', 'icon-weishezhi',
-      'icon-xitongshezhi', 'icon-zhifupeizhi', 'icon-ziyuan2', 'icon-zhanghushezhi', 'icon-zhanghushezhi', 'icon-shezhiguize', 'icon-shezhiguize', 'icon-jiaofeishezhi', 'icon-alipay1', 'icon-pay-taobao',
-      'icon-data-management', 'icon-jichushezhi', 'icon-chanpinshezhi_1', 'icon-mobanshezhi', 'icon-duanxinshezhi', 'icon-zhifushezhi', 'icon-fangxiang', 'icon-huiyuanshezhi',
-      'icon-jiejiarishezhi', 'icon-tianjiawenjian4', 'icon-a-1Drenyuanshezhi', 'icon-jianqie', 'icon-shanchuwenjian', 'icon-shanchuwenjianjia', 'icon-genzongmubiaoshezhi', 'icon-shezhi',
-      'icon-weibiaoti2', 'icon-shezhi1', 'icon-uishezhi', 'icon-shezhi2', 'icon-icon1', 'icon-weixinzhifu', 'icon-zhifubaozhifu', 'icon-shunshizhenfangxiangclockwise5', 'icon-zhifuyichang', 'icon-zhifubaozhifu1',
-      'icon-caozuo-shezhi', 'icon-zhifunengli', 'icon-zhifubaozhifu2', 'icon-xinyongzhifu', 'icon-kuaijiezhifu', 'icon-weixinzhifu1',
-      'icon-shezhi3', 'icon-duobizhongshezhi', 'icon-shezhi4', 'icon-alipay', 'icon-alarm-settings', 'icon-notifications', 'icon-icon-elements', 'icon-shezhi5',
-      'icon-baojingshezhi', 'icon-yunyingshezhi', 'icon-setting-role', 'icon-navicon-ctsz', 'icon-navicon-jgsz', 'icon-zhifubaotubiao', 'icon-ziyuan', 'icon-shezhizhugudong', 'icon-shezhi6',
-      'icon-shanchu', 'icon-zhifupingtai-paypal', 'icon-ico_xitongshezhi_shebeipeizhi', 'icon-Settings-Help', 'icon-weixinzhifu2', 'icon-zizhanghaoshezhi', 'icon-ziyuan1', 'icon-yonghu71',
-      'icon-yonghu71', 'icon-yonghu73', 'icon-24gf-user2', 'icon-24gf-userGroup2', 'icon-24gf-portraitMalePlus', 'icon-yonghu75', 'icon-yonghu76', 'icon-yonghu78',
-      'icon-yonghu79', 'icon-yonghu80', 'icon-yonghu-tongyong', 'icon-yonghuming19', 'icon-yonghuming20', 'icon-yonghu82', 'icon-yonghu85', 'icon-yonghu86', 'icon-yonghu90', 'icon-yonghu91',
-      'icon-yonghu92', 'icon-yonghu96', 'icon-yonghu97', 'icon-yonghuguohu-', 'icon-jurassic_user1', 'icon-yonghu101', 'icon-yonghu103', 'icon-yonghuID', 'icon-yonghuming23', 'icon-yonghufenzu', 'icon-yonghufenzu',
-      'icon-yonghu108', 'icon-yonghu-jia', 'icon-yonghu-qianyi', 'icon-yonghu-shanchu', 'icon-yonghu112',
-      'icon-yonghuming26', 'icon-user5', 'icon-yonghuguanli-yonghuguanli', 'icon-yonghuqun2', 'icon-yonghuming27', 'icon-yonghu121', 'icon-switchuser', 'icon-customer', 'icon-renzhengyonghu', 'icon-subscriber-square', 'icon-zhanghu',
-      'icon-zuixing-45', 'icon-nvshangjia', 'icon-yonghu122', 'icon-zhanghubaobiao', 'icon-yingyongyonghuguanli', 'icon-yonghuming28', 'icon-chazhaoyonghu', 'icon-menu_yh_sjqx', 'icon-tianjiayonghu', 'icon-menu_yhgl', 'icon-suijiyonghu',
-      'icon-menu_yhsz', 'icon-yonghu123', 'icon-yonghulei', 'icon-shiyanshiyonghuguanli', 'icon-tianjiayonghutianchong', 'icon-yonghu124', 'icon-a-yonghuxinxiyonghu', 'icon-a-huaban1fuben6', 'icon-quanyonghu',
-      'icon-yonghuqun', 'icon-user', 'icon-yonghuming', 'icon-1', 'icon-yonhu', 'icon-yonghutongzhi', 'icon-yonghu9', 'icon-yonghuzhanghuguanli', 'icon-yonghu11',
-      'icon-yonghu12', 'icon-user2', 'icon-yonghu01', 'icon-yonghu14', 'icon-yonghu22', 'icon-yonghu31', 'icon-yonghuming1', 'icon-yonghu16', 'icon-yonghuming3',
-      'icon-yonghuming5', 'icon-5yonghu', 'icon-yonghu110', 'icon-yonghu23', 'icon-tongyongleiyonghunv', 'icon-yonghu20', 'icon-yonghu25',
-      'icon-yonghu28', 'icon-yonghu30', 'icon-yonghuzu', 'icon-yonghu35', 'icon-yonghu-yuan', 'icon-user3', 'icon-yonghu-', 'icon-yonghuziliao',
-      'icon-yonghuziliao-xianxing', 'icon-xinyonghu', 'icon-yonghu47', 'icon-yonghuqun1', 'icon-yonghu_tudi', 'icon-yonghu_tili', 'icon-icon-user-sm',
-      'icon-user-group', 'icon-tubiaozhizuomobanyihuifu-', 'icon-yonghu53', 'icon-yonghuBI', 'icon-yonghu55', 'icon-yonghu56', 'icon-yonghu57', 'icon-yonghuxinxi2',
-      'icon-yonghuming9', 'icon-yonghu-1', 'icon-yonghu60', 'icon-yonghu61', 'icon-yonghu63', 'icon-tab_yonghu', 'icon-tab_yonghu', 'icon-tab_yonghu1', 'icon-yonghuxinxi3',
-      'icon-yonghukaihu', 'icon-yonghu64', 'icon-yonghu65', 'icon-yonghu67', 'icon-x_yonghu', 'icon-jihuoyonghu', 'icon-suodingyonghu', 'icon-erjiyonghu',
-      'icon-yonghuming13','icon-yonghuzu1','icon-yonghu'
+      "icon-sousuowenjian", "icon-xitongxinxi", "icon-02sousuo", "icon-sousuo", "icon-sousuoleimufill", "icon-xitongcaidan", "icon-xitongfanhui", "icon-xitongtongzhi",
+      "icon-icon-link", "icon-xitongyunweidakaiwenjianjia", "icon-xitongyunweibaocunshouquan", "icon-drgspingtairuanjianxitong210", "icon-drgspingtairuanjianxitong212", "icon-xitong1",
+      "icon-xitong", "icon-wangluoxitong", "icon-xitongyunzhuanqingkuang", "icon-xitongzhuangtai", "icon-subsystem", "icon-zhantingzhinengzhongkongxitong", "icon-xitongguanliyuan", "icon-zhuxiaoxitong",
+      "icon-shebeisousuo", "icon-guanliyuansousuo_o", "icon-shebeisousuo_o", "icon-shujuxitong", "icon-svg-", "icon-chaxun", "icon-mysql", "icon--xitong", "icon-xitongfuzai", "icon-keyanxitong",
+      "icon-xitongyunwei", "icon-wendangguanlixitong-wendangguanlixitongtubiao", "icon-wendangguanlixitong-yaopinliuxiangxitongtubiao", "icon-xitongxiaoxi", "icon-xitongdaoru",
+      "icon-xitongpeizhi", "icon-xitongtongzhi1", "icon-yewutubiao_keyanxitong", "icon-xitong2", "icon-xitongguanli", "icon-xitong3", "icon-xitong-weizhipeizhi", "icon-xitong-zichanzidian",
+      "icon-xitong-zichanpeizhi", "icon-xitongrizhi", "icon-xitongxiaoxi1", "icon-xitong4", "icon-xitongxinxi1", "icon-waihuxitong",  "icon-xitongjiandu", "icon-xitongweihu",
+      "icon-juyuwangsousuo", "icon-shipinjiankongxitong", "icon-xitong5", "icon-xitonggengxin", "icon-UIsheji_menjinxitong-10", "icon-cloud-search-full", "icon-yingyongxitongzhanghaoyuquanxianshenqingliucheng__xianxing__-01",
+      "icon-tuichuxitong","icon-xitongloudongjianceshenqing","icon-xitonganquan","icon-icon_1-16","icon-xitongwendang","icon-xitonggonggao"
+    ]
+    const iconnamespace = [
+      "icon-arrow-down-filling", "icon-arrow-left-filling", 'icon-arrow-right-filling', 'icon-arrow-go-forward-fill', 'icon-icf_narrow_screen_arrow', 'icon-box-arrow-in-down-right', 'icon-box-arrow-in-up-left',
+      'icon-arrowgraphdownleft', 'icon-jiantouarrow482', 'icon-jianarrows67', 'icon-arrows_rotate', 'icon-arrowup', 'icon-arrowdown', 'icon-arrows-alt', 'icon-arrow-to-bottom',
+      'icon-arrow-to-top', 'icon-long-arrow-down', 'icon-long-arrow-up', 'icon-arrow-right', 'icon-arrow-left', 'icon-arrows-v', 'icon-arrow-alt-from-top', 'icon-arrow-alt-from-botto', 'icon-narrow',
+      'icon--arrow-', 'icon-arrow-growth', 'icon-right-arrow-rect', 'icon-left-arrow-rect', 'icon-arrow-growth1', 'icon-arrow-left1', 'icon-arrow-down', 'icon-arrow_up_arrow_down',
+      'icon-tray_arrow_down','icon-arrow-right1','icon-arrow-double-left','icon-arrow-double-right','icon-arrow-up-bold','icon-arrow-up-filling'
+    ]
+    const iconother = [
+      'icon-genzongmubiaoshezhi', 'icon-cuowu', 'icon-weixin', 'icon-zhifutixing', 'icon-wxbdingwei', 'icon-gouwuchetianjia', 'icon-jushoucang', 'icon-weixinzhifu', 'icon-jushoucanggift', 'icon-z-weixin',
+      'icon-icon', 'icon-mimakejian', 'icon-tianjiabeizhu', 'icon-qq', 'icon-mima', 'icon-dustbin-recycle-bin-trash-erase-ebaccf', 'icon-wenjianshanchu', 'icon-zhifubao', 'icon-dingwei',
+      'icon-shanchuyoujian', 'icon-nan', 'icon-xinyongqiazhifu', 'icon-shanchu', 'icon-zhifu', 'icon-biyan', 'icon-QQ', 'icon-tupiantianjia', 'icon-weibiaoti--',
+      'icon-tianchongxing-', 'icon-tianchongxing-1', 'icon-jianhao', 'icon-shoucangjiaobiao', 'icon-tianjia', 'icon-shoucang', 'icon-tianjiaxiaoxi',
+      'icon-ziyuan', 'icon-zhifushibai', 'icon-idcard-add-fill', 'icon-shoucang1', 'icon-mimaxianshi', 'icon-mimayincang', 'icon-tianjiaziji', 'icon-jurassic_delete-users',
+      'icon-jurassic_delete-org', 'icon-nan1', 'icon-tianjia1', 'icon-mima1', 'icon-nv', 'icon-shoucang2', 'icon-shoucang3', 'icon-shoucang4', 'icon-huifushanchu',
+      'icon-nv1','icon-zhifushezhi','icon-Deletemember','icon-union-pay','icon-nan2','icon-zaixianzhifuPay','icon-a-Lock-User2','icon-a-Lock-User1','icon-Union-41'
     ]
     const oncopy = (e: any) => {
       const input = document.createElement("input");
@@ -85,21 +107,29 @@ export default defineComponent({
     return {
       htmlJson,
       oncopy,
-      iconList
+      iconList,
+      iconnamespace,
+      iconother
     };
   }
 })
 </script>
 <style lang="scss" scoped>
+
 .template_icon {
   width: 100%;
 
   .template_icon_jcsy {
+    width: 95%;
     margin-bottom: 10px;
   }
 
   .template_icon_title {
+    width: 95%;
     margin-bottom: 10px;
+  }
+  .cont_template_icon_title{
+    margin: 10px 0;
   }
 
   .icon_library {
