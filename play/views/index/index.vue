@@ -20,6 +20,7 @@
   </div>
 </template>
 <script lang="ts">
+
 import { defineComponent, toRefs, reactive } from "vue";
 export default defineComponent({
   name: "index",
