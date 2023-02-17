@@ -1,0 +1,23 @@
+.dk-button{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 8px 15px;
+  margin:5px;
+  .dk-button-conten{
+    font-size: 14px;
+  }
+}
+.dk-button-default{
+  color: #409eff;
+  border:1px solid #c6e2ff;
+  background: #ecf5ff;
+  border-radius: 5px;
+}
+.dk-button-primary{
+  
+}

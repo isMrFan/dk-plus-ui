@@ -1,7 +1,15 @@
 <template>
-  <div class="dk-button" ref="DkButton">
-    <button type="button"><slot></slot></button>
-    <!-- <dkIcon class="dk-icon-fuwutiaokuanjiyinsi" :size="24" :color="'red'"></dkIcon> -->    
+  <div>
+    <button 
+      class="dk-button"
+      :class="typeClass"
+      type="button"
+    >
+      <span class="dk-button-conten">
+        <slot></slot>
+      </span>
+    </button>
+    <!-- <dkIcon class="dk-icon-shujuxitong" :size="24" :color="'red'"></dkIcon>     -->
   </div>
 </template>
 <script lang="ts">
@@ -13,15 +21,25 @@
  * @function oncloshoverType  -悬停事件出去
  * @description 自定义按钮组件
  **/
-import {  defineComponent, ref } from "vue";
+import {  computed, defineComponent } from "vue";
 import { DKbutton } from "./button";
 export default defineComponent({
   name: "DkButton",
   props: DKbutton,
   setup(props) {
-    const DkButton: any = ref(null);
+    const typeClass = computed(() => {
+      let type:string|undefined=props.type
+      const classType = {
+        0: "单位/元",
+        1: "单位/盒",
+        2: "单位/元",
+        3: "单位/盒",
+      };
+      console.log("props",classType[type])
+      return ['dk-button-default']
+    })
     return {
-      DkButton,
+      typeClass,
     };
   },
 });
