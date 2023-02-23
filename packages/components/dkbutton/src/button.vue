@@ -15,10 +15,10 @@
 <script lang="ts">
 /**-
  * @name dk-button
- * @author fankai16
+ * @author fanKai16
  * @Time 2023/01/06
  * @property {string} type 用来判定是标题还是内容  title:标题   box:内容
- * @function oncloshoverType  -悬停事件出去
+ * @function OnCloShoverType  -悬停事件出去
  * @description 自定义按钮组件
  **/
 import {  computed, defineComponent } from "vue";
@@ -28,15 +28,20 @@ export default defineComponent({
   props: DKbutton,
   setup(props) {
     const typeClass = computed(() => {
-      let type:string|undefined=props.type
+      let { type='default' }=props
+      type objType = keyof classTypeObj;
+      type classTypeObj = typeof classType;
       const classType = {
-        0: "单位/元",
-        1: "单位/盒",
-        2: "单位/元",
-        3: "单位/盒",
+        'default': "dk-button-default",
+        'primary': "dk-button-primary",
+        'success': "dk-button-success",
+        'info': "dk-button-info",
+        'warning': "dk-button-warning",
+        'danger': "dk-button-danger"
       };
-      console.log("props",classType[type])
-      return ['dk-button-default']
+      let retClass: (classTypeObj[objType]) = classType[type]
+      const retClassList:Array<string>=[retClass]
+      return retClassList
     })
     return {
       typeClass,

@@ -1,3 +1,4 @@
+@use './mixins/mixin.scss' as *;
 .dk-button{
   display: inline-flex;
   justify-content: center;
@@ -13,11 +14,16 @@
   }
 }
 .dk-button-default{
+  color: #606226;
+  border:1px solid $dkButton-default-border-color;
+  background: $dkButton-default-background-color;
+  border-radius:$dkButton-radius;
+}
+.dk-button-default:active,
+.dk-button-default:focus,
+.dk-button-default:hover{
   color: #409eff;
   border:1px solid #c6e2ff;
   background: #ecf5ff;
-  border-radius: 5px;
-}
-.dk-button-primary{
-  
+  border-radius:$dkButton-radius;
 }
