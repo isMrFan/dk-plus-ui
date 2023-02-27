@@ -1,7 +1,77 @@
+//全局class 头部名称
 $namespace: 'dk';
-// 命名规范 BEM规范
+//全局class 头部名称结束
+
 // dk——btn按钮区间
+// dk——btn——按钮区间公用样式
 $dkButton-radius:5px;
-$dkButton-default-color: #606266;
-$dkButton-default-border-color:#dcdfe6;
-$dkButton-default-background-color: #ffffff;
+$ys-409eff:#409eff;
+$ys-3a8ee6:#3a8ee6;
+$ys-ffffff:#ffffff;
+$ys-606266:#606266;
+$ys-c6e2ff:#c6e2ff;
+$ys-ecf5ff:#ecf5ff;
+$ys-dodge6:#dcdfe6;
+$ys-67c23a:#67c23a;
+$ys-85ce61:#85ce61;
+$ys-5daf34:#5daf34;
+$ys-909399:#909399;
+$ys-a6a9ad:#a6a9ad;
+$ys-82848a:#82848a;
+$ys-e6a23c:#e6a23c;
+$ys-cf9236:#cf9236;
+$ys-ebb563:#ebb563;
+$ys-f56c6c:#f56c6c;
+$ys-dd6161:#dd6161;
+$ys-f78989:#f78989;
+// dk——btn——default默认按钮
+$dkButton-default-color: $ys-606266;
+$dkButton-default-border-color:$ys-dodge6;
+$dkButton-default-background-color: $ys-ffffff;
+// dk——btn——default默认按钮悬浮,选择,点击
+$dkButton-default-afhColor: $ys-409eff;
+$dkButton-default-afhBorder-color:$ys-c6e2ff;
+$dkButton-default-afhBackground:$ys-ecf5ff;
+// dk——btn——primary主要按钮
+$dkButton-primary-color: $ys-ffffff;
+$dkButton-primary-border-color:$ys-409eff;
+$dkButton-primary-background-color: $ys-409eff;
+// dk——btn——primary主要按钮悬浮,选择,点击
+$dkButton-primary-afhBackground: $ys-3a8ee6;
+$dkButton-primary-afhBorder-color:$ys-3a8ee6;
+// dk-button-success 成功按钮
+$dkButton-success-color: $ys-ffffff;
+$dkButton-success-border-color:$ys-67c23a;
+$dkButton-success-background-color: $ys-67c23a;
+// dk-button-success 成功按钮悬浮,选择,点击
+$dkButton-success-afhBackground: $ys-85ce61;
+$dkButton-success-afhBorder-color:$ys-85ce61;
+$dkButton-success-activeBackground:$ys-5daf34;
+$dkButton-success-activeBorder:$ys-5daf34;
+// dk-button-info info按钮
+$dkButton-info-color: $ys-ffffff;
+$dkButton-info-border-color:$ys-909399;
+$dkButton-info-background-color: $ys-909399;
+// dk-button-info info按钮 悬浮,选择,点击
+$dkButton-info-afhBorder-color:$ys-a6a9ad;
+$dkButton-info-afhBackground:$ys-a6a9ad;
+$dkButton-info-activeBackground:$ys-82848a;
+$dkButton-info-activeBorder:$ys-82848a;
+// dk-button-warning 警告按钮
+$dkButton-warning-color: $ys-ffffff;
+$dkButton-warning-border-color:$ys-e6a23c;
+$dkButton-warning-background-color: $ys-e6a23c;
+// dk-button-warning 警告按钮 悬浮,选择,点击
+$dkButton-warning-afhBorder-color:$ys-cf9236;
+$dkButton-warning-afhBackground:$ys-cf9236;
+$dkButton-warning-activeBackground:$ys-ebb563;
+$dkButton-warning-activeBorder:$ys-ebb563;
+// dk-button-danger 危险按钮
+$dkButton-danger-color: $ys-ffffff;
+$dkButton-danger-border-color:$ys-f56c6c;
+$dkButton-danger-background-color: $ys-f56c6c;
+// dk-button-danger 危险按钮 悬浮,选择,点击
+$dkButton-danger-afhBorder-color:$ys-f78989;
+$dkButton-danger-afhBackground:$ys-f78989;
+$dkButton-danger-activeBackground:$ys-dd6161;
+$dkButton-danger-activeBorder:$ys-dd6161;

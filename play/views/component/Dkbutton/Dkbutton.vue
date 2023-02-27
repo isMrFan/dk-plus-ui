@@ -13,9 +13,7 @@
         <Dk-Button  type="warning">Warning</Dk-Button>
         <Dk-Button  type="danger">danger</Dk-Button>
       </div>
-      
     </div>
-    
   </div>
 </template>
 <script lang="ts">

@@ -1,7 +1,7 @@
 {
   "name": "dk-plus",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",

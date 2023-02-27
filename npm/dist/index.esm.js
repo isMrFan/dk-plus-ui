@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, openBlock, createElementBlock, normalizeClass, createElementVNode, renderSlot, normalizeStyle, resolveComponent, createVNode, createTextVNode } from 'vue';
+import { defineComponent, ref, computed, openBlock, createElementBlock, normalizeClass, createElementVNode, renderSlot, normalizeStyle, createCommentVNode } from 'vue';
 
 const DKshadowProps = {
     type: {
@@ -79,8 +79,8 @@ const _hoisted_1$1 = {
   key: 0,
   class: "dk-title"
 };
-const _hoisted_2$1 = { class: "dk-shadow-left" };
-const _hoisted_3$1 = { class: "dk-shadow-right" };
+const _hoisted_2 = { class: "dk-shadow-left" };
+const _hoisted_3 = { class: "dk-shadow-right" };
 const _hoisted_4 = {
   key: 1,
   class: "dk-box"
@@ -95,10 +95,10 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   }, [
     (_ctx.type === 'title')
       ? (openBlock(), createElementBlock("div", _hoisted_1$1, [
-          createElementVNode("div", _hoisted_2$1, [
+          createElementVNode("div", _hoisted_2, [
             renderSlot(_ctx.$slots, "left")
           ]),
-          createElementVNode("div", _hoisted_3$1, [
+          createElementVNode("div", _hoisted_3, [
             renderSlot(_ctx.$slots, "right")
           ])
         ]))
@@ -168,35 +168,39 @@ var script = defineComponent({
     name: "DkButton",
     props: DKbutton,
     setup(props) {
-        console.log("dkIcon", dkIcon);
-        console.log("props", props);
-        const DkButton = ref(null);
+        const typeClass = computed(() => {
+            let { type = 'default' } = props;
+            const classType = {
+                'default': "dk-button-default",
+                'primary': "dk-button-primary",
+                'success': "dk-button-success",
+                'info': "dk-button-info",
+                'warning': "dk-button-warning",
+                'danger': "dk-button-danger"
+            };
+            let retClass = classType[type];
+            const retClassList = [retClass];
+            return retClassList;
+        });
         return {
-            DkButton,
+            typeClass,
         };
     },
 });
 
-const _hoisted_1 = { class: "dk-button-box" };
-const _hoisted_2 = {
-  class: "dk-button",
-  ref: "DkButton"
-};
-const _hoisted_3 = /*#__PURE__*/createTextVNode(" 12 ");
+const _hoisted_1 = { class: "dk-button-conten" };
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_dkIcon = resolveComponent("dkIcon");
-
-  return (openBlock(), createElementBlock("div", _hoisted_1, [
-    createElementVNode("div", _hoisted_2, [
-      _hoisted_3,
-      createVNode(_component_dkIcon, {
-        class: "dk-yinsi",
-        size: 24,
-        color: 'red'
-      }),
-      renderSlot(_ctx.$slots, "default")
-    ], 512 /* NEED_PATCH */)
+  return (openBlock(), createElementBlock("div", null, [
+    createElementVNode("button", {
+      class: normalizeClass(["dk-button", _ctx.typeClass]),
+      type: "button"
+    }, [
+      createElementVNode("span", _hoisted_1, [
+        renderSlot(_ctx.$slots, "default")
+      ])
+    ], 2 /* CLASS */),
+    createCommentVNode(" <dkIcon class=\"dk-icon-shujuxitong\" :size=\"24\" :color=\"'red'\"></dkIcon>     ")
   ]))
 }
 
