@@ -28,6 +28,23 @@
   background: $dkButton-default-afhBackground;
   border-radius:$dkButton-radius;
 }
+//默认按钮禁用区域
+.dk-button-default-disabled{
+  color: $dkButton-default-disabled;
+  border:1px solid $dkButton-default-border-color;
+  background: $dkButton-default-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
+  pointer-events: none; 
+}
+.dk-button-default-disabled::after,
+.dk-button-default-disabled:focus,
+.dk-button-default-disabled:hover{
+  color: $dkButton-default-disabled;
+  border:1px solid $dkButton-default-border-color;
+  background: $dkButton-default-background-color;
+  border-radius:$dkButton-radius;
+}
 //主要按钮
 .dk-button-primary{
   color: $dkButton-primary-color;
@@ -41,6 +58,22 @@
   color: $dkButton-primary-color;
   border:1px solid $dkButton-primary-afhBorder-color;
   background: $dkButton-primary-afhBackground;
+  border-radius:$dkButton-radius;
+}
+//主要按钮禁用区域
+.dk-button-primary-disabled{
+  color:$dkButton-primary-disabled-color;
+  border:1px solid $dkButton-primary-disabled-border-color;
+  background:$dkButton-primary-disabled-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
+}
+.dk-button-primary-disabled:after,
+.dk-button-primary-disabled:focus,
+.dk-button-primary-disabled:hover{
+  color:$dkButton-primary-disabled-color;
+  border:1px solid $dkButton-primary-disabled-border-color;
+  background:$dkButton-primary-disabled-background-color;
   border-radius:$dkButton-radius;
 }
 // 成功按钮
@@ -64,6 +97,22 @@
   background: $dkButton-success-activeBackground;
   border-radius:$dkButton-radius;
 }
+//成功按钮禁用区域
+.dk-button-success-disabled{
+  color:$dkButton-success-disabled-color;
+  border:1px solid $dkButton-success-disabled-border-color;
+  background:$dkButton-success-disabled-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
+}
+.dk-button-success-disabled::after,
+.dk-button-success-disabled:focus,
+.dk-button-success-disabled:hover{
+  color:$dkButton-success-disabled-color;
+  border:1px solid $dkButton-success-disabled-border-color;
+  background:$dkButton-success-disabled-background-color;
+  border-radius:$dkButton-radius;
+}
 // Info按钮
 .dk-button-info{
   color: $dkButton-info-color;
@@ -83,6 +132,22 @@
   color: $dkButton-primary-color;
   border:1px solid $dkButton-info-activeBorder;
   background: $dkButton-info-activeBackground;
+  border-radius:$dkButton-radius;
+}
+// info按钮禁用区域
+.dk-button-info-disabled{
+  color:$dkButton-info-disabled-color;
+  border:1px solid $dkButton-info-disabled-border-color;
+  background:$dkButton-info-disabled-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
+}
+.dk-button-info-disabled::after,
+.dk-button-info-disabled:focus,
+.dk-button-info-disabled:hover{
+  color:$dkButton-info-disabled-color;
+  border:1px solid $dkButton-info-disabled-border-color;
+  background:$dkButton-info-disabled-background-color;
   border-radius:$dkButton-radius;
 }
 //warning按钮
@@ -106,6 +171,22 @@
   background: $dkButton-warning-activeBackground;
   border-radius:$dkButton-radius;
 }
+//warning按钮禁用区域
+.dk-button-warning-disabled{
+  color:$dkButton-warning-disabled-color;
+  border:1px solid $dkButton-warning-disabled-border-color;
+  background:$dkButton-warning-disabled-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
+}
+.dk-button-warning-disabled:active,
+.dk-button-warning-disabled:focus,
+.dk-button-warning-disabled:hover{
+  color:$dkButton-warning-disabled-color;
+  border:1px solid $dkButton-warning-disabled-border-color;
+  background:$dkButton-warning-disabled-background-color;
+  border-radius:$dkButton-radius;
+}
 //danger 危险按钮
 .dk-button-danger{
   color: $dkButton-danger-color;
@@ -126,4 +207,29 @@
   border:1px solid $dkButton-danger-activeBorder;
   background: $dkButton-danger-activeBackground;
   border-radius:$dkButton-radius;
+}
+//danger危险按钮禁用区域
+.dk-button-danger-disabled{
+  color:$dkButton-danger-disabled-color;
+  border:1px solid $dkButton-danger-disabled-border-color;
+  background:$dkButton-danger-disabled-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
+}
+.dk-button-danger-disabled:active,
+.dk-button-danger-disabled:focus,
+.dk-button-danger-disabled:hover{
+  color:$dkButton-danger-disabled-color;
+  border:1px solid $dkButton-danger-disabled-border-color;
+  background:$dkButton-danger-disabled-background-color;
+  border-radius:$dkButton-radius;
+}
+
+//dk-button-disable  禁用按钮
+.dk-button-disable{
+  color: $dkButton-disable-color;
+  border:1px solid $dkButton-disable-border-color;
+  background:$dkButton-disable-background-color;
+  border-radius:$dkButton-radius;
+  cursor: not-allowed;
 }
