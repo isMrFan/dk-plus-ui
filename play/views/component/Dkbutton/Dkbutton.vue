@@ -1,92 +1,461 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <h4 class="dkButton_DK_csy_title">1.基础使用</h4>
+      <h4 class="dkButton_DK_csy_title">组件类型总预览</h4>
+      <Dk-Button
+        v-for="(item, ind) in foundationList"
+        :key="ind"
+        :type="item.type"
+      >
+        {{ item.name }}
+      </Dk-Button>
+      <br />
+      <Dk-Button
+        v-for="(item, ind) in disableList"
+        disable
+        :key="ind"
+        :type="item.type"
+        >{{ item.name }}</Dk-Button
+      >
+      <br />
+      <Dk-Button
+        round
+        v-for="(item, ind) in roundList"
+        :key="ind"
+        :type="item.type"
+        >{{ item.name }}</Dk-Button
+      >
+      <br />
+      <Dk-Button
+        circle
+        v-for="(item, ind) in circleList"
+        :key="ind"
+        :type="item.type"
+        :icon="item.icon"
+        >{{ item.name }}</Dk-Button
+      >
+      <br />
+      <h4 class="dkButton_DK_csy_title">
+        1.基础使用 type设置 default | primary | success | info | warning |danger
+        默认:default
+      </h4>
       <div class="dkButton_DK_csy_div">
-        <Dk-Button 
-          v-for="(item,ind) in foundationList" 
+        <Dk-Button
+          v-for="(item, ind) in foundationList"
           :key="ind"
           :type="item.type"
-          >
+        >
           {{ item.name }}
         </Dk-Button>
       </div>
-      <h4 class="dkButton_DK_csy_title">2.禁用状态</h4>
-      <div class="dkButton_DK_csy_div">
-        <Dk-Button 
-          v-for="(item,ind) in disableList" 
-          disable 
+      <div class="code_show_Title">
+        <Dk-Shadow :type="'title'">
+          <template #left>
+            <div style="line-height: 42px">(1).代码展示区域</div>
+          </template>
+          <template #right>
+            <Dk-Button @click="onFoundationType">
+              {{ FoundationType ? "关闭" : "开启" }}
+            </Dk-Button>
+          </template>
+        </Dk-Shadow>
+      </div>
+      <div class="code_show" v-show="FoundationType">
+        <div
+          class="index_Dk_list"
+          v-for="(item, ind) in foundationHighlightjs"
           :key="ind"
-           :type="item.type"
-          >{{ item.name }}</Dk-Button>
+        >
+          <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+            <highlightjs language="javascript" :code="item.name"></highlightjs>
+            <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+          </div>
+        </div>
+      </div>
+      <br />
+      <h4 class="dkButton_DK_csy_title">
+        2.禁用状态 disable设置 true | false 默认:false
+      </h4>
+      <div class="dkButton_DK_csy_div">
+        <Dk-Button
+          v-for="(item, ind) in disableList"
+          disable
+          :key="ind"
+          :type="item.type"
+          >{{ item.name }}</Dk-Button
+        >
+      </div>
+      <div class="code_show_Title">
+        <Dk-Shadow :type="'title'">
+          <template #left>
+            <div style="line-height: 42px">(1).代码展示区域</div>
+          </template>
+          <template #right>
+            <Dk-Button @click="onDisableTypeType">
+              {{ disableType ? "关闭" : "开启" }}
+            </Dk-Button>
+          </template>
+        </Dk-Shadow>
+      </div>
+      <div
+        class="index_Dk_list"
+        v-for="(item, ind) in ForbiddenmodeList"
+        :key="ind"
+        v-show="disableType"
+      >
+        <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+          <highlightjs language="javascript" :code="item.name"></highlightjs>
+          <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+        </div>
+      </div>
+      <br />
+      <h4 class="dkButton_DK_csy_title">3.圆角按钮 round</h4>
+      <div class="dkButton_DK_csy_div">
+        <Dk-Button
+          round
+          v-for="(item, ind) in roundList"
+          :key="ind"
+          :type="item.type"
+          >{{ item.name }}</Dk-Button
+        >
+      </div>
+      <div class="code_show_Title">
+        <Dk-Shadow :type="'title'">
+          <template #left>
+            <div style="line-height: 42px">(1).代码展示区域</div>
+          </template>
+          <template #right>
+            <Dk-Button @click="onRoundTypeType">
+              {{ RoundType ? "关闭" : "开启" }}
+            </Dk-Button>
+          </template>
+        </Dk-Shadow>
+      </div>
+      <div
+        class="index_Dk_list"
+        v-for="(item, ind) in roundNackList"
+        :key="ind"
+        v-show="RoundType"
+      >
+        <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+          <highlightjs language="javascript" :code="item.name"></highlightjs>
+          <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+        </div>
+      </div>
+      <br />
+      <h4 class="dkButton_DK_csy_title">4.圆形按钮 circle</h4>
+      <div class="dkButton_DK_csy_div">
+        <Dk-Button
+          circle
+          v-for="(item, ind) in circleList"
+          :key="ind"
+          :type="item.type"
+          :icon="item.icon"
+        ></Dk-Button>
+      </div>
+      <div class="code_show_Title">
+        <Dk-Shadow :type="'title'">
+          <template #left>
+            <div style="line-height: 42px">(1).代码展示区域</div>
+          </template>
+          <template #right>
+            <Dk-Button @click="onCircleType">
+              {{ Circle ? "关闭" : "开启" }}
+            </Dk-Button>
+          </template>
+        </Dk-Shadow>
+      </div>
+      <div
+        class="index_Dk_list"
+        v-for="(item, ind) in circleNackList"
+        :key="ind"
+        v-show="Circle"
+      >
+        <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+          <highlightjs language="javascript" :code="item.name"></highlightjs>
+          <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent, reactive, toRefs } from "vue"
 export default defineComponent({
   name: "Dkbuttonsm",
   setup() {
-    const foundationList= [
-      {
-        type: "default",
-        name: "默认"
+    const data = reactive({
+      foundationList: [
+        {
+          type: "default",
+          name: "默认",
+        },
+        {
+          type: "primary",
+          name: "主要按钮",
+        },
+        {
+          type: "success",
+          name: "成功",
+        },
+        {
+          type: "info",
+          name: "信息",
+        },
+        {
+          type: "warning",
+          name: "警告",
+        },
+        {
+          type: "danger",
+          name: "危险",
+        },
+      ],
+      disableList: [
+        {
+          type: "default",
+          name: "默认",
+        },
+        {
+          type: "primary",
+          name: "主要按钮",
+        },
+        {
+          type: "success",
+          name: "成功",
+        },
+        {
+          type: "info",
+          name: "信息",
+        },
+        {
+          type: "warning",
+          name: "警告",
+        },
+        {
+          type: "danger",
+          name: "危险",
+        },
+      ],
+      foundationHighlightjs: [
+        {
+          name: `<Dk-Button>基础使用</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+        {
+          name: `<Dk-Button type="primary">主要按钮</Dk-Button>`,
+          nackName: "主要按钮",
+          type: "primary",
+        },
+        {
+          name: `<Dk-Button type="success">成功</Dk-Button>`,
+          nackName: "成功",
+          type: "success",
+        },
+        {
+          name: `<Dk-Button type="info">信息</Dk-Button>`,
+          nackName: "信息",
+          type: "info",
+        },
+        {
+          name: `<Dk-Button type="warning">警告</Dk-Button>`,
+          nackName: "警告",
+          type: "warning",
+        },
+        {
+          name: `<Dk-Button type="danger">危险</Dk-Button>`,
+          nackName: "危险",
+          type: "danger",
+        },
+      ],
+      ForbiddenmodeList: [
+        {
+          name: `<Dk-Button disable>基础使用</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+        {
+          name: `<Dk-Button type="primary" disable>主要按钮</Dk-Button>`,
+          nackName: "主要按钮",
+          type: "primary",
+        },
+        {
+          name: `<Dk-Button type="success" disable>成功</Dk-Button>`,
+          nackName: "成功",
+          type: "success",
+        },
+        {
+          name: `<Dk-Button type="info" disable>信息</Dk-Button>`,
+          nackName: "信息",
+          type: "info",
+        },
+        {
+          name: `<Dk-Button type="warning" disable>警告</Dk-Button>`,
+          nackName: "警告",
+          type: "warning",
+        },
+        {
+          name: `<Dk-Button type="danger" disable>危险</Dk-Button>`,
+          nackName: "危险",
+          type: "danger",
+        },
+      ],
+      roundList: [
+        {
+          type: "default",
+          name: "默认",
+        },
+        {
+          type: "primary",
+          name: "主要按钮",
+        },
+        {
+          type: "success",
+          name: "成功",
+        },
+        {
+          type: "info",
+          name: "信息",
+        },
+        {
+          type: "warning",
+          name: "警告",
+        },
+        {
+          type: "danger",
+          name: "危险",
+        },
+      ],
+      roundNackList: [
+        {
+          name: `<Dk-Button round>基础使用</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+        {
+          name: `<Dk-Button type="primary" round>主要按钮</Dk-Button>`,
+          nackName: "主要按钮",
+          type: "primary",
+        },
+        {
+          name: `<Dk-Button type="success" round>成功</Dk-Button>`,
+          nackName: "成功",
+          type: "success",
+        },
+        {
+          name: `<Dk-Button type="info" round>信息</Dk-Button>`,
+          nackName: "信息",
+          type: "info",
+        },
+        {
+          name: `<Dk-Button type="warning" round>警告</Dk-Button>`,
+          nackName: "警告",
+          type: "warning",
+        },
+        {
+          name: `<Dk-Button type="danger" round>危险</Dk-Button>`,
+          nackName: "危险",
+          type: "danger",
+        },
+      ],
+      circleList: [
+        {
+          type: "default",
+          name: "默认",
+          icon: "dk-icon-sousuo",
+        },
+        {
+          type: "primary",
+          name: "主要按钮",
+          icon: "dk-icon-tianjiabeizhu",
+        },
+        {
+          type: "success",
+          name: "成功",
+          icon: "dk-icon-arrow-down",
+        },
+        {
+          type: "info",
+          name: "信息",
+          icon: "dk-icon-xitongtongzhi",
+        },
+        {
+          type: "warning",
+          name: "警告",
+          icon: "dk-icon-shoucang2",
+        },
+        {
+          type: "danger",
+          name: "危险",
+          icon: "dk-icon-shanchu",
+        },
+      ],
+      circleNackList: [
+        {
+          name: `<Dk-Button circle icon='dk-icon-sousuo'>基础使用</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+        {
+          name: `<Dk-Button type="primary" icon='dk-icon-tianjiabeizhu' circle>主要按钮</Dk-Button>`,
+          nackName: "主要按钮",
+          type: "primary",
+        },
+        {
+          name: `<Dk-Button type="success" icon='dk-icon-arrow-down' circle>成功</Dk-Button>`,
+          nackName: "成功",
+          type: "success",
+        },
+        {
+          name: `<Dk-Button type="info" icon='dk-icon-xitongtongzhi' circle>信息</Dk-Button>`,
+          nackName: "信息",
+          type: "info",
+        },
+        {
+          name: `<Dk-Button type="warning" icon='dk-icon-shoucang2' circle>警告</Dk-Button>`,
+          nackName: "警告",
+          type: "warning",
+        },
+        {
+          name: `<Dk-Button type="danger" icon='dk-icon-shanchu' circle>危险</Dk-Button>`,
+          nackName: "危险",
+          type: "danger",
+        },
+      ],
+      FoundationType: false,
+      disableType: false,
+      RoundType: false,
+      Circle: false,
+    })
+    const methods = reactive({
+      oncopy(e: any) {
+        const input = document.createElement("input")
+        input.setAttribute("readonly", "readonly")
+        input.setAttribute("value", e)
+        document.body.appendChild(input)
+        input.setSelectionRange(0, 9999)
+        input.select()
+        document.execCommand("copy")
+        document.body.removeChild(input)
+        alert("复制成功")
       },
-      {
-        type: "primary",
-        name: "主要按钮"
+      onFoundationType() {
+        data.FoundationType = !data.FoundationType
       },
-      {
-        type: "success",
-        name: "成功"
+      onDisableTypeType() {
+        data.disableType = !data.disableType
       },
-      {
-        type: "info",
-        name: "信息"
+      onRoundTypeType() {
+        data.RoundType = !data.RoundType
       },
-      {
-        type: "warning",
-        name: "警告"
+      onCircleType() {
+        data.Circle = !data.Circle
       },
-      {
-        type: "danger",
-        name: "危险"
-      },
-    ];
-    const disableList=[
-      {
-        type: "default",
-        name: "默认"
-      },
-      {
-        type: "primary",
-        name: "主要按钮"
-      },
-      {
-        type: "success",
-        name: "成功"
-      },
-      {
-        type: "info",
-        name: "信息"
-      },
-      {
-        type: "warning",
-        name: "警告"
-      },
-      {
-        type: "danger",
-        name: "危险"
-      },
-    ]
-    const a = () => {
-      console.log("a")
-    }
+    })
     return {
-      foundationList,
-      disableList,
-      a
+      ...toRefs(data),
+      ...toRefs(methods),
     }
   },
 })
@@ -94,18 +463,35 @@ export default defineComponent({
 <style lang="scss" scoped>
 .dkButton {
   width: 100%;
+
   .dkButton_DK_csy {
     width: 100%;
     margin: 0 auto;
+
     .dkButton_DK_csy_title {
       padding: 0 0 10px 0;
       box-sizing: border-box;
     }
+
     .dkButton_DK_csy_div {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+    }
+
+    .code_show_Title {
+      width: 90%;
+      padding: 0 5px;
+      box-sizing: border-box;
+    }
+
+    .code_show {
+      width: 100%;
+    }
+
+    .index_Dk_list {
+      margin-top: 5px;
     }
   }
 }

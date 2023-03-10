@@ -5,6 +5,15 @@ export const DKbutton = {
   },
   disable: {
     type: Boolean
+  },
+  round: {
+    type: String
+  },
+  circle: {
+    type: String
+  },
+  icon: {
+    type: String
   }
 }
 export type dkbutton = ExtractPropTypes<typeof DKbutton>

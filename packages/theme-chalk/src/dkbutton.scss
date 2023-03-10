@@ -233,3 +233,25 @@
   border-radius:$dkButton-radius;
   cursor: not-allowed;
 }
+
+//dk-button-round   圆角按钮
+.dk-button-round{
+  border-radius:$dkButton-round-radius;
+}
+.dk-button-round:active,
+.dk-button-round:focus,
+.dk-button-round:hover{
+  border-radius:$dkButton-round-radius;
+}
+
+//dk-button-circle  圆形按钮
+.dk-button-circle{
+  border-radius:$dkButton-circle-radius;
+  width: 35px;
+  height: 35px;
+}
+.dk-button-circle:active,
+.dk-button-circle:focus,
+.dk-button-circle:hover{
+  border-radius:$dkButton-circle-radius;
+}
