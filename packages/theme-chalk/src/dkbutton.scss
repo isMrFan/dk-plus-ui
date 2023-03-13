@@ -255,3 +255,31 @@
 .dk-button-circle:hover{
   border-radius:$dkButton-circle-radius;
 }
+
+//dk-button-large  按钮大号
+.dk-button-large{
+   padding: $dkButton-large-padding;
+   height: $dkButton-large-height;
+  .dk-button-conten{
+    font-size: $dkButton-large-font-size!important;
+  }
+}
+
+//dk-button-small  按钮小号
+.dk-button-small{
+  padding: $dkButton-small-padding;
+  height: $dkButton-small-height; 
+  .dk-button-conten{
+    font-size: $dkButton-small-font-size;
+  }
+}
+
+.dk-button-round-small{
+  width:$dkButton-small-height;
+  height:$dkButton-small-height;
+}
+
+//dk-button-conten-magin  按钮内容区域的margin
+.dk-button-conten-magin{
+  margin-right: $dkButton-conten-magin-right;
+}

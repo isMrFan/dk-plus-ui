@@ -14,6 +14,9 @@ export const DKbutton = {
   },
   icon: {
     type: String
+  },
+  size: {
+    type: String
   }
 }
 export type dkbutton = ExtractPropTypes<typeof DKbutton>

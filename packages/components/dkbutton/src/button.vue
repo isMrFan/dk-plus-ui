@@ -1,17 +1,24 @@
 <template>
-  <button class="dk-button" :class="typeClass" type="button">
+  <button
+    class="dk-button"
+    :class="[typeClass, disabledClass, roundClass, circleClass, largeClass]"
+    type="button"
+  >
     <div v-if="circle === ''">
-      <dkIcon
-        :class="icon"
-        :size="14"
-        :color="type === 'default' ? 'black' : disable ? '#c8c9cc' : '#fff'"
-      ></dkIcon>
+      <dkIcon :class="icon" :size="iconSize" :color="iconColor"></dkIcon>
     </div>
     <div class="dk-button-conten" v-else>
-      <slot></slot>
+      <div v-if="icon">
+        <dkIcon
+          :class="icon"
+          :size="iconSize"
+          class="dk-button-conten-magin"
+        ></dkIcon>
+        <slot></slot>
+      </div>
+      <slot v-else></slot>
     </div>
   </button>
-  <!-- <dkIcon class="dk-icon-shujuxitong" :size="24" :color="'red'"></dkIcon>     -->
 </template>
 <script lang="ts">
 /**
@@ -23,7 +30,15 @@
  * @property {booler} disable -是否禁用
  * @property {string} circle  -圆形按钮不可放文字
  * @property {string} round   - 半圆按钮
- * @function OnCloShoverType  -悬停事件出去
+ * @property {string} size    - 按钮大小
+ * @function typeClass  基础使用type
+ * @function disabledClass  禁止使用状态disable
+ * @function roundClass     半圆按钮逻辑处理round
+ * @function circleClass    圆形按钮逻辑处理circle
+ * @function largeClass     按钮大小处理size
+ * @function iconSize       icon图标大号
+ * @function iconColor      icon图标颜色
+ * @function iconColorContent  按钮带图标的处理
  * @description 自定义按钮组件
  **/
 import { computed, defineComponent } from "vue"
@@ -38,6 +53,7 @@ export default defineComponent({
       disable = false,
       round = "none",
       circle = "none",
+      size = "default",
     } = props
     const typeClass = computed(() => {
       type === "" ? (type = "default") : ""
@@ -54,6 +70,11 @@ export default defineComponent({
       }
       let retClass: classTypeObj[objType] = classType[type]
       retClassList.push(retClass)
+      return retClassList
+    })
+    const disabledClass = computed(() => {
+      type === "" ? (type = "default") : ""
+      let forbidClassList: Array<string> = []
       if (disable) {
         type objDisabled = keyof disabledClassObj
         type disabledClassObj = typeof disabledClassType
@@ -66,18 +87,65 @@ export default defineComponent({
           danger: "dk-button-danger-disabled",
         }
         let retDisabled: disabledClassObj[objDisabled] = disabledClassType[type]
-        retClassList.push(retDisabled)
+        forbidClassList.push(retDisabled)
+        return forbidClassList
       }
+    })
+    const roundClass = computed(() => {
       if (round !== "none") {
-        retClassList.push("dk-button-round")
+        return "dk-button-round"
       }
+    })
+    const circleClass = computed(() => {
       if (circle !== "none") {
-        retClassList.push("dk-button-circle")
+        return "dk-button-circle"
+      }
+    })
+    const largeClass = computed(() => {
+      type objType = keyof classTypeObj
+      type classTypeObj = typeof classType
+      let retClassList: Array<string> = []
+      const classType = {
+        large: "dk-button-large",
+        default: "dk-button-default",
+        small: "dk-button-small",
+      }
+      let retClass: classTypeObj[objType] = classType[size]
+      retClassList.push(retClass)
+      if (circle !== "none" && size === "small") {
+        retClassList.push("dk-button-round-small")
       }
       return retClassList
     })
+    const iconSize = computed(() => {
+      const classType = {
+        large: 16,
+        default: 14,
+        small: 11,
+      }
+      return classType[size] ? classType[size] : 14
+    })
+    const iconColor = computed(() => {
+      let Color = "#ffffff"
+      if (type === "default") {
+        Color = "#c8c9cc"
+      } else {
+        if (disable) {
+          Color = "#c8c9cc"
+        } else {
+          Color = "#ffffff"
+        }
+      }
+      return Color
+    })
     return {
       typeClass,
+      disabledClass,
+      roundClass,
+      circleClass,
+      largeClass,
+      iconSize,
+      iconColor,
       icon,
       disable,
     }

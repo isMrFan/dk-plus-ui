@@ -123,3 +123,16 @@ $dkButton-danger-activeBorder:$ys-dd6161;
 $dkButton-disable-color: rgba(255,255,255);
 $dkButton-disable-border-color:#414243;
 $dkButton-disable-background-color:#00000000;
+
+// dk-button-large 按钮大号
+$dkButton-large-font-size:16px;
+$dkButton-large-padding:10px 15px;
+$dkButton-large-height:38px;
+
+// dk-button-small 按钮小号
+$dkButton-small-font-size:11px;
+$dkButton-small-padding:4px 9px;
+$dkButton-small-height:25px;
+
+// dk-button-conten-magin 按钮内容区域的margin
+$dkButton-conten-magin-right:5px;
