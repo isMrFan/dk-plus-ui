@@ -1,19 +1,20 @@
 <template>
-  <button
-    class="dk-button"
-    :class="[typeClass, disabledClass, roundClass, circleClass, largeClass]"
-    type="button"
-  >
+  <button class="dk-button" :class="[
+    typeClass, disabledClass,
+    roundClass, circleClass,
+    largeClass, loadingClass]" type="button">
     <div v-if="circle === ''">
       <dkIcon :class="icon" :size="iconSize" :color="iconColor"></dkIcon>
     </div>
     <div class="dk-button-conten" v-else>
       <div v-if="icon">
-        <dkIcon
-          :class="icon"
-          :size="iconSize"
-          class="dk-button-conten-magin"
-        ></dkIcon>
+        <dkIcon :class="icon" :size="iconSize" class="dk-button-conten-magin"></dkIcon>
+        <slot></slot>
+      </div>
+      <div v-else-if="loading" class="dk-button-rotationLoading">
+        <div class="dk-button-loading">
+          <dkIcon :class="loadingIconClass" :size="loadingIconSize" :color="'#fff'"></dkIcon>
+        </div>
         <slot></slot>
       </div>
       <slot v-else></slot>
@@ -31,6 +32,9 @@
  * @property {string} circle  -圆形按钮不可放文字
  * @property {string} round   - 半圆按钮
  * @property {string} size    - 按钮大小
+ * @property {booler} loading -加载种状态
+ * @property {string} loadingIcon   图标加载中的图标
+ * @property {string,number} loadingSize  图标加载中的自定义大小
  * @function typeClass  基础使用type
  * @function disabledClass  禁止使用状态disable
  * @function roundClass     半圆按钮逻辑处理round
@@ -38,7 +42,9 @@
  * @function largeClass     按钮大小处理size
  * @function iconSize       icon图标大号
  * @function iconColor      icon图标颜色
- * @function iconColorContent  按钮带图标的处理
+ * @function loadingClass   加载中的蒙层处理
+ * @function loadingIconClass  加载中的ICON设置
+ * @function loadingIconSize   加载中ICON 大小设置
  * @description 自定义按钮组件
  **/
 import { computed, defineComponent } from "vue"
@@ -54,6 +60,9 @@ export default defineComponent({
       round = "none",
       circle = "none",
       size = "default",
+      loading = false,
+      loadingIcon = '',
+      loadingSize=''
     } = props
     const typeClass = computed(() => {
       type === "" ? (type = "default") : ""
@@ -138,6 +147,28 @@ export default defineComponent({
       }
       return Color
     })
+    const loadingClass = computed(() => {
+      if (loading) {
+        return 'dk-button-rotationLoading-mask'
+      }
+    })
+    const loadingIconClass = computed(() => {
+      if (loading) {
+        if (loadingIcon==='') {
+          return 'dk-icon-arrows_rotate'
+        } else {
+          return loadingIcon
+        }
+      }
+    })
+    const loadingIconSize = computed(() => {
+      const classType = {
+        large: 16,
+        default: 14,
+        small: 12,
+      }
+      return loadingSize === '' ?classType[size]?classType[size]:14: loadingSize
+    })
     return {
       typeClass,
       disabledClass,
@@ -148,6 +179,10 @@ export default defineComponent({
       iconColor,
       icon,
       disable,
+      loading,
+      loadingClass,
+      loadingIconClass,
+      loadingIconSize
     }
   },
 })

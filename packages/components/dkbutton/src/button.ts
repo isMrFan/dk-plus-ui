@@ -17,6 +17,15 @@ export const DKbutton = {
   },
   size: {
     type: String
+  },
+  loading: {
+    type: Boolean
+  },
+  loadingIcon: {
+    type: String
+  },
+  loadingSize: {
+    type:[Number,String]
   }
 }
 export type dkbutton = ExtractPropTypes<typeof DKbutton>

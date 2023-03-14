@@ -283,3 +283,41 @@
 .dk-button-conten-magin{
   margin-right: $dkButton-conten-magin-right;
 }
+
+//dk-button-loading 按钮加载中
+.dk-button-rotationLoading{
+  width: 100%;
+  display: flex;
+}
+.dk-button-rotationLoading-mask{
+  position: relative;
+  pointer-events: none;
+  cursor: not-allowed; /* 将光标样式设置为不可用 */
+}
+.dk-button-rotationLoading-mask::before{
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: inherit;
+    background-color: rgba(255,255,255,0.3);
+}
+.dk-button-rotationLoading-mask:hover{
+   cursor: not-allowed;
+}
+.dk-button-loading{
+  margin-right: 5px;
+  animation: rotationLoading 1.5s linear infinite;
+}
+@keyframes rotationLoading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

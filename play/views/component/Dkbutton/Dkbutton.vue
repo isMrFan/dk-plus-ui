@@ -46,6 +46,10 @@
         :circle="item.circle"
         >{{ item.name }}</Dk-Button
       >
+      <br />
+      <Dk-Button type='primary' size='small' loading>默认加载中</Dk-Button>
+      <Dk-Button type='primary' size='large' loading loadingIcon="dk-icon-xitongxinxi">自定义图标</Dk-Button>
+      <Dk-Button type='primary' size='large' loading loadingIcon="dk-icon-xitongxinxi" loadingSize="30">自定义图标大小</Dk-Button>
       <h4 class="dkButton_DK_csy_title">
         1.基础使用 type设置 default | primary | success | info | warning |danger
         默认:default
@@ -227,6 +231,37 @@
           <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
         </div>
       </div>
+      <h4 class="dkButton_DK_csy_title" style="margin-top: 8px">
+        6.加载中的状态  loading  false | true  默认值:false
+      </h4>
+      <div class="dkButton_DK_csy_div">
+        <Dk-Button type='primary' size='small' loading>默认加载中</Dk-Button>
+        <Dk-Button type='primary' size='large' loading loadingIcon="dk-icon-xitongxinxi">自定义图标</Dk-Button>
+        <Dk-Button type='primary' size='large' loading loadingIcon="dk-icon-xitongxinxi" loadingSize="30">自定义图标大小</Dk-Button>
+      </div>
+       <div class="code_show_Title">
+        <Dk-Shadow :type="'title'">
+          <template #left>
+            <div style="line-height: 42px">(1).代码展示区域</div>
+          </template>
+          <template #right>
+            <Dk-Button @click="onloading">
+              {{ BtnLoading ? "关闭" : "开启" }}
+            </Dk-Button>
+          </template>
+        </Dk-Shadow>
+      </div>
+      <div
+        class="index_Dk_list"
+        v-for="(item, ind) in LoadingNackList"
+        :key="ind"
+        v-show="BtnLoading"
+      >
+        <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+          <highlightjs language="javascript" :code="item.name"></highlightjs>
+          <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -250,12 +285,15 @@
  * @property {booler} RoundType     圆角按钮代码开启区域
  * @property {booler} Circle        圆形按钮代码开启区域
  * @property {booler} BtnSize       尺寸 size代码开启区域
+ * @property {booler} BtnLoading    加载中的状态开启区域
+ * @property {Array}  LoadingNackList   加载中列表
  * @function oncopy  辅助区域
  * @function onFoundationType   基础使用代码开启区域点击事件
  * @function onDisableTypeType  禁用使用代码开启区域点击事件
  * @function onRoundTypeType    圆角按钮代码开启区域点击事件
  * @function onCircleType       圆形按钮代码开启区域点击事件
  * @function onBtnSize          尺寸 size代码开启区域点击事件
+ * @function onloading          加载中的状态代码开启区域点击事件
  * @description 自定义按钮组件
  **/
 import { defineComponent, reactive, toRefs } from "vue"
@@ -589,11 +627,35 @@ export default defineComponent({
           type: "",
         },
       ],
+      LoadingNackList: [
+         {
+          name: `<Dk-Button type='primary' size='small' loading>默认加载中</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+          {
+          name: `<Dk-Button type='primary' size='large' loading loadingIcon="dk-icon-xitongxinxi">自定义图标</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+          {
+            name: `<Dk-Button 
+  type='primary' 
+  size='large' loading
+  loadingIcon="dk-icon-xitongxinxi"
+  loadingSize="30">
+  自定义图标大小
+</Dk-Button>`,
+          nackName: "默认",
+          type: "",
+        },
+      ],
       FoundationType: false,
       disableType: false,
       RoundType: false,
       Circle: false,
       BtnSize: false,
+      BtnLoading:false
     })
     const methods = reactive({
       oncopy(e: any) {
@@ -622,6 +684,9 @@ export default defineComponent({
       onBtnSize() {
         data.BtnSize = !data.BtnSize
       },
+      onloading() {
+        data.BtnLoading=!data.BtnLoading
+      }
     })
     return {
       ...toRefs(data),
