@@ -5,11 +5,8 @@
       <div class="index-conten-left">
         <ul>
           <li v-for="(item, ind) in rooterList" :key="ind">
-            <router-link 
-              :to="item.path"              
-              :style="$route.path === item.path ? 'color: #29d;' : ''"
-              >{{item.name}}</router-link
-            >
+            <router-link :to="item.path"
+              :style="$route.path === item.path ? 'color: #29d;' : ''">{{ item.name }}</router-link>
           </li>
         </ul>
       </div>
@@ -35,16 +32,16 @@ export default defineComponent({
           name: "自定义盒子模型",
           path: "/DkShadow",
         },
-         {
+        {
           name: "图标",
           path: "/DkIcon",
         },
-          {
+        {
           name: "按钮组件",
           path: "/Dkbutton",
         },
       ],
-    });
+    });a
     return {
       ...toRefs(data),
     };
@@ -54,30 +51,32 @@ export default defineComponent({
 <style lang="scss" scoped>
 ::-webkit-scrollbar {
   /*滚动条整体样式*/
-  width: 8px; /*高宽分别对应横竖滚动条的尺寸*/
+  width: 8px;
+  /*高宽分别对应横竖滚动条的尺寸*/
   height: 9px;
 }
+
 ::-webkit-scrollbar-thumb {
   /*滚动条里面小方块*/
   border-radius: 10px;
   background-color: rgb(28, 177, 164);
-  background-image: -webkit-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.2) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.2) 75%,
-    transparent 75%,
-    transparent
-  );
+  background-image: -webkit-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent);
 }
+
 ::-webkit-scrollbar-track {
   /*滚动条里面轨道*/
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   background: #ededed;
   border-radius: 10px;
 }
+
 .index {
   width: 100%;
   height: 100vh;
