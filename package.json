@@ -60,17 +60,17 @@
   "dependencies": {
     "vue": "^3.2.20"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue,json,md,yml,yaml}": [
-      "eslint --fix"
-    ]
+    "*.js": "eslint --fix"
   }
 }
