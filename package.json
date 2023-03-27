@@ -1,8 +1,15 @@
 {
   "name": "dk-plus",
-  "version": "1.0.0",
+  "private":true,
+  "workspaces":[
+    "packages/*",
+    "docs",
+    "play"
+  ],
+  "engines": {
+    "node": ">= 16"
+  },
   "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
-  "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
     "build": "gulp -f build/gulpfile.ts",
@@ -12,7 +19,7 @@
     "dk-ui"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "dist"
   ],
@@ -35,6 +42,8 @@
     "gulp-sass": "^5.0.0",
     "gulp-strip-debug": "^5.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "rollup": "^2.60.0",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-vue": "6.0.0",
@@ -48,5 +57,10 @@
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,json,md,yml,yaml}": [
+      "eslint --fix"
+    ]
   }
 }
