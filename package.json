@@ -28,6 +28,9 @@
     "url": "git://github.com"
   },
   "devDependencies": {
+    "@dk-plus/components": "workspace:^1.0.0",
+    "@dk-plus/theme-chalk": "workspace:^1.0.0",
+    "@dk-plus/utils": "workspace:^1.0.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@types/gulp": "^4.0.9",
@@ -35,6 +38,7 @@
     "@types/gulp-clean-css": "^4.3.0",
     "@types/gulp-sass": "^5.0.0",
     "@types/sass": "^1.16.1",
+    "cz-conventional-changelog": "^3.3.0",
     "fast-glob": "^3.2.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -44,17 +48,14 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
+    "prettier": "2.8.7",
     "rollup": "^2.60.0",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-vue": "6.0.0",
     "sass": "^1.43.2",
     "sucrase": "^3.20.3",
     "ts-morph": "^12.2.0",
-    "typescript": "^4.4.4",
-    "@dk-plus/components": "workspace:^1.0.0",
-    "@dk-plus/theme-chalk": "workspace:^1.0.0",
-    "@dk-plus/utils": "workspace:^1.0.0",
-    "cz-conventional-changelog": "^3.3.0"
+    "typescript": "^4.4.4"
   },
   "dependencies": {
     "vue": "^3.2.20"
