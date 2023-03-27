@@ -1,4 +1,4 @@
-import { ExtractPropTypes } from "vue"
+import { ExtractPropTypes } from 'vue'
 export const DKbutton = {
   type: {
     type: String
@@ -25,7 +25,7 @@ export const DKbutton = {
     type: String
   },
   loadingSize: {
-    type:[Number,String]
+    type: [Number, String]
   }
 }
 export type dkbutton = ExtractPropTypes<typeof DKbutton>

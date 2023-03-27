@@ -1,4 +1,4 @@
-import { ExtractPropTypes } from "vue"
+import { ExtractPropTypes } from 'vue'
 export const DKshadowProps = {
   type: {
     type: String

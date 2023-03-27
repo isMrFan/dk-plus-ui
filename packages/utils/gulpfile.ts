@@ -1,2 +1,2 @@
-import {buildPackages} from '../../build/packages'
-export default buildPackages(__dirname, 'utils');
+import { buildPackages } from '../../build/packages'
+export default buildPackages(__dirname, 'utils')

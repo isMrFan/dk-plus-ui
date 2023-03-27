@@ -1,14 +1,15 @@
 # 暂无
+
 https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git
 
-___@author 范凯___(研发)
-___@email  1038886097@qq.com___
+**_@author 范凯_**(研发)
+**_@email 1038886097@qq.com_**
 
 ## 原型地址
 
 ## 总览
 
-这是一个基于vue3开发的前端组件库
+这是一个基于 vue3 开发的前端组件库
 
 ## 应用框架
 
@@ -84,6 +85,7 @@ ___@email  1038886097@qq.com___
 ```
 
 # git remote add <name> <git-url>
+
 git remote add gitlab_origin git@gitlab.com:opendvd/dual_push.git
 
 npm init --yes
@@ -91,9 +93,12 @@ npm adduser
 npm login
 npm publish
 
-## 这个是highlight.js基础依赖
+## 这个是 highlight.js 基础依赖
+
 npm install --save highlight.js
-## 安装支持vue3 的@highlightjs/vue-plugin 依赖
+
+## 安装支持 vue3 的@highlightjs/vue-plugin 依赖
+
 npm install --save @highlightjs/vue-plugin
 
 16.16.0

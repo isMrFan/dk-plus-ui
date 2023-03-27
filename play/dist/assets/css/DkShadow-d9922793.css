@@ -1,1 +1,19 @@
-.index_Dk-Shadow[data-v-55d78357]{width:80%;margin:10px auto}.index_Dk-Shadow h4[data-v-55d78357],.index_Dk-Shadow h6[data-v-55d78357],.index_Dk-Shadow p[data-v-55d78357]{margin-bottom:10px}.index_Dk-Shadow .index_Dk_mg[data-v-55d78357]{margin-bottom:20px}.cesa[data-v-55d78357]{box-shadow:0 0 4px red}.hoverClass[data-v-55d78357]{transform:translateY(-2%);box-shadow:1px 4px 10px 2px red}
+.index_Dk-Shadow[data-v-55d78357] {
+  width: 80%;
+  margin: 10px auto;
+}
+.index_Dk-Shadow h4[data-v-55d78357],
+.index_Dk-Shadow h6[data-v-55d78357],
+.index_Dk-Shadow p[data-v-55d78357] {
+  margin-bottom: 10px;
+}
+.index_Dk-Shadow .index_Dk_mg[data-v-55d78357] {
+  margin-bottom: 20px;
+}
+.cesa[data-v-55d78357] {
+  box-shadow: 0 0 4px red;
+}
+.hoverClass[data-v-55d78357] {
+  transform: translateY(-2%);
+  box-shadow: 1px 4px 10px 2px red;
+}

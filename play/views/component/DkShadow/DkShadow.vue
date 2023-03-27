@@ -34,8 +34,8 @@
       <span class="fuzhi" @click="oncopy(htmlJson.chacaoshix)">复制代码</span>
     </div>
     <div class="index_Dk_mg"></div>
-     <!--使用插槽结束-->
-     <!--自定义样式-->
+    <!--使用插槽结束-->
+    <!--自定义样式-->
     <h6>3.自定义样式</h6>
     <Dk-Shadow :shadowClass="'cesa'">1.自定义样式(shadowClass)</Dk-Shadow>
     <div class="index_Dk_code">
@@ -46,8 +46,8 @@
       <highlightjs language="javascript" :code="htmlJson.zidingyihtmlcss" />
       <span class="fuzhi" @click="oncopy(htmlJson.zidingyihtmlcss)">复制代码</span>
     </div>
-     <!--自定义样式结束-->
-     <!--悬停效果-->
+    <!--自定义样式结束-->
+    <!--悬停效果-->
     <div class="index_Dk_mg"></div>
     <h6>4.用来判定是否开启悬停效果</h6>
     <Dk-Shadow :hoverType="true">1.组件悬停(hoverType)</Dk-Shadow>
@@ -71,13 +71,13 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "DkShadowsm",
-  setup() {
-    const htmlJson = {
-      foundation: `<Dk-Shadow>1.基础组件使用</Dk-Shadow>`,
-      chacaoshix: `<Dk-Shadow :type="'title'" :hoverType="false">
+  import { defineComponent } from 'vue'
+  export default defineComponent({
+    name: 'DkShadowsm',
+    setup() {
+      const htmlJson = {
+        foundation: `<Dk-Shadow>1.基础组件使用</Dk-Shadow>`,
+        chacaoshix: `<Dk-Shadow :type="'title'" :hoverType="false">
   <template #left>
     <span>1.左插槽(#left) </span>
   </template>
@@ -85,57 +85,57 @@ export default defineComponent({
     <span>2.右插槽(#right)</span>
   </template>
 </Dk-Shadow>`,
-      zidingyihtml: `<Dk-Shadow :shadowClass="'cesa'">1.自定义样式(shadowClass)</Dk-Shadow>`,
-      zidingyihtmlcss:`.cesa {
+        zidingyihtml: `<Dk-Shadow :shadowClass="'cesa'">1.自定义样式(shadowClass)</Dk-Shadow>`,
+        zidingyihtmlcss: `.cesa {
   box-shadow: 0 0 4px red;
 }`,
-      xuantiao:`<Dk-Shadow :hoverType="true">1.组件悬停(hoverType)</Dk-Shadow>`,
-      zdyxuantiao: `<Dk-Shadow :hoverType="true" :hoverClass="'hoverClass'">
+        xuantiao: `<Dk-Shadow :hoverType="true">1.组件悬停(hoverType)</Dk-Shadow>`,
+        zdyxuantiao: `<Dk-Shadow :hoverType="true" :hoverClass="'hoverClass'">
         1.自定义悬停效果:hoverClass
 </Dk-Shadow>`,
-      zdyxuantiaocss: `.hoverClass {
+        zdyxuantiaocss: `.hoverClass {
   transform: translateY(-2%);
   box-shadow: 1px 4px 10px 2px red;
-}`,
-    };
-    const oncopy = (e: any) => {
-      const input = document.createElement("input");
-      input.setAttribute("readonly", "readonly");
-      input.setAttribute("value", e);
-      document.body.appendChild(input);
-      input.setSelectionRange(0, 9999);
-      input.select();
-      document.execCommand("copy");
-      document.body.removeChild(input);
-      alert("复制成功");
-    };
-    return {
-      htmlJson,
-      oncopy,
-    };
-  },
-});
+}`
+      }
+      const oncopy = (e: any) => {
+        const input = document.createElement('input')
+        input.setAttribute('readonly', 'readonly')
+        input.setAttribute('value', e)
+        document.body.appendChild(input)
+        input.setSelectionRange(0, 9999)
+        input.select()
+        document.execCommand('copy')
+        document.body.removeChild(input)
+        alert('复制成功')
+      }
+      return {
+        htmlJson,
+        oncopy
+      }
+    }
+  })
 </script>
 <style lang="scss" scoped>
-.index_Dk-Shadow {
-  width: 80%;
-  margin: 10px auto;
-  h4,
-  h6 {
-    margin-bottom: 10px;
+  .index_Dk-Shadow {
+    width: 80%;
+    margin: 10px auto;
+    h4,
+    h6 {
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    .index_Dk_mg {
+      margin-bottom: 20px;
+    }
   }
-  p {
-    margin-bottom: 10px;
+  .cesa {
+    box-shadow: 0 0 4px red;
   }
-  .index_Dk_mg {
-    margin-bottom: 20px;
+  .hoverClass {
+    transform: translateY(-2%);
+    box-shadow: 1px 4px 10px 2px red;
   }
-}
-.cesa {
-  box-shadow: 0 0 4px red;
-}
-.hoverClass {
-  transform: translateY(-2%);
-  box-shadow: 1px 4px 10px 2px red;
-}
 </style>

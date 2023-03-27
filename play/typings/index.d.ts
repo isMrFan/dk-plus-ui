@@ -1,2 +1,2 @@
-declare module "vite-plugin-compression";
-declare module "vite-plugin-zip";
+declare module 'vite-plugin-compression'
+declare module 'vite-plugin-zip'

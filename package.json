@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "pnpm -C play dev",
     "build": "gulp -f build/gulpfile.ts",
+    "prettier": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -65,12 +66,9 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.js": "eslint --fix"
+    "*.{js,jsx,ts,tsx,vue,json,md,yml,yaml}": [
+      "eslint --fix"
+    ]
   }
 }
