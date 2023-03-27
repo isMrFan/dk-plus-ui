@@ -40,8 +40,8 @@ export default defineComponent({
           name: "按钮组件",
           path: "/Dkbutton",
         },
-      ],
-    });aasd
+      ],       
+    });    
     return {
       ...toRefs(data),
     };

@@ -1,7 +1,7 @@
 {
   "name": "dk-plus",
-  "private":true,
-  "workspaces":[
+  "private": true,
+  "workspaces": [
     "packages/*",
     "docs",
     "play"
@@ -51,12 +51,18 @@
     "sucrase": "^3.20.3",
     "ts-morph": "^12.2.0",
     "typescript": "^4.4.4",
-    "vue": "^3.2.20"
-  },
-  "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
-    "@dk-plus/utils": "workspace:^1.0.0"
+    "@dk-plus/utils": "workspace:^1.0.0",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "dependencies": {
+    "vue": "^3.2.20"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue,json,md,yml,yaml}": [
