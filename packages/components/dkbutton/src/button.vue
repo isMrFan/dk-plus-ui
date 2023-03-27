@@ -51,7 +51,7 @@ import { computed, defineComponent } from "vue"
 import { DKbutton } from "./button"
 export default defineComponent({
   name: "DkButton",
-               props: DKbutton,
+              asd props: DKbutton,
   setup(props) {
     let {
       icon = "",
