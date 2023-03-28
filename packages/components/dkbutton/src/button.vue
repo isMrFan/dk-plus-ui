@@ -58,7 +58,7 @@
     name: 'DkButton',
     props: DKbutton,
     setup(props) {
-      let {
+                  let {
         icon = '',
         type = 'default',
         disable = false,
@@ -69,10 +69,10 @@
         loadingIcon = '',
         loadingSize = ''
       } = props
-      const typeClass = computed(() => {
+          const typeClass = computed(() => {
         type === '' ? (type = 'default') : ''
         type objType = keyof classTypeObj
-        type classTypeObj = typeof classType
+               type classTypeObj = typeof classType
         let retClassList: Array<string> = []
         const classType = {
           default: 'dk-button-default',
