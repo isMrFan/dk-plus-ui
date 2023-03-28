@@ -2,7 +2,7 @@ repos:
   - repo: https://github.com/CadWalaDers/dk-ui
     rev: v3.2.0
     hooks:
-      - id: npm run prettier
-        name: npm run prettier
-        entry: npm run prettier
-        types: [javascript, jsx, vue, json, md, yml, yaml]
+      - id: prettier
+        name: Prettier
+        entry: node_modules/.bin/prettier
+        types: [javascript, jsx, vue, json, md, yml, yaml, css, scss, less]
