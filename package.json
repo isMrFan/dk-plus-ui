@@ -34,6 +34,8 @@
     "url": "git://github.com"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0",
