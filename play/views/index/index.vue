@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <h1 class="index-h1">测试组件页面</h1>
+    <h1 class="index-h1">这不是测试组件页面</h1>
     <div class="index-conten">
       <div class="index-conten-left">
         <ul>
