@@ -300,8 +300,8 @@
    **/
   import { defineComponent, reactive, toRefs } from 'vue'
   export default defineComponent({
-            name: 'Dkbuttonsm',
-                                          setup() {
+    name: 'Dkbuttonsm',
+    setup() {
       const data = reactive({
         foundationList: [
           {

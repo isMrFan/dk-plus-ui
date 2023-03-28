@@ -1,9 +1,6 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.1
     hooks:
       - id: prettier
-        name: prettier
-        entry: prettier
-        language: node
         types: [javascript, jsx, vue, json, md, yml, yaml]
