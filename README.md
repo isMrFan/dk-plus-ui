@@ -111,8 +111,8 @@ npm install --save @highlightjs/vue-plugin
   <a href="https://cadwaladerss.com">
     <img src="https://img.shields.io/badge/dk--plus-Docs-blue" />
   </a>
-  <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md">
-    <img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-blue" />
+  <a href="https://github.com/CadWalaDers/dk-ui/blob/master/CUpdateLog.md">
+    <img src="https://img.shields.io/badge/dk--plus-CUpdateLog-blue" />
   </a>
 </p>
 
