@@ -1,8 +1,6 @@
 # 暂无
 
-https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git
-
-**_@author 范凯_**(研发)
+**_@author fankai_**(研发)
 **_@email 1038886097@qq.com_**
 
 ## 原型地址
