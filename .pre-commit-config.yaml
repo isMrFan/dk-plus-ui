@@ -1,0 +1,8 @@
+repos:
+  - repo: https://github.com/CadWalaDers/dk-ui
+    rev: v3.2.0
+    hooks:
+      - id: prettier
+        name: Prettier
+        entry: prettier
+        types: [javascript]
