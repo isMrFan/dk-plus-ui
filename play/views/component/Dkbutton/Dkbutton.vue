@@ -302,15 +302,15 @@
   export default defineComponent({
     name: 'Dkbuttonsm',
     setup() {
-                    const data = reactive({
-                 foundationList: [
+      const data = reactive({
+        foundationList: [
           {
-                   type: 'default',
+            type: 'default',
             name: '默认'
           },
           {
             type: 'primary',
-                   name: '主要按钮'
+            name: '主要按钮'
           },
           {
             type: 'success',

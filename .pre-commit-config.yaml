@@ -1,8 +1,9 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.0.1
     hooks:
       - id: prettier
-        name: Prettier
-        entry: node_modules/.bin/prettier
-        types: [javascript, jsx, vue, json, md, yml, yaml, css, scss, less]
+        name: prettier
+        entry: prettier
+        language: node
+        types: [javascript, jsx, vue, json, md, yml, yaml]
