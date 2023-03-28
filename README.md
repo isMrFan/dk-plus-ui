@@ -100,3 +100,22 @@ npm install --save highlight.js
 npm install --save @highlightjs/vue-plugin
 
 16.16.0
+
+<p align="center">
+  <a href="https://github.com/CadWalaDers/dk-ui/stargazers">
+    <img src="https://img.shields.io/github/stars/CadWalaDers/dk-ui" />
+  </a>
+  <a href="https://www.npmjs.com/package/dk-plus">
+    <img src="https://badgen.net/npm/v/dk-plus" />
+  </a>
+  <a href="https://cadwaladerss.com">
+    <img src="https://img.shields.io/badge/dk--plus-Docs-blue" />
+  </a>
+  <a href="https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md">
+    <img src="https://img.shields.io/badge/Fighting%20Design-CHANGELOG-blue" />
+  </a>
+</p>
+
+<a href="https://github.com/CadWalaDers/dk-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
+</a>
