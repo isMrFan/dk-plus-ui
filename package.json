@@ -16,6 +16,9 @@
     "prettier": "prettier --write .",
     "pre-commit": "npm run lint",
     "pretty-quick": "pretty-quick --staged",
+    "docs:dev": "pnpm -C docs docs:dev",
+    "docs:build": "pnpm -C docs docs:build",
+    "docs:serve": "pnpm -C docs docs:serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [

@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "noLib": false,
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": false,
+    "sourceMap": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "**/__tests__",
+    "dist/**"
+  ],
+  "include": [
+    "components/**/*.ts",
+    "components/**/*.d.ts",
+    "components/**/*.vue",
+    "**/*.vue"
+  ]
+}
