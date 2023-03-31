@@ -1,11 +1,9 @@
 ---
 layout: home
-title:DK-Plus
+title: Vitepress Demo
 ---
+<HomeContent/>
 
-asdasdasasddassdasda
-<!-- <Home/> -->
-
-<!-- <script setup lang="ts">
-  import Home from '@/theme/template/home.vue'
-</script> -->
+<script setup lang="ts">
+  import HomeContent from './.vitepress/theme/components/home.vue'
+</script>

@@ -1,9 +1,11 @@
 import { h } from 'vue'
-import theme from 'vitepress/theme'
+import Theme from 'vitepress/theme'
+import './style/vitepress.scss'
+
 export default {
-  ...theme,
-   Layout() {
-    return h(theme.Layout, null, {
+  ...Theme,
+  Layout() {
+    return h(Theme.Layout, null, {
       /**
        * 导航栏插入搜索的输入框插槽
        *
@@ -13,6 +15,4 @@ export default {
        */
     })
   },
-  NotFound: () => "custom 404",
-  
 }

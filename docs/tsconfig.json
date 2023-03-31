@@ -20,17 +20,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": false,
-    "skipLibCheck": true
-  },
-  "exclude": [
-    "node_modules",
-    "**/__tests__",
-    "dist/**"
-  ],
-  "include": [
-    "components/**/*.ts",
-    "components/**/*.d.ts",
-    "components/**/*.vue",
-    "**/*.vue"
-  ]
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        ".vitepress/*"
+      ]
+    }
+  }
 }

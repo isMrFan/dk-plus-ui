@@ -1,12 +1,10 @@
 {
   "name": "docs",
   "private": true,
-  "version": "1.0.0",
-  "description": "",
   "scripts": {
-    "docs:dev": "vitepress dev docs --host 0.0.0.0 --port 6099",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:dev": "vitepress dev --host 0.0.0.0 --port 6099",
+    "docs:build": "vitepress build",
+    "docs:serve": "vitepress serve"
   },
   "devDependencies": {
     "vitepress": "^1.0.0-alpha.64"

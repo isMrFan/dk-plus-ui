@@ -3,6 +3,10 @@ export default (): UserConfigExport => {
   return {
     server: {
       port: 6099
+    },
+    alias: {
+      '@': './.vitepress',
+      '@TheRoot':'../'
     }
   }
 }
