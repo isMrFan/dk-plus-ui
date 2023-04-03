@@ -1,7 +1,15 @@
 ---
 layout: home
-title: Vitepress Demo
+title: dk-plus
 ---
+
+  <!-- <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fighting-design/dk-plus/index.css"
+    />
+  </head> -->
+
 <HomeContent/>
 
 <script setup lang="ts">

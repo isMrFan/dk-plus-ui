@@ -7,6 +7,9 @@ export default (): UserConfigExport => {
     alias: {
       '@': './.vitepress',
       '@TheRoot':'../'
-    }
+    },
+    optimizeDeps: {
+      include: ['vue', '@vueuse/core']
+    },
   }
 }

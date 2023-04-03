@@ -3,6 +3,7 @@ import { description } from './data/description'
 import { nav } from './data/nav'
 import { sidebar } from './data/sidebar'
 import { head } from './data/head'
+
 /**
  * vitepress 配置项文件
  *
@@ -63,6 +64,11 @@ export default defineConfig({
      *
      * @see logo https://vitepress.vuejs.org/config/theme-configs#logo
      */
-    logo: ''
+    logo: {
+      src: 'https://oss.cadwaladerss.com/images/24ICON.png',
+      alt: 'dk-plus'
+    },
+    siteTitle: 'dk-plus',
+
   },
 })
