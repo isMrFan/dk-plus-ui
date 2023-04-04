@@ -3,7 +3,7 @@
     <h1 class="index-h1">测试组件</h1>
     <div class="index-conten">
       <div class="index-conten-left">
-        <ul>
+             <ul>
           <li v-for="(item, ind) in rooterList" :key="ind">
             <router-link
               :to="item.path"
