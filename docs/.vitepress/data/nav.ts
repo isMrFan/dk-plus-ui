@@ -1,4 +1,3 @@
-
 import { version } from '../../../npm/package.json'
 /**
  * 顶部导航栏菜单

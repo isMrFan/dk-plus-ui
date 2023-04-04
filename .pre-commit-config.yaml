@@ -3,4 +3,4 @@ repos:
     rev: v4.0.1
     hooks:
       - id: prettier
-        types: [javascript, jsx, vue, json, md, yml, yaml]
+        types: [javascript, jsx, vue, json, md, yml, yaml, typescript]

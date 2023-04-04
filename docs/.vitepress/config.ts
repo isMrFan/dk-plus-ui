@@ -68,7 +68,6 @@ export default defineConfig({
       src: 'https://oss.cadwaladerss.com/images/24ICON.png',
       alt: 'dk-plus'
     },
-    siteTitle: 'dk-plus',
-
-  },
+    siteTitle: 'dk-plus'
+  }
 })

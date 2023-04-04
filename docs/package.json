@@ -1,12 +1,14 @@
 {
-  "name": "docs",
-  "private": true,
+  "name": "@dk-plus/docs",
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "",
   "scripts": {
     "docs:dev": "vitepress dev --host 0.0.0.0 --port 6099",
     "docs:build": "vitepress build",
     "docs:serve": "vitepress serve"
   },
-  "devDependencies": {
+  "dependencies": {
     "vitepress": "^1.0.0-alpha.64"
   }
 }

@@ -14,5 +14,5 @@ export default {
        * @see layout-slots https://vitepress.vuejs.org/guide/theme-introduction#layout-slots
        */
     })
-  },
+  }
 }

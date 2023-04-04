@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "noLib": false,
     "useDefineForClassFields": true,
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "declaration": false,

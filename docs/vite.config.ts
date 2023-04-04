@@ -6,10 +6,10 @@ export default (): UserConfigExport => {
     },
     alias: {
       '@': './.vitepress',
-      '@TheRoot':'../'
+      '@TheRoot': '../'
     },
     optimizeDeps: {
       include: ['vue', '@vueuse/core']
-    },
+    }
   }
 }

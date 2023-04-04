@@ -1,2 +1,1 @@
-export const description =
-  '暂无'
+export const description = '暂无'

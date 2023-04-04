@@ -11,7 +11,7 @@ export const head: HeadConfig[] = [
     'link',
     {
       rel: 'icon',
-      href: 'https://oss.cadwaladerss.com/images/24ICON.png',
+      href: 'https://oss.cadwaladerss.com/images/24ICON.png'
     }
   ],
   /** 解决移动端点击输入框自动放大的问题 */
@@ -68,8 +68,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:description',
-      content:
-        'dk-ui'
+      content: 'dk-ui'
     }
   ],
   /** OG 页面所在网站名 */
