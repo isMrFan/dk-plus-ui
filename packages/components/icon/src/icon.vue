@@ -30,7 +30,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <i class="dk-icon" :style="style">
+  <i class="dk-icon" style={style}>
     <slot></slot>
   </i>
 </template>

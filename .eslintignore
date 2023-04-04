@@ -1,7 +1,0 @@
-# ESLint 去忽略特定的文件和目录
-#
-# 官方文档：https://eslint.bootcss.com/docs/user-guide/configuring#ignoring-files-and-directories
-
-npm/dist
-node_modules
-.history

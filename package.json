@@ -1,6 +1,6 @@
 {
   "name": "dk-plus",
-  "private": true,
+  "version": "1.0.0",
   "workspaces": [
     "packages/*",
     "docs",
@@ -11,14 +11,10 @@
   },
   "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
   "scripts": {
-    "dev": "pnpm -C play dev",
+    "play:dev": "pnpm -C play dev",
+    "play:build": "pnpm -C platform build",
     "build": "gulp -f build/gulpfile.ts",
-    "prettier": "prettier --write .",
-    "pre-commit": "npm run lint",
     "pretty-quick": "pretty-quick --staged",
-    "docs:dev": "pnpm -C docs docs:dev",
-    "docs:build": "pnpm -C docs docs:build",
-    "docs:serve": "pnpm -C docs docs:serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [
@@ -29,19 +25,16 @@
   ],
   "author": "",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git://github.com"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^17.5.0",
-    "@commitlint/config-conventional": "^17.4.4",
+  "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
-    "@dk-plus/utils": "workspace:^1.0.0",
+    "@dk-plus/utils": "workspace:^1.0.0"
+  },
+  "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@types/gulp": "^4.0.9",
@@ -55,23 +48,15 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^5.0.0",
-    "gulp-strip-debug": "^5.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "pre-commit": "^1.2.2",
-    "prettier": "2.8.7",
-    "pretty-quick": "^3.1.3",
     "rollup": "^2.60.0",
     "rollup-plugin-typescript2": "^0.30.0",
-    "rollup-plugin-vue": "6.0.0",
+    "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.43.2",
     "sucrase": "^3.20.3",
     "ts-morph": "^12.2.0",
-    "typescript": "^4.4.4"
-  },
-  "dependencies": {
     "tslint": "^6.1.3",
+    "typescript": "^4.4.4",
     "vue": "^3.2.20"
   },
   "husky": {
