@@ -1,20 +1,16 @@
 {
   "name": "dk-plus",
   "version": "1.0.0",
-  "workspaces": [
-    "packages/*",
-    "docs",
-    "play"
-  ],
+  "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
+  "main": "index.js",
   "engines": {
     "node": ">= 16"
   },
-  "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
   "scripts": {
     "play:dev": "pnpm -C play dev",
     "play:build": "pnpm -C platform build",
-    "build": "gulp -f build/gulpfile.ts",
     "pretty-quick": "pretty-quick --staged",
+    "build": "gulp -f build/gulpfile.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [
@@ -25,10 +21,6 @@
   ],
   "author": "",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com"
-  },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
@@ -57,7 +49,7 @@
     "sucrase": "^3.20.3",
     "ts-morph": "^12.2.0",
     "tslint": "^6.1.3",
-    "typescript": "^4.4.4",
+    "typescript": "^5.0.3",
     "vue": "^3.2.20"
   },
   "husky": {
