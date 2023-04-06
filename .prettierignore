@@ -1,7 +1,0 @@
-# 忽略文件
-#
-# 官方文档参考：https://prettier.io/docs/en/ignore.html#ignoring-files-prettierignore
-
-npm/dist
-.history
-build

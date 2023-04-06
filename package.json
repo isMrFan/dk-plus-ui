@@ -1,97 +1,47 @@
 {
   "name": "dk-plus",
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "docs",
-    "play"
-  ],
+  "version": "1.0.0",
+  "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
+  "main": "index.js",
   "engines": {
     "node": ">= 16"
   },
-  "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
   "scripts": {
-    "dev": "pnpm -C play dev",
-    "build": "pnpm -C play build",
-    "NpmBuild": "gulp -f build/gulpfile.ts",
-    "prettier": "prettier --write .",
-    "pre-commit": "npm run lint",
-    "pretty-quick": "pretty-quick --staged",
-    "docs:dev": "pnpm -C docs docs:dev",
-    "docs:build": "pnpm -C docs docs:build",
-    "docs:serve": "pnpm -C docs docs:serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:play": "pnpm -C play dev",
+    "build:play": "pnpm -C play build",
+    "build:npm": "gulp -f build/gulpfile.ts",
+    "dev:docs": "pnpm -C docs docs:dev",
+    "build:docs": "pnpm -C docs docs:build"
   },
-  "type": "module",
-  "pre-commit": [
-    "pretty-quick"
-  ],
-  "keywords": [
-    "dk-ui"
-  ],
+  "keywords": [],
   "author": "",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com"
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@types/gulp": "^4.0.10",
+    "@types/gulp-autoprefixer": "^0.0.33",
+    "@types/gulp-clean-css": "^4.3.0",
+    "@types/gulp-sass": "^5.0.0",
+    "@types/sass": "^1.45.0",
+    "fast-glob": "^3.2.12",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "rollup": "^3.20.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.60.0",
+    "sucrase": "^3.31.0",
+    "ts-morph": "^18.0.0",
+    "typescript": "^5.0.3",
+    "vue": "^3.2.47"
   },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0"
-  },
-  "devDependencies": {
-    "tslint": "^6.1.3",
-    "vue": "^3.2.20",
-    "@commitlint/config-conventional": "^17.4.4",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.6",
-    "@types/gulp": "^4.0.9",
-    "@types/gulp-autoprefixer": "^0.0.33",
-    "@types/gulp-clean-css": "^4.3.0",
-    "@types/gulp-sass": "^5.0.0",
-    "@types/sass": "^1.16.1",
-    "babel-jest": "^29.5.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "fast-glob": "^3.2.7",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-cli": "^2.3.0",
-    "gulp-sass": "^5.0.0",
-    "gulp-strip-debug": "^5.0.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "pre-commit": "^1.2.2",
-    "prettier": "2.8.7",
-    "pretty-quick": "^3.1.3",
-    "rollup": "^2.60.0",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "rollup-plugin-vue": "6.0.0",
-    "sass": "^1.43.2",
-    "sucrase": "^3.20.3",
-    "ts-babel": "^6.1.7",
-    "ts-morph": "^12.2.0",
-    "typescript": "^5.0.3",
-    "vitepress": "^1.0.0-alpha.64"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue,json,md,yml,yaml}": [
-      "eslint --fix"
-    ]
   }
 }
