@@ -27,5 +27,11 @@
     "node_modules",
     "**/__tests__",
     "dist/**"
-  ]
+  ],
+  "paths": {
+    "*": [
+      "node_modules/*",
+      "node_modules/@types/*"
+    ]
+  }
 }
