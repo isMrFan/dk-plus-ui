@@ -4,10 +4,6 @@ export default (): UserConfigExport => {
     server: {
       port: 6099
     },
-    alias: {
-      '@': './.vitepress',
-      '@TheRoot': '../'
-    },
     optimizeDeps: {
       include: ['vue', '@vueuse/core']
     }

@@ -1,21 +1,23 @@
 {
   "name": "dk-plus",
   "version": "1.0.0",
-  "description": "https://codeup.aliyun.com/61cad6014c6f7d217121d461/dkyao-ui/dkyao-ui.git",
+  "description": "",
   "main": "index.js",
-  "engines": {
-    "node": ">= 16"
-  },
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
   "scripts": {
     "dev:play": "pnpm -C play dev",
     "build:play": "pnpm -C play build",
-    "build:npm": "gulp -f build/gulpfile.ts",
-    "dev:docs": "pnpm -C docs docs:dev",
-    "build:docs": "pnpm -C docs docs:build"
+    "build": "gulp -f build/gulpfile.ts",
+    "dev:docs": "pnpm -C docs dev:docs",
+    "build:docs": "pnpm -C docs build:docs"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
@@ -24,20 +26,21 @@
     "@types/gulp-clean-css": "^4.3.0",
     "@types/gulp-sass": "^5.0.0",
     "@types/sass": "^1.45.0",
+    "@vue/compiler-sfc": "^3.2.47",
     "fast-glob": "^3.2.12",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^5.1.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "rollup": "^3.20.2",
+    "gulp-typescript": "6.0.0-alpha.1",
+    "rollup": ">=2.78.0 <3.0.0 || >=3.0.0 <4.0.0",
     "rollup-plugin-typescript2": "^0.34.1",
     "rollup-plugin-vue": "^6.0.0",
-    "sass": "^1.60.0",
+    "sass": "^1.56.2",
     "sucrase": "^3.31.0",
     "ts-morph": "^18.0.0",
-    "typescript": "^5.0.3",
-    "vue": "^3.2.47"
+    "typescript": "latest",
+    "vue": "^3.2.25"
   },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",

@@ -4,11 +4,12 @@
   "license": "ISC",
   "description": "",
   "scripts": {
-    "docs:dev": "vitepress dev --host 0.0.0.0 --port 6099",
-    "docs:build": "vitepress build",
-    "docs:serve": "vitepress serve"
+    "dev:docs": "vitepress dev --host 0.0.0.0 --port 6099",
+    "build:docs": "vitepress build",
+    "serve": "vitepress serve"
   },
   "dependencies": {
-    "vitepress": "1.0.0-alpha.65"
+    "@algolia/client-search": "^4.17.0",
+    "vitepress": "^1.0.0-alpha.64"
   }
 }
