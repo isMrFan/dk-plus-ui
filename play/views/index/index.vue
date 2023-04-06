@@ -4,13 +4,13 @@
     <div class="index-conten">
       <div class="index-conten-left">
         <ul>
-                <li v-for="(item, ind) in rooterList" :key="ind">
-                  <router-link
-                    :to="item.path"
-                    :style="$route.path === item.path ? 'color: #29d;' : ''"
-                    >{{ item.name }}</router-link
-                  >
-                </li>
+          <li v-for="(item, ind) in rooterList" :key="ind">
+            <router-link
+              :to="item.path"
+              :style="$route.path === item.path ? 'color: #29d;' : ''"
+              >{{ item.name }}</router-link
+            >
+          </li>
         </ul>
       </div>
       <div class="index-conten-right">
