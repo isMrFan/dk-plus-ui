@@ -1,4 +1,10 @@
+# 指定要忽略的有意未跟踪的文件配置
+#
+# 官方文档参考：https://git-scm.com/docs/gitignore
+
+
 node_modules/
-/dist/
+dist/
+cache/
 .history
-docs/.vuepress/cache
+

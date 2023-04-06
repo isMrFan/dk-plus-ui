@@ -39,6 +39,7 @@
     "sass": "^1.56.2",
     "sucrase": "^3.31.0",
     "ts-morph": "^18.0.0",
+    "tslint": "^6.1.3",
     "typescript": "latest",
     "vue": "^3.2.25"
   },
