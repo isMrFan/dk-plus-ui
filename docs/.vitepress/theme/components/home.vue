@@ -41,10 +41,11 @@ import { defineComponent, toRefs, reactive } from 'vue'
 import dkbutton from '@dk-plus/components/dkbutton'
 import '@dk-plus/theme-chalk/src/index.scss'
 import { contribution } from '../../json/contribution.json'
+type dkbuttonType = { type?: string; round?: boolean; }
 export default defineComponent({
   name: 'home',
   components: {
-    'Dk-Button': dkbutton
+    'Dk-Button': dkbutton as unknown as dkbuttonType
   },
   setup() {
     const data = reactive({
