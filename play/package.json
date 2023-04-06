@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies":{
+  "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
     "vite": "^4.2.1",
     "@highlightjs/vue-plugin": "^2.1.0",

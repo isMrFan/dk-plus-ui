@@ -48,8 +48,8 @@ const buildFull = async () => {
 
 async function buildEntry() {
   const entryFiles = await fs.readdir(zpRoot, { withFileTypes: true })
- 
-  const entryPoints:any = entryFiles
+
+  const entryPoints: any = entryFiles
     .filter(f => f.isFile())
     .filter(f => !['package.json'].includes(f.name))
     .map(f => path.resolve(zpRoot, f.name))

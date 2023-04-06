@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "jsx": "preserve",
     "experimentalDecorators": true,
     "noLib": false,
@@ -23,9 +20,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        ".vitepress/*"
-      ]
+      "@/*": [".vitepress/*"]
     }
   }
 }
