@@ -14,6 +14,9 @@ import { outDir, zpRoot } from "./utils/paths";
 
 // gulp 不叫打包 做代码转化 vite
 
+const addSuccessMessage = () =>
+    console.log("\x1b[32m%s\x1b[0m", "打包完成！");
+  
 
 const copySourceCode = () => async () => {
     await run(`cp ${zpRoot}/package.json ${outDir}/package.json`)
@@ -31,7 +34,8 @@ export default series(
         ), // 执行build命令时会调用rollup, 我们给rollup传递参数buildFullComponent 那么就会执行导出任务叫 buildFullComponent
         withTaskName("buildComponent", () => run("pnpm run build buildComponent"))
     ),
-    parallel(genTypes, copySourceCode())
+    parallel(genTypes, copySourceCode()),
+    addSuccessMessage
 );
 
 
