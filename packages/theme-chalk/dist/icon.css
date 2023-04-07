@@ -1,8 +1,7 @@
 @charset "UTF-8";
 @font-face {
   font-family: dk-ui-icons;
-  src: url(font/iconfont.woff2) format('woff2'),
-    url(font/iconfont.woff) format('woff'),
+  src: url(font/iconfont.woff2) format('woff2'), url(font/iconfont.woff) format('woff'),
     url(font/iconfont.ttf) format('truetype');
 }
 [class*='dk-icon'],

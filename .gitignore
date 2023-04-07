@@ -10,3 +10,4 @@ cache/
 **/*.cache
 **/*.dist
 pnpm-lock.yaml
+.DS_Store
