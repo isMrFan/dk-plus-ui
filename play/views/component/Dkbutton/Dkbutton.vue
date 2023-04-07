@@ -486,7 +486,7 @@
           {
             type: 'primary',
             name: '主要按钮',
-            icon: 'dk-icon-tianjiabeizhu'
+            icon: 'dk-icon-addRemark'
           },
           {
             type: 'success',
@@ -501,12 +501,12 @@
           {
             type: 'warning',
             name: '警告',
-            icon: 'dk-icon-shoucang2'
+            icon: 'dk-icon-collect2'
           },
           {
             type: 'danger',
             name: '危险',
-            icon: 'dk-icon-shanchu'
+            icon: 'dk-icon-del'
           }
         ],
         circleNackList: [
@@ -516,7 +516,7 @@
             type: ''
           },
           {
-            name: `<Dk-Button type="primary" icon='dk-icon-tianjiabeizhu' circle>主要按钮</Dk-Button>`,
+            name: `<Dk-Button type="primary" icon='dk-icon-addRemark' circle>主要按钮</Dk-Button>`,
             nackName: '主要按钮',
             type: 'primary'
           },
@@ -531,12 +531,12 @@
             type: 'info'
           },
           {
-            name: `<Dk-Button type="warning" icon='dk-icon-shoucang2' circle>警告</Dk-Button>`,
+            name: `<Dk-Button type="warning" icon='dk-icon-collect2' circle>警告</Dk-Button>`,
             nackName: '警告',
             type: 'warning'
           },
           {
-            name: `<Dk-Button type="danger" icon='dk-icon-shanchu' circle>危险</Dk-Button>`,
+            name: `<Dk-Button type="danger" icon='dk-icon-del' circle>危险</Dk-Button>`,
             nackName: '危险',
             type: 'danger'
           }
@@ -554,7 +554,7 @@
           {
             type: 'default',
             name: '默认',
-            icon: 'dk-icon-tianjiabeizhu',
+            icon: 'dk-icon-addRemark',
             sizeType: 'default',
             disable: false,
             round: 'none',
@@ -563,7 +563,7 @@
           {
             type: 'success',
             name: '小按钮',
-            icon: 'dk-icon-tianjiabeizhu',
+            icon: 'dk-icon-addRemark',
             sizeType: 'small',
             disable: false,
             round: 'none',
@@ -572,7 +572,7 @@
           {
             type: 'danger',
             name: '小按钮',
-            icon: 'dk-icon-tianjiabeizhu',
+            icon: 'dk-icon-addRemark',
             sizeType: 'small',
             disable: true,
             round: '',
@@ -581,7 +581,7 @@
           {
             type: 'warning',
             name: '',
-            icon: 'dk-icon-tianjiabeizhu',
+            icon: 'dk-icon-addRemark',
             sizeType: 'small',
             disable: true,
             round: 'none',
@@ -590,7 +590,7 @@
           {
             type: 'danger',
             name: '',
-            icon: 'dk-icon-tianjiabeizhu',
+            icon: 'dk-icon-addRemark',
             sizeType: 'small',
             disable: false,
             round: 'round',
@@ -604,27 +604,27 @@
             type: ''
           },
           {
-            name: `<Dk-Button type='default' icon='dk-icon-tianjiabeizhu' size='default'>默认</Dk-Button>`,
+            name: `<Dk-Button type='default' icon='dk-icon-addRemark' size='default'>默认</Dk-Button>`,
             nackName: '默认',
             type: ''
           },
           {
-            name: `<Dk-Button type='success' icon='dk-icon-tianjiabeizhu' size='small'>小按钮</Dk-Button>`,
+            name: `<Dk-Button type='success' icon='dk-icon-addRemark' size='small'>小按钮</Dk-Button>`,
             nackName: '默认',
             type: ''
           },
           {
-            name: `<Dk-Button type='danger' icon='dk-icon-tianjiabeizhu' size='small' disable>小按钮</Dk-Button>`,
+            name: `<Dk-Button type='danger' icon='dk-icon-addRemark' size='small' disable>小按钮</Dk-Button>`,
             nackName: '默认',
             type: ''
           },
           {
-            name: `<Dk-Button type='warning' icon='dk-icon-tianjiabeizhu' size='small' disable round>小按钮</Dk-Button>`,
+            name: `<Dk-Button type='warning' icon='dk-icon-addRemark' size='small' disable round>小按钮</Dk-Button>`,
             nackName: '默认',
             type: ''
           },
           {
-            name: `<Dk-Button type='danger' icon='dk-icon-tianjiabeizhu' size='small' round>小按钮</Dk-Button>`,
+            name: `<Dk-Button type='danger' icon='dk-icon-addRemark' size='small' round>小按钮</Dk-Button>`,
             nackName: '默认',
             type: ''
           }

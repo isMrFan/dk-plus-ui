@@ -132,7 +132,7 @@
       const loadingIconClass = computed(() => {
         if (loading) {
           if (loadingIcon === '') {
-            return 'dk-icon-arrows_rotate'
+            return 'dk-icon-arrowRotate'
           } else {
             return loadingIcon
           }
