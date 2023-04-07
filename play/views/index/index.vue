@@ -7,7 +7,7 @@
           <li v-for="(item, ind) in rooterList" :key="ind">
             <router-link
               :to="item.path"
-              :style="$route.path === item.path ? 'color: #29d;' : ''"
+              :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #ccc;'"
               >{{ item.name }}</router-link
             >
           </li>
@@ -76,9 +76,10 @@
 
   ::-webkit-scrollbar-track {
     /*滚动条里面轨道*/
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: #ededed;
+    // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    // background: #ededed;
     border-radius: 10px;
+    background-color: transparent;
   }
 
   .index {
@@ -116,9 +117,9 @@
 
       .index-conten-right {
         width: calc(100% - 200px);
-        height: 100vh;
+        height: calc(100vh - 80px);
         overflow: scroll;
-        padding-bottom: 150px;
+        // padding-bottom: 150px;
         box-sizing: border-box;
       }
     }

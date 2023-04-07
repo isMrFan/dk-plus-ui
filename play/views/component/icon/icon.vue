@@ -2,7 +2,7 @@
   <div class="template_icon">
     <div class="template_icon_jcsy">
       <!--基础使用-->
-      <h4 class="template_icon_title">1.基础使用</h4>
+      <h2 class="template_icon_title">基础使用</h2>
       <dkIcon class="dk-yinsi"></dkIcon>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="htmlJson.foundation" />
@@ -11,25 +11,25 @@
       <!--基础使用结束-->
     </div>
     <div class="template_icon_jcsy">
-      <h4 class="template_icon_title">2.自定义大小和颜色(颜色只支持16进制 和英文单词)</h4>
+      <h2 class="template_icon_title">自定义大小和颜色(颜色只支持16进制 和英文单词)</h2>
       <dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="htmlJson.zidingyis" />
         <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
       </div>
     </div>
-    <h3 class="cont_template_icon_title">(1).System</h3>
+    <h4 class="cont_template_icon_title">System</h4>
     <div class="icon_library">
       <div class="icon_library_item" v-for="item in iconList" :key="item[0]" @click="oncopy('dk-' + item[0])">
         <div class="icon_library_item_icon">
           <dkIcon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dkIcon>
         </div>
         <div class="icon_library_item_name">
-          {{ item[1] }}
-        </div>
-        <div class="icon_library_item_name">
           {{ item[0] }}
         </div>
+        <!-- <div class="icon_library_item_name" v-if="isChinese">
+          {{ item[1] }}
+        </div> -->
       </div>
     </div>
     <h3 class="cont_template_icon_title">(2).other</h3>
@@ -41,9 +41,9 @@
         <div class="icon_library_item_name">
           {{ item[0] }}
         </div>
-        <div class="icon_library_item_name">
+        <!-- <div class="icon_library_item_name" v-if="isChinese">
           {{ item[1] }}
-        </div>
+        </div> -->
       </div>
     </div>
     <h3 class="cont_template_icon_title">(3).Arrow</h3>
@@ -55,9 +55,9 @@
         <div class="icon_library_item_name">
           {{ item[0] }}
         </div>
-        <div class="icon_library_item_name">
+        <!-- <div class="icon_library_item_name" v-if="isChinese">
           {{ item[1] }}
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -258,12 +258,14 @@ export default defineComponent({
       document.body.removeChild(input)
       alert('复制成功')
     }
+    const isChinese = false
     return {
       htmlJson,
       oncopy,
       iconList,
       iconNameSpace,
-      iconOther
+      iconOther,
+      isChinese
     }
   }
 })
@@ -272,6 +274,13 @@ export default defineComponent({
 .template_icon {
   width: 100%;
 
+  h2,h4{
+    font-weight: normal;
+    margin-top: 20px;
+  }
+  h4{
+    color: #1f2f3d;
+  }
   .template_icon_jcsy {
     width: 95%;
     margin-bottom: 10px;
@@ -287,21 +296,21 @@ export default defineComponent({
   }
 
   .icon_library {
-    width: 100%;
+    width: 95%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
 
     .icon_library_item {
-      width: 100px;
+      flex: 1;
+      min-width: 104px;
+      max-width: 104px;
       height: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      border: .5px solid #ededed;
       cursor: pointer;
       padding: 0 10px;
 
@@ -317,11 +326,15 @@ export default defineComponent({
         white-space: nowrap;
         text-overflow: ellipsis;
         text-align: center;
+        color: #ccc;
       }
     }
 
     .icon_library_item:hover {
-      border: 1px solid #34ab98;
+      .icon_library_item_icon .dk-icon,.icon_library_item_name{
+        transition: all 0.3s;
+        color: #34ab98 !important;
+      }
     }
   }
 }
