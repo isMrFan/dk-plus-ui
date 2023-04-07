@@ -16,665 +16,177 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.#{$namespace}-icon-searchbig:before {
-  content: '\ec33';
-}
-.#{$namespace}-icon-searchsmall:before {
-  content: '\ec32';
-}
-.#{$namespace}-icon-sousuowenjian:before {
-  content: '\e600';
-}
-
-.#{$namespace}-icon-xitongxinxi:before {
-  content: '\e65e';
-}
-
-.#{$namespace}-icon-02sousuo:before {
-  content: '\e64b';
-}
-
-.#{$namespace}-icon-sousuo:before {
-  content: '\e752';
-}
-
-.#{$namespace}-icon-sousuoleimufill:before {
-  content: '\e753';
-}
-
-.#{$namespace}-icon-xitongcaidan:before {
-  content: '\e696';
-}
-
-.#{$namespace}-icon-xitongfanhui:before {
-  content: '\e697';
-}
-
-.#{$namespace}-icon-xitongtongzhi:before {
-  content: '\e635';
-}
-
-.#{$namespace}-icon-icon-link:before {
-  content: '\e60d';
-}
-
-.#{$namespace}-icon-xitongyunweidakaiwenjianjia:before {
-  content: '\e641';
-}
-
-.#{$namespace}-icon-xitongyunweibaocunshouquan:before {
-  content: '\e64f';
-}
-
-.#{$namespace}-icon-drgspingtairuanjianxitong210:before {
-  content: '\e607';
-}
-
-.#{$namespace}-icon-drgspingtairuanjianxitong212:before {
-  content: '\e63d';
-}
-
-.#{$namespace}-icon-xitong1:before {
-  content: '\e62e';
-}
-
-.#{$namespace}-icon-xitong:before {
-  content: '\e642';
-}
-
-.#{$namespace}-icon-wangluoxitong:before {
-  content: '\e62f';
-}
-
-.#{$namespace}-icon-xitongyunzhuanqingkuang:before {
-  content: '\e631';
-}
-
-.#{$namespace}-icon-xitongzhuangtai:before {
-  content: '\e643';
-}
-
-.#{$namespace}-icon-subsystem:before {
-  content: '\e609';
-}
-
-.#{$namespace}-icon-zhantingzhinengzhongkongxitong:before {
-  content: '\e605';
-}
-
-.#{$namespace}-icon-xitongguanliyuan:before {
-  content: '\e76c';
-}
-
-.#{$namespace}-icon-zhuxiaoxitong:before {
-  content: '\e65f';
-}
-
-.#{$namespace}-icon-shebeisousuo:before {
-  content: '\ead2';
-}
-
-.#{$namespace}-icon-guanliyuansousuo_o:before {
-  content: '\eb56';
-}
-
-.#{$namespace}-icon-shebeisousuo_o:before {
-  content: '\eb58';
-}
-
-.#{$namespace}-icon-shujuxitong:before {
-  content: '\e63a';
-}
-
-.#{$namespace}-icon-svg-:before {
-  content: '\e627';
-}
-
-.#{$namespace}-icon-chaxun:before {
-  content: '\ec4c';
-}
-
-.#{$namespace}-icon-mysql:before {
-  content: '\ec6d';
-}
-
-.#{$namespace}-icon--xitong:before {
-  content: '\e60a';
-}
-
-.#{$namespace}-icon-xitongfuzai:before {
-  content: '\e662';
-}
-
-.#{$namespace}-icon-keyanxitong:before {
-  content: '\e63e';
-}
-
-.#{$namespace}-icon-xitongyunwei:before {
-  content: '\e619';
-}
-
-.#{$namespace}-icon-wendangguanlixitong-wendangguanlixitongtubiao:before {
-  content: '\e648';
-}
-
-.#{$namespace}-icon-wendangguanlixitong-yaopinliuxiangxitongtubiao:before {
-  content: '\e649';
-}
-
-.#{$namespace}-icon-xitongxiaoxi:before {
-  content: '\e62b';
-}
-
-.#{$namespace}-icon-xitongdaoru:before {
-  content: '\e644';
-}
-
-.#{$namespace}-icon-xitongpeizhi:before {
-  content: '\e660';
-}
-
-.#{$namespace}-icon-xitongtongzhi1:before {
-  content: '\e611';
-}
-
-.#{$namespace}-icon-yewutubiao_keyanxitong:before {
-  content: '\e6f6';
-}
-
-.#{$namespace}-icon-xitong2:before {
-  content: '\e64a';
-}
-
-.#{$namespace}-icon-xitongguanli:before {
-  content: '\e64c';
-}
-
-.#{$namespace}-icon-xitong3:before {
-  content: '\e62d';
-}
-
-.#{$namespace}-icon-xitong-weizhipeizhi:before {
-  content: '\e666';
-}
-
-.#{$namespace}-icon-xitong-zichanzidian:before {
-  content: '\e667';
-}
-
-.#{$namespace}-icon-xitong-zichanpeizhi:before {
-  content: '\e668';
-}
-
-.#{$namespace}-icon-xitongrizhi:before {
-  content: '\e608';
-}
-
-.#{$namespace}-icon-xitongxiaoxi1:before {
-  content: '\e683';
-}
-
-.#{$namespace}-icon-xitong4:before {
-  content: '\e645';
-}
-
-.#{$namespace}-icon-xitongxinxi1:before {
-  content: '\e663';
-}
-
-.#{$namespace}-icon-waihuxitong:before {
-  content: '\e61a';
-}
-
-.#{$namespace}-icon-xitongjiandu:before {
-  content: '\e66c';
-}
-
-.#{$namespace}-icon-xitongweihu:before {
-  content: '\e615';
-}
-
-.#{$namespace}-icon-juyuwangsousuo:before {
-  content: '\e77e';
-}
-
-.#{$namespace}-icon-shipinjiankongxitong:before {
-  content: '\e78c';
-}
-
-.#{$namespace}-icon-xitong5:before {
-  content: '\e60f';
-}
-
-.#{$namespace}-icon-xitonggengxin:before {
-  content: '\e60b';
-}
-
-.#{$namespace}-icon-UIsheji_menjinxitong-10:before {
-  content: '\e623';
-}
-
-.#{$namespace}-icon-cloud-search-full:before {
-  content: '\e98d';
-}
-
-.#{$namespace}-icon-yingyongxitongzhanghaoyuquanxianshenqingliucheng__xianxing__-01:before {
-  content: '\e602';
-}
-
-.#{$namespace}-icon-tuichuxitong:before {
-  content: '\e61c';
-}
-
-.#{$namespace}-icon-xitongloudongjianceshenqing:before {
-  content: '\e6a5';
-}
-
-.#{$namespace}-icon-xitonganquan:before {
-  content: '\e651';
-}
-
-.#{$namespace}-icon-xitongwendang:before {
-  content: '\e6b9';
-}
-
-.#{$namespace}-icon-xitonggonggao:before {
-  content: '\ffdc';
-}
-
-.#{$namespace}-icon-arrowgraphdownleft:before {
-  content: '\e6bd';
-}
-
-.#{$namespace}-icon-jiantouarrow482:before {
-  content: '\e694';
-}
-
-.#{$namespace}-icon-jianarrows67:before {
-  content: '\e69f';
-}
-
-.#{$namespace}-icon-arrows_rotate:before {
-  content: '\e6aa';
-}
-
-.#{$namespace}-icon-arrowup:before {
-  content: '\e7ee';
-}
-
-.#{$namespace}-icon-arrowdown:before {
-  content: '\e7ef';
-}
-
-.#{$namespace}-icon-arrows-alt:before {
-  content: '\e833';
-}
-
-.#{$namespace}-icon-arrow-to-bottom:before {
-  content: '\e83c';
-}
-
-.#{$namespace}-icon-arrow-to-top:before {
-  content: '\e83d';
-}
-
-.#{$namespace}-icon-long-arrow-down:before {
-  content: '\e83e';
-}
-
-.#{$namespace}-icon-long-arrow-up:before {
-  content: '\e83f';
-}
-
-.#{$namespace}-icon-arrow-right:before {
-  content: '\e840';
-}
-
-.#{$namespace}-icon-arrow-left:before {
-  content: '\e841';
-}
-
-.#{$namespace}-icon-arrows-v:before {
-  content: '\e847';
-}
-
-.#{$namespace}-icon-arrow-alt-from-top:before {
-  content: '\e86c';
-}
-
-.#{$namespace}-icon-arrow-alt-from-botto:before {
-  content: '\e86d';
-}
-
-.#{$namespace}-icon-narrow:before {
-  content: '\e711';
-}
-
-.#{$namespace}-icon--arrow-:before {
-  content: '\e60e';
-}
-
-.#{$namespace}-icon-arrow-growth:before {
-  content: '\e618';
-}
-
-.#{$namespace}-icon-right-arrow-rect:before {
-  content: '\e884';
-}
-
-.#{$namespace}-icon-left-arrow-rect:before {
-  content: '\e885';
-}
-
-.#{$namespace}-icon-arrow-growth1:before {
-  content: '\e7df';
-}
-
-.#{$namespace}-icon-arrow-left1:before {
-  content: '\e743';
-}
-
-.#{$namespace}-icon-arrow-down:before {
-  content: '\e7b2';
-}
-
-.#{$namespace}-icon-arrow_up_arrow_down:before {
-  content: '\e612';
-}
-
-.#{$namespace}-icon-tray_arrow_down:before {
-  content: '\e6de';
-}
-
-.#{$namespace}-icon-arrow-right1:before {
-  content: '\e665';
-}
-
-.#{$namespace}-icon-arrow-double-left:before {
-  content: '\e669';
-}
-
-.#{$namespace}-icon-arrow-double-right:before {
-  content: '\e66a';
-}
-
-.#{$namespace}-icon-arrow-up-bold:before {
-  content: '\e685';
-}
-
-.#{$namespace}-icon-arrow-up-filling:before {
-  content: '\e688';
-}
-
-.#{$namespace}-icon-arrow-down-filling:before {
-  content: '\e689';
-}
-
-.#{$namespace}-icon-arrow-left-filling:before {
-  content: '\e68a';
-}
-
-.#{$namespace}-icon-arrow-right-filling:before {
-  content: '\e68b';
-}
-
-.#{$namespace}-icon-arrow-go-forward-fill:before {
-  content: '\e842';
-}
-
-.#{$namespace}-icon-icf_narrow_screen_arrow:before {
-  content: '\e76a';
-}
-
-.#{$namespace}-icon-box-arrow-in-down-right:before {
-  content: '\e6a0';
-}
-
-.#{$namespace}-icon-box-arrow-in-up-left:before {
-  content: '\e6a3';
-}
-
-.#{$namespace}-icon-genzongmubiaoshezhi:before {
-  content: '\e601';
-}
-
-.#{$namespace}-icon-cuowu:before {
-  content: '\e603';
-}
-
-.#{$namespace}-icon-weixin:before {
-  content: '\e604';
-}
-
-.#{$namespace}-icon-zhifutixing:before {
-  content: '\e61b';
-}
-
-.#{$namespace}-icon-wxbdingwei:before {
-  content: '\e624';
-}
-
-.#{$namespace}-icon-gouwuchetianjia:before {
-  content: '\e640';
-}
-
-.#{$namespace}-icon-jushoucang:before {
-  content: '\e646';
-}
-
-.#{$namespace}-icon-weixinzhifu:before {
-  content: '\e650';
-}
-
-.#{$namespace}-icon-jushoucanggift:before {
-  content: '\e684';
-}
-
-.#{$namespace}-icon-z-weixin:before {
-  content: '\e6c9';
-}
-
-.#{$namespace}-icon-icon:before {
-  content: '\e68c';
-}
-
-.#{$namespace}-icon-mimakejian:before {
-  content: '\e616';
-}
-
-.#{$namespace}-icon-tianjiabeizhu:before {
-  content: '\e639';
-}
-
-.#{$namespace}-icon-qq:before {
-  content: '\e691';
-}
-
-.#{$namespace}-icon-mima:before {
-  content: '\e610';
-}
-
-.#{$namespace}-icon-dustbin-recycle-bin-trash-erase-ebaccf:before {
-  content: '\e77a';
-}
-
-.#{$namespace}-icon-wenjianshanchu:before {
-  content: '\e613';
-}
-
-.#{$namespace}-icon-zhifubao:before {
-  content: '\e8e4';
-}
-
-.#{$namespace}-icon-dingwei:before {
-  content: '\e614';
-}
-
-.#{$namespace}-icon-shanchuyoujian:before {
-  content: '\e621';
-}
-
-.#{$namespace}-icon-nan:before {
-  content: '\e75f';
-}
-
-.#{$namespace}-icon-xinyongqiazhifu:before {
-  content: '\e681';
-}
-
-.#{$namespace}-icon-shanchu:before {
-  content: '\e718';
-}
-
-.#{$namespace}-icon-zhifu:before {
-  content: '\e8f9';
-}
-
-.#{$namespace}-icon-biyan:before {
-  content: '\e606';
-}
-
-.#{$namespace}-icon-QQ:before {
-  content: '\e882';
-}
-
-.#{$namespace}-icon-tupiantianjia:before {
-  content: '\ec7d';
-}
-
-.#{$namespace}-icon-weibiaoti--:before {
-  content: '\e617';
-}
-
-.#{$namespace}-icon-tianchongxing-:before {
-  content: '\e638';
-}
-
-.#{$namespace}-icon-tianchongxing-1:before {
-  content: '\e63b';
-}
-
-.#{$namespace}-icon-jianhao:before {
-  content: '\e656';
-}
-
-.#{$namespace}-icon-shoucangjiaobiao:before {
-  content: '\e634';
-}
-
-.#{$namespace}-icon-tianjia:before {
-  content: '\e6df';
-}
-
-.#{$namespace}-icon-shoucang:before {
-  content: '\e61d';
-}
-
-.#{$namespace}-icon-tianjiaxiaoxi:before {
-  content: '\e630';
-}
-
-.#{$namespace}-icon-ziyuan:before {
-  content: '\e60c';
-}
-
-.#{$namespace}-icon-zhifushibai:before {
-  content: '\e664';
-}
-
-.#{$namespace}-icon-idcard-add-fill:before {
-  content: '\e64d';
-}
-
-.#{$namespace}-icon-shoucang1:before {
-  content: '\e61e';
-}
-
-.#{$namespace}-icon-mimaxianshi:before {
-  content: '\e704';
-}
-
-.#{$namespace}-icon-mimayincang:before {
-  content: '\e705';
-}
-
-.#{$namespace}-icon-tianjiaziji:before {
-  content: '\e61f';
-}
-
-.#{$namespace}-icon-jurassic_delete-users:before {
-  content: '\e6f1';
-}
-
-.#{$namespace}-icon-jurassic_delete-org:before {
-  content: '\e6f2';
-}
-
-.#{$namespace}-icon-nan1:before {
-  content: '\e647';
-}
-
-.#{$namespace}-icon-tianjia1:before {
-  content: '\e620';
-}
-
-.#{$namespace}-icon-mima1:before {
-  content: '\e8b2';
-}
-
-.#{$namespace}-icon-nv:before {
-  content: '\e8b3';
-}
-
-.#{$namespace}-icon-shoucang2:before {
-  content: '\e8b9';
-}
-
-.#{$namespace}-icon-shoucang3:before {
-  content: '\e8c6';
-}
-
-.#{$namespace}-icon-shoucang4:before {
-  content: '\e66b';
-}
-
-.#{$namespace}-icon-huifushanchu:before {
-  content: '\e7f3';
-}
-
-.#{$namespace}-icon-nv1:before {
-  content: '\e65c';
-}
-
-.#{$namespace}-icon-zhifushezhi:before {
-  content: '\e66d';
-}
-
-.#{$namespace}-icon-Deletemember:before {
-  content: '\e698';
-}
-
-.#{$namespace}-icon-union-pay:before {
-  content: '\e8c2';
-}
-
-.#{$namespace}-icon-nan2:before {
-  content: '\e6db';
-}
-
-.#{$namespace}-icon-zaixianzhifuPay:before {
-  content: '\e7d7';
-}
-
-.#{$namespace}-icon-a-Lock-User2:before {
-  content: '\e7eb';
-}
-
-.#{$namespace}-icon-a-Lock-User1:before {
-  content: '\e7ec';
-}
-
-.#{$namespace}-icon-Union-41:before {
-  content: '\e632';
+$icons: (
+  searchBig: '\ec33',
+  searchSmall: '\ec32',
+  searchFill: '\e600',
+  sysMsg: '\e65e',
+  search02: '\e64b',
+  search: '\e752',
+  searchClass: '\e753',
+  sysMenu: '\e696',
+  sysBack: '\e697',
+  sysReset: '\e635',
+  link: '\e60d',
+  sysCloudFile: '\e641',
+  sysOperationSAuthorization: '\e64f',
+  drgSys: '\e607',
+  drgSys2: '\e63d',
+  sys: '\e62e',
+  sys1: '\e642',
+  interSys: '\e62f',
+  sysPer: '\e631',
+  sysState: '\e643',
+  subsystem: '\e609',
+  centralSys: '\e605',
+  sysAdmin: '\e76c',
+  logOffSys: '\e65f',
+  searchEquipment: '\ead2',
+  adminSearch: '\eb56',
+  searchEquipment1: '\eb58',
+  dataSys: '\e63a',
+  sysRole: '\e627',
+  search1: '\ec4c',
+  mysql: '\ec6d',
+  system: '\e60a',
+  sysLoad: '\e662',
+  scienceSys: '\e63e',
+  sysOperation: '\e619',
+  fileSys: '\e648',
+  fileSysMedicine: '\e649',
+  sysMsg1: '\e62b',
+  sysUpload: '\e644',
+  sysSetting: '\e660',
+  notice: '\e611',
+  light: '\e6f6',
+  system2: '\e64a',
+  sysManage: '\e64c',
+  setting: '\e62d',
+  setSeat: '\e666',
+  assetsDic: '\e667',
+  sysConfig: '\e668',
+  sysLog: '\e608',
+  sysMsg2: '\e683',
+  system3: '\e645',
+  sysNotice1: '\e663',
+  callSys: '\e61a',
+  sysSupervise: '\e66c',
+  sysMaintain: '\e615',
+  LANSearch: '\e77e',
+  monitorSys: '\e78c',
+  system4: '\e60f',
+  sysUpdate: '\e60b',
+  faceID: '\e623',
+  cloudSearch: '\e98d',
+  sysPower: '\e602',
+  logout: '\e61c',
+  sysBugTesting: '\e6a5',
+  fingerprintVerify: '\e651',
+  sysFile: '\e6b9',
+  sysNotice: '\ffdc',
+  arrowLeftBottom: '\e6bd',
+  arrowTopCurve: '\e694',
+  arrowAround: '\e69f',
+  arrowRotate: '\e6aa',
+  arrowUp: '\e7ee',
+  arrowDown: '\e7ef',
+  arrowAlt: '\e833',
+  arrowToBottom: '\e83c',
+  arrowToTop: '\e83d',
+  longArrowDown: '\e83e',
+  longArrowUp: '\e83f',
+  arrowRight: '\e840',
+  arrowLeft: '\e841',
+  arrowsV: '\e847',
+  arrowAltFromTop: '\e86c',
+  arrowAltFromBottom: '\e86d',
+  narrow: '\e711',
+  arrow: '\e60e',
+  arrowGrowth: '\e618',
+  rightArrowRect: '\e884',
+  leftArrowRect: '\e885',
+  arrowGrowth1: '\e7df',
+  arrowLeft1: '\e743',
+  arrowDown1: '\e7b2',
+  arrowUpArrowDown: '\e612',
+  trayArrowDown: '\e6de',
+  arrowRight1: '\e665',
+  arrowDoubleLeft: '\e669',
+  arrowDoubleRight: '\e66a',
+  arrowUpBold: '\e685',
+  arrowUpFilling: '\e688',
+  arrowDownFilling: '\e689',
+  arrowLeftFilling: '\e68a',
+  arrowRightFilling: '\e68b',
+  arrowGoForwardFill: '\e842',
+  icfNarrowScreenArrow: '\e76a',
+  boxArrowInDownRight: '\e6a0',
+  boxArrowInUpLeft: '\e6a3',
+  targetSetting: '\e601',
+  err: '\e603',
+  weChat: '\e604',
+  payTIp: '\e61b',
+  position: '\e624',
+  addShopCar: '\e640',
+  collect: '\e646',
+  weChatPay: '\e650',
+  collected: '\e684',
+  weChat1: '\e6c9',
+  nv2: '\e68c',
+  show: '\e616',
+  addRemark: '\e639',
+  qq: '\e691',
+  key: '\e610',
+  trashCan: '\e77a',
+  fileRemove: '\e613',
+  zhiFuBao: '\e8e4',
+  position1: '\e614',
+  delMail: '\e621',
+  nan: '\e75f',
+  payCard: '\e681',
+  del: '\e718',
+  pay: '\e8f9',
+  hide: '\e606',
+  QQ: '\e882',
+  imgAdd: '\ec7d',
+  lockClose1: '\e617',
+  lockOpen: '\e638',
+  lockClose: '\e63b',
+  minus: '\e656',
+  subscript: '\e634',
+  add: '\e6df',
+  collect1: '\e61d',
+  addMsg: '\e630',
+  copPay: '\e60c',
+  payErr: '\e664',
+  addCard: '\e64d',
+  collect3: '\e61e',
+  show1: '\e704',
+  hide1: '\e705',
+  addChild: '\e61f',
+  delCrowd: '\e6f1',
+  delOrg: '\e6f2',
+  nan1: '\e647',
+  addFollow: '\e620',
+  password: '\e8b2',
+  nv: '\e8b3',
+  collect2: '\e8b9',
+  collected2: '\e8c6',
+  collect4: '\e66b',
+  backRemove: '\e7f3',
+  nv1: '\e65c',
+  setPay: '\e66d',
+  delUser: '\e698',
+  cardPay1: '\e8c2',
+  nan2: '\e6db',
+  onlinePay: '\e7d7',
+  lockUser: '\e7eb',
+  lockUser1: '\e7ec',
+  editPass: '\e632'
+);
+
+@each $name, $unicode in $icons {
+  .#{$namespace}-icon-#{$name}::before {
+    content: $unicode;
+  }
 }
