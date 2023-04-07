@@ -93,7 +93,7 @@
     }
 
     .index-conten {
-      width: 90%;
+      width: 66%;
       margin: 0 auto;
       display: flex;
 

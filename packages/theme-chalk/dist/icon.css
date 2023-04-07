@@ -1,17 +1,23 @@
 @charset "UTF-8";
 @font-face {
-  font-family: dk-ui-icons-3919737;
-  src: url(font/iconfont_3919737.woff2) format('woff2'),
-    url(font/iconfont_3919737.woff) format('woff'),
-    url(font/iconfont_3919737.ttf) format('truetype');
+  font-family: dk-ui-icons;
+  src: url(font/iconfont.woff2) format('woff2'),
+    url(font/iconfont.woff) format('woff'),
+    url(font/iconfont.ttf) format('truetype');
 }
 [class*='dk-icon'],
 [class^='dk-icon'] {
-  font-family: dk-ui-icons-3919737 !important;
+  font-family: dk-ui-icons !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.dk-icon-searchsmall:before {
+  content: '\xec33';
+}
+.dk-icon-searchbig:before {
+  content: '\xec32';
 }
 .dk-icon-sousuowenjian:before {
   content: '\e600';

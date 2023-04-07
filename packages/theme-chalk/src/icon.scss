@@ -1,21 +1,28 @@
 @use './mixins/mixin.scss' as *;
 
 @font-face {
-  font-family: 'dk-ui-icons-3919737'; /* Project id 3919737 */
-  src: url('./font/iconfont_3919737.woff2') format('woff2'),
-    url('./font/iconfont_3919737.woff') format('woff'),
-    url('./font/iconfont_3919737.ttf') format('truetype');
+  font-family: 'dk-ui-icons'; /* Project id */
+  src: url('./font/iconfont.woff2') format('woff2'),
+    url('./font/iconfont.woff') format('woff'),
+    url('./font/iconfont.ttf') format('truetype');
 }
 
 [class^='#{$namespace}-icon'],
 [class*='#{$namespace}-icon'] {
-  font-family: 'dk-ui-icons-3919737' !important;
+  font-family: 'dk-ui-icons' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.#{$namespace}-icon-searchbig:before {
+  content: '\ec33';
+}
+.#{$namespace}-icon-searchsmall:before {
+  content: '\ec32';
+}
 .#{$namespace}-icon-sousuowenjian:before {
   content: '\e600';
 }
