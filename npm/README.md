@@ -2,10 +2,10 @@
    <img height="160px"  src="./logo/ispng.png">
 </p>
 <p align="center" style="margin-top:-50px">
-  DK-plus can quickly build interactive interfaces in web applications based on Vue 3. With comprehensive components and convenient tools, you can easily create your project like a fish in water.
+  DK-plus 可在 vue3 的web应用中快速构建交互界面,全面的组件和便捷的工具会让您信手拈来，如鱼得水
 </p>
 <p align="center">
-  English | <a href="https://github.com/CadWalaDers/dk-ui/blob/master/README.md">Chinese</a>
+  中文 | <a href="https://github.com/CadWalaDers/dk-ui/blob/master/README.en-US.md">English</a>
 </p>
 
 
@@ -25,37 +25,37 @@
   </a>
 </p>
 
-## ✨ Features
+## ✨ 特性
 
-- 🪐 3+ common components
-- 🏆 support full import and on-demand import
-- 🤟 easy to configure and get started
-- ❤️ developed according to actual needs
-- 📃 high-quality and detailed documentation
-- 👍 continuously improved based on user feedback
-- 🛠 more features under development
+- 🪐 3+ 常用组件
+- 🏆 支持完整引入和按需引入
+- 🤟 配置简单，上手容易
+- ❤️ 根据实际需求开发
+- 📃 优质详细的文档
+- 👍 提出需求，不断完善
+- 🛠 更多特性开发中
 
-## 🔑 Install
+## 🔑 安装
 
-Install using `pnpm` :
+使用 `pnpm` 安装
 
 ```shell
 pnpm add --save-dev dk-plus
 ```
 
-Install using `npm` :
+使用 `npm` 安装
 
 ```shell
 npm install --save-dev dk-plus
 ```
 
-Install using `yarn` :
+使用 `yarn` 安装
 
 ```shell
 yarn add --save-dev dk-plus
 ```
 
-## 🎉 Quick Start
+## 🎉 快速上手
 
 ```ts
 import { createApp } from 'vue'
@@ -66,7 +66,7 @@ import '@dk-plus/theme-chalk/src/index.scss'
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
-## 🪂 Quick experience
+## 🪂 快速体验
 
 ```html
 <head>
@@ -102,27 +102,9 @@ createApp(App).use(FightingDesign).mount('#app')
 </body>
 ```
 
-## 🐳 Related links
+## 🐳 相关链接
 
-- [Official documents](https://cadwaladerss.com)
+- [官方文档](https://cadwaladerss.com)
 - [NPM](https://www.npmjs.com/package/dk-plus)
-- [CONTRIBUTING](https://github.com/CadWalaDers/dk-ui/blob/master/contribution.md)
-- [CHANGELOG](https://github.com/CadWalaDers/dk-ui/blob/master/CUpdateLog.md)
-
-## 🌈 Join Fighting Design
-
-Add WeChat & please note the `Github` username
-
-<img height="200px"  src="https://oss.cadwaladerss.com/images/wxcrcoder.png">
-
-## 💌 Special Thanks
-
-Thanks to [everyone](https://github.com/CadWalaDers/dk-ui/graphs/contributors)
-who has already contributed to `DK-plus`
-<a href="https://github.com/CadWalaDers/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
-</a>
-
-## 💬 LICENSE
-
-[MIT](https://github.com/CadWalaDers/dk-ui/blob/master/LICENSE)
+- [贡献指南](https://github.com/CadWalaDers/dk-ui/blob/master/contribution.md)
+- [更新日志](https://github.com/CadWalaDers/dk-ui/blob/master/CUpdateLog.md)
