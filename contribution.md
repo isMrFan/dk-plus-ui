@@ -2,7 +2,7 @@
 
 English | [中文](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 
-##  🙋在您贡献之前，请先阅读以下内容
+## 🙋 在您贡献之前，请先阅读以下内容
 
 你好！欢迎使用 DK-plus！
 
@@ -117,7 +117,7 @@ pnpm dev:docs
 
 ```
 
-## 🔧开发工具和插件
+## 🔧 开发工具和插件
 
 请先阅读 [IDE 支持](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
 
@@ -132,14 +132,14 @@ pnpm dev:docs
 
 dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/CadWalaDers/dk-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
 
-| script 字段 | 对应命令 | 命令说明 |
-| --- | --- | --- |
-| dev:play | pnpm dev:play | 启动测试开发项目 |
-| build:play | pnpm build:play | 打包测试开发项目 |
-| build | pnpm build | 打包组件库 |
-| dev:docs | pnpm dev:docs | 启动开发文档项目 |
-| build:docs | pnpm build:docs | 打包开发文档项目 |
-| format | pnpm format | 项目代码格式化 |
+| script 字段 | 对应命令        | 命令说明         |
+| ----------- | --------------- | ---------------- |
+| dev:play    | pnpm dev:play   | 启动测试开发项目 |
+| build:play  | pnpm build:play | 打包测试开发项目 |
+| build       | pnpm build      | 打包组件库       |
+| dev:docs    | pnpm dev:docs   | 启动开发文档项目 |
+| build:docs  | pnpm build:docs | 打包开发文档项目 |
+| format      | pnpm format     | 项目代码格式化   |
 
 ## 🚨 开发规范
 
@@ -147,4 +147,3 @@ dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/C
 
 - [dk-plus-components](https://github.com/CadWalaDers/dk-ui/tree/master/packages/components/README.md) 创建新组件
 - [dk-plus-components](https://github.com/CadWalaDers/dk-ui/tree/master/packages/theme-chalk/README.md) 样式主题目录
-
