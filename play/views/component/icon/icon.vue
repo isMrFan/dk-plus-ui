@@ -32,7 +32,7 @@
         </div> -->
       </div>
     </div>
-    <h3 class="cont_template_icon_title">(2).other</h3>
+    <h3 class="cont_template_icon_title">other</h3>
     <div class="icon_library">
       <div class="icon_library_item" v-for="item in iconNameSpace" :key="item[0]" @click="oncopy('dk-' + item[0])">
         <div class="icon_library_item_icon">
@@ -46,7 +46,7 @@
         </div> -->
       </div>
     </div>
-    <h3 class="cont_template_icon_title">(3).Arrow</h3>
+    <h3 class="cont_template_icon_title">Arrow</h3>
     <div class="icon_library">
       <div class="icon_library_item" v-for="item in iconOther" :key="item[1]" @click="oncopy('dk-' + item[0])">
         <div class="icon_library_item_icon">
