@@ -121,6 +121,6 @@ createApp(App).use(FightingDesign).mount('#app')
   <img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
 </a>
 
-## 💬 协议
+## 📃协议许可证
 
 [MIT](https://github.com/CadWalaDers/dk-ui/blob/master/LICENSE)

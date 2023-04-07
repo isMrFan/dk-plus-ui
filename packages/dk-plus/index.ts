@@ -2,7 +2,7 @@
  * @name index
  * @author fankai16
  * @Time 2023/01/04
- * @description  入口图标文件
+ * @description  入口文件
  **/
 import { dkshadow, dkIcon, dkbutton } from '@dk-plus/components'
 import type { App } from 'vue' // ts中的优化只获取类型
