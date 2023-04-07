@@ -3,27 +3,29 @@ import { withInstall } from 'dk-plus/es/utils/with-install';
 
 const DKshadowProps = {
     type: {
-        type: String
+        type: String,
     },
     shadowClass: {
-        type: String
+        type: String,
     },
     hoverType: {
-        type: Boolean
+        type: Boolean,
     },
     hoverClass: {
-        type: String
-    }
+        type: String,
+    },
 };
 
 var script = defineComponent({
-    name: 'DkShadow',
+    name: "DkShadow",
     props: DKshadowProps,
     setup(props) {
         const DkShadow = ref(null);
         const type = computed(() => {
-            if (props.type === undefined || props.type === null || props.type === '') {
-                return 'box';
+            if (props.type === undefined ||
+                props.type === null ||
+                props.type === "") {
+                return "box";
             }
             else {
                 return props.type;
@@ -32,15 +34,15 @@ var script = defineComponent({
         const shadowClass = computed(() => {
             if (props.shadowClass === undefined ||
                 props.shadowClass === null ||
-                props.shadowClass === '') {
-                return '';
+                props.shadowClass === "") {
+                return "";
             }
             else {
                 return props.shadowClass;
             }
         });
         const hoverType = computed(() => {
-            if (typeof props.hoverType !== 'boolean' ||
+            if (typeof props.hoverType !== "boolean" ||
                 props.hoverType === null ||
                 props.hoverType === undefined) {
                 return false;
@@ -50,10 +52,10 @@ var script = defineComponent({
             }
         });
         const hoverClass = computed(() => {
-            if (typeof props.hoverClass !== 'string' ||
+            if (typeof props.hoverClass !== "string" ||
                 props.hoverClass === null ||
                 props.hoverClass === undefined) {
-                return 'dk-shadow-hoverClass';
+                return "dk-shadow-hoverClass";
             }
             else {
                 return props.hoverClass;
@@ -61,12 +63,12 @@ var script = defineComponent({
         });
         const onhoverType = () => {
             if (hoverType.value) {
-                DkShadow.value.classList.add('dk-shadow-hover', hoverClass.value);
+                DkShadow.value.classList.add("dk-shadow-hover", hoverClass.value);
             }
         };
         const oncloshoverType = () => {
             if (hoverType.value) {
-                DkShadow.value.classList.remove('dk-shadow-hover', hoverClass.value);
+                DkShadow.value.classList.remove("dk-shadow-hover", hoverClass.value);
             }
         };
         return {
@@ -75,9 +77,9 @@ var script = defineComponent({
             shadowClass,
             hoverType,
             onhoverType,
-            oncloshoverType
+            oncloshoverType,
         };
-    }
+    },
 });
 
 const _hoisted_1 = {

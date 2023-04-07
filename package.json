@@ -14,15 +14,12 @@
     "build": "gulp -f build/gulpfile.ts",
     "dev:docs": "pnpm -C docs dev:docs",
     "build:docs": "pnpm -C docs build:docs",
-    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\"",
-    "prepare": "husky install"
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@commitlint/cli": "^17.5.1",
-    "@commitlint/config-conventional": "^17.4.4",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/gulp": "^4.0.10",
@@ -32,6 +29,7 @@
     "@types/node": "^18.15.11",
     "@types/sass": "^1.45.0",
     "@vue/compiler-sfc": "^3.2.47",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "fast-glob": "^3.2.12",
@@ -56,12 +54,5 @@
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0"
-  },
-  "husky": {
-    "skipHooks": true
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}": "prettier --write",
-    "!**/build/**": true
   }
 }

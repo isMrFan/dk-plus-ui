@@ -2,6 +2,6 @@
 #
 # 官方文档参考：https://prettier.io/docs/en/ignore.html#ignoring-files-prettierignore
 
-dist
-node_modules
-pnpm-lock.yaml
+npm/dist
+.history
+build

@@ -1634,7 +1634,12 @@ var __hasOwnProp = Object.prototype.hasOwnProperty
 var __propIsEnum = Object.prototype.propertyIsEnumerable
 var __defNormalProp = (obj, key, value) =>
   key in obj
-    ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value })
+    ? __defProp(obj, key, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        value
+      })
     : (obj[key] = value)
 var __spreadValues = (a, b) => {
   for (var prop in b || (b = {}))
@@ -4427,7 +4432,9 @@ function useFetch(url, ...args) {
     })
   }
   const refetch = resolveRef(options.refetch)
-  watch([refetch, resolveRef(url)], ([refetch2]) => refetch2 && execute(), { deep: true })
+  watch([refetch, resolveRef(url)], ([refetch2]) => refetch2 && execute(), {
+    deep: true
+  })
   const shell = {
     isFinished,
     statusCode,
@@ -5783,7 +5790,10 @@ function useMemory(options = {}) {
         memory.value = performance.memory
       },
       interval,
-      { immediate: options.immediate, immediateCallback: options.immediateCallback }
+      {
+        immediate: options.immediate,
+        immediateCallback: options.immediateCallback
+      }
     )
   }
   return { isSupported, memory }
@@ -5848,11 +5858,19 @@ function useMouse(options = {}) {
       : eventFilter(() => touchHandler(event), {})
   }
   if (window2) {
-    useEventListener(window2, 'mousemove', mouseHandlerWrapper, { passive: true })
-    useEventListener(window2, 'dragover', mouseHandlerWrapper, { passive: true })
+    useEventListener(window2, 'mousemove', mouseHandlerWrapper, {
+      passive: true
+    })
+    useEventListener(window2, 'dragover', mouseHandlerWrapper, {
+      passive: true
+    })
     if (touch && type !== 'movement') {
-      useEventListener(window2, 'touchstart', touchHandlerWrapper, { passive: true })
-      useEventListener(window2, 'touchmove', touchHandlerWrapper, { passive: true })
+      useEventListener(window2, 'touchstart', touchHandlerWrapper, {
+        passive: true
+      })
+      useEventListener(window2, 'touchmove', touchHandlerWrapper, {
+        passive: true
+      })
       if (resetOnTouchEnds)
         useEventListener(window2, 'touchend', reset, { passive: true })
     }
@@ -5945,12 +5963,16 @@ function useMousePressed(options = {}) {
   useEventListener(window2, 'mouseleave', onReleased, { passive: true })
   useEventListener(window2, 'mouseup', onReleased, { passive: true })
   if (drag) {
-    useEventListener(target, 'dragstart', onPressed('mouse'), { passive: true })
+    useEventListener(target, 'dragstart', onPressed('mouse'), {
+      passive: true
+    })
     useEventListener(window2, 'drop', onReleased, { passive: true })
     useEventListener(window2, 'dragend', onReleased, { passive: true })
   }
   if (touch) {
-    useEventListener(target, 'touchstart', onPressed('touch'), { passive: true })
+    useEventListener(target, 'touchstart', onPressed('touch'), {
+      passive: true
+    })
     useEventListener(window2, 'touchend', onReleased, { passive: true })
     useEventListener(window2, 'touchcancel', onReleased, { passive: true })
   }
@@ -6205,8 +6227,12 @@ function usePageLeave(options = {}) {
   }
   if (window2) {
     useEventListener(window2, 'mouseout', handler, { passive: true })
-    useEventListener(window2.document, 'mouseleave', handler, { passive: true })
-    useEventListener(window2.document, 'mouseenter', handler, { passive: true })
+    useEventListener(window2.document, 'mouseleave', handler, {
+      passive: true
+    })
+    useEventListener(window2.document, 'mouseenter', handler, {
+      passive: true
+    })
   }
   return isLeft
 }
@@ -8278,7 +8304,9 @@ var useWakeLock = (options = {}) => {
     isActive.value = !wakeLock.released
   }
   if (document2)
-    useEventListener(document2, 'visibilitychange', onVisibilityChange, { passive: true })
+    useEventListener(document2, 'visibilitychange', onVisibilityChange, {
+      passive: true
+    })
   async function request(type) {
     if (!isSupported.value) return
     wakeLock = await navigator.wakeLock.request(type)

@@ -3,65 +3,65 @@ import { withInstall } from 'dk-plus/es/utils/with-install';
 
 const DKbutton = {
     type: {
-        type: String
+        type: String,
     },
     disable: {
-        type: Boolean
+        type: Boolean,
     },
     round: {
-        type: String
+        type: String,
     },
     circle: {
-        type: String
+        type: String,
     },
     icon: {
-        type: String
+        type: String,
     },
     size: {
-        type: String
+        type: String,
     },
     loading: {
-        type: Boolean
+        type: Boolean,
     },
     loadingIcon: {
-        type: String
+        type: String,
     },
     loadingSize: {
-        type: [Number, String]
-    }
+        type: [Number, String],
+    },
 };
 
 var script = defineComponent({
-    name: 'DkButton',
+    name: "DkButton",
     props: DKbutton,
     setup(props) {
-        let { icon = '', type = 'default', disable = false, round = 'none', circle = 'none', size = 'default', loading = false, loadingIcon = '', loadingSize = '' } = props;
+        let { icon = "", type = "default", disable = false, round = "none", circle = "none", size = "default", loading = false, loadingIcon = "", loadingSize = "", } = props;
         const typeClass = computed(() => {
-            type === '' ? (type = 'default') : '';
+            type === "" ? (type = "default") : "";
             let retClassList = [];
             const classType = {
-                default: 'dk-button-default',
-                primary: 'dk-button-primary',
-                success: 'dk-button-success',
-                info: 'dk-button-info',
-                warning: 'dk-button-warning',
-                danger: 'dk-button-danger'
+                default: "dk-button-default",
+                primary: "dk-button-primary",
+                success: "dk-button-success",
+                info: "dk-button-info",
+                warning: "dk-button-warning",
+                danger: "dk-button-danger",
             };
             let retClass = classType[type];
             retClassList.push(retClass);
             return retClassList;
         });
         const disabledClass = computed(() => {
-            type === '' ? (type = 'default') : '';
+            type === "" ? (type = "default") : "";
             let forbidClassList = [];
             if (disable) {
                 const disabledClassType = {
-                    default: 'dk-button-default-disabled',
-                    primary: 'dk-button-primary-disabled',
-                    success: 'dk-button-success-disabled',
-                    info: 'dk-button-info-disabled',
-                    warning: 'dk-button-warning-disabled',
-                    danger: 'dk-button-danger-disabled'
+                    default: "dk-button-default-disabled",
+                    primary: "dk-button-primary-disabled",
+                    success: "dk-button-success-disabled",
+                    info: "dk-button-info-disabled",
+                    warning: "dk-button-warning-disabled",
+                    danger: "dk-button-danger-disabled",
                 };
                 let retDisabled = disabledClassType[type];
                 forbidClassList.push(retDisabled);
@@ -69,26 +69,26 @@ var script = defineComponent({
             }
         });
         const roundClass = computed(() => {
-            if (round !== 'none') {
-                return 'dk-button-round';
+            if (round !== "none") {
+                return "dk-button-round";
             }
         });
         const circleClass = computed(() => {
-            if (circle !== 'none') {
-                return 'dk-button-circle';
+            if (circle !== "none") {
+                return "dk-button-circle";
             }
         });
         const largeClass = computed(() => {
             let retClassList = [];
             const classType = {
-                large: 'dk-button-large',
-                default: 'dk-button-default',
-                small: 'dk-button-small'
+                large: "dk-button-large",
+                default: "dk-button-default",
+                small: "dk-button-small",
             };
             let retClass = classType[size];
             retClassList.push(retClass);
-            if (circle !== 'none' && size === 'small') {
-                retClassList.push('dk-button-round-small');
+            if (circle !== "none" && size === "small") {
+                retClassList.push("dk-button-round-small");
             }
             return retClassList;
         });
@@ -96,34 +96,34 @@ var script = defineComponent({
             const classType = {
                 large: 16,
                 default: 14,
-                small: 11
+                small: 11,
             };
             return classType[size] ? classType[size] : 14;
         });
         const iconColor = computed(() => {
-            let Color = '#ffffff';
-            if (type === 'default') {
-                Color = '#c8c9cc';
+            let Color = "#ffffff";
+            if (type === "default") {
+                Color = "#c8c9cc";
             }
             else {
                 if (disable) {
-                    Color = '#c8c9cc';
+                    Color = "#c8c9cc";
                 }
                 else {
-                    Color = '#ffffff';
+                    Color = "#ffffff";
                 }
             }
             return Color;
         });
         const loadingClass = computed(() => {
             if (loading) {
-                return 'dk-button-rotationLoading-mask';
+                return "dk-button-rotationLoading-mask";
             }
         });
         const loadingIconClass = computed(() => {
             if (loading) {
-                if (loadingIcon === '') {
-                    return 'dk-icon-arrows_rotate';
+                if (loadingIcon === "") {
+                    return "dk-icon-arrows_rotate";
                 }
                 else {
                     return loadingIcon;
@@ -134,9 +134,13 @@ var script = defineComponent({
             const classType = {
                 large: 16,
                 default: 14,
-                small: 12
+                small: 12,
             };
-            return loadingSize === '' ? (classType[size] ? classType[size] : 14) : loadingSize;
+            return loadingSize === ""
+                ? classType[size]
+                    ? classType[size]
+                    : 14
+                : loadingSize;
         });
         return {
             typeClass,
@@ -151,9 +155,9 @@ var script = defineComponent({
             loading,
             loadingClass,
             loadingIconClass,
-            loadingIconSize
+            loadingIconSize,
         };
-    }
+    },
 });
 
 const _hoisted_1 = { key: 0 };
@@ -172,7 +176,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_dkIcon = resolveComponent("dkIcon");
 
   return (openBlock(), createElementBlock("button", {
-    class: normalizeClass(["dk-button", [_ctx.typeClass, _ctx.disabledClass, _ctx.roundClass, _ctx.circleClass, _ctx.largeClass, _ctx.loadingClass]]),
+    class: normalizeClass(["dk-button", [
+      _ctx.typeClass,
+      _ctx.disabledClass,
+      _ctx.roundClass,
+      _ctx.circleClass,
+      _ctx.largeClass,
+      _ctx.loadingClass,
+    ]]),
     type: "button"
   }, [
     (_ctx.circle === '')

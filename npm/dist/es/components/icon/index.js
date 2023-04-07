@@ -3,26 +3,26 @@ import { withInstall } from 'dk-plus/es/utils/with-install';
 
 const iconProps = {
     size: {
-        type: Number
+        type: Number,
     },
     color: {
-        type: String
-    }
+        type: String,
+    },
 };
 
 var script = defineComponent({
-    name: 'DkIcon',
+    name: "DkIcon",
     props: iconProps,
     setup(props) {
         const style = computed(() => {
             if (!props.size && !props.color) {
                 return {};
             }
-            const style = Object.assign(Object.assign({}, (props.size ? { 'font-size': props.size + 'px' } : {})), (props.color ? { color: props.color } : {}));
+            const style = Object.assign(Object.assign({}, (props.size ? { "font-size": props.size + "px" } : {})), (props.color ? { color: props.color } : {}));
             return style;
         });
         return { style };
-    }
+    },
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {

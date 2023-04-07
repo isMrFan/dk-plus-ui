@@ -48,7 +48,12 @@ export const sidebar = {
     },
     {
       text: '配置组件',
-      items: [{ text: 'Fighting Global 全局配置', link: '/components/fighting-global' }]
+      items: [
+        {
+          text: 'Fighting Global 全局配置',
+          link: '/components/fighting-global'
+        }
+      ]
     },
     {
       text: '数据输入',
@@ -118,7 +123,10 @@ export const sidebar = {
         { text: 'Watermark 水印', link: '/components/watermark' },
         { text: 'Ripple 涟漪', link: '/components/ripple' },
         { text: 'Calendar 日历', link: '/components/calendar' },
-        { text: 'Infinite Scrolling 无限滚动', link: '/components/infinite-scrolling' },
+        {
+          text: 'Infinite Scrolling 无限滚动',
+          link: '/components/infinite-scrolling'
+        },
         { text: 'Number Animate 数字动画', link: '/components/number-animate' },
         {
           text: 'CollapseAnimation 折叠动画',
