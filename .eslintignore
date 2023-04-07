@@ -2,6 +2,5 @@
 #
 # 官方文档：https://eslint.bootcss.com/docs/user-guide/configuring#ignoring-files-and-directories
 
-npm/dist
+dist
 node_modules
-.history

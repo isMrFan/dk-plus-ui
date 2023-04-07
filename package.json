@@ -2,12 +2,14 @@
   "name": "dk-plus",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "workspaces": [
     "packages/*",
     "play",
     "docs"
   ],
+  "engines": {
+    "node": ">= 16"
+  },
   "scripts": {
     "dev:play": "pnpm -C play dev",
     "build:play": "pnpm -C play build",
@@ -18,7 +20,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
