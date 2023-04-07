@@ -8,6 +8,8 @@
   中文 | <a href="https://github.com/CadWalaDers/dk-ui/blob/master/README.en-US.md">English</a>
 </p>
 
+
+
 <p align="center">
   <a href="https://github.com/CadWalaDers/dk-ui/stargazers">
     <img src="https://img.shields.io/github/stars/CadWalaDers/dk-ui" />
@@ -106,3 +108,21 @@ createApp(App).use(FightingDesign).mount('#app')
 - [NPM](https://www.npmjs.com/package/dk-plus)
 - [贡献指南](https://github.com/CadWalaDers/dk-ui/blob/master/contribution.md)
 - [更新日志](https://github.com/CadWalaDers/dk-ui/blob/master/CUpdateLog.md)
+
+## 🌈 加入 DK-plus
+
+添加微信请备注 `Github` 用户名
+
+<img height="200px"  src="https://oss.cadwaladerss.com/images/wxcrcoder.png">
+
+## 💌 特别感谢
+
+感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/CadWalaDers/dk-ui/graphs/contributors)
+
+<a href="https://github.com/CadWalaDers/dk-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
+</a>
+
+## 💬 协议
+
+[MIT](https://github.com/CadWalaDers/dk-ui/blob/master/LICENSE)
