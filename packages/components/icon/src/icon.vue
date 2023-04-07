@@ -19,7 +19,7 @@
           return {}
         }
         const style = {
-          ...(props.size ? { 'font-size': props.size + 'px' } : {}),
+          ...(props.size ? { 'font-size': props.size + 'px' } : {}), 
           ...(props.color ? { color: props.color } : {})
         }
         return style
