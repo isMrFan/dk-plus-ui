@@ -8,8 +8,6 @@
   中文 | <a href="https://github.com/CadWalaDers/dk-ui/blob/master/README.en-US.md">English</a>
 </p>
 
-
-
 <p align="center">
   <a href="https://github.com/CadWalaDers/dk-ui/stargazers">
     <img src="https://img.shields.io/github/stars/CadWalaDers/dk-ui" />
@@ -60,7 +58,7 @@ yarn add --save-dev dk-plus
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import dkPlus from "dk-plus"
+import dkPlus from 'dk-plus'
 import '@dk-plus/theme-chalk/src/index.scss'
 
 createApp(App).use(FightingDesign).mount('#app')
@@ -78,12 +76,12 @@ createApp(App).use(FightingDesign).mount('#app')
 
 <body>
   <div id="app">
-      <Dk-Button round type="default">默认</Dk-Button>
-      <Dk-Button round type="primary">主要按钮</Dk-Button>
-      <Dk-Button round type="success">成功</Dk-Button>
-      <Dk-Button round type="info">信息</Dk-Button>
-      <Dk-Button round type="warning">警告</Dk-Button>
-      <Dk-Button round type="danger">danger</Dk-Button>
+    <Dk-Button round type="default">默认</Dk-Button>
+    <Dk-Button round type="primary">主要按钮</Dk-Button>
+    <Dk-Button round type="success">成功</Dk-Button>
+    <Dk-Button round type="info">信息</Dk-Button>
+    <Dk-Button round type="warning">警告</Dk-Button>
+    <Dk-Button round type="danger">danger</Dk-Button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>
