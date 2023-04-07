@@ -31,6 +31,6 @@
 
 <template>
   <i class="dk-icon" :style="style">
-    <slot></slot>
+    <slot> </slot>
   </i>
 </template>
