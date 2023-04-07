@@ -7,17 +7,17 @@ var withInstall = require('dk-plus/lib/utils/with-install');
 
 const DKshadowProps = {
     type: {
-        type: String
+        type: String,
     },
     shadowClass: {
-        type: String
+        type: String,
     },
     hoverType: {
-        type: Boolean
+        type: Boolean,
     },
     hoverClass: {
-        type: String
-    }
+        type: String,
+    },
 };
 
 var script = vue.defineComponent({
@@ -26,7 +26,9 @@ var script = vue.defineComponent({
     setup(props) {
         const DkShadow = vue.ref(null);
         const type = vue.computed(() => {
-            if (props.type === undefined || props.type === null || props.type === "") {
+            if (props.type === undefined ||
+                props.type === null ||
+                props.type === "") {
                 return "box";
             }
             else {
@@ -44,7 +46,9 @@ var script = vue.defineComponent({
             }
         });
         const hoverType = vue.computed(() => {
-            if (typeof props.hoverType !== "boolean" || props.hoverType === null || props.hoverType === undefined) {
+            if (typeof props.hoverType !== "boolean" ||
+                props.hoverType === null ||
+                props.hoverType === undefined) {
                 return false;
             }
             else {
@@ -52,8 +56,10 @@ var script = vue.defineComponent({
             }
         });
         const hoverClass = vue.computed(() => {
-            if (typeof props.hoverClass !== "string" || props.hoverClass === null || props.hoverClass === undefined) {
-                return 'dk-shadow-hoverClass';
+            if (typeof props.hoverClass !== "string" ||
+                props.hoverClass === null ||
+                props.hoverClass === undefined) {
+                return "dk-shadow-hoverClass";
             }
             else {
                 return props.hoverClass;
@@ -118,5 +124,5 @@ script.__file = "packages/components/dkshadow/src/dkshadow.vue";
 
 const dkshadow = withInstall.withInstall(script);
 
-exports["default"] = dkshadow;
+exports.default = dkshadow;
 exports.dkshadow = dkshadow;

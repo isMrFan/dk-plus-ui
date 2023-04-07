@@ -1,24 +1,3 @@
-<template>
-  <div
-    class="dk-shadow"
-    ref="DkShadow"
-    :class="[shadowClass]"
-    @mouseenter="onhoverType"
-    @mouseleave="oncloshoverType"
-  >
-    <div class="dk-title" v-if="type === 'title'">
-      <div class="dk-shadow-left">
-        <slot name="left"></slot>
-      </div>
-      <div class="dk-shadow-right">
-        <slot name="right"></slot>
-      </div>
-    </div>
-    <div class="dk-box" v-else>
-      <slot></slot>
-    </div>
-  </div>
-</template>
 <script lang="ts">
   /**-
    * @name dk-shadow
@@ -105,3 +84,24 @@
     }
   })
 </script>
+<template>
+  <div
+    class="dk-shadow"
+    ref="DkShadow"
+    :class="[shadowClass]"
+    @mouseenter="onhoverType"
+    @mouseleave="oncloshoverType"
+  >
+    <div class="dk-title" v-if="type === 'title'">
+      <div class="dk-shadow-left">
+        <slot name="left"></slot>
+      </div>
+      <div class="dk-shadow-right">
+        <slot name="right"></slot>
+      </div>
+    </div>
+    <div class="dk-box" v-else>
+      <slot></slot>
+    </div>
+  </div>
+</template>

@@ -1,8 +1,3 @@
-<template>
-  <i class="dk-icon" :style="style">
-    <slot></slot>
-  </i>
-</template>
 <script lang="ts">
   /**-
    * @name dk-icon
@@ -33,3 +28,9 @@
     }
   })
 </script>
+
+<template>
+  <i class="dk-icon" :style="style">
+    <slot></slot>
+  </i>
+</template>

@@ -1,31 +1,3 @@
-<template>
-  <button
-    class="dk-button"
-    :class="[typeClass, disabledClass, roundClass, circleClass, largeClass, loadingClass]"
-    type="button"
-  >
-    <div v-if="circle === ''">
-      <dkIcon :class="icon" :size="iconSize" :color="iconColor"></dkIcon>
-    </div>
-    <div class="dk-button-conten" v-else>
-      <div v-if="icon">
-        <dkIcon :class="icon" :size="iconSize" class="dk-button-conten-magin"></dkIcon>
-        <slot></slot>
-      </div>
-      <div v-else-if="loading" class="dk-button-rotationLoading">
-        <div class="dk-button-loading">
-          <dkIcon
-            :class="loadingIconClass"
-            :size="loadingIconSize"
-            :color="'#fff'"
-          ></dkIcon>
-        </div>
-        <slot></slot>
-      </div>
-      <slot v-else></slot>
-    </div>
-  </button>
-</template>
 <script lang="ts">
   /**
    * @name dk-button
@@ -192,3 +164,31 @@
     }
   })
 </script>
+<template>
+  <button
+    class="dk-button"
+    :class="[typeClass, disabledClass, roundClass, circleClass, largeClass, loadingClass]"
+    type="button"
+  >
+    <div v-if="circle === ''">
+      <dkIcon :class="icon" :size="iconSize" :color="iconColor"></dkIcon>
+    </div>
+    <div class="dk-button-conten" v-else>
+      <div v-if="icon">
+        <dkIcon :class="icon" :size="iconSize" class="dk-button-conten-magin"></dkIcon>
+        <slot></slot>
+      </div>
+      <div v-else-if="loading" class="dk-button-rotationLoading">
+        <div class="dk-button-loading">
+          <dkIcon
+            :class="loadingIconClass"
+            :size="loadingIconSize"
+            :color="'#fff'"
+          ></dkIcon>
+        </div>
+        <slot></slot>
+      </div>
+      <slot v-else></slot>
+    </div>
+  </button>
+</template>

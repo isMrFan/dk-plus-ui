@@ -7,39 +7,39 @@ var withInstall = require('dk-plus/lib/utils/with-install');
 
 const DKbutton = {
     type: {
-        type: String
+        type: String,
     },
     disable: {
-        type: Boolean
+        type: Boolean,
     },
     round: {
-        type: String
+        type: String,
     },
     circle: {
-        type: String
+        type: String,
     },
     icon: {
-        type: String
+        type: String,
     },
     size: {
-        type: String
+        type: String,
     },
     loading: {
-        type: Boolean
+        type: Boolean,
     },
     loadingIcon: {
-        type: String
+        type: String,
     },
     loadingSize: {
-        type: [Number, String]
-    }
+        type: [Number, String],
+    },
 };
 
 var script = vue.defineComponent({
     name: "DkButton",
     props: DKbutton,
     setup(props) {
-        let { icon = "", type = "default", disable = false, round = "none", circle = "none", size = "default", loading = false, loadingIcon = '', loadingSize = '' } = props;
+        let { icon = "", type = "default", disable = false, round = "none", circle = "none", size = "default", loading = false, loadingIcon = "", loadingSize = "", } = props;
         const typeClass = vue.computed(() => {
             type === "" ? (type = "default") : "";
             let retClassList = [];
@@ -121,13 +121,13 @@ var script = vue.defineComponent({
         });
         const loadingClass = vue.computed(() => {
             if (loading) {
-                return 'dk-button-rotationLoading-mask';
+                return "dk-button-rotationLoading-mask";
             }
         });
         const loadingIconClass = vue.computed(() => {
             if (loading) {
-                if (loadingIcon === '') {
-                    return 'dk-icon-arrows_rotate';
+                if (loadingIcon === "") {
+                    return "dk-icon-arrows_rotate";
                 }
                 else {
                     return loadingIcon;
@@ -140,7 +140,11 @@ var script = vue.defineComponent({
                 default: 14,
                 small: 12,
             };
-            return loadingSize === '' ? classType[size] ? classType[size] : 14 : loadingSize;
+            return loadingSize === ""
+                ? classType[size]
+                    ? classType[size]
+                    : 14
+                : loadingSize;
         });
         return {
             typeClass,
@@ -155,7 +159,7 @@ var script = vue.defineComponent({
             loading,
             loadingClass,
             loadingIconClass,
-            loadingIconSize
+            loadingIconSize,
         };
     },
 });
@@ -177,9 +181,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (vue.openBlock(), vue.createElementBlock("button", {
     class: vue.normalizeClass(["dk-button", [
-    _ctx.typeClass, _ctx.disabledClass,
-    _ctx.roundClass, _ctx.circleClass,
-    _ctx.largeClass, _ctx.loadingClass]]),
+      _ctx.typeClass,
+      _ctx.disabledClass,
+      _ctx.roundClass,
+      _ctx.circleClass,
+      _ctx.largeClass,
+      _ctx.loadingClass,
+    ]]),
     type: "button"
   }, [
     (_ctx.circle === '')
@@ -220,5 +228,5 @@ script.__file = "packages/components/dkbutton/src/button.vue";
 
 const dkbutton = withInstall.withInstall(script);
 
-exports["default"] = dkbutton;
+exports.default = dkbutton;
 exports.dkbutton = dkbutton;

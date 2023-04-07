@@ -3,39 +3,39 @@ import { withInstall } from 'dk-plus/es/utils/with-install';
 
 const DKbutton = {
     type: {
-        type: String
+        type: String,
     },
     disable: {
-        type: Boolean
+        type: Boolean,
     },
     round: {
-        type: String
+        type: String,
     },
     circle: {
-        type: String
+        type: String,
     },
     icon: {
-        type: String
+        type: String,
     },
     size: {
-        type: String
+        type: String,
     },
     loading: {
-        type: Boolean
+        type: Boolean,
     },
     loadingIcon: {
-        type: String
+        type: String,
     },
     loadingSize: {
-        type: [Number, String]
-    }
+        type: [Number, String],
+    },
 };
 
 var script = defineComponent({
     name: "DkButton",
     props: DKbutton,
     setup(props) {
-        let { icon = "", type = "default", disable = false, round = "none", circle = "none", size = "default", loading = false, loadingIcon = '', loadingSize = '' } = props;
+        let { icon = "", type = "default", disable = false, round = "none", circle = "none", size = "default", loading = false, loadingIcon = "", loadingSize = "", } = props;
         const typeClass = computed(() => {
             type === "" ? (type = "default") : "";
             let retClassList = [];
@@ -117,13 +117,13 @@ var script = defineComponent({
         });
         const loadingClass = computed(() => {
             if (loading) {
-                return 'dk-button-rotationLoading-mask';
+                return "dk-button-rotationLoading-mask";
             }
         });
         const loadingIconClass = computed(() => {
             if (loading) {
-                if (loadingIcon === '') {
-                    return 'dk-icon-arrows_rotate';
+                if (loadingIcon === "") {
+                    return "dk-icon-arrows_rotate";
                 }
                 else {
                     return loadingIcon;
@@ -136,7 +136,11 @@ var script = defineComponent({
                 default: 14,
                 small: 12,
             };
-            return loadingSize === '' ? classType[size] ? classType[size] : 14 : loadingSize;
+            return loadingSize === ""
+                ? classType[size]
+                    ? classType[size]
+                    : 14
+                : loadingSize;
         });
         return {
             typeClass,
@@ -151,7 +155,7 @@ var script = defineComponent({
             loading,
             loadingClass,
             loadingIconClass,
-            loadingIconSize
+            loadingIconSize,
         };
     },
 });
@@ -173,9 +177,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (openBlock(), createElementBlock("button", {
     class: normalizeClass(["dk-button", [
-    _ctx.typeClass, _ctx.disabledClass,
-    _ctx.roundClass, _ctx.circleClass,
-    _ctx.largeClass, _ctx.loadingClass]]),
+      _ctx.typeClass,
+      _ctx.disabledClass,
+      _ctx.roundClass,
+      _ctx.circleClass,
+      _ctx.largeClass,
+      _ctx.loadingClass,
+    ]]),
     type: "button"
   }, [
     (_ctx.circle === '')

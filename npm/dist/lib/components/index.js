@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var dkshadow = require('./dkshadow');
 var icon = require('./icon');
 var dkbutton = require('./dkbutton');
