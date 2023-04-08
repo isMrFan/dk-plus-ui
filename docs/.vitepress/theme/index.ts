@@ -1,5 +1,6 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
+import './style/global.scss'
 import './style/vitepress.scss'
 
 export default {
