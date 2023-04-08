@@ -2,6 +2,14 @@
 .VPNav {
   border-bottom: 1px solid #eee;
 }
+.VPNav{
+  background-color: #fff;
+  .VPNavBar{
+    .container{
+      width: 75%;
+    }
+  }
+}
 .VPImage {
   width: 30px;
   // content: url('../assets/image/logo.png');
@@ -9,4 +17,8 @@
 }
 .VPNavBarTitle a{
   color: $theme-color !important;
+}
+.VPHome{
+  // margin: 0;
+  padding: 0 !important;
 }
