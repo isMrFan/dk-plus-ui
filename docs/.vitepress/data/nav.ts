@@ -7,8 +7,8 @@ import { version } from '../../../npm/package.json'
 export const nav = [
   {
     text: '文档',
-    activeMatch: '^/docs/',
-    link: '/docs/install'
+    activeMatch: '^/document/',
+    link: '/document/install'
   },
   {
     text: '基础组件',
