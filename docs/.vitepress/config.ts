@@ -69,6 +69,6 @@ export default defineConfig({
       src: 'https://pic5.58cdn.com.cn/nowater/webim/big/n_v2380ca63f26f9441f8b860d0c0b9ed3ad.png',
       alt: 'dk-plus'
     },
-    siteTitle: 'dk-plus'
+    siteTitle: 'dk-plus' 
   }
 })
