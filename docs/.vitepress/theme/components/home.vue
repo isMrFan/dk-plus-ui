@@ -165,6 +165,7 @@ const handleFirstEffect = () => {
   const handleStartClick = () => {
     router.go('/document/install.html')
   }
+  /** 跳转到git */
   const handleJoinUs = () => {
     // router.go('https://github.com/CadWalaDers/dk-ui')
     window.location.href = 'https://github.com/CadWalaDers/dk-ui'
