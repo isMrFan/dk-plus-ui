@@ -303,8 +303,8 @@ export default defineComponent({
 
     .icon_library_item {
       flex: 1;
-      min-width: 104px;
-      max-width: 104px;
+      min-width: 103px;
+      max-width: 103px;
       height: 100px;
       display: flex;
       flex-direction: column;

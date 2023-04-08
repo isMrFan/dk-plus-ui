@@ -19,8 +19,8 @@
       </div>
       <div class="home_content_subtitle">
         <p class="home_content_subtitle_p1">
-          DK-Plus 是一套基于 Vue3.0 的 UI 组件库，主要用于快速开发 PC
-          端中后台产品,全面的组件和便捷的工具会让您信手拈来，如鱼得水。
+          DK-Plus 是一套基于 Vue3.0 的 UI 组件库
+          <p>主要用于快速开发 PC端中后台产品,全面的组件和便捷的工具会让您信手拈来，如鱼得水。</p>
         </p>
       </div>
     </div>
@@ -123,6 +123,12 @@
           font-weight: 700;
           font-weight: 500;
           line-height: 50px;
+          p{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: #666;
+          }
         }
       }
     }

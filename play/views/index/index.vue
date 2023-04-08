@@ -8,8 +8,9 @@
             <router-link :to="item.path" :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #ccc;'">{{
               item.name }}</router-link>
             <ul v-if="item.children && $route.path === item.path">
-              <li v-for="(child,index) in item.children" :key="child.id" @click="handleChildItemClick(child,index)">
-                <span :style="childLiActiveIndex === child.id ? 'color: #34ab98;' : 'color: #ccc;'">{{ child.name }}</span>
+              <li v-for="(child, index) in item.children" :key="child.id" @click="handleChildItemClick(child, index)">
+                <span :style="childLiActiveIndex === child.id ? 'color: #34ab98;' : 'color: #ccc;'">{{ child.name
+                }}</span>
               </li>
             </ul>
           </li>
@@ -64,12 +65,12 @@ export default defineComponent({
       childLiActiveIndex: '0'
     })
     // 子菜单点击事件 导航到对应的组件
-    const handleChildItemClick = (item,index) => {      
+    const handleChildItemClick = (item, index) => {
       active.childLiActiveIndex = item.id
       const title = document.querySelectorAll('.cont_template_icon_title')[index]
       // 将 title scroll 到顶部
       if (title?.innerHTML === item.name) {
-        title!.scrollIntoView({behavior: 'smooth'})
+        title!.scrollIntoView({ behavior: 'smooth' })
       }
     }
     return {
@@ -140,12 +141,21 @@ export default defineComponent({
             color: #000;
             text-decoration: none;
           }
-          ul{
+
+
+          ul {
             margin-left: 10px;
-            li:hover{
+
+            li:hover {
               cursor: pointer;
             }
           }
+        }
+
+        a:hover,
+        span:hover {
+          transition: all .2s;
+          color: rgb(28, 177, 164) !important;
         }
       }
     }

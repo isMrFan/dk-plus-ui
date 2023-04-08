@@ -1,7 +1,12 @@
+@import './global.scss';
 .VPNav {
   border-bottom: 1px solid #eee;
 }
 .VPImage {
   width: 30px;
+  // content: url('../assets/image/logo.png');
   height: auto !important;
+}
+.VPNavBarTitle a{
+  color: $theme-color !important;
 }
