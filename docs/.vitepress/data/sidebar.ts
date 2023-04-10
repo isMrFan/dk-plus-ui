@@ -11,6 +11,21 @@ export const sidebar = {
         { text: '安装', link: '/document/install' },
         { text: '快速上手', link: '/document/import' }
       ]
+    },
+    {
+      text: '指南',
+      items: [
+        { text: '介绍', link: '/document/introduce' },
+        { text: '贡献指南', link: '/document/contributing' },
+        { text: '加入我们', link: '/document/join' },
+      ]
+    },
+    {
+      text: '发展历程',
+      items: [
+        { text: '更新日志', link: '/document/update' },
+        { text: '里程碑', link: '/document/mileage' },
+      ]
     }
   ],
   '/components/': [

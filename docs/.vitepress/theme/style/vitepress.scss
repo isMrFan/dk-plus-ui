@@ -11,6 +11,29 @@
 .VPNavDark{
   border-bottom: 1px solid #3a3a3a;
 }
+
+// 菜单栏
+.VPSidebar.open {
+  z-index: 99999;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+// 滚动滑块
+::-webkit-scrollbar-thumb {
+  background-color: #dddddd;
+  border-radius: 6px;
+}
+
+// 滚动条高度
+::-webkit-scrollbar {
+  height: 8px;
+  cursor: pointer;
+}
+
 .VPImage {
   width: 30px;
   // content: url('../assets/image/logo.png');
