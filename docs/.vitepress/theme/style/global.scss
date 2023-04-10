@@ -1,29 +1,93 @@
 // 全局样式
-*{
-  transition: all .2s;
+* {
+  transition: all 0.2s;
 }
 $theme-color: #3eaf7c; // 主题色
 $theme-color--hover: #52c290; // 悬浮主题色
 $sub-theme-color: #f47d7d; // 次主题色
 $title-color: #555; // 标题题色
 $sub-title-color: #888; // 副标题题色
-
+$border-color: #eee; // 边框题色
+$bg-color: #f5f5f5; // 背景题色
 
 // 一级标题样式
 $title-style-list: (
-  font-size: 40px,
+  font-size: 3rem,
   line-height: 44px,
   font-weight: bolder,
-  color: $title-color,
+  color: $title-color
 );
 // 一级标题样式块
-@mixin title-style{
+@mixin title-style {
   @each $key, $value in $title-style-list {
+    #{$key}: $value;
+  }
+}
+// 一级副标题样式
+$sub-title-style-list: (
+  font-size: .8rem,
+  line-height: 1rem,
+  color: $sub-title-color
+);
+// 一级副标题样式块
+@mixin sub-title-style {
+  @each $key, $value in $sub-title-style-list {
     #{$key}: $value;
   }
 }
 
 .label--active_hover:hover {
   // background-color: $theme-color--hover !important;
-  opacity: .8;
+  opacity: 0.8;
+}
+
+// 二级标题样式
+$sec-title-style-list: (
+  font-size: 1rem,
+  line-height: 36px,
+  font-weight: bolder,
+  color: $title-color
+);
+// 二级标题样式块
+@mixin sec-title-style {
+  @each $key, $value in $sec-title-style-list {
+    #{$key}: $value;
+  }
+}
+
+// 边框样式
+$border-style-list: (
+  border: 1px solid $border-color,
+  border-radius: 5px,
+  box-sizing: border-box
+);
+// 边框样式块
+@mixin border-style {
+  @each $key, $value in $border-style-list {
+    #{$key}: $value;
+  }
+}
+
+// y轴滚动样式
+$scroll-style-list: (
+  overflow-y: scroll,
+  scroll-snap-type: y mandatory,
+  -webkit-overflow-scrolling: touch
+);
+// y轴滚动样式块
+@mixin scroll-style {
+  @each $key, $value in $scroll-style-list {
+    #{$key}: $value;
+  }
+}
+// y轴子元素滚动样式
+$scroll-child-style-list: (
+  scroll-snap-align: start,
+  scroll-snap-stop: always
+);
+// y轴子元素滚动样式块
+@mixin scroll-child-style {
+  @each $key, $value in $scroll-child-style-list {
+    #{$key}: $value;
+  }
 }

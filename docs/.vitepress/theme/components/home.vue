@@ -1,7 +1,5 @@
 <template>
   <div class="home_subject">
-    <!-- <div class="home_banner"></div> -->
-    <!-- <div class="home_content"> -->
     <div class="home_content_main">
       <div class="home_content_main_first">
         <div class="home_content_main_first_container">
@@ -24,7 +22,8 @@
               </div>
             </div>
             <div class="contribution_join">
-              <dk-button @click="handleJoinUs" class="label--active_hover" size="small" type="success" round>加入其中</dk-button>
+              <dk-button @click="handleJoinUs" class="label--active_hover" size="small" type="success"
+                round>加入其中</dk-button>
             </div>
           </div>
         </div>
@@ -93,59 +92,34 @@
 
         </div>
       </div>
-      <div class="home_content_main_second" v-if="false">afd</div>
-    </div>
-
-
-
-
-
-
-
-
-
-    <!-- <div class="home_content_title">
-        <img
-          class="home_content_img"
-          src="https://pic5.58cdn.com.cn/nowater/webim/big/n_v2380ca63f26f9441f8b860d0c0b9ed3ad.png"
-        />
-        <div class="home_content_IStitle">
-          <span>DK-Plus</span>
-          <a class="home_content_A" href="https://github.com/CadWalaDers/dk-ui">
-            <img
-              src="https://img.shields.io/github/stars/CadWalaDers/dk-ui?style=social"
-              alt=""
-            />
-          </a>
-        </div>
-      </div> -->
-    <!-- <div class="home_content_subtitle">
-        <p class="home_content_subtitle_p1">
-          DK-Plus 是一套基于 Vue3.0 的 UI 组件库
-          <p>主要用于快速开发 PC端中后台产品,全面的组件和便捷的工具会让您信手拈来，如鱼得水。</p>
-        </p>
-      </div> -->
-
-
-    <!-- </div> -->
-
-
-    <!-- <div class="home_btn">
-      <dk-button type="primary">开始使用</dk-button>
-    </div>
-    <div class="home_contribution">
-      <div class="home_contribution_title">贡献者</div>
-      <div class="home_contribution_personnel">
-        <div class="personnel" v-for="(item, ind) in contributionList" :key="ind">
-          <a :href="item.avatar" target="_blank">
-            <img :src="item.imgUrl" :alt="item.name" />
-          </a>
+      <div class="home_content_main_second">
+        <div class="home_content_main_second_container">
+          <div class="home_content_main_second_container_content">
+            <div class="home_content_main_second_container_content_item" v-for="(item) in infoList" :key="item.id">
+              <img :src="item.img" alt="">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.message }}</p>
+              <dk-button>查看详情</dk-button>
+            </div>
+          </div>
+          <div class="home_content_main_second_container_info">
+            <div class="home_content_main_second_container_info_friendly">
+              <h3>友情链接</h3>
+              <div class="home_content_main_second_container_info_friendly_list">
+                <div class="home_content_main_second_container_info_friendly_list_item" v-for="(item) in friendlyLinks"
+                  :key="item.logoSrc">
+                  <img :src="item.logoSrc" alt="">
+                  <!-- <a :href="item.link" target="_blank">{{ item.name }}</a> -->
+                </div>
+              </div>
+            </div>
+            <div class="home_content_main_second_container_info_empower">
+              <p>Copyright 2023 dkPlus UlI奥ICP备1234567890号</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="home_contribution_join">
-        <dk-button type="success" round>加入其中</dk-button>
-      </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -154,6 +128,7 @@ import dkbutton from '@dk-plus/components/dkbutton'
 import Icon from '@dk-plus/components/Icon'
 import '@dk-plus/theme-chalk/src/index.scss'
 import { contribution } from '../../json/contribution.json'
+import { friendlyList } from '../../json/friendlyLinks.json'
 import { useRouter } from 'vitepress'
 type dkbuttonType = { type?: string; round?: boolean }
 type dkiconType = { size?: string; color?: string }
@@ -175,6 +150,20 @@ const handleFirstEffect = () => {
     handleJoinUs
   }
 }
+/** 第二页 */
+const handleInfoEffect = (list) => {
+  const data = reactive({
+    infoList: [ // 信息列表
+      { id: 1, title: '简单', img: 'https://pic8.58cdn.com.cn/nowater/webim/big/n_v26a383d9b0ac54169a5b3f03d886386eb.png', message: '简单的API，简单的使用方式，让你的开发更加简单' },
+      { id: 2, title: '轻量', img: 'https://pic1.58cdn.com.cn/nowater/webim/big/n_v284bf0e076b634b40aafdc970c17d3a97.png', message: '轻量的组件，轻量的体积，让你的项目更加轻量' },
+      { id: 3, title: '可靠', img: 'https://pic4.58cdn.com.cn/nowater/webim/big/n_v260db43e549a74c0385ff2db6d5e47d49.png', message: '可靠的组件，可靠的开发团队，让你的项目更加可靠' }
+    ],
+    friendlyLinks: list, // 友情链接
+  })
+  return {
+    ...toRefs(data)
+  }
+}
 
 
 export default defineComponent({
@@ -190,12 +179,15 @@ export default defineComponent({
 
     // logo地址
     const mLogo = 'https://pic6.58cdn.com.cn/nowater/webim/big/n_v26b2afb7f4ffc4555a2a70cab60f77b7c.png'
-    const { handleStartClick,handleJoinUs } = handleFirstEffect()
+    const { handleStartClick, handleJoinUs } = handleFirstEffect()
+    const { infoList, friendlyLinks } = handleInfoEffect(friendlyList)
     return {
       ...toRefs(data),
       mLogo,
       handleStartClick,
-      handleJoinUs
+      handleJoinUs,
+      infoList,
+      friendlyLinks
     }
   }
 })
@@ -204,143 +196,16 @@ export default defineComponent({
 @import '../style/global.scss';
 
 .home_subject {
-  .home_banner {
-    width: 100%;
-  }
-
-  .home_content {
-    width: 100%;
-    padding: 30px;
-    box-sizing: border-box;
-
-    .home_content_title {
-      max-width: 1300px;
-      margin: 0 auto;
-
-      >img {
-        width: 100px;
-      }
-
-      .home_content_img {
-        margin-bottom: 20px;
-      }
-
-      .home_content_IStitle {
-        width: 100%;
-        display: flex;
-
-        span {
-          font-size: 32px;
-          line-height: 43px;
-          text-align: left;
-          letter-spacing: -1.2px;
-          font-weight: 700;
-          word-break: normal;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          color: transparent;
-          padding-left: 5px;
-          background: -webkit-linear-gradient(55deg, #395ce3 10%, #5ee0dd);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .home_content_A {
-          margin-top: 12px;
-          margin-left: 20px;
-        }
-      }
-    }
-
-    .home_content_subtitle {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding-left: 5px;
-
-      .home_content_subtitle_p1 {
-        margin-top: 10px;
-        font-size: 33px;
-        font-weight: 700;
-        font-weight: 500;
-        line-height: 50px;
-
-        p {
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 24px;
-          color: #666;
-        }
-      }
-    }
-  }
-
-  .home_btn {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-left: 5px;
-  }
-
-  .home_contribution {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 60px 5px;
-    box-sizing: border-box;
-
-    .home_contribution_title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 43px;
-      letter-spacing: -1.2px;
-      color: #333;
-      margin-bottom: 40px;
-    }
-
-    .home_contribution_personnel {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-
-      .personnel {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin: 5px;
-
-        img {
-          border-radius: 50%;
-        }
-      }
-    }
-
-    .contribution_join {
-      .dk-button {
-        background-color: $sub-theme-color;
-      }
-    }
-  }
-}
-
-.home_subject {
   width: 100%;
   height: calc(100vh - 64px);
   margin: 0 auto;
 
   .home_content_main {
     height: 100%;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch;
+    @include scroll-style;
 
     >div {
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-    }
-
-    &_first,
-    &_second {
+      @include scroll-child-style;
       width: 100%;
       height: 100%;
       display: flex;
@@ -348,6 +213,7 @@ export default defineComponent({
 
     &_first {
       overflow: hidden;
+
       &_container {
         flex: 2;
         display: flex;
@@ -377,8 +243,7 @@ export default defineComponent({
 
           span {
             font-size: 16px;
-            line-height: 20px;
-            color: $sub-title-color;
+            @include sub-title-style;
           }
 
           .dk-button {
@@ -455,8 +320,8 @@ export default defineComponent({
 
       &_bill {
         flex: 5;
-        // background-color: rgb(249, 248, 221);
-        svg{
+
+        svg {
           width: 100%;
           height: 90%;
         }
@@ -464,36 +329,140 @@ export default defineComponent({
     }
 
     &_second {
-      background-color: rgb(107, 245, 215);
+      height: 100%;
+      &_container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        &_content {
+          width: 66.66%;
+          height: 60%;
+          flex: 2;
+          display: flex;
+          justify-content: center;
+          padding-top: 20px;
+          gap: 20px;
+
+          &_item {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            // border-radius: 5px;
+            @include border-style;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #fff;
+
+            img {
+              flex: 1;
+              margin-bottom: 10%;
+            }
+
+            h3 {
+              flex: 2;
+              @include sec-title-style;
+            }
+
+            p {
+              flex: 1;
+              @include sub-title-style;
+            }
+
+            .dk-button {
+              width: 100%;
+              margin-top: 10%;
+            }
+          }
+
+          &_item:hover {
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+          }
+        }
+
+        &_info {  
+          height: 30%;
+          flex: 1;
+          width: 100%;
+          background-color: $bg-color;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 20px 0 20px;
+          position: relative;
+
+          &_friendly {
+            flex: 8;
+            width: 66.66%;
+            display: flex;
+            flex-direction: column;
+            
+            h3 {
+              // flex: 1;
+              width: 100%;
+              @include sec-title-style;
+              // margin-bottom: 1rem;
+            }
+            
+            &_list {
+              // flex: 1;
+              width: 100%;
+              height: 8rem;
+              @include scroll-style;
+              display: flex;
+              flex-wrap: wrap;
+              flex-direction: row;
+              gap: 20px;
+
+              &_item {
+                @include scroll-child-style;
+                width: 8.3rem;
+                height: 3rem;
+                text-align: center;
+
+                img {
+                  border-radius: 5px;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                a {
+                  @include sub-title-style;
+                }
+
+              }
+
+              &_item:hover {
+                transform: scale(1.02);
+                cursor: pointer;
+
+                a {
+                  color: $theme-color;
+                }
+              }
+            }
+          }
+
+          &_empower {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+
+            p {
+              @include sub-title-style;
+            }
+          }
+        }
+      }
     }
 
   }
-}
-
-// ::-webkit-scrollbar {
-//   display: block;
-//   /*滚动条整体样式*/
-//   width: 6px;
-//   /*高宽分别对应横竖滚动条的尺寸*/
-//   height: 9px;
-// }
-// ::-webkit-scrollbar-thumb {
-//   /*滚动条里面小方块*/
-//   border-radius: 10px;
-//   background-color: rgb(28, 177, 164);
-//   background-image: -webkit-linear-gradient(45deg,
-//       rgba(255, 255, 255, 0.2) 25%,
-//       transparent 25%,
-//       transparent 50%,
-//       rgba(255, 255, 255, 0.2) 50%,
-//       rgba(255, 255, 255, 0.2) 75%,
-//       transparent 75%,
-//       transparent);
-// }
-
-
-// ::-webkit-scrollbar-track {
-//   /*滚动条里面轨道*/
-//   background-color: transparent;
-// }
-</style>
+}</style>
