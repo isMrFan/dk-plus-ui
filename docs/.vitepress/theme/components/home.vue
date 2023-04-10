@@ -1,3 +1,75 @@
+<script lang="ts">
+  /**
+   * @name home
+   * @author fanKai16 and wangYingJie
+   * @version 1.0.0
+   * @Time 2023/04/10
+   * @property {string} icon  图表class
+   * @property {Array}  contributionList  贡献者列表
+   * @property {string} mLogo  logo
+   * @property {Array}  infoList  信息列表
+   * @property {Array}  friendlyLinks  友情链接
+   * @function handleStartClick  点击开始使用
+   * @function handleJoinUs  点击加入我们
+   * @description 文档首页
+   **/
+  import { defineComponent, toRefs, reactive } from 'vue'
+  import dkbutton from '@dk-plus/components/dkbutton'
+  import DkIcon from '@dk-plus/components/icon'
+  import '@dk-plus/theme-chalk/src/index.scss'
+  import { contribution } from '../../json/contribution.json'
+  import { friendlyList } from '../../json/friendlyLinks.json'
+  import { useRouter } from 'vitepress'
+  type dkbuttonType = { type?: string; round?: boolean }
+  type dkiconType = { size?: string; color?: string }
+  export default defineComponent({
+    name: 'home',
+    components: {
+      'dk-button': dkbutton as unknown as dkbuttonType,
+      'dk-icon': DkIcon as unknown as dkiconType
+    },
+    setup() {
+      const router = useRouter()
+      const data = reactive({
+        contributionList: contribution,
+        mLogo: 'https://oss.cadwaladerss.com/images/wyjIcon.png',
+        infoList: [
+          {
+            id: 1,
+            title: '简单',
+            img: 'https://oss.cadwaladerss.com/images/home/jiandan.png',
+            message: '简单的API，简单的使用方式，让你的开发更加简单'
+          },
+          {
+            id: 2,
+            title: '轻量',
+            img: 'https://oss.cadwaladerss.com/images/home/qingliang.png',
+            message: '轻量的组件，轻量的体积，让你的项目更加轻量'
+          },
+          {
+            id: 3,
+            title: '可靠',
+            img: 'https://oss.cadwaladerss.com/images/home/kekao.png',
+            message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
+          }
+        ],
+        friendlyLinks:friendlyList
+      })
+      const mounted = reactive({
+        handleStartClick() {
+          router.go('/document/install.html')
+        },
+        handleJoinUs() {
+          window.location.href = 'https://github.com/CadWalaDers/dk-ui'
+        }
+      })
+      return {
+        ...toRefs(data),
+        ...toRefs(mounted),
+      }
+    }
+  })
+</script>
 <template>
   <div class="home_subject">
     <div class="home_content_main">
@@ -60,16 +132,17 @@
               <div class="home_content_main_second_container_info_friendly_list">
                 <div
                   class="home_content_main_second_container_info_friendly_list_item"
-                  v-for="item in friendlyLinks"
-                  :key="item.logoSrc"
+                  v-for="(item,index) in friendlyLinks"
+                  :key="index"
                 >
-                  <img :src="item.logoSrc" alt="" />
-                  <!-- <a :href="item.link" target="_blank">{{ item.name }}</a> -->
+                  <a :href="item.logoSrc" target="_blank"> 
+                    <img :src="item.logoImg" alt="" />
+                  </a>
                 </div>
               </div>
             </div>
             <div class="home_content_main_second_container_info_empower">
-              <p>Copyright 2023 dkPlus UlI奥ICP备1234567890号</p>
+              <p>Copyright 2023 cadwaladerss(dk-plus) 京ICP备2022007747号-1</p>
             </div>
           </div>
         </div>
@@ -77,92 +150,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-  import { defineComponent, toRefs, reactive } from 'vue'
-  import dkbutton from '@dk-plus/components/dkbutton'
-  import Icon from '@dk-plus/components/Icon'
-  import '@dk-plus/theme-chalk/src/index.scss'
-  import { contribution } from '../../json/contribution.json'
-  import { friendlyList } from '../../json/friendlyLinks.json'
-  import { useRouter } from 'vitepress'
-  type dkbuttonType = { type?: string; round?: boolean }
-  type dkiconType = { size?: string; color?: string }
 
-  /** 处理第一页内容 */
-  const handleFirstEffect = () => {
-    const router = useRouter()
-    /** 开始使用 跳转到文档 */
-    const handleStartClick = () => {
-      router.go('/document/install.html')
-    }
-    /** 跳转到git */
-    const handleJoinUs = () => {
-      // router.go('https://github.com/CadWalaDers/dk-ui')
-      window.location.href = 'https://github.com/CadWalaDers/dk-ui'
-    }
-    return {
-      handleStartClick,
-      handleJoinUs
-    }
-  }
-  /** 第二页 */
-  const handleInfoEffect = list => {
-    const data = reactive({
-      infoList: [
-        // 信息列表
-        {
-          id: 1,
-          title: '简单',
-          img: 'https://pic8.58cdn.com.cn/nowater/webim/big/n_v26a383d9b0ac54169a5b3f03d886386eb.png',
-          message: '简单的API，简单的使用方式，让你的开发更加简单'
-        },
-        {
-          id: 2,
-          title: '轻量',
-          img: 'https://pic1.58cdn.com.cn/nowater/webim/big/n_v284bf0e076b634b40aafdc970c17d3a97.png',
-          message: '轻量的组件，轻量的体积，让你的项目更加轻量'
-        },
-        {
-          id: 3,
-          title: '可靠',
-          img: 'https://pic4.58cdn.com.cn/nowater/webim/big/n_v260db43e549a74c0385ff2db6d5e47d49.png',
-          message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
-        }
-      ],
-      friendlyLinks: list // 友情链接
-    })
-    return {
-      ...toRefs(data)
-    }
-  }
-
-  export default defineComponent({
-    name: 'home',
-    components: {
-      'dk-button': dkbutton as unknown as dkbuttonType,
-      'dk-icon': Icon as unknown as dkiconType
-    },
-    setup() {
-      const data = reactive({
-        contributionList: contribution
-      })
-
-      // logo地址
-      const mLogo =
-        'https://oss.cadwaladerss.com/images/wyjIcon.png'
-      const { handleStartClick, handleJoinUs } = handleFirstEffect()
-      const { infoList, friendlyLinks } = handleInfoEffect(friendlyList)
-      return {
-        ...toRefs(data),
-        mLogo,
-        handleStartClick,
-        handleJoinUs,
-        infoList,
-        friendlyLinks
-      }
-    }
-  })
-</script>
 <style lang="scss" scoped>
   @import '../style/global.scss';
 
@@ -371,7 +359,7 @@
             position: relative;
 
             &_friendly {
-              flex: 8;
+              flex:1;
               width: 66.66%;
               display: flex;
               flex-direction: column;
@@ -386,8 +374,7 @@
               &_list {
                 // flex: 1;
                 width: 100%;
-                height: 8rem;
-                @include scroll-style;
+                height: auto;
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: row;
