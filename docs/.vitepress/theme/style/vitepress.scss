@@ -1,14 +1,15 @@
 @import './global.scss';
 .VPNav {
   border-bottom: 1px solid #eee;
-}
-.VPNav {
   background-color: #fff;
   .VPNavBar {
     .container {
       width: 75%;
     }
   }
+}
+.VPNavDark{
+  border-bottom: 1px solid #3a3a3a;
 }
 .VPImage {
   width: 30px;
