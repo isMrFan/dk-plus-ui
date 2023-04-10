@@ -65,10 +65,9 @@ export default defineConfig({
      * @see logo https://vitepress.vuejs.org/config/theme-configs#logo
      */
     logo: {
-      // src: 'https://oss.cadwaladerss.com/images/24ICON.png',
-      src: 'https://pic6.58cdn.com.cn/nowater/webim/big/n_v26b2afb7f4ffc4555a2a70cab60f77b7c.png',
+      src: 'https://oss.cadwaladerss.com/images/wyjIcon.png',
       alt: 'dk-plus'
     },
-    siteTitle: 'dk-plus' 
+    siteTitle: 'dk-plus'
   }
 })

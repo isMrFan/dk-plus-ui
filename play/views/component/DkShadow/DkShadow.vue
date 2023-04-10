@@ -3,8 +3,7 @@
     <h2>Dk-Shadow 组件</h2>
     <p>基础用法</p>
     <p>
-      type
-      用来判定是标题还是内容(title|标题,box|自定义内容,默认为box)(标题插槽|slot-left
+      type 用来判定是标题还是内容(title|标题,box|自定义内容,默认为box)(标题插槽|slot-left
       -左插槽,slot-right -右插槽,slot-box -内容插槽)
     </p>
     <p>shadowClass 自定义样式 默认: -</p>
@@ -126,7 +125,7 @@
       font-weight: normal;
       color: #1f2f3d;
     }
-    h4{
+    h4 {
       margin-top: 40px;
     }
     p {
