@@ -388,6 +388,9 @@ export default defineComponent({
               width: 100%;
               margin-top: 10%;
             }
+            .dk-button:hover{
+              border: .4px solid #409eff !important;
+            }
           }
 
           &_item--dark {
