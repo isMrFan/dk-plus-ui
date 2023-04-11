@@ -13,6 +13,7 @@ export default defineConfig({
   title: 'dk-plus',
   head,
   description,
+  appearance: true,
   /**
    * 是否显示最后更新时间
    *

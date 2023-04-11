@@ -1,4 +1,16 @@
 @import './global.scss';
+.VPNav {
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  .VPNavBar {
+    .container {
+      width: 75%;
+    }
+  }
+}
+.VPNavDark{
+  border-bottom: 1px solid #3a3a3a;
+}
 
 // 菜单栏
 .VPSidebar.open {
@@ -21,7 +33,6 @@
   height: 8px;
   cursor: pointer;
 }
-
 
 .VPImage {
   width: 30px;

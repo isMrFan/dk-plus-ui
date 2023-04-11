@@ -91,3 +91,17 @@ $scroll-child-style-list: (
     #{$key}: $value;
   }
 }
+
+$dark-bg-color: #1e1e20; // 暗黑背景题色
+$dark-text-color: #dfdfd8; // 暗黑字体题色
+$dark-main-bg-color: #252529; // 暗黑主背景题色
+$dark-btn-bg-color: #313136; // 暗黑按钮背景题色
+$dark-border-color: #8a8a8e; // 暗黑边框题色
+// 暗黑模式
+.dark-style {
+  background-color: #1e1e20 !important;
+  background: #1e1e20 !important;
+  *{
+    background-color: #1e1e20;
+  }
+}
