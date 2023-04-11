@@ -68,10 +68,10 @@ export default defineComponent({
         data.isDark = false
       }
       if (data.isDark) {
-        VPNav!.classList.add('dark-style')
+        // VPNav!.classList.add('dark-style')
         VPNav!.classList.add('VPNavDark')
       } else {
-        VPNav!.classList.remove('dark-style')
+        // VPNav!.classList.remove('dark-style')
         VPNav!.classList.remove('VPNavDark')
       }
     }
