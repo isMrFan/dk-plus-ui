@@ -60,20 +60,18 @@ export default defineComponent({
     })
     // 切换主题
     const changeTheme = () => {
-      if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-        const VPNav = document!.querySelector('.VPNav') 
-        if (document.querySelector('html')!.classList.contains('dark')) {
-          data.isDark = true
-        } else {
-          data.isDark = false
-        }
-        if (data.isDark) {
-          VPNav!.classList.add('dark-style')
-          VPNav!.classList.add('VPNavDark')
-        } else {
-          VPNav!.classList.remove('dark-style')
-          VPNav!.classList.remove('VPNavDark')
-        }
+      const VPNav = document.querySelector('.VPNav')
+      if (document.querySelector('html').classList.contains('dark')) {
+        data.isDark = true
+      } else {
+        data.isDark = false
+      }
+      if (data.isDark) {
+        // VPNav!.classList.add('dark-style')
+        VPNav!.classList.add('VPNavDark')
+      } else {
+        // VPNav!.classList.remove('dark-style')
+        VPNav!.classList.remove('VPNavDark')
       }
     }
     // 页面初始化 设置 VPSwitch addEventListener
