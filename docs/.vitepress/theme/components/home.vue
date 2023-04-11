@@ -13,17 +13,17 @@
  * @function handleJoinUs  点击加入我们
  * @description 文档首页
  **/
-import { defineComponent, toRefs, reactive, nextTick } from 'vue'
+import { defineComponent, toRefs, reactive, watch, onMounted, onUnmounted, ref, nextTick } from 'vue'
 import dkbutton from '@dk-plus/components/dkbutton'
 import DkIcon from '@dk-plus/components/icon'
 import '@dk-plus/theme-chalk/src/index.scss'
 import { contribution } from '../../json/contribution.json'
 import { friendlyList } from '../../json/friendlyLinks.json'
 import { useRouter } from 'vitepress'
+// import {  } from 'process'
 
 type dkbuttonType = { type?: string; round?: boolean }
 type dkiconType = { size?: string; color?: string }
-let document: Document;
 export default defineComponent({
   name: 'home',
   components: {
@@ -31,6 +31,7 @@ export default defineComponent({
     'dk-icon': DkIcon as unknown as dkiconType
   },
   setup() {
+
     const router = useRouter()
     const data = reactive({
       contributionList: contribution,
@@ -57,6 +58,8 @@ export default defineComponent({
       ],
       friendlyLinks: friendlyList,
       isDark: false, // 是否是暗黑模式
+      isMountThemeBtn: -1, // 挂载主题切换按钮的下标
+      w: 0
     })
     // 切换主题
     const changeTheme = () => {
@@ -67,27 +70,59 @@ export default defineComponent({
         data.isDark = false
       }
       if (data.isDark) {
-        // VPNav!.classList.add('dark-style')
+        VPNav!.classList.add('dark-style')
         VPNav!.classList.add('VPNavDark')
       } else {
-        // VPNav!.classList.remove('dark-style')
+        VPNav!.classList.remove('dark-style')
         VPNav!.classList.remove('VPNavDark')
       }
     }
-    // 页面初始化 设置 VPSwitch addEventListener
-    const init = () => {
-      const VPSwitch = document.querySelector('.VPSwitch')
-      VPSwitch!.addEventListener('click', () => {
-        data.isDark = !data.isDark
-        changeTheme()
-      })
+    // 用户点击菜单时 挂载主题切换按钮点击事件
+    const mountThemeBtn = () => {
+      const btnSwitch = document.getElementsByClassName('VPSwitchAppearance')
+      const VPSwitch = btnSwitch[data.isMountThemeBtn]
+      if (VPSwitch) {
+        VPSwitch!.addEventListener('click', (e) => {
+          data.isDark = !data.isDark
+          changeTheme()
+        })
+      }
     }
-    nextTick(() => {
-      setTimeout(() => {
-        // init()
-        // changeTheme()
-      }, 1000)
+
+    // 验证窗口宽度
+    const isMobile = () => {
+      const width = document.body.clientWidth;
+      if (width >= 1280) {
+        data.isMountThemeBtn = 0
+        mountThemeBtn()
+        return 'windows'
+      } else if (width > 767 && width < 1280) {
+        const VPNavBarExtra = document.getElementsByClassName('VPNavBarExtra')[0]
+        VPNavBarExtra!.addEventListener('click', (e) => {
+          data.isMountThemeBtn = 1
+          mountThemeBtn()
+        })
+        return 'pad'
+      } else {
+        const VPNavBarExtra = document.getElementsByClassName('VPNavBarHamburger')[0]
+        VPNavBarExtra!.addEventListener('click', (e) => {
+          data.isMountThemeBtn = 2
+          mountThemeBtn()
+        })
+        return 'mobile'
+      }
+    }
+
+    onMounted(() => {
+      isMobile()
+      window.addEventListener('resize', isMobile)
+      changeTheme()
     })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', () => { })
+    })
+
     const mounted = reactive({
       handleStartClick() {
         router.go('/document/install.html')
@@ -95,13 +130,13 @@ export default defineComponent({
       handleJoinUs() {
         window.location.href = 'https://github.com/CadWalaDers/dk-ui'
       },
-      handleColorSchemeChange(e) {
-       console.log("e", e)
+      showInfo() {
+        router.go('/document/install.html')
       }
     })
     return {
       ...toRefs(data),
-      ...toRefs(mounted),
+      ...toRefs(mounted)
     }
   }
 })
@@ -128,8 +163,8 @@ export default defineComponent({
             </svg>
             <p :class="isDark ? 'dark-text' : ''">DK-Plus</p>
             <span :class="isDark ? 'dark-text' : ''">一套基于 Vue3.0 的 UI 组件库</span>
-            <dk-button @click="handleStartClick" class="label--active_hover"
-              type="primary">开始使用 <dk-icon class="dk-icon-play" size="14"></dk-icon>
+            <dk-button @click="handleStartClick" class="label--active_hover" type="primary">开始使用 <dk-icon
+                class="dk-icon-play" size="14"></dk-icon>
             </dk-button>
           </div>
           <div :class="isDark ? 'contribution dark-contribution' : 'contribution'">
@@ -142,8 +177,8 @@ export default defineComponent({
               </div>
             </div>
             <div class="contribution_join">
-              <dk-button :class="isDark ? 'btn-dark-bg' : ''" @click="handleJoinUs" class="label--active_hover" size="small"
-                type="success" round>加入其中</dk-button>
+              <dk-button :class="isDark ? 'btn-dark-bg' : ''" @click="handleJoinUs" class="label--active_hover"
+                size="small" type="success" round>加入其中</dk-button>
             </div>
           </div>
         </div>
@@ -157,18 +192,19 @@ export default defineComponent({
           <div class="home_content_main_second_container_content">
             <div
               :class="isDark ? 'home_content_main_second_container_content_item home_content_main_second_container_content_item--dark' : 'home_content_main_second_container_content_item'"
-              v-for="item in infoList" :key="item.id">
+              v-for="item in infoList" :key="item.id" @click="showInfo">
               <img :src="item.img" alt="" />
               <h3 :class="isDark ? 'dark-text' : ''">{{ item.title }}</h3>
               <p :class="isDark ? 'dark-text' : ''">{{ item.message }}</p>
               <dk-button :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''">查看详情</dk-button>
             </div>
           </div>
-          <div :class="isDark ? 'home_content_main_second_container_info home_content_main_second_container_info--dark' : 'home_content_main_second_container_info'">
+          <div
+            :class="isDark ? 'home_content_main_second_container_info home_content_main_second_container_info--dark' : 'home_content_main_second_container_info'">
             <div class="home_content_main_second_container_info_friendly">
               <h3>友情链接</h3>
               <div class="home_content_main_second_container_info_friendly_list">
-                <div :class="isDark ? 'btn-dark' : ''"   class="home_content_main_second_container_info_friendly_list_item"
+                <div :class="isDark ? 'btn-dark' : ''" class="home_content_main_second_container_info_friendly_list_item"
                   v-for="(item, index) in friendlyLinks" :key="index">
                   <a :href="item.logoSrc" target="_blank">
                     <img :src="item.logoImg" alt="" />
@@ -203,13 +239,14 @@ export default defineComponent({
       width: 100%;
       height: 100%;
       display: flex;
+
     }
 
     &_first {
       overflow: hidden;
 
       &_container {
-        flex: 2;
+        flex: 3;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -326,10 +363,14 @@ export default defineComponent({
 
       &_bill {
         flex: 5;
+        position: relative;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        svg {
-          width: 100%;
-          height: 90%;
+        img {
+          max-width: 80%;
         }
 
         &_img--dark {
@@ -339,7 +380,7 @@ export default defineComponent({
     }
 
     &_second {
-      height: 100%; 
+      height: 100%;
 
       &_container {
         width: 100%;
@@ -391,7 +432,8 @@ export default defineComponent({
               width: 100%;
               margin-top: 10%;
             }
-            .dk-button:hover{
+
+            .dk-button:hover {
               border: .4px solid #409eff !important;
             }
           }
@@ -478,6 +520,7 @@ export default defineComponent({
             }
           }
         }
+
         &_info--dark {
           background-color: $dark-main-bg-color;
         }
@@ -486,13 +529,128 @@ export default defineComponent({
   }
 }
 
+@media screen and (max-width:780px) {
+  .home_subject {
+    .home_content_main {
+      &_first {
+        &_container {
+          flex: 5;
+        }
+
+        &_bill {
+          flex: 1;
+          position: relative;
+          top: -200%;
+        }
+      }
+    }
+  }
+}
+
+;
+
+@media screen and (max-width:720px) {
+  .home_subject {
+    .home_content_main {
+      &_second {
+        &_container {
+          &_content {
+            width: 96%;
+            flex-direction: column;
+            gap: .5rem;
+
+            &_item {
+              width: 100%;
+              height: 3rem;
+              min-width: 3rem;
+              // flex-direction: row;
+              align-items: start;
+              padding-left: 7rem;
+              gap: 1rem;
+              position: relative;
+              gap: 0rem;
+
+              img {
+                flex: 1;
+                width: 4rem;
+                margin: 0;
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+
+              h3 {
+                flex: 1;
+                margin-bottom: 2rem;
+                margin: 0;
+                line-height: 1rem;
+              }
+
+              p {
+                flex: 2;
+                line-height: 1rem;
+              }
+
+              .dk-button {
+                display: none;
+              }
+            }
+
+            &_item:hover {
+              transform: scale(1);
+              box-shadow: none;
+            }
+
+            &_item::active {
+              transform: scale(.98);
+            }
+          }
+
+          &_info {
+            &_friendly {
+              width: 96%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+;
+
+@media screen and (max-width:350px) {
+  .home_subject {
+    .home_content_main {
+      &_second {
+        &_container {
+          &_info {
+            &_friendly {
+              &_list {
+                &_item {
+                  width: 46%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+;
+
 .btn-dark-bg {
   background-color: $dark-btn-bg-color !important;
 }
-.btn-dark-bg-border{
+
+.btn-dark-bg-border {
   border: .4px solid $dark-border-color !important;
 }
-.dark-text{
+
+.dark-text {
   color: $dark-text-color !important;
 }
 </style>
