@@ -339,7 +339,7 @@ export default defineComponent({
     }
 
     &_second {
-      height: 100%;
+      height: 100%; 
 
       &_container {
         width: 100%;
