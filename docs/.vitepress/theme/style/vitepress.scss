@@ -1,17 +1,7 @@
 @import './global.scss';
-.VPNav {
-  border-bottom: 1px solid #eee;
-  background-color: #fff;
-  .VPNavBar {
-    .container {
-      width: 75%;
-    }
-  }
-}
 .VPNavDark{
   border-bottom: 1px solid #3a3a3a;
 }
-
 // 菜单栏
 .VPSidebar.open {
   z-index: 99999;

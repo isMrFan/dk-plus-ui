@@ -13,17 +13,17 @@
  * @function handleJoinUs  点击加入我们
  * @description 文档首页
  **/
-import { defineComponent, toRefs, reactive, watch, onMounted, nextTick } from 'vue'
+import { defineComponent, toRefs, reactive, nextTick } from 'vue'
 import dkbutton from '@dk-plus/components/dkbutton'
 import DkIcon from '@dk-plus/components/icon'
 import '@dk-plus/theme-chalk/src/index.scss'
 import { contribution } from '../../json/contribution.json'
 import { friendlyList } from '../../json/friendlyLinks.json'
 import { useRouter } from 'vitepress'
-// import {  } from 'process'
 
 type dkbuttonType = { type?: string; round?: boolean }
 type dkiconType = { size?: string; color?: string }
+let document: Document;
 export default defineComponent({
   name: 'home',
   components: {
@@ -31,7 +31,6 @@ export default defineComponent({
     'dk-icon': DkIcon as unknown as dkiconType
   },
   setup() {
-
     const router = useRouter()
     const data = reactive({
       contributionList: contribution,
@@ -61,18 +60,20 @@ export default defineComponent({
     })
     // 切换主题
     const changeTheme = () => {
-      const VPNav = document.querySelector('.VPNav')
-      if (document.querySelector('html').classList.contains('dark')) {
-        data.isDark = true
-      } else {
-        data.isDark = false
-      }
-      if (data.isDark) {
-        VPNav!.classList.add('dark-style')
-        VPNav!.classList.add('VPNavDark')
-      } else {
-        VPNav!.classList.remove('dark-style')
-        VPNav!.classList.remove('VPNavDark')
+      if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+        const VPNav = document!.querySelector('.VPNav') 
+        if (document.querySelector('html')!.classList.contains('dark')) {
+          data.isDark = true
+        } else {
+          data.isDark = false
+        }
+        if (data.isDark) {
+          VPNav!.classList.add('dark-style')
+          VPNav!.classList.add('VPNavDark')
+        } else {
+          VPNav!.classList.remove('dark-style')
+          VPNav!.classList.remove('VPNavDark')
+        }
       }
     }
     // 页面初始化 设置 VPSwitch addEventListener
@@ -84,16 +85,20 @@ export default defineComponent({
       })
     }
     nextTick(() => {
-      init()
-      changeTheme()
+      setTimeout(() => {
+        // init()
+        // changeTheme()
+      }, 1000)
     })
-
     const mounted = reactive({
       handleStartClick() {
         router.go('/document/install.html')
       },
       handleJoinUs() {
         window.location.href = 'https://github.com/CadWalaDers/dk-ui'
+      },
+      handleColorSchemeChange(e) {
+       console.log("e", e)
       }
     })
     return {

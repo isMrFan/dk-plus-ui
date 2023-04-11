@@ -9,6 +9,7 @@ cache/
 .history
 **/*.cache
 **/*.dist
+**/*.temp
 pnpm-lock.yaml
 .DS_Store
 

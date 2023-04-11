@@ -9,11 +9,12 @@ import { head } from './data/head'
  *
  * @see Introduction https://vitepress.vuejs.org/config/introduction
  */
-export default defineConfig({
+const isDeFineConfig= defineConfig({
   title: 'dk-plus',
   head,
   description,
   appearance: true,
+  
   /**
    * 是否显示最后更新时间
    *
@@ -49,6 +50,7 @@ export default defineConfig({
     lastUpdatedText: '最后更新时间',
     nav,
     sidebar,
+    
     /**
      * 配置导航栏图表
      *
@@ -72,3 +74,6 @@ export default defineConfig({
     siteTitle: 'dk-plus'
   }
 })
+module.exports = {
+  ...isDeFineConfig
+}
