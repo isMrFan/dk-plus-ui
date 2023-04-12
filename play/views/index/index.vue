@@ -69,6 +69,10 @@
           {
             name: '按钮组件',
             path: '/Dkbutton'
+          },
+          {
+            name: '输入框组件',
+            path: '/Dkinput'
           }
         ]
       })

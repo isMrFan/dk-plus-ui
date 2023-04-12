@@ -15,6 +15,7 @@ hljs.registerLanguage('javascript', javascript)
 import dkIcon from '@dk-plus/components/icon'
 import DkShadow from '@dk-plus/components/dkshadow'
 import dkbutton from '@dk-plus/components/dkbutton'
+import dkinput from '@dk-plus/components/dkinput'
 import '@dk-plus/theme-chalk/src/index.scss'
 
 //全局的npm install 引用
@@ -28,4 +29,5 @@ app.use(hljsVuePlugin)
 app.use(dkIcon)
 app.use(DkShadow)
 app.use(dkbutton)
+app.use(dkinput)
 app.mount('#app')
