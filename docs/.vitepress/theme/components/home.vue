@@ -14,24 +14,12 @@
  * @description 文档首页
  **/
 import { defineComponent, toRefs, reactive, onMounted, onUnmounted} from 'vue'
-import dkbutton from '@dk-plus/components/dkbutton'
-import DkIcon from '@dk-plus/components/icon'
-import '@dk-plus/theme-chalk/src/index.scss'
 import { contribution } from '../../json/contribution.json'
 import { friendlyList } from '../../json/friendlyLinks.json'
 import { useRouter } from 'vitepress'
-// import {  } from 'process'
-
-type dkbuttonType = { type?: string; round?: boolean, class?: string, size?:string }
-type dkiconType = { size?: string; color?: string, class?: string }
 export default defineComponent({
   name: 'home',
-  components: {
-    'dk-button': dkbutton as unknown as dkbuttonType,
-    'dk-icon': DkIcon as unknown as dkiconType
-  },
   setup() {
-
     const router = useRouter()
     const data = reactive({
       contributionList: contribution,

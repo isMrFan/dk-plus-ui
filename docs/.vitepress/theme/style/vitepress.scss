@@ -36,3 +36,28 @@
   // margin: 0;
   padding: 0 !important;
 }
+
+
+.vp-table__dk{
+   width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      display: inline-table;
+    }
+
+    th,
+    tr:nth-child(2n) {
+      background-color: transparent;
+    }
+
+    td,
+    th {
+      text-align: left;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+}

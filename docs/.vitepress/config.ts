@@ -3,7 +3,8 @@ import { description } from './data/description'
 import { nav } from './data/nav'
 import { sidebar } from './data/sidebar'
 import { head } from './data/head'
-
+import { PluginModule, PluginDkTable } from './plugins'
+import type MarkdownIt from 'markdown-it'
 /**
  * vitepress 配置项文件
  *
@@ -72,6 +73,13 @@ const isDeFineConfig= defineConfig({
       alt: 'dk-plus'
     },
     siteTitle: 'dk-plus'
+  },
+  markdown: {
+    config: (md: MarkdownIt): void => {
+      md.use(PluginDkTable)
+      md.use(PluginModule)
+    }
+  
   }
 })
 module.exports = {

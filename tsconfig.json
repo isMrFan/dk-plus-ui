@@ -29,6 +29,11 @@
     "**/__tests__",
     "dist/**"
   ],
+  "types": [
+    // 类型声明
+    "node",
+    "vue"
+  ],
   "paths": {
     "*": [
       "node_modules/*",

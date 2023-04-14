@@ -4,11 +4,11 @@
  * @Time 2023/01/04
  * @description  入口文件
  **/
-import { dkshadow, dkIcon, dkbutton, dkinput } from '@dk-plus/components'
+import { dkshadow, dkIcon, dkbutton, dkinput,dkcodedisplay } from '@dk-plus/components'
 import type { App } from 'vue' // ts中的优化只获取类型
 // ....
 
-const components = [dkshadow, dkIcon, dkbutton, dkinput]
+const components = [dkshadow, dkIcon, dkbutton, dkinput,dkcodedisplay]
 const install = (app: App) => {
   // 每个组件在编写的时候都提供了install方法
 

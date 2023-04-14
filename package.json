@@ -63,6 +63,7 @@
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
-    "@dk-plus/utils": "workspace:^1.0.0"
+    "@dk-plus/utils": "workspace:^1.0.0",
+    "@dk-plus/vite-plugin-vue-dk-setup-name": "workspace:^0.1.0"
   }
 }

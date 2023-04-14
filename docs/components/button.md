@@ -10,3 +10,10 @@
 
 `type` 属性可以配置不同的按钮类型，展示不同的颜色状态
 
+::: module 
+
+<template #source>
+  <Dk-Button type="primary" size="small" loading>默认加载中</Dk-Button>
+</template>
+
+:::
