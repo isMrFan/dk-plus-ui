@@ -11,5 +11,9 @@
   "dependencies": {
     "@algolia/client-search": "^4.17.0",
     "vitepress": "1.0.0-alpha.65"
+  },
+  "devDependencies": {
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0"
   }
 }
