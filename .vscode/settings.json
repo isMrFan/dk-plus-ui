@@ -1,11 +1,13 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
+    "btnconfig",
     "dkbutton",
     "Dkbuttonsm",
     "dkicon",
     "dkinput",
     "dkshadow",
+    "inputconfig",
     "maxlength",
     "Ying"
   ]
