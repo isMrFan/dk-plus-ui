@@ -1,0 +1,27 @@
+.dkcodedisplay{
+  width: 100%;
+  .dkcodedisplay_open{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 17px;
+    border-top: 1px solid #e4e7ed;
+    border-bottom: 1px solid #e4e7ed;
+    box-sizing: border-box;
+    span{
+      cursor: pointer;
+    }
+    span:hover{
+      color: #10b981;
+    }
+  }
+  .dkcodedisplay_code {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .dkcodedisplay_code_true{
+    max-height: 99999px;
+    transition: 1.5s linear forwards;
+  }
+}
