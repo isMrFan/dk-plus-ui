@@ -1,0 +1,30 @@
+@use './mixins/mixin.scss' as *;
+// 基础样式
+.dk-input {
+  position: relative;
+  input{
+    width: 100%;
+    height: 34px;
+    border: 1px solid map-get($input-theme-colors, '');
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 100%;
+    display: inline-block;
+    transition: all 0.3s ease;
+    padding: 0 10px;
+    color: map-get($input-theme-colors, 'text');
+  }
+  input:focus{
+    outline: none;
+  }
+  input::placeholder{
+    color: map-get($map: $input-theme-colors, $key: '');
+  }
+  input:focus{
+    border-color: map-get($map: $input-theme-colors, $key: 'primary');
+  }
+  input:hover{
+    cursor: pointer;
+  }
+}
+
