@@ -2,33 +2,48 @@
 // 基础样式
 .dk-input {
   position: relative;
-  .dk-input{
+  display: flex;
+  input{
     width: 100%;
     height: 34px;
+    padding: 0 10px;
     border: 1px solid map-get($input-theme-colors, '');
     border-radius: 4px;
     font-size: 13px;
     line-height: 100%;
     display: inline-block;
     transition: all 0.3s ease;
-    padding: 0 10px;
     color: map-get($input-theme-colors, 'text');
     cursor: pointer;
   }
-  .dk-input:focus{
+  input:focus{
     outline: none;
   }
-  .dk-input::placeholder{
+  input::placeholder{
     color: map-get($map: $input-theme-colors, $key: '');
   }
-  .dk-input:focus{
+  input:focus{
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
+  }
+
+  .dk-icon{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: map-get($map: $input-theme-colors, $key: '');
   }
 
   // 禁用状态
   .dk-input-disabled{
     background-color: map-get($map: $input-theme-colors, $key: 'disabled');
     cursor: not-allowed;
+  }
+
+  // 可清空状态
+  .dk-input-clearable{
+    padding-right: 25px;
   }
 }
 
