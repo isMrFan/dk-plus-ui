@@ -1,0 +1,11 @@
+{
+  "name": "@dk-plus/vite-plugin-vue-dk-setup-name",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.ts",
+  "module": "index.ts",
+  "devDependencies": {
+    "magic-string": "^0.30.0",
+    "unplugin": "^1.3.1"
+  }
+}

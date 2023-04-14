@@ -5,6 +5,7 @@ export default (): UserConfigExport => {
       port: 6099
     },
     optimizeDeps: {
+      exclude: ['vitepress'],
       include: ['vue', '@vueuse/core']
     }
   }
