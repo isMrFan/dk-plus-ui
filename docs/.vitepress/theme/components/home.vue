@@ -64,7 +64,7 @@ export default defineComponent({
     // 切换主题
     const changeTheme = () => {
       const VPNav = document.querySelector('.VPNav')
-      if (document.querySelector('html').classList.contains('dark')) {
+      if (document.querySelector('html')!.classList.contains('dark')) {
         data.isDark = true
       } else {
         data.isDark = false
