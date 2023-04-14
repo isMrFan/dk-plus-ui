@@ -87,6 +87,7 @@
         zidingyis: `<dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>`
       }
       const iconList = [
+        ['icon-del1', '删除'],
         ['icon-searchSmall', '搜索变小'],
         ['icon-searchBig', '搜索变大'],
         ['icon-searchFill', '文件'],

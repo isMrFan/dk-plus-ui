@@ -17,7 +17,14 @@ export default defineComponent({
   setup(props, { emit }) {
     console.log(emit);
 
-    let { type = "default", placeholder = "" } = props;
+    let {
+      type = "default", 
+      placeholder = "", 
+      modelValue,
+      disabled = false,
+      clearable = false
+    } = props;
+    // input 类型
     const inputType = computed(() => {
       type === "" ? (type = "default") : "";
       const list: Array<string> = [];
@@ -32,16 +39,22 @@ export default defineComponent({
       list.push(resClass);
       return resClass;
     });
-    // input事件
-    const onInput = (event: Event) => {
-      const target = event.target as HTMLInputElement;
-      emit("update:value", target.value);
-      console.log(target.value);
-    };
+    // 禁用类型
+    const disabledType = computed(() => {
+      return disabled ? 'dk-input-disabled' : ''
+    })
+    // 清空状态
+    const clearableType = computed(() => {
+      return clearable ? 'dk-input-clearable' : ''
+    })
     return {
       inputType,
       placeholder,
-      onInput,
+      modelValue,
+      disabledType,
+      disabled,
+      clearableType,
+      clearable
     };
   },
 });
@@ -50,11 +63,15 @@ export default defineComponent({
 <template>
   <div class="dk-input">
     <input
-      :value="value"
-      @input="onInput"
+      :class="[disabledType, clearableType]"
+      class="dk-input"
+      v-model="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       :type="inputType"
       autocomplete="off"
+      :disabled="disabled"
     />
+    <dk-icon></dk-icon>
   </div>
 </template>

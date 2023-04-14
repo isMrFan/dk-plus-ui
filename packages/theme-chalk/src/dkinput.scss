@@ -2,7 +2,7 @@
 // 基础样式
 .dk-input {
   position: relative;
-  input{
+  .dk-input{
     width: 100%;
     height: 34px;
     border: 1px solid map-get($input-theme-colors, '');
@@ -13,18 +13,22 @@
     transition: all 0.3s ease;
     padding: 0 10px;
     color: map-get($input-theme-colors, 'text');
+    cursor: pointer;
   }
-  input:focus{
+  .dk-input:focus{
     outline: none;
   }
-  input::placeholder{
+  .dk-input::placeholder{
     color: map-get($map: $input-theme-colors, $key: '');
   }
-  input:focus{
+  .dk-input:focus{
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
   }
-  input:hover{
-    cursor: pointer;
+
+  // 禁用状态
+  .dk-input-disabled{
+    background-color: map-get($map: $input-theme-colors, $key: 'disabled');
+    cursor: not-allowed;
   }
 }
 
