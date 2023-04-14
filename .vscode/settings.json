@@ -2,8 +2,10 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "btnconfig",
+    "codedisplay",
     "dkbutton",
     "Dkbuttonsm",
+    "dkcodedisplay",
     "dkicon",
     "dkinput",
     "dkshadow",

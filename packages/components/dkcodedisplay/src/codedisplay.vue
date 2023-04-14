@@ -3,16 +3,16 @@
     <dk-shadow>
       <slot name="code"></slot>
       <div class="dkcodedisplay_open">
-        <span @click="onOpen">{{ open?'关闭':'开启' }}</span>
+        <span @click="open = !open">{{ open?'关闭':'开启' }}</span>
       </div> 
-      <div class="dkcodedisplay_code" :class="{'dkcodedisplay_code_true':open}">
+      <div class="dkcodedisplay_code" :style="{'height': codeHeight}" >
         <slot />
       </div>
     </dk-shadow>
   </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent,reactive,toRefs } from 'vue'
+import { computed, defineComponent,reactive,toRefs, onMounted } from 'vue'
 import { CodeDisplay } from './codedisplay'
 export default defineComponent({
   name: 'dkcodedisplay',
@@ -20,16 +20,19 @@ export default defineComponent({
   setup(props) {
     const data = reactive({
       open: false,
-      expandableDiv:document.querySelector('.dkcodedisplay_code')
+      codeDom: null, // 展开的元素
     })
-    const onOpen = () => {
-      data.open = ! data.open
-    }
+    onMounted(() => {
+      data.codeDom = document.querySelector('.dkcodedisplay_code')?.querySelector('.language-html') || { clientHeight:0}
+    })
+    const codeHeight = computed(() => {
+      return data.open ? data.codeDom.clientHeight+20+'px' : '0px'
+    })
+    
     return {
       ...toRefs(data),
-      onOpen,
+      codeHeight
     }
   }
 })
- 
 </script>
