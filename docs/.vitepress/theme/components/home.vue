@@ -13,7 +13,7 @@
  * @function handleJoinUs  点击加入我们
  * @description 文档首页
  **/
-import { defineComponent, toRefs, reactive, watch, onMounted, onUnmounted, ref, nextTick } from 'vue'
+import { defineComponent, toRefs, reactive, onMounted, onUnmounted} from 'vue'
 import dkbutton from '@dk-plus/components/dkbutton'
 import DkIcon from '@dk-plus/components/icon'
 import '@dk-plus/theme-chalk/src/index.scss'
@@ -22,8 +22,8 @@ import { friendlyList } from '../../json/friendlyLinks.json'
 import { useRouter } from 'vitepress'
 // import {  } from 'process'
 
-type dkbuttonType = { type?: string; round?: boolean }
-type dkiconType = { size?: string; color?: string }
+type dkbuttonType = { type?: string; round?: boolean, class?: string, size?:string }
+type dkiconType = { size?: string; color?: string, class?: string }
 export default defineComponent({
   name: 'home',
   components: {
@@ -64,7 +64,7 @@ export default defineComponent({
     // 切换主题
     const changeTheme = () => {
       const VPNav = document.querySelector('.VPNav')
-      if (document.querySelector('html')!.classList.contains('dark')) {
+      if (document.querySelector('html')!.classList.contains('dark')) { 
         data.isDark = true
       } else {
         data.isDark = false
@@ -163,8 +163,9 @@ export default defineComponent({
             </svg>
             <p :class="isDark ? 'dark-text' : ''">DK-Plus</p>
             <span :class="isDark ? 'dark-text' : ''">一套基于 Vue3.0 的 UI 组件库</span>
-            <dk-button @click="handleStartClick" class="label--active_hover" type="primary">开始使用 <dk-icon
-                class="dk-icon-play" size="14"></dk-icon>
+            <dk-button @click="handleStartClick" class="label--active_hover" type="primary">
+              开始使用
+              <dk-icon class="dk-icon-play" size="14"></dk-icon>
             </dk-button>
           </div>
           <div :class="isDark ? 'contribution dark-contribution' : 'contribution'">
