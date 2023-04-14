@@ -12,8 +12,22 @@
 
 ::: module 
 
-<template #source>
-  <Dk-Button type="primary" size="small" loading>默认加载中</Dk-Button>
+<template #code>
+  <Dk-Button type="default">默认按钮</Dk-Button>
+  <Dk-Button type="primary">主要按钮</Dk-Button>
+  <Dk-Button type="success">成功按钮</Dk-Button>
+  <Dk-Button type="info">信息按钮</Dk-Button>
+  <Dk-Button type="warning">警告警告按钮</Dk-Button>
+  <Dk-Button type="danger">危险按钮</Dk-Button>
 </template>
+
+```html
+<Dk-Button type="default">默认按钮</Dk-Button>
+<Dk-Button type="primary">主要按钮</Dk-Button>
+<Dk-Button type="success">成功按钮</Dk-Button>
+<Dk-Button type="info">信息按钮</Dk-Button>
+<Dk-Button type="warning">警告警告按钮</Dk-Button>
+<Dk-Button type="danger">危险按钮</Dk-Button>
+```
 
 :::
