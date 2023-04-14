@@ -1,8 +1,8 @@
 
 import { ExtractPropTypes, PropType } from 'vue'
 export const DKinput = {
-  value: {
-    type: [String, Number] as PropType<string | number>,
+  modelValue: {
+    type: [String, Number] as PropType<string | number>
   },
   type: {
     type: String

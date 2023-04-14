@@ -1,11 +1,13 @@
-// input全局样式
+// input全局样式变量
 
+// 主题颜色
 $input-theme-colors: (
-  'text': #606266,
-  'primary': #409EFF,
-  'success': #67C23A,
-  'warning': #E6A23C,
-  'danger': #F56C6C,
-  'info': #909399,
-  '': #C0C4CC,
+  'disabled': #E4E7ED, // 禁用颜色
+  'text': #606266, // 文字颜色
+  'primary': #409EFF, // 主要颜色
+  'success': #67C23A, // 成功颜色
+  'warning': #E6A23C, // 警告颜色
+  'danger': #F56C6C, // 危险颜色
+  'info': #909399, // 信息颜色
+  '': #C0C4CC, // 默认颜色
 );

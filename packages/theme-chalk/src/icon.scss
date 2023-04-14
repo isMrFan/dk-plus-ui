@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'dk-ui-icons'; /* Project id */
-  src: url('./font/iconfont.woff2') format('woff2'),
+  src: url('./font//iconfont.woff2') format('woff2'),
     url('./font/iconfont.woff') format('woff'),
     url('./font/iconfont.ttf') format('truetype');
 }
@@ -11,12 +11,13 @@
 [class*='#{$namespace}-icon'] {
   font-family: 'dk-ui-icons' !important;
   font-size: 16px;
-  font-style: normal;
+  font-style: normal; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 $icons: (
+  del1: '\e628',
   halt: '\e626',
   play: '\e625',
   android: '\e881',

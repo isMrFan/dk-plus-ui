@@ -1,7 +1,7 @@
 <template>
   <div class="input">
     <div>基础用法</div>
-    <dk-input v-model="msg" placeholder="请输入内容" />
+    <dk-input v-model="msg" placeholder="请输入内容" clearable/>
     {{ msg }}
   </div>
 </template>
@@ -12,16 +12,8 @@ export default defineComponent({
   name: "DkInputComponent",
   setup() {
     let msg = ref("Hello World");
-    watch(msg, (val) => {
-      console.log(val);
-    });
-    const a = (a) => {
-      console.log(a);
-      
-    }
     return {
-      msg,
-      a
+      msg
     };
   },
 });
