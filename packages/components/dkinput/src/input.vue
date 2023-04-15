@@ -8,14 +8,15 @@
  * @property {boolean} disabled  是否禁用
  * @property {boolean} clearable  是否可清空
  * @property {string} modelValue  输入框值
- * @property {function} clear  清空输入框
- * @property {function} updateValue  更新输入框值
- * @property {function} inputType  输入框类型
- * @property {function} disabledType  禁用类型
- * @property {function} clearableType  清空状态样式
- * @property {function} isClearable  清空按钮状态
+ * @property {boolean} clear  清空输入框
+ * @property {string} updateValue  更新输入框值
+ * @property {string} inputType  输入框类型
+ * @property {string} disabledType  禁用类型
+ * @property {string} clearableType  清空状态样式
+ * @property {string} isClearable  清空按钮状态
+ * @property {string} inputModeType  清空按钮状态
  */
-import { defineComponent, computed, ref, reactive } from "vue";
+import { defineComponent, computed, ref, reactive, onMounted } from "vue";
 import { DKinput } from "./input";
 
 export default defineComponent({
@@ -38,18 +39,26 @@ export default defineComponent({
       list.push(resClass);
       return resClass;
     });
+    const inputModeType = computed(() => {
+      return type === "number" ? 'numeric' : 'text';
+    });
     const disabledType = computed(() => {
       return disabled ? "dk-input-disabled" : "";
     });
     const clearableType = computed(() => {
       return clearable ? "dk-input-clearable" : "";
     });
-    const isClearable = computed(() => {
-      return clearable && props.modelValue ? true : false;
-    });
+    const isClearable = computed(() => clearable && modelValue.value)
     const modelValue = ref(props.modelValue);
+    interface InputRef {
+      focus: () => void;
+    }
+    // const inputRef = ref<InputRef | null>(null);
     const clear = () => {
       modelValue.value = "";
+      //   if (inputRef.value !== null) {
+      //   inputRef.value.focus();
+      // }
       emit("update:modelValue", "");
     };
     const updateValue = (event: Event) => {
@@ -66,6 +75,7 @@ export default defineComponent({
       clear,
       updateValue,
       modelValue,
+      inputModeType
     };
   },
 });
@@ -81,7 +91,10 @@ export default defineComponent({
       :type="inputType"
       autocomplete="off"
       :disabled="disabled"
+      :inputmode="inputModeType"
+      ref="inputRef"
     />
+    <!-- 清空按钮 -->
     <dk-icon v-if="isClearable" @click="clear" :size="13" class="dk-icon-del1"></dk-icon>
   </div>
 </template>

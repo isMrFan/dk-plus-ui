@@ -3,7 +3,7 @@
 .dk-input {
   position: relative;
   display: flex;
-  input{
+  input {
     width: 100%;
     height: 34px;
     padding: 0 10px;
@@ -16,17 +16,17 @@
     color: map-get($input-theme-colors, 'text');
     cursor: pointer;
   }
-  input:focus{
+  input:focus {
     outline: none;
   }
-  input::placeholder{
+  input::placeholder {
     color: map-get($map: $input-theme-colors, $key: '');
   }
-  input:focus{
+  input:focus {
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
   }
 
-  .dk-icon{
+  .dk-icon {
     position: absolute;
     right: 5px;
     top: 50%;
@@ -36,14 +36,20 @@
   }
 
   // 禁用状态
-  .dk-input-disabled{
+  .dk-input-disabled {
     background-color: map-get($map: $input-theme-colors, $key: 'disabled');
     cursor: not-allowed;
   }
 
   // 可清空状态
-  .dk-input-clearable{
+  .dk-input-clearable {
     padding-right: 25px;
   }
-}
+  /* 隐藏上下箭头 */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
+}
