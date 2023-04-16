@@ -16,6 +16,10 @@
  * @property {string} isClearable  清空按钮状态
  * @property {string} inputModeType  清空按钮状态
  * @property {string} prefixIconType  前缀图标状态
+ * @property {string} suffixIconType  后缀图标状态
+ * @property {string} iconSuffix  后缀且清空按钮状态
+ * @property {string} prefixIcon  前缀图标
+ * @property {string} suffixIcon  后缀图标
  */
 import { defineComponent, computed, ref, reactive, onMounted } from "vue";
 import { DKinput } from "./input";
