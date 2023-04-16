@@ -72,6 +72,38 @@ export default defineComponent({
             type: "number"
           }
         },
+        {
+          title: "前缀图标",
+          code: `<dk-input placeholder="前缀图标" prefix-icon="dk-icon-search"/>`,
+          attrs: {
+            placeholder: "前缀图标",
+            prefixIcon: "dk-icon-search"
+          }
+        },
+        {
+          title: "后缀图标",
+          code: `<dk-input placeholder="后缀图标" suffix-icon="dk-icon-search"/>`,
+          attrs: {
+            placeholder: "后缀图标",
+            suffixIcon: "dk-icon-search",
+          }
+        },
+        // {
+        //   title: "前缀内容",
+        //   code: `<dk-input placeholder="前缀内容" prefix="￥"/>`,
+        //   attrs: {
+        //     placeholder: "前缀内容",
+        //     prefix: "￥"
+        //   }
+        // },
+        // {
+        //   title: "后缀内容",
+        //   code: `<dk-input placeholder="后缀内容" suffix=".00"/>`,
+        //   attrs: {
+        //     placeholder: "后缀内容",
+        //     suffix: ".00"
+        //   }
+        // },
       ]
     });
 

@@ -25,14 +25,21 @@
   input:focus {
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
   }
-
   .dk-icon {
     position: absolute;
-    right: 5px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     color: map-get($map: $input-theme-colors, $key: '');
+  }
+  // 清空按钮
+  .dk-icon-del1 {
+    right: 5px;
+  }
+
+  // 清空且后缀有图标
+  .dk-icon-clearable-suffix {
+    right: 30px;
   }
 
   // 禁用状态
@@ -45,11 +52,31 @@
   .dk-input-clearable {
     padding-right: 25px;
   }
+
   /* 隐藏上下箭头 */
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-
+  // 前缀图标input样式
+  .dk-input-prefix {
+    padding-left: 30px;
+  }
+  // 前缀图标
+  .dk-input-prefix-icon {
+    left: 10px;
+  }
+  // 后缀图标input样式
+  .dk-input-suffix {
+    padding-right: 30px;
+  }
+  // 后缀图标
+  .dk-input-suffix-icon {
+    right: 10px;
+  }
+  // 清空且后缀有图标
+  .dk-input-clearable-suffix {
+    padding-right: 55px;
+  }
 }

@@ -15,6 +15,7 @@
  * @property {string} clearableType  清空状态样式
  * @property {string} isClearable  清空按钮状态
  * @property {string} inputModeType  清空按钮状态
+ * @property {string} prefixIconType  前缀图标状态
  */
 import { defineComponent, computed, ref, reactive, onMounted } from "vue";
 import { DKinput } from "./input";
@@ -24,7 +25,14 @@ export default defineComponent({
   props: DKinput,
   emits: ["update:modelValue"],
   setup(props, { emit }) {
-    let { type = "default", placeholder = "", disabled, clearable } = props;
+    let {
+      type = "default",
+      placeholder = "",
+      disabled,
+      clearable,
+      prefixIcon,
+      suffixIcon,
+    } = props;
     const inputType = computed(() => {
       type === "" ? (type = "default") : "";
       const list: Array<string> = [];
@@ -39,32 +47,23 @@ export default defineComponent({
       list.push(resClass);
       return resClass;
     });
-    const inputModeType = computed(() => {
-      return type === "number" ? 'numeric' : 'text';
-    });
-    const disabledType = computed(() => {
-      return disabled ? "dk-input-disabled" : "";
-    });
-    const clearableType = computed(() => {
-      return clearable ? "dk-input-clearable" : "";
-    });
-    const isClearable = computed(() => clearable && modelValue.value)
+    const inputModeType = computed(() => type === "number" ? "numeric" : "text");
+    const disabledType = computed(() => disabled ? "dk-input-disabled" : "");
+    const clearableType = computed(() => clearable ? suffixIcon ? "dk-input-clearable-suffix" : 'dk-input-clearable' : "");
+    const isClearable = computed(() => clearable && modelValue.value);
     const modelValue = ref(props.modelValue);
-    interface InputRef {
-      focus: () => void;
-    }
-    // const inputRef = ref<InputRef | null>(null);
     const clear = () => {
       modelValue.value = "";
-      //   if (inputRef.value !== null) {
-      //   inputRef.value.focus();
-      // }
       emit("update:modelValue", "");
     };
     const updateValue = (event: Event) => {
       let target = event.target as HTMLInputElement;
       emit("update:modelValue", target.value);
     };
+
+    const prefixIconType = computed(() => (prefixIcon ? "dk-input-prefix" : ""));
+    const suffixIconType = computed(() => (suffixIcon ? "dk-input-suffix" : ""));
+    const iconSuffix = computed(() => suffixIcon ? "dk-icon-clearable-suffix" : "");
     return {
       inputType,
       placeholder,
@@ -75,7 +74,12 @@ export default defineComponent({
       clear,
       updateValue,
       modelValue,
-      inputModeType
+      inputModeType,
+      prefixIconType,
+      prefixIcon,
+      suffixIconType,
+      suffixIcon,
+      iconSuffix,
     };
   },
 });
@@ -84,7 +88,7 @@ export default defineComponent({
 <template>
   <div class="dk-input">
     <input
-      :class="[disabledType, clearableType]"
+      :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
       v-model="modelValue"
       @input="updateValue"
       :placeholder="placeholder"
@@ -95,6 +99,20 @@ export default defineComponent({
       ref="inputRef"
     />
     <!-- 清空按钮 -->
-    <dk-icon v-if="isClearable" @click="clear" :size="13" class="dk-icon-del1"></dk-icon>
+    <dk-icon v-if="isClearable" @click="clear" :size="13" class="dk-icon-del1" :class="iconSuffix"></dk-icon>
+    <!-- 前缀图标 -->
+    <dk-icon
+      v-if="prefixIcon"
+      :size="13"
+      class="dk-input-prefix-icon"
+      :class="prefixIcon"
+    ></dk-icon>
+    <!-- 后缀图标 -->
+    <dk-icon
+      v-if="suffixIcon"
+      :size="13"
+      class="dk-input-suffix-icon"
+      :class="suffixIcon"
+    ></dk-icon>
   </div>
 </template>
