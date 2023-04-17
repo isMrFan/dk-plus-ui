@@ -2,33 +2,81 @@
 // 基础样式
 .dk-input {
   position: relative;
-  .dk-input{
+  display: flex;
+  input {
     width: 100%;
     height: 34px;
+    padding: 0 10px;
     border: 1px solid map-get($input-theme-colors, '');
     border-radius: 4px;
     font-size: 13px;
     line-height: 100%;
     display: inline-block;
     transition: all 0.3s ease;
-    padding: 0 10px;
     color: map-get($input-theme-colors, 'text');
     cursor: pointer;
   }
-  .dk-input:focus{
+  input:focus {
     outline: none;
   }
-  .dk-input::placeholder{
+  input::placeholder {
     color: map-get($map: $input-theme-colors, $key: '');
   }
-  .dk-input:focus{
+  input:focus {
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
+  }
+  .dk-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: map-get($map: $input-theme-colors, $key: '');
+  }
+  // 清空按钮
+  .dk-icon-del1 {
+    right: 5px;
+  }
+
+  // 清空且后缀有图标
+  .dk-icon-clearable-suffix {
+    right: 30px;
   }
 
   // 禁用状态
-  .dk-input-disabled{
+  .dk-input-disabled {
     background-color: map-get($map: $input-theme-colors, $key: 'disabled');
     cursor: not-allowed;
   }
-}
 
+  // 可清空状态
+  .dk-input-clearable {
+    padding-right: 25px;
+  }
+
+  /* 隐藏上下箭头 */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  // 前缀图标input样式
+  .dk-input-prefix {
+    padding-left: 30px;
+  }
+  // 前缀图标
+  .dk-input-prefix-icon {
+    left: 10px;
+  }
+  // 后缀图标input样式
+  .dk-input-suffix {
+    padding-right: 30px;
+  }
+  // 后缀图标
+  .dk-input-suffix-icon {
+    right: 10px;
+  }
+  // 清空且后缀有图标
+  .dk-input-clearable-suffix {
+    padding-right: 55px;
+  }
+}

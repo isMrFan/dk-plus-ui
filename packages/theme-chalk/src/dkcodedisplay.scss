@@ -1,5 +1,6 @@
 .dkcodedisplay{
   width: 100%;
+  height: fit-content;
   .dkcodedisplay_open{
     width: 100%;
     text-align: center;
@@ -10,18 +11,13 @@
     box-sizing: border-box;
     span{
       cursor: pointer;
+      user-select: none;
     }
     span:hover{
       color: #10b981;
     }
   }
   .dkcodedisplay_code {
-    width: 100%;
-    max-height: 0;
     overflow: hidden;
-  }
-  .dkcodedisplay_code_true{
-    max-height: 99999px;
-    transition: 1.5s linear forwards;
   }
 }
