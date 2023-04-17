@@ -3,27 +3,30 @@
 .dk-input {
   position: relative;
   display: flex;
-  input {
+  input,textarea {
     width: 100%;
-    height: 34px;
     padding: 0 10px;
     border: 1px solid map-get($input-theme-colors, '');
     border-radius: 4px;
     font-size: 13px;
     line-height: 100%;
     display: inline-block;
-    transition: all 0.3s ease;
     color: map-get($input-theme-colors, 'text');
     cursor: pointer;
   }
-  input:focus {
-    outline: none;
+  input{
+    height: 34px;
   }
-  input::placeholder {
+  input::placeholder,textarea::placeholder {
     color: map-get($map: $input-theme-colors, $key: '');
   }
-  input:focus {
+  input:focus,textarea:focus {
+    outline: none;
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
+  }
+  textarea{
+    min-height: 34px;
+    line-height: 34px;
   }
   .dk-icon,
   .dk-input-prefix-icon-box,

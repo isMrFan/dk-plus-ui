@@ -44,7 +44,8 @@ export default defineComponent({
       prefixIcon,
       suffixIcon,
       prefixClick,
-      suffixClick
+      suffixClick,
+      rows
     } = props;
     const inputType = computed(() => {
       type === "" ? (type = "default") : "";
@@ -52,6 +53,7 @@ export default defineComponent({
       const classType = {
         number: "number",
         password: "password",
+        textarea: "textarea",
         default: "text",
       };
       type classTypeObj = typeof classType;
@@ -83,6 +85,8 @@ export default defineComponent({
     const suffixIconType = computed(() => (suffixIcon || hasSuffixSlot ? "dk-input-suffix" : ""));
     const isSuffixBind = computed(() => hasSuffixSlot && suffixIcon ? false : true);
     const iconSuffix = computed(() => (suffixIcon ? "dk-icon-clearable-suffix" : ""));
+    console.log(rows);
+    
     return {
       inputType,
       placeholder,
@@ -104,7 +108,8 @@ export default defineComponent({
       hasPrefixSlot,
       hasSuffixSlot,
       isSuffixBind,
-      suffixClick
+      suffixClick,
+      rows
     };
   },
 });
@@ -113,6 +118,7 @@ export default defineComponent({
 <template>
   <div class="dk-input">
     <input
+      v-if="inputType !== 'textarea'"
       :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
       v-model="modelValue"
       @input="updateValue"
@@ -123,6 +129,16 @@ export default defineComponent({
       :inputmode="inputModeType"
       ref="inputRef"
     />
+    <textarea
+      v-else
+      :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
+      v-model="modelValue"
+      @input="updateValue"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      v-bind:rows="rows"
+      autocomplete="off"
+    ></textarea>
     <!-- 清空按钮 -->
     <dk-icon
       v-if="isClearable"

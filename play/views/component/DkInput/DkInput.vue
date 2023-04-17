@@ -136,6 +136,15 @@ export default defineComponent({
             suffixIcon: "dk-icon-search",
           },
         },
+        {
+          title: '文本域',
+          code: `<dk-input placeholder="文本域" type="textarea" rows="3"/>`,
+          attrs: {
+            placeholder: "文本域",
+            type: "textarea",
+            rows: 3,
+          },
+        }
         // {
         //   title: "前缀内容",
         //   code: `<dk-input placeholder="前缀内容" prefix="￥"/>`,
@@ -186,8 +195,7 @@ export default defineComponent({
       .copy {
         position: absolute;
         right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 10px;
         cursor: pointer;
         color: #ccc;
       }
@@ -195,7 +203,6 @@ export default defineComponent({
 
     .dk-input {
       width: 180px;
-      height: 34px;
     }
   }
 }
