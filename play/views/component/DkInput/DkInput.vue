@@ -8,11 +8,6 @@
       </div>
       <dk-input v-bind="item.attrs" />
     </div>
-    <!-- <dk-input prefix-icon="dk-icon-del1" :suffix-click="aaa" suffix-icon="dk-icon-del1">
-      <template #suffix>
-        <dk-icon @click="aaa" :size="13" class="dk-icon-search"></dk-icon>
-      </template>
-    </dk-input> -->
   </div>
 </template>
 
@@ -83,7 +78,7 @@ export default defineComponent({
           attrs: {
             placeholder: "前缀图标",
             prefixIcon: "dk-icon-search",
-            prefixClick: "aaa",
+            prefixClick: handleFixClick,
           },
         },
         {
@@ -143,8 +138,18 @@ export default defineComponent({
             placeholder: "文本域",
             type: "textarea",
             rows: 3,
-          },
-        }
+          }
+        },
+        {
+          title: '高度自适应文本域',
+          code: `<dk-input placeholder="高度自适应文本域" type="textarea" autosize rows="3"/>`,
+          attrs: {
+            placeholder: "高度自适应文本域",
+            type: "textarea",
+            rows: 3,
+            autosize: true,
+          }
+        },
         // {
         //   title: "前缀内容",
         //   code: `<dk-input placeholder="前缀内容" prefix="￥"/>`,

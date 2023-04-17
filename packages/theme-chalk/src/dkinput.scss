@@ -27,6 +27,9 @@
   textarea{
     min-height: 34px;
     line-height: 34px;
+    height: auto;
+    resize: vertical;
+  // max-height: 200px; /* 设置最大高度 */
   }
   .dk-icon,
   .dk-input-prefix-icon-box,
