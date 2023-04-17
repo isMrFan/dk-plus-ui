@@ -25,7 +25,9 @@
   input:focus {
     border-color: map-get($map: $input-theme-colors, $key: 'primary');
   }
-  .dk-icon {
+  .dk-icon,
+  .dk-input-prefix-icon-box,
+  .dk-input-suffix-icon-box {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -63,7 +65,8 @@
   .dk-input-prefix {
     padding-left: 30px;
   }
-  // 前缀图标
+  // 前缀图标、插槽
+  .dk-input-prefix-icon-box,
   .dk-input-prefix-icon {
     left: 10px;
   }
@@ -71,9 +74,12 @@
   .dk-input-suffix {
     padding-right: 30px;
   }
-  // 后缀图标
+  // 后缀图标、插槽
   .dk-input-suffix-icon {
     right: 10px;
+  }
+  .dk-input-suffix-icon-box {
+    right: 25px;
   }
   // 清空且后缀有图标
   .dk-input-clearable-suffix {
