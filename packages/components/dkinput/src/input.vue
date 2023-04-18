@@ -20,15 +20,24 @@
  * @property {string} iconSuffix  后缀且清空按钮状态
  * @property {string} prefixIcon  前缀图标
  * @property {string} suffixIcon  后缀图标
+ * @property {string} prefixClick  前缀点击事件
+ * @property {string} hasPrefixSlot  前缀插槽状态
+ * @property {string} isPrefixBind  前缀插槽状态 与 前缀图标状态 插槽优先于图标
+ * @property {string} prefix  前缀插槽
+ * @property {string} suffix  后缀插槽
+ * @property {string} hasSuffixSlot  后缀插槽状态
+ * @property {string} isSuffixBind  后缀插槽状态 与 后缀图标状态 插槽优先于图标
+ * @property {number, string} rows  多行输入框行数
+ * @property {boolean} autosize  自适应内容高度，只对 type="textarea" 有效
  */
-import { defineComponent, computed, ref, reactive, onMounted } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import { DKinput } from "./input";
 
 export default defineComponent({
   name: "DkInput",
   props: DKinput,
   emits: ["update:modelValue"],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     let {
       type = "default",
       placeholder = "",
@@ -36,6 +45,10 @@ export default defineComponent({
       clearable,
       prefixIcon,
       suffixIcon,
+      prefixClick,
+      suffixClick,
+      rows,
+      autosize,
     } = props;
     const inputType = computed(() => {
       type === "" ? (type = "default") : "";
@@ -43,6 +56,7 @@ export default defineComponent({
       const classType = {
         number: "number",
         password: "password",
+        textarea: "textarea",
         default: "text",
       };
       type classTypeObj = typeof classType;
@@ -51,9 +65,11 @@ export default defineComponent({
       list.push(resClass);
       return resClass;
     });
-    const inputModeType = computed(() => type === "number" ? "numeric" : "text");
-    const disabledType = computed(() => disabled ? "dk-input-disabled" : "");
-    const clearableType = computed(() => clearable ? suffixIcon ? "dk-input-clearable-suffix" : 'dk-input-clearable' : "");
+    const inputModeType = computed(() => (type === "number" ? "numeric" : "text"));
+    const disabledType = computed(() => (disabled ? "dk-input-disabled" : ""));
+    const clearableType = computed(() =>
+      clearable ? (suffixIcon ? "dk-input-clearable-suffix" : "dk-input-clearable") : ""
+    );
     const isClearable = computed(() => clearable && modelValue.value);
     const modelValue = ref(props.modelValue);
     const clear = () => {
@@ -62,12 +78,25 @@ export default defineComponent({
     };
     const updateValue = (event: Event) => {
       let target = event.target as HTMLInputElement;
+      if (autosize) {
+        target.style.height = "auto";
+        target.style.height = target.scrollHeight + "px";
+      }
       emit("update:modelValue", target.value);
     };
+    const hasPrefixSlot = Boolean(slots.hasOwnProperty("prefix"));
+    const prefixIconType = computed(() =>
+      prefixIcon || hasPrefixSlot ? "dk-input-prefix" : ""
+    );
+    const isPrefixBind = computed(() => (hasPrefixSlot && prefixIcon ? false : true));
 
-    const prefixIconType = computed(() => (prefixIcon ? "dk-input-prefix" : ""));
-    const suffixIconType = computed(() => (suffixIcon ? "dk-input-suffix" : ""));
-    const iconSuffix = computed(() => suffixIcon ? "dk-icon-clearable-suffix" : "");
+    const hasSuffixSlot = Boolean(slots.hasOwnProperty("suffix"));
+    const suffixIconType = computed(() =>
+      suffixIcon || hasSuffixSlot ? "dk-input-suffix" : ""
+    );
+    const isSuffixBind = computed(() => (hasSuffixSlot && suffixIcon ? false : true));
+    const iconSuffix = computed(() => (suffixIcon ? "dk-icon-clearable-suffix" : ""));
+
     return {
       inputType,
       placeholder,
@@ -81,9 +110,17 @@ export default defineComponent({
       inputModeType,
       prefixIconType,
       prefixIcon,
+      isPrefixBind,
       suffixIconType,
       suffixIcon,
       iconSuffix,
+      prefixClick,
+      hasPrefixSlot,
+      hasSuffixSlot,
+      isSuffixBind,
+      suffixClick,
+      rows,
+      autosize,
     };
   },
 });
@@ -92,6 +129,7 @@ export default defineComponent({
 <template>
   <div class="dk-input">
     <input
+      v-if="inputType !== 'textarea'"
       :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
       v-model="modelValue"
       @input="updateValue"
@@ -102,21 +140,50 @@ export default defineComponent({
       :inputmode="inputModeType"
       ref="inputRef"
     />
+    <textarea
+      v-else
+      :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
+      v-model="modelValue"
+      @input="updateValue"
+      :placeholder="placeholder"
+      :rows="rows"
+      :disabled="disabled"
+      autocomplete="off"
+    ></textarea>
+
     <!-- 清空按钮 -->
-    <dk-icon v-if="isClearable" @click="clear" :size="13" class="dk-icon-del1" :class="iconSuffix"></dk-icon>
+    <dk-icon
+      v-if="isClearable"
+      @click="clear"
+      :size="13"
+      class="dk-icon-del1"
+      :class="iconSuffix"
+    ></dk-icon>
     <!-- 前缀图标 -->
     <dk-icon
-      v-if="prefixIcon"
+      v-if="isPrefixBind"
       :size="13"
       class="dk-input-prefix-icon"
       :class="prefixIcon"
+      @click="prefixClick"
     ></dk-icon>
+    <template v-if="hasPrefixSlot">
+      <div class="dk-input-prefix-icon-box">
+        <slot name="prefix" />
+      </div>
+    </template>
     <!-- 后缀图标 -->
     <dk-icon
-      v-if="suffixIcon"
+      v-if="isSuffixBind"
       :size="13"
       class="dk-input-suffix-icon"
       :class="suffixIcon"
+      @click="suffixClick"
     ></dk-icon>
+    <template v-if="hasSuffixSlot">
+      <div class="dk-input-suffix-icon-box">
+        <slot name="suffix" />
+      </div>
+    </template>
   </div>
 </template>

@@ -1,6 +1,12 @@
 
 import { ExtractPropTypes, PropType } from 'vue'
 export const DKinput = {
+  suffixClick: {
+    type: Function as PropType<(e: Event) => void>
+  },
+  prefixClick: {
+    type: Function as PropType<(e: Event) => void>
+  },
   modelValue: {
     type: [String, Number] as PropType<string | number>
   },
