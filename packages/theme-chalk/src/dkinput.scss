@@ -1,94 +1,130 @@
-@use './mixins/mixin.scss' as *;
-// 基础样式
+@use './mixins/mixin.scss'as *;
+
+* {
+  transition: all 0.2s;
+}
+
 .dk-input {
+  width: 100%;
   position: relative;
+  height: 30px;
   display: flex;
-  input,textarea {
+  flex-wrap: nowrap;
+
+  &__wrapper {
     width: 100%;
-    padding: 0 10px;
-    border: 1px solid map-get($input-theme-colors, '');
+    height: 100%;
+    border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
+    box-sizing: border-box;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    &:hover {
+      border-color: map-get($input-theme-colors, 'hover');
+    }
+  }
+
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    border: none;
     font-size: 13px;
     line-height: 100%;
     display: inline-block;
     color: map-get($input-theme-colors, 'text');
+    &:focus {
+      outline: none;
+    }
+  }
+
+
+  &__clear {
+    color: map-get($input-theme-colors, 'hover');
     cursor: pointer;
+    font-size: 13px;
   }
-  input{
-    height: 34px;
+
+  // prefix & suffix
+  &__prefix,
+  &__suffix {
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+
+      .dk-icon {
+        color: map-get($input-theme-colors, 'hover');
+        // cursor: pointer;
+        line-height: 100%;
+        font-size: 16px;
+      }
+    }
   }
-  input::placeholder,textarea::placeholder {
-    color: map-get($map: $input-theme-colors, $key: '');
+
+  &__prefix {
+    margin-right: 5px;
   }
-  input:focus,textarea:focus {
+
+  &__suffix {
+    margin-left: 5px;
+  }
+
+
+  .is-focus {
+    border-color: map-get($input-theme-colors, 'primary');
+  }
+
+  .is-prepend{
+    border-radius: 0 4px 4px 0;
+  }
+  .is-append{
+    border-radius: 4px 0 0 4px;
+  }
+
+  &__prepend,&__append {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
+    color: map-get($input-theme-colors, 'text');
+    font-size: 13px;
+    background-color: map-get($input-theme-colors, 'disabled');
+    cursor: default;
+    line-height: 100%;
+  }
+  &__prepend{
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+  }
+  &__append{
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+  }
+}
+
+.dk-textarea__inner {
+  @extend .dk-input__inner;
+  padding: 0 10px;
+  line-height: 30px;
+  border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
+  &:focus {
     outline: none;
-    border-color: map-get($map: $input-theme-colors, $key: 'primary');
   }
-  textarea{
-    min-height: 34px;
-    line-height: 34px;
-    height: auto;
-    resize: vertical;
-  // max-height: 200px; /* 设置最大高度 */
+  &:hover {
+    border-color: map-get($input-theme-colors, 'hover');
   }
-  .dk-icon,
-  .dk-input-prefix-icon-box,
-  .dk-input-suffix-icon-box {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: map-get($map: $input-theme-colors, $key: '');
-  }
-  // 清空按钮
-  .dk-icon-del1 {
-    right: 5px;
-  }
+}
 
-  // 清空且后缀有图标
-  .dk-icon-clearable-suffix {
-    right: 30px;
-  }
-
-  // 禁用状态
-  .dk-input-disabled {
-    background-color: map-get($map: $input-theme-colors, $key: 'disabled');
-    cursor: not-allowed;
-  }
-
-  // 可清空状态
-  .dk-input-clearable {
-    padding-right: 25px;
-  }
-
-  /* 隐藏上下箭头 */
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  // 前缀图标input样式
-  .dk-input-prefix {
-    padding-left: 30px;
-  }
-  // 前缀图标、插槽
-  .dk-input-prefix-icon-box,
-  .dk-input-prefix-icon {
-    left: 10px;
-  }
-  // 后缀图标input样式
-  .dk-input-suffix {
-    padding-right: 30px;
-  }
-  // 后缀图标、插槽
-  .dk-input-suffix-icon {
-    right: 10px;
-  }
-  .dk-input-suffix-icon-box {
-    right: 25px;
-  }
-  // 清空且后缀有图标
-  .dk-input-clearable-suffix {
-    padding-right: 55px;
-  }
+.is-disabled {
+  background-color: map-get($input-theme-colors, 'disabled');
+  cursor: not-allowed;
+  border-color: map-get($input-theme-colors, 'border');
 }

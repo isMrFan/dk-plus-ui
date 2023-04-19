@@ -7,183 +7,201 @@
  * @property {string} placeholder  输入框占位符
  * @property {boolean} disabled  是否禁用
  * @property {boolean} clearable  是否可清空
- * @property {string} modelValue  输入框值
- * @property {boolean} clear  清空输入框
- * @property {string} updateValue  更新输入框值
- * @property {string} inputType  输入框类型
- * @property {string} disabledType  禁用类型
- * @property {string} clearableType  清空状态样式
- * @property {string} isClearable  清空按钮状态
- * @property {string} inputModeType  清空按钮状态
- * @property {string} prefixIconType  前缀图标状态
- * @property {string} suffixIconType  后缀图标状态
- * @property {string} iconSuffix  后缀且清空按钮状态
  * @property {string} prefixIcon  前缀图标
  * @property {string} suffixIcon  后缀图标
- * @property {string} prefixClick  前缀点击事件
- * @property {string} hasPrefixSlot  前缀插槽状态
- * @property {string} isPrefixBind  前缀插槽状态 与 前缀图标状态 插槽优先于图标
- * @property {string} prefix  前缀插槽
- * @property {string} suffix  后缀插槽
- * @property {string} hasSuffixSlot  后缀插槽状态
- * @property {string} isSuffixBind  后缀插槽状态 与 后缀图标状态 插槽优先于图标
- * @property {number, string} rows  多行输入框行数
- * @property {boolean} autosize  自适应内容高度，只对 type="textarea" 有效
+ * @property {function} prefixClick  前缀图标点击事件
+ * @property {function} suffixClick  后缀图标点击事件
+ * @property {string} modelValue  输入框值
+ * @property {boolean} autosize  是否自适应高度
+ * @property {string} prepend  前置内容
+ * @property {string} append  后置内容
+ * @event {function} update:modelValue  输入框值改变事件
+ * @description 输入框组件
+ * @example
  */
 import { defineComponent, computed, ref } from "vue";
-import { DKinput } from "./input";
+import { DKinput, haInputClass } from "./input";
 
 export default defineComponent({
   name: "DkInput",
   props: DKinput,
   emits: ["update:modelValue"],
   setup(props, { emit, slots }) {
-    let {
-      type = "default",
-      placeholder = "",
+    const {
+      type,
       disabled,
+      placeholder,
       clearable,
       prefixIcon,
-      suffixIcon,
       prefixClick,
-      suffixClick,
-      rows,
+      prepend,
       autosize,
+      append
     } = props;
+    const inpClass = new haInputClass();
     const inputType = computed(() => {
-      type === "" ? (type = "default") : "";
-      const list: Array<string> = [];
-      const classType = {
-        number: "number",
+      const typeList = {
+        text: "text",
         password: "password",
         textarea: "textarea",
-        default: "text",
       };
-      type classTypeObj = typeof classType;
-      type objType = keyof classTypeObj;
-      let resClass: classTypeObj[objType] = classType[type];
-      list.push(resClass);
-      return resClass;
+      return typeList[type || "text"];
     });
     const inputModeType = computed(() => (type === "number" ? "numeric" : "text"));
-    const disabledType = computed(() => (disabled ? "dk-input-disabled" : ""));
-    const clearableType = computed(() =>
-      clearable ? (suffixIcon ? "dk-input-clearable-suffix" : "dk-input-clearable") : ""
+    const inputClassList = computed(() => [
+      "dk-input",
+      inpClass.n(type),
+      {
+        "is-disabled": disabled,
+      },
+    ]);
+    const inputFocus = ref(false);
+    const handleFocus = () => {
+      inputFocus.value = true;
+    };
+    const handleBlur = () => {
+      inputFocus.value = false;
+    };
+    const wrapperClassList = computed(() => [
+      type !== "textarea" ? "dk-input__wrapper" : "dk-textarea__inner",
+      {
+        "is-focus": inputFocus.value,
+        "is-prepend": !!prepend || slots.prepend,
+        "is-append": !!append || slots.append,
+      },
+    ]);
+
+    const showClear = computed(
+      () => clearable && modelValue.value && inputMouseenter.value && !disabled
     );
-    const isClearable = computed(() => clearable && modelValue.value);
-    const modelValue = ref(props.modelValue);
     const clear = () => {
       modelValue.value = "";
       emit("update:modelValue", "");
     };
-    const updateValue = (event: Event) => {
-      let target = event.target as HTMLInputElement;
+    const modelValue = ref(props.modelValue);
+
+    const handleInput = (e: Event) => {
+      const target = e.target as HTMLInputElement;
       if (autosize) {
         target.style.height = "auto";
         target.style.height = target.scrollHeight + "px";
       }
-      emit("update:modelValue", target.value);
+      modelValue.value = target.value;
+      emit("update:modelValue", modelValue.value);
     };
-    const hasPrefixSlot = Boolean(slots.hasOwnProperty("prefix"));
-    const prefixIconType = computed(() =>
-      prefixIcon || hasPrefixSlot ? "dk-input-prefix" : ""
-    );
-    const isPrefixBind = computed(() => (hasPrefixSlot && prefixIcon ? false : true));
-
-    const hasSuffixSlot = Boolean(slots.hasOwnProperty("suffix"));
-    const suffixIconType = computed(() =>
-      suffixIcon || hasSuffixSlot ? "dk-input-suffix" : ""
-    );
-    const isSuffixBind = computed(() => (hasSuffixSlot && suffixIcon ? false : true));
-    const iconSuffix = computed(() => (suffixIcon ? "dk-icon-clearable-suffix" : ""));
+    const innerClassList = computed(() => [
+      "dk-input__inner",
+      {
+        "is-disabled": disabled,
+      },
+    ]);
+    const inputMouseenter = ref(false);
+    const handleMouseenter = () => {
+      inputMouseenter.value = true;
+    };
+    const handleMouseleave = () => {
+      inputMouseenter.value = false;
+    };
 
     return {
-      inputType,
-      placeholder,
-      disabledType,
       disabled,
-      clearableType,
-      isClearable,
-      clear,
-      updateValue,
-      modelValue,
+      inputClassList,
       inputModeType,
-      prefixIconType,
+      placeholder,
+      wrapperClassList,
+      handleFocus,
+      handleBlur,
+      clear,
+      showClear,
+      modelValue,
+      handleInput,
+      innerClassList,
+      handleMouseenter,
+      handleMouseleave,
+      inputType,
       prefixIcon,
-      isPrefixBind,
-      suffixIconType,
-      suffixIcon,
-      iconSuffix,
+      inpClass,
       prefixClick,
-      hasPrefixSlot,
-      hasSuffixSlot,
-      isSuffixBind,
-      suffixClick,
-      rows,
-      autosize,
+      prepend,
+      append
     };
   },
 });
 </script>
 
 <template>
-  <div class="dk-input">
-    <input
-      v-if="inputType !== 'textarea'"
-      :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
-      v-model="modelValue"
-      @input="updateValue"
-      :placeholder="placeholder"
-      :type="inputType"
-      autocomplete="off"
-      :disabled="disabled"
-      :inputmode="inputModeType"
-      ref="inputRef"
-    />
-    <textarea
-      v-else
-      :class="[disabledType, clearableType, prefixIconType, suffixIconType]"
-      v-model="modelValue"
-      @input="updateValue"
-      :placeholder="placeholder"
-      :rows="rows"
-      :disabled="disabled"
-      autocomplete="off"
-    ></textarea>
+  <div
+    :class="inputClassList"
+    @mouseenter="handleMouseenter"
+    @mouseleave="handleMouseleave"
+  >
+    <!-- input -->
+    <template v-if="type !== 'textarea'">
+      <!-- prepend -->
+      <div v-if="$slots.prepend || prepend" :class="[inpClass.n('prepend')]">
+        {{prepend}}
+        <slot name="prepend"></slot>
+      </div>
+      <!-- input -->
+      <div :class="wrapperClassList">
+        <!-- prefix slot -->
+        <span v-if="$slots.prefix || prefixIcon" :class="[inpClass.n('prefix')]">
+          <span @click="prefixClick" :class="inpClass.n('prefix-inner')">
+            <slot name="prefix"></slot>
+            <dk-icon
+              v-if="prefixIcon"
+              :class="[inpClass.i('icon', prefixIcon)]"
+            ></dk-icon>
+          </span>
+        </span>
 
-    <!-- 清空按钮 -->
-    <dk-icon
-      v-if="isClearable"
-      @click="clear"
-      :size="13"
-      class="dk-icon-del1"
-      :class="iconSuffix"
-    ></dk-icon>
-    <!-- 前缀图标 -->
-    <dk-icon
-      v-if="isPrefixBind"
-      :size="13"
-      class="dk-input-prefix-icon"
-      :class="prefixIcon"
-      @click="prefixClick"
-    ></dk-icon>
-    <template v-if="hasPrefixSlot">
-      <div class="dk-input-prefix-icon-box">
-        <slot name="prefix" />
+        <input
+          @input="handleInput"
+          @focus="handleFocus"
+          @blur="handleBlur"
+          v-model="modelValue"
+          :disabled="disabled"
+          :placeholder="placeholder"
+          :type="inputType"
+          :class="innerClassList"
+          :inputmode="inputModeType"
+        />
+        <!-- clearable -->
+        <template v-if="clearable && showClear">
+          <dk-icon
+            class="dk-icon-del1 dk-input__clear"
+            :size="13"
+            @click="clear"
+          ></dk-icon>
+        </template>
+        <!-- suffix slot -->
+        <span v-if="$slots.suffix || suffixIcon" :class="inpClass.n('suffix')">
+          <span @click="suffixClick" :class="inpClass.n('suffix-inner')">
+            <slot name="suffix"></slot>
+            <dk-icon
+              v-if="suffixIcon"
+              :class="[inpClass.i('icon', suffixIcon)]"
+            ></dk-icon>
+          </span>
+        </span>
+      </div>
+
+      <!-- append -->
+      <div v-if="$slots.append || append" :class="[inpClass.n('append')]">
+        {{append}}
+        <slot name="append"></slot>
       </div>
     </template>
-    <!-- 后缀图标 -->
-    <dk-icon
-      v-if="isSuffixBind"
-      :size="13"
-      class="dk-input-suffix-icon"
-      :class="suffixIcon"
-      @click="suffixClick"
-    ></dk-icon>
-    <template v-if="hasSuffixSlot">
-      <div class="dk-input-suffix-icon-box">
-        <slot name="suffix" />
-      </div>
+    <!-- textarea -->
+    <template v-else>
+      <textarea
+        :class="wrapperClassList"
+        @input="handleInput"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        :disabled="disabled"
+        :placeholder="placeholder"
+      ></textarea>
     </template>
   </div>
 </template>

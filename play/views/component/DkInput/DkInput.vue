@@ -1,5 +1,10 @@
 <template>
   <div class="input">
+    <dk-input prefix-icon="del1" prepend="a">
+      <!-- <template #prepend>
+        <dk-icon class="dk-icon-del1"></dk-icon>
+      </template> -->
+    </dk-input>
     <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
       <div class="index_Dk_code">
@@ -7,6 +12,10 @@
         <span class="copy" @click="oncopy(item.code)">复制代码</span>
       </div>
       <dk-input v-bind="item.attrs" />
+    </div>
+    <div class="box">
+      <dk-input v-model="msg" type="" placeholder="清空" clearable />
+    {{ msg }}
     </div>
   </div>
 </template>
@@ -31,6 +40,7 @@ export default defineComponent({
     const handleFixClick = () => {
       console.log("handleFixClick");
     };
+    const msg = ref("hello world")
     const data = reactive({
       htmlList: [
         {
@@ -65,45 +75,38 @@ export default defineComponent({
           },
         },
         {
-          title: "数字输入框",
-          code: `<dk-input placeholder="数字输入框" type="number"/>`,
-          attrs: {
-            placeholder: "数字输入框",
-            type: "number",
-          },
-        },
-        {
           title: "前缀图标",
-          code: `<dk-input placeholder="前缀图标" prefix-icon="dk-icon-search"/>`,
+          code: `<dk-input placeholder="前缀图标" prefix-icon="search"/>`,
           attrs: {
             placeholder: "前缀图标",
-            prefixIcon: "dk-icon-search",
+            prefixIcon: "search",
             prefixClick: handleFixClick,
           },
         },
         {
           title: "后缀图标",
-          code: `<dk-input placeholder="后缀图标" suffix-icon="dk-icon-search"/>`,
+          code: `<dk-input placeholder="后缀图标" suffix-icon="search"/>`,
           attrs: {
             placeholder: "后缀图标",
-            suffixIcon: "dk-icon-search",
+            suffixIcon: "search",
+            clearable: true,
           },
         },
         {
           title: "前缀图标点击事件",
-          code: `<dk-input placeholder="前缀图标" :prefix-click='handleSuffixClick' prefix-icon="dk-icon-search"/>`,
+          code: `<dk-input placeholder="前缀图标" :prefix-click='handleSuffixClick' prefix-icon="search"/>`,
           attrs: {
             placeholder: "前缀图标",
-            suffixIcon: "dk-icon-search",
-            suffixClick: handleFixClick,
+            prefixIcon: "search",
+            prefixClick: handleFixClick,
           },
         },
         {
           title: "后缀图标点击事件",
-          code: `<dk-input placeholder="后缀图标" :suffix-click='handleSuffixClick' suffix-icon="dk-icon-search"/>`,
+          code: `<dk-input placeholder="后缀图标" :suffix-click='handleSuffixClick' suffix-icon="search"/>`,
           attrs: {
             placeholder: "后缀图标",
-            suffixIcon: "dk-icon-search",
+            suffixIcon: "search",
             suffixClick: handleFixClick,
           },
         },
@@ -116,7 +119,7 @@ export default defineComponent({
 </dk-input>`,
           attrs: {
             placeholder: "前缀插槽",
-            prefixIcon: "dk-icon-search",
+            prefixIcon: "search",
           },
         },
         {
@@ -128,7 +131,7 @@ export default defineComponent({
 </dk-input>`,
           attrs: {
             placeholder: "后缀插槽",
-            suffixIcon: "dk-icon-search",
+            suffixIcon: "search",
           },
         },
         {
@@ -150,22 +153,27 @@ export default defineComponent({
             autosize: true,
           }
         },
-        // {
-        //   title: "前缀内容",
-        //   code: `<dk-input placeholder="前缀内容" prefix="￥"/>`,
-        //   attrs: {
-        //     placeholder: "前缀内容",
-        //     prefix: "￥"
-        //   }
-        // },
-        // {
-        //   title: "后缀内容",
-        //   code: `<dk-input placeholder="后缀内容" suffix=".00"/>`,
-        //   attrs: {
-        //     placeholder: "后缀内容",
-        //     suffix: ".00"
-        //   }
-        // },
+        {
+          title: "前缀内容",
+          code: `<dk-input placeholder="前缀内容" prepend="￥"> 
+  <template #prepend>
+    <dk-icon class="dk-icon-del1"></dk-icon>
+  </template>
+</dk-input>`,
+          attrs: {
+            placeholder: "前缀内容",
+            prepend: "￥",
+            vModel: msg,
+          }
+        },
+        {
+          title: "后缀内容",
+          code: `<dk-input placeholder="后缀内容" append=".00"/>`,
+          attrs: {
+            placeholder: "后缀内容",
+            append: ".00"
+          }
+        },
       ],
     });
 
@@ -180,6 +188,7 @@ export default defineComponent({
       oncopy,
       getComponentName,
       handleFixClick,
+      msg
     };
   },
 });
@@ -207,8 +216,10 @@ export default defineComponent({
     }
 
     .dk-input {
-      width: 180px;
+      // width: 180px;
+    
     }
   }
 }
+
 </style>
