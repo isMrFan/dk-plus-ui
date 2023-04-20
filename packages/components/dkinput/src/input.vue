@@ -16,10 +16,19 @@
  * @property {string} prepend  前置内容
  * @property {string} append  后置内容
  * @event {function} update:modelValue  输入框值改变事件
+ * @event {boolean} showPassword  是否显示密码
  * @description 输入框组件
  * @example
  */
-import { defineComponent, computed, ref } from "vue";
+import {
+  defineComponent,
+  computed,
+  ref,
+  toRef,
+  nextTick,
+  shallowRef,
+  defineExpose,
+} from "vue";
 import { DKinput, haInputClass } from "./input";
 
 export default defineComponent({
@@ -36,16 +45,24 @@ export default defineComponent({
       prefixClick,
       prepend,
       autosize,
-      append
+      append,
+      showPassword,
     } = props;
+    const input = ref<HTMLInputElement>();
+    const textarea = ref<HTMLTextAreaElement>();
+    const __ref = computed(() => input.value || textarea.value);
+    const inputRef = ref<HTMLInputElement | null>(null);
+
     const inpClass = new haInputClass();
+
     const inputType = computed(() => {
+      const inpType = ref(type || "text");
       const typeList = {
         text: "text",
         password: "password",
         textarea: "textarea",
       };
-      return typeList[type || "text"];
+      return typeList[inpType.value];
     });
     const inputModeType = computed(() => (type === "number" ? "numeric" : "text"));
     const inputClassList = computed(() => [
@@ -103,6 +120,32 @@ export default defineComponent({
       inputMouseenter.value = false;
     };
 
+    const isShowPassword = computed(() => {
+      return (
+        showPassword &&
+        type === "password" &&
+        // inputFocus.value &&
+        !disabled &&
+        modelValue.value
+      );
+    });
+    const showPasswordIcon = ref(false);
+    const showPasswordClick = () => {
+      showPasswordIcon.value = !showPasswordIcon.value;
+      focus();
+    };
+    const showPasswordClassList = computed(() => [
+      inpClass.n("show-password"),
+      {
+        "dk-icon-show": showPasswordIcon.value,
+        "dk-icon-hide": !showPasswordIcon.value,
+      },
+    ]);
+
+    const focus = async () => {
+      await nextTick();
+      __ref.value?.focus();
+    };
     return {
       disabled,
       inputClassList,
@@ -123,7 +166,13 @@ export default defineComponent({
       inpClass,
       prefixClick,
       prepend,
-      append
+      append,
+      isShowPassword,
+      showPasswordClick,
+      showPasswordClassList,
+      showPasswordIcon,
+      input,
+      textarea,
     };
   },
 });
@@ -139,7 +188,7 @@ export default defineComponent({
     <template v-if="type !== 'textarea'">
       <!-- prepend -->
       <div v-if="$slots.prepend || prepend" :class="[inpClass.n('prepend')]">
-        {{prepend}}
+        {{ prepend }}
         <slot name="prepend"></slot>
       </div>
       <!-- input -->
@@ -162,9 +211,10 @@ export default defineComponent({
           v-model="modelValue"
           :disabled="disabled"
           :placeholder="placeholder"
-          :type="inputType"
+          :type="showPassword ? (showPasswordIcon ? 'text' : 'password') : inputType"
           :class="innerClassList"
           :inputmode="inputModeType"
+          ref="input"
         />
         <!-- clearable -->
         <template v-if="clearable && showClear">
@@ -184,11 +234,19 @@ export default defineComponent({
             ></dk-icon>
           </span>
         </span>
+        <!-- showPassword -->
+        <template v-if="isShowPassword">
+          <dk-icon
+            :class="showPasswordClassList"
+            :size="13"
+            @click.stop="showPasswordClick"
+          ></dk-icon>
+        </template>
       </div>
 
       <!-- append -->
       <div v-if="$slots.append || append" :class="[inpClass.n('append')]">
-        {{append}}
+        {{ append }}
         <slot name="append"></slot>
       </div>
     </template>
@@ -201,6 +259,7 @@ export default defineComponent({
         @blur="handleBlur"
         :disabled="disabled"
         :placeholder="placeholder"
+        ref="textarea"
       ></textarea>
     </template>
   </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="input">
     <dk-input prefix-icon="del1" prepend="a">
-      <!-- <template #prepend>
-        <dk-icon class="dk-icon-del1"></dk-icon>
-      </template> -->
+      <!-- <template #prepend> -->
+        <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon>
+      <!-- </template> -->
     </dk-input>
     <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
@@ -15,7 +15,7 @@
     </div>
     <div class="box">
       <dk-input v-model="msg" type="" placeholder="清空" clearable />
-    {{ msg }}
+      {{ msg }}
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default defineComponent({
     const handleFixClick = () => {
       console.log("handleFixClick");
     };
-    const msg = ref("hello world")
+    const msg = ref("hello world");
     const data = reactive({
       htmlList: [
         {
@@ -72,6 +72,15 @@ export default defineComponent({
           attrs: {
             placeholder: "密码框",
             type: "password",
+          },
+        },
+        {
+          title: "可查看密码",
+          code: `<dk-input placeholder="可查看密码" show-password type="password"/>`,
+          attrs: {
+            placeholder: "密码框",
+            type: "password",
+            showPassword: true,
           },
         },
         {
@@ -135,23 +144,23 @@ export default defineComponent({
           },
         },
         {
-          title: '文本域',
+          title: "文本域",
           code: `<dk-input placeholder="文本域" type="textarea" rows="3"/>`,
           attrs: {
             placeholder: "文本域",
             type: "textarea",
             rows: 3,
-          }
+          },
         },
         {
-          title: '高度自适应文本域',
+          title: "高度自适应文本域",
           code: `<dk-input placeholder="高度自适应文本域" type="textarea" autosize rows="3"/>`,
           attrs: {
             placeholder: "高度自适应文本域",
             type: "textarea",
             rows: 3,
             autosize: true,
-          }
+          },
         },
         {
           title: "前缀内容",
@@ -164,15 +173,15 @@ export default defineComponent({
             placeholder: "前缀内容",
             prepend: "￥",
             vModel: msg,
-          }
+          },
         },
         {
           title: "后缀内容",
           code: `<dk-input placeholder="后缀内容" append=".00"/>`,
           attrs: {
             placeholder: "后缀内容",
-            append: ".00"
-          }
+            append: ".00",
+          },
         },
       ],
     });
@@ -188,7 +197,7 @@ export default defineComponent({
       oncopy,
       getComponentName,
       handleFixClick,
-      msg
+      msg,
     };
   },
 });
@@ -217,9 +226,7 @@ export default defineComponent({
 
     .dk-input {
       // width: 180px;
-    
     }
   }
 }
-
 </style>

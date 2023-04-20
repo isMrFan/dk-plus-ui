@@ -1,5 +1,8 @@
 import { ExtractPropTypes, PropType } from 'vue'
 export const DKinput = {
+  showPassword: {
+    type: Boolean
+  },
   append: {
     type: String
   },

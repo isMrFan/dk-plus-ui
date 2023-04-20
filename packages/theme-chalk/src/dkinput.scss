@@ -10,6 +10,9 @@
   height: 30px;
   display: flex;
   flex-wrap: nowrap;
+  .dk-icon:hover{
+    cursor: pointer;
+  }
 
   &__wrapper {
     width: 100%;
