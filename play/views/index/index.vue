@@ -140,7 +140,7 @@
     }
 
     .index-conten {
-      width: 66%;
+      width: 98%;
       margin: 0 auto;
       display: flex;
 

@@ -1,12 +1,20 @@
 @import './global.scss';
-.VPNavDark{
+.VPNavDark {
   border-bottom: 1px solid #3a3a3a;
 }
 // 菜单栏
 .VPSidebar.open {
   z-index: 99999;
 }
-
+// .content-body {
+//   background-color: transparent !important;
+//   background-image: radial-gradient(transparent 1px, #fff 1px) !important;
+//   background-size: 4px 4px !important;
+//   backdrop-filter: saturate(50%) blur(4px) !important;
+// }
+.language-ts{
+  background-color: #fff;
+}
 // 滚动条
 ::-webkit-scrollbar {
   width: 7px;
@@ -37,27 +45,25 @@
   padding: 0 !important;
 }
 
+.vp-table__dk {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
 
-.vp-table__dk{
-   width: 100%;
-    overflow-y: hidden;
-    overflow-x: auto;
+  table {
+    width: 100%;
+    display: inline-table;
+  }
 
-    table {
-      width: 100%;
-      display: inline-table;
-    }
+  th,
+  tr:nth-child(2n) {
+    background-color: transparent;
+  }
 
-    th,
-    tr:nth-child(2n) {
-      background-color: transparent;
-    }
-
-    td,
-    th {
-      text-align: left;
-      font-size: 15px;
-      border-bottom: 1px solid #eee;
-    }
-
+  td,
+  th {
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+  }
 }
