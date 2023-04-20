@@ -115,8 +115,11 @@
 
 .dk-textarea__inner {
   @extend .dk-input__inner;
+  transition: none;
   padding: 0 10px;
   line-height: 30px;
+  min-height: 30px;
+  border-radius: 4px;
   border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
   &:focus {
     outline: none;
