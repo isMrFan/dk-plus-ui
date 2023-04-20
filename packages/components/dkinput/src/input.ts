@@ -29,7 +29,7 @@ export const DKinput = {
   },
   size: {
     type: String,
-    default: ''
+    default: 'small'
   },
   disabled: {
     type: Boolean,

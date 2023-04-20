@@ -181,8 +181,33 @@ export default defineComponent({
           attrs: {
             placeholder: "后缀内容",
             append: ".00",
-          },
+          }
         },
+        {
+          title: "size",
+          code: `<dk-input placeholder="size" size='medium'/>`,
+          attrs: {
+            placeholder: "medium",
+            size: "medium"
+          }
+        },
+        {
+          title: "size",
+          code: `<dk-input placeholder="size" size='small'/>`,
+          attrs: {
+            placeholder: "small",
+            size: "small"
+          }
+        },
+        {
+          title: "size",
+          code: `<dk-input placeholder="size" size='mini'/>`,
+          attrs: {
+            placeholder: "mini",
+            size: "mini"
+          }
+        },
+
       ],
     });
 

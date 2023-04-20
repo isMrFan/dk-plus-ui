@@ -48,11 +48,11 @@ export default defineComponent({
       append,
       showPassword,
       suffixClick,
+      size,
     } = props;
     const input = ref<HTMLInputElement>();
     const textarea = ref<HTMLTextAreaElement>();
     const __ref = computed(() => input.value || textarea.value);
-    const inputRef = ref<HTMLInputElement | null>(null);
 
     const inpClass = new haInputClass();
 
@@ -71,6 +71,9 @@ export default defineComponent({
       inpClass.n(type),
       {
         "is-disabled": disabled,
+        "is-medium": size === "medium",
+        "is-small": size === "small",
+        "is-mini": size === "mini",
       },
     ]);
     const inputFocus = ref(false);
