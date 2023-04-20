@@ -1,73 +1,95 @@
 import { ExtractPropTypes, PropType } from 'vue'
 export const DKinput = {
   showPassword: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   append: {
-    type: String
+    type: String,
+    default: ''
   },
   prepend: {
-    type: String
+    type: String,
+    default: ''
   },
   suffixClick: {
-    type: Function as PropType<(e: Event) => void>
+    type: Function as PropType<(e: Event) => void>,
+    default: () => null
   },
   prefixClick: {
-    type: Function as PropType<(e: Event) => void>
+    type: Function as PropType<(e: Event) => void>,
+    default: () => null
   },
   modelValue: {
     type: [String, Number] as PropType<string | number>
   },
   type: {
-    type: String
+    type: String,
+    default: 'text'
   },
   size: {
-    type: String
+    type: String,
+    default: ''
   },
   disabled: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   clearable: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   readonly: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   placeholder: {
-    type: String
+    type: String,
+    default: ''
   },
   maxlength: {
-    type: [Number, String]
+    type: [Number, String],
+    default: 999999
   },
   minlength: {
-    type: [Number, String]
+    type: [Number, String],
+    default: 0
   },
   showWordLimit: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   prefixIcon: {
-    type: String
+    type: String,
+    default: ''
   },
   suffixIcon: {
-    type: String
+    type: String,
+    default: ''
   },
   rows: {
-    type: [Number, String]
+    type: [Number, String],
+    default: 2
   },
   autosize: {
-    type: [Boolean, Object]
+    type: [Boolean, Object],
+    default: false
   },
   autocomplete: {
-    type: String
+    type: String,
+    default: 'off'
   },
   autoClearSpace: {
-    type: Boolean
+    type: Boolean,
+    default: true
   },
   name: {
-    type: String
+    type: String,
+    default: ''
   },
   validateEvent: {
-    type: Boolean
+    type: Boolean,
+    default: true
   }
 }
 export class haInputClass {

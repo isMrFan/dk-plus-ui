@@ -47,6 +47,7 @@ export default defineComponent({
       autosize,
       append,
       showPassword,
+      suffixClick,
     } = props;
     const input = ref<HTMLInputElement>();
     const textarea = ref<HTMLTextAreaElement>();
@@ -165,6 +166,7 @@ export default defineComponent({
       prefixIcon,
       inpClass,
       prefixClick,
+      suffixClick,
       prepend,
       append,
       isShowPassword,
