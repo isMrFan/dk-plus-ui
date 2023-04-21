@@ -145,7 +145,7 @@
       display: flex;
 
       .index-conten-left {
-        width: 200px;
+        width: 124px;
 
         ul {
           list-style: none;
@@ -176,7 +176,7 @@
       }
 
       .index-conten-right {
-        width: calc(100% - 200px);
+        width: calc(100% - 124px);
         height: calc(100vh - 80px);
         overflow: scroll;
         // padding-bottom: 150px;
