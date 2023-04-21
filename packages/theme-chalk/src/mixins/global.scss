@@ -1,0 +1,26 @@
+// 公共样式
+
+// color  
+$theme-color: (
+  'text': #606266, // 文字颜色
+  'primary': #409EFF, // 主要颜色
+  'primary-hover': #66b1ff, // 主要颜色鼠标悬浮颜色
+  'success': #67C23A, // 成功颜色
+  'success-hover': #85ce61, // 成功颜色鼠标悬浮颜色
+  'warning': #E6A23C, // 警告颜色
+  'warning-hover': #f2b96b, // 警告颜色鼠标悬浮颜色
+  'danger': #F56C6C, // 危险颜色
+  'danger-hover': #f78989, // 危险颜色鼠标悬浮颜色
+  'info': #909399, // 信息颜色
+  'info-hover': #a6a9b0, // 信息颜色鼠标悬浮颜色
+  'border':#dddfe5, // 边框颜色
+  'border-hover':#c1c4cb, // 悬浮颜色
+  'background':#fff, // 背景颜色
+  'disabled': #f5f7fa, // 禁用颜色
+  '': #C0C4CC, // 默认颜色
+);
+
+// border
+@mixin dk-border($color: $theme-color('border'), $width: 1px, $style: solid) {
+  border: $width $style $color;
+}

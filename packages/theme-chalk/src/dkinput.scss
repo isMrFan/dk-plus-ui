@@ -140,6 +140,11 @@
       padding: 0 7px;
     }
   }
+  &disabled {
+    background-color: map-get($input-theme-colors, 'disabled');
+    cursor: not-allowed;
+    border-color: map-get($input-theme-colors, 'border');
+  }
 }
 
 .dk-textarea__inner {
@@ -158,10 +163,4 @@
   &:hover {
     border-color: map-get($input-theme-colors, 'hover');
   }
-}
-
-.is-disabled {
-  background-color: map-get($input-theme-colors, 'disabled');
-  cursor: not-allowed;
-  border-color: map-get($input-theme-colors, 'border');
 }

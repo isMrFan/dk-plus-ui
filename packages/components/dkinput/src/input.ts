@@ -49,11 +49,11 @@ export const DKinput = {
   },
   maxlength: {
     type: [Number, String],
-    default: 999999
+    default: ''
   },
   minlength: {
     type: [Number, String],
-    default: 0
+    default: ''
   },
   showWordLimit: {
     type: Boolean,
@@ -99,11 +99,27 @@ export class haInputClass {
   // }
   globalName = 'dk-'
   // className
-  n = className =>
-    className !== undefined ? this.globalName +'input' + (className ? '__' : '') + className : ''
+  n = (className: string) =>
+    className !== undefined
+      ? this.globalName + 'input' + (className ? '__' : '') + className
+      : ''
   // is
-  is = (is, name) => (is ? 'is-' + name : '')
+  is = (is: string, name: string) => (is ? 'is-' + name : '')
   // icon
-  i = (icon, name) => (icon ? this.globalName + 'icon-' + name : '')
+  i = (icon: string, name: string) => (icon ? this.globalName + 'icon-' + name : '')
+  /** 
+   * classList to string[]
+   * @import {cLTS} from 'dk-ui'
+   * @param {Record<string,boolean>} obj 
+   * @param {string[]} list
+   * */
+  cLTS = (obj:Record<string,boolean>, list:string[]): string[] => {
+    return Object.entries(obj).reduce<Array<string | boolean>>((pre, cur) => {
+      if (cur[1]) {
+        pre.push(cur[0])
+      }
+      return pre
+    }, list) as string[]
+  }
 }
 export type dkinput = ExtractPropTypes<typeof DKinput>
