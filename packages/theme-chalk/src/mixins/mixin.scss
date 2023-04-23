@@ -5,3 +5,6 @@
 
 @use 'inputconfig' as *;
 @forward 'inputconfig';
+
+@use 'global' as *;
+@forward 'global';

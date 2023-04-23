@@ -15,20 +15,16 @@
  * @property {boolean} autosize  是否自适应高度
  * @property {string} prepend  前置内容
  * @property {string} append  后置内容
- * @event {function} update:modelValue  输入框值改变事件
- * @event {boolean} showPassword  是否显示密码
+ * @property {function} update:modelValue  输入框值改变事件
+ * @property {boolean} showPassword  是否显示密码
+ * @property {string} size  输入框尺寸
+ * @property {string} maxlength  输入框最大长度
+ * @property {string} minlength  输入框最小长度
+ * @property {string|number} maxlengthType  输入框行数
  * @description 输入框组件
  * @example
  */
-import {
-  defineComponent,
-  computed,
-  ref,
-  toRef,
-  nextTick,
-  shallowRef,
-  defineExpose,
-} from "vue";
+import { defineComponent, computed, ref, nextTick, Ref } from "vue";
 import { DKinput, haInputClass } from "./input";
 
 export default defineComponent({
@@ -49,59 +45,101 @@ export default defineComponent({
       showPassword,
       suffixClick,
       size,
+      maxlength,
+      minlength,
     } = props;
     const input = ref<HTMLInputElement>();
     const textarea = ref<HTMLTextAreaElement>();
     const __ref = computed(() => input.value || textarea.value);
-
+    const modelValue: Ref<string | number | undefined> = ref(props.modelValue);
     const inpClass = new haInputClass();
+    const showPasswordIcon = ref<boolean>(false);
 
-    const inputType = computed(() => {
-      const inpType = ref(type || "text");
-      const typeList = {
+    const inputType = computed((): string => {
+      type InputType = Record<string, string>;
+      const inpType =
+        type === "password"
+          ? isShowPassword.value
+            ? showPasswordIcon.value
+              ? "text"
+              : "password"
+            : type
+          : type;
+      const typeList: InputType = {
         text: "text",
         password: "password",
         textarea: "textarea",
       };
-      return typeList[inpType.value];
+      return typeList[inpType];
     });
-    const inputModeType = computed(() => (type === "number" ? "numeric" : "text"));
-    const inputClassList = computed(() => [
-      "dk-input",
-      inpClass.n(type),
-      {
+
+    const isShowPassword = computed((): boolean => {
+      return (
+        showPassword &&
+        type === "password" &&
+        !disabled &&
+        !!modelValue.value
+      );
+    });
+    const showPasswordClick = () => {
+      showPasswordIcon.value = !showPasswordIcon.value;
+      focus();
+    };
+
+    const inputModeType = computed((): "text" | "numeric" =>
+      type === "number" ? "numeric" : "text"
+    );
+
+    const inputClassList = computed<Array<string>>((): string[] => {
+      const list: string[] = ["dk-input", inpClass.n(type)];
+      type InputClass = Record<string, boolean>;
+      const isClass: InputClass = {
         "is-disabled": disabled,
         "is-medium": size === "medium",
         "is-small": size === "small",
         "is-mini": size === "mini",
-      },
-    ]);
-    const inputFocus = ref(false);
+      };
+      let classList: string[] = [];
+      classList = inpClass.cLTS(isClass, classList);
+      return list.concat(classList);
+    });
+
+    const inputFocus = ref<Boolean>(false);
     const handleFocus = () => {
       inputFocus.value = true;
     };
+
     const handleBlur = () => {
       inputFocus.value = false;
     };
-    const wrapperClassList = computed(() => [
-      type !== "textarea" ? "dk-input__wrapper" : "dk-textarea__inner",
-      {
-        "is-focus": inputFocus.value,
-        "is-prepend": !!prepend || slots.prepend,
-        "is-append": !!append || slots.append,
-      },
-    ]);
+
+    const wrapperClassList = computed((): string[] => {
+      const wrapperClass: string[] = [
+        type !== "textarea" ? "dk-input__wrapper" : "dk-textarea__inner",
+      ];
+      type WrapperType = Record<string, boolean>;
+      const isClass: WrapperType = {
+        "is-focus": !!inputFocus.value,
+        "is-prepend": !!prepend || !!slots.prepend,
+        "is-append": !!append || !!slots.append,
+      };
+      let list: string[] = [];
+      list = inpClass.cLTS(isClass, list);
+      return wrapperClass.concat(list);
+    });
 
     const showClear = computed(
-      () => clearable && modelValue.value && inputMouseenter.value && !disabled
+      (): boolean =>
+        !!clearable && !!modelValue.value && inputMouseenter.value && !disabled
     );
     const clear = () => {
       modelValue.value = "";
       emit("update:modelValue", "");
     };
-    const modelValue = ref(props.modelValue);
 
     const handleInput = (e: Event) => {
+      console.log(isShowPassword.value, showPasswordIcon.value);
+      
       const target = e.target as HTMLInputElement;
       if (autosize) {
         target.style.height = "auto";
@@ -110,48 +148,67 @@ export default defineComponent({
       modelValue.value = target.value;
       emit("update:modelValue", modelValue.value);
     };
-    const innerClassList = computed(() => [
-      "dk-input__inner",
-      {
+
+    const innerClassList = computed(() => {
+      const list = [inpClass.n("inner")];
+      type objType = Record<string, boolean>;
+      const isObj: objType = {
         "is-disabled": disabled,
-      },
-    ]);
-    const inputMouseenter = ref(false);
+      };
+      let innerClass: string[] = [];
+      innerClass = inpClass.cLTS(isObj, innerClass);
+      return list.concat(innerClass);
+    });
+
+    const inputMouseenter = ref<boolean>(false);
     const handleMouseenter = () => {
       inputMouseenter.value = true;
     };
+
     const handleMouseleave = () => {
       inputMouseenter.value = false;
     };
 
-    const isShowPassword = computed(() => {
-      return (
-        showPassword &&
-        type === "password" &&
-        // inputFocus.value &&
-        !disabled &&
-        modelValue.value
-      );
-    });
-    const showPasswordIcon = ref(false);
-    const showPasswordClick = () => {
-      showPasswordIcon.value = !showPasswordIcon.value;
-      focus();
-    };
-    const showPasswordClassList = computed(() => [
-      inpClass.n("show-password"),
-      {
+    const showPasswordClassList = computed((): string[] => {
+      const list: string[] = [inpClass.n("show-password")];
+      type objType = Record<string, boolean>;
+      const isObj: objType = {
         "dk-icon-show": showPasswordIcon.value,
         "dk-icon-hide": !showPasswordIcon.value,
-      },
-    ]);
+      };
+      let classList: string[] = [];
+      classList = inpClass.cLTS(isObj, classList);
+      return list.concat(classList);
+    });
 
     const focus = async () => {
       await nextTick();
       __ref.value?.focus();
     };
+
+    const maxlengthType = computed((): string | number => {
+      return maxlength ? maxlength : "";
+    });
+
+    const minlengthType = computed((): string | number => {
+      return minlength ? minlength : "";
+    });
+
+    const isDisabled = computed((): boolean => {
+      return disabled;
+    });
+
+    const prefixIconClass = computed((): string => {
+      return prefixIcon ? prefixIcon : "";
+    });
+    const prependValue = computed((): string => {
+      return prepend ? prepend : "";
+    });
+    const appendValue = computed((): string => {
+      return append ? append : "";
+    });
     return {
-      disabled,
+      isDisabled,
       inputClassList,
       inputModeType,
       placeholder,
@@ -166,18 +223,18 @@ export default defineComponent({
       handleMouseenter,
       handleMouseleave,
       inputType,
-      prefixIcon,
+      prefixIconClass,
       inpClass,
       prefixClick,
       suffixClick,
-      prepend,
-      append,
+      prependValue,
+      appendValue,
       isShowPassword,
       showPasswordClick,
       showPasswordClassList,
       showPasswordIcon,
-      input,
-      textarea,
+      maxlengthType,
+      minlengthType,
     };
   },
 });
@@ -185,26 +242,26 @@ export default defineComponent({
 
 <template>
   <div
-    :class="inputClassList"
+    :class="[inputClassList]"
     @mouseenter="handleMouseenter"
     @mouseleave="handleMouseleave"
   >
     <!-- input -->
     <template v-if="type !== 'textarea'">
       <!-- prepend -->
-      <div v-if="$slots.prepend || prepend" :class="[inpClass.n('prepend')]">
-        {{ prepend }}
+      <div v-if="$slots.prepend || prependValue" :class="[inpClass.n('prepend')]">
+        {{ prependValue }}
         <slot name="prepend"></slot>
       </div>
       <!-- input -->
       <div :class="wrapperClassList">
         <!-- prefix slot -->
-        <span v-if="$slots.prefix || prefixIcon" :class="[inpClass.n('prefix')]">
+        <span v-if="$slots.prefix || prefixIconClass" :class="[inpClass.n('prefix')]">
           <span @click="prefixClick" :class="inpClass.n('prefix-inner')">
             <slot name="prefix"></slot>
             <dk-icon
-              v-if="prefixIcon"
-              :class="[inpClass.i('icon', prefixIcon)]"
+              v-if="prefixIconClass"
+              :class="[inpClass.i('icon', prefixIconClass)]"
             ></dk-icon>
           </span>
         </span>
@@ -214,12 +271,14 @@ export default defineComponent({
           @focus="handleFocus"
           @blur="handleBlur"
           v-model="modelValue"
-          :disabled="disabled"
+          :disabled="isDisabled"
           :placeholder="placeholder"
-          :type="showPassword ? (showPasswordIcon ? 'text' : 'password') : inputType"
+          :type="inputType"
           :class="innerClassList"
           :inputmode="inputModeType"
           ref="input"
+          :maxlength="maxlengthType"
+          :minlength="minlengthType"
         />
         <!-- clearable -->
         <template v-if="clearable && showClear">
@@ -250,8 +309,8 @@ export default defineComponent({
       </div>
 
       <!-- append -->
-      <div v-if="$slots.append || append" :class="[inpClass.n('append')]">
-        {{ append }}
+      <div v-if="$slots.append || appendValue" :class="[inpClass.n('append')]">
+        {{ appendValue }}
         <slot name="append"></slot>
       </div>
     </template>
@@ -265,6 +324,8 @@ export default defineComponent({
         :disabled="disabled"
         :placeholder="placeholder"
         ref="textarea"
+        :maxlength="maxlengthType"
+        :minlength="minlengthType"
       ></textarea>
     </template>
   </div>

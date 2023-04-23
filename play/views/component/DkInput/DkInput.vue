@@ -1,6 +1,6 @@
 <template>
   <div class="input">
-    <dk-input prefix-icon="del1" prepend="a">
+    <dk-input prefix-icon="del1" prepend="a" maxlength="2" type="password" show-password>
       <!-- <template #prepend> -->
         <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon>
       <!-- </template> -->
@@ -207,7 +207,15 @@ export default defineComponent({
             size: "mini"
           }
         },
-
+        {
+          title: "输入框内容长度限制",
+          code: `<dk-input placeholder="输入框内容长度限制" maxlength="10" minlength='4'/>`,
+          attrs: {
+            placeholder: "输入框内容长度限制",
+            maxlength: 10,
+            minlength: 4
+          }
+        },
       ],
     });
 
