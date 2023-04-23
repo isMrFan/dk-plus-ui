@@ -1,0 +1,7 @@
+// 全局class命名配置
+// Global class name configuration
+$namespace: 'dk' !default;
+$common-separator: '-' !default;
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;

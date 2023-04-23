@@ -6,5 +6,61 @@
 @use 'inputconfig' as *;
 @forward 'inputconfig';
 
-@use 'global' as *;
-@forward 'global';
+@use 'config' as *;
+@forward 'config';
+
+@use 'func' as *;
+@forward 'func';
+
+// class name
+@mixin bem($block, $element: (), $modifier: ()) {
+  $B: $namespace + $common-separator + $block;
+  $E: null;
+
+  // @at-root {
+    .#{$B} {
+      @content;
+    }
+  // }
+
+  @if length($element)>0 {
+    @each $e in $element {
+      $E: $B + $element-separator + $e;
+
+      @at-root {
+        .#{$E} {
+          @content;
+        }
+      }
+    }
+  }
+
+  @if length($modifier)>0 {
+    @each $m in $modifier {
+      $M: null;
+
+      @if $E != null {
+        $M: $E + $modifier-separator + $m;
+      }
+
+      @else {
+        $M: $B + $modifier-separator + $m;
+      }
+
+      @at-root {
+        .#{$M} {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+// state class name
+@mixin s($state) {
+  @at-root {
+    .#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
