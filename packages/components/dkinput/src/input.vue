@@ -21,6 +21,7 @@
  * @property {string} maxlength  输入框最大长度
  * @property {string} minlength  输入框最小长度
  * @property {string|number} maxlengthType  输入框行数
+ * @property {func} showPasswordClick 显示密码点击事件
  * @description 输入框组件
  * @example
  */
@@ -74,12 +75,7 @@ export default defineComponent({
     });
 
     const isShowPassword = computed((): boolean => {
-      return (
-        showPassword &&
-        type === "password" &&
-        !disabled &&
-        !!modelValue.value
-      );
+      return showPassword && type === "password" && !disabled && !!modelValue.value;
     });
     const showPasswordClick = () => {
       showPasswordIcon.value = !showPasswordIcon.value;
@@ -138,8 +134,6 @@ export default defineComponent({
     };
 
     const handleInput = (e: Event) => {
-      console.log(isShowPassword.value, showPasswordIcon.value);
-      
       const target = e.target as HTMLInputElement;
       if (autosize) {
         target.style.height = "auto";
@@ -235,6 +229,8 @@ export default defineComponent({
       showPasswordIcon,
       maxlengthType,
       minlengthType,
+      input,
+      textarea,
     };
   },
 });
@@ -257,7 +253,7 @@ export default defineComponent({
       <div :class="wrapperClassList">
         <!-- prefix slot -->
         <span v-if="$slots.prefix || prefixIconClass" :class="[inpClass.n('prefix')]">
-          <span @click="prefixClick" :class="inpClass.n('prefix-inner')">
+          <span @click="prefixClick" :class="inpClass.n('prefix--inner')">
             <slot name="prefix"></slot>
             <dk-icon
               v-if="prefixIconClass"
@@ -290,7 +286,7 @@ export default defineComponent({
         </template>
         <!-- suffix slot -->
         <span v-if="$slots.suffix || suffixIcon" :class="inpClass.n('suffix')">
-          <span @click="suffixClick" :class="inpClass.n('suffix-inner')">
+          <span @click="suffixClick" :class="inpClass.n('suffix--inner')">
             <slot name="suffix"></slot>
             <dk-icon
               v-if="suffixIcon"

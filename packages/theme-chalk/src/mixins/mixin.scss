@@ -6,5 +6,52 @@
 @use 'inputconfig' as *;
 @forward 'inputconfig';
 
-@use 'global' as *;
-@forward 'global';
+@use 'config' as *;
+@forward 'config';
+
+@use 'func' as *;
+@forward 'func';
+
+@mixin block($block) { // block
+  $B: $namespace + $common-separator + $block;
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin element($element) { // element
+  $E: '';
+  @if type-of($element) == list {
+    @each $item in $element {
+      $E: $element-separator + $item;
+      @at-root {
+        &#{$E} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      $E: $element-separator + $element;
+      &#{ $E } {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin modifier($modifier) { // modifier
+  $M: $modifier-separator + $modifier;
+  @at-root {
+    &#{$M} {
+      @content;
+    }
+  }
+}
+// state class name
+@mixin state($state) {
+  $S: $state-prefix + $state;
+  .#{$S} {
+    @content;
+  }
+}

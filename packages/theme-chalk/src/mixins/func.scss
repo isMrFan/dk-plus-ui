@@ -1,0 +1,14 @@
+// 全局函数
+
+@function containsHyphen($str) {
+  @return str-index($str, '-') != null;
+}
+@function containsDoubleUnderscore($str) {
+  @return str-index($str, '__') != null;
+}
+@function containsDoubleHyphen($str) {
+  @return str-index($str, '--') != null;
+}
+@function hyphen($str) {
+  @return containsHyphen($str) or containsDoubleUnderscore($str) or containsDoubleHyphen($str);
+}
