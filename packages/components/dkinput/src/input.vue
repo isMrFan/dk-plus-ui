@@ -21,6 +21,7 @@
  * @property {string} maxlength  输入框最大长度
  * @property {string} minlength  输入框最小长度
  * @property {string|number} maxlengthType  输入框行数
+ * @property {func} showPasswordClick 显示密码点击事件
  * @description 输入框组件
  * @example
  */

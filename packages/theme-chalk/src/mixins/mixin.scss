@@ -12,14 +12,14 @@
 @use 'func' as *;
 @forward 'func';
 
-@mixin b($block) {
+@mixin block($block) { // block
   $B: $namespace + $common-separator + $block;
   .#{$B} {
     @content;
   }
 }
 
-@mixin e($element) {
+@mixin element($element) { // element
   $E: '';
   @if type-of($element) == list {
     @each $item in $element {
@@ -40,7 +40,7 @@
   }
 }
 
-@mixin m($modifier) {
+@mixin modifier($modifier) { // modifier
   $M: $modifier-separator + $modifier;
   @at-root {
     &#{$M} {
@@ -49,7 +49,7 @@
   }
 }
 // state class name
-@mixin s($state) {
+@mixin state($state) {
   $S: $state-prefix + $state;
   .#{$S} {
     @content;
