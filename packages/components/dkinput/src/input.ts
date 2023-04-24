@@ -12,14 +12,6 @@ export const DKinput = {
     type: String,
     default: ''
   },
-  suffixClick: {
-    type: Function as PropType<(e: Event) => void>,
-    default: () => null
-  },
-  prefixClick: {
-    type: Function as PropType<(e: Event) => void>,
-    default: () => null
-  },
   modelValue: {
     type: [String, Number] as PropType<string | number>
   },

@@ -1,11 +1,11 @@
 <template>
   <div class="input">
-    <dk-input prefix-icon="del1" prepend="a" maxlength="2" type="password" show-password>
+    <dk-input v-model="msg" prefix-icon="del1" @prefix-click="handleFixClick">
       <!-- <template #prepend> -->
-        <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon>
+        <dk-icon slot="prepend"  class="dk-icon-del1"></dk-icon>
       <!-- </template> -->
     </dk-input>
-    <div class="box" v-for="item in htmlList" :key="item.title">
+    <!-- <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="item.code" />
@@ -16,7 +16,7 @@
     <div class="box">
       <dk-input v-model="msg" type="" placeholder="清空" clearable />
       {{ msg }}
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -89,8 +89,8 @@ export default defineComponent({
           attrs: {
             placeholder: "前缀图标",
             prefixIcon: "search",
-            prefixClick: handleFixClick,
           },
+          emits: ["prefix-click"],
         },
         {
           title: "后缀图标",
@@ -103,21 +103,21 @@ export default defineComponent({
         },
         {
           title: "前缀图标点击事件",
-          code: `<dk-input placeholder="前缀图标" :prefix-click='handleSuffixClick' prefix-icon="search"/>`,
+          code: `<dk-input placeholder="前缀图标" @prefix-click='handleSuffixClick' prefix-icon="search"/>`,
           attrs: {
             placeholder: "前缀图标",
             prefixIcon: "search",
-            prefixClick: handleFixClick,
           },
+          emits: ["prefix-click"],
         },
         {
           title: "后缀图标点击事件",
-          code: `<dk-input placeholder="后缀图标" :suffix-click='handleSuffixClick' suffix-icon="search"/>`,
+          code: `<dk-input placeholder="后缀图标" @suffix-click='handleSuffixClick' suffix-icon="search"/>`,
           attrs: {
             placeholder: "后缀图标",
             suffixIcon: "search",
-            suffixClick: handleFixClick,
           },
+          emits: ["suffix-click"],
         },
         {
           title: "前缀插槽",
@@ -225,12 +225,16 @@ export default defineComponent({
         return "DkInput";
       }
     }
+    const change = (e) => {
+      console.log(e);
+    };
     return {
       ...data,
       oncopy,
       getComponentName,
       handleFixClick,
       msg,
+      change
     };
   },
 });
