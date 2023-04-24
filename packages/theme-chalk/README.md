@@ -27,3 +27,35 @@
 ## 🐿️ 唯一样式
 
 每个组件都会有一个唯一的样式，比如 `dk-button`、`dk-icon` 等等，为避免样式发生冲突，需要严格约束其内部样式或同级样式对于其它组件的污染。
+
+例如使用 `mixin.scss` 中的 `block` `element` `modifier` 进行样式的命名，如下：
+
+```scss
+// block
+@include block(input) {
+  //...... styles
+  // element
+  @include element(wrapper) {
+    //...... styles
+    // modifier
+    @include modifier(readonly) {
+      //...... styles
+    }
+  }
+}
+```
+**注意： 这里声明方法必须采用sass的嵌套写法，不可以采用css的写法，否则会导致样式无法生效**
+
+生成的css如下
+
+```css
+.dk-input {
+  //...... styles
+}
+.dk-input__wrapper {
+  //...... styles
+}
+.dk-input__wrapper--readonly {
+  //...... styles
+}
+```

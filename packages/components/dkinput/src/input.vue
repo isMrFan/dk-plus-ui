@@ -49,12 +49,12 @@ export default defineComponent({
       maxlength,
       minlength,
     } = props;
-    const input = ref<HTMLInputElement>();
-    const textarea = ref<HTMLTextAreaElement>();
-    const __ref = computed(() => input.value || textarea.value);
-    const modelValue: Ref<string | number | undefined> = ref(props.modelValue);
-    const inpClass = new haInputClass();
-    const showPasswordIcon = ref<boolean>(false);
+    const input = ref<HTMLInputElement>(); // input
+    const textarea = ref<HTMLTextAreaElement>(); // textarea
+    const __ref = computed(() => input.value || textarea.value); // input || textarea
+    const modelValue: Ref<string | number | undefined> = ref(props.modelValue); // 输入框值
+    const inpClass = new haInputClass(); 
+    const showPasswordIcon = ref<boolean>(false); // 是否显示密码
 
     const inputType = computed((): string => {
       type InputType = Record<string, string>;
@@ -77,11 +77,13 @@ export default defineComponent({
     const isShowPassword = computed((): boolean => {
       return showPassword && type === "password" && !disabled && !!modelValue.value;
     });
+    /**
+     * @description 显示密码点击事件
+     */
     const showPasswordClick = () => {
       showPasswordIcon.value = !showPasswordIcon.value;
       focus();
     };
-
     const inputModeType = computed((): "text" | "numeric" =>
       type === "number" ? "numeric" : "text"
     );
@@ -101,10 +103,16 @@ export default defineComponent({
     });
 
     const inputFocus = ref<Boolean>(false);
+    /**
+     * @description 获取焦点
+     */
     const handleFocus = () => {
       inputFocus.value = true;
     };
 
+    /**
+     * @description 失去焦点
+     */
     const handleBlur = () => {
       inputFocus.value = false;
     };
@@ -128,11 +136,19 @@ export default defineComponent({
       (): boolean =>
         !!clearable && !!modelValue.value && inputMouseenter.value && !disabled
     );
+
+    /**
+     * @description 清空输入框
+     */
     const clear = () => {
       modelValue.value = "";
       emit("update:modelValue", "");
     };
 
+
+    /**
+     * @description input输入事件
+     */
     const handleInput = (e: Event) => {
       const target = e.target as HTMLInputElement;
       if (autosize) {
@@ -155,10 +171,18 @@ export default defineComponent({
     });
 
     const inputMouseenter = ref<boolean>(false);
+
+    /**
+     * @description 鼠标移入
+     */
     const handleMouseenter = () => {
       inputMouseenter.value = true;
     };
 
+
+    /**
+     * @description 鼠标移出
+     */
     const handleMouseleave = () => {
       inputMouseenter.value = false;
     };
@@ -175,6 +199,9 @@ export default defineComponent({
       return list.concat(classList);
     });
 
+    /**
+     * @description 聚焦
+     */
     const focus = async () => {
       await nextTick();
       __ref.value?.focus();
