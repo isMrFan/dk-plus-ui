@@ -3,18 +3,18 @@
   transition: all 0.2s;
 }
 
-@include b('input') {
+@include block('input') {
   width: 100%;
   position: relative;
   height: 30px;
   display: flex;
   flex-wrap: nowrap;
-  @include b('icon') {
+  @include block('icon') {
     &:hover {
       cursor: pointer;
     }
   }
-  @include e('wrapper') {
+  @include element('wrapper') {
     width: 100%;
     height: 100%;
     border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
@@ -28,7 +28,7 @@
       border-color: map-get($input-theme-colors, 'hover');
     }
   }
-  @include e('inner') {
+  @include element('inner') {
     width: 100%;
     height: 100%;
     border: none;
@@ -40,21 +40,21 @@
       outline: none;
     }
   }
-  @include e('clear') {
+  @include element('clear') {
     color: map-get($input-theme-colors, 'hover');
     cursor: pointer;
     font-size: 13px;
   }
   // prefix & suffix
-  @include e((prefix, suffix)) {
+  @include element((prefix, suffix)) {
     height: 100%;
-    @include m('inner') {
+    @include modifier('inner') {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 3px;
-      @include b('icon') {
+      @include block('icon') {
         color: map-get($input-theme-colors, 'hover');
         // cursor: pointer;
         line-height: 100%;
@@ -62,22 +62,22 @@
       }
     }
   }
-  @include e('prefix') {
+  @include element('prefix') {
     margin-right: 5px;
   }
-  @include e('suffix') {
+  @include element('suffix') {
     margin-left: 5px;
   }
-  @include s('focus') {
+  @include state('focus') {
     border-color: map-get($input-theme-colors, 'primary');
   }
-  @include s('prepend') {
+  @include state('prepend') {
     border-radius: 0 4px 4px 0;
   }
-  @include s('append') {
+  @include state('append') {
     border-radius: 4px 0 0 4px;
   }
-  @include e((prepend, append)) {
+  @include element((prepend, append)) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,41 +89,41 @@
     cursor: default;
     line-height: 100%;
   }
-  @include e(('prepend')) {
+  @include element(('prepend')) {
     border-radius: 4px 0 0 4px;
     border-right: none;
   }
-  @include e(('append')) {
+  @include element(('append')) {
     border-radius: 0 4px 4px 0;
     border-left: none;
   }
 }
-@include s('medium') {
+@include state('medium') {
   height: 40px;
-  @include e('wrapper') {
+  @include element('wrapper') {
     padding: 0 13px;
   }
 }
-@include s('small') {
+@include state('small') {
   height: 30px;
-  @include e('wrapper') {
+  @include element('wrapper') {
     padding: 0 10px;
   }
 }
-@include s('mini') {
+@include state('mini') {
   height: 20px;
-  @include e('wrapper') {
+  @include element('wrapper') {
     padding: 0 7px;
   }
 }
-@include s('disabled') {
+@include state('disabled') {
   background-color: map-get($input-theme-colors, 'disabled');
   cursor: not-allowed;
   border-color: map-get($input-theme-colors, 'border');
 }
 
-@include b(textarea) {
-  @include e(inner) {
+@include block(textarea) {
+  @include element(inner) {
     min-height: 30px;
     padding: 0 10px;
     line-height: 30px;
@@ -138,25 +138,3 @@
     }
   }
 }
-// .dk-textarea__inner {
-//   width: 100%;
-//   height: 100%;
-//   font-size: 13px;
-//   display: inline-block;
-//   color: map-get($input-theme-colors, 'text');
-
-//   transition: none;
-//   padding: 0 10px;
-//   line-height: 30px;
-//   min-height: 30px;
-//   border-radius: 4px;
-//   border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   &:hover {
-//     border-color: map-get($input-theme-colors, 'hover');
-//   }
-// }
