@@ -1,40 +1,19 @@
-@use './mixins/mixin.scss'as *;
-
-$block: 'input';
-@mixin b($block) {
-  @include bem($block){
-    @content;
-  }
-}
-@mixin e($element) {
-  @include bem($block, $element){
-    @content;
-  }
-}
-@mixin m($modifier) {
-  @include bem($block, $element: $modifier){
-    @content;
-  }
-}
-
-
+@use './mixins/mixin.scss' as *;
 * {
   transition: all 0.2s;
 }
 
-@include b(input) {
+@include b('input') {
   width: 100%;
   position: relative;
   height: 30px;
   display: flex;
   flex-wrap: nowrap;
-
   @include b('icon') {
     &:hover {
       cursor: pointer;
     }
   }
-
   @include e('wrapper') {
     width: 100%;
     height: 100%;
@@ -42,16 +21,13 @@ $block: 'input';
     box-sizing: border-box;
     border-radius: 4px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-
     &:hover {
       border-color: map-get($input-theme-colors, 'hover');
     }
   }
-
-
   @include e('inner') {
     width: 100%;
     height: 100%;
@@ -60,30 +36,24 @@ $block: 'input';
     line-height: 100%;
     display: inline-block;
     color: map-get($input-theme-colors, 'text');
-
     &:focus {
       outline: none;
     }
   }
-
-
-  @include m('clear') {
+  @include e('clear') {
     color: map-get($input-theme-colors, 'hover');
     cursor: pointer;
     font-size: 13px;
   }
-
   // prefix & suffix
-  @include m(('prefix','suffix')) {
+  @include e((prefix, suffix)) {
     height: 100%;
-
-    &-inner {
+    @include m('inner') {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 3px;
-
       @include b('icon') {
         color: map-get($input-theme-colors, 'hover');
         // cursor: pointer;
@@ -92,31 +62,22 @@ $block: 'input';
       }
     }
   }
-
-  @include m('prefix') {
+  @include e('prefix') {
     margin-right: 5px;
   }
-
-  @include m('suffix') {
+  @include e('suffix') {
     margin-left: 5px;
   }
-
-
-  // .is- {
-    @include s('focus') {
-      border-color: map-get($input-theme-colors, 'primary');
-    }
-
-    @include s('prepend') {
-      border-radius: 0 4px 4px 0;
-    }
-
-    @include s('append') {
-      border-radius: 4px 0 0 4px;
-    }
-  // }
-
-    @include e(('prepend','append')) {
+  @include s('focus') {
+    border-color: map-get($input-theme-colors, 'primary');
+  }
+  @include s('prepend') {
+    border-radius: 0 4px 4px 0;
+  }
+  @include s('append') {
+    border-radius: 4px 0 0 4px;
+  }
+  @include e((prepend, append)) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,70 +89,74 @@ $block: 'input';
     cursor: default;
     line-height: 100%;
   }
-
-    @include e(('prepend')) {
+  @include e(('prepend')) {
     border-radius: 4px 0 0 4px;
     border-right: none;
   }
-
   @include e(('append')) {
     border-radius: 0 4px 4px 0;
     border-left: none;
   }
 }
-
-// .is- {
-  @include s('medium') {
-    height: 40px;
-
-    @include m('wrapper') {
-      padding: 0 13px;
-    }
-  }
-
-  @include s('small') {
-    height: 30px;
-
-    @include m('wrapper') {
-      padding: 0 10px;
-    }
-  }
-
-  @include s('mini') {
-    height: 20px;
-
-    @include m('wrapper') {
-      padding: 0 7px;
-    }
-  }
-
-  @include s('disabled') {
-    background-color: map-get($input-theme-colors, 'disabled');
-    cursor: not-allowed;
-    border-color: map-get($input-theme-colors, 'border');
-  }
-// }
-
-.dk-textarea__inner {
-  width: 100%;
-  height: 100%;
-  font-size: 13px;
-  display: inline-block;
-  color: map-get($input-theme-colors, 'text');
-
-
-  transition: none;
-  padding: 0 10px;
-  line-height: 30px;
-  min-height: 30px;
-  border-radius: 4px;
-  border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
-
-  &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    border-color: map-get($input-theme-colors, 'hover');
+@include s('medium') {
+  height: 40px;
+  @include e('wrapper') {
+    padding: 0 13px;
   }
 }
+@include s('small') {
+  height: 30px;
+  @include e('wrapper') {
+    padding: 0 10px;
+  }
+}
+@include s('mini') {
+  height: 20px;
+  @include e('wrapper') {
+    padding: 0 7px;
+  }
+}
+@include s('disabled') {
+  background-color: map-get($input-theme-colors, 'disabled');
+  cursor: not-allowed;
+  border-color: map-get($input-theme-colors, 'border');
+}
+
+@include b(textarea) {
+  @include e(inner) {
+    min-height: 30px;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 4px;
+    border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
+    &:hover {
+      border-color: map-get($input-theme-colors, 'hover');
+    }
+    &:focus {
+      outline: none;
+      border: 1px solid map-get($map: $input-theme-colors, $key: 'primary');
+    }
+  }
+}
+// .dk-textarea__inner {
+//   width: 100%;
+//   height: 100%;
+//   font-size: 13px;
+//   display: inline-block;
+//   color: map-get($input-theme-colors, 'text');
+
+//   transition: none;
+//   padding: 0 10px;
+//   line-height: 30px;
+//   min-height: 30px;
+//   border-radius: 4px;
+//   border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
+
+//   &:focus {
+//     outline: none;
+//   }
+
+//   &:hover {
+//     border-color: map-get($input-theme-colors, 'hover');
+//   }
+// }

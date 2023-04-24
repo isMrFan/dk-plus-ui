@@ -12,55 +12,46 @@
 @use 'func' as *;
 @forward 'func';
 
-// class name
-@mixin bem($block, $element: (), $modifier: ()) {
+@mixin b($block) {
   $B: $namespace + $common-separator + $block;
-  $E: null;
-
-  // @at-root {
-    .#{$B} {
-      @content;
-    }
-  // }
-
-  @if length($element)>0 {
-    @each $e in $element {
-      $E: $B + $element-separator + $e;
-
-      @at-root {
-        .#{$E} {
-          @content;
-        }
-      }
-    }
+  .#{$B} {
+    @content;
   }
+}
 
-  @if length($modifier)>0 {
-    @each $m in $modifier {
-      $M: null;
-
-      @if $E != null {
-        $M: $E + $modifier-separator + $m;
-      }
-
-      @else {
-        $M: $B + $modifier-separator + $m;
-      }
-
+@mixin e($element) {
+  $E: '';
+  @if type-of($element) == list {
+    @each $item in $element {
+      $E: $element-separator + $item;
       @at-root {
-        .#{$M} {
+        &#{$E} {
           @content;
         }
+      }
+    }
+  } @else {
+    @at-root {
+      $E: $element-separator + $element;
+      &#{ $E } {
+        @content;
       }
     }
   }
 }
 
-// state class name
-@mixin s($state) {
+@mixin m($modifier) {
+  $M: $modifier-separator + $modifier;
   @at-root {
-    .#{$state-prefix + $state} {
+    &#{$M} {
       @content;
     }
+  }
+}
+// state class name
+@mixin s($state) {
+  $S: $state-prefix + $state;
+  .#{$S} {
+    @content;
   }
 }
