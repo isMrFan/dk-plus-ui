@@ -15,6 +15,7 @@
 // block class name
 @mixin block($block) {
   $B: $namespace + $common-separator + $block;
+  @debug $B;
   .#{$B} {
     @content;
   }
