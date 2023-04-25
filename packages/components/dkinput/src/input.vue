@@ -22,16 +22,18 @@
  * @property {string} minlength  输入框最小长度
  * @property {string|number} maxlengthType  输入框行数
  * @property {func} showPasswordClick 显示密码点击事件
+ * @property {function} onChange  输入框值改变事件
+ * @property {boolean} isOnChange  是否触发onChange事件
  * @description 输入框组件
  * @example
  */
-import { defineComponent, computed, ref, nextTick, Ref } from "vue";
+import { defineComponent, computed, ref, nextTick, Ref, ComputedRef, watch } from "vue";
 import { DKinput, haInputClass } from "./input";
 
 export default defineComponent({
   name: "DkInput",
   props: DKinput,
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue", "change","prefix-click","suffix-click"],
   setup(props, { emit, slots }) {
     const {
       type,
@@ -39,12 +41,10 @@ export default defineComponent({
       placeholder,
       clearable,
       prefixIcon,
-      prefixClick,
       prepend,
       autosize,
       append,
       showPassword,
-      suffixClick,
       size,
       maxlength,
       minlength,
@@ -52,8 +52,9 @@ export default defineComponent({
     const input = ref<HTMLInputElement>(); // input
     const textarea = ref<HTMLTextAreaElement>(); // textarea
     const __ref = computed(() => input.value || textarea.value); // input || textarea
-    const modelValue: Ref<string | number | undefined> = ref(props.modelValue); // 输入框值
-    const inpClass = new haInputClass(); 
+    const modelValue = ref<string | number | undefined>(props.modelValue); // 输入框值
+
+    const inpClass = new haInputClass();
     const showPasswordIcon = ref<boolean>(false); // 是否显示密码
 
     const inputType = computed((): string => {
@@ -115,6 +116,10 @@ export default defineComponent({
      */
     const handleBlur = () => {
       inputFocus.value = false;
+      if (isOnChange.value) {
+        emit("change", modelValue.value);
+        isOnChange.value = false
+      }
     };
 
     const wrapperClassList = computed((): string[] => {
@@ -145,21 +150,21 @@ export default defineComponent({
       emit("update:modelValue", "");
     };
 
-
+    const isOnChange = ref<boolean>(false);
     /**
      * @description input输入事件
      */
     const handleInput = (e: Event) => {
-      const target = e.target as HTMLInputElement;
+      emit("update:modelValue", modelValue.value);
+      isOnChange.value = true;
       if (autosize) {
+        const target = e.target as HTMLInputElement;
         target.style.height = "auto";
         target.style.height = target.scrollHeight + "px";
       }
-      modelValue.value = target.value;
-      emit("update:modelValue", modelValue.value);
     };
 
-    const innerClassList = computed(() => {
+    const innerClassList = computed((): string[] => {
       const list = [inpClass.n("inner")];
       type objType = Record<string, boolean>;
       const isObj: objType = {
@@ -178,8 +183,6 @@ export default defineComponent({
     const handleMouseenter = () => {
       inputMouseenter.value = true;
     };
-
-
     /**
      * @description 鼠标移出
      */
@@ -206,6 +209,13 @@ export default defineComponent({
       await nextTick();
       __ref.value?.focus();
     };
+    /**
+     * @description 失去
+     */
+    const blur = async () => {
+      await nextTick();
+      __ref.value?.blur();
+    };
 
     const maxlengthType = computed((): string | number => {
       return maxlength ? maxlength : "";
@@ -228,6 +238,21 @@ export default defineComponent({
     const appendValue = computed((): string => {
       return append ? append : "";
     });
+    
+    watch(() => props.modelValue, (n,o) => {
+      if (n !== o && !inputFocus.value) {
+        console.log(n,o,'n,o');
+        emit("change", n);
+      }
+    })
+
+    const prefixClick = () => {
+      emit("prefix-click");
+    };
+    const suffixClick = () => {
+      emit("suffix-click");
+    };
+
     return {
       isDisabled,
       inputClassList,
