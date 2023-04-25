@@ -20,13 +20,14 @@ export default defineComponent({
   setup(props) {
     const data = reactive({
       open: false,
-      codeDom: null, // 展开的元素
+      codeDom: 0, // 展开的元素
     })
     onMounted(() => {
-      data.codeDom = document.querySelector('.dkcodedisplay_code')?.querySelector('.language-html') || { clientHeight:0}
+      const {clientHeight} = document.querySelector('.dkcodedisplay_code')?.querySelector('.language-html') || { clientHeight:0}
+      data.codeDom=clientHeight
     })
     const codeHeight = computed(() => {
-      return data.open ? data.codeDom.clientHeight+20+'px' : '0px'
+      return data.open ?  data.codeDom+20+'px' : '0px'
     })
     
     return {

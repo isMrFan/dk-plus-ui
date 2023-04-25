@@ -146,7 +146,6 @@
         }
         return loadingSize === '' ? (classType[size] ? classType[size] : 14) : loadingSize
       })
-      
       return {
         typeClass,
         disabledClass,
