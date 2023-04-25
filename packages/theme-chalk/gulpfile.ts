@@ -1,4 +1,6 @@
 // 打包样式
+
+import './src/mixins/mixin.scss'
 import gulpSass from 'gulp-sass'
 import dartSass from 'sass'
 import autoprefixer from 'gulp-autoprefixer'
