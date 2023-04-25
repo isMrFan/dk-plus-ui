@@ -1,16 +1,12 @@
 <script lang="ts">
-/**
+  /**
    * @name downloads
    * @author fanKai16
    * @version 1.0.0
    * @Time 2023/04/10
    * @description 介绍内下载趋势
-**/
-import {
-  defineComponent,
-  toRefs, reactive,
-  onMounted
-} from 'vue'
+   **/
+  import { defineComponent, toRefs, reactive, onMounted } from 'vue'
   interface DownloadItem {
     downloads: number
     end: string
@@ -28,23 +24,23 @@ import {
     'last-day': null
   })
 
-export default defineComponent({
-  name: 'downloads',
-  setup() {
-    const data = reactive({
-      times:[
-        { en: 'last-month', zh: '上个月' },
-        { en: 'last-week', zh: '上周' },
-        { en: 'last-day', zh: '昨天' }
-      ] as const,
-      downloadVolume: {
-        'last-month': null,
-        'last-week': null,
-        'last-day': null
-      }as Download
-    })
-    const methods = reactive({
-      init() {
+  export default defineComponent({
+    name: 'downloads',
+    setup() {
+      const data = reactive({
+        times: [
+          { en: 'last-month', zh: '上个月' },
+          { en: 'last-week', zh: '上周' },
+          { en: 'last-day', zh: '昨天' }
+        ] as const,
+        downloadVolume: {
+          'last-month': null,
+          'last-week': null,
+          'last-day': null
+        } as Download
+      })
+      const methods = reactive({
+        init() {
           data.times.forEach(item => {
             fetch(`https://api.npmjs.org/downloads/point/${item.en}/dk-plus`)
               .then((res: Response) => res.json())
@@ -56,17 +52,17 @@ export default defineComponent({
               })
               .catch(err => console.log(err))
           })
+        }
+      })
+      onMounted(() => {
+        methods.init()
+      })
+      return {
+        ...toRefs(data),
+        ...toRefs(methods)
       }
-    })
-    onMounted(() => {
-     methods.init()
-    });
-    return {
-      ...toRefs(data),
-      ...toRefs(methods)
     }
-  }
-})
+  })
 </script>
 
 <template>

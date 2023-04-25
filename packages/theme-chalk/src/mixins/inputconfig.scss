@@ -2,15 +2,26 @@
 
 // input颜色
 $input-theme-colors: (
-  'text': #606266, // 文字颜色
-  'primary': #409EFF, // 主要颜色
-  'success': #67C23A, // 成功颜色
-  'warning': #E6A23C, // 警告颜色
-  'danger': #F56C6C, // 危险颜色
-  'info': #909399, // 信息颜色
-  'border':#dddfe5, // 边框颜色
-  'hover':#c1c4cb, // 鼠标悬浮颜色
-  'background':#fff, // 背景颜色
-  'disabled': #f5f7fa, // 禁用颜色
-  '': #C0C4CC, // 默认颜色
+  'text': #606266,
+  // 文字颜色
+  'primary': #409eff,
+  // 主要颜色
+  'success': #67c23a,
+  // 成功颜色
+  'warning': #e6a23c,
+  // 警告颜色
+  'danger': #f56c6c,
+  // 危险颜色
+  'info': #909399,
+  // 信息颜色
+  'border': #dddfe5,
+  // 边框颜色
+  'hover': #c1c4cb,
+  // 鼠标悬浮颜色
+  'background': #fff,
+  // 背景颜色
+  'disabled': #f5f7fa,
+  // 禁用颜色
+  '': #c0c4cc,
+  // 默认颜色
 );

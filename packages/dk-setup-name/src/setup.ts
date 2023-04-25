@@ -34,7 +34,7 @@ export const setupName = (code: string, id: string): SetupNameReturn | null => {
     const name = result.attrs.name
     /** 获取到组件的 lang */
     const lang = result.attrs.lang
-    console.log("name", name)
+    console.log('name', name)
     if (name) {
       str().appendLeft(
         0,

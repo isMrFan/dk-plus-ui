@@ -17,14 +17,14 @@ export const sidebar = {
       items: [
         { text: '介绍', link: '/document/introduce' },
         { text: '贡献指南', link: '/document/contributing' },
-        { text: '加入我们', link: '/document/join' },
+        { text: '加入我们', link: '/document/join' }
       ]
     },
     {
       text: '发展历程',
       items: [
         { text: '更新日志', link: '/document/update' },
-        { text: '里程碑', link: '/document/mileage' },
+        { text: '里程碑', link: '/document/mileage' }
       ]
     }
   ],

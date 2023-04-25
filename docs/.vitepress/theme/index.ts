@@ -2,7 +2,7 @@ import { h } from 'vue'
 import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
 import './style/global.scss'
-import dkPlus,{dkcodedisplay} from '../../../packages/dk-plus/index'
+import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
 import '@dk-plus/theme-chalk/src/index.scss'
 export default {
   ...Theme,
@@ -19,6 +19,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(dkPlus)
-    app.component('vp-module',dkcodedisplay)
+    app.component('vp-module', dkcodedisplay)
   }
 }

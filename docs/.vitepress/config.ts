@@ -10,12 +10,12 @@ import type MarkdownIt from 'markdown-it'
  *
  * @see Introduction https://vitepress.vuejs.org/config/introduction
  */
-const isDeFineConfig= defineConfig({
+const isDeFineConfig = defineConfig({
   title: 'dk-plus',
   head,
   description,
   appearance: true,
-  
+
   /**
    * 是否显示最后更新时间
    *
@@ -51,7 +51,7 @@ const isDeFineConfig= defineConfig({
     lastUpdatedText: '最后更新时间',
     nav,
     sidebar,
-    
+
     /**
      * 配置导航栏图表
      *
@@ -79,7 +79,6 @@ const isDeFineConfig= defineConfig({
       md.use(PluginDkTable)
       md.use(PluginModule)
     }
-  
   }
 })
 module.exports = {
