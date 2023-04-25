@@ -2,11 +2,11 @@
   <div class="dkcodedisplay">
     <dk-shadow>
       <slot name="code"></slot>
-      <div class="dkcodedisplay_open">
-        <span @click="open = !open">{{ open ? '关闭' : '开启' }}</span>
-      </div>
       <div class="dkcodedisplay_code" :style="{ height: codeHeight }">
         <slot />
+      </div>
+      <div class="dkcodedisplay_open">
+        <span @click="open = !open">{{ open ? '关闭' : '开启' }}</span>
       </div>
     </dk-shadow>
   </div>

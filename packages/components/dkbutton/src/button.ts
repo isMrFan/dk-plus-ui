@@ -26,6 +26,9 @@ export const DKbutton = {
   },
   loadingSize: {
     type: [Number, String]
+  },
+  loadingColor:{
+    type: String
   }
 }
 export type dkbutton = ExtractPropTypes<typeof DKbutton>
