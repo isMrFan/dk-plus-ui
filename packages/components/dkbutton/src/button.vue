@@ -12,6 +12,7 @@
    * @property {booler} loading -加载种状态
    * @property {string} loadingIcon   图标加载中的图标
    * @property {string,number} loadingSize  图标加载中的自定义大小
+   * @property {string} loadingColor  图标自定义颜色
    * @function typeClass  基础使用type
    * @function disabledClass  禁止使用状态disable
    * @function roundClass     半圆按钮逻辑处理round
@@ -39,7 +40,8 @@
         size = 'default',
         loading = false,
         loadingIcon = '',
-        loadingSize = ''
+        loadingSize = '',
+        loadingColor=''
       } = props
       const typeClass = computed(() => {
         type === '' ? (type = 'default') : ''
@@ -146,6 +148,9 @@
         }
         return loadingSize === '' ? (classType[size] ? classType[size] : 14) : loadingSize
       })
+      const loadingIconSColor = computed(() => {
+        return loadingColor === '' ? '#fff' : loadingColor
+      })
       return {
         typeClass,
         disabledClass,
@@ -159,7 +164,8 @@
         loading,
         loadingClass,
         loadingIconClass,
-        loadingIconSize
+        loadingIconSize,
+        loadingIconSColor
       }
     }
   })
@@ -183,7 +189,7 @@
           <dkIcon
             :class="loadingIconClass"
             :size="loadingIconSize"
-            :color="'#fff'"
+            :color="loadingIconSColor"
           ></dkIcon>
         </div>
         <slot></slot>
