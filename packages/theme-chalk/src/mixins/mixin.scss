@@ -1,7 +1,7 @@
 // 声明公共的sass方法
 
-@use 'btnconfig' as *;
-@forward 'btnconfig';
+@use './configuration/dkButtonConfig.scss' as *;
+@forward './configuration/dkButtonConfig.scss';
 
 @use 'inputconfig' as *;
 @forward 'inputconfig';

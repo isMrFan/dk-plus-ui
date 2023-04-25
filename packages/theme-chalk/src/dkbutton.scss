@@ -1,5 +1,6 @@
 @use './mixins/mixin.scss' as *;
-.dk-button {
+
+@include block('button'){
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -9,25 +10,40 @@
   cursor: pointer;
   padding: 8px 15px;
   margin: 5px;
-  .dk-button-conten {
+  @include block('content'){
     font-size: 14px;
   }
 }
-//默认按钮
-.dk-button-default {
+/*
+  * 默认按钮
+*/
+@include block('default'){
   color: $dkButton-default-color;
   border: 1px solid $dkButton-default-border-color;
   background: $dkButton-default-background-color;
   border-radius: $dkButton-radius;
+  &:hover,&:focus,&:active{
+    color: $dkButton-default-afhColor;
+    border: 1px solid $dkButton-default-afhBorder-color;
+    background: $dkButton-default-afhBackground;
+    border-radius: $dkButton-radius;
+  }
 }
-.dk-button-default:active,
-.dk-button-default:focus,
-.dk-button-default:hover {
-  color: $dkButton-default-afhColor;
-  border: 1px solid $dkButton-default-afhBorder-color;
-  background: $dkButton-default-afhBackground;
-  border-radius: $dkButton-radius;
-}
+//默认按钮
+// .dk-button-default {
+//   color: $dkButton-default-color;
+//   border: 1px solid $dkButton-default-border-color;
+//   background: $dkButton-default-background-color;
+//   border-radius: $dkButton-radius;
+// }
+// .dk-button-default:active,
+// .dk-button-default:focus,
+// .dk-button-default:hover {
+//   color: $dkButton-default-afhColor;
+//   border: 1px solid $dkButton-default-afhBorder-color;
+//   background: $dkButton-default-afhBackground;
+//   border-radius: $dkButton-radius;
+// }
 //默认按钮禁用区域
 .dk-button-default-disabled {
   color: $dkButton-default-disabled;
