@@ -14,7 +14,7 @@
       // 编译时用的库
       "dom",
       "DOM.Iterable",
-      "ESNext",
+      "ESNext"
     ],
     "allowSyntheticDefaultImports": true, // 允许没有导出的模块中导入
     "experimentalDecorators": true, // 装饰器语法
@@ -35,9 +35,6 @@
     "vue"
   ],
   "paths": {
-    "*": [
-      "node_modules/*",
-      "node_modules/@types/*"
-    ]
+    "*": ["node_modules/*", "node_modules/@types/*"]
   }
 }

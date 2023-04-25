@@ -11,7 +11,8 @@ const DkShadow: Object = () => import('../views/component/DkShadow/DkShadow.vue'
 const DkIcon: Object = () => import('../views/component/icon/icon.vue')
 const Dkbutton: Object = () => import('../views/component/Dkbutton/Dkbutton.vue')
 const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
-const DkInputNumber: Object = () => import('../views/component/DkInputNumber/DkInputNumber.vue')
+const DkInputNumber: Object = () =>
+  import('../views/component/DkInputNumber/DkInputNumber.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -80,8 +81,7 @@ const routes: Array<RouteRecordRaw> = [
           keepAlive: false,
           isunnewList: false
         }
-      },
-
+      }
     ]
   }
 ]

@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: "DkInputNumber",
-  setup() {
-    return {};
-  },
-}
+  export default {
+    name: 'DkInputNumber',
+    setup() {
+      return {}
+    }
+  }
 </script>

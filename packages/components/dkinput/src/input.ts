@@ -99,13 +99,13 @@ export class haInputClass {
   is = (is: string, name: string) => (is ? 'is-' + name : '')
   // icon
   i = (icon: string, name: string) => (icon ? this.globalName + 'icon-' + name : '')
-  /** 
+  /**
    * classList to string[]
    * @import {cLTS} from 'dk-ui'
-   * @param {Record<string,boolean>} obj 
+   * @param {Record<string,boolean>} obj
    * @param {string[]} list
    * */
-  cLTS = (obj:Record<string,boolean>, list:string[]): string[] => {
+  cLTS = (obj: Record<string, boolean>, list: string[]): string[] => {
     return Object.entries(obj).reduce<Array<string | boolean>>((pre, cur) => {
       if (cur[1]) {
         pre.push(cur[0])

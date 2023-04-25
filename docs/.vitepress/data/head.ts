@@ -12,7 +12,7 @@ export const head: HeadConfig[] = [
     {
       rel: 'icon',
       href: 'https://oss.cadwaladerss.com/images/header/24ICON.png'
-    },
+    }
   ],
   /** 解决移动端点击输入框自动放大的问题 */
   [

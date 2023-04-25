@@ -10,5 +10,6 @@
   @return str-index($str, '--') != null;
 }
 @function hyphen($str) {
-  @return containsHyphen($str) or containsDoubleUnderscore($str) or containsDoubleHyphen($str);
+  @return containsHyphen($str) or containsDoubleUnderscore($str) or
+    containsDoubleHyphen($str);
 }

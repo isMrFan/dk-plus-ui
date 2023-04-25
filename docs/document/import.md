@@ -8,7 +8,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import dkPlus from "dk-plus";
+import dkPlus from 'dk-plus'
 import '@dk-plus/theme-chalk/src/index.scss'
 
 createApp(App).use(FightingDesign).mount('#app')
@@ -24,8 +24,7 @@ import App from './App.vue'
 
 // 组件按需引入示例
 
-import {DkIcon,DkShadow,DkButton} from "dk-plus";
-
+import { DkIcon, DkShadow, DkButton } from 'dk-plus'
 
 // 样式按需引入
 import '@dk-plus/theme-chalk/dkbutton.css'
@@ -40,8 +39,11 @@ createApp(App).use(FButton).use(FCard).mount('#app')
 可通过 `UMD` 模式在 `*.html` 中引入 `dk-plus`，快速构建您的程序
 
 ```html
-  <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dk-plus/dist/theme-chalk/index.css" />
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/dk-plus/dist/theme-chalk/index.css"
+  />
 </head>
 
 <body>
@@ -57,7 +59,7 @@ createApp(App).use(FButton).use(FCard).mount('#app')
   <script type="module">
     const { createApp, ref } = Vue
     const app = createApp({
-      setup () {
+      setup() {
         const visible = ref(false)
         return { visible }
       }

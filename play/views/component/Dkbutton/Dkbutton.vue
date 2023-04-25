@@ -1,64 +1,17 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <h4 class="dkButton_DK_csy_title">组件类型总预览</h4>
-      <Dk-Button v-for="(item, ind) in foundationList" :key="ind" :type="item.type">
-        {{ item.name }}
-      </Dk-Button>
-      <br />
-      <Dk-Button
-        v-for="(item, ind) in disableList"
-        disable
-        :key="ind"
-        :type="item.type"
-        >{{ item.name }}</Dk-Button
-      >
-      <br />
-      <Dk-Button round v-for="(item, ind) in roundList" :key="ind" :type="item.type">{{
-        item.name
-      }}</Dk-Button>
-      <br />
-      <Dk-Button
-        circle
-        v-for="(item, ind) in circleList"
-        :key="ind"
-        :type="item.type"
-        :icon="item.icon"
-        >{{ item.name }}</Dk-Button
-      >
-      <br />
-      <Dk-Button
-        v-for="(item, ind) in sizeList"
-        :key="ind"
-        :size="item.sizeType"
-        :type="item.type"
-        :disable="item.disable"
-        :icon="item.icon"
-        :round="item.round"
-        :circle="item.circle"
-        >{{ item.name }}</Dk-Button
-      >
-      <br />
-      <Dk-Button type="primary" size="small" loading>默认加载中</Dk-Button>
-      <Dk-Button type="primary" size="large" loading loadingIcon="dk-icon-xitongxinxi"
-        >自定义图标</Dk-Button
-      >
-      <Dk-Button
-        type="primary"
-        size="large"
-        loading
-        loadingIcon="dk-icon-xitongxinxi"
-        loadingSize="30"
-        >自定义图标大小</Dk-Button
-      >
       <h4 class="dkButton_DK_csy_title">
         1.基础使用 type设置 default | primary | success | info | warning |danger
         默认:default
       </h4>
       <div class="dkButton_DK_csy_div">
-        <Dk-Button v-for="(item, ind) in foundationList" :key="ind" :type="item.type">
-          {{ item.name }}
-        </Dk-Button>
+        <Dk-Button type="default"> 默认 </Dk-Button>
+        <Dk-Button type="primary"> 主要按钮 </Dk-Button>
+        <Dk-Button type="success"> 成功 </Dk-Button>
+        <Dk-Button type="info"> 信息 </Dk-Button>
+        <Dk-Button type="warning"> 警告 </Dk-Button>
+        <Dk-Button type="danger"> 危险 </Dk-Button>
       </div>
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
@@ -89,13 +42,12 @@
         2.禁用状态 disable设置 true | false 默认:false
       </h4>
       <div class="dkButton_DK_csy_div">
-        <Dk-Button
-          v-for="(item, ind) in disableList"
-          disable
-          :key="ind"
-          :type="item.type"
-          >{{ item.name }}</Dk-Button
-        >
+        <Dk-Button disable type="default"> 默认 </Dk-Button>
+        <Dk-Button disable type="primary"> 主要按钮 </Dk-Button>
+        <Dk-Button disable type="success"> 成功 </Dk-Button>
+        <Dk-Button disable type="info"> 信息 </Dk-Button>
+        <Dk-Button disable type="warning"> 警告 </Dk-Button>
+        <Dk-Button disable type="danger"> 危险 </Dk-Button>
       </div>
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
@@ -123,9 +75,12 @@
       <br />
       <h4 class="dkButton_DK_csy_title">3.圆角按钮 round</h4>
       <div class="dkButton_DK_csy_div">
-        <Dk-Button round v-for="(item, ind) in roundList" :key="ind" :type="item.type">{{
-          item.name
-        }}</Dk-Button>
+        <Dk-Button round type="default"> 默认 </Dk-Button>
+        <Dk-Button round type="primary"> 主要按钮 </Dk-Button>
+        <Dk-Button round type="success"> 成功 </Dk-Button>
+        <Dk-Button round type="info"> 信息 </Dk-Button>
+        <Dk-Button round type="warning"> 警告 </Dk-Button>
+        <Dk-Button round type="danger"> 危险 </Dk-Button>
       </div>
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
@@ -153,14 +108,16 @@
       <br />
       <h4 class="dkButton_DK_csy_title">4.圆形按钮 circle</h4>
       <div class="dkButton_DK_csy_div">
-        <Dk-Button
-          circle
-          v-for="(item, ind) in circleList"
-          :key="ind"
-          disable
-          :type="item.type"
-          :icon="item.icon"
-        ></Dk-Button>
+        <Dk-Button circle disable type="default" icon="dk-icon-del1"> 默认 </Dk-Button>
+        <Dk-Button circle disable type="primary" icon="dk-icon-searchFill">
+          主要按钮
+        </Dk-Button>
+        <Dk-Button circle disable type="success" icon="dk-icon-sysMsg"> 默认 </Dk-Button>
+        <Dk-Button circle disable type="info" icon="dk-icon-search"> 成功 </Dk-Button>
+        <Dk-Button circle disable type="warning" icon="dk-icon-setSeat"> 信息 </Dk-Button>
+        <Dk-Button circle disable type="danger" icon="dk-icon-arrowGoForwardFill">
+          默认
+        </Dk-Button>
       </div>
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
@@ -189,17 +146,9 @@
         5.尺寸 size 默认值:default 'large'| 'default'| 'small'
       </h4>
       <div class="dkButton_DK_csy_div">
-        <Dk-Button
-          v-for="(item, ind) in sizeList"
-          :key="ind"
-          :size="item.sizeType"
-          :type="item.type"
-          :disable="item.disable"
-          :icon="item.icon"
-          :round="item.round"
-          :circle="item.circle"
-          >{{ item.name }}</Dk-Button
-        >
+        <Dk-Button size="large" type="primary" disable icon="dk-icon-sysMsg">
+          大按钮
+        </Dk-Button>
       </div>
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
@@ -303,58 +252,6 @@
     name: 'Dkbuttonsm',
     setup() {
       const data = reactive({
-        foundationList: [
-          {
-            type: 'default',
-            name: '默认'
-          },
-          {
-            type: 'primary',
-            name: '主要按钮'
-          },
-          {
-            type: 'success',
-            name: '成功'
-          },
-          {
-            type: 'info',
-            name: '信息'
-          },
-          {
-            type: 'warning',
-            name: '警告'
-          },
-          {
-            type: 'danger',
-            name: '危险'
-          }
-        ],
-        disableList: [
-          {
-            type: 'default',
-            name: '默认'
-          },
-          {
-            type: 'primary',
-            name: '主要按钮'
-          },
-          {
-            type: 'success',
-            name: '成功'
-          },
-          {
-            type: 'info',
-            name: '信息'
-          },
-          {
-            type: 'warning',
-            name: '警告'
-          },
-          {
-            type: 'danger',
-            name: '危险'
-          }
-        ],
         foundationHighlightjs: [
           {
             name: `<Dk-Button>基础使用</Dk-Button>`,
@@ -475,38 +372,6 @@
             name: `<Dk-Button type="danger" round>危险</Dk-Button>`,
             nackName: '危险',
             type: 'danger'
-          }
-        ],
-        circleList: [
-          {
-            type: 'default',
-            name: '默认',
-            icon: 'dk-icon-sousuo'
-          },
-          {
-            type: 'primary',
-            name: '主要按钮',
-            icon: 'dk-icon-addRemark'
-          },
-          {
-            type: 'success',
-            name: '成功',
-            icon: 'dk-icon-arrow-down'
-          },
-          {
-            type: 'info',
-            name: '信息',
-            icon: 'dk-icon-xitongtongzhi'
-          },
-          {
-            type: 'warning',
-            name: '警告',
-            icon: 'dk-icon-collect2'
-          },
-          {
-            type: 'danger',
-            name: '危险',
-            icon: 'dk-icon-del'
           }
         ],
         circleNackList: [

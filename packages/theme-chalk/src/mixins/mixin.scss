@@ -20,6 +20,28 @@
   }
 }
 
+// peerBlock class name
+@mixin peerBlock($peerBlock) {
+  $E: '';
+  @if type-of($peerBlock) == list {
+    @each $item in $peerBlock {
+      $E: $common-separator + $item;
+      @at-root {
+        &#{$E} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      $E: $common-separator + $peerBlock;
+      &#{ $E } {
+        @content;
+      }
+    }
+  }
+}
+
 // element class name
 @mixin element($element) {
   // element

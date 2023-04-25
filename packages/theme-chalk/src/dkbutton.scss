@@ -1,6 +1,6 @@
 @use './mixins/mixin.scss' as *;
 
-@include block('button'){
+@include block('button') {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -10,325 +10,340 @@
   cursor: pointer;
   padding: 8px 15px;
   margin: 5px;
-  @include block('content'){
+  @include block('content') {
     font-size: 14px;
   }
-}
-/*
-  * 默认按钮
-*/
-@include block('default'){
-  color: $dkButton-default-color;
-  border: 1px solid $dkButton-default-border-color;
-  background: $dkButton-default-background-color;
-  border-radius: $dkButton-radius;
-  &:hover,&:focus,&:active{
-    color: $dkButton-default-afhColor;
-    border: 1px solid $dkButton-default-afhBorder-color;
-    background: $dkButton-default-afhBackground;
+  /*
+    * 默认按钮
+  */
+  @include peerBlock('default') {
+    color: $dkButton-default-color;
+    border: 1px solid $dkButton-default-border-color;
+    background: $dkButton-default-background-color;
     border-radius: $dkButton-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dkButton-default-afhColor;
+      border: 1px solid $dkButton-default-afhBorder-color;
+      background: $dkButton-default-afhBackground;
+      border-radius: $dkButton-radius;
+    }
+    /*
+      * 默认按钮禁用区域
+    */
+    @include peerBlock('disabled') {
+      color: $dkButton-default-disabled;
+      border: 1px solid $dkButton-default-border-color;
+      background: $dkButton-default-background-color;
+      border-radius: $dkButton-radius;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $dkButton-default-disabled;
+        border: 1px solid $dkButton-default-border-color;
+        background: $dkButton-default-background-color;
+        border-radius: $dkButton-radius;
+      }
+    }
+  }
+  /*
+    * 主要按钮
+  */
+  @include peerBlock('primary') {
+    color: $dkButton-primary-color;
+    border: 1px solid $dkButton-primary-border-color;
+    background: $dkButton-primary-background-color;
+    border-radius: $dkButton-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dkButton-primary-color;
+      border: 1px solid $dkButton-primary-afhBorder-color;
+      background: $dkButton-primary-afhBackground;
+      border-radius: $dkButton-radius;
+    }
+    /*
+      * 主要按钮禁用区域
+    */
+    @include peerBlock('disabled') {
+      color: $dkButton-primary-disabled-color;
+      border: 1px solid $dkButton-primary-disabled-border-color;
+      background: $dkButton-primary-disabled-background-color;
+      border-radius: $dkButton-radius;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $dkButton-primary-disabled-color;
+        border: 1px solid $dkButton-primary-disabled-border-color;
+        background: $dkButton-primary-disabled-background-color;
+        border-radius: $dkButton-radius;
+      }
+    }
+  }
+  /*
+    * 成功按钮
+  */
+  @include peerBlock('success') {
+    color: $dkButton-success-color;
+    border: 1px solid $dkButton-success-border-color;
+    background: $dkButton-success-background-color;
+    border-radius: $dkButton-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dkButton-primary-color;
+      border: 1px solid $dkButton-success-afhBorder-color;
+      background: $dkButton-success-afhBackground;
+      border-radius: $dkButton-radius;
+    }
+    &:active {
+      color: $dkButton-primary-color;
+      border: 1px solid $dkButton-success-activeBorder;
+      background: $dkButton-success-activeBackground;
+      border-radius: $dkButton-radius;
+    }
+    /*
+      * 成功按钮禁用区域
+    */
+    @include peerBlock('disabled') {
+      color: $dkButton-success-disabled-color;
+      border: 1px solid $dkButton-success-disabled-border-color;
+      background: $dkButton-success-disabled-background-color;
+      border-radius: $dkButton-radius;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $dkButton-success-disabled-color;
+        border: 1px solid $dkButton-success-disabled-border-color;
+        background: $dkButton-success-disabled-background-color;
+        border-radius: $dkButton-radius;
+      }
+    }
+  }
+  /*
+    * Info按钮
+  */
+  @include peerBlock('info') {
+    color: $dkButton-info-color;
+    border: 1px solid $dkButton-info-border-color;
+    background: $dkButton-info-background-color;
+    border-radius: $dkButton-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dkButton-primary-color;
+      border: 1px solid $dkButton-info-afhBorder-color;
+      background: $dkButton-info-afhBackground;
+      border-radius: $dkButton-radius;
+    }
+    &:active {
+      color: $dkButton-primary-color;
+      border: 1px solid $dkButton-info-activeBorder;
+      background: $dkButton-info-activeBackground;
+      border-radius: $dkButton-radius;
+    }
+    /*
+      * info按钮禁用区域
+    */
+    @include peerBlock('disabled') {
+      color: $dkButton-info-disabled-color;
+      border: 1px solid $dkButton-info-disabled-border-color;
+      background: $dkButton-info-disabled-background-color;
+      border-radius: $dkButton-radius;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $dkButton-info-disabled-color;
+        border: 1px solid $dkButton-info-disabled-border-color;
+        background: $dkButton-info-disabled-background-color;
+        border-radius: $dkButton-radius;
+      }
+    }
+  }
+  /*
+    * 警告按钮
+  */
+  @include peerBlock('warning') {
+    color: $dkButton-warning-color;
+    border: 1px solid $dkButton-warning-border-color;
+    background: $dkButton-warning-background-color;
+    border-radius: $dkButton-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dkButton-warning-color;
+      border: 1px solid $dkButton-warning-afhBorder-color;
+      background: $dkButton-warning-afhBackground;
+      border-radius: $dkButton-radius;
+    }
+    &:active {
+      color: $dkButton-warning-color;
+      border: 1px solid $dkButton-warning-activeBorder;
+      background: $dkButton-warning-activeBackground;
+      border-radius: $dkButton-radius;
+    }
+    /*
+      * 警告按钮禁用区域
+    */
+    @include peerBlock('disabled') {
+      color: $dkButton-warning-disabled-color;
+      border: 1px solid $dkButton-warning-disabled-border-color;
+      background: $dkButton-warning-disabled-background-color;
+      border-radius: $dkButton-radius;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $dkButton-warning-disabled-color;
+        border: 1px solid $dkButton-warning-disabled-border-color;
+        background: $dkButton-warning-disabled-background-color;
+        border-radius: $dkButton-radius;
+      }
+    }
+  }
+  /*
+    * 危险按钮
+  */
+  @include peerBlock('danger') {
+    color: $dkButton-danger-color;
+    border: 1px solid $dkButton-danger-border-color;
+    background: $dkButton-danger-background-color;
+    border-radius: $dkButton-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dkButton-warning-color;
+      border: 1px solid $dkButton-danger-afhBorder-color;
+      background: $dkButton-danger-afhBackground;
+      border-radius: $dkButton-radius;
+    }
+    &:active {
+      color: $dkButton-warning-color;
+      border: 1px solid $dkButton-danger-activeBorder;
+      background: $dkButton-danger-activeBackground;
+      border-radius: $dkButton-radius;
+    }
+    /*
+      * 危险按钮禁用区域
+    */
+    @include peerBlock('disabled') {
+      color: $dkButton-danger-disabled-color;
+      border: 1px solid $dkButton-danger-disabled-border-color;
+      background: $dkButton-danger-disabled-background-color;
+      border-radius: $dkButton-radius;
+      cursor: not-allowed;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $dkButton-danger-disabled-color;
+        border: 1px solid $dkButton-danger-disabled-border-color;
+        background: $dkButton-danger-disabled-background-color;
+        border-radius: $dkButton-radius;
+      }
+    }
+  }
+  /*
+    * 禁用按钮
+  */
+  @include peerBlock('disable') {
+    color: $dkButton-disable-color;
+    border: 1px solid $dkButton-disable-border-color;
+    background: $dkButton-disable-background-color;
+    border-radius: $dkButton-radius;
+    cursor: not-allowed;
+  }
+  /*
+    * 圆形按钮
+  */
+  @include peerBlock('circle') {
+    border-radius: $dkButton-circle-radius;
+    width: 35px;
+    height: 35px;
+    &:hover,
+    &:focus,
+    &:active {
+      border-radius: $dkButton-circle-radius;
+    }
+  }
+  /*
+    * 按钮大号
+  */
+  @include peerBlock('large') {
+    padding: $dkButton-large-padding;
+    height: $dkButton-large-height;
+    @include element('conten') {
+      font-size: $dkButton-large-font-size !important;
+    }
+  }
+  /*
+    * 按钮小号
+  */
+  @include peerBlock('small') {
+    padding: $dkButton-small-padding;
+    height: $dkButton-small-height;
+    @include element('conten') {
+      font-size: $dkButton-small-font-size !important;
+    }
+  }
+  /*
+    * 圆角按钮
+  */
+  @include peerBlock('round') {
+    border-radius: $dkButton-round-radius;
+    &:hover,
+    &:focus,
+    &:active {
+      border-radius: $dkButton-round-radius;
+    }
+    @include element('small') {
+      width: $dkButton-small-height;
+      height: $dkButton-small-height;
+    }
+  }
+  /*
+    * 按钮内容区域的margin
+  */
+  .dk-button-conten-magin {
+    margin-right: $dkButton-conten-magin-right;
+  }
+  /*
+    * 按钮加载中
+  */
+  @include peerBlock('rotationLoading') {
+    width: 100%;
+    display: flex;
+    @include peerBlock('mask') {
+      position: relative;
+      pointer-events: none;
+      cursor: not-allowed; /* 将光标样式设置为不可用 */
+      &::before {
+        z-index: 1;
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        border-radius: inherit;
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+  @include peerBlock('loading') {
+    margin-right: 5px;
+    animation: rotationLoading 1.5s linear infinite;
   }
 }
-//默认按钮
-// .dk-button-default {
-//   color: $dkButton-default-color;
-//   border: 1px solid $dkButton-default-border-color;
-//   background: $dkButton-default-background-color;
-//   border-radius: $dkButton-radius;
-// }
-// .dk-button-default:active,
-// .dk-button-default:focus,
-// .dk-button-default:hover {
-//   color: $dkButton-default-afhColor;
-//   border: 1px solid $dkButton-default-afhBorder-color;
-//   background: $dkButton-default-afhBackground;
-//   border-radius: $dkButton-radius;
-// }
-//默认按钮禁用区域
-.dk-button-default-disabled {
-  color: $dkButton-default-disabled;
-  border: 1px solid $dkButton-default-border-color;
-  background: $dkButton-default-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-.dk-button-default-disabled::after,
-.dk-button-default-disabled:focus,
-.dk-button-default-disabled:hover {
-  color: $dkButton-default-disabled;
-  border: 1px solid $dkButton-default-border-color;
-  background: $dkButton-default-background-color;
-  border-radius: $dkButton-radius;
-}
-//主要按钮
-.dk-button-primary {
-  color: $dkButton-primary-color;
-  border: 1px solid $dkButton-primary-border-color;
-  background: $dkButton-primary-background-color;
-  border-radius: $dkButton-radius;
-}
-.dk-button-primary:active,
-.dk-button-primary:focus,
-.dk-button-primary:hover {
-  color: $dkButton-primary-color;
-  border: 1px solid $dkButton-primary-afhBorder-color;
-  background: $dkButton-primary-afhBackground;
-  border-radius: $dkButton-radius;
-}
-//主要按钮禁用区域
-.dk-button-primary-disabled {
-  color: $dkButton-primary-disabled-color;
-  border: 1px solid $dkButton-primary-disabled-border-color;
-  background: $dkButton-primary-disabled-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-}
-.dk-button-primary-disabled:after,
-.dk-button-primary-disabled:focus,
-.dk-button-primary-disabled:hover {
-  color: $dkButton-primary-disabled-color;
-  border: 1px solid $dkButton-primary-disabled-border-color;
-  background: $dkButton-primary-disabled-background-color;
-  border-radius: $dkButton-radius;
-}
-// 成功按钮
-.dk-button-success {
-  color: $dkButton-success-color;
-  border: 1px solid $dkButton-success-border-color;
-  background: $dkButton-success-background-color;
-  border-radius: $dkButton-radius;
-}
-.dk-button-success:active,
-.dk-button-success:focus,
-.dk-button-success:hover {
-  color: $dkButton-primary-color;
-  border: 1px solid $dkButton-success-afhBorder-color;
-  background: $dkButton-success-afhBackground;
-  border-radius: $dkButton-radius;
-}
-.dk-button-success:active {
-  color: $dkButton-primary-color;
-  border: 1px solid $dkButton-success-activeBorder;
-  background: $dkButton-success-activeBackground;
-  border-radius: $dkButton-radius;
-}
-//成功按钮禁用区域
-.dk-button-success-disabled {
-  color: $dkButton-success-disabled-color;
-  border: 1px solid $dkButton-success-disabled-border-color;
-  background: $dkButton-success-disabled-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-}
-.dk-button-success-disabled::after,
-.dk-button-success-disabled:focus,
-.dk-button-success-disabled:hover {
-  color: $dkButton-success-disabled-color;
-  border: 1px solid $dkButton-success-disabled-border-color;
-  background: $dkButton-success-disabled-background-color;
-  border-radius: $dkButton-radius;
-}
-// Info按钮
-.dk-button-info {
-  color: $dkButton-info-color;
-  border: 1px solid $dkButton-info-border-color;
-  background: $dkButton-info-background-color;
-  border-radius: $dkButton-radius;
-}
-.dk-button-info:active,
-.dk-button-info:focus,
-.dk-button-info:hover {
-  color: $dkButton-primary-color;
-  border: 1px solid $dkButton-info-afhBorder-color;
-  background: $dkButton-info-afhBackground;
-  border-radius: $dkButton-radius;
-}
-.dk-button-info:active {
-  color: $dkButton-primary-color;
-  border: 1px solid $dkButton-info-activeBorder;
-  background: $dkButton-info-activeBackground;
-  border-radius: $dkButton-radius;
-}
-// info按钮禁用区域
-.dk-button-info-disabled {
-  color: $dkButton-info-disabled-color;
-  border: 1px solid $dkButton-info-disabled-border-color;
-  background: $dkButton-info-disabled-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-}
-.dk-button-info-disabled::after,
-.dk-button-info-disabled:focus,
-.dk-button-info-disabled:hover {
-  color: $dkButton-info-disabled-color;
-  border: 1px solid $dkButton-info-disabled-border-color;
-  background: $dkButton-info-disabled-background-color;
-  border-radius: $dkButton-radius;
-}
-//warning按钮
-.dk-button-warning {
-  color: $dkButton-warning-color;
-  border: 1px solid $dkButton-warning-border-color;
-  background: $dkButton-warning-background-color;
-  border-radius: $dkButton-radius;
-}
-.dk-button-warning:active,
-.dk-button-warning:focus,
-.dk-button-warning:hover {
-  color: $dkButton-warning-color;
-  border: 1px solid $dkButton-warning-afhBorder-color;
-  background: $dkButton-warning-afhBackground;
-  border-radius: $dkButton-radius;
-}
-.dk-button-warning:active {
-  color: $dkButton-warning-color;
-  border: 1px solid $dkButton-warning-activeBorder;
-  background: $dkButton-warning-activeBackground;
-  border-radius: $dkButton-radius;
-}
-//warning按钮禁用区域
-.dk-button-warning-disabled {
-  color: $dkButton-warning-disabled-color;
-  border: 1px solid $dkButton-warning-disabled-border-color;
-  background: $dkButton-warning-disabled-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-}
-.dk-button-warning-disabled:active,
-.dk-button-warning-disabled:focus,
-.dk-button-warning-disabled:hover {
-  color: $dkButton-warning-disabled-color;
-  border: 1px solid $dkButton-warning-disabled-border-color;
-  background: $dkButton-warning-disabled-background-color;
-  border-radius: $dkButton-radius;
-}
-//danger 危险按钮
-.dk-button-danger {
-  color: $dkButton-danger-color;
-  border: 1px solid $dkButton-danger-border-color;
-  background: $dkButton-danger-background-color;
-  border-radius: $dkButton-radius;
-}
-.dk-button-danger:active,
-.dk-button-danger:focus,
-.dk-button-danger:hover {
-  color: $dkButton-warning-color;
-  border: 1px solid $dkButton-danger-afhBorder-color;
-  background: $dkButton-danger-afhBackground;
-  border-radius: $dkButton-radius;
-}
-.dk-button-danger:active {
-  color: $dkButton-warning-color;
-  border: 1px solid $dkButton-danger-activeBorder;
-  background: $dkButton-danger-activeBackground;
-  border-radius: $dkButton-radius;
-}
-//danger危险按钮禁用区域
-.dk-button-danger-disabled {
-  color: $dkButton-danger-disabled-color;
-  border: 1px solid $dkButton-danger-disabled-border-color;
-  background: $dkButton-danger-disabled-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-}
-.dk-button-danger-disabled:active,
-.dk-button-danger-disabled:focus,
-.dk-button-danger-disabled:hover {
-  color: $dkButton-danger-disabled-color;
-  border: 1px solid $dkButton-danger-disabled-border-color;
-  background: $dkButton-danger-disabled-background-color;
-  border-radius: $dkButton-radius;
-}
 
-//dk-button-disable  禁用按钮
-.dk-button-disable {
-  color: $dkButton-disable-color;
-  border: 1px solid $dkButton-disable-border-color;
-  background: $dkButton-disable-background-color;
-  border-radius: $dkButton-radius;
-  cursor: not-allowed;
-}
-
-//dk-button-round   圆角按钮
-.dk-button-round {
-  border-radius: $dkButton-round-radius;
-}
-.dk-button-round:active,
-.dk-button-round:focus,
-.dk-button-round:hover {
-  border-radius: $dkButton-round-radius;
-}
-
-//dk-button-circle  圆形按钮
-.dk-button-circle {
-  border-radius: $dkButton-circle-radius;
-  width: 35px;
-  height: 35px;
-}
-.dk-button-circle:active,
-.dk-button-circle:focus,
-.dk-button-circle:hover {
-  border-radius: $dkButton-circle-radius;
-}
-
-//dk-button-large  按钮大号
-.dk-button-large {
-  padding: $dkButton-large-padding;
-  height: $dkButton-large-height;
-  .dk-button-conten {
-    font-size: $dkButton-large-font-size !important;
-  }
-}
-
-//dk-button-small  按钮小号
-.dk-button-small {
-  padding: $dkButton-small-padding;
-  height: $dkButton-small-height;
-  .dk-button-conten {
-    font-size: $dkButton-small-font-size;
-  }
-}
-
-.dk-button-round-small {
-  width: $dkButton-small-height;
-  height: $dkButton-small-height;
-}
-
-//dk-button-conten-magin  按钮内容区域的margin
-.dk-button-conten-magin {
-  margin-right: $dkButton-conten-magin-right;
-}
-
-//dk-button-loading 按钮加载中
-.dk-button-rotationLoading {
-  width: 100%;
-  display: flex;
-}
-.dk-button-rotationLoading-mask {
-  position: relative;
-  pointer-events: none;
-  cursor: not-allowed; /* 将光标样式设置为不可用 */
-}
-.dk-button-rotationLoading-mask::before {
-  z-index: 1;
-  pointer-events: none;
-  content: '';
-  position: absolute;
-  left: -1px;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  border-radius: inherit;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-.dk-button-rotationLoading-mask:hover {
-  cursor: not-allowed;
-}
-.dk-button-loading {
-  margin-right: 5px;
-  animation: rotationLoading 1.5s linear infinite;
-}
 @keyframes rotationLoading {
   from {
     transform: rotate(0deg);

@@ -77,8 +77,7 @@
           {
             name: 'inputNumber',
             path: '/DkInputNumber'
-          },
-          
+          }
         ]
       })
       const active = reactive({
