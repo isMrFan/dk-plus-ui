@@ -60,6 +60,10 @@
     @include modifier(readonly) {
       //用于组件内部的样式  .dk-xxx__xxx--xxx
       //...... styles
+      @include modifier(*xxx) {
+        //用于组件内部的样式  .dk-xxx__xxx--xxx 加 * 号表示不需要加上父级的样式名
+        //...... styles
+      }
     }
     @include state() {
       //用于组件内部的样式  .dk-xxx__xxx.is-xxx

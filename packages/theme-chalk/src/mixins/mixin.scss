@@ -85,10 +85,10 @@
       $EL: str-slice($element, 1, $index - 1) + str-slice($element, $index + 1);
       $E: $element-separator + $EL;
     } @else {
-      $E: $element-separator + $element;
+      $E: #{&} + $element-separator + $element;
     }
     @at-root {
-      &#{ $E } {
+      #{ $E } {
         @content;
       }
     }
@@ -110,10 +110,10 @@
       $ML: str-slice($modifier, 1, $index - 1) + str-slice($modifier, $index + 1);
       $M: $modifier-separator + $ML;
     } @else {
-      $M: $modifier-separator + $modifier;
+      $M: #{&} + $modifier-separator + $modifier;
     }
     @at-root {
-      &#{ $M } {
+      #{ $M } {
         @content;
       }
     } 
