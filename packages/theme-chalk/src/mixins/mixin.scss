@@ -97,11 +97,26 @@
 
 // modifier class name
 @mixin modifier($modifier) {
-  $M: $modifier-separator + $modifier;
-  @at-root {
-    &#{$M} {
-      @content;
+  @if type-of($modifier) == list {
+    @each $item in $modifier {
+      @include modifier($item) {
+        @content;
+      }
     }
+  } @else {
+    $M: '';
+    @if str-index($modifier, '*') == 1 {
+      $index: str-index($modifier, '*');
+      $ML: str-slice($modifier, 1, $index - 1) + str-slice($modifier, $index + 1);
+      $M: $modifier-separator + $ML;
+    } @else {
+      $M: $modifier-separator + $modifier;
+    }
+    @at-root {
+      &#{ $M } {
+        @content;
+      }
+    } 
   }
 }
 // state class name
