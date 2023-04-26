@@ -210,7 +210,7 @@
         __ref.value?.focus()
       }
       /**
-       * @description 失去
+       * @description 失焦
        */
       const blur = async () => {
         await nextTick()

@@ -5,7 +5,7 @@
       <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon>
       <!-- </template> -->
     </dk-input>
-    <!-- <div class="box" v-for="item in htmlList" :key="item.title">
+    <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="item.code" />
@@ -16,7 +16,7 @@
     <div class="box">
       <dk-input v-model="msg" type="" placeholder="清空" clearable />
       {{ msg }}
-    </div> -->
+    </div>
   </div>
 </template>
 

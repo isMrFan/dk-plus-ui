@@ -2,13 +2,13 @@
 * {
   transition: all 0.2s;
 }
-@include block('input') {
+@include block(('input')) {
   width: 100%;
   position: relative;
   height: 30px;
   display: flex;
   flex-wrap: nowrap;
-  @include block('icon') {
+  @include block(icon) {
     &:hover {
       cursor: pointer;
     }
@@ -53,7 +53,7 @@
       justify-content: center;
       align-items: center;
       gap: 3px;
-      @include block('icon') {
+      @include block('*icon') {
         color: map-get($input-theme-colors, 'hover');
         // cursor: pointer;
         line-height: 100%;

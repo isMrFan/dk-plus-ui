@@ -43,9 +43,19 @@
     //解析后是  .dk-xxx-xxx
     //...... styles
   }
+  // block   通用分隔符 -    //用于组件内部的样式  .dk-xxx-xxx 加 * 号表示不需要加上父级的样式名
+  @include block(*xxx){
+    //解析后是  .dk-xxx
+    //...... styles
+  }
   // element   通用分隔符 __    //用于组件内部的样式  .dk-xxx__xxx
   @include element(wrapper) {
+    //解析后是  .dk-xxx__xxx
     //...... styles
+    @include element(*xxx) {
+      //解析后是  .dk-xxx__xxx 加 * 号表示不需要加上父级的样式名
+      //...... styles
+    }
     // modifier  修饰符分隔符 --
     @include modifier(readonly) {
       //用于组件内部的样式  .dk-xxx__xxx--xxx

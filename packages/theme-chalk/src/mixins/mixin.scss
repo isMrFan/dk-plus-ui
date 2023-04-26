@@ -14,10 +14,36 @@
 
 // block class name
 @mixin block($block) {
-  $B: $namespace + $common-separator + $block;
-  @debug $B;
-  .#{$B} {
-    @content;
+  $B: '';
+  @if type-of($block) == list {
+    @each $item in $block {
+      @include block($item) {
+        @content;
+      }
+    }
+  } @else {
+    $block: unquote($block);
+    $B: '';
+    // @debug str-length(#{&});
+    @if str-length(#{&}) == 0 {
+      $B: $namespace + $common-separator + $block;
+      .#{$B} {
+        @content;
+      }
+    } @else {
+      @if str-index($block, '*') == 1 {
+        $index: str-index($block, '*');
+        $BL: str-slice($block, 1, $index - 1) + str-slice($block, $index + 1);
+        $B: '.' + $namespace + $common-separator + $BL;
+      } @else {
+        $B: #{&} + $common-separator + $block;
+      }
+      @at-root {
+        #{$B} {
+          @content;
+        }
+      }
+    }
   }
 }
 
@@ -49,16 +75,19 @@
   $E: '';
   @if type-of($element) == list {
     @each $item in $element {
-      $E: $element-separator + $item;
-      @at-root {
-        &#{$E} {
-          @content;
-        }
+      @include element($item) {
+        @content;
       }
     }
   } @else {
-    @at-root {
+    @if str-index($element, '*') == 1 {
+      $index: str-index($element, '*');
+      $EL: str-slice($element, 1, $index - 1) + str-slice($element, $index + 1);
+      $E: $element-separator + $EL;
+    } @else {
       $E: $element-separator + $element;
+    }
+    @at-root {
       &#{ $E } {
         @content;
       }
