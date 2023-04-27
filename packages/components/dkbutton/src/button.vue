@@ -26,12 +26,13 @@
    * @description 自定义按钮组件
    **/
   import { computed, defineComponent ,toRefs} from 'vue'
-  import { DKbutton,ButtonProps} from './button'
+  import type { PropType } from 'vue'
+  import { dkButtonProps,DkButtonProps} from './button'
   export default defineComponent({
     name: 'DkButton',
-    Props:DKbutton,
+    props:dkButtonProps as PropType<DkButtonProps>,
     setup(Props) {
-      const { href }=Props as ButtonProps
+      const { href }=Props as DkButtonProps
       const isHref= computed(() => {
         if (href) {
           return 'a'+href
