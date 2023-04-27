@@ -1,12 +1,10 @@
-import { isNumber } from "../typeof";
-import type { PropType } from 'vue'
+import { PropType } from 'vue'
 
 /**
  * 校验器类型
  *
  * @param { any } val 校验的值
 */
-
 export type calibrator = (val: any) => boolean
 
 /**
@@ -16,9 +14,8 @@ export type calibrator = (val: any) => boolean
  * @param { Function } default 默认值
  * @param { Function } calibrator 校验器
 */
-
-export interface returnType<T, F> {
-  readonly type: T
+export interface ReturnType<T, F> {
+  readonly type: PropType<T> 
   readonly default: () => F
   readonly validator?: calibrator
 } 
@@ -29,10 +26,9 @@ export interface returnType<T, F> {
  * @param { string | number } [defaultVal] 默认值
  * @returns { Object } 配置对象
 */
-
 export const setStringNumberProps = <T extends string | number>(
   defaultVal?: T
-): returnType<PropType<string | number>, string | number | null> => {
+) => {
   return {
     type: [String, Number] as PropType<string | number>,
     default: (): T | null => defaultVal || null
@@ -46,9 +42,7 @@ export const setStringNumberProps = <T extends string | number>(
  * @param { unknown } BooleanConstructor 布尔类型构造函数
  * @returns { Object } 配置对象
 */
-export const setBooleanProps = (
-  defaultVal = false
-): returnType<BooleanConstructor, boolean> => {
+export const setBooleanProps = (defaultVal = false) => {
   return {
     type: Boolean,
     default: (): boolean => defaultVal
@@ -62,18 +56,21 @@ export const setBooleanProps = (
  * @param { Function } [validator] 校验器
  * @returns { Object } 配置对象
 */
-
 export const setStringProp = <T extends string>(
   defaultVal?: null | T,
   validator?: calibrator
-): returnType<PropType<T>, T | null> => {
-  return {
-    type: String as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null,
-    validator: validator || (() => true),
-  } as const;
-};
+) => {
+  const props = {
+    type: String as PropType<T>,
+    default: (): T | null => defaultVal || null
+  } as const
 
+  if (validator) {
+    props.validator = validator
+  }
+
+  return props
+}
 
 /**
  * 设置 number(数值类型) 类型 props 参数
@@ -83,30 +80,27 @@ export const setStringProp = <T extends string>(
 */
 export const setNumberProps = <T extends number>(
   defaultVal?: null | T
-): returnType<NumberConstructor, number | null> => {
+) => {
   return {
     type: Number,
-    default: (): T | null => (isNumber(defaultVal) ? defaultVal : null)
+    default: (): T | null => (typeof defaultVal === 'number' ? defaultVal : null)
   } as const
 }
-
 
 /**
  * 设置 object(一个对象) 类型 props 参数
  * @Time 2023年04月27日
  * @param { Object } [defaultVal] 默认值
  * @returns { Object } 配置对象
- */
-
+*/
 export const setObjectProps = <T extends object>(
-  defaultVal = null
-): returnType<PropType<T>, null> => {
+  defaultVal: T | null = null
+) => {
   return {
     type: Object as PropType<T>,
-    default: () => defaultVal
+    default: (): T | null => defaultVal
   } as const
 }
-
 /**
  * 设置 function(一个方法函数) 类型 props 参数
  * @Time 2023年04月27日
@@ -115,13 +109,14 @@ export const setObjectProps = <T extends object>(
 */
 
 export const setFunctionProps = <T extends Function>(
-  defaultVal = null
-): returnType<PropType<T>, null> => {
+  defaultVal?: T | null
+): ReturnType<PropType<T>, T | null> => {
   return {
-    type: Function as PropType<T>,
-    default: () => defaultVal
+    type: Function as unknown as PropType<T>,
+    default: (): T | null => defaultVal || null
   } as const
 }
+
 
 /**
  * 设置 array(数组类型) 类型 props 参数
@@ -132,9 +127,9 @@ export const setFunctionProps = <T extends Function>(
 
 export const setArrayProps = <T>(
   defaultVal?: null | T
-): returnType<PropType<T>, T | null> => {
+): returnType<PropType<T>[], T[] | null> => {
   return {
-    type: Array as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
+    type: Array as unknown as PropType<T>[],
+    default: (): T[] | null => defaultVal || null
   }
 }
