@@ -53,10 +53,16 @@
 ├── └─ README.md  #打包后的说明文件
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
-├── ├── ├── dkbutton  #按钮组件
-├── ├── ├── dkshadow  #盒模型阴影组件
-├── ├── ├── icon      #图标组件
-├── ├── ├── index.ts  #组件入口文件
+├── ├── _hooks        # hooks
+├── ├── _icon         # 图标存放文件的SVG
+├── ├── _utils        # 组件内用的工具方法
+├── ├── ├── index.ts      # 组件内工具出口文件
+├── ├── ├── props         # 组件内props推断方法
+├── ├── ├── typeof        # 组件内typeof数据类型判断方法
+├── ├── dkbutton  #按钮组件
+├── ├── dkshadow  #盒模型阴影组件
+├── ├── icon      #图标组件
+├── ├── index.ts  #组件入口文件
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
