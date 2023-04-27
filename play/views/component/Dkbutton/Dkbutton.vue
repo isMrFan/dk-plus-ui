@@ -213,6 +213,9 @@
           <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
         </div>
       </div>
+      <h4 class="dkButton_DK_csy_title" style="margin-top: 8px">
+        7.加载中的状态 loading false | true 默认值:false
+      </h4>
     </div>
   </div>
 </template>

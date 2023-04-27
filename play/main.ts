@@ -12,7 +12,7 @@ import hljsVuePlugin from '@highlightjs/vue-plugin'
 hljs.registerLanguage('javascript', javascript)
 
 //本地开发调试
-import dkIcon from '@dk-plus/components/icon'
+import dkIcon from '@dk-plus/components/dkicon'
 import DkShadow from '@dk-plus/components/dkshadow'
 import dkbutton from '@dk-plus/components/dkbutton'
 import dkinput from '@dk-plus/components/dkinput'
