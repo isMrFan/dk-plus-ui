@@ -177,6 +177,10 @@ Git 允许我们在每次提交时，附带一个提交信息作为说明，当�
 | revert   | git commit -m 'revert: 回滚\*\*\*代码'   | 回滚代码     |
 | chore    | git commit -m 'chore: 修改\*\*\*配置'    | 修改配置     |
 | release  | git commit -m 'release: 发布\*\*\*版本'  | 发布版本     |
+| hooks    | git commit -m 'hooks: 新增\*\*\*         | 开发        |
+| perfect  | git commit -m 'rerfect: 完善\*\*\* '     | 完善之前代码块哪里的代码块|
+| utils    | git commit -m 'utils: 组件工具箱\*\*\*    | 更新工具箱  |
+| interface| git commit -m 'interface: 增加组件全局接口\*\*\*| 全局接口 |
 
 可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
 
