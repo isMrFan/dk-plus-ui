@@ -1,9 +1,12 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      1
-      <Dk-Button  href="'12123'"> 文本 </Dk-Button>
+      <Dk-Button  :href="'12123'"> 文本 </Dk-Button>
       <Dk-Button > 默认 </Dk-Button>
+
+      <br>
+      <br>
+      <br>
       <h4 class="dkButton_DK_csy_title">
         1.基础使用 type设置 default | primary | success | info | warning |danger
         默认:default

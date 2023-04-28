@@ -26,20 +26,12 @@
    * @description 自定义按钮组件
    **/
   import { computed, defineComponent ,toRefs} from 'vue'
-  import type { PropType } from 'vue'
   import { dkButtonProps,DkButtonProps} from './button'
   export default defineComponent({
     name: 'DkButton',
     props:dkButtonProps,
     setup(Props) {
-      const { href }=Props as DkButtonProps
-      const isHref= computed(() => {
-        if (href) {
-          return 'a'+href
-        } else {
-          return 'button'+href
-        }
-      })
+      const { href,type }=Props
       // const typeClass = computed(() => {
       //   type === '' ? (type = 'default') : ''
       //   type objType = keyof classTypeObj
@@ -165,14 +157,18 @@
       //   loadingIconSColor
       // }
       return{
-        isHref
+        href,
+        type
       }
     }
   })
 </script>
 <template>
-  <div>
-    12  {{ isHref }}
+  <div v-if="href">
+    字符串按钮 {{ href }}   {{ type }}
+  </div>
+  <div v-else>
+    按钮   {{ type }}
   </div>
   <!-- <button
     class="dk-button"

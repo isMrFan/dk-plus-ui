@@ -55,6 +55,8 @@
 ├── ├── components    # 存放所有的组件
 ├── ├── _hooks        # hooks
 ├── ├── _icon         # 图标存放文件的SVG
+├── ├── _interface    # 项目内的接口文件
+├── ├── _tokens       # 项目内的默认值设置
 ├── ├── _utils        # 组件内用的工具方法
 ├── ├── ├── index.ts      # 组件内工具出口文件
 ├── ├── ├── props         # 组件内props推断方法

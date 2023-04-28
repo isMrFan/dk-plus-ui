@@ -10,11 +10,12 @@ import type { PropType } from 'vue'
 export type calibrator = (val: any) => boolean
 
 /**
- * 返回值类型接口
+ * @name returnType
  * @Time 2023年04月27日
  * @param { Object } type 参数类型
  * @param { Function } default 默认值
  * @param { Function } calibrator 校验器
+ * @returns 返回值类型接口
 */
 
 export interface returnType<T, F> {
@@ -24,10 +25,10 @@ export interface returnType<T, F> {
 } 
 
 /**
- * 设置 string(字符串) & number(数字) 类型 props 参数
- *
+ * @name setStringNumberProps
+ * @Time 2023年04月27日
  * @param { string | number } [defaultVal] 默认值
- * @returns { Object } 配置对象
+ * @returns 设置 string(字符串) & number(数字) 类型 props 参数
 */
 
 export const setStringNumberProps = <T extends string | number>(
@@ -40,11 +41,11 @@ export const setStringNumberProps = <T extends string | number>(
 }
 
 /**
- * 设置 boolean(布尔类型) 类型的 props 参数
+ * @name setBooleanProps
  * @Time 2023年04月27日
  * @param { boolean } defaultVal 默认值:false
  * @param { unknown } BooleanConstructor 布尔类型构造函数
- * @returns { Object } 配置对象
+ * @returns 设置 boolean(布尔类型) 类型的 props 参数
 */
 export const setBooleanProps = (
   defaultVal = false
@@ -56,35 +57,29 @@ export const setBooleanProps = (
 }
 
 /**
- * 设置 string(字符串) 类型的 props 参数
+ * @name setStringProp
  * @Time 2023年04月27日
  * @param { string } [defaultVal] 默认值
  * @param { Function } [validator] 校验器
- * @returns { Object } 配置对象
+ * @returns 设置 string(字符串) 类型的 props 参数
 */
 export const setStringProp = <T extends string>(
   defaultVal?: null | T,
   validator?: calibrator
-): returnType<PropType<T>, T | null> => {
-  if (validator) {
-    return {
-      type: String as unknown as PropType<T>,
-      default: (): T | null => defaultVal || null,
-      validator
-    } as const
-  }
-
-  return {
+) => {
+  const config = {
     type: String as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
+    default: (): T | null => defaultVal || null,
+    ...(validator ? { validator } : {})
   } as const
+  return config
 }
 
 /**
- * 设置 number(数值类型) 类型 props 参数
+ * @name setNumberProps
  * @Time 2023年04月27日
  * @param { number } defaultVal 默认值
- * @returns { Object } 配置对象
+ * @returns 设置 number(数值类型) 类型 props 参数
 */
 export const setNumberProps = <T extends number>(
   defaultVal?: null | T
@@ -97,10 +92,10 @@ export const setNumberProps = <T extends number>(
 
 
 /**
- * 设置 object(一个对象) 类型 props 参数
+ * @name setObjectProps
  * @Time 2023年04月27日
  * @param { Object } [defaultVal] 默认值
- * @returns { Object } 配置对象
+ * @returns 设置 object(一个对象) 类型 props 参数
  */
 
 export const setObjectProps = <T extends object>(
@@ -113,10 +108,10 @@ export const setObjectProps = <T extends object>(
 }
 
 /**
- * 设置 function(一个方法函数) 类型 props 参数
+ * @name setFunctionProps
  * @Time 2023年04月27日
  * @param { Function } [defaultVal] 默认值
- * @returns { Object } 配置对象
+ * @returns 设置 function(一个方法函数) 类型 props 参数
 */
 
 export const setFunctionProps = <T extends Function>(
@@ -129,10 +124,10 @@ export const setFunctionProps = <T extends Function>(
 }
 
 /**
- * 设置 array(数组类型) 类型 props 参数
- *
+ * @name setFunctionProps
+ * @Time 2023年04月27日
  * @param { Array } [defaultVal] 默认值
- * @returns { Object } 配置对象
+ * @returns 设置 array(数组类型) 类型 props 参数
 */
 
 export const setArrayProps = <T>(
