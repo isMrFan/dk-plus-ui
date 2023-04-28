@@ -8,7 +8,7 @@
  * @returns 尺寸大小
 */
 
-export const FIGHTING_SIZE = ['large', 'middle', 'small', 'mini'] as const
+export const DK_SIZE = ['large', 'middle', 'small', 'mini'] as const
 
 /**
  * @name DK_TYPE
