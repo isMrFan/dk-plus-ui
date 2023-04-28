@@ -13,3 +13,5 @@ cache/
 pnpm-lock.yaml
 .DS_Store
 .vscode
+
+**/*.text

@@ -26,12 +26,16 @@
    * @description 自定义按钮组件
    **/
   import { computed, defineComponent ,toRefs} from 'vue'
-  import { dkButtonProps,DkButtonProps} from './button'
+  import { dkButtonProps} from './button'
   export default defineComponent({
     name: 'DkButton',
     props:dkButtonProps,
     setup(Props) {
-      const { href,type }=Props
+      const { 
+        href,
+        target,
+        type
+       }=Props
       // const typeClass = computed(() => {
       //   type === '' ? (type = 'default') : ''
       //   type objType = keyof classTypeObj
@@ -158,42 +162,29 @@
       // }
       return{
         href,
+        target,
         type
       }
     }
   })
 </script>
 <template>
-  <div v-if="href">
-    字符串按钮 {{ href }}   {{ type }}
-  </div>
-  <div v-else>
-    按钮   {{ type }}
-  </div>
-  <!-- <button
-    class="dk-button"
-    :class="[typeClass, disabledClass, roundClass, circleClass, largeClass, loadingClass]"
-    type="button"
-  >
-    <div v-if="circle === ''">
-      <dkIcon :class="icon" :size="iconSize" :color="iconColor"></dkIcon>
+  <div class="dk-button-packing">
+    <div v-if="type==='text'" class="dk-button-packing-text">
+      <span><slot>文本按钮</slot></span>
     </div>
-    <div class="dk-button-conten" v-else>
-      <div v-if="icon">
-        <dkIcon :class="icon" :size="iconSize" class="dk-button-conten-magin"></dkIcon>
-        <slot></slot>
-      </div>
-      <div v-else-if="loading" class="dk-button-rotationLoading">
-        <div class="dk-button-loading">
-          <dkIcon
-            :class="loadingIconClass"
-            :size="loadingIconSize"
-            :color="loadingIconSColor"
-          ></dkIcon>
-        </div>
-        <slot></slot>
-      </div>
-      <slot v-else></slot>
+    <div v-else-if="type==='link'" class="dk-button-packing-link">
+      <a 
+        :href="href"
+        tabindex="0"
+        :target="target"
+      >
+        <span><slot></slot></span>
+      </a>
     </div>
-  </button> -->
+    <div v-else class="dk-button-packing-block">
+      纯按钮
+    </div>
+  </div>
+ 
 </template>

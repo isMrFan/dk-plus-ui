@@ -1,9 +1,14 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <Dk-Button  :href="'12123'"> 文本 </Dk-Button>
-      <Dk-Button > 默认 </Dk-Button>
+      <Dk-Button  type="text"> 文本 </Dk-Button>
+      <Dk-Button  type="link"> aa标签 </Dk-Button>
+      <Dk-Button  > 默认按钮 </Dk-Button>
+      <Dk-Button  type="primary"> 主要按钮 </Dk-Button>
 
+      <br>
+      <br>
+      <br>
       <br>
       <br>
       <br>

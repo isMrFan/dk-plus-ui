@@ -54,6 +54,9 @@
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
 ├── ├── _hooks        # hooks
+├── ├── ├── get-button  # 获取按钮的方法(hooks_dk-button)
+├── ├── ├── get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
+├── ├── ├── index.ts    # hooks出口文件
 ├── ├── _icon         # 图标存放文件的SVG
 ├── ├── _interface    # 项目内的接口文件
 ├── ├── _tokens       # 项目内的默认值设置
