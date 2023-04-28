@@ -30,7 +30,7 @@
   import { dkButtonProps,DkButtonProps} from './button'
   export default defineComponent({
     name: 'DkButton',
-    props:dkButtonProps as PropType<DkButtonProps>,
+    props:dkButtonProps,
     setup(Props) {
       const { href }=Props as DkButtonProps
       const isHref= computed(() => {

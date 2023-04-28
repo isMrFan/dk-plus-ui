@@ -6,40 +6,24 @@ import {
 import { ExtractPropTypes } from 'vue'
 export const dkButtonProps = { 
   /**按钮类型 是否为文本按钮(默认值:'')*/ 
-  href:{
-    type: setStringProp()
-  },
+  href:setStringProp(),
   /**按钮定义类型 [default(默认primary),primary(基础),success(成功),info(信息),warning(警告),danger(危险)] */ 
-  type: {
-    type: setStringProp()
-  },
+  type: setStringProp(),
 
 
   /**是否禁用 */
-  disable: {
-    type: setBooleanProps()
-  },
+  disable: setBooleanProps(),
   /**是否加载中 */
-  loading: {
-    type: setBooleanProps()
-  },
+  loading: setBooleanProps(),
  
   /**半圆角按钮 */ 
-  round: {
-    type: setStringProp()
-  },
+  round:setStringProp(),
   /**圆形按钮 */ 
-  circle: {
-    type: setStringProp()
-  },
+  circle: setStringProp(),
   /**按钮图标 */ 
-  icon: {
-    type: setStringProp()
-  },
+  icon: setStringProp(),
   /**按钮尺寸 [large,medium,small,mini] */
-  size: {
-    type: setStringNumberProps()
-  },
+  size:setStringNumberProps(),
 }as const
 
 /** button 组件 props 类型 */
