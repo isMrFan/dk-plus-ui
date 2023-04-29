@@ -92,7 +92,7 @@
       )
 
       const inputClassList = computed<Array<string>>((): string[] => {
-        const list: string[] = ['dk-input', inpClass.n(type)]
+        const list: string[] = ['dk-input', type !== 'textarea' ? inpClass.n(type) : 'dk-textarea']
         type InputClass = Record<string, boolean>
         const isClass: InputClass = {
           'is-disabled': disabled,

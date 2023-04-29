@@ -26,8 +26,8 @@
     $B: '';
     // @debug str-length(#{&});
     @if str-length(#{&}) == 0 {
-      $B: $namespace + $common-separator + $block;
-      .#{$B} {
+      $B: "." + $namespace + $common-separator + $block;
+      #{$B} {
         @content;
       }
     } @else {
