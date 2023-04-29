@@ -28,7 +28,6 @@
         const TARGET_PARENT_PARENT = TARGET_PARENT.parentElement as HTMLElement
         const { clientHeight } = TARGET_PARENT_PARENT.querySelector('.dkcodedisplay_code')?.querySelector('.language-html') || { clientHeight: 0 }
         data.height = clientHeight
-        console.log(TARGET_PARENT_PARENT.querySelector('.dkcodedisplay_code')?.querySelector('.language-html'));
         data.open = !data.open
       }
       const codeHeight = computed(() => {

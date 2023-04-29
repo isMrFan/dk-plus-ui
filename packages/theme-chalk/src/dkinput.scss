@@ -123,6 +123,7 @@
 
 @include block(textarea) {
   @include element(inner) {
+    transition: all 0s;
     min-height: 30px;
     padding: 0 10px;
     line-height: 30px;

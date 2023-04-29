@@ -127,3 +127,19 @@
 
 :::
 
+## 文本域`textarea`
+
+`type` 设置 `textarea` 为文本域
+
+::: module
+
+<template #code>
+<dk-input type="textarea" placeholder="文本域"></dk-input>
+</template>
+
+```html
+<dk-input type="textarea" placeholder="文本域"></dk-input>
+```
+
+:::
+
