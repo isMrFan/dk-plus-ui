@@ -8,6 +8,7 @@
   height: 30px;
   display: flex;
   flex-wrap: nowrap;
+  font-size: 13px;
   @include block(icon) {
     &:hover {
       cursor: pointer;
@@ -95,6 +96,12 @@
   @include element(('append')) {
     border-radius: 0 4px 4px 0;
     border-left: none;
+  }
+  @include modifier('length-limit'){
+    color: map-get($input-theme-colors, 'info');
+    user-select: none;
+    cursor: text;
+    margin-left: 5px;
   }
 }
 @include state('medium') {

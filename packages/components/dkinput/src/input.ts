@@ -39,6 +39,10 @@ export const DKinput = {
     type: String,
     default: ''
   },
+  showLengthLimit: {
+    type: Boolean,
+    default: false
+  },
   maxlength: {
     type: [Number, String],
     default: ''
@@ -98,7 +102,8 @@ export class haInputClass {
   // e
   e = (name: string) => (name ? this.globalName + '__' + name : '')
   // m
-  m = (name: string) => (name ? this.globalName + '--' + name : '')
+  m = (name: string) =>
+    name ? this.globalName + '--' + name : ''
 
   // is
   is = (is: string, name: string) => (is ? 'is-' + name : '')

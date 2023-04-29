@@ -49,6 +49,7 @@ export default defineComponent({
       append,
       showPassword,
       size,
+      showLengthLimit,
       maxlength,
       minlength,
     } = props;
@@ -235,11 +236,11 @@ export default defineComponent({
     });
 
     const isLengthLimit = computed((): boolean => {
-      return !!maxlength || !!minlength;
+      return !!maxlength && showLengthLimit && !disabled;
     });
 
     const lengthLimitClassList = computed((): string => {
-      return isLengthLimit.value ? inpClass.e("length-limit") : "";
+      return isLengthLimit.value ? inpClass.m('length-limit') : "";
     });
 
     const isDisabled = computed((): boolean => {
@@ -345,7 +346,9 @@ export default defineComponent({
           :minlength="minlengthType"
         />
         <!-- length -->
-        <span v-if="isLengthLimit" :class="lengthLimitClassList">asdfas</span>
+        <span v-if="isLengthLimit" :class="lengthLimitClassList">
+          {{ minlengthType || 0 }}/{{ maxlengthType }}
+        </span>
         <!-- clearable -->
         <template v-if="clearable && showClear">
           <dk-icon

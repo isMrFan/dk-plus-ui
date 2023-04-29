@@ -7,6 +7,9 @@
       @blur="blur"
       ref="input"
       prefix-icon="del1"
+      maxlength="10"
+      minlength="2"
+      show-length-limit
       @prefix-click="handleFixClick"
     >
     <!-- <template #prefix>
