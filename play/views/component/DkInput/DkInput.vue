@@ -5,12 +5,15 @@
       @change="change"
       @focus="focus"
       @blur="blur"
+      ref="input"
+      prefix="asd"
       prefix-icon="del1"
       @prefix-click="handleFixClick"
     >
-      <!-- <template #prepend> -->
+    <template #prefix>
+      <!-- <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon> -->
+    </template>
       <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon>
-      <!-- </template> -->
     </dk-input>
     <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
@@ -55,8 +58,11 @@ export default defineComponent({
       console.log('父组件',e);
     };
     const blur = (e) => {
-      console.log('父组件',e);
+      console.log('父组件', e);
+      console.log(input);
+      
     };
+    const input = ref(null);
     const data = reactive({
       htmlList: [
         {
@@ -261,6 +267,7 @@ export default defineComponent({
       change,
       focus,
       blur,
+      input,
     };
   },
 });

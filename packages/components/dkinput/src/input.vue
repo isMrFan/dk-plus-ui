@@ -41,6 +41,7 @@
         placeholder,
         clearable,
         prefixIcon,
+        suffixIcon,
         prepend,
         autosize,
         append,
@@ -70,7 +71,8 @@
         const typeList: InputType = {
           text: 'text',
           password: 'password',
-          textarea: 'textarea'
+          textarea: 'textarea',
+          number: 'number'
         }
         return typeList[inpType]
       })
@@ -234,6 +236,9 @@
       const prefixIconClass = computed((): string => {
         return prefixIcon ? prefixIcon : ''
       })
+      const suffixIconClass = computed((): string => {
+        return suffixIcon ? suffixIcon : ''
+      })
       const prependValue = computed((): string => {
         return prepend ? prepend : ''
       })
@@ -248,6 +253,7 @@
         emit('suffix-click')
       }
 
+      
       return {
         isDisabled,
         inputClassList,
@@ -265,6 +271,7 @@
         handleMouseleave,
         inputType,
         prefixIconClass,
+        suffixIconClass,
         inpClass,
         prefixClick,
         suffixClick,
@@ -332,12 +339,12 @@
           ></dk-icon>
         </template>
         <!-- suffix slot -->
-        <span v-if="$slots.suffix || suffixIcon" :class="inpClass.n('suffix')">
+        <span v-if="$slots.suffix || suffixIconClass" :class="inpClass.n('suffix')">
           <span @click="suffixClick" :class="inpClass.n('suffix--inner')">
             <slot name="suffix"></slot>
             <dk-icon
-              v-if="suffixIcon"
-              :class="[inpClass.i('icon', suffixIcon)]"
+              v-if="suffixIconClass"
+              :class="[inpClass.i('icon', suffixIconClass)]"
             ></dk-icon>
           </span>
         </span>

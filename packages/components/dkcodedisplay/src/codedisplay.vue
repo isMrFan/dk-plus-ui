@@ -6,7 +6,7 @@
         <slot />
       </div>
       <div class="dkcodedisplay_open">
-        <span @click="open = !open">{{ open ? '关闭' : '开启' }}</span>
+        <span @click="handleOpenCode">{{ open ? '关闭' : '开启' }}</span>
       </div>
     </dk-shadow>
   </div>
@@ -20,21 +20,25 @@
     setup(props) {
       const data = reactive({
         open: false,
-        codeDom: 0 // 展开的元素
+        height: 0 // 展开的高度
       })
-      onMounted(() => {
-        const { clientHeight } = document
-          .querySelector('.dkcodedisplay_code')
-          ?.querySelector('.language-html') || { clientHeight: 0 }
-        data.codeDom = clientHeight
-      })
+      const handleOpenCode = (e: Event) => {
+        const TARGET = e.target as HTMLElement
+        const TARGET_PARENT = TARGET.parentElement as HTMLElement
+        const TARGET_PARENT_PARENT = TARGET_PARENT.parentElement as HTMLElement
+        const { clientHeight } = TARGET_PARENT_PARENT.querySelector('.dkcodedisplay_code')?.querySelector('.language-html') || { clientHeight: 0 }
+        data.height = clientHeight
+        console.log(TARGET_PARENT_PARENT.querySelector('.dkcodedisplay_code')?.querySelector('.language-html'));
+        data.open = !data.open
+      }
       const codeHeight = computed(() => {
-        return data.open ? data.codeDom + 20 + 'px' : '0px'
+        return data.open ? data.height + 20 + 'px' : '0px'
       })
 
       return {
         ...toRefs(data),
-        codeHeight
+        codeHeight,
+        handleOpenCode
       }
     }
   })
