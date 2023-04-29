@@ -89,16 +89,21 @@ export class haInputClass {
   // constructor(name: string) {
   //   this.name = name
   // }
-  globalName = 'dk-'
+  globalName = 'dk-input'
   // className
-  n = (className: string) =>
-    className !== undefined
-      ? this.globalName + 'input' + (className ? '__' : '') + className
-      : ''
+  b = () => this.globalName
+  // className !== undefined
+  //   ? this.globalName + (className ? '__' : '') + className
+  //   : '';
+  // e
+  e = (name: string) => (name ? this.globalName + '__' + name : '')
+  // m
+  m = (name: string) => (name ? this.globalName + '--' + name : '')
+
   // is
   is = (is: string, name: string) => (is ? 'is-' + name : '')
   // icon
-  i = (icon: string, name: string) => (icon ? this.globalName + 'icon-' + name : '')
+  i = (icon: string, name: string) => (icon ? 'dk-icon-' + name : '')
   /**
    * classList to string[]
    * @import {cLTS} from 'dk-ui'
