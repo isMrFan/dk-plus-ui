@@ -33,7 +33,7 @@
   export default defineComponent({
     name: 'DkInput',
     props: DKinput,
-    emits: ['update:modelValue', 'change', 'prefix-click', 'suffix-click'],
+    emits: ['update:modelValue', 'change', 'prefix-click', 'suffix-click', 'focus', 'blur'],
     setup(props, { emit, slots }) {
       const {
         type,
@@ -107,15 +107,17 @@
       /**
        * @description 获取焦点
        */
-      const handleFocus = () => {
+      const handleFocus = (e: Event) => {
         inputFocus.value = true
+        emit('focus', e)
       }
 
       /**
        * @description 失去焦点
        */
-      const handleBlur = () => {
+      const handleBlur = (e: Event) => {
         inputFocus.value = false
+        emit('blur', e)
         if (isOnChange.value) {
           emit('change', modelValue.value)
           isOnChange.value = false
@@ -238,16 +240,6 @@
       const appendValue = computed((): string => {
         return append ? append : ''
       })
-
-      watch(
-        () => props.modelValue,
-        (n, o) => {
-          if (n !== o && !inputFocus.value) {
-            console.log(n, o, 'n,o')
-            emit('change', n)
-          }
-        }
-      )
 
       const prefixClick = () => {
         emit('prefix-click')
