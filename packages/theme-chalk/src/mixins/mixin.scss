@@ -12,7 +12,11 @@
 @use 'func' as *;
 @forward 'func';
 
-// block class name
+/**
+  * block class name
+  * @param {string} $block
+  * @return {string} .namespace-block
+  */
 @mixin block($block) {
   $B: '';
   @if type-of($block) == list {
@@ -44,6 +48,7 @@
         }
       }
     }
+    @debug $B;
   }
 }
 
@@ -69,7 +74,11 @@
   }
 }
 
-// element class name
+/**
+  * element class name
+  * @param {string} $element
+  * @return {string} &__element
+  */
 @mixin element($element) {
   // element
   $E: '';
@@ -95,7 +104,11 @@
   }
 }
 
-// modifier class name
+/**
+ * modifier class name
+ * @param {string} $modifier
+ * @return {string} &--modifier
+ */
 @mixin modifier($modifier) {
   @if type-of($modifier) == list {
     @each $item in $modifier {

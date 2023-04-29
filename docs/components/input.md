@@ -143,3 +143,19 @@
 
 :::
 
+## 文本域自适应高度`autosize`
+
+`autosize` 设置 `true | false` 默认: `false`
+
+::: module
+
+<template #code>
+<dk-input type="textarea" placeholder="文本域自适应高度" autosize></dk-input>
+</template>
+
+```html
+<dk-input type="textarea" placeholder="文本域自适应高度" autosize></dk-input>
+```
+
+:::
+

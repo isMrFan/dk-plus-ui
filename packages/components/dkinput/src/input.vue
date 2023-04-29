@@ -96,8 +96,8 @@ export default defineComponent({
 
     const inputClassList = computed<Array<string>>((): string[] => {
       const list: string[] = [
-        "dk-input",
-        type !== "textarea" ? inpClass.e(type) : "dk-textarea",
+        inpClass.b(),
+        type !== "textarea" ? inpClass.b() : inpClass.b("textarea"),
       ];
       type InputClass = Record<string, boolean>;
       const isClass: InputClass = {
@@ -110,6 +110,10 @@ export default defineComponent({
       classList = inpClass.cLTS(isClass, classList);
       return list.concat(classList);
     });
+
+    // const textareaClassList = computed(() => {
+
+    // })
 
     const inputFocus = ref<Boolean>(false);
     /**
@@ -240,7 +244,7 @@ export default defineComponent({
     });
 
     const lengthLimitClassList = computed((): string => {
-      return isLengthLimit.value ? inpClass.m('length-limit') : "";
+      return isLengthLimit.value ? type !== 'textarea' ? inpClass.m("length-limit" ) : 'dk-textarea-length-limit' : "";
     });
 
     const isDisabled = computed((): boolean => {
@@ -310,92 +314,93 @@ export default defineComponent({
     :class="[inputClassList]"
     @mouseenter="handleMouseenter"
     @mouseleave="handleMouseleave"
+    v-if="type !== 'textarea'"
   >
     <!-- input -->
-    <template v-if="type !== 'textarea'">
-      <!-- prepend -->
-      <div v-if="$slots.prepend || prependValue" :class="[inpClass.e('prepend')]">
-        {{ prependValue }}
-        <slot name="prepend"></slot>
-      </div>
-      <!-- input -->
-      <div :class="wrapperClassList">
-        <!-- prefix slot -->
-        <span v-if="$slots.prefix || prefixIconClass" :class="[inpClass.e('prefix')]">
-          <span @click="prefixClick" :class="inpClass.e('prefix--inner')">
-            <slot name="prefix"></slot>
-            <dk-icon
-              v-if="prefixIconClass"
-              :class="[inpClass.i('icon', prefixIconClass)]"
-            ></dk-icon>
-          </span>
-        </span>
-
-        <input
-          @input="handleInput"
-          @focus="handleFocus"
-          @blur="handleBlur"
-          v-model="modelValue"
-          :disabled="isDisabled"
-          :placeholder="placeholder"
-          :type="inputType"
-          :class="innerClassList"
-          :inputmode="inputModeType"
-          ref="input"
-          :maxlength="maxlengthType"
-          :minlength="minlengthType"
-        />
-        <!-- length -->
-        <span v-if="isLengthLimit" :class="lengthLimitClassList">
-          {{ minlengthType || 0 }}/{{ maxlengthType }}
-        </span>
-        <!-- clearable -->
-        <template v-if="clearable && showClear">
+    <!-- <template> -->
+    <!-- prepend -->
+    <div v-if="$slots.prepend || prependValue" :class="[inpClass.e('prepend')]">
+      {{ prependValue }}
+      <slot name="prepend"></slot>
+    </div>
+    <!-- input -->
+    <div :class="wrapperClassList">
+      <!-- prefix slot -->
+      <span v-if="$slots.prefix || prefixIconClass" :class="[inpClass.e('prefix')]">
+        <span @click="prefixClick" :class="inpClass.e('prefix--inner')">
+          <slot name="prefix"></slot>
           <dk-icon
-            class="dk-icon-del1 dk-input__clear"
-            :size="13"
-            @click="clear"
+            v-if="prefixIconClass"
+            :class="[inpClass.i('icon', prefixIconClass)]"
           ></dk-icon>
-        </template>
-        <!-- suffix slot -->
-        <span v-if="$slots.suffix || suffixIconClass" :class="inpClass.e('suffix')">
-          <span @click="suffixClick" :class="inpClass.e('suffix--inner')">
-            <slot name="suffix"></slot>
-            <dk-icon
-              v-if="suffixIconClass"
-              :class="[inpClass.i('icon', suffixIconClass)]"
-            ></dk-icon>
-          </span>
         </span>
-        <!-- showPassword -->
-        <template v-if="isShowPassword">
-          <dk-icon
-            :class="showPasswordClassList"
-            :size="13"
-            @click.stop="showPasswordClick"
-          ></dk-icon>
-        </template>
-      </div>
+      </span>
 
-      <!-- append -->
-      <div v-if="$slots.append || appendValue" :class="[inpClass.e('append')]">
-        {{ appendValue }}
-        <slot name="append"></slot>
-      </div>
-    </template>
-    <!-- textarea -->
-    <template v-else>
-      <textarea
-        :class="wrapperClassList"
+      <input
         @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
-        :disabled="disabled"
+        v-model="modelValue"
+        :disabled="isDisabled"
         :placeholder="placeholder"
-        ref="textarea"
+        :type="inputType"
+        :class="innerClassList"
+        :inputmode="inputModeType"
+        ref="input"
         :maxlength="maxlengthType"
         :minlength="minlengthType"
-      ></textarea>
-    </template>
+      />
+      <!-- length -->
+      <span v-if="isLengthLimit" :class="lengthLimitClassList">
+        {{ minlengthType || 0 }}/{{ maxlengthType }}
+      </span>
+      <!-- clearable -->
+      <template v-if="clearable && showClear">
+        <dk-icon class="dk-icon-del1 dk-input__clear" :size="13" @click="clear"></dk-icon>
+      </template>
+      <!-- suffix slot -->
+      <span v-if="$slots.suffix || suffixIconClass" :class="inpClass.e('suffix')">
+        <span @click="suffixClick" :class="inpClass.e('suffix--inner')">
+          <slot name="suffix"></slot>
+          <dk-icon
+            v-if="suffixIconClass"
+            :class="[inpClass.i('icon', suffixIconClass)]"
+          ></dk-icon>
+        </span>
+      </span>
+      <!-- showPassword -->
+      <template v-if="isShowPassword">
+        <dk-icon
+          :class="showPasswordClassList"
+          :size="13"
+          @click.stop="showPasswordClick"
+        ></dk-icon>
+      </template>
+    </div>
+
+    <!-- append -->
+    <div v-if="$slots.append || appendValue" :class="[inpClass.e('append')]">
+      {{ appendValue }}
+      <slot name="append"></slot>
+    </div>
+    <!-- </template> -->
+  </div>
+  <div v-else class="dk-textarea">
+    <!-- textarea -->
+    <textarea
+      :class="wrapperClassList"
+      @input="handleInput"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      ref="textarea"
+      :maxlength="maxlengthType"
+      :minlength="minlengthType"
+    ></textarea>
+    <!-- length -->
+    <span v-if="isLengthLimit" :class="lengthLimitClassList">
+      {{ minlengthType || 0 }}/{{ maxlengthType }}
+    </span>
   </div>
 </template>

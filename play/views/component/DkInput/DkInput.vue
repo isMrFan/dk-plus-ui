@@ -1,6 +1,8 @@
 <template>
   <div class="input">
     <dk-input
+      type="textarea"
+      autosize
       v-model="msg"
       @change="change"
       @focus="focus"
@@ -277,6 +279,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .input {
+  .dk-input{
+    width: 400px;
+  }
   .box {
     margin-bottom: 20px;
     margin-top: 10px;
