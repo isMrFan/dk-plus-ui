@@ -143,9 +143,11 @@ export default defineComponent({
       type WrapperType = Record<string, boolean>;
       const isClass: WrapperType = {
         "is-focus": !!inputFocus.value,
-        "is-prepend": !!prepend || !!slots.prepend,
-        "is-append": !!append || !!slots.append,
+        "is-prepend": (!!prepend || !!slots.prepend) && (type !== "textarea") && (!!!append && !!!slots.append),
+        "is-append": (!!append || !!slots.append) && (type !== "textarea") && (!!!prepend && !!!slots.prepend),
+        'is-pend': (!!prepend || !!slots.prepend) && (!!append || !!slots.append),
       };
+      
       let list: string[] = [];
       list = inpClass.cLTS(isClass, list);
       return wrapperClass.concat(list);

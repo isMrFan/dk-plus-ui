@@ -106,10 +106,10 @@
 <template #code>
 <dk-input type="text" placeholder="前后缀">
   <template #prefix>
-    <dk-icon name="addRemark"></dk-icon>
+    <dk-icon class="dk-icon-addRemark"></dk-icon>
   </template>
   <template #suffix>
-    <dk-icon name="search"></dk-icon>
+    <dk-icon class="dk-icon-search"></dk-icon>
   </template>
 </dk-input>
 </template>
@@ -159,3 +159,18 @@
 
 :::
 
+## 前后缀内容属性`prepend`
+
+`prepend` 前缀 `append` 后缀
+
+::: module
+
+<template #code>
+<dk-input type="text" placeholder="前后缀内容" prepend="https://" append='.com'></dk-input>
+</template>
+
+```html
+<dk-input type="text" placeholder="前后缀内容" prepend="https://" append='.com'></dk-input>
+```
+
+:::
