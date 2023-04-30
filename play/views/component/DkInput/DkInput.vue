@@ -1,18 +1,14 @@
 <template>
   <div class="input">
     <dk-input
-      type="textarea"
-      autosize
       v-model="msg"
       @change="change"
-      @focus="focus"
-      @blur="blur"
       ref="input"
       prefix-icon="del1"
-      maxlength="10"
-      minlength="2"
       show-length-limit
       @prefix-click="handleFixClick"
+      prepend="https://"
+      append=".com"
     >
     <!-- <template #prefix>
       <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>

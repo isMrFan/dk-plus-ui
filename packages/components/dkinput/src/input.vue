@@ -26,6 +26,7 @@
  * @property {boolean} isOnChange  是否触发onChange事件
  * @property {boolean} isLengthLimit  是否限制输入框长度
  * @property {string} lengthLimitClassList  限制输入框长度样式
+ * @property {string | number} inputValue 输入框值
  * @description 输入框组件
  * @example
  */
@@ -166,11 +167,23 @@ export default defineComponent({
       emit("update:modelValue", "");
     };
 
+    const inputValue: Ref<string | number | undefined> = ref(modelValue.value || '');
+
     const isOnChange = ref<boolean>(false);
     /**
      * @description input输入事件
      */
     const handleInput = (e: Event) => {
+      modelValue.value = inputValue.value;
+      if ((!!prepend || !!slots.prepend) && typeof modelValue.value === "string") {
+        let prependText:string = String(!!prepend ? prepend : slots.prepend);
+        modelValue.value = prependText + modelValue.value;
+      }
+      if((!!append || !!slots.append) && typeof modelValue.value === "string") {
+        let appendText: string = (!!append ? append : slots.append || "") as string;
+        modelValue.value = modelValue.value + appendText;
+      }
+      
       emit("update:modelValue", modelValue.value);
       isOnChange.value = true;
       if (autosize) {
@@ -306,6 +319,7 @@ export default defineComponent({
       textarea,
       isLengthLimit,
       lengthLimitClassList,
+      inputValue
     };
   },
 });
@@ -342,7 +356,7 @@ export default defineComponent({
         @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
-        v-model="modelValue"
+        v-model="inputValue"
         :disabled="isDisabled"
         :placeholder="placeholder"
         :type="inputType"
@@ -391,7 +405,7 @@ export default defineComponent({
     <!-- textarea -->
     <textarea
       :class="wrapperClassList"
-      @input="handleInput"
+      @input="inputValue"
       @focus="handleFocus"
       @blur="handleBlur"
       :disabled="disabled"
