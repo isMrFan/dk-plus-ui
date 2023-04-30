@@ -90,12 +90,7 @@
       @if containSymbol($element, '*') {
         $index: str-index($element, '*');
         $EL: str-slice($element, 1, $index - 1) + str-slice($element, $index + 1);
-        @if $block != '' {
-          @debug $EL + '==========' + handleBlock($block);
-          $E: handleBlock($block) + $element-separator + $EL;
-        } @else {
-          $E: '.' + $namespace + $element-separator + $EL;
-        }
+        $E: '.' + $namespace + $element-separator + $EL;
       } @else {
         $E: #{&} + $element-separator + $element;
       }
