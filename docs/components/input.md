@@ -159,7 +159,7 @@
 
 :::
 
-## 前后缀内容属性`prepend`
+## 前后缀内容属性`prepend` `append`
 
 `prepend` 前缀 `append` 后缀
 
@@ -171,6 +171,58 @@
 
 ```html
 <dk-input type="text" placeholder="前后缀内容" prepend="https://" append='.com'></dk-input>
+```
+
+:::
+
+## 前后缀内容插槽`prepend` `append`
+
+`prepend` 前缀 `append` 后缀
+
+::: module
+
+<template #code>
+<dk-input type="text" placeholder="前后缀内容">
+  <template #prepend>
+    <span>https://</span>
+  </template>
+  <template #append>
+    <span>.com</span>
+  </template>
+</dk-input>
+</template>
+
+```html
+<dk-input type="text" placeholder="前后缀内容">
+  <template #prepend>
+    <span>https://</span>
+  </template>
+  <template #append>
+    <span>.com</span>
+  </template>
+</dk-input>
+```
+
+:::
+
+## 尺寸`size`
+
+`size` 设置 `large | medium | small | mini` 默认: `small`
+
+::: module
+
+<template #code>
+<dk-input type="text" placeholder="large" size="large"></dk-input>
+<dk-input type="text" placeholder="medium" size="medium"></dk-input>
+<dk-input type="text" placeholder="small" size="small"></dk-input>
+<dk-input type="text" placeholder="mini" size="mini"></dk-input>
+</template>
+
+```html
+<dk-input type="text" placeholder="large" size="large"></dk-input>
+<dk-input type="text" placeholder="medium" size="medium"></dk-input>
+<dk-input type="text" placeholder="small" size="small"></dk-input>
+<dk-input type="text" placeholder="mini" size="mini"></dk-input>
 ```
 
 :::

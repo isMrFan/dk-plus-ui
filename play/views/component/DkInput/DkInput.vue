@@ -1,5 +1,6 @@
 <template>
   <div class="input">
+    <dk-input></dk-input>
     <dk-input
       v-model="msg"
       @change="change"

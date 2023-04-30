@@ -103,6 +103,7 @@ export default defineComponent({
       type InputClass = Record<string, boolean>;
       const isClass: InputClass = {
         "is-disabled": disabled,
+        "is-large": size === "large",
         "is-medium": size === "medium",
         "is-small": size === "small",
         "is-mini": size === "mini",
@@ -198,6 +199,7 @@ export default defineComponent({
       type objType = Record<string, boolean>;
       const isObj: objType = {
         "is-disabled": disabled,
+        'is-large__inner': size === 'large',
       };
       let innerClass: string[] = [];
       innerClass = inpClass.cLTS(isObj, innerClass);

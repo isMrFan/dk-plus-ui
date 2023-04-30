@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: nowrap;
   font-size: 13px;
-  @include block(icon) {
+  @include block('*icon') {
     &:hover {
       cursor: pointer;
     }
@@ -105,6 +105,12 @@
     user-select: none;
     cursor: text;
     margin-left: 5px;
+  }
+}
+@include state('large') {
+  height: 50px;
+  @include element('inner') {
+    font-size: 16px;
   }
 }
 @include state('medium') {
