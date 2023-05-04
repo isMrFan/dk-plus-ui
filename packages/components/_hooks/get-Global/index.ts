@@ -34,6 +34,9 @@ export interface getGlobalType {
 /**
  * @name getGlobal
  * @Time 2023年04月28日
+ * @param { Function } getType 获取组件的类型
+ * @param { Function } getSize 获取组件的尺寸
+ * @param { Function } getProp 获取组件的 props 指定参数(type | size)如有需要自行添加
  * @returns getGlobal 具体函数方法
  */
 export const getGlobal = (props?: getGlobalPropType): getGlobalType => {

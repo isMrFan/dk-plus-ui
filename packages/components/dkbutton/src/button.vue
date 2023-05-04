@@ -25,17 +25,18 @@
    * @function loadingIconSize   加载中ICON 大小设置
    * @description 自定义按钮组件
    **/
-  import { computed, defineComponent ,toRefs} from 'vue'
-  import { dkButtonProps} from './button'
+  import { defineComponent } from 'vue'
+  import { getGlobal,getButton } from '../../_hooks'
+  import { dkButtonProps} from './props'
   export default defineComponent({
     name: 'DkButton',
     props:dkButtonProps,
     setup(Props) {
-      const { 
-        href,
-        target,
-        type
-       }=Props
+      const { getType } = getGlobal(Props)
+      const { href,target,type=getType()}=Props
+      const { classList, styleList } = getButton(Props)
+      console.log("classList", classList)
+      console.log("styleList", styleList)
       // const typeClass = computed(() => {
       //   type === '' ? (type = 'default') : ''
       //   type objType = keyof classTypeObj
@@ -170,21 +171,25 @@
 </script>
 <template>
   <div class="dk-button-packing">
-    <div v-if="type==='text'" class="dk-button-packing-text">
-      <span><slot>文本按钮</slot></span>
-    </div>
-    <div v-else-if="type==='link'" class="dk-button-packing-link">
-      <a 
-        :href="href"
-        tabindex="0"
-        :target="target"
-      >
-        <span><slot></slot></span>
-      </a>
-    </div>
-    <div v-else class="dk-button-packing-block">
-      纯按钮
-    </div>
+    <template v-if="link || text"> 
+        <div v-if="text" class="dk-button-packing-text">
+          <span><slot>文本按钮</slot></span>
+        </div>
+        <div v-if="link" class="dk-button-packing-link">
+          <a 
+            :href="href"
+            tabindex="0"
+            :target="target"
+          >
+            <span><slot>A标签按钮</slot></span>
+          </a>
+        </div>
+      </template>
+      <template v-else> 
+        <div class="dk-button-packing-block">
+          纯按钮
+        </div>
+      </template>
   </div>
  
 </template>

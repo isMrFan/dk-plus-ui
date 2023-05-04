@@ -19,8 +19,6 @@ export const DK_SIZE = ['large', 'medium', 'small', 'mini'] as const
  * @param { string }  [info] 信息
  * @param { string }  [warning] 警告
  * @param { string }  [danger] 危险
- * @param { string }  [text] 文本
- * @param { string }  [link] 链接
  * @returns 组件Type类型
 */
 
@@ -31,8 +29,6 @@ export const DK_TYPE = [
   'warning',
   'danger',
   'default',
-  'text',
-  'link'
 ] as const
 
 /**

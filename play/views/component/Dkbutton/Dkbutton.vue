@@ -1,38 +1,24 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <Dk-Button  type="text"> 文本 </Dk-Button>
-      <Dk-Button  type="link"> aa标签 </Dk-Button>
-      <Dk-Button  > 默认按钮 </Dk-Button>
-      <Dk-Button  type="primary"> 主要按钮 </Dk-Button>
-
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h4 class="dkButton_DK_csy_title">
-        1.基础使用 type设置 default | primary | success | info | warning |danger
-        默认:default
-      </h4>
-      <div class="dkButton_DK_csy_div">
-        <Dk-Button type="default"> 默认 </Dk-Button>
-        <Dk-Button type="primary"> 主要按钮 </Dk-Button>
-        <Dk-Button type="success"> 成功 </Dk-Button>
-        <Dk-Button type="info"> 信息 </Dk-Button>
-        <Dk-Button type="warning"> 警告 </Dk-Button>
-        <Dk-Button type="danger"> 危险 </Dk-Button>
+      <div class="dkButton_DK_wb">
+        <Dk-Button text> 文本 </Dk-Button>
+        <!-- <Dk-Button text type="primary"> 文本 </Dk-Button>
+        <Dk-Button text type="success"> 文本 </Dk-Button>
+        <Dk-Button text type="info"> 文本 </Dk-Button>
+        <Dk-Button text type="warning"> 文本 </Dk-Button>
+        <Dk-Button text type="danger"> 文本 </Dk-Button> -->
       </div>
+   
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
           <template #left>
             <div style="line-height: 42px">(1).代码展示区域</div>
           </template>
           <template #right>
-            <Dk-Button @click="onFoundationType">
+            <!-- <Dk-Button @click="onFoundationType">
               {{ FoundationType ? '关闭' : '开启' }}
-            </Dk-Button>
+            </Dk-Button> -->
           </template>
         </Dk-Shadow>
       </div>
@@ -117,239 +103,6 @@
             name: `<Dk-Button type="danger">危险</Dk-Button>`,
             nackName: '危险',
             type: 'danger'
-          }
-        ],
-        ForbiddenmodeList: [
-          {
-            name: `<Dk-Button disable>基础使用</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type="primary" disable>主要按钮</Dk-Button>`,
-            nackName: '主要按钮',
-            type: 'primary'
-          },
-          {
-            name: `<Dk-Button type="success" disable>成功</Dk-Button>`,
-            nackName: '成功',
-            type: 'success'
-          },
-          {
-            name: `<Dk-Button type="info" disable>信息</Dk-Button>`,
-            nackName: '信息',
-            type: 'info'
-          },
-          {
-            name: `<Dk-Button type="warning" disable>警告</Dk-Button>`,
-            nackName: '警告',
-            type: 'warning'
-          },
-          {
-            name: `<Dk-Button type="danger" disable>危险</Dk-Button>`,
-            nackName: '危险',
-            type: 'danger'
-          }
-        ],
-        roundList: [
-          {
-            type: 'default',
-            name: '默认'
-          },
-          {
-            type: 'primary',
-            name: '主要按钮'
-          },
-          {
-            type: 'success',
-            name: '成功'
-          },
-          {
-            type: 'info',
-            name: '信息'
-          },
-          {
-            type: 'warning',
-            name: '警告'
-          },
-          {
-            type: 'danger',
-            name: '危险'
-          }
-        ],
-        roundNackList: [
-          {
-            name: `<Dk-Button round>基础使用</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type="primary" round>主要按钮</Dk-Button>`,
-            nackName: '主要按钮',
-            type: 'primary'
-          },
-          {
-            name: `<Dk-Button type="success" round>成功</Dk-Button>`,
-            nackName: '成功',
-            type: 'success'
-          },
-          {
-            name: `<Dk-Button type="info" round>信息</Dk-Button>`,
-            nackName: '信息',
-            type: 'info'
-          },
-          {
-            name: `<Dk-Button type="warning" round>警告</Dk-Button>`,
-            nackName: '警告',
-            type: 'warning'
-          },
-          {
-            name: `<Dk-Button type="danger" round>危险</Dk-Button>`,
-            nackName: '危险',
-            type: 'danger'
-          }
-        ],
-        circleNackList: [
-          {
-            name: `<Dk-Button circle icon='dk-icon-sousuo'>基础使用</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type="primary" icon='dk-icon-addRemark' circle>主要按钮</Dk-Button>`,
-            nackName: '主要按钮',
-            type: 'primary'
-          },
-          {
-            name: `<Dk-Button type="success" icon='dk-icon-arrow-down' circle>成功</Dk-Button>`,
-            nackName: '成功',
-            type: 'success'
-          },
-          {
-            name: `<Dk-Button type="info" icon='dk-icon-xitongtongzhi' circle>信息</Dk-Button>`,
-            nackName: '信息',
-            type: 'info'
-          },
-          {
-            name: `<Dk-Button type="warning" icon='dk-icon-collect2' circle>警告</Dk-Button>`,
-            nackName: '警告',
-            type: 'warning'
-          },
-          {
-            name: `<Dk-Button type="danger" icon='dk-icon-del' circle>危险</Dk-Button>`,
-            nackName: '危险',
-            type: 'danger'
-          }
-        ],
-        sizeList: [
-          {
-            type: 'primary',
-            name: '大按钮',
-            icon: '',
-            sizeType: 'large',
-            disable: false,
-            round: 'none',
-            circle: 'none'
-          },
-          {
-            type: 'default',
-            name: '默认',
-            icon: 'dk-icon-addRemark',
-            sizeType: 'default',
-            disable: false,
-            round: 'none',
-            circle: 'none'
-          },
-          {
-            type: 'success',
-            name: '小按钮',
-            icon: 'dk-icon-addRemark',
-            sizeType: 'small',
-            disable: false,
-            round: 'none',
-            circle: 'none'
-          },
-          {
-            type: 'danger',
-            name: '小按钮',
-            icon: 'dk-icon-addRemark',
-            sizeType: 'small',
-            disable: true,
-            round: '',
-            circle: 'none'
-          },
-          {
-            type: 'warning',
-            name: '',
-            icon: 'dk-icon-addRemark',
-            sizeType: 'small',
-            disable: true,
-            round: 'none',
-            circle: ''
-          },
-          {
-            type: 'danger',
-            name: '',
-            icon: 'dk-icon-addRemark',
-            sizeType: 'small',
-            disable: false,
-            round: 'round',
-            circle: ''
-          }
-        ],
-        sizeNackList: [
-          {
-            name: `<Dk-Button type='primary' size='large'>大按钮</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type='default' icon='dk-icon-addRemark' size='default'>默认</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type='success' icon='dk-icon-addRemark' size='small'>小按钮</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type='danger' icon='dk-icon-addRemark' size='small' disable>小按钮</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type='warning' icon='dk-icon-addRemark' size='small' disable round>小按钮</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type='danger' icon='dk-icon-addRemark' size='small' round>小按钮</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          }
-        ],
-        LoadingNackList: [
-          {
-            name: `<Dk-Button type='primary' size='small' loading>默认加载中</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button type='primary' size='large' loading loadingIcon="dk-icon-xitongxinxi">自定义图标</Dk-Button>`,
-            nackName: '默认',
-            type: ''
-          },
-          {
-            name: `<Dk-Button 
-  type='primary' 
-  size='large' loading
-  loadingIcon="dk-icon-xitongxinxi"
-  loadingSize="30">
-  自定义图标大小
-</Dk-Button>`,
-            nackName: '默认',
-            type: ''
           }
         ],
         FoundationType: false,

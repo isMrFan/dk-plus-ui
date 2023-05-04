@@ -15,8 +15,6 @@ export type ClassListName = (string | Record<string, unknown>)[]
  * @param { string }  [info] 信息
  * @param { string }  [warning] 警告
  * @param { string }  [danger] 危险
- * @param { string }  [text] 文本
- * @param { string }  [link] 链接
  * @description 不同的组件类型公共类型
 **/
 
@@ -27,9 +25,6 @@ export type dkPlusType =
   | 'warning'
   | 'danger'
   | 'default'
-  | 'text'
-  | 'link'
-
 /**
  * @name dkPlusSize
  * @Time 2023年04月28日

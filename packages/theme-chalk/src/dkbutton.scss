@@ -1,7 +1,8 @@
 @use './mixins/mixin.scss' as *;
 
 @include block('button-packing'){
-  display: flex;
+  display: inline-flex;
+  margin: 5px;
   @include peerBlock('text'){
     color: red;
   }

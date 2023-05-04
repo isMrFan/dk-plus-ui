@@ -7,18 +7,17 @@
  * ComputedRef：表示一个计算属性的引用，即一个响应式的、只读的值；
  * useSlots：是一个 Vue 3 中的 Hook，用于获取组件的插槽内容；
  * Slots：表示一个插槽对象，包含了组件中定义的所有插槽内容。
- * @returns 按钮用的hooks
+ * @description 按钮用的hooks
 */
-import { useSlots } from 'vue'
-import type { CSSProperties, ComputedRef,Slots } from 'vue'
-
+import type { CSSProperties, ComputedRef,Slots,useSlots } from 'vue'
+import { getStyleList } from '..'
 import type { ClassListName } from '../../_interface'
-import type { DkButtonProps } from '../../dkbutton/src/button'
+import type { DkButtonProps } from '../../dkbutton/src/props'
 
 /**
  * @name get-button
  * @Time 2023年04月28日
- * @returns 按钮用的hooks
+ * @description 按钮用的hooks
 */
 
 /**
@@ -33,10 +32,20 @@ export interface getButtonType {
   styleList: ComputedRef<CSSProperties>
 }
 
-// /**
-//  * button 组件方法封装
-//  *
-//  * @author CadWalaDers(范先生) <https://github.com/CadWalaDers>
-//  * @returns 组件方法封装
-// */
+/**
+ * button 组件方法封装
+ * @Time 2023年05月04日
+ * @author CadWalaDers(范先生) <https://github.com/CadWalaDers>
+ * @description 组件方法封装
+*/
 
+export const getButton = (props: DkButtonProps)=> {
+  getStyleList(props,'button')
+  const classList =[]
+  const styleList =[]
+
+  return {
+    classList,
+    styleList
+  }
+}
