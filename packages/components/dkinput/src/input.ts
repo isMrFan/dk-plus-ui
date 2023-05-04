@@ -102,7 +102,7 @@ export class haInputClass {
    * @param name {string} 块名 - 可选
    * @returns {string} dk-input
    */
-  b = (name?: string) => name ? this.nameSpace + name : this.globalName
+  b = (name?: string) => (name ? this.nameSpace + name : this.globalName)
   /**
    * @description: 生成块类名
    * @param name {string} 块名
@@ -117,12 +117,12 @@ export class haInputClass {
   m = (name: string) => (name ? this.globalName + '--' + name : '')
 
   /**
-   * 
+   *
    * @param is 状态
-   * @param name 
+   * @param name
    * @returns {string} is-name
    */
-  is = (name: string) => (this.state + name)
+  is = (name: string) => this.state + name
   // icon
   i = (icon: string, name: string) => (icon ? 'dk-icon-' + name : '')
   /**

@@ -26,170 +26,49 @@
    * @description 自定义按钮组件
    **/
   import { defineComponent } from 'vue'
-  import { getGlobal,getButton } from '../../_hooks'
-  import { dkButtonProps} from './props'
+  import { getGlobal, getButton } from '../../_hooks'
+  import { dkButtonProps } from './props'
   export default defineComponent({
     name: 'DkButton',
-    props:dkButtonProps,
+    props: dkButtonProps,
     setup(Props) {
       const { getType } = getGlobal(Props)
-      const { href,target,type=getType()}=Props
+      const { href, target, type = getType() } = Props
       const { classList, styleList } = getButton(Props)
-      console.log("classList", classList)
-      console.log("styleList", styleList)
-      // const typeClass = computed(() => {
-      //   type === '' ? (type = 'default') : ''
-      //   type objType = keyof classTypeObj
-      //   type classTypeObj = typeof classType
-      //   let retClassList: Array<string> = []
-      //   const classType = {
-      //     default: 'dk-button-default',
-      //     primary: 'dk-button-primary',
-      //     success: 'dk-button-success',
-      //     info: 'dk-button-info',
-      //     warning: 'dk-button-warning',
-      //     danger: 'dk-button-danger'
-      //   }
-      //   let retClass: classTypeObj[objType] = classType[type]
-      //   retClassList.push(retClass)
-      //   return retClassList
-      // })
-      // const disabledClass = computed(() => {
-      //   type === '' ? (type = 'default') : ''
-      //   let forbidClassList: Array<string> = []
-      //   if (disable) {
-      //     type objDisabled = keyof disabledClassObj
-      //     type disabledClassObj = typeof disabledClassType
-      //     const disabledClassType = {
-      //       default: 'dk-button-default-disabled',
-      //       primary: 'dk-button-primary-disabled',
-      //       success: 'dk-button-success-disabled',
-      //       info: 'dk-button-info-disabled',
-      //       warning: 'dk-button-warning-disabled',
-      //       danger: 'dk-button-danger-disabled'
-      //     }
-      //     let retDisabled: disabledClassObj[objDisabled] = disabledClassType[type]
-      //     forbidClassList.push(retDisabled)
-      //     return forbidClassList
-      //   }
-      // })
-      // const roundClass = computed(() => {
-      //   if (round !== 'none') {
-      //     return 'dk-button-round'
-      //   }
-      // })
-      // const circleClass = computed(() => {
-      //   if (circle !== 'none') {
-      //     return 'dk-button-circle'
-      //   }
-      // })
-      // const largeClass = computed(() => {
-      //   type objType = keyof classTypeObj
-      //   type classTypeObj = typeof classType
-      //   let retClassList: Array<string> = []
-      //   const classType = {
-      //     large: 'dk-button-large',
-      //     default: 'dk-button-default',
-      //     small: 'dk-button-small'
-      //   }
-      //   let retClass: classTypeObj[objType] = classType[size]
-      //   retClassList.push(retClass)
-      //   if (circle !== 'none' && size === 'small') {
-      //     retClassList.push('dk-button-round-small')
-      //   }
-      //   return retClassList
-      // })
-      // const iconSize = computed(() => {
-      //   const classType = {
-      //     large: 16,
-      //     default: 14,
-      //     small: 11
-      //   }
-      //   return classType[size] ? classType[size] : 14
-      // })
-      // const iconColor = computed(() => {
-      //   let Color = '#ffffff'
-      //   if (type === 'default') {
-      //     Color = '#c8c9cc'
-      //   } else {
-      //     if (disable) {
-      //       Color = '#c8c9cc'
-      //     } else {
-      //       Color = '#ffffff'
-      //     }
-      //   }
-      //   return Color
-      // })
-      // const loadingClass = computed(() => {
-      //   if (loading) {
-      //     return 'dk-button-rotationLoading-mask'
-      //   }
-      // })
-      // const loadingIconClass = computed(() => {
-      //   if (loading) {
-      //     if (loadingIcon === '') {
-      //       return 'dk-icon-arrowRotate'
-      //     } else {
-      //       return loadingIcon
-      //     }
-      //   }
-      // })
-      // const loadingIconSize = computed(() => {
-      //   const classType = {
-      //     large: 16,
-      //     default: 14,
-      //     small: 12
-      //   }
-      //   return loadingSize === '' ? (classType[size] ? classType[size] : 14) : loadingSize
-      // })
-      // const loadingIconSColor = computed(() => {
-      //   return loadingColor === '' ? '#fff' : loadingColor
-      // })
-      // return {
-      //   typeClass,
-      //   disabledClass,
-      //   roundClass,
-      //   circleClass,
-      //   largeClass,
-      //   iconSize,
-      //   iconColor,
-      //   icon,
-      //   disable,
-      //   loading,
-      //   loadingClass,
-      //   loadingIconClass,
-      //   loadingIconSize,
-      //   loadingIconSColor
-      // }
-      return{
-        href,
-        target,
-        type
+      console.log('classList', classList)
+      console.log('styleList', styleList)
+      return {
+        classList
       }
     }
   })
 </script>
 <template>
   <div class="dk-button-packing">
-    <template v-if="link || text"> 
-        <div v-if="text" class="dk-button-packing-text">
-          <span><slot>文本按钮</slot></span>
-        </div>
-        <div v-if="link" class="dk-button-packing-link">
-          <a 
-            :href="href"
-            tabindex="0"
-            :target="target"
-          >
-            <span><slot>A标签按钮</slot></span>
-          </a>
-        </div>
-      </template>
-      <template v-else> 
-        <div class="dk-button-packing-block">
-          纯按钮
-        </div>
-      </template>
+    <template v-if="link || text">
+      <div v-if="text" :class="classList">
+        <span>
+          <slot name="icon"></slot>
+          <slot>文本按钮</slot>
+          <slot name="afterIcon"></slot>
+        </span>
+      </div>
+      <div v-if="link" :class="classList">
+        <a :href="href" tabindex="0" :target="target">
+          <span> 
+            <slot name="icon" />
+            <slot>A标签按钮</slot>
+            <slot name="afterIcon" />
+          </span>
+        </a>
+      </div>
+    </template>
+    <template v-else>
+      <div :class="classList">
+        <slot name="icon" />
+        <slot>纯按钮</slot>
+        <slot name="afterIcon" />
+      </div>
+    </template>
   </div>
- 
 </template>

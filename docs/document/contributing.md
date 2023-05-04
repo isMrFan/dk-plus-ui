@@ -163,24 +163,24 @@ Git 允许我们在每次提交时，附带一个提交信息作为说明，当�
 
 类型必须是下面类型之一，并对照类型描述填写。
 
-| 类型     | 示例                                     | 描述         |
-| -------- | ---------------------------------------- | ------------ |
-| build    | git commit -m 'build: 打包\*\*\*配置'    | 修改打包配置 |
-| ci       | git commit -m 'ci: 修改 ci 配置'         | 修改 ci 配置 |
-| docs     | git commit -m 'docs: 修改文档'           | 修改文档     |
-| feat     | git commit -m 'feat: 新增\*\*\*组件'     | 新增组件     |
-| fix      | git commit -m 'fix: 修复\*\*\*bug'       | 修复 bug     |
-| perf     | git commit -m 'perf: 优化\*\*\*性能'     | 优化性能     |
-| refactor | git commit -m 'refactor: 重构\*\*\*代码' | 重构代码     |
-| style    | git commit -m 'style: 修改\*\*\*样式'    | 修改样式     |
-| test     | git commit -m 'test: 新增\*\*\*测试用例' | 新增测试用例 |
-| revert   | git commit -m 'revert: 回滚\*\*\*代码'   | 回滚代码     |
-| chore    | git commit -m 'chore: 修改\*\*\*配置'    | 修改配置     |
-| release  | git commit -m 'release: 发布\*\*\*版本'  | 发布版本     |
-| hooks    | git commit -m 'hooks: 新增\*\*\*         | 开发        |
-| perfect  | git commit -m 'perfect: 完善\*\*\* '     | 完善之前代码块哪里的代码块|
-| utils    | git commit -m 'utils: 组件工具箱\*\*\*    | 更新工具箱  |
-| interface| git commit -m 'interface: 增加组件全局接口\*\*\*| 全局接口 |
+| 类型      | 示例                                             | 描述                       |
+| --------- | ------------------------------------------------ | -------------------------- |
+| build     | git commit -m 'build: 打包\*\*\*配置'            | 修改打包配置               |
+| ci        | git commit -m 'ci: 修改 ci 配置'                 | 修改 ci 配置               |
+| docs      | git commit -m 'docs: 修改文档'                   | 修改文档                   |
+| feat      | git commit -m 'feat: 新增\*\*\*组件'             | 新增组件                   |
+| fix       | git commit -m 'fix: 修复\*\*\*bug'               | 修复 bug                   |
+| perf      | git commit -m 'perf: 优化\*\*\*性能'             | 优化性能                   |
+| refactor  | git commit -m 'refactor: 重构\*\*\*代码'         | 重构代码                   |
+| style     | git commit -m 'style: 修改\*\*\*样式'            | 修改样式                   |
+| test      | git commit -m 'test: 新增\*\*\*测试用例'         | 新增测试用例               |
+| revert    | git commit -m 'revert: 回滚\*\*\*代码'           | 回滚代码                   |
+| chore     | git commit -m 'chore: 修改\*\*\*配置'            | 修改配置                   |
+| release   | git commit -m 'release: 发布\*\*\*版本'          | 发布版本                   |
+| hooks     | git commit -m 'hooks: 新增\*\*\*                 | 开发                       |
+| perfect   | git commit -m 'perfect: 完善\*\*\* '             | 完善之前代码块哪里的代码块 |
+| utils     | git commit -m 'utils: 组件工具箱\*\*\*           | 更新工具箱                 |
+| interface | git commit -m 'interface: 增加组件全局接口\*\*\* | 全局接口                   |
 
 可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
 

@@ -2,14 +2,28 @@
   <div class="dkButton">
     <div class="dkButton_DK_csy">
       <div class="dkButton_DK_wb">
-        <Dk-Button text> 文本 </Dk-Button>
+        <Dk-Button text type="primary" disable round circle icon="haha">
+          <template #icon> 文字前ICON </template>
+          <template #afterIcon> 文字后ICON </template>
+        </Dk-Button>
+
         <!-- <Dk-Button text type="primary"> 文本 </Dk-Button>
         <Dk-Button text type="success"> 文本 </Dk-Button>
         <Dk-Button text type="info"> 文本 </Dk-Button>
         <Dk-Button text type="warning"> 文本 </Dk-Button>
         <Dk-Button text type="danger"> 文本 </Dk-Button> -->
       </div>
-   
+      <div class="dkButton_DK_wb">
+        <Dk-Button link type="primary" disable round circle icon="haha">
+          <template #icon> 文字前ICON </template>
+        </Dk-Button>
+      </div>
+      <div class="dkButton_DK_wb">
+        <Dk-Button  type="success">
+          
+        </Dk-Button>
+      </div>
+
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
           <template #left>

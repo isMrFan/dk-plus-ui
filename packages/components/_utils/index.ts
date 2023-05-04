@@ -20,7 +20,7 @@
  * (7):isArray 判断一个值是否为 array(数组) 类型
  * *{filtration} 过滤器
  * (1):humpConversion 驼峰转换为短横线命名 例如：dkButton => dk-button
-*/
+ */
 export * from './props'
 export * from './typeof'
 export * from './filtration'

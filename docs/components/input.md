@@ -92,7 +92,12 @@
 </template>
 
 ```html
-<dk-input type="text" placeholder="前后缀" prefix-icon="addRemark" suffix-icon="search"></dk-input>
+<dk-input
+  type="text"
+  placeholder="前后缀"
+  prefix-icon="addRemark"
+  suffix-icon="search"
+></dk-input>
 ```
 
 :::
@@ -105,12 +110,12 @@
 
 <template #code>
 <dk-input type="text" placeholder="前后缀">
-  <template #prefix>
-    <dk-icon class="dk-icon-addRemark"></dk-icon>
-  </template>
-  <template #suffix>
-    <dk-icon class="dk-icon-search"></dk-icon>
-  </template>
+<template #prefix>
+<dk-icon class="dk-icon-addRemark"></dk-icon>
+</template>
+<template #suffix>
+<dk-icon class="dk-icon-search"></dk-icon>
+</template>
 </dk-input>
 </template>
 
@@ -170,7 +175,12 @@
 </template>
 
 ```html
-<dk-input type="text" placeholder="前后缀内容" prepend="https://" append='.com'></dk-input>
+<dk-input
+  type="text"
+  placeholder="前后缀内容"
+  prepend="https://"
+  append=".com"
+></dk-input>
 ```
 
 :::
@@ -183,12 +193,12 @@
 
 <template #code>
 <dk-input type="text" placeholder="前后缀内容">
-  <template #prepend>
-    <span>https://</span>
-  </template>
-  <template #append>
-    <span>.com</span>
-  </template>
+<template #prepend>
+<span>https://</span>
+</template>
+<template #append>
+<span>.com</span>
+</template>
 </dk-input>
 </template>
 

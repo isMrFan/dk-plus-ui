@@ -36,6 +36,6 @@ export const sidebar = {
     {
       text: 'Form 表单组件',
       items: [{ text: 'Input', link: '/components/input' }]
-    },
+    }
   ]
 }
