@@ -124,7 +124,7 @@ export const setFunctionProps = <T extends Function>(
 }
 
 /**
- * @name setFunctionProps
+ * @name setArrayProps
  * @Time 2023年04月27日
  * @param { Array } [defaultVal] 默认值
  * @returns 设置 array(数组类型) 类型 props 参数
