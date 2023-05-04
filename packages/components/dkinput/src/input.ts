@@ -1,93 +1,80 @@
 import { ExtractPropTypes, PropType } from 'vue'
+import { DK_SIZE } from '../../_tokens'
+import {
+  setBooleanProps,
+  setStringProp,
+  setNumberProps,
+  setObjectProps
+} from '../../_utils'
+import { dkPlusSize } from '../../_interface'
+
+/**
+ * 输入框样式
+ * @param { string } type [text] 默认
+ * @param { string } type [number] 数字
+ * @param { string } type [password] 密码
+ * @param { string } type [textarea] 多行文本
+ */
+type DKInputType = 'text' | 'number' | 'password' | 'textarea'
+const DK_INPUT_TYPE = ['text', 'number', 'password', 'textarea'] as const
+
 export const DKinput = {
-  showPassword: {
-    type: Boolean,
-    default: false
-  },
-  append: {
-    type: String,
-    default: ''
-  },
-  prepend: {
-    type: String,
-    default: ''
-  },
-  modelValue: {
-    type: [String, Number] as PropType<string | number>
-  },
-  type: {
-    type: String,
-    default: 'text'
-  },
-  size: {
-    type: String,
-    default: 'small'
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  clearable: {
-    type: Boolean,
-    default: false
-  },
-  readonly: {
-    type: Boolean,
-    default: false
-  },
-  placeholder: {
-    type: String,
-    default: ''
-  },
-  showLengthLimit: {
-    type: Boolean,
-    default: false
-  },
-  maxlength: {
-    type: [Number, String],
-    default: ''
-  },
-  minlength: {
-    type: [Number, String],
-    default: ''
-  },
-  showWordLimit: {
-    type: Boolean,
-    default: false
-  },
-  prefixIcon: {
-    type: String,
-    default: ''
-  },
-  suffixIcon: {
-    type: String,
-    default: ''
-  },
-  rows: {
-    type: [Number, String],
-    default: 2
-  },
-  autosize: {
-    type: [Boolean, Object],
-    default: false
-  },
-  autocomplete: {
-    type: String,
-    default: 'off'
-  },
-  autoClearSpace: {
-    type: Boolean,
-    default: true
-  },
-  name: {
-    type: String,
-    default: ''
-  },
-  validateEvent: {
-    type: Boolean,
-    default: true
-  }
-}
+  /** 是否展示密码 */
+  showPassword: setBooleanProps(),
+  /** 前缀内容 */
+  append: setStringProp(),
+  /** 后缀内容 */
+  prepend: setStringProp(),
+  /** 输入框内容 */
+  modelValue: setBooleanProps() || setStringProp(),
+  /**
+   * 输入框类型
+   * @default text
+   * @param { string } type [text] 文本
+   * @param { string } type [number] 数字
+   * @param { string } type [password] 密码
+   * @param { string } type [textarea] 多行文本
+   * @returns { string } 返回一个字符串 默认值为 text
+   */
+  type: setStringProp<DKInputType>(null, (val: DKInputType): boolean => {
+    return DK_INPUT_TYPE.includes(val)
+  }),
+  /**
+   * 输入框尺寸
+   * @default small
+   * @param { string } type [large] 大
+   * @param { string } type [medium] 中
+   * @param { string } type [small] 小
+   * @param { string } type [mini] 迷你
+   * @returns { string } 返回一个字符串 默认值为 small
+   */
+  size: setStringProp<dkPlusSize>(null, (val: dkPlusSize) => {
+    return DK_SIZE.includes(val)
+  }),
+  /** 输入框禁用 */
+  disabled: setBooleanProps(),
+  /** 是否显示清空 */
+  clearable: setBooleanProps(),
+  /** 是否只读 */
+  readonly: setBooleanProps(),
+  /** 提示信息 */
+  placeholder: setStringProp(),
+  /** 是否显示长度限制 */
+  showLengthLimit: setBooleanProps(),
+  /** 最大长度 */
+  maxlength: setStringProp(),
+  /** 最小长度 */
+  minlength: setStringProp(),
+  /** 是否显示字符限制 */
+  showWordLimit: setBooleanProps(),
+  /** 前缀图标 */
+  prefixIcon: setStringProp(),
+  /** 后缀图标 */
+  suffixIcon: setStringProp(),
+  /** 行数 */
+  rows: setStringProp() || setNumberProps(),
+  autosize: setBooleanProps() || setObjectProps()
+} as const
 export class haInputClass {
   // name: string
   // constructor(name: string) {
@@ -102,7 +89,7 @@ export class haInputClass {
    * @param name {string} 块名 - 可选
    * @returns {string} dk-input
    */
-  b = (name?: string) => name ? this.nameSpace + name : this.globalName
+  b = (name?: string) => (name ? this.nameSpace + name : this.globalName)
   /**
    * @description: 生成块类名
    * @param name {string} 块名
@@ -117,12 +104,12 @@ export class haInputClass {
   m = (name: string) => (name ? this.globalName + '--' + name : '')
 
   /**
-   * 
+   *
    * @param is 状态
-   * @param name 
+   * @param name
    * @returns {string} is-name
    */
-  is = (name: string) => (this.state + name)
+  is = (name: string) => this.state + name
   // icon
   i = (icon: string, name: string) => (icon ? 'dk-icon-' + name : '')
   /**
@@ -140,4 +127,4 @@ export class haInputClass {
     }, list) as string[]
   }
 }
-export type dkinput = ExtractPropTypes<typeof DKinput>
+export type dkInput = ExtractPropTypes<typeof DKinput>

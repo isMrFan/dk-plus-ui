@@ -26,7 +26,9 @@
         const TARGET = e.target as HTMLElement
         const TARGET_PARENT = TARGET.parentElement as HTMLElement
         const TARGET_PARENT_PARENT = TARGET_PARENT.parentElement as HTMLElement
-        const { clientHeight } = TARGET_PARENT_PARENT.querySelector('.dkcodedisplay_code')?.querySelector('.language-html') || { clientHeight: 0 }
+        const { clientHeight } = TARGET_PARENT_PARENT.querySelector(
+          '.dkcodedisplay_code'
+        )?.querySelector('.language-html') || { clientHeight: 0 }
         data.height = clientHeight
         data.open = !data.open
       }

@@ -77,7 +77,7 @@
   @include state('append') {
     border-radius: 4px 0 0 4px;
   }
-  @include state(pend){
+  @include state(pend) {
     border-radius: 0;
   }
   @include element((prepend, append)) {
@@ -100,7 +100,7 @@
     border-radius: 0 4px 4px 0;
     border-left: none;
   }
-  @include modifier('length-limit'){
+  @include modifier('length-limit') {
     color: map-get($input-theme-colors, 'info');
     user-select: none;
     cursor: text;
@@ -147,7 +147,7 @@
     min-height: 30px;
     padding: 0 10px;
     resize: vertical;
-    transition: box-shadow .2s;
+    transition: box-shadow 0.2s;
     line-height: 28px;
     border-radius: 4px;
     border: none;

@@ -1,11 +1,11 @@
-import { isNumber } from "../typeof";
+import { isNumber } from '../typeof'
 import type { PropType } from 'vue'
 
 /**
  * 校验器类型
  *
  * @param { any } val 校验的值
-*/
+ */
 
 export type calibrator = (val: any) => boolean
 
@@ -16,20 +16,20 @@ export type calibrator = (val: any) => boolean
  * @param { Function } default 默认值
  * @param { Function } calibrator 校验器
  * @returns 返回值类型接口
-*/
+ */
 
 export interface returnType<T, F> {
   readonly type: T
   readonly default: () => F
   readonly validator?: calibrator
-} 
+}
 
 /**
  * @name setStringNumberProps
  * @Time 2023年04月27日
  * @param { string | number } [defaultVal] 默认值
  * @returns 设置 string(字符串) & number(数字) 类型 props 参数
-*/
+ */
 
 export const setStringNumberProps = <T extends string | number>(
   defaultVal?: T
@@ -46,7 +46,7 @@ export const setStringNumberProps = <T extends string | number>(
  * @param { boolean } defaultVal 默认值:false
  * @param { unknown } BooleanConstructor 布尔类型构造函数
  * @returns 设置 boolean(布尔类型) 类型的 props 参数
-*/
+ */
 export const setBooleanProps = (
   defaultVal = false
 ): returnType<BooleanConstructor, boolean> => {
@@ -62,7 +62,7 @@ export const setBooleanProps = (
  * @param { string } [defaultVal] 默认值
  * @param { Function } [validator] 校验器
  * @returns 设置 string(字符串) 类型的 props 参数
-*/
+ */
 export const setStringProp = <T extends string>(
   defaultVal?: null | T,
   validator?: calibrator
@@ -80,7 +80,7 @@ export const setStringProp = <T extends string>(
  * @Time 2023年04月27日
  * @param { number } defaultVal 默认值
  * @returns 设置 number(数值类型) 类型 props 参数
-*/
+ */
 export const setNumberProps = <T extends number>(
   defaultVal?: null | T
 ): returnType<NumberConstructor, number | null> => {
@@ -89,7 +89,6 @@ export const setNumberProps = <T extends number>(
     default: (): T | null => (isNumber(defaultVal) ? defaultVal : null)
   } as const
 }
-
 
 /**
  * @name setObjectProps
@@ -112,7 +111,7 @@ export const setObjectProps = <T extends object>(
  * @Time 2023年04月27日
  * @param { Function } [defaultVal] 默认值
  * @returns 设置 function(一个方法函数) 类型 props 参数
-*/
+ */
 
 export const setFunctionProps = <T extends Function>(
   defaultVal = null
@@ -124,11 +123,11 @@ export const setFunctionProps = <T extends Function>(
 }
 
 /**
- * @name setFunctionProps
+ * @name setArrayProps
  * @Time 2023年04月27日
  * @param { Array } [defaultVal] 默认值
  * @returns 设置 array(数组类型) 类型 props 参数
-*/
+ */
 
 export const setArrayProps = <T>(
   defaultVal?: null | T

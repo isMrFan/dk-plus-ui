@@ -29,10 +29,7 @@
   * @include handleBlock('button', 'dk', '-');
   * // => .dk-button
   */
-@function handleBlock(
-  $block,
-  $namespace: $namespace
-) {
+@function handleBlock($block, $namespace: $namespace) {
   $B: '';
   @if isList($block) {
     @each $item in $block {
@@ -68,11 +65,7 @@
   * @include handleElement('icon', 'dk', '__');
   * // => .dk__icon
 */
-@function handleElement(
-  $element,
-  $block: '',
-  $element-separator: $element-separator,
-) {
+@function handleElement($element, $block: '', $element-separator: $element-separator) {
   $E: '';
   @if isList($element) {
     @each $item, $index in $element {
