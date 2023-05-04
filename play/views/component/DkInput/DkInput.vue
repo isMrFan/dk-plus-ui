@@ -1,15 +1,9 @@
 <template>
   <div class="input">
-    <dk-input></dk-input>
     <dk-input
       v-model="msg"
-      @change="change"
-      ref="input"
-      prefix-icon="del1"
+      minlength="10"
       show-length-limit
-      @prefix-click="handleFixClick"
-      prepend="https://"
-      append=".com"
     >
     <!-- <template #prefix>
       <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>

@@ -213,8 +213,11 @@
 
 <template #code>
 <dk-input type="text" placeholder="large" size="large"></dk-input>
+<br>
 <dk-input type="text" placeholder="medium" size="medium"></dk-input>
+<br>
 <dk-input type="text" placeholder="small" size="small"></dk-input>
+<br>
 <dk-input type="text" placeholder="mini" size="mini"></dk-input>
 </template>
 
@@ -226,3 +229,48 @@
 ```
 
 :::
+
+## 长度限制`maxlength` `minlength`
+
+`maxlength` 最大长度 `minlength` 最小长度，
+显示长度提示 `show-word-limit` 设置 `true | false` 默认: `false`
+
+::: module
+
+<template #code>
+<dk-input type="text" placeholder="最大长度" maxlength="10" show-length-limit></dk-input>
+<br>
+<dk-input type="text" placeholder="最小长度" minlength="5" show-length-limit></dk-input>
+</template>
+
+```html
+<dk-input type="text" placeholder="最大长度" maxlength="10" show-length-limit></dk-input>
+<dk-input type="text" placeholder="最小长度" minlength="5" show-length-limit></dk-input>
+```
+
+:::
+
+## API
+
+### Input Attributes V0.0.1版本
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| - | - | - | - | - |
+| type | 类型 | `String` | `text` `textarea` `password` `number` | `text` |
+| v-model | 绑定值 | `String` | - | - |
+| placeholder | 占位文本 | `String` | - | - |
+| disabled | 禁用 | `Boolean` | - | `false` |
+| clearable | 是否可清空 | `Boolean` | - | `false` |
+| show-password | 是否显示切换密码图标 | Boolean | - | `false` |
+| prefix-icon | 输入框头部图标 | `String` | - | - |
+| suffix-icon | 输入框尾部图标 | `String` | - | - |
+| prepend | 输入框前置内容 | `String` | - | - |
+| append | 输入框后置内容 | `String` | - | - |
+| size | 输入框尺寸 | `String` | `large` `medium` `small` `mini` | `small` |
+| maxlength | 最大输入长度 | `Number` | - | - |
+| minlength | 最小输入长度 | `Number` | - | - |
+| show-word-limit | 是否显示输入字数统计，需要设置`maxlength`或`minlength` | `Boolean` | - | `false` |
+| autosize | 自适应内容高度，只对type="textarea"有效，可传入对象，如，`{ minRows: 2, maxRows: 6 }` | `Boolean` | - | `false` |
+| rows | 输入框行数，只对`type="textarea"`有效 | Number | - | `2` |
+<!-- | resize | 控制是否能被用户缩放 | String | `none` `both` `horizontal` `vertical` | `none` |
+| autofocus | 原生属性，自动获取焦点 | Boolean | - | `false` | -->
