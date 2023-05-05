@@ -26,7 +26,7 @@
    * @description 自定义按钮组件
    **/
   import { defineComponent } from 'vue'
-  import { getGlobal, getButton} from '../../_hooks'
+  import { getGlobal, getButton } from '../../_hooks'
   import { dkButtonProps } from './props'
   export default defineComponent({
     name: 'DkButton',
@@ -38,7 +38,8 @@
       console.log('classList', classList)
       console.log('styleList', styleList)
       return {
-        classList
+        classList,
+        styleList
       }
     }
   })
@@ -46,7 +47,7 @@
 <template>
   <div class="dk-button-packing">
     <template v-if="link || text">
-      <div v-if="text" :class="classList">
+      <div v-if="text" :class="classList" :style="styleList">
         <span>
           <slot name="icon"></slot>
           <slot>文本按钮</slot>
@@ -55,7 +56,7 @@
       </div>
       <div v-if="link" :class="classList">
         <a :href="href" tabindex="0" :target="target">
-          <span> 
+          <span>
             <slot name="icon" />
             <slot>A标签按钮</slot>
             <slot name="afterIcon" />

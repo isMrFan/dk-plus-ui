@@ -9,7 +9,7 @@
  */
 import { useSlots, computed, reactive, toRefs } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
-import { getStyleList } from '..'
+import { getStyleList, getColor } from '..'
 import type { ClassListName } from '../../_interface'
 import type { DkButtonProps } from '../../dkbutton/src/props'
 
@@ -42,7 +42,7 @@ export const getButton = (props: DkButtonProps) => {
   /**
    * @name slot
    * @description 获取当前组件的插槽
-  */
+   */
   const slot: Slots = useSlots()
   const isSlot = computed(
     (): boolean => !(slot.default && slot.default() && slot.default()[0].children)
@@ -50,7 +50,7 @@ export const getButton = (props: DkButtonProps) => {
   /**
    * @name defaultClassList
    * @description 默认转换的类名
-  */
+   */
   let defaultClassList = [
     'link',
     'text',
@@ -64,13 +64,13 @@ export const getButton = (props: DkButtonProps) => {
   /**
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
-  */
+   */
   let params = reactive({
     ...toRefs(props)
   })
   /**
    * @description 判断组件是否有插槽有则添加对应的类名用于样式处理
-  */
+   */
   if (isSlot) {
     const iconSlot = !!slot.icon
     if (iconSlot) {
@@ -86,10 +86,15 @@ export const getButton = (props: DkButtonProps) => {
   /**
    * @name classes
    * @description 进行类名的处理
-  */
+   */
   const { classes } = getStyleList(params, 'button')
   const classList = classes([...defaultClassList], 'dk-button')
-  const styleList = []
+  const styleList = computed((): CSSProperties => {
+    const { fontColor } = props
+    return {
+      '--button-color': fontColor ? getColor(props.fontColor).getDeepen(0.2) : null
+    } as CSSProperties
+  })
 
   return {
     classList,

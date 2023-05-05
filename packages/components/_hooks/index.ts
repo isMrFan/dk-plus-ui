@@ -11,6 +11,7 @@
  */
 export * from './get-button'
 export * from './get-input'
+export * from './public/get-color'
 export * from './public/get-Global'
 export * from './public/get-props'
 export * from './public/get-StyleList'

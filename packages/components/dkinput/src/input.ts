@@ -1,12 +1,12 @@
 import { ExtractPropTypes, PropType } from 'vue'
-import { DK_SIZE ,DK_INPUT_TYPE} from '../../_tokens'
+import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
 import {
   setBooleanProps,
   setStringProp,
   setNumberProps,
   setObjectProps
 } from '../../_utils'
-import { dkPlusSize,dkInputType } from '../../_interface'
+import { dkPlusSize, dkInputType } from '../../_interface'
 
 export const DKinput = {
   /** 是否展示密码 */

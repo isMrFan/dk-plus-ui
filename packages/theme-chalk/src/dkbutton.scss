@@ -5,7 +5,7 @@
   display: inline-flex;
   margin: 5px;
 }
-@include block('button'){
+@include block('button') {
   position: relative;
   display: inline-flex;
   align-items: center;

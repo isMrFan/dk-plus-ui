@@ -1,10 +1,6 @@
 <template>
   <div class="input">
-    <dk-input
-      v-model="msg"
-      minlength="10"
-      show-length-limit
-    >
+    <dk-input v-model="msg" minlength="10" show-length-limit>
       <!-- <template #prefix>
       <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
     </template> -->

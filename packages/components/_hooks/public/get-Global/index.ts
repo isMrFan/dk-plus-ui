@@ -12,7 +12,7 @@ import type { dkPlusType, dkPlusSize } from '../../../_interface'
  * @returns getGlobalPropType 所需要的 props 参数类型接口
  */
 export interface getGlobalPropType {
-  type?: dkPlusType | null 
+  type?: dkPlusType | null
   size: dkPlusSize | string | number
 }
 
