@@ -5,7 +5,7 @@
  * @description 用于过滤掉不需要的props参数 例如特殊的Function(不要了),Object(解析)
  */
 import { reactive, toRef } from 'vue'
-import { isString, isObject } from '../../_utils'
+import { isString, isObject } from '../../../_utils'
 import type { Ref } from 'vue'
 
 /**

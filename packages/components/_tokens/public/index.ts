@@ -1,5 +1,3 @@
-export * from './input-attrs'
-
 
 /**
  * @name DK_SIZE

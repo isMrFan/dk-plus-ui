@@ -6,11 +6,11 @@
  * @returns getStyleList 用于生成样式名称的hooks简洁代码
  */
 import { computed, ref } from 'vue'
-import { getProps } from '..'
-import { isBoolean, humpConversion } from '../../_utils'
+import { getProps } from '../..'
+import { isBoolean, humpConversion } from '../../../_utils'
 import type { ComputedRef } from 'vue'
-import type { FilterParams } from '..'
-import type { ClassListName } from '../../_interface'
+import type { FilterParams } from '../..'
+import type { ClassListName } from '../../../_interface'
 
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>

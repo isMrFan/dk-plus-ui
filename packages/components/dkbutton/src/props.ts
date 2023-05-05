@@ -38,13 +38,45 @@ export const dkButtonProps = {
    * @param { string } type [warning] 警告
    * @param { string } type [danger] 危险
    * @returns 按钮类型 是否为文本按钮(默认值:'default')
-   */
+  */
   type: setStringProp<dkPlusType>(null, (value: dkPlusType): boolean => {
     return DK_TYPE.includes(value)
   }),
+  /**
+    * @name size
+    * @param { string }  [large] 大
+    * @param { string }  [medium] 中
+    * @param { string }  [small] 小
+    * @param { string }  [mini] 迷你
+    * @returns 按钮类型 是否为文本按钮(默认值:'large')
+  */
   size: setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
     return DK_SIZE.includes(value)
   }),
+  /**
+    * @name bgColor
+    * @param { string }  背景颜色
+    * @returns 按钮的背景颜色
+  */
+  bgColor: setStringProp(),
+  /**
+    * @name fontColor
+    * @param { string }  字体颜色
+    * @returns 按钮的字体颜色
+  */
+  fontColor: setStringProp(),
+  /**
+    * @name shadow
+    * @param { string }  按钮阴影效果
+    * @returns 按钮阴影效果
+  */
+  shadow:setStringProp(),
+  /**
+    * @name fontSize
+    * @param { string }  按钮文字大小
+    * @returns 按钮文字大小
+  */
+  fontSize:setStringProp(),
 
   /**是否禁用 */
   disable: setBooleanProps(),

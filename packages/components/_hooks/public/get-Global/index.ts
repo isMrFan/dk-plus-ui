@@ -1,8 +1,8 @@
 import { computed, reactive, toRefs } from 'vue'
-import { DK_TYPE, DK_SIZE } from '../../_tokens'
-import { isArray } from '../../_utils'
+import { DK_TYPE, DK_SIZE } from '../../../_tokens'
+import { isArray } from '../../../_utils'
 import type { ComputedRef } from 'vue'
-import type { dkPlusType, dkPlusSize } from '../../_interface'
+import type { dkPlusType, dkPlusSize } from '../../../_interface'
 
 /**
  * @name getGlobalPropType
