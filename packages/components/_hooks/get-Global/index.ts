@@ -1,8 +1,9 @@
 import { computed, reactive, toRefs } from 'vue'
-import { DK_TYPE, DK_SIZE } from '../../_tokens'
+import { DK_TYPE, DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
 import { isArray } from '../../_utils'
 import type { ComputedRef } from 'vue'
 import type { dkPlusType, dkPlusSize } from '../../_interface'
+import type { DKInputType } from './get-Input'
 
 /**
  * @name getGlobalPropType
@@ -12,7 +13,7 @@ import type { dkPlusType, dkPlusSize } from '../../_interface'
  * @returns getGlobalPropType 所需要的 props 参数类型接口
  */
 export interface getGlobalPropType {
-  type?: dkPlusType | null
+  type?: dkPlusType | null | DKInputType
   size: dkPlusSize | string | number
 }
 
@@ -49,7 +50,7 @@ export const getGlobal = (props?: getGlobalPropType): getGlobalType => {
       if (!props) {
         return value as dkPlusType
       }
-      if (props.type && !DK_TYPE.includes(props.type)) {
+      if (props.type && (!DK_INPUT_TYPE.includes(props.type as DKInputType) || !DK_TYPE.includes(props.type as dkPlusType))) {
         return value as dkPlusType
       }
       return (props.type || value) as dkPlusType

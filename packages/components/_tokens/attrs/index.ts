@@ -1,3 +1,6 @@
+export * from './input-attrs'
+
+
 /**
  * @name DK_SIZE
  * @Time 2023年04月28日

@@ -1,22 +1,16 @@
 <template>
   <div class="input">
-    <dk-input></dk-input>
     <dk-input
       v-model="msg"
-      @change="change"
-      ref="input"
-      prefix-icon="del1"
+      minlength="10"
       show-length-limit
-      @prefix-click="handleFixClick"
-      prepend="https://"
-      append=".com"
     >
       <!-- <template #prefix>
       <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
     </template> -->
       <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon>
     </dk-input>
-    <div class="box" v-for="item in htmlList" :key="item.title">
+    <!-- <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="item.code" />
@@ -27,7 +21,7 @@
     <div class="box">
       <dk-input v-model="msg" type="" placeholder="清空" clearable />
       {{ msg }}
-    </div>
+    </div> -->
   </div>
 </template>
 
