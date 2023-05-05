@@ -26,7 +26,7 @@
    * @description 自定义按钮组件
    **/
   import { defineComponent } from 'vue'
-  import { getGlobal, getButton } from '../../_hooks'
+  import { getGlobal, getButton} from '../../_hooks'
   import { dkButtonProps } from './props'
   export default defineComponent({
     name: 'DkButton',

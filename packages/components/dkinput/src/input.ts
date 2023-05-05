@@ -1,22 +1,12 @@
 import { ExtractPropTypes, PropType } from 'vue'
-import { DK_SIZE } from '../../_tokens'
+import { DK_SIZE ,DK_INPUT_TYPE} from '../../_tokens'
 import {
   setBooleanProps,
   setStringProp,
   setNumberProps,
   setObjectProps
 } from '../../_utils'
-import { dkPlusSize } from '../../_interface'
-
-/**
- * 输入框样式
- * @param { string } type [text] 默认
- * @param { string } type [number] 数字
- * @param { string } type [password] 密码
- * @param { string } type [textarea] 多行文本
- */
-type DKInputType = 'text' | 'number' | 'password' | 'textarea'
-const DK_INPUT_TYPE = ['text', 'number', 'password', 'textarea'] as const
+import { dkPlusSize,dkInputType } from '../../_interface'
 
 export const DKinput = {
   /** 是否展示密码 */
@@ -36,7 +26,7 @@ export const DKinput = {
    * @param { string } type [textarea] 多行文本
    * @returns { string } 返回一个字符串 默认值为 text
    */
-  type: setStringProp<DKInputType>(null, (val: DKInputType): boolean => {
+  type: setStringProp<dkInputType>(null, (val: dkInputType): boolean => {
     return DK_INPUT_TYPE.includes(val)
   }),
   /**

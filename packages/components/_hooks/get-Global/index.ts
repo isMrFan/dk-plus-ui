@@ -1,9 +1,8 @@
 import { computed, reactive, toRefs } from 'vue'
-import { DK_TYPE, DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
+import { DK_TYPE, DK_SIZE } from '../../_tokens'
 import { isArray } from '../../_utils'
 import type { ComputedRef } from 'vue'
 import type { dkPlusType, dkPlusSize } from '../../_interface'
-import type { DKInputType } from './get-Input'
 
 /**
  * @name getGlobalPropType
@@ -13,7 +12,7 @@ import type { DKInputType } from './get-Input'
  * @returns getGlobalPropType 所需要的 props 参数类型接口
  */
 export interface getGlobalPropType {
-  type?: dkPlusType | null | DKInputType
+  type?: dkPlusType | null 
   size: dkPlusSize | string | number
 }
 
@@ -34,8 +33,8 @@ export interface getGlobalType {
 /**
  * @name getGlobal
  * @Time 2023年04月28日
- * @param { Function } getType 获取组件的类型
- * @param { Function } getSize 获取组件的尺寸
+ * @param { Function } getType 获取公共组件的类型
+ * @param { Function } getSize 获取公共组件的尺寸
  * @param { Function } getProp 获取组件的 props 指定参数(type | size)如有需要自行添加
  * @returns getGlobal 具体函数方法
  */
@@ -50,7 +49,7 @@ export const getGlobal = (props?: getGlobalPropType): getGlobalType => {
       if (!props) {
         return value as dkPlusType
       }
-      if (props.type && (!DK_INPUT_TYPE.includes(props.type as DKInputType) || !DK_TYPE.includes(props.type as dkPlusType))) {
+      if (props.type && !DK_TYPE.includes(props.type as dkPlusType)) {
         return value as dkPlusType
       }
       return (props.type || value) as dkPlusType
