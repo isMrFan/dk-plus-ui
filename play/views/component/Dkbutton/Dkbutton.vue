@@ -3,7 +3,7 @@
     <div class="dkButton_DK_csy">
       <div class="dkButton_DK_wb">
         <Dk-Button text type="primary" :fontColor="'red'"> 这是按钮 </Dk-Button>
-        <Dk-Button text type="primary"> 这是按钮 </Dk-Button>
+        <!-- <Dk-Button text type="primary"> 这是按钮 </Dk-Button> -->
         <!-- <Dk-Button text type="primary"> 文本 </Dk-Button>
         <Dk-Button text type="success"> 文本 </Dk-Button>
         <Dk-Button text type="info"> 文本 </Dk-Button>

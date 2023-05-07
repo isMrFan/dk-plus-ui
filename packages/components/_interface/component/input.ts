@@ -1,5 +1,5 @@
 /**
- * @description 获取 Input 组件的全局配置
+ * @description 获取 Input 组件的类型
  * @param { string } type [text] 默认值
  * @param { string } type [textarea] 多行文本
  * @param { string } type [password] 密码

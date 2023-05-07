@@ -47,6 +47,7 @@ export const getButton = (props: DkButtonProps) => {
   const isSlot = computed(
     (): boolean => !(slot.default && slot.default() && slot.default()[0].children)
   )
+  
   /**
    * @name defaultClassList
    * @description 默认转换的类名
@@ -68,6 +69,9 @@ export const getButton = (props: DkButtonProps) => {
   let params = reactive({
     ...toRefs(props)
   })
+  // console.log('params', params);
+  
+
   /**
    * @description 判断组件是否有插槽有则添加对应的类名用于样式处理
    */
@@ -89,6 +93,9 @@ export const getButton = (props: DkButtonProps) => {
    */
   const { classes } = getStyleList(params, 'button')
   const classList = classes([...defaultClassList], 'dk-button')
+  // console.log(classList)
+  
+  
   const styleList = computed((): CSSProperties => {
     const { fontColor } = props
     return {
