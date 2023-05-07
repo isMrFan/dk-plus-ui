@@ -66,7 +66,7 @@ export const getInput = (props: DkInputProps) => {
    * @name defaultClassList
    * @description 默认的input类型
    */
-  let defaultClassList = ["text", "password", "number", "textarea", "disabled"];
+  let defaultClassList = ["type"];
 
   /**
    * @name params
@@ -87,7 +87,7 @@ export const getInput = (props: DkInputProps) => {
   const { classes } = getStyleList(params, 'input')
   
   const CLASS_LIST = classes([...defaultClassList], 'dk-input')
-  // console.log("CLASS_LIST", CLASS_LIST);
+   console.log("CLASS_LIST", CLASS_LIST);
 
   const typeList = [];
   return {
