@@ -35,8 +35,10 @@
       const { getType } = getGlobal(Props)
       const { href, target, type = getType() } = Props
       const { classList, styleList } = getButton(Props)
-      console.log('classList', classList)
-      console.log('styleList', styleList)
+      // console.log(Props);
+      
+      // console.log('classList', classList)
+      // console.log('styleList', styleList)
       return {
         classList,
         styleList

@@ -25,6 +25,8 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
     return computed((): ClassListName => {
       const classList = ref<ClassListName>([])
       const propList: Record<string, unknown> = filter(list)
+      console.log('propList', propList);
+      
       /**
        * @description 如果有className则添加className
        */
@@ -43,6 +45,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
       return classList.value
     })
   }
+  
   return {
     classes
   }

@@ -7,17 +7,32 @@
    * @example
    */
   import { defineComponent, computed, ref, nextTick, Ref, ComputedRef, watch } from 'vue'
-  import { DKinput, haInputClass } from './input'
+  import { dkInputProps, haInputClass } from './props'
+  import { getInputGlobal } from '../../_hooks'
   import { getInput } from '../../_hooks'
 
   export default defineComponent({
     name: 'DkInput',
-    props: DKinput,
+    props: dkInputProps,
     setup(props) {
-      console.log('props', props, DKinput)
+      // console.log('props', props, dkInputProps)
 
-      const { getInputType } = getInput(props)
+      const { getInputType } = getInputGlobal(props)
+      // console.log(props);
+      
+      // console.log(getInputType());
+
+      const {classList, typeList} = getInput(props)
+      // console.log('classList', classList);
+      // console.log('typeList', typeList);
+      
+      
+      
       const { type = getInputType() } = props
+      return {
+        classList,
+        typeList
+      }
     }
   })
 </script>

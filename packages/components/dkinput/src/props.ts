@@ -8,7 +8,7 @@ import {
 } from '../../_utils'
 import { dkPlusSize, dkInputType } from '../../_interface'
 
-export const DKinput = {
+export const dkInputProps = {
   /** 是否展示密码 */
   showPassword: setBooleanProps(),
   /** 前缀内容 */
@@ -16,7 +16,7 @@ export const DKinput = {
   /** 后缀内容 */
   prepend: setStringProp(),
   /** 输入框内容 */
-  modelValue: setBooleanProps() || setStringProp(),
+  modelValue: setStringProp() || setNumberProps(),
   /**
    * 输入框类型
    * @default text
@@ -117,4 +117,4 @@ export class haInputClass {
     }, list) as string[]
   }
 }
-export type dkInput = ExtractPropTypes<typeof DKinput>
+export type DkInputProps = ExtractPropTypes<typeof dkInputProps>
