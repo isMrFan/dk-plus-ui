@@ -3,7 +3,7 @@
   transition: all 0.2s;
 }
 @include block(('input')) {
-  width: 100%;
+  width: var(--input-width, 100%);
   position: relative;
   height: 30px;
   display: flex;

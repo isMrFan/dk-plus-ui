@@ -26,7 +26,7 @@ export const dkInputProps = {
    * @param { string } type [textarea] 多行文本
    * @returns { string } 返回一个字符串 默认值为 text
    */
-  type: setStringProp<dkInputType>(null, (val: dkInputType): boolean => {
+  type: setStringProp<dkInputType>('text', (val: dkInputType): boolean => {
     return DK_INPUT_TYPE.includes(val)
   }),
   /**

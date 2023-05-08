@@ -31,11 +31,11 @@
    * @example
    */
   import { defineComponent, computed, ref, nextTick, Ref, ComputedRef, watch } from 'vue'
-  import { DKinput, haInputClass } from './input'
+  import { dkInputProps, haInputClass } from './props'
 
   export default defineComponent({
     name: 'DkInput',
-    props: DKinput,
+    props: dkInputProps,
     emits: [
       'update:modelValue',
       'change',

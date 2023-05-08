@@ -1,5 +1,5 @@
 import { computed, reactive, toRefs, useSlots } from "vue";
-import type { ComputedRef, Slots } from "vue";
+import type { CSSProperties, ComputedRef, Slots } from "vue";
 import { getStyleList } from "..";
 import { DkInputProps } from "./../../dkinput/src/props";
 import { DK_INPUT_TYPE } from "../../_tokens";
@@ -52,46 +52,51 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
 
 export const getInput = (props: DkInputProps) => {
   /**
-   * @name SLOT
-   * @description 获取插槽
-   */
-  // const SLOT: Slots = useSlots()
-  // const IS_SLOT = computed((): boolean => {
-  //   return !!SLOT.default && !!SLOT.default() && !!SLOT.default()[0].children
-  // })
-  // console.log('SLOT', SLOT)
-  // console.log('IS_SLOT', IS_SLOT);
-
-  /**
    * @name defaultClassList
-   * @description 默认的input类型
+   * @description 期望转换的类名
    */
-  let defaultClassList = ["type"];
+  let defaultClassList = ["type", "clearable"];
 
   /**
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
    */
   let params = reactive({
-    ...toRefs(props)
-  })
-  // console.log('params', params);
+    ...toRefs(props),
+  });
+  /**
+   * @name SLOT
+   * @description 获取插槽
+   */
+  const SLOT: Slots = useSlots();
+  const IS_SLOT = computed((): boolean => {
+    return !(SLOT.default && SLOT.default() && SLOT.default()[0].children);
+  });
+  if (IS_SLOT) {
+    const PREFIX = SLOT.prefix && SLOT.prefix();
+    if (PREFIX) {
+      defaultClassList = [...defaultClassList, "prefix"];
+      params["prefix"] = true;
+    }
+  }
 
+  const { classes } = getStyleList(params, "input");
+  const CLASS_LIST = classes([...defaultClassList], "dk-input");
+
+  const STYLE_List = computed((): CSSProperties => {
+    console.log('props', props);
+    return {
+      '--input-width': '100%'
+    } as CSSProperties;
+  });
+
+  // const WRAPPER_CLASS_LIST = classes(['wrapper'], 'dk-input_wrapper--is-')
+  // console.log('WRAPPER_CLASS_LIST', WRAPPER_CLASS_LIST);
   
-  // console.log('params', params);
 
-  // if (IS_SLOT) {
-  //   console.log("isSlot", IS_SLOT);
-  //   defaultClassList = [...defaultClassList, "slot"];
-  // }
-  const { classes } = getStyleList(params, 'input')
-  
-  const CLASS_LIST = classes([...defaultClassList], 'dk-input')
-   console.log("CLASS_LIST", CLASS_LIST);
-
-  const typeList = [];
   return {
     classList: CLASS_LIST,
-    typeList,
-  };
+    styleList: STYLE_List,
+    // wrapperClassList: WRAPPER_CLASS_LIST,
+  }
 };

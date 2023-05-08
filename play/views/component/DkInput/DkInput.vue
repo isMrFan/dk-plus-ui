@@ -1,6 +1,12 @@
 <template>
   <div class="input">
-    <Dk-Input v-model="msg" clearable type="text">
+    <Dk-Input v-model="msg" clearable>
+      <template #prefix>
+        <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
+      </template>
+      <!-- <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon> -->
+    </Dk-Input>
+    <Dk-Input v-model="msg" >
       <!-- <template #prefix>
         <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
       </template> -->
