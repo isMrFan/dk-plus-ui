@@ -55,7 +55,7 @@ export const getProps = <T extends object>(props: T): getPropsType => {
    * @name filter
    * @param { string | Array } filterList 需要的参数列表
    * @returns { Object } 过滤后的 prop 响应式对象
-   * @description 现在只对string 和 object 进行保留了
+   * @description 现在只对string 和 object 进行保留了 PS: 以后可以添加其他类型
    */
   const filter = (filterList: FilterParams): Record<string, unknown> => {
     const obj: Record<string, unknown> = reactive({})

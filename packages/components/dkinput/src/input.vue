@@ -19,15 +19,13 @@
 
       const { getInputType } = getInputGlobal(props)
       // console.log(props);
-      
+
       // console.log(getInputType());
 
-      const {classList, typeList} = getInput(props)
+      const { classList, typeList } = getInput(props)
       // console.log('classList', classList);
       // console.log('typeList', typeList);
-      
-      
-      
+
       const { type = getInputType() } = props
       return {
         classList,

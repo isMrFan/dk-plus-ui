@@ -1,9 +1,9 @@
-import { computed, reactive, toRefs, useSlots } from "vue";
-import type { ComputedRef, Slots } from "vue";
-import { getStyleList } from "..";
-import { DkInputProps } from "./../../dkinput/src/props";
-import { DK_INPUT_TYPE } from "../../_tokens";
-import type { dkInputType } from "../../_interface";
+import { computed, reactive, toRefs, useSlots } from 'vue'
+import type { ComputedRef, Slots } from 'vue'
+import { getStyleList } from '..'
+import { DkInputProps } from './../../dkinput/src/props'
+import { DK_INPUT_TYPE } from '../../_tokens'
+import type { dkInputType } from '../../_interface'
 /**
  * @name getInputGlobalType
  * @Time 2023年05月05日
@@ -12,11 +12,11 @@ import type { dkInputType } from "../../_interface";
  */
 
 export interface getInputGlobalType {
-  type?: dkInputType | null;
+  type?: dkInputType | null
 }
 
 export interface getInputType {
-  getInputType: (value?: dkInputType) => ComputedRef<dkInputType>;
+  getInputType: (value?: dkInputType) => ComputedRef<dkInputType>
 }
 
 /**
@@ -31,24 +31,22 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
    * @returns 获取input组件的类型
    */
   const getInputType = (
-    value: string | dkInputType = "text"
+    value: string | dkInputType = 'text'
   ): ComputedRef<dkInputType> => {
-    return computed(
-      (): dkInputType => {
-        if (!props) {
-          return value as dkInputType;
-        }
-        if (props.type && !DK_INPUT_TYPE.includes(props.type as dkInputType)) {
-          return value as dkInputType;
-        }
-        return (props.type || value) as dkInputType;
+    return computed((): dkInputType => {
+      if (!props) {
+        return value as dkInputType
       }
-    );
-  };
+      if (props.type && !DK_INPUT_TYPE.includes(props.type as dkInputType)) {
+        return value as dkInputType
+      }
+      return (props.type || value) as dkInputType
+    })
+  }
   return {
-    getInputType,
-  };
-};
+    getInputType
+  }
+}
 
 export const getInput = (props: DkInputProps) => {
   /**
@@ -66,7 +64,7 @@ export const getInput = (props: DkInputProps) => {
    * @name defaultClassList
    * @description 默认的input类型
    */
-  let defaultClassList = ["type"];
+  let defaultClassList = ['type']
 
   /**
    * @name params
@@ -77,7 +75,6 @@ export const getInput = (props: DkInputProps) => {
   })
   // console.log('params', params);
 
-  
   // console.log('params', params);
 
   // if (IS_SLOT) {
@@ -85,13 +82,13 @@ export const getInput = (props: DkInputProps) => {
   //   defaultClassList = [...defaultClassList, "slot"];
   // }
   const { classes } = getStyleList(params, 'input')
-  
-  const CLASS_LIST = classes([...defaultClassList], 'dk-input')
-   console.log("CLASS_LIST", CLASS_LIST);
 
-  const typeList = [];
+  const CLASS_LIST = classes([...defaultClassList], 'dk-input')
+  console.log('CLASS_LIST', CLASS_LIST)
+
+  const typeList = []
   return {
     classList: CLASS_LIST,
-    typeList,
-  };
-};
+    typeList
+  }
+}

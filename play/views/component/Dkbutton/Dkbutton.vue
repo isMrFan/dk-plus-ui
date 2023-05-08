@@ -1,25 +1,24 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
+      <h3>1.文本按钮</h3>
       <div class="dkButton_DK_wb">
-        <Dk-Button text type="primary" :fontColor="'red'"> 这是按钮 </Dk-Button>
-        <!-- <Dk-Button text type="primary"> 这是按钮 </Dk-Button> -->
-        <!-- <Dk-Button text type="primary"> 文本 </Dk-Button>
-        <Dk-Button text type="success"> 文本 </Dk-Button>
-        <Dk-Button text type="info"> 文本 </Dk-Button>
-        <Dk-Button text type="warning"> 文本 </Dk-Button>
-        <Dk-Button text type="danger"> 文本 </Dk-Button> -->
+        <Dk-Button text> 默认</Dk-Button>
+        <Dk-Button text type="primary"> 基础(primary) </Dk-Button>
+        <Dk-Button text type="success"> 成功(success) </Dk-Button>
+        <Dk-Button text type="info"> 信息(info) </Dk-Button>
+        <Dk-Button text type="warning"> 警告(warning) </Dk-Button>
+        <Dk-Button text type="danger"> 危险(danger) </Dk-Button>
       </div>
-
       <div class="code_show_Title">
         <Dk-Shadow :type="'title'">
           <template #left>
             <div style="line-height: 42px">(1).代码展示区域</div>
           </template>
           <template #right>
-            <!-- <Dk-Button @click="onFoundationType">
+            <Dk-Button text type="default" @click="onFoundationType(0)">
               {{ FoundationType ? '关闭' : '开启' }}
-            </Dk-Button> -->
+            </Dk-Button>
           </template>
         </Dk-Shadow>
       </div>
@@ -34,6 +33,63 @@
             <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
           </div>
         </div>
+      </div>
+      <h3>2.文本按钮自定义</h3>
+      <p style="margin-left: 10px; margin-bottom: 10px">
+        1: fontColor 支持16进制 英文单词 rgb rgba
+      </p>
+      <div class="dkButton_DK_wb">
+        <Dk-Button text type="primary" :fontColor="'#cb7979'">
+          自定义文字颜色16进制
+        </Dk-Button>
+        <Dk-Button text type="primary" :fontColor="'red'"> 自定义文字颜色英文 </Dk-Button>
+        <Dk-Button text type="primary" :fontColor="'rgb(255,0,0)'">
+          自定义文字颜色英文
+        </Dk-Button>
+        <Dk-Button text type="primary" :fontColor="'rgba(255,0,0,0.4)'">
+          自定义文字颜色英文
+        </Dk-Button>
+      </div>
+      <div class="code_show_Title">
+        <Dk-Shadow :type="'title'">
+          <template #left>
+            <div style="line-height: 42px">(1).代码展示区域</div>
+          </template>
+          <template #right>
+            <Dk-Button text type="default" @click="onFoundationType(1)">
+              {{ customizeType ? '关闭' : '开启' }}
+            </Dk-Button>
+          </template>
+        </Dk-Shadow>
+      </div>
+      <div class="code_show" v-show="customizeType">
+        <div class="index_Dk_list" v-for="(item, ind) in customizeTypeList" :key="ind">
+          <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+            <highlightjs language="javascript" :code="item.name"></highlightjs>
+            <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin: 10px">
+        2: size 设置按钮大小large(大) medium(中) small(小) mini(迷你)
+      </p>
+      <div class="dkButton_DK_wb">
+        <Dk-Button text type="primary" size="large"> large(大) </Dk-Button>
+        <Dk-Button text type="primary" size="medium"> medium(中) </Dk-Button>
+        <Dk-Button text type="primary" size="small"> small(小) </Dk-Button>
+        <Dk-Button text type="primary" size="mini"> mini(迷你) </Dk-Button>
+        <Dk-Button text type="primary" size="mini" :fontSize="30">
+          自定义大小(fontSize:30)
+        </Dk-Button>
+        <Dk-Button
+          text
+          type="primary"
+          size="mini"
+          :fontSize="22"
+          :fontColor="'rgba(255,0,0,0.4)'"
+        >
+          组合使用
+        </Dk-Button>
       </div>
     </div>
   </div>
@@ -76,37 +132,60 @@
       const data = reactive({
         foundationHighlightjs: [
           {
-            name: `<Dk-Button>基础使用</Dk-Button>`,
+            name: `<Dk-Button text type="default"> 默认(default) </Dk-Button>`,
             nackName: '默认',
             type: ''
           },
           {
-            name: `<Dk-Button type="primary">主要按钮</Dk-Button>`,
+            name: `<Dk-Button text type="primary"> 基础(primary) </Dk-Button>`,
             nackName: '主要按钮',
             type: 'primary'
           },
           {
-            name: `<Dk-Button type="success">成功</Dk-Button>`,
+            name: `<Dk-Button text type="success"> 成功(success) </Dk-Button>`,
             nackName: '成功',
             type: 'success'
           },
           {
-            name: `<Dk-Button type="info">信息</Dk-Button>`,
+            name: `<Dk-Button text type="info"> 信息(info) </Dk-Button>`,
             nackName: '信息',
             type: 'info'
           },
           {
-            name: `<Dk-Button type="warning">警告</Dk-Button>`,
+            name: `<Dk-Button text type="warning"> 警告(warning) </Dk-Button>`,
             nackName: '警告',
             type: 'warning'
           },
           {
-            name: `<Dk-Button type="danger">危险</Dk-Button>`,
+            name: `<Dk-Button text type="danger"> 危险(danger) </Dk-Button>`,
             nackName: '危险',
             type: 'danger'
           }
         ],
+        customizeTypeList: [
+          {
+            name: `<Dk-Button text type="primary" :fontColor="'#cb7979'"> 基础(primary) </Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button text type="primary" :fontColor="'red'"> 基础(primary) </Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button text type="primary" :fontColor="'rgb(255,0,0)'"> 基础(primary) </Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button text type="primary" :fontColor="'rgba(255,0,0,0.4)'"> 基础(primary) </Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          }
+        ],
         FoundationType: false,
+        customizeType: false,
         disableType: false,
         RoundType: false,
         Circle: false,
@@ -125,8 +204,12 @@
           document.body.removeChild(input)
           alert('复制成功')
         },
-        onFoundationType() {
-          data.FoundationType = !data.FoundationType
+        onFoundationType(type) {
+          if (type === 0) {
+            data.FoundationType = !data.FoundationType
+          } else if (type === 1) {
+            data.customizeType = !data.customizeType
+          }
         },
         onDisableTypeType() {
           data.disableType = !data.disableType
@@ -154,7 +237,12 @@
 <style lang="scss" scoped>
   .dkButton {
     width: 100%;
-
+    .dkButton_DK_wb {
+      margin-bottom: 10px;
+    }
+    h3 {
+      margin: 10px 0;
+    }
     .dkButton_DK_csy {
       width: 100%;
       margin: 0 auto;

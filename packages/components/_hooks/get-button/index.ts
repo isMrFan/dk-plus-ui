@@ -10,6 +10,7 @@
 import { useSlots, computed, reactive, toRefs } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getStyleList, getColor } from '..'
+import { sizeChange } from '../../_utils'
 import type { ClassListName } from '../../_interface'
 import type { DkButtonProps } from '../../dkbutton/src/props'
 
@@ -47,21 +48,12 @@ export const getButton = (props: DkButtonProps) => {
   const isSlot = computed(
     (): boolean => !(slot.default && slot.default() && slot.default()[0].children)
   )
-  
+
   /**
    * @name defaultClassList
    * @description 默认转换的类名
    */
-  let defaultClassList = [
-    'link',
-    'text',
-    'type',
-    'size',
-    'disable',
-    'loading',
-    'round',
-    'circle'
-  ]
+  let defaultClassList = ['type', 'size', 'disable', 'loading', 'round', 'circle']
   /**
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
@@ -70,7 +62,6 @@ export const getButton = (props: DkButtonProps) => {
     ...toRefs(props)
   })
   // console.log('params', params);
-  
 
   /**
    * @description 判断组件是否有插槽有则添加对应的类名用于样式处理
@@ -92,15 +83,25 @@ export const getButton = (props: DkButtonProps) => {
    * @description 进行类名的处理
    */
   const { classes } = getStyleList(params, 'button')
-  const classList = classes([...defaultClassList], 'dk-button')
-  // console.log(classList)
-  
-  
+  const classList = classes([...defaultClassList], 'button')
   const styleList = computed((): CSSProperties => {
-    const { fontColor } = props
-    return {
-      '--button-color': fontColor ? getColor(props.fontColor).getDeepen(0.2) : null
+    const { bgColor, fontColor, shadow, fontSize } = props
+    let defaultStyle = {
+      '--button-color': fontColor,
+      '--button-hover': fontColor ? getColor(props.fontColor).getDodge(0.4) : null,
+      '--button-active': fontColor ? getColor(props.fontColor).getDeepen(0.4) : null,
+      '--button-shadow': shadow,
+      '--button-font-size': sizeChange(fontSize)
     } as CSSProperties
+    if (bgColor) {
+      const bgStyle = {
+        '--button-background': bgColor || null,
+        '--button-hover': bgColor ? getColor(props.bgColor).getDeepen(0.4) : null,
+        '--button-active': bgColor ? getColor(props.bgColor).getDeepen(0.2) : null
+      } as CSSProperties
+      defaultStyle = { ...defaultStyle, ...bgStyle }
+    }
+    return defaultStyle
   })
 
   return {
