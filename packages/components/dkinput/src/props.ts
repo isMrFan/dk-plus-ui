@@ -9,6 +9,13 @@ import {
 import { dkPlusSize, dkInputType } from '../../_interface'
 
 export const dkInputProps = {
+  /** input边框颜色 */
+  borderColor: setStringProp(),
+  /** input聚焦边框颜色 */
+  focusBorderColor: setStringProp(),
+  /** input悬浮颜色 */
+  hoverBorderColor: setStringProp(),
+
   /** 是否展示密码 */
   showPassword: setBooleanProps(),
   /** 前缀内容 */

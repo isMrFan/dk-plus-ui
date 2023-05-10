@@ -1,0 +1,78 @@
+@use '../mixin.scss' as *;
+.#{$namespace}-button {
+  --button-border-radius: 2px;
+  --button-font-size: 16px;
+  //文本按钮开始
+  .#{$namespace}-button-text {
+    --button-color: #409eff;
+    --button-background: transparent;
+    --button-hover: #66b1ff;
+    --button-active: #3a8ee6;
+  }
+  &_default.#{$namespace}-button-text {
+    --button-color: #409eff;
+    --button-background: transparent;
+    --button-hover: #66b1ff;
+    --button-active: #3a8ee6;
+  }
+  &_primary.#{$namespace}-button-text {
+    --button-color: #409eff;
+    --button-background: transparent;
+    --button-hover: #66b1ff;
+    --button-active: #3a8ee6;
+  }
+  &_success.#{$namespace}-button-text {
+    --button-color: #52b35e;
+    --button-background: #52b35e;
+    --button-hover: #75c37f;
+    --button-active: #40924a;
+  }
+  &_info.#{$namespace}-button-text {
+    --button-color: #909399;
+    --button-background: #1d1d1f;
+    --button-hover: #4e4e56;
+    --button-active: #080808;
+  }
+  &_warning.#{$namespace}-button-text {
+    --button-color: #e6a23c;
+    --button-background: #fcc202;
+    --button-hover: #fed348;
+    --button-active: #c99b02;
+  }
+  &_danger.#{$namespace}-button-text {
+    --button-color: #f56c6c;
+    --button-background: #ff0200;
+    --button-hover: #ff5857;
+    --button-active: #cc0200;
+  }
+  //文本按钮结束
+  &-box {
+    &_default {
+      --button-color: #606266;
+      --button-background: #ecf5ff;
+      --button-hover: #409eff;
+      --button-active: #ecf5ff;
+    }
+  }
+  //不同尺寸处理
+  &_large {
+    --button-height: 40px;
+    --button-padding: 15px 20px;
+    --button-font-size: 16px;
+  }
+  &_medium {
+    --button-height: 35px;
+    --button-padding: 25px;
+    --button-font-size: 15px;
+  }
+  &_small {
+    --button-height: 30px;
+    --button-padding: 20px;
+    --button-font-size: 14px;
+  }
+  &_mini {
+    --button-height: 25px;
+    --button-padding: 15px;
+    --button-font-size: 13px;
+  }
+}

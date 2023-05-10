@@ -5,11 +5,9 @@
   display: inline-flex;
   margin: 5px;
 }
-
-
-
 @include block('button') {
   position: relative;
+  margin: 5px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -28,4 +26,15 @@
   height: var(--button-height);
   padding: 0 var(--button-padding);
   color: var(--button-color);
+}
+//文本按钮逻辑处理
+@include block('button-text') {
+  color: var(--button-color);
+  font-size: var(--button-font-size);
+  &:not([default]):hover {
+    color: var(--button-hover);
+  }
+  &:not([default]):active {
+    color: var(--button-active);
+  }
 }

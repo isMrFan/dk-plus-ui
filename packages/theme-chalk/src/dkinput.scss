@@ -1,171 +1,29 @@
 @use './mixins/mixin.scss' as *;
+@use './mixins/configuration/var-input.scss' as *;
+
 * {
   transition: all 0.2s;
 }
 @include block(('input')) {
   width: var(--input-width, 100%);
-  position: relative;
-  height: 30px;
-  display: flex;
+  height: var(--input-height, 30px);
+  font-size: var(--input-font-size, 13px);
+  display: inline-flex;
   flex-wrap: nowrap;
-  font-size: 13px;
-  @include block('*icon') {
-    &:hover {
-      cursor: pointer;
-    }
+  overflow: hidden;
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-border-radius, 4px);
+  &:hover{
+    border: 1px solid var(--input-hover-border);
   }
-  @include element('wrapper') {
+  @include block(wrapper){
     width: 100%;
-    height: 100%;
-    border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
-    box-sizing: border-box;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    &:hover {
-      border-color: map-get($input-theme-colors, 'hover');
-    }
-  }
-  @include element('inner') {
-    width: 100%;
-    height: 100%;
-    border: none;
-    font-size: 13px;
-    line-height: 100%;
-    display: inline-block;
-    color: map-get($input-theme-colors, 'text');
-    &:focus {
-      outline: none;
-    }
-  }
-  @include element('clear') {
-    color: map-get($input-theme-colors, 'hover');
-    cursor: pointer;
-    font-size: 13px;
-  }
-  // prefix & suffix
-  @include element((prefix, suffix)) {
-    height: 100%;
-    @include modifier('inner') {
+    @include element(inner){
+      width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3px;
-      @include block('*icon') {
-        color: map-get($input-theme-colors, 'hover');
-        // cursor: pointer;
-        line-height: 100%;
-        font-size: 16px;
-      }
-    }
-  }
-  @include element('prefix') {
-    margin-right: 5px;
-  }
-  @include element('suffix') {
-    margin-left: 5px;
-  }
-  @include state('focus') {
-    border-color: map-get($input-theme-colors, 'primary');
-  }
-  @include state('prepend') {
-    border-radius: 0 4px 4px 0;
-  }
-  @include state('append') {
-    border-radius: 4px 0 0 4px;
-  }
-  @include state(pend) {
-    border-radius: 0;
-  }
-  @include element((prepend, append)) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    border: 1px solid map-get($map: $input-theme-colors, $key: 'border');
-    color: map-get($input-theme-colors, 'text');
-    font-size: 13px;
-    background-color: map-get($input-theme-colors, 'disabled');
-    cursor: default;
-    line-height: 100%;
-  }
-  @include element(('prepend')) {
-    border-radius: 4px 0 0 4px;
-    border-right: none;
-  }
-  @include element(('append')) {
-    border-radius: 0 4px 4px 0;
-    border-left: none;
-  }
-  @include modifier('length-limit') {
-    color: map-get($input-theme-colors, 'info');
-    user-select: none;
-    cursor: text;
-    margin-left: 5px;
-  }
-}
-@include state('large') {
-  height: 50px;
-  @include element('inner') {
-    font-size: 16px;
-  }
-}
-@include state('medium') {
-  height: 40px;
-  @include element('wrapper') {
-    padding: 0 13px;
-  }
-}
-@include state('small') {
-  height: 30px;
-  @include element('wrapper') {
-    padding: 0 10px;
-  }
-}
-@include state('mini') {
-  height: 20px;
-  @include element('wrapper') {
-    padding: 0 7px;
-  }
-}
-@include state('disabled') {
-  background-color: map-get($input-theme-colors, 'disabled');
-  cursor: not-allowed;
-  border-color: map-get($input-theme-colors, 'border');
-}
-
-@include block('textarea') {
-  width: 100%;
-  height: fit-content;
-  position: relative;
-  @include element('inner') {
-    width: calc(100% - 22px);
-    height: 30px;
-    min-height: 30px;
-    padding: 0 10px;
-    resize: vertical;
-    transition: box-shadow 0.2s;
-    line-height: 28px;
-    border-radius: 4px;
-    border: none;
-    margin: 1px;
-    box-shadow: 0 0 0 1px map-get($map: $input-theme-colors, $key: 'border');
-    &:hover {
-      border-color: map-get($input-theme-colors, 'hover');
-    }
-    &:focus {
+      border: none;
       outline: none;
-      box-shadow: 0 0 0 1px map-get($map: $input-theme-colors, $key: 'primary');
+      padding: 0 10px;
     }
-  }
-  @include block('length-limit') {
-    font-size: 13px;
-    color: map-get($input-theme-colors, 'info');
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
   }
 }

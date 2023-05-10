@@ -16,6 +16,8 @@ export interface getColorType {
  * @name get-color
  * @param { string } color 需要计算的颜色
  * @returns { Object } 加深原色 减淡颜色
+ * @param { Function } getDeepen 加深方法
+ * @param { Function } getDodge 减淡方法
  * @description 根据传入的值计算颜色的加深和减淡 目前支持16进制色号 rgb色号 rgba色号 英文色号
  */
 
@@ -168,7 +170,7 @@ export const getColor = (color: string): getColorType => {
    * @name getDeepen
    * @param { number } level 加深的程度
    * @returns { string } 16进制色号
-   * @description 加深为原色的颜色
+   * @description 减淡后的颜色
    */
   const getDodge = (level = 0): string => {
     if (isHexColor) {

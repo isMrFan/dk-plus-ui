@@ -2,6 +2,20 @@ import { setBooleanProps, setStringProp } from '../../_utils'
 import { ExtractPropTypes } from 'vue'
 import { DK_TYPE, DK_TARGET, DK_SIZE } from '../../_tokens'
 import { dkPlusType, dkTarget, dkPlusSize } from '../../_interface'
+/**
+ * @name dk-button
+ * @author fanKai16
+ * @Time 2023/05/08
+ * @property {boolean} link 是否为A标签按钮
+ * @property {string} href  A标签按钮的链接地址
+ * @property {string} target  A标签按钮的原生target
+ * @property {boolean} text 是否为文本按钮
+ * @property {string} type 按钮类型
+ * @property {string} size 按钮大小
+ * @property {string} fontSize 按钮文字大小
+ * @property {string} bgColor 按钮的背景颜色
+ * @description 按钮变量定义
+ **/
 export const dkButtonProps = {
   /**
    * @name link
@@ -54,6 +68,12 @@ export const dkButtonProps = {
     return DK_SIZE.includes(value)
   }),
   /**
+   * @name fontSize
+   * @param { string }  按钮文字大小
+   * @returns 按钮文字大小
+   */
+  fontSize: setStringProp(),
+  /**
    * @name bgColor
    * @param { string }  背景颜色
    * @returns 按钮的背景颜色
@@ -71,12 +91,6 @@ export const dkButtonProps = {
    * @returns 按钮阴影效果
    */
   shadow: setStringProp(),
-  /**
-   * @name fontSize
-   * @param { string }  按钮文字大小
-   * @returns 按钮文字大小
-   */
-  fontSize: setStringProp(),
 
   /**是否禁用 */
   disable: setBooleanProps(),
