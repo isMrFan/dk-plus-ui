@@ -137,3 +137,19 @@ export const setArrayProps = <T>(
     default: (): T | null => defaultVal || null
   }
 }
+
+/**
+ * @name setFunction
+ * @Time 2023年05月10日
+ * @param { Function } [defaultVal] 默认值
+ * @returns 点击按钮事件回调函数
+ */
+
+export const setFunction = <T extends Function>(
+  defaultVal = null
+): returnType<PropType<T>, null> => {
+  return {
+    type: Function as PropType<T>,
+    default: () => defaultVal
+  } as const
+}

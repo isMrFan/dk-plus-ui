@@ -1,58 +1,154 @@
 @use '../mixin.scss' as *;
+
+$text: '#{$namespace}-button-text' !default; // 命名空间
+$link: '#{$namespace}-button-link' !default; // 命名空间
+$box: '#{$namespace}-button-box' !default; // 命名空间
+
 .#{$namespace}-button {
-  --button-border-radius: 2px;
+  --button-border-radius: 5px;
   --button-font-size: 16px;
+
   //文本按钮开始
-  .#{$namespace}-button-text {
+  .#{$text},.#{$link} {
     --button-color: #409eff;
     --button-background: transparent;
     --button-hover: #66b1ff;
     --button-active: #3a8ee6;
+    --button-pointer:pointer;
   }
-  &_default.#{$namespace}-button-text {
+  &_default.#{$text},&_default.#{$link} {
     --button-color: #409eff;
-    --button-background: transparent;
+    --button-background: #ffffff;
     --button-hover: #66b1ff;
     --button-active: #3a8ee6;
   }
-  &_primary.#{$namespace}-button-text {
+  &_primary.#{$text},&_primary.#{$link}{
     --button-color: #409eff;
-    --button-background: transparent;
+    --button-background: #ffffff;
     --button-hover: #66b1ff;
     --button-active: #3a8ee6;
+
   }
-  &_success.#{$namespace}-button-text {
+  &_success.#{$text},&_success.#{$link}{
     --button-color: #52b35e;
     --button-background: #52b35e;
     --button-hover: #75c37f;
     --button-active: #40924a;
   }
-  &_info.#{$namespace}-button-text {
+  &_info.#{$text},&_info.#{$link}{
     --button-color: #909399;
     --button-background: #1d1d1f;
     --button-hover: #4e4e56;
     --button-active: #080808;
   }
-  &_warning.#{$namespace}-button-text {
+  &_warning.#{$text},&_warning.#{$link}{
     --button-color: #e6a23c;
     --button-background: #fcc202;
     --button-hover: #fed348;
     --button-active: #c99b02;
   }
-  &_danger.#{$namespace}-button-text {
+  &_danger.#{$text},&_danger.#{$link}{
     --button-color: #f56c6c;
     --button-background: #ff0200;
     --button-hover: #ff5857;
     --button-active: #cc0200;
   }
   //文本按钮结束
+  //盒子按钮开始
+  &_default.#{$box}{
+    --button-color: #606266;
+    --button-background: #ffffff;
+    --button-borderColor:#dcdfe6;
+
+    --button-hover:#409eff;
+    --button-hover-borderColor:#79bbff;
+    --button-hover-background:#ecf5ff;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#ecf5ff;
+  }
+  &_primary.#{$box}{
+    --button-color: #ffffff;
+    --button-background: #409eff;
+    --button-borderColor:#409eff;
+
+    --button-hover:#409eff;
+    --button-hover-borderColor:#79bbff;
+    --button-hover-background:#79bbff;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#337ecc;
+  }
+  &_success.#{$box}{
+    --button-color: #ffffff;
+    --button-background: #67c23a;
+    --button-borderColor:#67c23a;
+
+    --button-hover:#67c23a;
+    --button-hover-borderColor:#b3e19d;
+    --button-hover-background:#b3e19d;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#337ecc;
+  }
+  &_info.#{$box}{
+    --button-color: #ffffff;
+    --button-background: #909399;
+    --button-borderColor:#909399;
+
+    --button-hover:#909399;
+    --button-hover-borderColor:#c8c9cc;
+    --button-hover-background:#c8c9cc;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#337ecc;
+  }
+  &_warning.#{$box}{
+    --button-color: #ffffff;
+    --button-background: #e6a23c;
+    --button-borderColor:#e6a23c;
+
+    --button-hover:#e6a23c;
+    --button-hover-borderColor:#f3d19e;
+    --button-hover-background:#f3d19e;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#337ecc;
+  }
+  &_danger.#{$box}{
+    --button-color: #ffffff;
+    --button-background: #f56c6c;
+    --button-borderColor:#f56c6c;
+
+    --button-hover:#c45656;
+    --button-hover-borderColor:#fab6b6;
+    --button-hover-background:#fab6b6;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#337ecc;
+  }
   &-box {
-    &_default {
-      --button-color: #606266;
-      --button-background: #ecf5ff;
-      --button-hover: #409eff;
-      --button-active: #ecf5ff;
-    }
+    --button-height: 40px;
+    --button-padding: 15px 20px;
+    --button-font-size: 16px;
+
+    --button-color: #606266;
+    --button-background: #ffffff;
+    --button-borderColor:#dcdfe6;
+
+    --button-hover:#409eff;
+    --button-hover-borderColor:#79bbff;
+    --button-hover-background:#ecf5ff;
+
+    --button-active:#409eff;
+    --button-active-borderColor:#409eff;
+    --button-active-background:#ecf5ff;
   }
   //不同尺寸处理
   &_large {
