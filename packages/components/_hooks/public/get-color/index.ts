@@ -63,6 +63,7 @@ export const getColor = (color: string): getColorType => {
     'fuchsia',
     'purple'
   ]
+
   const isEnglishColor = isColors.includes(color.toLowerCase())
   const englishColor = {
     white: '#FFFFFF',
@@ -89,12 +90,16 @@ export const getColor = (color: string): getColorType => {
    * @description 将十六进制色号转换为 rgb
    */
   const hexToRgb = (hxrColor: string = ''): string[] => {
-    const code: string =
+    let code: string =
       hxrColor === '' ? color.replace('#', '') : hxrColor.replace('#', '')
+    if (code.length === 3) {
+      code = code[0] + code[0] + code[1] + code[1] + code[2] + code[2]
+    }
     const hex: string[] = code.match(/../g) as string[]
     for (let i = 0; i < hex.length; i++) {
       hex[i] = parseInt(hex[i], 16).toString()
     }
+
     return hex
   }
   /**

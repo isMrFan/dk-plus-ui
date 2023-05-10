@@ -9,6 +9,16 @@ import {
 import { dkPlusSize, dkInputType } from '../../_interface'
 
 export const dkInputProps = {
+  /** textColor */
+  textColor: setStringProp() || setNumberProps(),
+  /** borderRadius */
+  borderRadius: setStringProp() || setNumberProps(),
+  /** fontSize */
+  fontSize: setStringProp() || setNumberProps(),
+  /** input宽度 */
+  width: setStringProp() || setNumberProps(),
+  /** input高度 */
+  height: setStringProp() || setNumberProps(),
   /** input边框颜色 */
   borderColor: setStringProp(),
   /** input聚焦边框颜色 */

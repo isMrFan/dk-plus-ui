@@ -1,18 +1,16 @@
 <template>
   <div class="input">
-    <Dk-Input v-model="msg" border-color="#f00" clearable>
+    <Dk-Input v-model="msg" border-radius="10px" font-size="16px" border-color="#f00" clearable width="100">
       <template #prefix>
         <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
       </template>
       <!-- <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon> -->
     </Dk-Input>
-    <Dk-Input v-model="msg" >
+    <Dk-Input focus-border-color="#f0f" text-color="#f0f">
       <!-- <template #prefix>
         <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
       </template> -->
       <!-- <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon> -->
-    </Dk-Input>
-    <Dk-Input>
     </Dk-Input>
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>

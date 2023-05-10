@@ -1,6 +1,6 @@
 import { computed, reactive, toRefs, useSlots } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
-import { getColor, getStyleList } from '..'
+import { getColor, getSize, getStyleList } from '..'
 import { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
 import type { dkInputType } from '../../_interface'
@@ -87,21 +87,30 @@ export const getInput = (props: DkInputProps) => {
   const { classes } = getStyleList(params, 'input')
 
   const CLASS_LIST = classes([...defaultClassList], 'dk-input')
-  console.log('CLASS_LIST', CLASS_LIST)
 
   const STYLE_LIST = computed((): CSSProperties => {
-    const { borderColor, focusBorderColor, hoverBorderColor } = props
-
+    const { borderColor, focusBorderColor, width, height, fontSize, borderRadius, textColor } = props
+    
     let defaultStyle = {
-      '--input-border': borderColor,
-      // '--input-border-color': borderColor,
-      // '--input-focus-color': focusBorderColor,
-      // '--input-hover-color': !!hoverBorderColor
-      //   ? getColor(props.borderColor).getDeepen(0.4)
-      //   : null
+      '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
+      '--input-width': width ? getSize(width) : null,
+      '--input-height': height ? getSize(height) : null,
+      '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
+      '--input-font-size': fontSize ? getSize(fontSize) : null,
+      '--input-border-radius': borderRadius ? getSize(borderRadius) : null,
+      '--input-focus-border': focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null,
+      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
     } as CSSProperties
-    console.log('defaultStyle', defaultStyle)
 
+    return defaultStyle
+  })
+
+  const WRAPPER_STYLE_LIST = computed((): CSSProperties => {
+    const { width, height } = props
+    let defaultStyle = {
+      '--input-wrapper-width': width,
+      '--input-wrapper-height': height
+    } as CSSProperties
     return defaultStyle
   })
 
@@ -118,6 +127,7 @@ export const getInput = (props: DkInputProps) => {
     classList: CLASS_LIST,
     styleList: STYLE_LIST,
     wrapperClassList: WRAPPER_CLASS_LIST,
+    wrapperStyleList: WRAPPER_STYLE_LIST,
     innerClassList: INNER_CLASS_LIST
   }
 }
