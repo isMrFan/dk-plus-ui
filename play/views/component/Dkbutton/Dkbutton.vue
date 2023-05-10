@@ -1,7 +1,7 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <div >
+      <div v-if="false">
         <h3>1.文本按钮</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button text> 默认</Dk-Button>
@@ -173,7 +173,7 @@
           </div>
         </div>
       </div>
-      <div >
+      <div v-if="false">
         <h3>2.A标签超文本标签</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button  link :href="'https://m.baidu.com/'" type="primary"> 默认https://m.baidu.com/</Dk-Button>
@@ -203,7 +203,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div v-if="false">
         <h3>3.块元素按钮</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button> 默认</Dk-Button>
@@ -230,6 +230,36 @@
         </div>
         <div class="code_show" v-show="customizeType6">
           <div class="index_Dk_list" v-for="(item, ind) in customizeTypeList6" :key="ind">
+            <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+              <highlightjs language="javascript" :code="item.name"></highlightjs>
+              <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>4.半圆角按钮</h3>
+        <div class="dkButton_DK_wb">
+          <Dk-Button round size="large">范</Dk-Button>
+          <Dk-Button round type="primary" size="medium">先</Dk-Button>
+          <Dk-Button round type="success" size="small">生</Dk-Button>
+          <Dk-Button round type="info" size="mini">英</Dk-Button>
+          <Dk-Button round type="warning" size="small" disabled>杰</Dk-Button>
+        </div>
+        <div class="code_show_Title">
+          <Dk-Shadow :type="'title'">
+            <template #left>
+              <div style="line-height: 42px">(1).代码展示区域</div>
+            </template>
+            <template #right>
+              <Dk-Button text type="default" @click="onFoundationType(7)">
+                {{ customizeType ? '关闭' : '开启' }}
+              </Dk-Button>
+            </template>
+          </Dk-Shadow>
+        </div>
+        <div class="code_show" v-show="customizeType7">
+          <div class="index_Dk_list" v-for="(item, ind) in customizeTypeList7" :key="ind">
             <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
               <highlightjs language="javascript" :code="item.name"></highlightjs>
               <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
@@ -422,7 +452,34 @@
             type: ''
           },
           {
-            name: `<Dk-Button bgColor="#34AB98" fontColor="#fff"> 默认</Dk-Button>`,
+            name: `<Dk-Button bgColor="#34AB98" fontColor="#fff" disabled> 默认</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+        ],
+        customizeTypeList7:[
+          {
+            name: `<Dk-Button round size="large">范</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button round type="primary" size="medium">先</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button round type="success" size="small">生</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button round type="info" size="mini">英</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button round type="warning" size="small" disabled>杰</Dk-Button>`,
             nackName: '默认',
             type: ''
           },
@@ -432,6 +489,7 @@
         customizeType4:false,
         customizeType5:false,
         customizeType6:false,
+        customizeType7:false,
         FoundationType: false,
         customizeType: false,
         disableType: false,
@@ -467,6 +525,8 @@
             data.customizeType5=!data.customizeType5
           }else if(type===6){
             data.customizeType6=!data.customizeType6
+          }else if(type===7){
+            data.customizeType7=!data.customizeType7
           }
         },
         onDisableTypeType() {

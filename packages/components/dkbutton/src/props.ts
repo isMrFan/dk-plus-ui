@@ -17,6 +17,8 @@ import { dkPlusType, dkTarget, dkPlusSize ,MouseEventType} from '../../_interfac
  * @property {string} bgColor 按钮的背景颜色
  * @property {boolean} disabled  按钮是否禁用了
  * @property {string} textDecoration 文本按钮中上下划线
+ * @property {function} onClick 点击按钮事件回调
+ * @property {boolean} round    半圆角按钮
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -101,27 +103,30 @@ export const dkButtonProps = {
    */
   textDecoration: setStringProp(),
   /**
-   * @name shadow
-   * @param { string }  按钮阴影效果
-   * @returns 按钮阴影效果
-  */
-  /**
    * @name onClick
    * @param { Function }  点击按钮事件回调
    * @returns 按钮阴影效果
    */
   onClick: setFunction<MouseEventType>(),
+  /**
+   * @name round
+   * @param { boolean }  半圆角按钮
+   * @returns 半圆角按钮
+   */
+  round: setBooleanProps(),
 
-
-
+  /**
+   * @name shadow
+   * @param { string }  按钮阴影效果
+   * @returns 按钮阴影效果
+  */
   shadow: setStringProp(),
 
   
 
   /**是否加载中 */
   loading: setBooleanProps(),
-  /**半圆角按钮 */
-  round: setBooleanProps(),
+ 
   /**圆形按钮 */
   circle: setBooleanProps(),
   /**按钮图标 */

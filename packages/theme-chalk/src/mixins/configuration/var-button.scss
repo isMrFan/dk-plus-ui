@@ -171,4 +171,10 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-padding: 15px;
     --button-font-size: 13px;
   }
+  //半圆角按钮逻辑处理
+  &_round {
+    --button-border-radius: 50%;
+    --button-padding:0px;
+  }
+  //圆角按钮逻辑处理结束
 }

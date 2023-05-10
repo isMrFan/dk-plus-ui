@@ -22,7 +22,6 @@
         }
         getRun(Props.onClick, evt)
       }
-      // console.log('styleList', styleList)
       return {
         EventClick,
         classList,

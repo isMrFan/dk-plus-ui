@@ -88,5 +88,9 @@
       background-color: var(--button-active-background);
     }
   }
+  //盒子按钮逻辑处理结束
+  &_round {
+    width: var(--button-height);
+  }
 }
 
