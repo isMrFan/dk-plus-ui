@@ -53,7 +53,12 @@ export const getButton = (props: DkButtonProps) => {
    * @name defaultClassList
    * @description 默认转换的类名
    */
-  let defaultClassList = ['type', 'size', 'disable', 'loading', 'round', 'circle']
+  let defaultClassList = [
+    'type', 'size', 
+    'disabled', 'loading', 
+    'round', 'circle',
+    'textDecoration'
+  ]
   /**
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
@@ -93,7 +98,9 @@ export const getButton = (props: DkButtonProps) => {
       '--button-hover': fontColor ? getColor(props.fontColor).getDodge(0.4) : null,
       '--button-active': fontColor ? getColor(props.fontColor).getDeepen(0.4) : null,
       '--button-shadow': shadow,
-      '--button-font-size': sizeChange(fontSize)
+      '--button-font-size': sizeChange(fontSize),
+      '--button-hover-borderColor':bgColor?getColor(props.bgColor).getDodge(0.4) : null,
+      '--button-hover-background':bgColor? getColor(props.bgColor).getDodge(0.4)  : null
     } as CSSProperties
     if (bgColor) {
       const bgStyle = {

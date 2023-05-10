@@ -42,3 +42,13 @@ export type dkPlusSize = 'large' | 'medium' | 'small' | 'mini'
  **/
 
 export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
+
+
+/**
+ * @name MouseEventType
+ * @see MouseEvent https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/MouseEvent
+ * @param { Object } evt 事件对象
+ * @description 按钮点击的回调类型MouseEvent() 构造函数创建自定义的鼠标事件对象
+ */
+
+export type MouseEventType = (evt: MouseEvent) => void

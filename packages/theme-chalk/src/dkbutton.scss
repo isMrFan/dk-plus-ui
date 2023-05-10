@@ -1,40 +1,103 @@
 @use './mixins/configuration/var-button.scss' as *;
 @use './mixins/mixin.scss' as *;
 
+<<<<<<< HEAD
 @include block('button-packing') {
   display: inline-flex;
   margin: 5px;
 }
+=======
+
+>>>>>>> fkdkui
 @include block('button') {
-  position: relative;
+  display: inline-block;
   margin: 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   border: none;
   user-select: none;
   text-decoration: none;
   outline: 0;
-  cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
   transition: 0.3s;
-  border-radius: var(--button-border-radius, 2px);
-  box-shadow: var(--button-shadow);
   font-size: var(--button-font-size);
-  background-color: var(--button-background);
-  height: var(--button-height);
-  padding: 0 var(--button-padding);
-  color: var(--button-color);
-}
-//文本按钮逻辑处理
-@include block('button-text') {
-  color: var(--button-color);
-  font-size: var(--button-font-size);
-  &:not([default]):hover {
-    color: var(--button-hover);
+  cursor:pointer;
+  //禁用状态
+  &_disabled{
+    opacity: 0.5;
+
+    pointer-events: none;
   }
-  &:not([default]):active {
-    color: var(--button-active);
+  //文本按钮逻辑处理
+  .#{$text},.#{$link}{
+    color: var(--button-color);
+    font-size: var(--button-font-size);
+    cursor:var(--button-pointer);
+    &:not([default]):hover {
+      color: var(--button-hover);
+    }
+    &:not([default]):active {
+      color: var(--button-active);
+    }
+  }
+  .#{$link}{
+    a{
+      text-decoration: none;
+      color: var(--button-color);
+      font-size: var(--button-font-size);
+      &:not([default]):hover {
+        color: var(--button-hover);
+      }
+      &:not([default]):active {
+        color: var(--button-active);
+      }
+    }
+  }
+  &_none.#{$text},&_none.#{$link}{
+    text-decoration: none;
+  }
+  &_lineThrough.#{$text},&_lineThrough.#{$link}{
+    text-decoration: line-through;
+  }
+  &_overline.#{$text},&_overline.#{$link}{
+    text-decoration: overline;
+  }
+  &_underline.#{$text},&_underline.#{$link}{
+    text-decoration: underline;
+  }
+  //文本按钮逻辑处理结束
+  //盒子按钮逻辑处理
+  .#{$box}{
+    user-select: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    outline: none;
+    border-radius: var(--button-border-radius, 2px);
+    height: var(--button-height);
+    line-height:var(--button-height); 
+    padding: 0 var(--button-padding);
+    font-size: var(--button-font-size);
+    box-shadow: var(--button-shadow);
+    color: var(--button-color);
+    background-color: var(--button-background);
+    border:1px solid var(--button-borderColor);
+    cursor:pointer;
+    &:not([default]):hover {
+      color: var(--button-hover);
+      border-color: var(--button-hover-borderColor);
+      background-color: var(--button-hover-background);
+    }
+    &:not([default]):active {
+      color: var(--button-active);
+      border-color: var(--button-active-borderColor);
+      background-color: var(--button-active-background);
+    }
+  }
+  //盒子按钮逻辑处理结束
+  &_round {
+    width: var(--button-height);
   }
 }
+

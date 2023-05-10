@@ -1,7 +1,7 @@
-import { setBooleanProps, setStringProp } from '../../_utils'
+import { setBooleanProps, setStringProp,setFunction } from '../../_utils'
 import { ExtractPropTypes } from 'vue'
 import { DK_TYPE, DK_TARGET, DK_SIZE } from '../../_tokens'
-import { dkPlusType, dkTarget, dkPlusSize } from '../../_interface'
+import { dkPlusType, dkTarget, dkPlusSize ,MouseEventType} from '../../_interface'
 /**
  * @name dk-button
  * @author fanKai16
@@ -13,7 +13,12 @@ import { dkPlusType, dkTarget, dkPlusSize } from '../../_interface'
  * @property {string} type 按钮类型
  * @property {string} size 按钮大小
  * @property {string} fontSize 按钮文字大小
+ * @property {string} fontColor 按钮的字体颜色
  * @property {string} bgColor 按钮的背景颜色
+ * @property {boolean} disabled  按钮是否禁用了
+ * @property {string} textDecoration 文本按钮中上下划线
+ * @property {function} onClick 点击按钮事件回调
+ * @property {boolean} round    半圆角按钮
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -74,31 +79,54 @@ export const dkButtonProps = {
    */
   fontSize: setStringProp(),
   /**
-   * @name bgColor
-   * @param { string }  背景颜色
-   * @returns 按钮的背景颜色
-   */
-  bgColor: setStringProp(),
-  /**
    * @name fontColor
    * @param { string }  字体颜色
    * @returns 按钮的字体颜色
    */
   fontColor: setStringProp(),
   /**
+   * @name bgColor
+   * @param { string }  背景颜色
+   * @returns 按钮的背景颜色
+   */
+  bgColor: setStringProp(),
+  /**
+   * @name disable
+   * @param { boolean }  是否禁用
+   * @returns 按钮否禁用
+   */
+  disabled: setBooleanProps(),
+  /**
+   * @name textDecoration
+   * @param { string }  文本按钮中上下划线
+   * @returns 文本按钮中上下划线
+   */
+  textDecoration: setStringProp(),
+  /**
+   * @name onClick
+   * @param { Function }  点击按钮事件回调
+   * @returns 按钮阴影效果
+   */
+  onClick: setFunction<MouseEventType>(),
+  /**
+   * @name round
+   * @param { boolean }  半圆角按钮
+   * @returns 半圆角按钮
+   */
+  round: setBooleanProps(),
+
+  /**
    * @name shadow
    * @param { string }  按钮阴影效果
    * @returns 按钮阴影效果
-   */
+  */
   shadow: setStringProp(),
 
-  /**是否禁用 */
-  disable: setBooleanProps(),
+  
 
   /**是否加载中 */
   loading: setBooleanProps(),
-  /**半圆角按钮 */
-  round: setBooleanProps(),
+ 
   /**圆形按钮 */
   circle: setBooleanProps(),
   /**按钮图标 */
