@@ -10,49 +10,44 @@ import { defineComponent, computed, ref, nextTick, Ref, ComputedRef, watch } fro
 import { dkInputProps, haInputClass } from "./props";
 import { getInputGlobal } from "../../_hooks";
 import { getInput } from "../../_hooks";
+import { log } from "console";
 
 export default defineComponent({
   name: "DkInput",
   props: dkInputProps,
+  emit: ['update:modelValue'],
   setup(props, { slots, emit }) {
     const { getInputType } = getInputGlobal(props);
     const { classList, styleList, wrapperClassList, innerClassList } = getInput(props);
-    const { type = getInputType() } = props;
-    const { prepend, append } = props;
+    const { type = getInputType(), placeholder, disabled } = props;
 
-    const inpClass = new haInputClass();
+    const MODEL_VALUE = ref<string | number>(props.modelValue);
 
-    const inputFocus = ref<Boolean>(false);
-    // const wrapperClassList = computed((): string[] => {
-    //   const wrapperClass: string[] = [
-    //     type !== "textarea" ? "dk-input__wrapper" : "dk-textarea__inner",
-    //   ];
-    //   type WrapperType = Record<string, boolean>;
-    //   const isClass: WrapperType = {
-    //     "is-focus": !!inputFocus.value,
-    //     "is-prepend":
-    //       (!!prepend || !!slots.prepend) &&
-    //       type !== "textarea" &&
-    //       !!!append &&
-    //       !!!slots.append,
-    //     "is-append":
-    //       (!!append || !!slots.append) &&
-    //       type !== "textarea" &&
-    //       !!!prepend &&
-    //       !!!slots.prepend,
-    //     "is-pend": (!!prepend || !!slots.prepend) && (!!append || !!slots.append),
-    //   };
+    const update = (e: Event) => {
+      const TARGET = e.target as HTMLInputElement;
+      MODEL_VALUE.value = TARGET.value;
+      emit('update:modelValue', MODEL_VALUE.value);
+    };
 
-    //   let list: string[] = [];
-    //   list = inpClass.cLTS(isClass, list);
-    //   return wrapperClass.concat(list);
-    // });
+    const IS_DISABLED = ref<boolean>(disabled)
 
+    const PLACEHOLDER = ref<string | number>(placeholder)
+    const INPUT_ATTRS = computed(() => {
+      return {
+        type,
+        placeholder: PLACEHOLDER.value,
+        onInput: update,
+        class: innerClassList.value,
+        disabled: IS_DISABLED.value,
+      };
+    });
+    
     return {
       classList,
       styleList,
       wrapperClassList,
-      innerClassList
+      value: MODEL_VALUE.value,
+      inputAttrs: INPUT_ATTRS.value,
     };
   },
 });
@@ -61,7 +56,7 @@ export default defineComponent({
 <template>
   <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
-      <input :class="innerClassList" type="text" />
+      <input v-model="value" v-bind="inputAttrs" />
     </div>
   </div>
   <!-- <div>

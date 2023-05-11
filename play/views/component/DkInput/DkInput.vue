@@ -1,17 +1,13 @@
 <template>
   <div class="input">
-    <Dk-Input v-model="msg" border-radius="10px" font-size="16px" border-color="#f00" clearable width="100">
-      <template #prefix>
-        <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
-      </template>
-      <!-- <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon> -->
+    <Dk-Input
+      v-model="msg"
+      placeholder="change"
+      disabled
+    >
     </Dk-Input>
-    <Dk-Input focus-border-color="#f0f" text-color="#f0f">
-      <!-- <template #prefix>
-        <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
-      </template> -->
-      <!-- <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon> -->
-    </Dk-Input>
+    {{ msg }}
+    <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
       <div class="index_Dk_code">
@@ -47,7 +43,7 @@
       const handleFixClick = () => {
         console.log('handleFixClick')
       }
-      const msg = ref('hello world')
+      const msg = ref('asdf')
       const change = e => {
         console.log('父组件', e)
       }
@@ -272,7 +268,7 @@
 <style lang="scss" scoped>
   .input {
     width: 99%;
-    .dk-input{
+    .dk-input {
       margin-bottom: 20px;
     }
     .box {

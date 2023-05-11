@@ -1,18 +1,8 @@
 @use '../mixin.scss' as *;
-
-@include block('input'){
-  --input-border: #{getInputColor('border')};
-  --input-width: 100%;
-  --input-height: 30px;
-  --input-font-size: 13px;
-  --input-border-radius: 4px;
-  --input-hover-border: #{getInputColor('hover')};
-  --input-focus-border: #{getInputColor('primary')};
-  --input-text-color: #{getInputColor('text')};
-}
-
 // input颜色
 $input-theme-colors: (
+  // none
+  'none': #fff,
   // 文字颜色
   'text': #606266,
   // 主要颜色
@@ -39,4 +29,17 @@ $input-theme-colors: (
 
 @function getInputColor($color: 'primary') {
   @return map-get($input-theme-colors, $color);
+}
+
+@include block('input'){
+  --input-color: #{getInputColor('none')};
+  --input-border: #{getInputColor('border')};
+  --input-width: 100%;
+  --input-height: 30px;
+  --input-font-size: 13px;
+  --input-border-radius: 4px;
+  --input-hover-border: #{getInputColor('hover')};
+  --input-focus-border: #{getInputColor('primary')};
+  --input-text-color: #{getInputColor('text')};
+  --input-disabled-color: #{getInputColor('disabled')};
 }

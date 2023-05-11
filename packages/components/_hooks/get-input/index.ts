@@ -89,8 +89,16 @@ export const getInput = (props: DkInputProps) => {
   const CLASS_LIST = classes([...defaultClassList], 'dk-input')
 
   const STYLE_LIST = computed((): CSSProperties => {
-    const { borderColor, focusBorderColor, width, height, fontSize, borderRadius, textColor } = props
-    
+    const {
+      borderColor,
+      focusBorderColor,
+      width,
+      height,
+      fontSize,
+      borderRadius,
+      textColor
+    } = props
+
     let defaultStyle = {
       '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
       '--input-width': width ? setSize(width) : null,
@@ -98,8 +106,10 @@ export const getInput = (props: DkInputProps) => {
       '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
       '--input-font-size': fontSize ? setSize(fontSize) : null,
       '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
-      '--input-focus-border': focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null,
-      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
+      '--input-focus-border': focusBorderColor
+        ? getColor(focusBorderColor).getDeepen(0)
+        : null,
+      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null
     } as CSSProperties
 
     return defaultStyle
@@ -114,15 +124,24 @@ export const getInput = (props: DkInputProps) => {
     return defaultStyle
   })
 
-  const WRAPPER_CLASS_LIST = computed((): string[] => {
-    return ['dk-input-wrapper']
-  })
+  /**
+   * @name defaultWrapperClassList
+   * @description 期望被转换的wrapper类名
+   */
+  let defaultWrapperClassList = []
+  const WRAPPER_CLASS_LIST = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
-  const INNER_CLASS_LIST = computed((): string[] => {
-    return ['dk-input-wrapper__inner']
-  })
+  /**
+   * @name defaultInnerClassList
+   * @description 期望被转换的inner类名
+   */
+  const INNER_CLASSES = getStyleList(params, 'input-wrapper').classes
+  let defaultInnerClassList = ['disabled']
+  const INNER_CLASS_LIST = INNER_CLASSES(
+    [...defaultInnerClassList],
+    'dk-input-wrapper_inner'
+  )
 
-  
   return {
     classList: CLASS_LIST,
     styleList: STYLE_LIST,
