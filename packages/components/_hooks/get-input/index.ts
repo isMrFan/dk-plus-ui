@@ -1,6 +1,6 @@
 import { computed, reactive, toRefs, useSlots } from 'vue'
-import type { ComputedRef, Slots } from 'vue'
-import { getStyleList } from '..'
+import type { CSSProperties, ComputedRef, Slots } from 'vue'
+import { getColor, getSize, getStyleList } from '..'
 import { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
 import type { dkInputType } from '../../_interface'
@@ -50,19 +50,8 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
 
 export const getInput = (props: DkInputProps) => {
   /**
-   * @name SLOT
-   * @description 获取插槽
-   */
-  // const SLOT: Slots = useSlots()
-  // const IS_SLOT = computed((): boolean => {
-  //   return !!SLOT.default && !!SLOT.default() && !!SLOT.default()[0].children
-  // })
-  // console.log('SLOT', SLOT)
-  // console.log('IS_SLOT', IS_SLOT);
-
-  /**
    * @name defaultClassList
-   * @description 默认的input类型
+   * @description 期望转换的类名
    */
   let defaultClassList = ['type']
 
@@ -73,7 +62,21 @@ export const getInput = (props: DkInputProps) => {
   let params = reactive({
     ...toRefs(props)
   })
-  // console.log('params', params);
+  /**
+   * @name SLOT
+   * @description 获取插槽
+   */
+  const SLOT: Slots = useSlots()
+  const IS_SLOT = computed((): boolean => {
+    return !(SLOT.default && SLOT.default() && SLOT.default()[0].children)
+  })
+  if (IS_SLOT) {
+    const PREFIX = SLOT.prefix && SLOT.prefix()
+    if (PREFIX) {
+      defaultClassList = [...defaultClassList, 'prefix']
+      params['prefix'] = true
+    }
+  }
 
   // console.log('params', params);
 
@@ -84,11 +87,47 @@ export const getInput = (props: DkInputProps) => {
   const { classes } = getStyleList(params, 'input')
 
   const CLASS_LIST = classes([...defaultClassList], 'dk-input')
-  console.log('CLASS_LIST', CLASS_LIST)
 
-  const typeList = []
+  const STYLE_LIST = computed((): CSSProperties => {
+    const { borderColor, focusBorderColor, width, height, fontSize, borderRadius, textColor } = props
+    
+    let defaultStyle = {
+      '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
+      '--input-width': width ? getSize(width) : null,
+      '--input-height': height ? getSize(height) : null,
+      '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
+      '--input-font-size': fontSize ? getSize(fontSize) : null,
+      '--input-border-radius': borderRadius ? getSize(borderRadius) : null,
+      '--input-focus-border': focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null,
+      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
+    } as CSSProperties
+
+    return defaultStyle
+  })
+
+  const WRAPPER_STYLE_LIST = computed((): CSSProperties => {
+    const { width, height } = props
+    let defaultStyle = {
+      '--input-wrapper-width': width,
+      '--input-wrapper-height': height
+    } as CSSProperties
+    return defaultStyle
+  })
+
+  const WRAPPER_CLASS_LIST = computed((): string[] => {
+    return ['dk-input-wrapper']
+  })
+
+  const INNER_CLASS_LIST = computed((): string[] => {
+    return ['dk-input-wrapper__inner']
+  })
+
+  
   return {
     classList: CLASS_LIST,
-    typeList
+    styleList: STYLE_LIST,
+    wrapperClassList: WRAPPER_CLASS_LIST,
+    wrapperStyleList: WRAPPER_STYLE_LIST,
+    innerClassList: INNER_CLASS_LIST
   }
 }

@@ -1,6 +1,12 @@
 <template>
   <div class="input">
-    <Dk-Input v-model="msg" clearable type="text">
+    <Dk-Input v-model="msg" border-radius="10px" font-size="16px" border-color="#f00" clearable width="100">
+      <template #prefix>
+        <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
+      </template>
+      <!-- <dk-icon slot="prepend" class="dk-icon-del1"></dk-icon> -->
+    </Dk-Input>
+    <Dk-Input focus-border-color="#f0f" text-color="#f0f">
       <!-- <template #prefix>
         <dk-icon slot="prefix" class="dk-icon-del1"></dk-icon>
       </template> -->
@@ -265,8 +271,9 @@
 
 <style lang="scss" scoped>
   .input {
-    .dk-input {
-      width: 400px;
+    width: 99%;
+    .dk-input{
+      margin-bottom: 20px;
     }
     .box {
       margin-bottom: 20px;
