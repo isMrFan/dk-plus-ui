@@ -6,8 +6,7 @@
 
 加微信邀请入 `DK-plus 社区讨论` 群
 
-<img height="200px"  src="https://oss.cadwaladerss.com/images/wxcrcoder.png">
-
+<img height="200px"  src="https://oss.cadwaladerss.com/dk-plus/images/wxcrcoder.jpg">
 ## 社区组织
 
 - [dk-plus](https://github.com/CadWalaDers/dk-ui)

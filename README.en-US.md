@@ -1,5 +1,5 @@
 <p align="center">
-   <img height="160px"  src="https://oss.cadwaladerss.com/images/header/ispng.png">
+   <img height="160px"  src="https://oss.cadwaladerss.com/dk-plus/images/isicon.jpg">
 </p>
 <p align="center" style="margin-top:-50px">
   DK-plus can quickly build interactive interfaces in web applications based on Vue 3. With comprehensive components and convenient tools, you can easily create your project like a fish in water.
@@ -111,7 +111,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 Add WeChat & please note the `Github` username
 
-<img height="200px"  src="https://oss.cadwaladerss.com/images/wxcrcoder.png">
+<img height="200px"  src="https://oss.cadwaladerss.com/dk-plus/images/wxcrcoder.jpg">
 
 ## 💌 Special Thanks
 

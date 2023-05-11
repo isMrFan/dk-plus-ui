@@ -69,7 +69,7 @@ const isDeFineConfig = defineConfig({
      * @see logo https://vitepress.vuejs.org/config/theme-configs#logo
      */
     logo: {
-      src: 'https://oss.cadwaladerss.com/images/wyjIcon.png',
+      src: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png',
       alt: 'dk-plus'
     },
     siteTitle: 'dk-plus'

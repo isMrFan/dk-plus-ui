@@ -6,7 +6,7 @@
    * @Time 2023/04/10
    * @property {string} icon  图表class
    * @property {Array}  contributionList  贡献者列表
-   * @property {string} mLogo  logo
+==
    * @property {Array}  infoList  信息列表
    * @property {Array}  friendlyLinks  友情链接
    * @function handleStartClick  点击开始使用
@@ -23,24 +23,23 @@
       const router = useRouter()
       const data = reactive({
         contributionList: contribution,
-        mLogo: 'https://oss.cadwaladerss.com/images/wyjIcon.png',
         infoList: [
           {
             id: 1,
             title: '简单',
-            img: 'https://oss.cadwaladerss.com/images/home/jiandan.png',
+            img: 'https://oss.cadwaladerss.com/dk-plus/images/jiandan.png',
             message: '简单的API，简单的使用方式，让你的开发更加简单'
           },
           {
             id: 2,
             title: '轻量',
-            img: 'https://oss.cadwaladerss.com/images/home/qingliang.png',
+            img: 'https://oss.cadwaladerss.com/dk-plus/images/qingliang.png',
             message: '轻量的组件，轻量的体积，让你的项目更加轻量'
           },
           {
             id: 3,
             title: '可靠',
-            img: 'https://oss.cadwaladerss.com/images/home/kekao.png',
+            img: 'https://oss.cadwaladerss.com/dk-plus/images/kekao.png',
             message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
           }
         ],
@@ -136,7 +135,6 @@
         <div class="home_content_main_first_container">
           <div :class="isDark ? 'seat dark-seat' : 'seat'"></div>
           <div class="title">
-            <!-- <img :src="mLogo" alt="" /> -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 447.24 452.11">
               <defs></defs>
               <g id="图层_2" data-name="图层 2">
@@ -193,7 +191,7 @@
         <div class="home_content_main_first_bill">
           <img
             :class="isDark ? 'home_content_main_first_bill_img--dark' : ''"
-            src="https://oss.cadwaladerss.com/images/home/home_index.svg"
+            src="https://oss.cadwaladerss.com/dk-plus/images/home_index.svg"
             alt=""
           />
         </div>
@@ -242,7 +240,7 @@
               </div>
             </div>
             <div class="home_content_main_second_container_info_empower">
-              <p>Copyright 2023 cadwaladerss(dk-plus) 京ICP备2022007747号-1</p>
+              <p>Copyright 2023 dk-plus 京ICP备2022007747号-2</p>
             </div>
           </div>
         </div>

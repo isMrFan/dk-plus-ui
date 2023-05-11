@@ -216,8 +216,8 @@ Add a description to your PR to let other developers know what changes you made 
 
 If you feel that dk-plus has helped you, you can invite the author for a cup of coffee to encourage you.
 
-<img width="200px" src="https://oss.cadwaladerss.com/images/zfb.png" />
-<img width="200px" src="https://oss.cadwaladerss.com/images/wx.jpg" />
+<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
+<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
 
 ## 💌 Thank you very much
 
