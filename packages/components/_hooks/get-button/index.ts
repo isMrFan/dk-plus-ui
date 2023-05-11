@@ -91,6 +91,8 @@ export const getButton = (props: DkButtonProps) => {
   const classList = classes([...defaultClassList], 'button')
   const styleList = computed((): CSSProperties => {
     const { bgColor, fontColor, shadow, fontSize } = props
+    console.log('fontColor', fontColor)
+    
     let defaultStyle = {
       '--button-color': fontColor,
       '--button-hover': fontColor ? getColor(props.fontColor).getDodge(0.4) : null,
@@ -110,7 +112,8 @@ export const getButton = (props: DkButtonProps) => {
     }
     return defaultStyle
   })
-
+  console.log('styleList', styleList);
+  
   return {
     classList,
     styleList

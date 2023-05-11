@@ -49,7 +49,9 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
             `dk-${name}_${isBoolean(propList[key]) ? humpConversion(key) : propList[key]}`
           )
         }
+        return classList.value;
       }
+
       return classList.value
     })
   }

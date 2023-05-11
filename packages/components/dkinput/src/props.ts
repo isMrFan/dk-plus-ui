@@ -9,6 +9,23 @@ import {
 import { dkPlusSize, dkInputType } from '../../_interface'
 
 export const dkInputProps = {
+  /** textColor */
+  textColor: setStringProp() || setNumberProps(),
+  /** borderRadius */
+  borderRadius: setStringProp() || setNumberProps(),
+  /** fontSize */
+  fontSize: setStringProp() || setNumberProps(),
+  /** input宽度 */
+  width: setStringProp() || setNumberProps(),
+  /** input高度 */
+  height: setStringProp() || setNumberProps(),
+  /** input边框颜色 */
+  borderColor: setStringProp(),
+  /** input聚焦边框颜色 */
+  focusBorderColor: setStringProp(),
+  /** input悬浮颜色 */
+  hoverBorderColor: setStringProp(),
+
   /** 是否展示密码 */
   showPassword: setBooleanProps(),
   /** 前缀内容 */
@@ -26,7 +43,7 @@ export const dkInputProps = {
    * @param { string } type [textarea] 多行文本
    * @returns { string } 返回一个字符串 默认值为 text
    */
-  type: setStringProp<dkInputType>(null, (val: dkInputType): boolean => {
+  type: setStringProp<dkInputType>('text', (val: dkInputType): boolean => {
     return DK_INPUT_TYPE.includes(val)
   }),
   /**

@@ -131,3 +131,12 @@
   }
   @return $M;
 }
+
+/**
+ * 检测是否为颜色
+ * @param {any} $color
+*/
+@function isColor($color) {
+  @return type-of($color) == 'color';
+}
+

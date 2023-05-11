@@ -2,26 +2,30 @@
 
 // input颜色
 $input-theme-colors: (
-  'text': #606266,
   // 文字颜色
-  'primary': #409eff,
+  'text': #606266,
   // 主要颜色
-  'success': #67c23a,
+  'primary': #409eff,
   // 成功颜色
-  'warning': #e6a23c,
+  'success': #67c23a,
   // 警告颜色
-  'danger': #f56c6c,
+  'warning': #e6a23c,
   // 危险颜色
-  'info': #909399,
+  'danger': #f56c6c,
   // 信息颜色
-  'border': #dddfe5,
+  'info': #909399,
   // 边框颜色
-  'hover': #c1c4cb,
+  'border': #dddfe5,
   // 鼠标悬浮颜色
-  'background': #fff,
+  'hover': #c1c4cb,
   // 背景颜色
-  'disabled': #f5f7fa,
+  'background': #fff,
   // 禁用颜色
-  '': #c0c4cc,
+  'disabled': #f5f7fa,
   // 默认颜色
+  '': #c0c4cc
 );
+
+@function getInputColor($color: 'primary') {
+  @return map-get($input-theme-colors, $color);
+}
