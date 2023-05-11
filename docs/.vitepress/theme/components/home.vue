@@ -177,12 +177,9 @@
             </div>
             <div class="contribution_join">
               <dk-button
-                :class="isDark ? 'btn-dark-bg' : ''"
                 @click="handleJoinUs"
-                class="label--active_hover"
                 size="small"
                 type="success"
-                round
                 >加入其中</dk-button
               >
             </div>
@@ -212,7 +209,7 @@
               <img :src="item.img" alt="" />
               <h3 :class="isDark ? 'dark-text' : ''">{{ item.title }}</h3>
               <p :class="isDark ? 'dark-text' : ''">{{ item.message }}</p>
-              <dk-button :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''"
+              <dk-button  :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''"
                 >查看详情</dk-button
               >
             </div>
@@ -429,7 +426,7 @@
             &_item {
               flex: 1;
               width: 100%;
-              height: 100%;
+              height: 80%;
               // border-radius: 5px;
               @include border-style;
               display: flex;
@@ -455,12 +452,7 @@
               }
 
               .dk-button {
-                width: 100%;
                 margin-top: 10%;
-              }
-
-              .dk-button:hover {
-                border: 0.4px solid #409eff !important;
               }
             }
 

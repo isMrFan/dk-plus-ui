@@ -10,3 +10,33 @@
   --input-focus-border: #{getInputColor('primary')};
   --input-text-color: #{getInputColor('text')};
 }
+
+// input颜色
+$input-theme-colors: (
+  // 文字颜色
+  'text': #606266,
+  // 主要颜色
+  'primary': #409eff,
+  // 成功颜色
+  'success': #67c23a,
+  // 警告颜色
+  'warning': #e6a23c,
+  // 危险颜色
+  'danger': #f56c6c,
+  // 信息颜色
+  'info': #909399,
+  // 边框颜色
+  'border': #dddfe5,
+  // 鼠标悬浮颜色
+  'hover': #c1c4cb,
+  // 背景颜色
+  'background': #fff,
+  // 禁用颜色
+  'disabled': #f5f7fa,
+  // 默认颜色
+  '': #c0c4cc
+);
+
+@function getInputColor($color: 'primary') {
+  @return map-get($input-theme-colors, $color);
+}

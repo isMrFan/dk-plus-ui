@@ -6,14 +6,14 @@
    * @description 自定义按钮组件
    **/
   import { defineComponent,toRefs } from 'vue'
-  import { getButton,getReturn } from '../../_hooks'
+  import { getButton,getReturn} from '../../_hooks'
   import { dkButtonProps } from './props'
   export default defineComponent({
     name: 'DkButton',
     props: dkButtonProps,
     setup(Props) {
       const { classList, styleList } = getButton(Props)
-      const {getRun}=getReturn()
+      const { getRun }=getReturn()
       const EventClick= (evt: MouseEvent): void => {
         const { disabled} = toRefs(Props)
         if (disabled.value) {
@@ -42,6 +42,7 @@
         :class="[classList,text ? 'dk-button-text' : '' ]"
         :style="[styleList]"
       >
+      1 {{ size }}
         <slot name="icon"></slot>
         <slot></slot>
         <slot name="afterIcon"></slot>
@@ -57,6 +58,7 @@
       </div>
     </template>
     <template v-else>
+   
       <button 
         :class="['dk-button-box',classList]" 
         :style="styleList" 

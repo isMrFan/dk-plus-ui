@@ -1,6 +1,6 @@
 import { computed, reactive, toRefs, useSlots } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
-import { getColor, getSize, getStyleList } from '..'
+import { getColor, setSize, getStyleList } from '..'
 import { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
 import type { dkInputType } from '../../_interface'
@@ -93,11 +93,11 @@ export const getInput = (props: DkInputProps) => {
     
     let defaultStyle = {
       '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
-      '--input-width': width ? getSize(width) : null,
-      '--input-height': height ? getSize(height) : null,
+      '--input-width': width ? setSize(width) : null,
+      '--input-height': height ? setSize(height) : null,
       '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
-      '--input-font-size': fontSize ? getSize(fontSize) : null,
-      '--input-border-radius': borderRadius ? getSize(borderRadius) : null,
+      '--input-font-size': fontSize ? setSize(fontSize) : null,
+      '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
       '--input-focus-border': focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null,
       '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
     } as CSSProperties

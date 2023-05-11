@@ -5,7 +5,7 @@
  * @param { Function } styles 样式列表
  * @returns getStyleList 用于生成样式名称的hooks简洁代码
  */
-import { computed, ref, reactive } from 'vue'
+import { computed, ref } from 'vue'
 import { getProps } from '../..'
 import { isBoolean, humpConversion, sizeChange } from '../../../_utils'
 import type { ComputedRef, CSSProperties } from 'vue'
@@ -49,9 +49,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
             `dk-${name}_${isBoolean(propList[key]) ? humpConversion(key) : propList[key]}`
           )
         }
-        return classList.value;
       }
-
       return classList.value
     })
   }

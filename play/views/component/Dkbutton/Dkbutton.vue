@@ -1,7 +1,7 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <div v-if="false">
+      <div >
         <h3>1.文本按钮</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button text> 默认</Dk-Button>
@@ -173,7 +173,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div >
         <h3>2.A标签超文本标签</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button  link :href="'https://m.baidu.com/'" type="primary"> 默认https://m.baidu.com/</Dk-Button>
@@ -203,7 +203,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div >
         <h3>3.块元素按钮</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button> 默认</Dk-Button>
