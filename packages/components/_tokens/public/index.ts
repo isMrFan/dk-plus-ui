@@ -32,6 +32,27 @@ export const DK_TYPE = [
 ] as const
 
 /**
+ * @name DK_TYPE_COLOR
+ * @Time 2023年05月12日
+ * @param { string }  [default] 默认颜色值
+ * @param { string }  [primary] 基础颜色值
+ * @param { string }  [success] 成功颜色值
+ * @param { string }  [info] 信息颜色值
+ * @param { string }  [warning] 警告颜色值
+ * @param { string }  [danger] 危险颜色值
+ * @returns 组件Type类型颜色
+ */
+export const DK_TYPE_COLOR = {
+  default:'#f0f0f0',
+  primary: '#409eff',
+  success: '#67c23a',
+  info: '#909399',
+  warning: '#e6a23c',
+  danger: '#f56c6c'
+} as const
+
+
+/**
  * @name DK_TARGET
  * @Time 2023年04月28日
  * @param { string }  [_blank] 在新窗口中打开链接或显示表单提交的结果。

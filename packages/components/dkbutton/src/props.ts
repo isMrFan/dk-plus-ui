@@ -18,7 +18,10 @@ import { dkPlusType, dkTarget, dkPlusSize ,MouseEventType} from '../../_interfac
  * @property {boolean} disabled  按钮是否禁用了
  * @property {string} textDecoration 文本按钮中上下划线
  * @property {function} onClick 点击按钮事件回调
- * @property {boolean} round    半圆角按钮
+ * @property {boolean} circle    圆形按钮
+ * @property {string} shadow   可以自定义按钮的阴影样式
+ * @property {boolean} ripples 水波纹效果
+ * @property {string} ripplesBgColor  水波纹效果的背景颜色
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -109,26 +112,35 @@ export const dkButtonProps = {
    */
   onClick: setFunction<MouseEventType>(),
   /**
-   * @name round
-   * @param { boolean }  半圆角按钮
-   * @returns 半圆角按钮
+   * @name circle
+   * @param { boolean }  圆形按钮
+   * @returns 圆形按钮
    */
-  round: setBooleanProps(),
-
+  circle: setBooleanProps(),
   /**
    * @name shadow
    * @param { string }  按钮阴影效果
    * @returns 按钮阴影效果
   */
   shadow: setStringProp(),
-
-  
+  /**
+   * @name ripples
+   * @param { boolean }  涟漪效果
+   * @returns 涟漪效果
+  */
+  ripples: setBooleanProps(),
+  /**
+   * @name ripplesBgColor
+   * @param { string }  涟漪效果的自定义颜色BG
+   * @returns 涟漪效果的自定义颜色BG
+  */
+  ripplesBgColor: setStringProp(),
 
   /**是否加载中 */
   loading: setBooleanProps(),
  
-  /**圆形按钮 */
-  circle: setBooleanProps(),
+  /**半圆形按钮 */
+  round: setBooleanProps(),
   /**按钮图标 */
   icon: setStringProp(),
   /**按钮图标后 */

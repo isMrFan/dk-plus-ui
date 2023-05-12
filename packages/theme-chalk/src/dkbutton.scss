@@ -58,6 +58,7 @@
   //文本按钮逻辑处理结束
   //盒子按钮逻辑处理
   .#{$box}{
+    display: inline-flex;
     user-select: none;
     text-decoration: none;
     box-sizing: border-box;
@@ -86,8 +87,40 @@
       background-color: var(--button-active-background);
     }
   }
+  &_ripples.#{$box}{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    .dk-button_ripples{
+      width: 2px;
+      height: 2px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border-radius: 50%;
+      animation: dk-button_ripples-animation 0.8s linear;
+      opacity: 0.5;
+      background-color: #fff;
+}
+    @keyframes dk-button_ripples-animation {
+      from {
+        width: 2px;
+        height: 2px;
+        opacity: 0.5;
+      }
+      to {
+        opacity: 0;
+        width: 500px;
+        height: 500px;
+      }
+    }
+  }
   //盒子按钮逻辑处理结束
-  &_round {
+  //圆形按钮逻辑处理
+  &_circle{
     width: var(--button-height);
   }
 }

@@ -7,6 +7,7 @@
  * DK_SIZE  尺寸大小
  * DK_TYPE  组件Type类型
  * DK_TARGET 该属性指定在何处显示链接的资源
+ * DK_TYPE_COLOR 组件Type类型颜色
  */
 export * from './component/input-attrs'
 export * from './public'
