@@ -5,25 +5,46 @@
    * @Time 2023/05/08
    * @description 自定义按钮组件
    **/
-  import { defineComponent,toRefs } from 'vue'
-  import { getButton,getReturn} from '../../_hooks'
+  import { defineComponent,toRefs,reactive ,ref} from 'vue'
+  import { getButton,getReturn,getGlobal,getRipples} from '../../_hooks'
+  import type { RipplesType} from '../../_hooks'
   import { dkButtonProps } from './props'
   export default defineComponent({
     name: 'DkButton',
     props: dkButtonProps,
     setup(Props) {
+      const dkBoxButton=ref<HTMLButtonElement>()
       const { classList, styleList } = getButton(Props)
       const { getRun }=getReturn()
+      const { getType } = getGlobal(Props)
       const EventClick= (evt: MouseEvent): void => {
-        const { disabled} = toRefs(Props)
+        const { disabled,ripples} = toRefs(Props)
         if (disabled.value) {
           evt.preventDefault()
           return
+        }
+        if(ripples.value){
+          const { ripplesBgColor } = toRefs(Props)
+          const elementObj:RipplesType=reactive({
+            AnimationDuration:5000000,
+            component:'dk-button',
+            className:'dk-button_ripples',
+            ripplesBgColor:ripplesBgColor.value,
+            type:getType()
+          })
+          const { useRipples  } = getRipples(
+            evt,
+            dkBoxButton.value as HTMLElement,
+            elementObj
+          )
+          useRipples()
+          console.log("ripples", ripples)
         }
         getRun(Props.onClick, evt)
       }
       return {
         EventClick,
+        dkBoxButton,
         classList,
         styleList
       }
@@ -60,6 +81,7 @@
     <template v-else>
    
       <button 
+        ref="dkBoxButton"
         :class="['dk-button-box',classList]" 
         :style="styleList" 
         role="button"

@@ -54,10 +54,8 @@ export const getButton = (props: DkButtonProps) => {
    * @description 默认转换的类名
    */
   let defaultClassList = [
-    'type', 'size', 
-    'disabled', 'loading', 
-    'round', 'circle',
-    'textDecoration'
+    'type', 'size','disabled', 'loading', 'round', 'circle',
+    'textDecoration','shadow','ripples'
   ]
   /**
    * @name params

@@ -172,7 +172,7 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-font-size: 13px;
   }
   //半圆角按钮逻辑处理
-  &_round {
+  &_circle {
     --button-border-radius: 50%;
     --button-padding:0px;
   }
