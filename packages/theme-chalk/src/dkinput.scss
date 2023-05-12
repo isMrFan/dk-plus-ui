@@ -23,7 +23,8 @@
     &:focus-within{
       border-color: var(--input-focus-border);
     }
-    &__inner{
+    &_inner{
+      background-color: var(--input-color);
       width: calc(100% - 20px);
       height: 100%;
       padding: 0 10px;
@@ -34,6 +35,12 @@
       &:focus{
         outline: none;
       }
+    }
+  }
+  @include block('wrapper'){
+    @include element('disabled'){
+      background-color: var(--input-disabled-color);
+      cursor: not-allowed;
     }
   }
 }

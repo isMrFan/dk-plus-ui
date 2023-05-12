@@ -2,6 +2,6 @@
 // Global class name configuration
 $namespace: 'dk' !default; // 命名空间
 $common-separator: '-' !default; // 通用分隔符
-$element-separator: '__' !default; // 元素分隔符
+$element-separator: '_' !default; // 元素分隔符
 $modifier-separator: '--' !default; // 修饰符分隔符
 $state-prefix: 'is-' !default; // 状态前缀
