@@ -87,7 +87,7 @@ export const getRipples=(evt:MouseEvent,element:HTMLElement,options:RipplesType)
       return newElement
   }
   /**
-   * @name  removeElement  删除涟漪节点
+   * @name  removeElement  删除涟漪节 点
    * @param { Object } reElement dom 元素
    */  
   const removeElement=(reElement:HTMLElement):void=>{
