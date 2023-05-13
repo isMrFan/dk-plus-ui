@@ -18,12 +18,22 @@ import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
  * @name getSassConfig
  * @Time 2023年05月14日
  * @returns nameSpace 命名空间
- * @returns commonSeparator 公共分隔符
- * @returns elementSeparator 元素分隔符
- * @returns modifierSeparator 修饰符分隔符
+ * @returns commonSeparator 公共分隔符 '-'
+ * @returns elementSeparator 元素分隔符 '_'
+ * @returns modifierSeparator 修饰符分隔符 '--'
  */
 export const getSassConfig = (): ScssConfigType => {
   const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
+  /**
+   * @name SASS_CONFIG
+   * @Time 2023年05月14日
+   * @description 将scss的配置转换成对象
+   * @returns nameSpace 命名空间
+   * @returns commonSeparator 公共分隔符 '-'
+   * @returns elementSeparator 元素分隔符 '_'
+   * @returns modifierSeparator 修饰符分隔符 '--'
+   * @example { nameSpace: 'dk', commonSeparator: '-', elementSeparator: '_', modifierSeparator: '--' }
+   */
   const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
     7,
     SASS_CONFIG_CLASS.length - 1

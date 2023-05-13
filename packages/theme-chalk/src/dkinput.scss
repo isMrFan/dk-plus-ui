@@ -28,12 +28,12 @@
     width: calc(100% - 20px);
     height: 100%;
     line-height: 100%;
-    background-color: var(--input-color);
     padding: 0 10px;
     font-size: var(--input-font-size);
+    color: var(--input-text-color);
+    background-color: var(--input-color);
     border: none;
     caret-color: var(--input-text-color);
-    color: var(--input-text-color);
     &:focus {
       outline: none;
     }
@@ -41,10 +41,11 @@
   @include element(disabled) {
     :hover {
       cursor: not-allowed;
+      border-color: var(--input-border);
     }
     @include block('*input') {
       @include element(inner) {
-        // background-color: #f00;
+        background-color: var(--input-disabled-color);
       }
     }
   }
