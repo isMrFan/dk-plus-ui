@@ -3,10 +3,11 @@
     <Dk-Input
       v-model="msg"
       placeholder="change"
-      disabled
+      :disabled="isDisabled"
     >
     </Dk-Input>
-    {{ msg }}
+    <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button>
+    <!-- <dk-input></dk-input> -->
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
@@ -249,7 +250,10 @@
           return 'DkInput'
         }
       }
-
+      const isDisabled = ref(true)
+      const toggleDisabled = () => {
+        isDisabled.value = !isDisabled.value
+      }
       return {
         ...data,
         oncopy,
@@ -259,7 +263,9 @@
         change,
         focus,
         blur,
-        input
+        input,
+        isDisabled,
+        toggleDisabled
       }
     }
   })

@@ -4,6 +4,7 @@ import { getColor, setSize, getStyleList } from '..'
 import { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
 import type { dkInputType } from '../../_interface'
+
 /**
  * @name getInputGlobalType
  * @Time 2023年05月05日
@@ -48,6 +49,12 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
   }
 }
 
+/**
+ * @name getInput
+ * @param props
+ * @description 获取input组件的类名和样式
+ * @returns
+ */
 export const getInput = (props: DkInputProps) => {
   /**
    * @name defaultClassList
@@ -62,6 +69,7 @@ export const getInput = (props: DkInputProps) => {
   let params = reactive({
     ...toRefs(props)
   })
+
   /**
    * @name SLOT
    * @description 获取插槽
@@ -78,12 +86,17 @@ export const getInput = (props: DkInputProps) => {
     }
   }
 
-  // console.log('params', params);
+  /**
+   * @name IS_DISABLED
+   * @description 是否禁用
+   */
+  const IS_DISABLED = computed((): boolean => {
+    return props.disabled
+  })
+  if (IS_DISABLED) {
+    defaultClassList = [...defaultClassList, 'disabled']
+  }
 
-  // if (IS_SLOT) {
-  //   console.log("isSlot", IS_SLOT);
-  //   defaultClassList = [...defaultClassList, "slot"];
-  // }
   const { classes } = getStyleList(params, 'input')
 
   const CLASS_LIST = classes([...defaultClassList], 'dk-input')
@@ -135,12 +148,9 @@ export const getInput = (props: DkInputProps) => {
    * @name defaultInnerClassList
    * @description 期望被转换的inner类名
    */
-  const INNER_CLASSES = getStyleList(params, 'input-wrapper').classes
-  let defaultInnerClassList = ['disabled']
-  const INNER_CLASS_LIST = INNER_CLASSES(
-    [...defaultInnerClassList],
-    'dk-input-wrapper_inner'
-  )
+  const INNER_CLASSES = getStyleList(params, 'input').classes
+  let defaultInnerClassList = []
+  const INNER_CLASS_LIST = INNER_CLASSES([...defaultInnerClassList], 'dk-input_inner')
 
   return {
     classList: CLASS_LIST,

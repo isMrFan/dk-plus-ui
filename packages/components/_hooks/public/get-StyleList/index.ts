@@ -12,6 +12,27 @@ import type { ComputedRef, CSSProperties } from 'vue'
 import type { FilterParams } from '../..'
 import type { ClassListName } from '../../../_interface'
 
+import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
+let sassConfigStr = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
+let scssConfigObj = sassConfigStr
+  .slice(7, sassConfigStr.length - 1)
+  .replace(/[\:\;]/g, ',')
+  .split(',')
+  .reduce((prev: object, cur: string, index: number, arr: string[]) => {
+    if (index % 2 === 0) {
+      cur = cur.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
+      prev[cur] = arr[index + 1].replace(/\"/g, '')
+    }
+    return prev
+  }, {})
+
+const {
+  namespace = 'dk',
+  commonSeparator = '-',
+  elementSeparator = '_',
+  modifierSeparator = '--'
+} = scssConfigObj
+
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>
   styles: (
@@ -46,7 +67,9 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
            * @description 利用props的key成样式名称
            */
           classList.value.push(
-            `dk-${name}_${isBoolean(propList[key]) ? humpConversion(key) : propList[key]}`
+            `${namespace}${commonSeparator}${name}${elementSeparator}${
+              isBoolean(propList[key]) ? humpConversion(key) : propList[key]
+            }`
           )
         }
       }
@@ -92,7 +115,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
       Object.entries(propList)
         .filter(([key, value]) => value)
         .map(([key, value]) => [
-          `--${name}-${humpConversion(key)}`,
+          `${modifierSeparator}${name}${commonSeparator}${humpConversion(key)}`,
           setStyleList(value as string | number, key, pixel)
         ])
     )
