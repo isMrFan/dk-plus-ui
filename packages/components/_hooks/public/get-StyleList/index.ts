@@ -14,7 +14,7 @@ import type { ClassListName, ScssConfigType } from '../../../_interface'
 
 import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
 const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
-const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
+export const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
   7,
   SASS_CONFIG_CLASS.length - 1
 )
