@@ -13,28 +13,47 @@ import type { FilterParams } from '../..'
 import type { ClassListName, ScssConfigType } from '../../../_interface'
 
 import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
-const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
-export const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
-  7,
-  SASS_CONFIG_CLASS.length - 1
-)
-  .replace(/[\:\;]/g, ',')
-  .split(',')
-  .reduce((prev: object, cur: string, index: number, arr: string[]) => {
-    if (index % 2 === 0) {
-      cur = cur.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
-      prev[cur] = arr[index + 1].replace(/\"/g, '')
-    }
-    return prev
-  }, {})
 
-const {
-  namespace = 'dk',
-  commonSeparator = '-',
-  elementSeparator = '_',
-  modifierSeparator = '--'
-} = SASS_CONFIG
+/**
+ * @name getSassList
+ * @Time 2023年05月14日
+ * @returns nameSpace 命名空间
+ * @returns commonSeparator 公共分隔符
+ * @returns elementSeparator 元素分隔符
+ * @returns modifierSeparator 修饰符分隔符
+ */
+export const getSassConfig = (): ScssConfigType => {
+  const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
+  const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
+    7,
+    SASS_CONFIG_CLASS.length - 1
+  )
+    .replace(/[\:\;]/g, ',')
+    .split(',')
+    .reduce((prev: object, cur: string, index: number, arr: string[]) => {
+      if (index % 2 === 0) {
+        cur = cur.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
+        prev[cur] = arr[index + 1].replace(/\"/g, '')
+      }
+      return prev
+    }, {})
 
+  const {
+    namespace = 'dk',
+    commonSeparator = '-',
+    elementSeparator = '_',
+    modifierSeparator = '--'
+  } = SASS_CONFIG
+  return {
+    namespace,
+    commonSeparator,
+    elementSeparator,
+    modifierSeparator
+  }
+}
+
+const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
+  getSassConfig()
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>
   styles: (
