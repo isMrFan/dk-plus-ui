@@ -15,7 +15,7 @@ import type { ClassListName, ScssConfigType } from '../../../_interface'
 import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
 
 /**
- * @name getSassList
+ * @name getSassConfig
  * @Time 2023年05月14日
  * @returns nameSpace 命名空间
  * @returns commonSeparator 公共分隔符
