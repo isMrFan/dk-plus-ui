@@ -10,12 +10,14 @@ import { getProps } from '../..'
 import { isBoolean, humpConversion, sizeChange } from '../../../_utils'
 import type { ComputedRef, CSSProperties } from 'vue'
 import type { FilterParams } from '../..'
-import type { ClassListName } from '../../../_interface'
+import type { ClassListName, ScssConfigType } from '../../../_interface'
 
 import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
-let sassConfigStr = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
-let scssConfigObj = sassConfigStr
-  .slice(7, sassConfigStr.length - 1)
+const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
+const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
+  7,
+  SASS_CONFIG_CLASS.length - 1
+)
   .replace(/[\:\;]/g, ',')
   .split(',')
   .reduce((prev: object, cur: string, index: number, arr: string[]) => {
@@ -31,7 +33,7 @@ const {
   commonSeparator = '-',
   elementSeparator = '_',
   modifierSeparator = '--'
-} = scssConfigObj
+} = SASS_CONFIG
 
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>
