@@ -3,7 +3,8 @@
 @forward 'config';
 /**
   * block class name
-  * @param {string} $block
+  * @param {string} $block - 必选 (@include block('block') -> .dk-block)
+  * @param {string} $namespace - 可选
   * @return {string} .namespace-block
   */
 @mixin block($block, $namespace: $namespace) {
@@ -38,7 +39,7 @@
 
 /**
   * element class name
-  * @param {string} $element
+  * @param {string} $element - 必选 (@include element('element') -> &_element ｜ @include element('*element') -> .dk_element)
   * @param {string} $block
   * @return {string} &__element
   */
@@ -53,7 +54,7 @@
 
 /**
  * modifier class name
- * @param {string} $modifier
+ * @param {string} $modifier - 必选 (@include modifier('modifier') -> &--modifier | @include modifier('*modifier') -> .dk--modifier)
  * @return {string} &--modifier
  */
 @mixin modifier($modifier) {
