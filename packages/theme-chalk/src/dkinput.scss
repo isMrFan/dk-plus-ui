@@ -39,12 +39,15 @@
     }
   }
   @include element(disabled) {
-    :hover {
-      cursor: not-allowed;
-      border-color: var(--input-border);
-    }
     @include block('*input') {
-      @include element(inner) {
+      @include block('>wrapper'){
+        width: 100px; 
+        &:hover {
+          cursor: not-allowed;
+          border-color: var(--input-border);
+        }
+      }
+      @include element('inner') {
         background-color: var(--input-disabled-color);
       }
     }

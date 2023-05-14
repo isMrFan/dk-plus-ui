@@ -3,16 +3,28 @@
 @forward 'config';
 /**
   * block class name
-  * @param {string} $block - 必选 (@include block('block') -> .dk-block)
+  * @param {string} $block - 必选 (@include block('block') -> .dk-block) 
+  * @prefix {string} * 是否继承父级类名 - 可选 (@include block('*block') -> .dk-block) ｜ @include block('block') -> .&-block
+  * @prefix {string} > 是否添加到跟元素 - 可选 (@include block('>block') -> .dk-block)
   * @param {string} $namespace - 可选
   * @return {string} .namespace-block
   */
 @mixin block($block, $namespace: $namespace) {
   $B: handleBlock($block, $namespace);
-  #{$B} {
-    @content;
+  @if isAtRoot($block) {
+    $blo: str-slice($block, 2, str-length($block));
+    $B: handleBlock($blo, $namespace);
+    @debug $B;
+    @at-root {
+      #{$B} {
+        @content;
+      }
+    }
+  } @else {
+    #{$B} {
+      @content;
+    }
   }
-  // @debug $B;
 }
 
 // peerBlock class name
@@ -39,28 +51,50 @@
 
 /**
   * element class name
-  * @param {string} $element - 必选 (@include element('element') -> &_element ｜ @include element('*element') -> .dk_element)
+  * @param {string} $element - 必选 (@include element('element')
+  * @prefix {string} * 是否继承父级类名 - 可选 (@include element('*element') -> .dk-element) ｜ @include element('element') -> .&_element
+  * @prefix {string} > 是否添加到跟元素 - 可选 (@include element('>element') -> .dk-element)
   * @param {string} $block
   * @return {string} &__element
   */
 @mixin element($element, $block: '') {
   $E: handleElement($element, $block, $element-separator);
-  @at-root {
+  @if isAtRoot($element) {
+    $ele: str-slice($element, 2, str-length($element));
+    $E: handleElement($ele, $block, $element-separator);
+    @at-root {
+      #{$E} {
+        @content;
+      }
+    }
+  } @else {
     #{$E} {
       @content;
     }
   }
+  // @debug $E;
 }
 
 /**
- * modifier class name
- * @param {string} $modifier - 必选 (@include modifier('modifier') -> &--modifier | @include modifier('*modifier') -> .dk--modifier)
- * @return {string} &--modifier
- */
+  * modifier class name
+  * @param {string} $modifier - 必选 (@include modifier('modifier') -> &--modifier
+  * @prefix {string} * 是否继承父级类名 - 可选 (@include modifier('*modifier') -> .dk-modifier) ｜ @include modifier('modifier') -> &--modifier
+  * @prefix {string} > 是否添加到跟元素 - 可选 (@include modifier('>modifier') -> .dk-modifier)
+  * @return {string} &--modifier
+  */
 @mixin modifier($modifier) {
   $M: handleModifier($modifier, $modifier-separator);
-  @at-root {
-    #{ $M } {
+  @if isAtRoot($modifier) {
+    $mod: str-slice($modifier, 2, str-length($modifier));
+    $M: handleModifier($mod, $modifier-separator);
+    @debug $M;
+    @at-root {
+      #{$M} {
+        @content;
+      }
+    }
+  } @else {
+    #{$M} {
       @content;
     }
   }
@@ -71,6 +105,16 @@
   .#{$S} {
     @content;
   }
+}
+
+/** 
+  * @name isAtRoot
+  * @param {string} $str - 必选
+  * @description 检测字符串是否以>开头
+  * @return {boolean} - true | false
+*/
+@function isAtRoot($str) {
+  @return str-index($str, '>') == 1;
 }
 
 /**
