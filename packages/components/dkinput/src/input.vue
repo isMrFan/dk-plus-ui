@@ -6,11 +6,13 @@
  * @description 输入框组件
  * @example
  */
-import { defineComponent, computed, ref, nextTick, Ref, ComputedRef, watch } from "vue";
+import { defineComponent, computed, ref, nextTick, Ref, ComputedRef, watch, reactive, toRefs, toRaw } from "vue";
 import { dkInputProps, haInputClass } from "./props";
 import { getInputGlobal } from "../../_hooks";
 import { getInput } from "../../_hooks";
-import { log } from "console";
+
+
+
 
 export default defineComponent({
   name: "DkInput",
@@ -18,8 +20,9 @@ export default defineComponent({
   emit: ['update:modelValue'],
   setup(props, { slots, emit }) {
     const { getInputType } = getInputGlobal(props);
-    const { classList, styleList, wrapperClassList, innerClassList } = getInput(props);
-    const { type = getInputType(), placeholder, disabled } = props;
+    const { type = getInputType(), placeholder } = props;
+    
+    const { classList, styleList, wrapperClassList, innerClassList } = getInput(props)
 
     const MODEL_VALUE = ref<string | number>(props.modelValue);
 
@@ -29,37 +32,40 @@ export default defineComponent({
       emit('update:modelValue', MODEL_VALUE.value);
     };
 
-    const IS_DISABLED = ref<boolean>(disabled)
-
+    const DISABLED = computed((): boolean => props.disabled)
     const PLACEHOLDER = ref<string | number>(placeholder)
     const INPUT_ATTRS = computed(() => {
       return {
-        type,
-        placeholder: PLACEHOLDER.value,
-        onInput: update,
-        class: innerClassList.value,
-        disabled: IS_DISABLED.value,
-      };
-    });
+          class: innerClassList.value,
+          type,
+          placeholder: PLACEHOLDER.value,
+          onInput: update,
+          disabled: DISABLED.value,
+      }
+    })
+    
+    const CLASS_LIST = computed(() => getInput(props).classList)
     
     return {
-      classList,
+      classList: CLASS_LIST.value,
       styleList,
       wrapperClassList,
       value: MODEL_VALUE.value,
-      inputAttrs: INPUT_ATTRS.value,
+      inputAttrs: toRaw(INPUT_ATTRS),
     };
-  },
+  }
 });
 </script>
 
 <template>
   <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
-      <input v-model="value" v-bind="inputAttrs" />
+      <input v-model="value" :...="inputAttrs" />
     </div>
   </div>
   <!-- <div>
     <input type="textarea" />
   </div> -->
 </template>
+
+<style lang="scss"></style>
