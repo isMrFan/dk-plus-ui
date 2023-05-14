@@ -39,8 +39,8 @@
     }
   }
   @include element(disabled) {
-    @include block('*input') {
-      @include block('>wrapper'){
+    @include block('>*input') {
+      @include block('wrapper'){
         width: 100px; 
         &:hover {
           cursor: not-allowed;

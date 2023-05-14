@@ -14,15 +14,15 @@
   @if isAtRoot($block) {
     $blo: str-slice($block, 2, str-length($block));
     $B: handleBlock($blo, $namespace);
-    @debug $B;
+    // @debug $B;
+    #{$B} {
+      @content;
+    }
+  } @else {
     @at-root {
       #{$B} {
         @content;
       }
-    }
-  } @else {
-    #{$B} {
-      @content;
     }
   }
 }
@@ -62,14 +62,14 @@
   @if isAtRoot($element) {
     $ele: str-slice($element, 2, str-length($element));
     $E: handleElement($ele, $block, $element-separator);
+    #{$E} {
+      @content;
+    }
+  } @else {
     @at-root {
       #{$E} {
         @content;
       }
-    }
-  } @else {
-    #{$E} {
-      @content;
     }
   }
   // @debug $E;
@@ -88,14 +88,14 @@
     $mod: str-slice($modifier, 2, str-length($modifier));
     $M: handleModifier($mod, $modifier-separator);
     @debug $M;
+    #{$M} {
+      @content;
+    }
+  } @else {
     @at-root {
       #{$M} {
         @content;
       }
-    }
-  } @else {
-    #{$M} {
-      @content;
     }
   }
 }
