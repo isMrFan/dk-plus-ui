@@ -155,11 +155,24 @@ export const getInput = (props: DkInputProps) => {
   let defaultInnerClassList = []
   const INNER_CLASS_LIST = INNER_CLASSES([...defaultInnerClassList], 'dk-input_inner')
 
+  /**
+   * @name defaultClearableStyleList
+   * @description 期望被转换的clearable类名
+   */
+  let defaultClearableStyleList = ['clearable']
+  const CLEARABLE_CLASSES = getStyleList(params, 'input').classes
+  const CLEARABLE_CLASS_LIST = CLEARABLE_CLASSES(
+    [...defaultClearableStyleList],
+    'dk-input'
+  )
+
+
   return {
     classList: CLASS_LIST,
     styleList: STYLE_LIST,
     wrapperClassList: WRAPPER_CLASS_LIST,
     wrapperStyleList: WRAPPER_STYLE_LIST,
-    innerClassList: INNER_CLASS_LIST
+    innerClassList: INNER_CLASS_LIST,
+    clearableClassList: CLEARABLE_CLASS_LIST
   }
 }

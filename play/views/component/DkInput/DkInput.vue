@@ -1,13 +1,17 @@
 <template>
   <div class="input">
-    <Dk-Input
+    <!-- <Dk-Input
       v-model="msg"
       placeholder="change"
       :disabled="isDisabled"
     >
     </Dk-Input>
-    <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button>
-    <!-- <dk-input></dk-input> -->
+    <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button> -->
+
+
+    <dk-input clearable></dk-input>
+
+
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">
       <div>{{ item.title }}</div>
