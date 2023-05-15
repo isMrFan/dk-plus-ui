@@ -16,7 +16,8 @@
     watch,
     reactive,
     toRefs,
-    toRaw
+    toRaw,
+InputHTMLAttributes
   } from 'vue'
   import { dkInputProps, haInputClass } from './props'
   import { getInputGlobal } from '../../_hooks'
@@ -52,26 +53,26 @@
 
       const DISABLED = computed((): boolean => props.disabled)
       const PLACEHOLDER = ref<string | number>(placeholder)
-      const INPUT_ATTRS = computed(() => {
+      const INPUT_ATTRS = computed((): InputHTMLAttributes => {
         return {
           class: innerClassList.value,
           type,
           placeholder: PLACEHOLDER.value,
           onInput: update,
           disabled: DISABLED.value
-        }
+        } as InputHTMLAttributes
       })
 
       const IS_CLEAR = computed(() => {
         return !!clearable && !!MODEL_VALUE.value && !DISABLED.value
       })
-
+      
       return {
         classList: CLASS_LIST.value,
         styleList,
         wrapperClassList,
         value: MODEL_VALUE.value,
-        inputAttrs: toRaw(INPUT_ATTRS),
+        inputAttrs: toRaw(INPUT_ATTRS.value),
         isClear: IS_CLEAR
       }
     }
@@ -81,7 +82,7 @@
 <template>
   <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
-      <input v-model="value" :...="inputAttrs" />
+      <input v-model="value" v-bind="inputAttrs" />
       <template v-if="isClear">
         <dk-icon
         class="dk-icon-del1 dk-input-clearable"

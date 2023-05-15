@@ -8,10 +8,10 @@ $state-prefix: 'is-' !default; // 状态前缀
 
 // 导出变量
 // Export variables
-:export {
-  namespace: $namespace;
-  common-separator: $common-separator;
-  element-separator: $element-separator;
-  modifier-separator: $modifier-separator;
-  state-prefix: $state-prefix;
-}
+// :export {
+//   namespace: $namespace;
+//   common-separator: $common-separator;
+//   element-separator: $element-separator;
+//   modifier-separator: $modifier-separator;
+//   state-prefix: $state-prefix;
+// }
