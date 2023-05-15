@@ -55,7 +55,7 @@ export const getButton = (props: DkButtonProps) => {
    */
   let defaultClassList = [
     'type', 'size','disabled', 'loading', 'round', 'circle',
-    'textDecoration','shadow','ripples'
+    'textDecoration','shadow','ripples','diffusion'
   ]
   /**
    * @name params
@@ -96,7 +96,8 @@ export const getButton = (props: DkButtonProps) => {
       '--button-shadow': shadow,
       '--button-font-size': sizeChange(fontSize),
       '--button-hover-borderColor':bgColor?getColor(props.bgColor).getDodge(0.4) : null,
-      '--button-hover-background':bgColor? getColor(props.bgColor).getDodge(0.4)  : null
+      '--button-hover-background':bgColor? getColor(props.bgColor).getDodge(0.4)  : null,
+      '--button-background': bgColor || null,
     } as CSSProperties
     if (bgColor) {
       const bgStyle = {

@@ -26,7 +26,7 @@
         if(ripples.value){
           const { ripplesBgColor } = toRefs(Props)
           const elementObj:RipplesType=reactive({
-            AnimationDuration:5000000,
+            AnimationDuration:1100,
             component:'dk-button',
             className:'dk-button_ripples',
             ripplesBgColor:ripplesBgColor.value,
@@ -38,7 +38,6 @@
             elementObj
           )
           useRipples()
-          console.log("ripples", ripples)
         }
         getRun(Props.onClick, evt)
       }
@@ -63,7 +62,6 @@
         :class="[classList,text ? 'dk-button-text' : '' ]"
         :style="[styleList]"
       >
-      1 {{ size }}
         <slot name="icon"></slot>
         <slot></slot>
         <slot name="afterIcon"></slot>
@@ -79,7 +77,6 @@
       </div>
     </template>
     <template v-else>
-   
       <button 
         ref="dkBoxButton"
         :class="['dk-button-box',classList]" 

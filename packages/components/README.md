@@ -14,8 +14,6 @@
 ├── dkbutton    按钮组件
 ├── dkcodedisplay    内部用展开收起组件
 ├── dkicon           图标文件
-├── dkinput          输入框组件
-├── dkInputNumber    输入框数字组件
 ├── dkshadow         阴影组件
 ```
 

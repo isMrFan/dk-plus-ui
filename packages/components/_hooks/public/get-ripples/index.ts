@@ -67,8 +67,6 @@ export const getRipples=(evt:MouseEvent,element:HTMLElement,options:RipplesType)
    * @returns { Object } 元素节点
    */  
   const addElement=(x:number,y:number):HTMLElement=>{
-    console.log("x", x)
-    console.log("y", y)
       const newElement=document.createElement('span');
       newElement.className=options.className;
       newElement.style.left=`${x}px`;
@@ -79,7 +77,6 @@ export const getRipples=(evt:MouseEvent,element:HTMLElement,options:RipplesType)
       if(options.component==='dk-button'){
         const box: HTMLDivElement = document.createElement('div')
         box.className = ''
-        console.log("box", box)
         box.appendChild(newElement)
         newElement.style.top=`${y}px`;
         return box

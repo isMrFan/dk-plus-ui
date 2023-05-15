@@ -12,7 +12,7 @@ import type { ComputedRef, CSSProperties } from 'vue'
 import type { FilterParams } from '../..'
 import type { ClassListName, ScssConfigType } from '../../../_interface'
 
-import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
+//import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
 
 /**
  * @name getSassConfig
@@ -22,48 +22,48 @@ import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
  * @returns elementSeparator 元素分隔符 '_'
  * @returns modifierSeparator 修饰符分隔符 '--'
  */
-export const getSassConfig = (): ScssConfigType => {
-  const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
-  /**
-   * @name SASS_CONFIG
-   * @Time 2023年05月14日
-   * @description 将scss的配置转换成对象
-   * @returns nameSpace 命名空间
-   * @returns commonSeparator 公共分隔符 '-'
-   * @returns elementSeparator 元素分隔符 '_'
-   * @returns modifierSeparator 修饰符分隔符 '--'
-   * @example { nameSpace: 'dk', commonSeparator: '-', elementSeparator: '_', modifierSeparator: '--' }
-   */
-  const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
-    7,
-    SASS_CONFIG_CLASS.length - 1
-  )
-    .replace(/[\:\;]/g, ',')
-    .split(',')
-    .reduce((prev: object, cur: string, index: number, arr: string[]) => {
-      if (index % 2 === 0) {
-        cur = cur.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
-        prev[cur] = arr[index + 1].replace(/\"/g, '')
-      }
-      return prev
-    }, {})
+// export const getSassConfig = (): ScssConfigType => {
+//   const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
+//   /**
+//    * @name SASS_CONFIG
+//    * @Time 2023年05月14日
+//    * @description 将scss的配置转换成对象
+//    * @returns nameSpace 命名空间
+//    * @returns commonSeparator 公共分隔符 '-'
+//    * @returns elementSeparator 元素分隔符 '_'
+//    * @returns modifierSeparator 修饰符分隔符 '--'
+//    * @example { nameSpace: 'dk', commonSeparator: '-', elementSeparator: '_', modifierSeparator: '--' }
+//    */
+//   const SASS_CONFIG: ScssConfigType = SASS_CONFIG_CLASS.slice(
+//     7,
+//     SASS_CONFIG_CLASS.length - 1
+//   )
+//     .replace(/[\:\;]/g, ',')
+//     .split(',')
+//     .reduce((prev: object, cur: string, index: number, arr: string[]) => {
+//       if (index % 2 === 0) {
+//         cur = cur.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
+//         prev[cur] = arr[index + 1].replace(/\"/g, '')
+//       }
+//       return prev
+//     }, {})
 
-  const {
-    namespace = 'dk',
-    commonSeparator = '-',
-    elementSeparator = '_',
-    modifierSeparator = '--'
-  } = SASS_CONFIG
-  return {
-    namespace,
-    commonSeparator,
-    elementSeparator,
-    modifierSeparator
-  }
-}
+//   const {
+//     namespace = 'dk',
+//     commonSeparator = '-',
+//     elementSeparator = '_',
+//     modifierSeparator = '--'
+//   } = SASS_CONFIG
+//   return {
+//     namespace,
+//     commonSeparator,
+//     elementSeparator,
+//     modifierSeparator
+//   }
+// }
 
-const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
-  getSassConfig()
+// const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
+//   getSassConfig()
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>
   styles: (
@@ -98,9 +98,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
            * @description 利用props的key成样式名称
            */
           classList.value.push(
-            `${namespace}${commonSeparator}${name}${elementSeparator}${
-              isBoolean(propList[key]) ? humpConversion(key) : propList[key]
-            }`
+            `dk-${name}_${isBoolean(propList[key]) ? humpConversion(key) : propList[key]}`
           )
         }
       }
@@ -146,7 +144,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
       Object.entries(propList)
         .filter(([key, value]) => value)
         .map(([key, value]) => [
-          `${modifierSeparator}${name}${commonSeparator}${humpConversion(key)}`,
+          `--${name}$-${humpConversion(key)}`,
           setStyleList(value as string | number, key, pixel)
         ])
     )

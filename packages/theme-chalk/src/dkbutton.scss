@@ -1,8 +1,11 @@
 @use './mixins/configuration/var-button.scss' as *;
 @use './mixins/mixin.scss' as *;
 
-@include block('button') {
-  display: inline-block;
+.#{$namespace}-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 5px;
   border: none;
   user-select: none;
@@ -58,11 +61,10 @@
   //文本按钮逻辑处理结束
   //盒子按钮逻辑处理
   .#{$box}{
-    display: inline-flex;
+    position: relative;
     user-select: none;
     text-decoration: none;
     box-sizing: border-box;
-    display: flex;
     align-items: flex-start;
     justify-content: center;
     outline: none;
@@ -87,6 +89,7 @@
       background-color: var(--button-active-background);
     }
   }
+  // 涟漪效果
   &_ripples.#{$box}{
     position: relative;
     top: 0;
@@ -123,5 +126,38 @@
   &_circle{
     width: var(--button-height);
   }
+  //扩散效果
+  &_diffusion::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    border-radius: inherit;
+    transition: 0.3s;
+    box-shadow: 0 0 0 4px var(--button-background);
+  } 
+  // 扩散效果需要的样式
+  &:not([disabled]):active::after {
+    box-shadow: none;
+    opacity: 1;
+    transition: 0s;
+  }
 }
 
+// .dk-button_ripples_diffusion::after{
+//   content: '';
+//   display: inline-block;
+//   position: relative;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   bottom: 0;
+//   opacity: 0;
+//   border-radius: inherit;
+//   transition: 0.3s;
+//   box-shadow: 0 0 0 4px #67c23a;
+// } 

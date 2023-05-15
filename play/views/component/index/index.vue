@@ -74,10 +74,6 @@
             name: '输入框组件',
             path: '/Dkinput'
           },
-          {
-            name: 'inputNumber',
-            path: '/DkInputNumber'
-          }
         ]
       })
       const active = reactive({

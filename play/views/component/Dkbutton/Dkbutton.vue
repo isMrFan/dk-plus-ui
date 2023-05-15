@@ -298,10 +298,43 @@
           </div>
         </div>
       </div>
-      <div>
+      <div >
         <h3>5.涟漪效果</h3>
         <div class="dkButton_DK_wb">
+          <Dk-Button ripples size="large">默认</Dk-Button>
           <Dk-Button type="primary" ripples size="large">基础信息</Dk-Button>
+          <Dk-Button type="success" ripples size="large">成功按钮</Dk-Button>
+          <Dk-Button type="info" ripples size="large">信息按钮</Dk-Button>
+          <Dk-Button type="warning" ripples size="large">警告按钮</Dk-Button>
+          <Dk-Button type="danger" ripples size="large">危险按钮</Dk-Button>
+          <Dk-Button ripples type="primary" ripplesBgColor="red" size="large">自定义涟漪颜色</Dk-Button>
+        </div>
+        <div class="code_show_Title">
+          <Dk-Shadow :type="'title'">
+            <template #left>
+              <div style="line-height: 42px">(1).代码展示区域</div>
+            </template>
+            <template #right>
+              <Dk-Button text type="default" @click="onFoundationType(9)">
+                {{ customizeType ? '关闭' : '开启' }}
+              </Dk-Button>
+            </template>
+          </Dk-Shadow>
+        </div>
+        <div class="code_show" v-show="customizeType9">
+          <div class="index_Dk_list" v-for="(item, ind) in customizeTypeList9" :key="ind">
+            <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+              <highlightjs language="javascript" :code="item.name"></highlightjs>
+              <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div >
+        <h3>5.扩散效果</h3>
+        <div class="dkButton_DK_wb">
+          <Dk-Button diffusion size="large" type="success">默认按钮</Dk-Button>
+          <Dk-Button diffusion size="large" type="success">默认按钮</Dk-Button>
         </div>
       </div>
     </div>
@@ -553,6 +586,42 @@
             type: ''
           },
         ],
+        customizeTypeList9:[
+          {
+            name: `<Dk-Button ripples size="large">默认</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button type="primary" ripples size="large">基础信息</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button type="success" ripples size="large">成功按钮</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button type="info" ripples size="large">信息按钮</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button type="warning" ripples size="large">警告按钮</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: `<Dk-Button type="danger" ripples size="large">危险按钮</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },{
+            name: `<Dk-Button ripples type="primary" ripplesBgColor="red" size="large">自定义涟漪颜色</Dk-Button>`,
+            nackName: '默认',
+            type: ''
+          },
+        ],
         customizeType2:false,
         customizeType3:false,
         customizeType4:false,
@@ -560,6 +629,7 @@
         customizeType6:false,
         customizeType7:false,
         customizeType8:false,
+        customizeType9:false,
         FoundationType: false,
         customizeType: false,
         disableType: false,
@@ -599,6 +669,8 @@
             data.customizeType7=!data.customizeType7
           }else if(type===8){
             data.customizeType8=!data.customizeType8
+          }else if(type===9){
+            data.customizeType9=!data.customizeType9
           }
         },
         onDisableTypeType() {

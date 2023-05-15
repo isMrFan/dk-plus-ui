@@ -1,6 +1,4 @@
 // 打包样式
-
-import './src/mixins/mixin.scss'
 import gulpSass from 'gulp-sass'
 import dartSass from 'sass'
 import autoprefixer from 'gulp-autoprefixer'
@@ -17,17 +15,17 @@ function compile() {
     .pipe(dest('./dist'))
 }
 
-function copyfont() {
+function CopyFont() {
   return (
-    src(path.resolve(__dirname, './src/fonts/**'))
+    src(path.resolve(__dirname, './src/font/**'))
       // .pipe(cleanCss())
-      .pipe(dest('./dist/fonts'))
+      .pipe(dest('./dist/font'))
   )
 }
-function copyfullStyle() {
+function CopyFullStyle() {
   return src(path.resolve(__dirname, './dist/**')).pipe(
     dest(path.resolve(__dirname, '../../npm/dist/theme-chalk'))
   )
 }
 
-export default series(compile, copyfont, copyfullStyle)
+export default series(compile, CopyFont, CopyFullStyle)

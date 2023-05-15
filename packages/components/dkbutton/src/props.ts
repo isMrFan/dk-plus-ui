@@ -22,6 +22,7 @@ import { dkPlusType, dkTarget, dkPlusSize ,MouseEventType} from '../../_interfac
  * @property {string} shadow   可以自定义按钮的阴影样式
  * @property {boolean} ripples 水波纹效果
  * @property {string} ripplesBgColor  水波纹效果的背景颜色
+ * @property {boolean} diffusion   扩散效果哦
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -135,6 +136,12 @@ export const dkButtonProps = {
    * @returns 涟漪效果的自定义颜色BG
   */
   ripplesBgColor: setStringProp(),
+  /**
+   * @name diffusion
+   * @param { string }  涟漪效果的自定义颜色BG
+   * @returns 扩散效果
+  */
+  diffusion: setBooleanProps(),
 
   /**是否加载中 */
   loading: setBooleanProps(),

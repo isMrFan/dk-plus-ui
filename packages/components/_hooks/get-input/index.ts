@@ -1,6 +1,6 @@
 import { computed, reactive, toRefs, useSlots } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
-import { getColor, setSize, getStyleList, getSassConfig } from '..'
+import { getColor, setSize, getStyleList } from '..'
 import { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
 import type { dkInputType } from '../../_interface'
@@ -56,8 +56,8 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
  * @returns
  */
 export const getInput = (props: DkInputProps) => {
-  const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
-    getSassConfig()
+  // const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
+  //   getSassConfig()
 
   /**
    * @name defaultClassList
