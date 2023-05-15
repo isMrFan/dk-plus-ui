@@ -19,12 +19,12 @@ import dkinput from '@dk-plus/components/dkinput'
 import '@dk-plus/theme-chalk/src/index.scss'
 
 //全局的npm install 引用
-//import dkPlus from "dk-plus";
+// import dkPlus from "dk-plus";
 //import '@dk-plus/theme-chalk/src/index.scss'
 //import {DkIcon,DkShadow,DkButton} from "dk-plus";
 const app = createApp(App)
 app.use(router)
-//app.use(dkPlus)
+// app.use(dkPlus)
 app.use(hljsVuePlugin)
 app.use(dkIcon)
 app.use(DkShadow)

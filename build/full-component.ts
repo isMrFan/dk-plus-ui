@@ -23,7 +23,7 @@ const buildFull = async () => {
     plugins: [nodeResolve(), typescript(), vue(), commonjs()],
     external: id => /^vue/.test(id) // 表示打包的时候不打包vue代码
   }
-  // 整个组件库 两种使用方式 import 导入组件库 在浏览器中使用 script
+  // 整个组件库 两种使用方式 import 导入组件库 在浏览器中使用 script  
   // esm umd
   const buildConfig = [
     {

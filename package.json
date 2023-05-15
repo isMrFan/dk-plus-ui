@@ -17,7 +17,8 @@
     "dev:docs": "pnpm -C docs dev:docs",
     "build:docs": "pnpm -C docs build:docs",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\"",
-    "deploy:docs": "cross-env NODE_ENV=docs node ./deploy"
+    "deploy:docs": "cross-env NODE_ENV=docs node ./deploy",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

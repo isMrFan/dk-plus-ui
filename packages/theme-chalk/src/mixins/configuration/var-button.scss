@@ -73,11 +73,11 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-background: #409eff;
     --button-borderColor:#409eff;
 
-    --button-hover:#409eff;
+    --button-hover:#ffffff;
     --button-hover-borderColor:#79bbff;
     --button-hover-background:#79bbff;
 
-    --button-active:#409eff;
+    --button-active:#ffffff;
     --button-active-borderColor:#409eff;
     --button-active-background:#337ecc;
   }
@@ -86,52 +86,52 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-background: #67c23a;
     --button-borderColor:#67c23a;
 
-    --button-hover:#67c23a;
+    --button-hover:#ffffff;
     --button-hover-borderColor:#b3e19d;
     --button-hover-background:#b3e19d;
 
-    --button-active:#409eff;
-    --button-active-borderColor:#409eff;
-    --button-active-background:#337ecc;
+    --button-active:#ffffff;
+    --button-active-borderColor:#93c77b;
+    --button-active-background:#93c77b;
   }
   &_info.#{$box}{
     --button-color: #ffffff;
     --button-background: #909399;
     --button-borderColor:#909399;
 
-    --button-hover:#909399;
+    --button-hover:#ffffff;
     --button-hover-borderColor:#c8c9cc;
     --button-hover-background:#c8c9cc;
 
-    --button-active:#409eff;
-    --button-active-borderColor:#409eff;
-    --button-active-background:#337ecc;
+    --button-active:#ffffff;
+    --button-active-borderColor:#a4a6ad;
+    --button-active-background:#a4a6ad;
   }
   &_warning.#{$box}{
     --button-color: #ffffff;
     --button-background: #e6a23c;
     --button-borderColor:#e6a23c;
 
-    --button-hover:#e6a23c;
-    --button-hover-borderColor:#f3d19e;
+    --button-hover:#ffffff;
+    --button-hover-borderColor:#ecc790;
     --button-hover-background:#f3d19e;
 
-    --button-active:#409eff;
-    --button-active-borderColor:#409eff;
-    --button-active-background:#337ecc;
+    --button-active:#ffffff;
+    --button-active-borderColor:#f5bd69;
+    --button-active-background:#f5bd69;
   }
   &_danger.#{$box}{
     --button-color: #ffffff;
     --button-background: #f56c6c;
     --button-borderColor:#f56c6c;
 
-    --button-hover:#c45656;
+    --button-hover:#ffffff;
     --button-hover-borderColor:#fab6b6;
     --button-hover-background:#fab6b6;
 
-    --button-active:#409eff;
-    --button-active-borderColor:#409eff;
-    --button-active-background:#337ecc;
+    --button-active:#ffffff;
+    --button-active-borderColor:#d88383;
+    --button-active-background:#d88383;
   }
   &-box {
     --button-height: 40px;
@@ -172,7 +172,7 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-font-size: 13px;
   }
   //半圆角按钮逻辑处理
-  &_round {
+  &_circle {
     --button-border-radius: 50%;
     --button-padding:0px;
   }

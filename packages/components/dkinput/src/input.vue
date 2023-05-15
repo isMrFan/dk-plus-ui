@@ -17,7 +17,7 @@
     reactive,
     toRefs,
     toRaw,
-InputHTMLAttributes
+    InputHTMLAttributes
   } from 'vue'
   import { dkInputProps, haInputClass } from './props'
   import { getInputGlobal } from '../../_hooks'
@@ -47,8 +47,7 @@ InputHTMLAttributes
         const TARGET = e.target as HTMLInputElement
         MODEL_VALUE.value = TARGET.value
         emit('update:modelValue', MODEL_VALUE.value)
-        console.log(IS_CLEAR.value);
-        
+        console.log(IS_CLEAR.value)
       }
 
       const DISABLED = computed((): boolean => props.disabled)
@@ -66,7 +65,7 @@ InputHTMLAttributes
       const IS_CLEAR = computed(() => {
         return !!clearable && !!MODEL_VALUE.value && !DISABLED.value
       })
-      
+
       return {
         classList: CLASS_LIST.value,
         styleList,
@@ -84,9 +83,7 @@ InputHTMLAttributes
     <div :class="wrapperClassList">
       <input v-model="value" v-bind="inputAttrs" />
       <template v-if="isClear">
-        <dk-icon
-        class="dk-icon-del1 dk-input-clearable"
-        />
+        <dk-icon class="dk-icon-del1 dk-input-clearable" />
       </template>
     </div>
   </div>

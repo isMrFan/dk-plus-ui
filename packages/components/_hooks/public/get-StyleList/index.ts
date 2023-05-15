@@ -12,16 +12,16 @@ import type { ComputedRef, CSSProperties } from 'vue'
 import type { FilterParams } from '../..'
 import type { ClassListName, ScssConfigType } from '../../../_interface'
 
-// import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
+//import sassConfig from '../../../../theme-chalk/src/mixins/config.scss?module'
 
-// /**
-//  * @name getSassConfig
-//  * @Time 2023年05月14日
-//  * @returns nameSpace 命名空间
-//  * @returns commonSeparator 公共分隔符 '-'
-//  * @returns elementSeparator 元素分隔符 '_'
-//  * @returns modifierSeparator 修饰符分隔符 '--'
-//  */
+/**
+ * @name getSassConfig
+ * @Time 2023年05月14日
+ * @returns nameSpace 命名空间
+ * @returns commonSeparator 公共分隔符 '-'
+ * @returns elementSeparator 元素分隔符 '_'
+ * @returns modifierSeparator 修饰符分隔符 '--'
+ */
 // export const getSassConfig = (): ScssConfigType => {
 //   const SASS_CONFIG_CLASS: string = sassConfig.replace(/[\r\n\{\}\s*]/g, '')
 //   /**
@@ -62,13 +62,8 @@ import type { ClassListName, ScssConfigType } from '../../../_interface'
 //   }
 // }
 
-const { namespace, commonSeparator, elementSeparator, modifierSeparator } = {
-  namespace: 'dk',
-  commonSeparator: '-',
-  elementSeparator: '_',
-  modifierSeparator: '--'
-}
-  // getSassConfig()
+// const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
+//   getSassConfig()
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>
   styles: (
@@ -103,9 +98,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
            * @description 利用props的key成样式名称
            */
           classList.value.push(
-            `${namespace}${commonSeparator}${name}${elementSeparator}${
-              isBoolean(propList[key]) ? humpConversion(key) : propList[key]
-            }`
+            `dk-${name}_${isBoolean(propList[key]) ? humpConversion(key) : propList[key]}`
           )
         }
       }
@@ -151,7 +144,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
       Object.entries(propList)
         .filter(([key, value]) => value)
         .map(([key, value]) => [
-          `${modifierSeparator}${name}${commonSeparator}${humpConversion(key)}`,
+          `--${name}$-${humpConversion(key)}`,
           setStyleList(value as string | number, key, pixel)
         ])
     )
