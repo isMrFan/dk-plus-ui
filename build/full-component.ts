@@ -15,7 +15,6 @@ import { rollup, OutputOptions } from 'rollup'
 import fs from 'fs/promises'
 import { buildConfig } from './utils/config'
 import { pathRewriter } from './utils'
-
 const buildFull = async () => {
   // rollup打包的配置信息
   const config = {
