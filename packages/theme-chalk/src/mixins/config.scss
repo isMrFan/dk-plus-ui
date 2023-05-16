@@ -5,13 +5,3 @@ $common-separator: '-' !default; // 通用分隔符
 $element-separator: '_' !default; // 元素分隔符
 $modifier-separator: '--' !default; // 修饰符分隔符
 $state-prefix: 'is-' !default; // 状态前缀
-
-// 导出变量
-// Export variables
-:export {
-  namespace: $namespace;
-  common-separator: $common-separator;
-  element-separator: $element-separator;
-  modifier-separator: $modifier-separator;
-  state-prefix: $state-prefix;
-}
