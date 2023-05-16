@@ -83,7 +83,7 @@
     <div :class="wrapperClassList">
       <input v-model="value" :...="inputAttrs" />
       <template v-if="isClear">
-        <dk-icon
+        <dkIcon
         class="dk-icon-del1 dk-input-clearable"
         />
       </template>

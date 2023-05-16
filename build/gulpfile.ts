@@ -26,9 +26,11 @@ export default series(
       run('pnpm run --filter ./packages/* --parallel build')
     ),
     withTaskName('buildFullComponent', () => run('pnpm run build buildFullComponent')), // 执行build命令时会调用rollup, 我们给rollup传递参数buildFullComponent 那么就会执行导出任务叫 buildFullComponent
-    withTaskName('buildComponent', () => run('pnpm run build buildComponent'))
+    withTaskName('buildComponent', () => run('pnpm run build buildComponent')),
+    withTaskName('finish', () => run('pnpm run build Finish'))
   ),
-  parallel(genTypes, copySourceCode())
+  parallel(genTypes, copySourceCode()),
+  
 )
 
 //  这是一个任务

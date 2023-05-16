@@ -13,6 +13,9 @@ function compile() {
     .pipe(autoprefixer())
     .pipe(cleanCss())
     .pipe(dest('./dist'))
+    .on('end', () => {
+      console.log('Sass files compiled successfully.')
+    })
 }
 
 function CopyFont() {

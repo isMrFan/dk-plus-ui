@@ -41,7 +41,6 @@ export const buildPackages = (dirname: string, name: string) => {
       })
     )
   })
-
   console.log(tasks)
   return parallel(...tasks)
   // 最终发布的是dist  最终在项目中引入的都是es6模块。  按需加载
