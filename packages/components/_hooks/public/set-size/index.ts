@@ -1,6 +1,6 @@
 /**
  * @name setSize
- * @param { number || string } size 需要转换的尺寸
+ * @param { number | string } size 需要转换的尺寸
  * @description 获取尺寸 没有尺寸单位默认为 px
  */
 export const setSize = (size: number | string): string => {
@@ -9,7 +9,7 @@ export const setSize = (size: number | string): string => {
   if (!IS_APPEND) {
     siz += 'px'
   }
-  const IS_SIZE = /^-?\d+(\.\d+)?(px|em|rem)$/.test(siz)
+  const IS_SIZE = /^-?\d+(\.\d+)?(px|em|rem|\%)$/.test(siz)
   if (IS_SIZE) return IS_APPEND ? siz : siz + 'px'
   throw new Error(`dk-plus -> getSize -> ${siz} is not a size`)
 }

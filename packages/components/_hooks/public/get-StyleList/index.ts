@@ -10,9 +10,7 @@ import { getProps } from '../..'
 import { isBoolean, humpConversion, sizeChange } from '../../../_utils'
 import type { ComputedRef, CSSProperties } from 'vue'
 import type { FilterParams } from '../..'
-import type { ClassListName, ScssConfigType } from '../../../_interface'
-
-
+import type { ClassListName } from '../../../_interface'
 
 export interface UseListReturn {
   classes: (list: FilterParams, className?: string) => ComputedRef<ClassListName>

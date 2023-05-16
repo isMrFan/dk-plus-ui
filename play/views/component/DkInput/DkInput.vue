@@ -8,7 +8,21 @@
     </Dk-Input>
     <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button> -->
 
-    <dk-input clearable></dk-input>
+    <!-- <dk-input clearable placeholder="prefix插槽形式">
+      <template #prefix>
+        <dk-icon class="dk-icon-del1" />
+      </template>
+    </dk-input> -->
+    <dk-input clearable placeholder="prefix属性绑定形式" prefixIcon />
+    <dk-input clearable placeholder="prefix属性绑定形式" prefixIcon="dk-icon-del1" />
+    <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
+      <template #prefix>
+        <dk-icon class="dk-icon-del1" />
+      </template>
+      <template #suffix>
+        <dk-icon class="dk-icon-del1" />
+      </template>
+    </dk-input>
 
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">

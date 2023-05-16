@@ -4,24 +4,42 @@
 /**
   * block class name
   * @param {string} $block - 必选 (@include block('block') -> .dk-block) 
+  * @prefix {string} > 是否添加到跟元素 - 可选 (@include block('block') -> .xxx .xxx .dk-block) | (@include block('>block') -> .dk-block)
   * @prefix {string} * 是否继承父级类名 - 可选 (@include block('*block') -> .dk-block) ｜ @include block('block') -> .&-block
-  * @prefix {string} > 是否添加到跟元素 - 可选 (@include block('>block') -> .dk-block)
   * @param {string} $namespace - 可选
   * @return {string} .namespace-block
   */
 @mixin block($block, $namespace: $namespace) {
-  $B: handleBlock($block, $namespace);
-  @if isAtRoot($block) {
-    $blo: str-slice($block, 2, str-length($block));
-    $B: handleBlock($blo, $namespace);
-    // @debug $B;
-    #{$B} {
-      @content;
+  @if isList($block) {
+    @each $item in $block {
+      $B: handleBlock($item, $namespace);
+      @if isAtRoot($item) {
+        $blo: str-slice($item, 2, str-length($item));
+        $B: handleBlock($blo, $namespace);
+        #{$B} {
+          @content;
+        }
+      } @else {
+        @at-root {
+          #{$B} {
+            @content;
+          }
+        }
+      }
     }
   } @else {
-    @at-root {
+    $B: handleBlock($block, $namespace);
+    @if isAtRoot($block) {
+      $blo: str-slice($block, 2, str-length($block));
+      $B: handleBlock($blo, $namespace);
       #{$B} {
         @content;
+      }
+    } @else {
+      @at-root {
+        #{$B} {
+          @content;
+        }
       }
     }
   }
@@ -52,34 +70,52 @@
 /**
   * element class name
   * @param {string} $element - 必选 (@include element('element')
+  * @prefix {string} > 是否添加到跟元素 - 可选 (@include element('element') -> .xxx .xxx .dk-element) | (@include element('>element') -> .dk-element)
   * @prefix {string} * 是否继承父级类名 - 可选 (@include element('*element') -> .dk-element) ｜ @include element('element') -> .&_element
-  * @prefix {string} > 是否添加到跟元素 - 可选 (@include element('>element') -> .dk-element)
   * @param {string} $block
   * @return {string} &__element
   */
 @mixin element($element, $block: '') {
-  $E: handleElement($element, $block, $element-separator);
-  @if isAtRoot($element) {
-    $ele: str-slice($element, 2, str-length($element));
-    $E: handleElement($ele, $block, $element-separator);
-    #{$E} {
-      @content;
+  @if isList($element) {
+    @each $item in $element {
+      $E: handleElement($item, $block, $element-separator);
+      @if isAtRoot($item) {
+        $ele: str-slice($item, 2, str-length($item));
+        $E: handleElement($ele, $block, $element-separator);
+        #{$E} {
+          @content;
+        }
+      } @else {
+        @at-root {
+          #{$E} {
+            @content;
+          }
+        }
+      }
     }
   } @else {
-    @at-root {
+    $E: handleElement($element, $block, $element-separator);
+    @if isAtRoot($element) {
+      $ele: str-slice($element, 2, str-length($element));
+      $E: handleElement($ele, $block, $element-separator);
       #{$E} {
         @content;
       }
+    } @else {
+      @at-root {
+        #{$E} {
+          @content;
+        }
+      }
     }
   }
-  // @debug $E;
 }
 
 /**
   * modifier class name
   * @param {string} $modifier - 必选 (@include modifier('modifier') -> &--modifier
+  * @prefix {string} > 是否添加到跟元素 - 可选 (@include modifier('modifier') -> .xxx .xxx .dk-modifier) | (@include modifier('>modifier') -> .dk-modifier)
   * @prefix {string} * 是否继承父级类名 - 可选 (@include modifier('*modifier') -> .dk-modifier) ｜ @include modifier('modifier') -> &--modifier
-  * @prefix {string} > 是否添加到跟元素 - 可选 (@include modifier('>modifier') -> .dk-modifier)
   * @return {string} &--modifier
   */
 @mixin modifier($modifier) {
@@ -108,12 +144,31 @@
 }
 
 /** 
+  * @name handleClassName 生成class选择器
+  * @param {string} $className - 必选 需要生成的类名
+  * @param {string} $separator - 必选 分隔符
+  * @param {string} $prefix - 可选 前缀
+  * @param {string} $namespace - 可选 命名空间
+  * @return {string} .namespace-block__element--modifier  
+  还没思路 改天写 上面的bem太low了 
+*/  
+// @mixin handleClassName($className, $separator, $prefix: '', $namespace: $namespace) {
+//   // 1. 验证是否为列表
+//   // 2. 验证前缀是否存在
+//     // 2.1 > 是否添加到跟元素
+//     // 2.2 * 是否继承父级类名
+//   // 
+
+// }
+
+/** 
   * @name isAtRoot
   * @param {string} $str - 必选
   * @description 检测字符串是否以>开头
   * @return {boolean} - true | false
 */
 @function isAtRoot($str) {
+  // @debug type-of($value: $str)$str;
   @return str-index($str, '>') == 1;
 }
 

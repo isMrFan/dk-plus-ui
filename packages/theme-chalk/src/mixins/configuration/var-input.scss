@@ -42,4 +42,7 @@ $input-theme-colors: (
   --input-focus-border: #{getInputColor('primary')};
   --input-text-color: #{getInputColor('text')};
   --input-disabled-color: #{getInputColor('disabled')};
+  --input-icon-color: #{getInputColor('hover')};
+  --input-icon-hover-color: #{getInputColor('text')};
+  --input-prefix-icon-color: #{getInputColor('hover')};
 }

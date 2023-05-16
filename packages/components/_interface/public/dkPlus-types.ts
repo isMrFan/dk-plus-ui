@@ -52,19 +52,3 @@ export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
  */
 
 export type MouseEventType = (evt: MouseEvent) => void
-
-/**
- * @name ScssConfigType
- * @Time 2023年04月28日
- * @param { string }  [namespace] 命名空间
- * @param { string }  [commonSeparator] 公共分隔符
- * @param { string }  [elementSeparator] 元素分隔符
- * @param { string }  [modifierSeparator] 修饰符分隔符
- */
-
-export type ScssConfigType = {
-  namespace?: string
-  commonSeparator?: string
-  elementSeparator?: string
-  modifierSeparator?: string
-}
