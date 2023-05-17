@@ -36,5 +36,3 @@ module.exports = {
     'body-leading-blank': [0] // body换行
   }
 }
-//"@commitlint/cli": "^17.6.3",
-//"@commitlint/config-conventional": "^17.6.3",
