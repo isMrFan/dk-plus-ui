@@ -1,3 +1,5 @@
 {
-  "src/**/*.{js,vue}": "npm run lint"
+  "packages/**/*.{js,vue,ts}": "npm run lint",
+  "play/**/*.{js,vue,ts}": "npm run lint",
+  "docs/**/*.{js,vue,ts,.md}": "npm run lint"
 }
