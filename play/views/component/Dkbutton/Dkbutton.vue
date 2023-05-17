@@ -305,7 +305,6 @@
       <div v-if="false">
         <h3>4.带有阴影</h3>
         <div class="dkButton_DK_wb">
-          <Dk-Button shadow="0 1px 10px 0 #f0f0f0" size="large">默认按钮123</Dk-Button>
           <Dk-Button shadow="0 1px 10px 0 #f0f0f0" size="large">默认按钮</Dk-Button>
           <Dk-Button shadow="0 1px 10px 0 #409eff" type="primary" size="large"
             >基础</Dk-Button
