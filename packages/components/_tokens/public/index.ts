@@ -43,14 +43,13 @@ export const DK_TYPE = [
  * @returns 组件Type类型颜色
  */
 export const DK_TYPE_COLOR = {
-  default:'#f0f0f0',
+  default: '#f0f0f0',
   primary: '#409eff',
   success: '#67c23a',
   info: '#909399',
   warning: '#e6a23c',
   danger: '#f56c6c'
 } as const
-
 
 /**
  * @name DK_TARGET

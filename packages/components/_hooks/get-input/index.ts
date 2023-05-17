@@ -105,13 +105,7 @@ export const getInput = (props: DkInputProps) => {
   const CLASS_LIST = classes([...defaultClassList], 'dk-input')
 
   const STYLE_LIST = computed((): CSSProperties => {
-    const {
-      width,
-      height,
-      fontSize,
-      borderRadius,
-      textColor
-    } = props
+    const { width, height, fontSize, borderRadius, textColor } = props
 
     let defaultStyle = {
       '--input-width': width ? setSize(width) : null,
@@ -143,7 +137,6 @@ export const getInput = (props: DkInputProps) => {
   let defaultWrapperClassList = []
   const WRAPPER_CLASS_LIST = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
-
   /**
    * @name defaultInnerClassList
    * @description 期望被转换的inner类名
@@ -162,7 +155,6 @@ export const getInput = (props: DkInputProps) => {
     [...defaultClearableStyleList],
     'dk-input'
   )
-
 
   return {
     classList: CLASS_LIST,

@@ -43,7 +43,6 @@ export type dkPlusSize = 'large' | 'medium' | 'small' | 'mini'
 
 export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
 
-
 /**
  * @name MouseEventType
  * @see MouseEvent https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/MouseEvent

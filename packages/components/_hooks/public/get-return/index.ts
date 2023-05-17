@@ -1,6 +1,5 @@
 import { isFunction } from '../../../_utils'
 
-
 /**
  * @name getReturn
  * @Time 2023年05月10日
@@ -8,7 +7,10 @@ import { isFunction } from '../../../_utils'
  */
 
 export interface getReturnType {
-  getRun: <T extends Function>(callback: T | null | undefined, ...params: unknown[]) => void
+  getRun: <T extends Function>(
+    callback: T | null | undefined,
+    ...params: unknown[]
+  ) => void
 }
 
 /**
@@ -19,7 +21,7 @@ export interface getReturnType {
  */
 export const getReturn = (): getReturnType => {
   /**
-   * @name getRun 
+   * @name getRun
    * @Time 2023年05月10日
    * @param { Function } callback 回调函数
    * @param { string } params 回调参数

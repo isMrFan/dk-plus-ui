@@ -31,7 +31,7 @@ $input-theme-colors: (
   @return map-get($input-theme-colors, $color);
 }
 
-@include block('input'){
+@include block('input') {
   --input-color: #{getInputColor('none')};
   --input-border: #{getInputColor('border')};
   --input-width: 100%;
