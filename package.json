@@ -68,6 +68,9 @@
     "typescript": "latest",
     "vue": "^3.2.25"
   },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx,.md}": "eslint --cache --fix"
+  },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
