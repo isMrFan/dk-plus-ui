@@ -1,4 +1,4 @@
-import type { ExtractPropTypes} from 'vue';
+import type { ExtractPropTypes } from 'vue'
 import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
 import {
   setBooleanProps,
@@ -10,14 +10,15 @@ import type { dkPlusSize, dkInputType } from '../../_interface'
 
 export const dkInputProps = {
   /** textColor */
-               textColor: setStringProp() || setNumberProps(),
-               
+  textColor: setStringProp() || setNumberProps(),
+
   /** borderRadius */
   borderRadius: setStringProp() || setNumberProps(),
   /** fontSize */
   fontSize: setStringProp() || setNumberProps(),
   /** input宽度 */
   width: setStringProp() || setNumberProps(),
+
   /** input高度 */
   height: setStringProp() || setNumberProps(),
   /** input边框颜色 */
