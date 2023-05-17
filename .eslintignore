@@ -5,7 +5,6 @@
 # 忽略的文件和目录
 dist/
 node_modules/
-build/
 deploy/
 play/
 packages/utils/

@@ -1,7 +1,5 @@
 # 贡献
 
-English | [中文](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
-
 ## 🙋 在您贡献之前，请先阅读以下内容
 
 你好！欢迎使用 DK-plus！
@@ -55,10 +53,21 @@ English | [中文](https://github.com/FightingDesign/fighting-design/blob/master
 ├── └─ README.md  #打包后的说明文件
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
-├── ├── ├── dkbutton  #按钮组件
-├── ├── ├── dkshadow  #盒模型阴影组件
-├── ├── ├── icon      #图标组件
-├── ├── ├── index.ts  #组件入口文件
+├── ├── _hooks        # hooks
+├── ├── ├── get-button  # 获取按钮的方法(hooks_dk-button)
+├── ├── ├── get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
+├── ├── ├── index.ts    # hooks出口文件
+├── ├── _icon         # 图标存放文件的SVG
+├── ├── _interface    # 项目内的接口文件
+├── ├── _tokens       # 项目内的默认值设置
+├── ├── _utils        # 组件内用的工具方法
+├── ├── ├── index.ts      # 组件内工具出口文件
+├── ├── ├── props         # 组件内props推断方法
+├── ├── ├── typeof        # 组件内typeof数据类型判断方法
+├── ├── dkbutton  #按钮组件
+├── ├── dkshadow  #盒模型阴影组件
+├── ├── icon      #图标组件
+├── ├── index.ts  #组件入口文件
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
@@ -108,12 +117,20 @@ cd dk-ui
 
 # 安装依赖项
 pnpm install
+ps: 注意这里引用了联合指令,如没安装cnpm 请先安装cnpm 国外用户把根目录下的package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
+# CNPM安装
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 # 启动开发项目
 pnpm dev:play
 
 # 启动文档
 pnpm dev:docs
+
+# 发布
+npm init
+npm login
+npm publish
 
 ```
 
@@ -154,20 +171,25 @@ Git 允许我们在每次提交时，附带一个提交信息作为说明，当�
 
 类型必须是下面类型之一，并对照类型描述填写。
 
-| 类型     | 示例                                     | 描述         |
-| -------- | ---------------------------------------- | ------------ |
-| build    | git commit -m 'build: 打包\*\*\*配置'    | 修改打包配置 |
-| ci       | git commit -m 'ci: 修改 ci 配置'         | 修改 ci 配置 |
-| docs     | git commit -m 'docs: 修改文档'           | 修改文档     |
-| feat     | git commit -m 'feat: 新增\*\*\*组件'     | 新增组件     |
-| fix      | git commit -m 'fix: 修复\*\*\*bug'       | 修复 bug     |
-| perf     | git commit -m 'perf: 优化\*\*\*性能'     | 优化性能     |
-| refactor | git commit -m 'refactor: 重构\*\*\*代码' | 重构代码     |
-| style    | git commit -m 'style: 修改\*\*\*样式'    | 修改样式     |
-| test     | git commit -m 'test: 新增\*\*\*测试用例' | 新增测试用例 |
-| revert   | git commit -m 'revert: 回滚\*\*\*代码'   | 回滚代码     |
-| chore    | git commit -m 'chore: 修改\*\*\*配置'    | 修改配置     |
-| release  | git commit -m 'release: 发布\*\*\*版本'  | 发布版本     |
+| 类型      | 示例                                             | 描述                       |
+| --------- | ------------------------------------------------ | -------------------------- |
+| build     | git commit -m 'build: 打包\*\*\*配置'            | 修改打包配置               |
+| ci        | git commit -m 'ci: 修改 ci 配置'                 | 修改 ci 配置               |
+| docs      | git commit -m 'docs: 修改文档'                   | 修改文档                   |
+| feat      | git commit -m 'feat: 新增\*\*\*组件'             | 新增组件                   |
+| fix       | git commit -m 'fix: 修复\*\*\*bug'               | 修复 bug                   |
+| perf      | git commit -m 'perf: 优化\*\*\*性能'             | 优化性能                   |
+| refactor  | git commit -m 'refactor: 重构\*\*\*代码'         | 重构代码                   |
+| style     | git commit -m 'style: 修改\*\*\*样式'            | 修改样式                   |
+| test      | git commit -m 'test: 新增\*\*\*测试用例'         | 新增测试用例               |
+| revert    | git commit -m 'revert: 回滚\*\*\*代码'           | 回滚代码                   |
+| chore     | git commit -m 'chore: 修改\*\*\*配置'            | 修改配置                   |
+| release   | git commit -m 'release: 发布\*\*\*版本'          | 发布版本                   |
+| hooks     | git commit -m 'hooks: 新增\*\*\*                 | 开发                       |
+| perfect   | git commit -m 'perfect: 完善\*\*\* '             | 完善之前代码块哪里的代码块 |
+| utils     | git commit -m 'utils: 组件工具箱\*\*\*           | 更新工具箱                 |
+| interface | git commit -m 'interface: 增加组件全局接口\*\*\* | 全局接口                   |
+| deps      | git commit -m 'deps: 依赖升级                    | 全局接口                   |
 
 可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
 

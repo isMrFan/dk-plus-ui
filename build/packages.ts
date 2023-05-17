@@ -5,18 +5,20 @@
  * @description 专门打包util ， 指令 ， hook的
  **/
 
-import { series, parallel, src, dest } from 'gulp'
+import { series, parallel, src, dest  } from 'gulp'
 import { buildConfig } from './utils/config'
 import path from 'path'
 import { outDir, projectRoot } from './utils/paths'
 import ts from 'gulp-typescript'
 import { withTaskName } from './utils'
-export const buildPackages = (dirname: string, name: string) => {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export const buildPackages = (dirname: string, name: string)=> {
   // 打包的格式需要是什么类型的？ 模块规范 cjs  es模块规范
   // umd 是在浏览器中用的
   // 可以用rollup， 这个逻辑知识让ts-> js即可
 
-  const tasks = Object.entries(buildConfig).map(([module, config]) => {
+  // eslint-disable-next-line no-unused-vars
+  const tasks = Object.entries(buildConfig).map(([, config]) => {
     const output = path.resolve(dirname, config.output.name)
     return series(
       withTaskName(`buld:${dirname}`, () => {

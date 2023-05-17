@@ -148,7 +148,7 @@ importers:
       '@vitejs/plugin-legacy': ^4.0.0
       '@vitejs/plugin-vue': ^4.0.0
       babel-polyfill: ^6.26.0
-      dk-plus: ^1.0.6
+      dk-plus: ^1.0.8
       eslint: ^8.30.0
       eslint-plugin-vue: ^9.8.0
       highlight.js: ^11.7.0
@@ -173,7 +173,7 @@ importers:
       '@vitejs/plugin-legacy': 4.0.3_terser@5.17.4+vite@4.3.7
       '@vitejs/plugin-vue': 4.2.3_vite@4.3.7+vue@3.3.2
       babel-polyfill: 6.26.0
-      dk-plus: 1.0.7
+      dk-plus: 1.0.8
       eslint: 8.40.0
       eslint-plugin-vue: 9.13.0_eslint@8.40.0
       highlight.js: 11.8.0
@@ -3631,8 +3631,8 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /dk-plus/1.0.7:
-    resolution: {integrity: sha512-s68z3pa+k7A+jw9e04kCCS9r7N88l6pBIR87j2HhnXuN+XMQ1cyZychru99Jcp36CqqEb0kUD6zWuz+dqUJWNw==}
+  /dk-plus/1.0.8:
+    resolution: {integrity: sha512-qp90+2eJ2aeZ4LMzUNwc4uSTFCcK8tbLr7MdwYQBGzejG/kcF5RSAT7+DzIlXB7XBa1kimKCSXaBbzTtfuJDsg==}
     dev: true
 
   /doctrine/3.0.0:
