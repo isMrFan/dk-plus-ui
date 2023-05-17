@@ -9,6 +9,7 @@ cache/
 .history
 npm/dist
 packages/theme-chalk/dist
+play/report.html
 
 # 特定文件类型的忽略
 **/*.cache
