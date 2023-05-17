@@ -22,15 +22,14 @@
     "prepare": "husky install",
     "lint": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\"",
     "lint-staged": "lint-staged",
-    "commitlint": "commitlint --config commitlint.config.js -e -V"
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "postinstall": "cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@algolia/client-search": "^4.17.0",
-    "@commitlint/cli": "^17.6.3",
-    "@commitlint/config-conventional": "^17.6.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/gulp": "^4.0.10",
