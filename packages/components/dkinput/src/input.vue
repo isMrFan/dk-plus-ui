@@ -10,16 +10,10 @@
     defineComponent,
     computed,
     ref,
-    nextTick,
-    Ref,
-    ComputedRef,
-    watch,
-    reactive,
-    toRefs,
     toRaw,
     InputHTMLAttributes
   } from 'vue'
-  import { dkInputProps, haInputClass } from './props'
+  import { dkInputProps } from './props'
   import { getInputGlobal } from '../../_hooks'
   import { getInput } from '../../_hooks'
 
@@ -32,11 +26,9 @@
       const { type = getInputType(), placeholder, clearable } = props
 
       const {
-        classList,
         styleList,
         wrapperClassList,
-        innerClassList,
-        clearableClassList
+        innerClassList
       } = getInput(props)
 
       const CLASS_LIST = computed(() => getInput(props).classList)
@@ -84,11 +76,7 @@
       })
 
       const IS_SUFFIX_ICON = computed(() => !!props.suffixIcon)
-      console.log(
-        '🚀 ~ file: input.vue:91 ~ setup ~ IS_SUFFIX_ICON:',
-        IS_SUFFIX_ICON.value,
-        props.suffixIcon
-      )
+      // console.log("🚀 ~ file: input.vue:91 ~ setup ~ IS_SUFFIX_ICON:", IS_SUFFIX_ICON.value, props.suffixIcon)
 
       const SUFFIX_ICON_CLASS = computed(() => {
         const IS_DEFAULT = typeof props.suffixIcon === 'boolean'
