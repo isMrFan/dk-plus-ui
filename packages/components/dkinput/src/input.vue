@@ -6,7 +6,7 @@
    * @description 输入框组件
    * @example
    */
-  import type { InputHTMLAttributes } from 'vue';
+  import type { InputHTMLAttributes } from 'vue'
   import { defineComponent, computed, ref, toRaw } from 'vue'
   import { dkInputProps } from './props'
   import { getInputGlobal } from '../../_hooks'
@@ -16,7 +16,7 @@
     name: 'DkInput',
     props: dkInputProps,
     emits: ['update:modelValue'],
-    setup (props, { slots, emit }) {
+    setup(props, { slots, emit }) {
       const { getInputType } = getInputGlobal(props)
       const { type = getInputType(), placeholder, clearable } = props
 
@@ -87,14 +87,14 @@
         prefixIconClass: PREFIX_ICON_CLASS.value,
         isSuffix: IS_SUFFIX.value,
         isSuffixIcon: IS_SUFFIX_ICON.value,
-                   suffixIconClass: SUFFIX_ICON_CLASS.value
+         suffixIconClass: SUFFIX_ICON_CLASS.value
       }
     }
   })
 </script>
 
 <template>
-   <div :class="classList" :style="styleList">
+  <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
