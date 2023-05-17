@@ -400,7 +400,7 @@
     name: 'Dkbuttonsm',
     setup() {
       const data = reactive({
-        foundationHighlightjs: [
+        foundationHighlightjs:
           {
             name: `<Dk-Button text type="default"> 默认(default) </Dk-Button>`,
             nackName: '默认',
