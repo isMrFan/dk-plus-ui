@@ -6,13 +6,7 @@
    * @description 输入框组件
    * @example
    */
-  import {
-    defineComponent,
-    computed,
-    ref,
-    toRaw,
-    InputHTMLAttributes
-  } from 'vue'
+  import { defineComponent, computed, ref, toRaw, InputHTMLAttributes } from 'vue'
   import { dkInputProps } from './props'
   import { getInputGlobal } from '../../_hooks'
   import { getInput } from '../../_hooks'
@@ -25,11 +19,7 @@
       const { getInputType } = getInputGlobal(props)
       const { type = getInputType(), placeholder, clearable } = props
 
-      const {
-        styleList,
-        wrapperClassList,
-        innerClassList
-      } = getInput(props)
+      const { styleList, wrapperClassList, innerClassList } = getInput(props)
 
       const CLASS_LIST = computed(() => getInput(props).classList)
 
@@ -96,7 +86,7 @@
         prefixIconClass: PREFIX_ICON_CLASS.value,
         isSuffix: IS_SUFFIX.value,
         isSuffixIcon: IS_SUFFIX_ICON.value,
-        suffixIconClass: SUFFIX_ICON_CLASS.value
+                 suffixIconClass: SUFFIX_ICON_CLASS.value
       }
     }
   })
