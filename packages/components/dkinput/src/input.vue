@@ -86,14 +86,14 @@
         prefixIconClass: PREFIX_ICON_CLASS.value,
         isSuffix: IS_SUFFIX.value,
         isSuffixIcon: IS_SUFFIX_ICON.value,
-                 suffixIconClass: SUFFIX_ICON_CLASS.value
+                   suffixIconClass: SUFFIX_ICON_CLASS.value
       }
     }
   })
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+   <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
