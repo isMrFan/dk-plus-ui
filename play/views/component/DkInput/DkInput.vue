@@ -1,50 +1,8 @@
-<template>
-  <div class="input">
-    <!-- <Dk-Input
-      v-model="msg"
-      placeholder="change"
-      :disabled="isDisabled"
-    >
-    </Dk-Input>
-    <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button> -->
-
-    <!-- <dk-input clearable placeholder="prefix插槽形式">
-      <template #prefix>
-        <dk-icon class="dk-icon-del1" />
-      </template>
-    </dk-input> -->
-    <dk-input clearable placeholder="prefix属性绑定形式" prefixIcon />
-    <dk-input clearable placeholder="prefix属性绑定形式" prefixIcon="dk-icon-del1" />
-    <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
-      <template #prefix>
-        <dk-icon class="dk-icon-del1" />
-      </template>
-      <template #suffix>
-        <dk-icon class="dk-icon-del1" />
-      </template>
-    </dk-input>
-
-    <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
-    <!-- <div class="box" v-for="item in htmlList" :key="item.title">
-      <div>{{ item.title }}</div>
-      <div class="index_Dk_code">
-        <highlightjs language="javascript" :code="item.code" />
-        <span class="copy" @click="oncopy(item.code)">复制代码</span>
-      </div>
-      <dk-input v-bind="item.attrs" />
-    </div>
-    <div class="box">
-      <dk-input v-model="msg" type="" placeholder="清空" clearable />
-      {{ msg }}
-    </div> -->
-  </div>
-</template>
-
 <script lang="ts">
   import { defineComponent, ref, watch, reactive } from 'vue'
   export default defineComponent({
     name: 'DkInputComponent',
-    setup() {
+    setup () {
       const oncopy = (code: string) => {
         const input = document.createElement('input')
         input.setAttribute('readonly', 'readonly')
@@ -76,7 +34,7 @@
         htmlList: [
           {
             title: 'change',
-            code: `<dk-input v-model="msg" @change="change" prefix-icon="del1" @prefix-click="handleFixClick">`,
+            code: '<dk-input v-model="msg" @change="change" prefix-icon="del1" @prefix-click="handleFixClick">',
             attrs: {
               placeholder: 'change',
               prefixIcon: 'del1',
@@ -86,14 +44,14 @@
           },
           {
             title: '基础用法',
-            code: `<dk-input placeholder="基础用法"/>`,
+            code: '<dk-input placeholder="基础用法"/>',
             attrs: {
               placeholder: '基础用法'
             }
           },
           {
             title: '禁用状态',
-            code: `<dk-input placeholder="禁用状态" disabled/>`,
+            code: '<dk-input placeholder="禁用状态" disabled/>',
             attrs: {
               placeholder: '禁用状态',
               disabled: true
@@ -101,7 +59,7 @@
           },
           {
             title: '可清空',
-            code: `<dk-input placeholder="可清空" clearable/>`,
+            code: '<dk-input placeholder="可清空" clearable/>',
             attrs: {
               placeholder: '可清空',
               clearable: true
@@ -109,7 +67,7 @@
           },
           {
             title: '密码框',
-            code: `<dk-input placeholder="密码框" type="password"/>`,
+            code: '<dk-input placeholder="密码框" type="password"/>',
             attrs: {
               placeholder: '密码框',
               type: 'password'
@@ -117,7 +75,7 @@
           },
           {
             title: '可查看密码',
-            code: `<dk-input placeholder="可查看密码" show-password type="password"/>`,
+            code: '<dk-input placeholder="可查看密码" show-password type="password"/>',
             attrs: {
               placeholder: '密码框',
               type: 'password',
@@ -126,7 +84,7 @@
           },
           {
             title: '前缀图标',
-            code: `<dk-input placeholder="前缀图标" prefix-icon="search"/>`,
+            code: '<dk-input placeholder="前缀图标" prefix-icon="search"/>',
             attrs: {
               placeholder: '前缀图标',
               prefixIcon: 'search'
@@ -135,7 +93,7 @@
           },
           {
             title: '后缀图标',
-            code: `<dk-input placeholder="后缀图标" suffix-icon="search"/>`,
+            code: '<dk-input placeholder="后缀图标" suffix-icon="search"/>',
             attrs: {
               placeholder: '后缀图标',
               suffixIcon: 'search',
@@ -144,7 +102,7 @@
           },
           {
             title: '前缀图标点击事件',
-            code: `<dk-input placeholder="前缀图标" @prefix-click='handleSuffixClick' prefix-icon="search"/>`,
+            code: '<dk-input placeholder="前缀图标" @prefix-click=\'handleSuffixClick\' prefix-icon="search"/>',
             attrs: {
               placeholder: '前缀图标',
               prefixIcon: 'search'
@@ -153,7 +111,7 @@
           },
           {
             title: '后缀图标点击事件',
-            code: `<dk-input placeholder="后缀图标" @suffix-click='handleSuffixClick' suffix-icon="search"/>`,
+            code: '<dk-input placeholder="后缀图标" @suffix-click=\'handleSuffixClick\' suffix-icon="search"/>',
             attrs: {
               placeholder: '后缀图标',
               suffixIcon: 'search'
@@ -186,7 +144,7 @@
           },
           {
             title: '文本域',
-            code: `<dk-input placeholder="文本域" type="textarea" rows="3"/>`,
+            code: '<dk-input placeholder="文本域" type="textarea" rows="3"/>',
             attrs: {
               placeholder: '文本域',
               type: 'textarea',
@@ -195,7 +153,7 @@
           },
           {
             title: '高度自适应文本域',
-            code: `<dk-input placeholder="高度自适应文本域" type="textarea" autosize rows="3"/>`,
+            code: '<dk-input placeholder="高度自适应文本域" type="textarea" autosize rows="3"/>',
             attrs: {
               placeholder: '高度自适应文本域',
               type: 'textarea',
@@ -218,7 +176,7 @@
           },
           {
             title: '后缀内容',
-            code: `<dk-input placeholder="后缀内容" append=".00"/>`,
+            code: '<dk-input placeholder="后缀内容" append=".00"/>',
             attrs: {
               placeholder: '后缀内容',
               append: '.00'
@@ -226,7 +184,7 @@
           },
           {
             title: 'size',
-            code: `<dk-input placeholder="size" size='medium'/>`,
+            code: '<dk-input placeholder="size" size=\'medium\'/>',
             attrs: {
               placeholder: 'medium',
               size: 'medium'
@@ -234,7 +192,7 @@
           },
           {
             title: 'size',
-            code: `<dk-input placeholder="size" size='small'/>`,
+            code: '<dk-input placeholder="size" size=\'small\'/>',
             attrs: {
               placeholder: 'small',
               size: 'small'
@@ -242,7 +200,7 @@
           },
           {
             title: 'size',
-            code: `<dk-input placeholder="size" size='mini'/>`,
+            code: '<dk-input placeholder="size" size=\'mini\'/>',
             attrs: {
               placeholder: 'mini',
               size: 'mini'
@@ -250,7 +208,7 @@
           },
           {
             title: '输入框内容长度限制',
-            code: `<dk-input placeholder="输入框内容长度限制" maxlength="10" minlength='4'/>`,
+            code: '<dk-input placeholder="输入框内容长度限制" maxlength="10" minlength=\'4\'/>',
             attrs: {
               placeholder: '输入框内容长度限制',
               maxlength: 10,
@@ -260,7 +218,7 @@
         ]
       })
 
-      function getComponentName(code) {
+      function getComponentName (code) {
         // 在这里根据字符串 code 返回对应的组件名称
         if (code === '<dk-input placeholder="基础用法"/>') {
           return 'DkInput'
@@ -286,6 +244,48 @@
     }
   })
 </script>
+
+<template>
+  <div class="input">
+    <!-- <Dk-Input
+      v-model="msg"
+      placeholder="change"
+      :disabled="isDisabled"
+    >
+    </Dk-Input>
+    <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button> -->
+
+    <!-- <dk-input clearable placeholder="prefix插槽形式">
+      <template #prefix>
+        <dk-icon class="dk-icon-del1" />
+      </template>
+    </dk-input> -->
+    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon />
+    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="dk-icon-del1" />
+    <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
+      <template #prefix>
+        <dk-icon class="dk-icon-del1" />
+      </template>
+      <template #suffix>
+        <dk-icon class="dk-icon-del1" />
+      </template>
+    </dk-input>
+
+    <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
+    <!-- <div class="box" v-for="item in htmlList" :key="item.title">
+      <div>{{ item.title }}</div>
+      <div class="index_Dk_code">
+        <highlightjs language="javascript" :code="item.code" />
+        <span class="copy" @click="oncopy(item.code)">复制代码</span>
+      </div>
+      <dk-input v-bind="item.attrs" />
+    </div>
+    <div class="box">
+      <dk-input v-model="msg" type="" placeholder="清空" clearable />
+      {{ msg }}
+    </div> -->
+  </div>
+</template>
 
 <style lang="scss" scoped>
   .input {

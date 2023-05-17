@@ -12,7 +12,7 @@
   export default defineComponent({
     name: 'DkButton',
     props: dkButtonProps,
-    setup(Props) {
+    setup (Props) {
       const dkBoxButton = ref<HTMLButtonElement>()
       const { classList, styleList } = getButton(Props)
       const { getRun } = getReturn()

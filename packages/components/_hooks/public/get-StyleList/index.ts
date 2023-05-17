@@ -20,7 +20,7 @@ export interface UseListReturn {
   ) => ComputedRef<CSSProperties>
 }
 
-export const getStyleList = <T extends object>(props: T, name: string) => {
+export const getStyleList = <T extends object>(props: T, name: string):UseListReturn => {
   const { filter } = getProps(props)
   /**
    * @name classes
@@ -90,7 +90,7 @@ export const getStyleList = <T extends object>(props: T, name: string) => {
     const propList = filter(list)
     const styleList = Object.fromEntries(
       Object.entries(propList)
-        .filter(([key, value]) => value)
+        .filter(([value]) => value)
         .map(([key, value]) => [
           `--${name}$-${humpConversion(key)}`,
           setStyleList(value as string | number, key, pixel)

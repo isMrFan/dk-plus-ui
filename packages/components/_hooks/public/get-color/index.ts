@@ -89,7 +89,7 @@ export const getColor = (color: string): getColorType => {
    * @returns { string[] } rgb 色号数组
    * @description 将十六进制色号转换为 rgb
    */
-  const hexToRgb = (hxrColor: string = ''): string[] => {
+  const hexToRgb = (hxrColor = ''): string[] => {
     let code: string =
       hxrColor === '' ? color.replace('#', '') : hxrColor.replace('#', '')
     if (code.length === 3) {
@@ -144,7 +144,7 @@ export const getColor = (color: string): getColorType => {
     if (isRgbaColor) {
       const rgbaString = color
       const rgb: string[] = []
-      let a: string = ''
+      let a = ''
       rgb[0] = rgbaString.split('(')[1].split(',')[0]
       rgb[1] = rgbaString.split('(')[1].split(',')[1]
       rgb[2] = rgbaString.split('(')[1].split(',')[2][0]
@@ -199,7 +199,7 @@ export const getColor = (color: string): getColorType => {
     if (isRgbaColor) {
       const rgbaString = color
       const rgb: string[] = []
-      let a: string = ''
+      let a = ''
       rgb[0] = rgbaString.split('(')[1].split(',')[0]
       rgb[1] = rgbaString.split('(')[1].split(',')[1]
       rgb[2] = rgbaString.split('(')[1].split(',')[2][0]

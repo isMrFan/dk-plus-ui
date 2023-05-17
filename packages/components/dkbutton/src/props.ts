@@ -1,7 +1,7 @@
 import { setBooleanProps, setStringProp, setFunction } from '../../_utils'
-import { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import { DK_TYPE, DK_TARGET, DK_SIZE } from '../../_tokens'
-import { dkPlusType, dkTarget, dkPlusSize, MouseEventType } from '../../_interface'
+import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType } from '../../_interface'
 /**
  * @name dk-button
  * @author fanKai16

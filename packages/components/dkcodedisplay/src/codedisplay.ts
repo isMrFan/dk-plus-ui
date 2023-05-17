@@ -1,4 +1,4 @@
-import { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 export const CodeDisplay = {}
 
 export type CodeDisplayType = ExtractPropTypes<typeof CodeDisplay>
