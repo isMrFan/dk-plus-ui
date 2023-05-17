@@ -43,7 +43,9 @@
           <Dk-Button text type="primary" :fontColor="'#cb7979'">
             自定义文字颜色16进制
           </Dk-Button>
-          <Dk-Button text type="primary" :fontColor="'red'"> 自定义文字颜色英文 </Dk-Button>
+          <Dk-Button text type="primary" :fontColor="'red'">
+            自定义文字颜色英文
+          </Dk-Button>
           <Dk-Button text type="primary" :fontColor="'rgb(255,0,0)'">
             自定义文字颜色英文
           </Dk-Button>
@@ -112,9 +114,7 @@
             </div>
           </div>
         </div>
-        <p style="margin: 10px">
-          3: 禁用状态 disabled
-        </p>
+        <p style="margin: 10px">3: 禁用状态 disabled</p>
         <div class="dkButton_DK_wb">
           <Dk-Button text type="primary" size="small" disabled> small(小) </Dk-Button>
         </div>
@@ -138,11 +138,9 @@
             </div>
           </div>
         </div>
-        <p style="margin: 10px">
-          4: 文本上划线  中划线 下划线
-        </p>
+        <p style="margin: 10px">4: 文本上划线 中划线 下划线</p>
         <div class="dkButton_DK_wb">
-          <Dk-Button text type="primary"  size="small" :textDecoration="'lineThrough'">
+          <Dk-Button text type="primary" size="small" :textDecoration="'lineThrough'">
             中划线
           </Dk-Button>
           <Dk-Button text type="primary" size="small" :textDecoration="'overline'">
@@ -176,11 +174,41 @@
       <div v-if="false">
         <h3>2.A标签超文本标签</h3>
         <div class="dkButton_DK_wb">
-          <Dk-Button  link :href="'https://m.baidu.com/'" type="primary"> 默认https://m.baidu.com/</Dk-Button>
-          <Dk-Button link :href="'https://m.baidu.com/'" :textDecoration="'none'" :target="'_blank'"> A 标签_blank</Dk-Button>
-          <Dk-Button link :href="'https://m.baidu.com/'" :textDecoration="'none'" :target="'_self'"> A 标签_self</Dk-Button>
-          <Dk-Button link :href="'https://m.baidu.com/'" :textDecoration="'none'" :target="'_parent'"> A 标签_parent</Dk-Button>
-          <Dk-Button link :href="'https://m.baidu.com/'" :textDecoration="'none'" :target="'_top'"> A 标签_top</Dk-Button>
+          <Dk-Button link :href="'https://m.baidu.com/'" type="primary">
+            默认https://m.baidu.com/</Dk-Button
+          >
+          <Dk-Button
+            link
+            :href="'https://m.baidu.com/'"
+            :textDecoration="'none'"
+            :target="'_blank'"
+          >
+            A 标签_blank</Dk-Button
+          >
+          <Dk-Button
+            link
+            :href="'https://m.baidu.com/'"
+            :textDecoration="'none'"
+            :target="'_self'"
+          >
+            A 标签_self</Dk-Button
+          >
+          <Dk-Button
+            link
+            :href="'https://m.baidu.com/'"
+            :textDecoration="'none'"
+            :target="'_parent'"
+          >
+            A 标签_parent</Dk-Button
+          >
+          <Dk-Button
+            link
+            :href="'https://m.baidu.com/'"
+            :textDecoration="'none'"
+            :target="'_top'"
+          >
+            A 标签_top</Dk-Button
+          >
         </div>
         <div class="code_show_Title">
           <Dk-Shadow :type="'title'">
@@ -214,7 +242,14 @@
           <Dk-Button type="warning">warning</Dk-Button>
           <Dk-Button type="danger">danger</Dk-Button>
           <Dk-Button bgColor="#34AB98" fontColor="#fff"> 默认</Dk-Button>
-          <Dk-Button bgColor="#34AB98" fontColor="#fff" disabled @click="onFoundationType(6)"> 默认</Dk-Button>
+          <Dk-Button
+            bgColor="#34AB98"
+            fontColor="#fff"
+            disabled
+            @click="onFoundationType(6)"
+          >
+            默认</Dk-Button
+          >
         </div>
         <div class="code_show_Title">
           <Dk-Shadow :type="'title'">
@@ -271,11 +306,21 @@
         <h3>4.带有阴影</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button shadow="0 1px 10px 0 #f0f0f0" size="large">默认按钮</Dk-Button>
-          <Dk-Button shadow="0 1px 10px 0 #409eff" type="primary" size="large">基础</Dk-Button>
-          <Dk-Button shadow="0 1px 10px 0 #67c23a" type="success" size="large">成功</Dk-Button>
-          <Dk-Button shadow="0 1px 10px 0 #909399" type="info" size="large">信息</Dk-Button>
-          <Dk-Button shadow="0 1px 10px 0 #e6a23c" type="warning" size="large">警告</Dk-Button>
-          <Dk-Button shadow="0 1px 10px 0 #f56c6c" type="danger" size="large">危险</Dk-Button>
+          <Dk-Button shadow="0 1px 10px 0 #409eff" type="primary" size="large"
+            >基础</Dk-Button
+          >
+          <Dk-Button shadow="0 1px 10px 0 #67c23a" type="success" size="large"
+            >成功</Dk-Button
+          >
+          <Dk-Button shadow="0 1px 10px 0 #909399" type="info" size="large"
+            >信息</Dk-Button
+          >
+          <Dk-Button shadow="0 1px 10px 0 #e6a23c" type="warning" size="large"
+            >警告</Dk-Button
+          >
+          <Dk-Button shadow="0 1px 10px 0 #f56c6c" type="danger" size="large"
+            >危险</Dk-Button
+          >
         </div>
         <div class="code_show_Title">
           <Dk-Shadow :type="'title'">
@@ -298,7 +343,7 @@
           </div>
         </div>
       </div>
-      <div >
+      <div>
         <h3>5.涟漪效果</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button ripples size="large">默认</Dk-Button>
@@ -307,7 +352,9 @@
           <Dk-Button type="info" ripples size="large">信息按钮</Dk-Button>
           <Dk-Button type="warning" ripples size="large">警告按钮</Dk-Button>
           <Dk-Button type="danger" ripples size="large">危险按钮</Dk-Button>
-          <Dk-Button ripples type="primary" ripplesBgColor="red" size="large">自定义涟漪颜色</Dk-Button>
+          <Dk-Button ripples type="primary" ripplesBgColor="red" size="large"
+            >自定义涟漪颜色</Dk-Button
+          >
         </div>
         <div class="code_show_Title">
           <Dk-Shadow :type="'title'">
@@ -330,7 +377,7 @@
           </div>
         </div>
       </div>
-      <div >
+      <div>
         <h3>5.扩散效果</h3>
         <div class="dkButton_DK_wb">
           <Dk-Button diffusion size="large" type="success">默认按钮</Dk-Button>
@@ -407,8 +454,8 @@
             type: ''
           }
         ],
-        customizeTypeList2:[
-         {
+        customizeTypeList2: [
+          {
             name: `<Dk-Button text type="primary" size="large"> large(大) </Dk-Button>`,
             nackName: '默认',
             type: ''
@@ -432,17 +479,17 @@
             name: `<Dk-Button text type="primary" size="mini" :fontSize="30">`,
             nackName: '默认',
             type: ''
-          },
+          }
         ],
-        customizeTypeList3:[
-         {
+        customizeTypeList3: [
+          {
             name: `<Dk-Button text type="primary" size="small" disabled> small(小) </Dk-Button>`,
             nackName: '默认',
             type: ''
           }
         ],
-        customizeTypeList4:[
-        {
+        customizeTypeList4: [
+          {
             name: `<Dk-Button text type="primary" size="small" :textDecoration="'lineThrough'">中划线</Dk-Button>`,
             nackName: '默认',
             type: ''
@@ -458,8 +505,8 @@
             type: ''
           }
         ],
-        customizeTypeList5:[
-        {
+        customizeTypeList5: [
+          {
             name: `<Dk-Button link :href="'https://m.baidu.com/'" type="primary"> 默认https://m.baidu.com/</Dk-Button>`,
             nackName: '默认',
             type: ''
@@ -485,7 +532,7 @@
             type: ''
           }
         ],
-        customizeTypeList6:[
+        customizeTypeList6: [
           {
             name: `<Dk-Button> 默认</Dk-Button>`,
             nackName: '默认',
@@ -525,9 +572,9 @@
             name: `<Dk-Button bgColor="#34AB98" fontColor="#fff" disabled> 默认</Dk-Button>`,
             nackName: '默认',
             type: ''
-          },
+          }
         ],
-        customizeTypeList7:[
+        customizeTypeList7: [
           {
             name: `<Dk-Button circle size="large">范</Dk-Button>`,
             nackName: '默认',
@@ -552,9 +599,9 @@
             name: `<Dk-Button circle type="warning" size="small" disabled>杰</Dk-Button>`,
             nackName: '默认',
             type: ''
-          },
+          }
         ],
-        customizeTypeList8:[
+        customizeTypeList8: [
           {
             name: `<Dk-Button shadow="0 1px 10px 0 #f0f0f0" size="large">默认按钮</Dk-Button>`,
             nackName: '默认',
@@ -584,9 +631,9 @@
             name: `<Dk-Button shadow="0 1px 10px 0 #f56c6c" type="danger" size="large">危险</Dk-Button>`,
             nackName: '默认',
             type: ''
-          },
+          }
         ],
-        customizeTypeList9:[
+        customizeTypeList9: [
           {
             name: `<Dk-Button ripples size="large">默认</Dk-Button>`,
             nackName: '默认',
@@ -616,20 +663,21 @@
             name: `<Dk-Button type="danger" ripples size="large">危险按钮</Dk-Button>`,
             nackName: '默认',
             type: ''
-          },{
+          },
+          {
             name: `<Dk-Button ripples type="primary" ripplesBgColor="red" size="large">自定义涟漪颜色</Dk-Button>`,
             nackName: '默认',
             type: ''
-          },
+          }
         ],
-        customizeType2:false,
-        customizeType3:false,
-        customizeType4:false,
-        customizeType5:false,
-        customizeType6:false,
-        customizeType7:false,
-        customizeType8:false,
-        customizeType9:false,
+        customizeType2: false,
+        customizeType3: false,
+        customizeType4: false,
+        customizeType5: false,
+        customizeType6: false,
+        customizeType7: false,
+        customizeType8: false,
+        customizeType9: false,
         FoundationType: false,
         customizeType: false,
         disableType: false,
@@ -655,22 +703,22 @@
             data.FoundationType = !data.FoundationType
           } else if (type === 1) {
             data.customizeType = !data.customizeType
-          }else if(type === 2){
-            data.customizeType2=!data.customizeType2
-          }else if(type===3){
-            data.customizeType3=!data.customizeType3
-          }else if(type===4){
-            data.customizeType4=!data.customizeType4
-          }else if(type===5){
-            data.customizeType5=!data.customizeType5
-          }else if(type===6){
-            data.customizeType6=!data.customizeType6
-          }else if(type===7){
-            data.customizeType7=!data.customizeType7
-          }else if(type===8){
-            data.customizeType8=!data.customizeType8
-          }else if(type===9){
-            data.customizeType9=!data.customizeType9
+          } else if (type === 2) {
+            data.customizeType2 = !data.customizeType2
+          } else if (type === 3) {
+            data.customizeType3 = !data.customizeType3
+          } else if (type === 4) {
+            data.customizeType4 = !data.customizeType4
+          } else if (type === 5) {
+            data.customizeType5 = !data.customizeType5
+          } else if (type === 6) {
+            data.customizeType6 = !data.customizeType6
+          } else if (type === 7) {
+            data.customizeType7 = !data.customizeType7
+          } else if (type === 8) {
+            data.customizeType8 = !data.customizeType8
+          } else if (type === 9) {
+            data.customizeType9 = !data.customizeType9
           }
         },
         onDisableTypeType() {
