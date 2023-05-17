@@ -2,17 +2,22 @@
 #
 # 官方文档参考：https://git-scm.com/docs/gitignore
 
-
+# 忽略的有意未跟踪的文件和目录
 node_modules/
 dist/
 cache/
 .history
+npm/dist
+packages/theme-chalk/dist
+
+# 特定文件类型的忽略
 **/*.cache
 **/*.dist
 **/*.temp
+**/*.text
+.eslintcache
+
+# 特定文件或目录的忽略
 pnpm-lock.yaml
 .DS_Store
 .vscode
-**/*.text
-npm/dist
-packages/theme-chalk/dist

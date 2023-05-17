@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
   rules: {
     /**
      * vue.js 规则
@@ -248,7 +252,6 @@ module.exports = {
     'vue/comment-directive': 'off',
     /**
      * typescript 规则配置
-     *
      * @see Overview https://typescript-eslint.io/rules/
      */
     // 规定数组类型定义方式 https://typescript-eslint.io/rules/array-type
@@ -261,7 +264,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     // 自定义对象类型样式 https://typescript-eslint.io/rules/consistent-indexed-object-style
     '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
-    // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
+    //禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: true }],
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
