@@ -16,7 +16,8 @@
     watch,
     reactive,
     toRefs,
-    toRaw
+    toRaw,
+    InputHTMLAttributes
   } from 'vue'
   import { dkInputProps, haInputClass } from './props'
   import { getInputGlobal } from '../../_hooks'
@@ -46,24 +47,54 @@
         const TARGET = e.target as HTMLInputElement
         MODEL_VALUE.value = TARGET.value
         emit('update:modelValue', MODEL_VALUE.value)
-        console.log(IS_CLEAR.value);
-        
+        console.log(IS_CLEAR.value)
       }
 
       const DISABLED = computed((): boolean => props.disabled)
       const PLACEHOLDER = ref<string | number>(placeholder)
-      const INPUT_ATTRS = computed(() => {
+      const INPUT_ATTRS = computed((): InputHTMLAttributes => {
         return {
           class: innerClassList.value,
           type,
           placeholder: PLACEHOLDER.value,
           onInput: update,
           disabled: DISABLED.value
-        }
+        } as InputHTMLAttributes
       })
 
-      const IS_CLEAR = computed(() => {
+      const IS_CLEAR = computed(() => !!clearable && !DISABLED.value)
+
+      const IS_PREFIX = computed(() => {
+        return !!slots.prefix || !!props.prefixIcon
+      })
+
+      const IS_SHOW_CLEAR = computed(() => {
         return !!clearable && !!MODEL_VALUE.value && !DISABLED.value
+      })
+
+      const IS_PREFIX_ICON = computed(() => !!props.prefixIcon)
+
+      const PREFIX_ICON_CLASS = computed(() => {
+        const IS_DEFAULT = typeof props.prefixIcon === 'boolean'
+        return [
+          'dk-input_prefix-icon',
+          IS_DEFAULT ? 'dk-icon-search' : props.prefixIcon
+        ]
+      })
+
+      const IS_SUFFIX = computed(() => {
+        return !!slots.suffix || !!props.suffixIcon
+      })
+
+      const IS_SUFFIX_ICON = computed(() => !!props.suffixIcon)
+      console.log("🚀 ~ file: input.vue:91 ~ setup ~ IS_SUFFIX_ICON:", IS_SUFFIX_ICON.value, props.suffixIcon)
+
+      const SUFFIX_ICON_CLASS = computed(() => {
+        const IS_DEFAULT = typeof props.suffixIcon === 'boolean'
+        return [
+          'dk-input_suffix-icon',
+          IS_DEFAULT ? 'dk-icon-search' : props.suffixIcon
+        ]
       })
 
       return {
@@ -71,8 +102,15 @@
         styleList,
         wrapperClassList,
         value: MODEL_VALUE.value,
-        inputAttrs: toRaw(INPUT_ATTRS),
-        isClear: IS_CLEAR
+        inputAttrs: toRaw(INPUT_ATTRS.value),
+        isClear: IS_CLEAR,
+        isShowClear: IS_SHOW_CLEAR,
+        isPrefix: IS_PREFIX.value,
+        isPrefixIcon: IS_PREFIX_ICON.value,
+        prefixIconClass: PREFIX_ICON_CLASS.value,
+        isSuffix: IS_SUFFIX.value,
+        isSuffixIcon: IS_SUFFIX_ICON.value,
+        suffixIconClass: SUFFIX_ICON_CLASS.value,
       }
     }
   })
@@ -81,11 +119,19 @@
 <template>
   <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
-      <input v-model="value" :...="inputAttrs" />
+      <template v-if="isPrefix" >
+        <span class="dk-input_prefix">
+          <slot name="prefix" />
+          <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" size="13"></dk-icon>
+        </span>
+      </template>
+      <input v-model="value" v-bind="inputAttrs" />
+      <div v-if="isSuffix" class="dk-input_suffix">
+        <slot name="suffix" />
+        <dk-icon v-if="isSuffixIcon" :class="suffixIconClass"></dk-icon>
+      </div>
       <template v-if="isClear">
-        <dkIcon
-        class="dk-icon-del1 dk-input-clearable"
-        />
+        <dk-icon v-show="isShowClear" class="dk-icon-del1 dk-input-clearable" />
       </template>
     </div>
   </div>

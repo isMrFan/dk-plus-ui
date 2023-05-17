@@ -77,17 +77,17 @@ export const getInput = (props: DkInputProps) => {
    * @name SLOT
    * @description 获取插槽
    */
-  const SLOT: Slots = useSlots()
-  const IS_SLOT = computed((): boolean => {
-    return !(SLOT.default && SLOT.default() && SLOT.default()[0].children)
-  })
-  if (IS_SLOT) {
-    const PREFIX = SLOT.prefix && SLOT.prefix()
-    if (PREFIX) {
-      defaultClassList = [...defaultClassList, 'prefix']
-      params['prefix'] = true
-    }
-  }
+  // const SLOT: Slots = useSlots()
+  // const IS_SLOT = computed((): boolean => {
+  //   return !(SLOT.default && SLOT.default() && SLOT.default()[0].children)
+  // })
+  // if (IS_SLOT) {
+  //   const PREFIX = SLOT.prefix && SLOT.prefix()
+  //   if (PREFIX) {
+  //     defaultClassList = [...defaultClassList, 'prefix']
+  //     params['prefix'] = true
+  //   }
+  // }
 
   /**
    * @name IS_DISABLED
@@ -106,8 +106,6 @@ export const getInput = (props: DkInputProps) => {
 
   const STYLE_LIST = computed((): CSSProperties => {
     const {
-      borderColor,
-      focusBorderColor,
       width,
       height,
       fontSize,
@@ -116,15 +114,10 @@ export const getInput = (props: DkInputProps) => {
     } = props
 
     let defaultStyle = {
-      '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
       '--input-width': width ? setSize(width) : null,
       '--input-height': height ? setSize(height) : null,
-      '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
       '--input-font-size': fontSize ? setSize(fontSize) : null,
       '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
-      '--input-focus-border': focusBorderColor
-        ? getColor(focusBorderColor).getDeepen(0)
-        : null,
       '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null
     } as CSSProperties
 
@@ -132,10 +125,13 @@ export const getInput = (props: DkInputProps) => {
   })
 
   const WRAPPER_STYLE_LIST = computed((): CSSProperties => {
-    const { width, height } = props
+    const { borderColor, focusBorderColor } = props
     let defaultStyle = {
-      '--input-wrapper-width': width,
-      '--input-wrapper-height': height
+      '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
+      '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
+      '--input-focus-border': focusBorderColor
+        ? getColor(focusBorderColor).getDeepen(0)
+        : null
     } as CSSProperties
     return defaultStyle
   })
@@ -146,6 +142,7 @@ export const getInput = (props: DkInputProps) => {
    */
   let defaultWrapperClassList = []
   const WRAPPER_CLASS_LIST = classes([...defaultWrapperClassList], 'dk-input-wrapper')
+
 
   /**
    * @name defaultInnerClassList

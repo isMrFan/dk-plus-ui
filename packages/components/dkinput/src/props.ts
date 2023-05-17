@@ -75,9 +75,9 @@ export const dkInputProps = {
   /** 是否显示字符限制 */
   showWordLimit: setBooleanProps(),
   /** 前缀图标 */
-  prefixIcon: setStringProp(),
+  prefixIcon: setBooleanProps() || setStringProp(),
   /** 后缀图标 */
-  suffixIcon: setStringProp(),
+  suffixIcon: setBooleanProps() || setStringProp(),
   /** 行数 */
   rows: setStringProp() || setNumberProps(),
   autosize: setBooleanProps() || setObjectProps()
