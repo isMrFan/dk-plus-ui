@@ -117,6 +117,9 @@ cd dk-ui
 
 # 安装依赖项
 pnpm install
+ps: 注意这里引用了联合指令,如没安装cnpm 请先安装cnpm 国外用户把根目录下的package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
+# CNPM安装
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 # 启动开发项目
 pnpm dev:play
