@@ -39,7 +39,7 @@ export interface getButtonType {
  * @description button组件方法封装
  */
 
-export const getButton = (props: DkButtonProps) => {
+export const getButton = (props: DkButtonProps):getButtonType=> {
   /**
    * @name slot
    * @description 获取当前组件的插槽
@@ -69,7 +69,7 @@ export const getButton = (props: DkButtonProps) => {
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
    */
-  let params = reactive({
+  const params = reactive({
     ...toRefs(props)
   })
   // console.log('params', params);
@@ -77,7 +77,7 @@ export const getButton = (props: DkButtonProps) => {
   /**
    * @description 判断组件是否有插槽有则添加对应的类名用于样式处理
    */
-  if (isSlot) {
+  if (isSlot.value) {
     const iconSlot = !!slot.icon
     if (iconSlot) {
       defaultClassList = [...defaultClassList, ...['iconSlot']]

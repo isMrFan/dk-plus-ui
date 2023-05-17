@@ -1,9 +1,9 @@
-import { computed, reactive, toRefs, useSlots } from 'vue'
-import type { CSSProperties, ComputedRef, Slots } from 'vue'
+import { computed, reactive, toRefs } from 'vue'
+import type { CSSProperties, ComputedRef } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
-import { DkInputProps } from './../../dkinput/src/props'
+import type { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
-import type { dkInputType } from '../../_interface'
+import type { dkInputType,ClassListName } from '../../_interface'
 
 /**
  * @name getInputGlobalType
@@ -49,13 +49,22 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
   }
 }
 
+export interface iSGetInputType {
+  classList: ComputedRef<ClassListName>,
+  styleList: ComputedRef<CSSProperties>,
+  wrapperClassList: ComputedRef<ClassListName>,
+  wrapperStyleList: ComputedRef<CSSProperties>,
+  innerClassList: ComputedRef<ClassListName>,
+  clearableClassList: ComputedRef<ClassListName>,
+}
+
 /**
  * @name getInput
  * @param props
  * @description 获取input组件的类名和样式
  * @returns
  */
-export const getInput = (props: DkInputProps) => {
+export const getInput = (props: DkInputProps):iSGetInputType => {
   // const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
   //   getSassConfig()
 
@@ -69,7 +78,7 @@ export const getInput = (props: DkInputProps) => {
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
    */
-  let params = reactive({
+  const params = reactive({
     ...toRefs(props)
   })
 
@@ -96,7 +105,7 @@ export const getInput = (props: DkInputProps) => {
   const IS_DISABLED = computed((): boolean => {
     return props.disabled
   })
-  if (IS_DISABLED) {
+  if (IS_DISABLED.value) {
     defaultClassList = [...defaultClassList, 'disabled']
   }
 
@@ -107,7 +116,7 @@ export const getInput = (props: DkInputProps) => {
   const STYLE_LIST = computed((): CSSProperties => {
     const { width, height, fontSize, borderRadius, textColor } = props
 
-    let defaultStyle = {
+    const defaultStyle = {
       '--input-width': width ? setSize(width) : null,
       '--input-height': height ? setSize(height) : null,
       '--input-font-size': fontSize ? setSize(fontSize) : null,
@@ -120,7 +129,7 @@ export const getInput = (props: DkInputProps) => {
 
   const WRAPPER_STYLE_LIST = computed((): CSSProperties => {
     const { borderColor, focusBorderColor } = props
-    let defaultStyle = {
+    const defaultStyle = {
       '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
       '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
       '--input-focus-border': focusBorderColor
@@ -134,7 +143,7 @@ export const getInput = (props: DkInputProps) => {
    * @name defaultWrapperClassList
    * @description 期望被转换的wrapper类名
    */
-  let defaultWrapperClassList = []
+  const defaultWrapperClassList = []
   const WRAPPER_CLASS_LIST = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
   /**
@@ -142,14 +151,14 @@ export const getInput = (props: DkInputProps) => {
    * @description 期望被转换的inner类名
    */
   const INNER_CLASSES = getStyleList(params, 'input').classes
-  let defaultInnerClassList = []
+  const defaultInnerClassList = []
   const INNER_CLASS_LIST = INNER_CLASSES([...defaultInnerClassList], 'dk-input_inner')
 
   /**
    * @name defaultClearableStyleList
    * @description 期望被转换的clearable类名
    */
-  let defaultClearableStyleList = ['clearable']
+  const defaultClearableStyleList = ['clearable']
   const CLEARABLE_CLASSES = getStyleList(params, 'input').classes
   const CLEARABLE_CLASS_LIST = CLEARABLE_CLASSES(
     [...defaultClearableStyleList],

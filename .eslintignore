@@ -2,5 +2,9 @@
 #
 # 官方文档：https://eslint.bootcss.com/docs/user-guide/configuring#ignoring-files-and-directories
 
-dist
-node_modules
+# 忽略的文件和目录
+dist/
+node_modules/
+deploy/
+play/
+packages/utils/

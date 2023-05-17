@@ -1,4 +1,4 @@
-import { ExtractPropTypes, PropType } from 'vue'
+import type { ExtractPropTypes} from 'vue';
 import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
 import {
   setBooleanProps,
@@ -6,7 +6,7 @@ import {
   setNumberProps,
   setObjectProps
 } from '../../_utils'
-import { dkPlusSize, dkInputType } from '../../_interface'
+import type { dkPlusSize, dkInputType } from '../../_interface'
 
 export const dkInputProps = {
   /** textColor */
@@ -82,56 +82,4 @@ export const dkInputProps = {
   rows: setStringProp() || setNumberProps(),
   autosize: setBooleanProps() || setObjectProps()
 } as const
-export class haInputClass {
-  // name: string
-  // constructor(name: string) {
-  //   this.name = name
-  // }
-  nameSpace = 'dk-'
-  block = 'input'
-  globalName = this.nameSpace + this.block
-  state = 'is-'
-  /**
-   * @description: 生成类名
-   * @param name {string} 块名 - 可选
-   * @returns {string} dk-input
-   */
-  b = (name?: string) => (name ? this.nameSpace + name : this.globalName)
-  /**
-   * @description: 生成块类名
-   * @param name {string} 块名
-   * @returns {string} dk-input__name
-   */
-  e = (name: string) => (name ? this.globalName + '__' + name : '')
-  /**
-   * @description: 生成元素类名
-   * @param name {string} 元素名
-   * @returns {string} dk-input--name
-   * */
-  m = (name: string) => (name ? this.globalName + '--' + name : '')
-
-  /**
-   *
-   * @param is 状态
-   * @param name
-   * @returns {string} is-name
-   */
-  is = (name: string) => this.state + name
-  // icon
-  i = (icon: string, name: string) => (icon ? 'dk-icon-' + name : '')
-  /**
-   * classList to string[]
-   * @import {cLTS} from 'dk-ui'
-   * @param {Record<string,boolean>} obj
-   * @param {string[]} list
-   * */
-  cLTS = (obj: Record<string, boolean>, list: string[]): string[] => {
-    return Object.entries(obj).reduce<Array<string | boolean>>((pre, cur) => {
-      if (cur[1]) {
-        pre.push(cur[0])
-      }
-      return pre
-    }, list) as string[]
-  }
-}
 export type DkInputProps = ExtractPropTypes<typeof dkInputProps>

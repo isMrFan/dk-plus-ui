@@ -6,7 +6,8 @@
    * @description 输入框组件
    * @example
    */
-  import { defineComponent, computed, ref, toRaw, InputHTMLAttributes } from 'vue'
+  import type { InputHTMLAttributes } from 'vue';
+  import { defineComponent, computed, ref, toRaw } from 'vue'
   import { dkInputProps } from './props'
   import { getInputGlobal } from '../../_hooks'
   import { getInput } from '../../_hooks'
@@ -14,8 +15,8 @@
   export default defineComponent({
     name: 'DkInput',
     props: dkInputProps,
-    emit: ['update:modelValue'],
-    setup(props, { slots, emit }) {
+    emits: ['update:modelValue'],
+    setup (props, { slots, emit }) {
       const { getInputType } = getInputGlobal(props)
       const { type = getInputType(), placeholder, clearable } = props
 
@@ -25,7 +26,7 @@
 
       const MODEL_VALUE = ref<string | number>(props.modelValue)
 
-      const update = (e: Event) => {
+      const update = (e: Event): void => {
         const TARGET = e.target as HTMLInputElement
         MODEL_VALUE.value = TARGET.value
         emit('update:modelValue', MODEL_VALUE.value)

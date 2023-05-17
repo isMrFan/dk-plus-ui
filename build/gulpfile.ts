@@ -7,16 +7,17 @@
  **/
 // 在当前文件中添加以下注释
 
-import { series, parallel } from 'gulp'
+import type {TaskFunction } from 'gulp';
+import { series, parallel  } from 'gulp'
 import { run, withTaskName } from './utils'
 import { genTypes } from './gen-types'
 import { outDir, zpRoot } from './utils/paths'
 
 // gulp 不叫打包 做代码转化 vite
 
-const copySourceCode = () => async () => {
-  await run(`cp ${zpRoot}/package.json ${outDir}/package.json`)
-}
+const copySourceCode: TaskFunction = async () => {
+  await run(`cp ${zpRoot}/package.json ${outDir}/package.json`);
+};
 
 //1.打包样式 2.打包工具方法 2.打包所有组件 3.打包每个组件 4.生成一个组件库 5.发布组件
 export default series(
@@ -29,8 +30,7 @@ export default series(
     withTaskName('buildComponent', () => run('pnpm run build buildComponent')),
     withTaskName('finish', () => run('pnpm run build Finish'))
   ),
-  parallel(genTypes, copySourceCode()),
-  
+  parallel(genTypes, copySourceCode)
 )
 
 //  这是一个任务

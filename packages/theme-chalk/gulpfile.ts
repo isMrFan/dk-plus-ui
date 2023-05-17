@@ -6,7 +6,7 @@ import cleanCss from 'gulp-clean-css'
 import path from 'path'
 
 import { series, src, dest } from 'gulp'
-function compile() {
+function compile ():NodeJS.ReadWriteStream{
   const sass = gulpSass(dartSass)
   return src(path.resolve(__dirname, './src/*.scss'))
     .pipe(sass.sync())
@@ -18,14 +18,14 @@ function compile() {
     })
 }
 
-function CopyFont() {
+function CopyFont () : NodeJS.ReadWriteStream{
   return (
     src(path.resolve(__dirname, './src/font/**'))
       // .pipe(cleanCss())
       .pipe(dest('./dist/font'))
   )
 }
-function CopyFullStyle() {
+function CopyFullStyle () : NodeJS.ReadWriteStream {
   return src(path.resolve(__dirname, './dist/**')).pipe(
     dest(path.resolve(__dirname, '../../npm/dist/theme-chalk'))
   )

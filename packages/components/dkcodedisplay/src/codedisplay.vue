@@ -1,28 +1,15 @@
-<template>
-  <div class="dkcodedisplay">
-    <dk-shadow>
-      <slot name="code"></slot>
-      <div class="dkcodedisplay_code" :style="{ height: codeHeight }">
-        <slot />
-      </div>
-      <div class="dkcodedisplay_open">
-        <span @click="handleOpenCode">{{ open ? '关闭' : '开启' }}</span>
-      </div>
-    </dk-shadow>
-  </div>
-</template>
 <script lang="ts">
-  import { computed, defineComponent, reactive, toRefs, onMounted } from 'vue'
+  import { computed, defineComponent, reactive, toRefs } from 'vue'
   import { CodeDisplay } from './codedisplay'
   export default defineComponent({
-    name: 'dkcodedisplay',
+    name: 'Dkcodedisplay',
     props: CodeDisplay,
-    setup(props) {
+    setup () {
       const data = reactive({
         open: false,
         height: 0 // 展开的高度
       })
-      const handleOpenCode = (e: Event) => {
+      const handleOpenCode = (e: Event):void => {
         const TARGET = e.target as HTMLElement
         const TARGET_PARENT = TARGET.parentElement as HTMLElement
         const TARGET_PARENT_PARENT = TARGET_PARENT.parentElement as HTMLElement
@@ -44,3 +31,16 @@
     }
   })
 </script>
+<template>
+  <div class="dkcodedisplay">
+    <dk-shadow>
+      <slot name="code"></slot>
+      <div class="dkcodedisplay_code" :style="{ height: codeHeight }">
+        <slot />
+      </div>
+      <div class="dkcodedisplay_open">
+        <span @click="handleOpenCode">{{ open ? '关闭' : '开启' }}</span>
+      </div>
+    </dk-shadow>
+  </div>
+</template>

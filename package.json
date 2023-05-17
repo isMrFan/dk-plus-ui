@@ -20,7 +20,7 @@
     "deploy:docs": "cross-env NODE_ENV=docs node ./deploy",
     "test": "jest",
     "prepare": "husky install",
-    "lint": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\"",
+    "lint": "eslint . --cache",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "postinstall": "cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3"
@@ -42,7 +42,7 @@
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.37.0",
+    "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "fast-glob": "^3.2.12",
     "gulp": "^4.0.2",
@@ -74,6 +74,7 @@
     "@dk-plus/components": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0",
-    "@dk-plus/vite-plugin-vue-dk-setup-name": "workspace:^0.1.0"
+    "@dk-plus/vite-plugin-vue-dk-setup-name": "workspace:^0.1.0",
+    "@dk-plus/eslint-config": "workspace:^1.0.0"
   }
 }

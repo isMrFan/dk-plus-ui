@@ -1,5 +1,5 @@
-import { Ref, ComputedRef, CSSProperties } from 'vue'
-export type UseInputProps = {
+import type { Ref, ComputedRef, CSSProperties } from 'vue'
+export interface UseInputProps {
   value: string | number
   type: string
   size: string
@@ -17,11 +17,12 @@ export type UseInputProps = {
   autocomplete: string
 }
 
-export type UseEmitType = {
+export interface UseEmitType {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   emit: (event: string, ...args: any[]) => void
 }
 
-export type UseInputReturn = {
+export interface UseInputReturn {
   input?: Ref<HTMLInputElement | HTMLTextAreaElement>
   inputSize?: ComputedRef<CSSProperties>
   inputDisabled?: ComputedRef<boolean>
