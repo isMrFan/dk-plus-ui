@@ -1,7 +1,7 @@
-import { setBooleanProps, setStringProp,setFunction } from '../../_utils'
+import { setBooleanProps, setStringProp, setFunction } from '../../_utils'
 import { ExtractPropTypes } from 'vue'
 import { DK_TYPE, DK_TARGET, DK_SIZE } from '../../_tokens'
-import { dkPlusType, dkTarget, dkPlusSize ,MouseEventType} from '../../_interface'
+import { dkPlusType, dkTarget, dkPlusSize, MouseEventType } from '../../_interface'
 /**
  * @name dk-button
  * @author fanKai16
@@ -122,30 +122,30 @@ export const dkButtonProps = {
    * @name shadow
    * @param { string }  按钮阴影效果
    * @returns 按钮阴影效果
-  */
+   */
   shadow: setStringProp(),
   /**
    * @name ripples
    * @param { boolean }  涟漪效果
    * @returns 涟漪效果
-  */
+   */
   ripples: setBooleanProps(),
   /**
    * @name ripplesBgColor
    * @param { string }  涟漪效果的自定义颜色BG
    * @returns 涟漪效果的自定义颜色BG
-  */
+   */
   ripplesBgColor: setStringProp(),
   /**
    * @name diffusion
    * @param { string }  涟漪效果的自定义颜色BG
    * @returns 扩散效果
-  */
+   */
   diffusion: setBooleanProps(),
 
   /**是否加载中 */
   loading: setBooleanProps(),
- 
+
   /**半圆形按钮 */
   round: setBooleanProps(),
   /**按钮图标 */

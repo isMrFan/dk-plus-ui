@@ -18,13 +18,19 @@
     "build:docs": "pnpm -C docs build:docs",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\"",
     "deploy:docs": "cross-env NODE_ENV=docs node ./deploy",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install",
+    "lint": "prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\"",
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint --config commitlint.config.js -e -V"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@algolia/client-search": "^4.17.0",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@types/gulp": "^4.0.10",
@@ -61,6 +67,9 @@
     "tslint": "^6.1.3",
     "typescript": "latest",
     "vue": "^3.2.25"
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx,.md}": "eslint --cache --fix"
   },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",

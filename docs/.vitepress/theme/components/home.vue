@@ -176,10 +176,7 @@
               </div>
             </div>
             <div class="contribution_join">
-              <dk-button
-                @click="handleJoinUs"
-                size="small"
-                type="success"
+              <dk-button @click="handleJoinUs" size="small" type="success"
                 >加入其中</dk-button
               >
             </div>
@@ -209,7 +206,7 @@
               <img :src="item.img" alt="" />
               <h3 :class="isDark ? 'dark-text' : ''">{{ item.title }}</h3>
               <p :class="isDark ? 'dark-text' : ''">{{ item.message }}</p>
-              <dk-button  :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''"
+              <dk-button :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''"
                 >查看详情</dk-button
               >
             </div>

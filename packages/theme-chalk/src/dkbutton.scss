@@ -15,17 +15,18 @@
   vertical-align: middle;
   transition: 0.3s;
   font-size: var(--button-font-size);
-  cursor:pointer;
+  cursor: pointer;
   //禁用状态
-  &_disabled{
+  &_disabled {
     opacity: 0.5;
     pointer-events: none;
   }
   //文本按钮逻辑处理
-  .#{$text},.#{$link}{
+  .#{$text},
+  .#{$link} {
     color: var(--button-color);
     font-size: var(--button-font-size);
-    cursor:var(--button-pointer);
+    cursor: var(--button-pointer);
     &:not([default]):hover {
       color: var(--button-hover);
     }
@@ -33,8 +34,8 @@
       color: var(--button-active);
     }
   }
-  .#{$link}{
-    a{
+  .#{$link} {
+    a {
       text-decoration: none;
       color: var(--button-color);
       font-size: var(--button-font-size);
@@ -46,21 +47,25 @@
       }
     }
   }
-  &_none.#{$text},&_none.#{$link}{
+  &_none.#{$text},
+  &_none.#{$link} {
     text-decoration: none;
   }
-  &_lineThrough.#{$text},&_lineThrough.#{$link}{
+  &_lineThrough.#{$text},
+  &_lineThrough.#{$link} {
     text-decoration: line-through;
   }
-  &_overline.#{$text},&_overline.#{$link}{
+  &_overline.#{$text},
+  &_overline.#{$link} {
     text-decoration: overline;
   }
-  &_underline.#{$text},&_underline.#{$link}{
+  &_underline.#{$text},
+  &_underline.#{$link} {
     text-decoration: underline;
   }
   //文本按钮逻辑处理结束
   //盒子按钮逻辑处理
-  .#{$box}{
+  .#{$box} {
     position: relative;
     user-select: none;
     text-decoration: none;
@@ -70,14 +75,14 @@
     outline: none;
     border-radius: var(--button-border-radius, 2px);
     height: var(--button-height);
-    line-height:var(--button-height); 
+    line-height: var(--button-height);
     padding: 0 var(--button-padding);
     font-size: var(--button-font-size);
     box-shadow: var(--button-shadow);
     color: var(--button-color);
     background-color: var(--button-background);
-    border:1px solid var(--button-borderColor);
-    cursor:pointer;
+    border: 1px solid var(--button-borderColor);
+    cursor: pointer;
     &:not([default]):hover {
       color: var(--button-hover);
       border-color: var(--button-hover-borderColor);
@@ -90,14 +95,14 @@
     }
   }
   // 涟漪效果
-  &_ripples.#{$box}{
+  &_ripples.#{$box} {
     position: relative;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     overflow: hidden;
-    .dk-button_ripples{
+    .dk-button_ripples {
       width: 2px;
       height: 2px;
       position: absolute;
@@ -107,7 +112,7 @@
       animation: dk-button_ripples-animation 0.8s linear;
       opacity: 0.5;
       background-color: #fff;
-}
+    }
     @keyframes dk-button_ripples-animation {
       from {
         width: 2px;
@@ -123,11 +128,11 @@
   }
   //盒子按钮逻辑处理结束
   //圆形按钮逻辑处理
-  &_circle{
+  &_circle {
     width: var(--button-height);
   }
   //扩散效果
-  &_diffusion::after{
+  &_diffusion::after {
     content: '';
     display: inline-block;
     position: absolute;
@@ -139,7 +144,7 @@
     border-radius: inherit;
     transition: 0.3s;
     box-shadow: 0 0 0 4px var(--button-background);
-  } 
+  }
   // 扩散效果需要的样式
   &:not([disabled]):active::after {
     box-shadow: none;
@@ -160,4 +165,4 @@
 //   border-radius: inherit;
 //   transition: 0.3s;
 //   box-shadow: 0 0 0 4px #67c23a;
-// } 
+// }

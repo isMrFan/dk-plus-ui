@@ -68,10 +68,7 @@
 
       const PREFIX_ICON_CLASS = computed(() => {
         const IS_DEFAULT = typeof props.prefixIcon === 'boolean'
-        return [
-          'dk-input_prefix-icon',
-          IS_DEFAULT ? 'dk-icon-search' : props.prefixIcon
-        ]
+        return ['dk-input_prefix-icon', IS_DEFAULT ? 'dk-icon-search' : props.prefixIcon]
       })
 
       const IS_SUFFIX = computed(() => {
@@ -83,10 +80,7 @@
 
       const SUFFIX_ICON_CLASS = computed(() => {
         const IS_DEFAULT = typeof props.suffixIcon === 'boolean'
-        return [
-          'dk-input_suffix-icon',
-          IS_DEFAULT ? 'dk-icon-search' : props.suffixIcon
-        ]
+        return ['dk-input_suffix-icon', IS_DEFAULT ? 'dk-icon-search' : props.suffixIcon]
       })
 
       return {
@@ -102,7 +96,7 @@
         prefixIconClass: PREFIX_ICON_CLASS.value,
         isSuffix: IS_SUFFIX.value,
         isSuffixIcon: IS_SUFFIX_ICON.value,
-        suffixIconClass: SUFFIX_ICON_CLASS.value,
+        suffixIconClass: SUFFIX_ICON_CLASS.value
       }
     }
   })
@@ -111,7 +105,7 @@
 <template>
   <div :class="classList" :style="styleList">
     <div :class="wrapperClassList">
-      <template v-if="isPrefix" >
+      <template v-if="isPrefix">
         <span class="dk-input_prefix">
           <slot name="prefix" />
           <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" size="13"></dk-icon>

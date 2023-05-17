@@ -69,7 +69,7 @@ const routes: Array<RouteRecordRaw> = [
           keepAlive: false,
           isunnewList: false
         }
-      },
+      }
     ]
   }
 ]

@@ -181,6 +181,7 @@ Git 允许我们在每次提交时，附带一个提交信息作为说明，当�
 | perfect   | git commit -m 'perfect: 完善\*\*\* '             | 完善之前代码块哪里的代码块 |
 | utils     | git commit -m 'utils: 组件工具箱\*\*\*           | 更新工具箱                 |
 | interface | git commit -m 'interface: 增加组件全局接口\*\*\* | 全局接口                   |
+| deps      | git commit -m 'deps: 依赖升级                    | 全局接口                   |
 
 可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
 

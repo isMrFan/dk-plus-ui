@@ -10,10 +10,10 @@
   font-size: var(--input-font-size, 13px);
   display: inline-flex;
   flex-wrap: nowrap;
-  @include block('>*icon'){
+  @include block('>*icon') {
     color: var(--input-icon-color);
     size: var(--input-font-size);
-    &:hover{
+    &:hover {
       cursor: pointer;
       color: var(--input-icon-hover-color);
     }
@@ -49,30 +49,30 @@
       outline: none;
     }
   }
-  @include element(('prefix', 'suffix')){
+  @include element(('prefix', 'suffix')) {
     height: inherit;
     display: inherit;
     justify-content: inherit;
     align-items: inherit;
     padding: 0 10px;
-    @include block(icon){
+    @include block(icon) {
       color: var(--input-prefix-icon-color);
     }
   }
-  @include block(clearable){
+  @include block(clearable) {
     padding: 0 4px;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
   @include element(disabled) {
-    &:hover *{
+    &:hover * {
       cursor: not-allowed;
     }
     @include block('>*input') {
-      @include block('wrapper'){
+      @include block('wrapper') {
         background-color: var(--input-disabled-color);
-        &:hover{
+        &:hover {
           border-color: var(--input-border);
         }
       }
