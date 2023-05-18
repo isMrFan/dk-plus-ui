@@ -14,10 +14,10 @@
     props: dkButtonProps,
 
     setup (Props) {
-      const dkBoxButton = ref<HTMLButtonElement>()
-      const { classList, styleList } = getButton(Props)
+          const dkBoxButton = ref<HTMLButtonElement>()
+          const { classList, styleList } = getButton(Props)
       const { getRun } = getReturn()
-      const { getType } = getGlobal(Props)
+           const { getType } = getGlobal(Props)
       const EventClick = (evt: MouseEvent): void => {
         const { disabled, ripples } = toRefs(Props)
         if (disabled.value) {
