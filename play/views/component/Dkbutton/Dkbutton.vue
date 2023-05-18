@@ -281,6 +281,43 @@
             type: ''
           }
         ],
+        customizeTypeList10: [
+          {
+            name: '<dk-button diffusion type="primary" size="large">基础信息</dk-button>',
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: '<dk-button diffusion type="success" size="large">成功按钮</dk-button>',
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: '<dk-button diffusion type="info" size="large">信息按钮</dk-button>',
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: '<dk-button diffusion type="warning" size="large">警告按钮</dk-button>',
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: '<dk-button diffusion type="danger" size="large">危险按钮</dk-button>',
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: '<dk-button diffusion size="large" type="success" disabled>默认按钮</dk-button>',
+            nackName: '默认',
+            type: ''
+          },
+          {
+            name: '<dk-button diffusion type="primary" diffusion-bg-color="red" size="large">自定扩散效果 颜色</dk-button>',
+            nackName: '默认',
+            type: ''
+          }
+        ],
         customizeType2: false,
         customizeType3: false,
         customizeType4: false,
@@ -289,6 +326,7 @@
         customizeType7: false,
         customizeType8: false,
         customizeType9: false,
+        customizeType10: false,
         FoundationType: false,
         customizeType: false,
         disableType: false,
@@ -330,6 +368,8 @@
             data.customizeType8 = !data.customizeType8
           } else if (type === 9) {
             data.customizeType9 = !data.customizeType9
+          }else if (type === 10) {
+            data.customizeType10 = !data.customizeType10
           }
         },
         onDisableTypeType() {
@@ -700,8 +740,8 @@
           </div>
         </div>
       </div>
-      <div>
-        <h3>5.涟漪效果</h3>
+      <div v-if="false">
+        <h3>5.涟漪效果(不可和扩散效果联动因为太丑)</h3>
         <div class="dkButton_DK_wb">
           <dk-button ripples size="large">默认</dk-button>
           <dk-button type="primary" ripples size="large">基础信息</dk-button>
@@ -735,10 +775,43 @@
         </div>
       </div>
       <div>
-        <h3>5.扩散效果</h3>
+        <h3>6.扩散效果(不可和涟漪效果联动因为太丑)</h3>
         <div class="dkButton_DK_wb">
-          <dk-button diffusion size="large" type="success">默认按钮</dk-button>
-          <dk-button diffusion size="large" type="success">默认按钮</dk-button>
+          <dk-button diffusion type="primary" size="large">基础信息</dk-button>
+          <dk-button diffusion type="success" size="large">成功按钮</dk-button>
+          <dk-button diffusion type="info" size="large">信息按钮</dk-button>
+          <dk-button diffusion type="warning" size="large">警告按钮</dk-button>
+          <dk-button diffusion type="danger" size="large">危险按钮</dk-button>
+          <dk-button diffusion size="large" type="success" disabled>默认按钮</dk-button>
+          <dk-button diffusion type="primary" diffusion-bg-color="red" size="large">
+            自定扩散效果 颜色
+          </dk-button>
+        </div>
+        <div class="code_show_Title">
+          <dk-shadow :type="'title'">
+            <template #left>
+              <div style="line-height: 42px">(1).代码展示区域</div>
+            </template>
+            <template #right>
+              <dk-button text type="default" @click="onFoundationType(10)">
+                {{ customizeType ? '关闭' : '开启' }}
+              </dk-button>
+            </template>
+          </dk-shadow>
+        </div>
+        <div v-show="customizeType10" class="code_show">
+          <div v-for="(item, ind) in customizeTypeList10" :key="ind" class="index_Dk_list">
+            <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
+              <highlightjs language="javascript" :code="item.name"></highlightjs>
+              <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>8.个性按钮  personalityType(个性按钮类型)</h3>
+        <div class="dkButton_DK_wb">
+          <dk-button personality personality-type="BiCurvedA" personality-size="large">基础信息</dk-button>
         </div>
       </div>
     </div>
