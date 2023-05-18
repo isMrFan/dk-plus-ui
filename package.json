@@ -20,7 +20,7 @@
     "deploy:docs": "cross-env NODE_ENV=docs node ./deploy",
     "test": "jest",
     "prepare": "husky install",
-    "lint": "npm run format&&eslint .",
+    "lint": "eslint .",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "postinstall": "cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3"
