@@ -20,7 +20,7 @@
     "deploy:docs": "cross-env NODE_ENV=docs node ./deploy",
     "test": "jest",
     "prepare": "husky install",
-    "lint": "eslint . --cache && npm run format",
+    "lint": "eslint . --cache",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "postinstall": "cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3"
@@ -67,8 +67,16 @@
     "typescript": "latest",
     "vue": "^3.2.25"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{vue,js,jsx,ts,tsx,.md}": "eslint --cache --fix"
+    "*.{vue,js,jsx,ts,tsx,.md}": [
+      "prettier --write",
+      "eslint --cache --fix"
+      ]
   },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
