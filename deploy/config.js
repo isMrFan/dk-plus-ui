@@ -26,7 +26,7 @@ const ENV_NAME = envObj['NODE_ENV']
  */
 function parse(src) {
   const res = {}
-  src.split('\n').forEach(line => {
+  src.split('\n').forEach((line) => {
     // matching "KEY' and 'VAL' in 'KEY=VAL'
     // eslint-disable-next-line no-useless-escape
     const keyValueArr = line.match(/^\s*([\w\.\-]+)\s*=\s*(.*)?\s*$/)

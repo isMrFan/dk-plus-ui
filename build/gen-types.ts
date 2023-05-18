@@ -14,7 +14,7 @@ import type {TaskFunction } from 'gulp';
 import { parallel, series  } from 'gulp'
 import { run } from './utils'
 import { buildConfig } from './utils/config'
-export const genEntryTypes = async (): Promise<void> => {
+export const genEntryTypes = async(): Promise<void> => {
   const files = await glob('*.ts', {
     cwd: zpRoot,
     absolute: true,

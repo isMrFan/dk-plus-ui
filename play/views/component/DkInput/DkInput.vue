@@ -2,7 +2,7 @@
   import { defineComponent, ref, watch, reactive } from 'vue'
   export default defineComponent({
     name: 'DkInputComponent',
-    setup () {
+    setup() {
       const oncopy = (code: string) => {
         const input = document.createElement('input')
         input.setAttribute('readonly', 'readonly')
@@ -218,7 +218,7 @@
         ]
       })
 
-      function getComponentName (code) {
+      function getComponentName(code) {
         // 在这里根据字符串 code 返回对应的组件名称
         if (code === '<dk-input placeholder="基础用法"/>') {
           return 'DkInput'

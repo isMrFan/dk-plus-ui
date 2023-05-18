@@ -14,5 +14,13 @@
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "semi": false,
-  "vueIndentScriptAndStyle": true
+  "vueIndentScriptAndStyle": true,
+  "overrides": [
+    {
+      "files": "*.js,*.jsx,*.mjs,*.ts,*.tsx,,*.vue",
+      "options": {
+        "parser": "babel"
+      }
+    }
+  ]
 }

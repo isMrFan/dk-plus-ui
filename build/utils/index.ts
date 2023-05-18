@@ -5,7 +5,7 @@ import { projectRoot } from './paths';
 export const withTaskName = <T>(name: string, fn: T): T & { displayName: string } =>
   Object.assign(fn as T & { displayName: string }, { displayName: name });
 
-export const run = async (command: string): Promise<void> => {
+export const run = async(command: string): Promise<void> => {
   return new Promise<void>((resolve) => {
     const [cmd, ...args] = command.split(' ');
 

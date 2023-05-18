@@ -59,7 +59,7 @@ function runQueLoop() {
     deployFile()
     return
   }
-  rl.question(questions[index], as => {
+  rl.question(questions[index], (as) => {
     inputArr[index] = as
     index++
     runQueLoop()

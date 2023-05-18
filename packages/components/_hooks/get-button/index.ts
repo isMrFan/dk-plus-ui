@@ -39,7 +39,7 @@ export interface getButtonType {
  * @description button组件方法封装
  */
 
-export const getButton = (props: DkButtonProps):getButtonType=> {
+export const getButton = (props: DkButtonProps): getButtonType => {
   /**
    * @name slot
    * @description 获取当前组件的插槽
