@@ -17,7 +17,7 @@
     props: dkInputProps,
     emits: ['update:modelValue'],
     setup (props, { slots, emit }) {
-      const { getInputType } = getInputGlobal(props)
+                                   const { getInputType } = getInputGlobal(props)
       const { type = getInputType(), placeholder, clearable } = props
       const { styleList, wrapperClassList, innerClassList } = getInput(props)
       const CLASS_LIST = computed(() => getInput(props).classList)
