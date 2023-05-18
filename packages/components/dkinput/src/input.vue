@@ -19,20 +19,15 @@
     setup (props, { slots, emit }) {
       const { getInputType } = getInputGlobal(props)
       const { type = getInputType(), placeholder, clearable } = props
-
       const { styleList, wrapperClassList, innerClassList } = getInput(props)
-
       const CLASS_LIST = computed(() => getInput(props).classList)
-
       const MODEL_VALUE = ref<string | number>(props.modelValue)
-
       const update = (e: Event): void => {
         const TARGET = e.target as HTMLInputElement
         MODEL_VALUE.value = TARGET.value
         emit('update:modelValue', MODEL_VALUE.value)
         console.log(IS_CLEAR.value)
       }
-
       const DISABLED = computed((): boolean => props.disabled)
       const PLACEHOLDER = ref<string | number>(placeholder)
       const INPUT_ATTRS = computed((): InputHTMLAttributes => {
