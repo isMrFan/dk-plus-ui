@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { defineComponent, ref, watch, reactive } from 'vue'
+  import { defineComponent, ref, reactive } from 'vue'
   export default defineComponent({
     name: 'DkInputComponent',
     setup() {
-      const oncopy = (code: string) => {
+      const oncopy = (code: string): void => {
         const input = document.createElement('input')
         input.setAttribute('readonly', 'readonly')
         input.setAttribute('value', code)
@@ -15,17 +15,17 @@
         }
         document.body.removeChild(input)
       }
-      const handleFixClick = () => {
+      const handleFixClick = (): void => {
         console.log('handleFixClick')
       }
       const msg = ref('asdf')
-      const change = e => {
+      const change = (e): void => {
         console.log('父组件', e)
       }
-      const focus = e => {
+      const focus = (e): void => {
         console.log('父组件', e)
       }
-      const blur = e => {
+      const blur = (e): void => {
         console.log('父组件', e)
         console.log(input)
       }
@@ -218,14 +218,14 @@
         ]
       })
 
-      function getComponentName(code) {
+      function getComponentName(code): string | undefined {
         // 在这里根据字符串 code 返回对应的组件名称
         if (code === '<dk-input placeholder="基础用法"/>') {
           return 'DkInput'
         }
       }
       const isDisabled = ref(true)
-      const toggleDisabled = () => {
+      const toggleDisabled = (): void => {
         isDisabled.value = !isDisabled.value
       }
       return {

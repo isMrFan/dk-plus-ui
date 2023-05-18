@@ -298,7 +298,7 @@
         BtnLoading: false
       })
       const methods = reactive({
-        oncopy(e: any) {
+        oncopy(e: string) {
           const input = document.createElement('input')
           input.setAttribute('readonly', 'readonly')
           input.setAttribute('value', e)
@@ -663,21 +663,21 @@
         <h3>4.带有阴影</h3>
         <div class="dkButton_DK_wb">
           <dk-button shadow="0 1px 10px 0 #f0f0f0" size="large">默认按钮</dk-button>
-          <dk-button shadow="0 1px 10px 0 #409eff" type="primary" size="large"
-            >基础</dk-button
-          >
-          <dk-button shadow="0 1px 10px 0 #67c23a" type="success" size="large"
-            >成功</dk-button
-          >
-          <dk-button shadow="0 1px 10px 0 #909399" type="info" size="large"
-            >信息</dk-button
-          >
-          <dk-button shadow="0 1px 10px 0 #e6a23c" type="warning" size="large"
-            >警告</dk-button
-          >
-          <dk-button shadow="0 1px 10px 0 #f56c6c" type="danger" size="large"
-            >危险</dk-button
-          >
+          <dk-button shadow="0 1px 10px 0 #409eff" type="primary" size="large">
+            基础
+          </dk-button>
+          <dk-button shadow="0 1px 10px 0 #67c23a" type="success" size="large">
+            成功
+          </dk-button>
+          <dk-button shadow="0 1px 10px 0 #909399" type="info" size="large">
+            信息
+          </dk-button>
+          <dk-button shadow="0 1px 10px 0 #e6a23c" type="warning" size="large">
+            警告
+          </dk-button>
+          <dk-button shadow="0 1px 10px 0 #f56c6c" type="danger" size="large">
+            危险
+          </dk-button>
         </div>
         <div class="code_show_Title">
           <dk-shadow :type="'title'">
@@ -709,9 +709,9 @@
           <dk-button type="info" ripples size="large">信息按钮</dk-button>
           <dk-button type="warning" ripples size="large">警告按钮</dk-button>
           <dk-button type="danger" ripples size="large">危险按钮</dk-button>
-          <dk-button ripples type="primary" ripples-bg-color="red" size="large"
-            >自定义涟漪颜色</dk-button
-          >
+          <dk-button ripples type="primary" ripples-bg-color="red" size="large">
+            自定义涟漪颜色
+          </dk-button>
         </div>
         <div class="code_show_Title">
           <dk-shadow :type="'title'">

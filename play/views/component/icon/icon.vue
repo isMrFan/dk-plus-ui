@@ -1,90 +1,11 @@
-<template>
-  <div class="template_icon">
-    <div class="template_icon_jcsy">
-      <!--基础使用-->
-      <h2 class="template_icon_title">基础使用</h2>
-      <dkIcon class="dk-yinsi"></dkIcon>
-      <div class="index_Dk_code">
-        <highlightjs language="javascript" :code="htmlJson.foundation" />
-        <span class="fuzhi" @click="oncopy(htmlJson.foundation)">复制代码</span>
-      </div>
-      <!--基础使用结束-->
-    </div>
-    <div class="template_icon_jcsy">
-      <h2 class="template_icon_title">自定义大小和颜色(颜色只支持16进制 和英文单词)</h2>
-      <dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>
-      <div class="index_Dk_code">
-        <highlightjs language="javascript" :code="htmlJson.zidingyis" />
-        <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
-      </div>
-    </div>
-    <h4 class="cont_template_icon_title">System</h4>
-    <div class="icon_library">
-      <div
-        class="icon_library_item"
-        v-for="item in iconList"
-        :key="item[0]"
-        @click="oncopy('dk-' + item[0])"
-      >
-        <div class="icon_library_item_icon">
-          <dkIcon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dkIcon>
-        </div>
-        <div class="icon_library_item_name">
-          {{ item[0] }}
-        </div>
-        <!-- <div class="icon_library_item_name" v-if="isChinese">
-          {{ item[1] }}
-        </div> -->
-      </div>
-    </div>
-    <h3 class="cont_template_icon_title">other</h3>
-    <div class="icon_library">
-      <div
-        class="icon_library_item"
-        v-for="item in iconNameSpace"
-        :key="item[0]"
-        @click="oncopy('dk-' + item[0])"
-      >
-        <div class="icon_library_item_icon">
-          <dkIcon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dkIcon>
-        </div>
-        <div class="icon_library_item_name">
-          {{ item[0] }}
-        </div>
-        <!-- <div class="icon_library_item_name" v-if="isChinese">
-          {{ item[1] }}
-        </div> -->
-      </div>
-    </div>
-    <h3 class="cont_template_icon_title">Arrow</h3>
-    <div class="icon_library">
-      <div
-        class="icon_library_item"
-        v-for="item in iconOther"
-        :key="item[1]"
-        @click="oncopy('dk-' + item[0])"
-      >
-        <div class="icon_library_item_icon">
-          <dkIcon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dkIcon>
-        </div>
-        <div class="icon_library_item_name">
-          {{ item[0] }}
-        </div>
-        <!-- <div class="icon_library_item_name" v-if="isChinese">
-          {{ item[1] }}
-        </div> -->
-      </div>
-    </div>
-  </div>
-</template>
 <script lang="ts">
   import { defineComponent } from 'vue'
   export default defineComponent({
     name: 'DkIconsm',
     setup() {
       const htmlJson = {
-        foundation: `<dkIcon class="dk-yinsi"></dkIcon>`,
-        zidingyis: `<dkIcon :size="24" :color="'red'" class="dk-yinsi"></dkIcon>`
+        foundation: '<dkIcon class="dk-yinsi"></dkIcon>',
+        zidingyis: '<dkIcon :size="24" :color="\'red\'" class="dk-yinsi"></dkIcon>'
       }
       const iconList = [
         ['icon-del1', '删除'],
@@ -263,7 +184,7 @@
         ['icon-lockUser1', '用户锁'],
         ['icon-editPass', '编辑']
       ]
-      const oncopy = (e: any) => {
+      const oncopy = (e: string): void => {
         const input = document.createElement('input')
         input.setAttribute('readonly', 'readonly')
         input.setAttribute('value', e)
@@ -286,6 +207,85 @@
     }
   })
 </script>
+<template>
+  <div class="template_icon">
+    <div class="template_icon_jcsy">
+      <!--基础使用-->
+      <h2 class="template_icon_title">基础使用</h2>
+      <dk-icon class="dk-yinsi"></dk-icon>
+      <div class="index_Dk_code">
+        <highlightjs language="javascript" :code="htmlJson.foundation" />
+        <span class="fuzhi" @click="oncopy(htmlJson.foundation)">复制代码</span>
+      </div>
+      <!--基础使用结束-->
+    </div>
+    <div class="template_icon_jcsy">
+      <h2 class="template_icon_title">自定义大小和颜色(颜色只支持16进制 和英文单词)</h2>
+      <dk-icon :size="24" :color="'red'" class="dk-yinsi"></dk-icon>
+      <div class="index_Dk_code">
+        <highlightjs language="javascript" :code="htmlJson.zidingyis" />
+        <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
+      </div>
+    </div>
+    <h4 class="cont_template_icon_title">System</h4>
+    <div class="icon_library">
+      <div
+        v-for="item in iconList"
+        :key="item[0]"
+        class="icon_library_item"
+        @click="oncopy('dk-' + item[0])"
+      >
+        <div class="icon_library_item_icon">
+          <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>
+        </div>
+        <div class="icon_library_item_name">
+          {{ item[0] }}
+        </div>
+        <!-- <div class="icon_library_item_name" v-if="isChinese">
+          {{ item[1] }}
+        </div> -->
+      </div>
+    </div>
+    <h3 class="cont_template_icon_title">other</h3>
+    <div class="icon_library">
+      <div
+        v-for="item in iconNameSpace"
+        :key="item[0]"
+        class="icon_library_item"
+        @click="oncopy('dk-' + item[0])"
+      >
+        <div class="icon_library_item_icon">
+          <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>
+        </div>
+        <div class="icon_library_item_name">
+          {{ item[0] }}
+        </div>
+        <!-- <div class="icon_library_item_name" v-if="isChinese">
+          {{ item[1] }}
+        </div> -->
+      </div>
+    </div>
+    <h3 class="cont_template_icon_title">Arrow</h3>
+    <div class="icon_library">
+      <div
+        v-for="item in iconOther"
+        :key="item[1]"
+        class="icon_library_item"
+        @click="oncopy('dk-' + item[0])"
+      >
+        <div class="icon_library_item_icon">
+          <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>
+        </div>
+        <div class="icon_library_item_name">
+          {{ item[0] }}
+        </div>
+        <!-- <div class="icon_library_item_name" v-if="isChinese">
+          {{ item[1] }}
+        </div> -->
+      </div>
+    </div>
+  </div>
+</template>
 <style lang="scss" scoped>
   .template_icon {
     width: 100%;

@@ -7,9 +7,7 @@ module.exports = {
   rules: {
     /**
      * vue.js 规则
-     *
      * @see 参考文档 https://eslint.vuejs.org/rules/
-     *
      *  0 = off, 1 = warn, 2 = error
      */
     // 关闭名称校验 https://eslint.vuejs.org/rules/multi-word-component-names.html
@@ -74,7 +72,7 @@ module.exports = {
         attribute: 1,
         baseIndent: 1,
         closeBracket: 0,
-        alignAttributesVertically: true
+        alignAttributesVertically: false
       }
     ],
     // 为模板中的组件命名样式强制执行特定的大小写 https://eslint.vuejs.org/rules/component-name-in-template-casing.html
@@ -233,6 +231,14 @@ module.exports = {
           'CONTENT'
         ],
         alphabetical: false
+      }
+    ],
+    //可以配置是否允许在标签的闭合括号前插入换行符
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        singleline: 'never',
+        multiline: 'always'
       }
     ],
     // 在单行元素的内容之前和之后需要换行符 https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html
