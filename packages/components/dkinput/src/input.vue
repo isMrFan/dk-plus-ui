@@ -6,11 +6,12 @@
  * @description 输入框组件
  * @example
  */
-import type { InputHTMLAttributes } from 'vue';
-import { defineComponent, computed, ref, toRaw, shallowRef, nextTick } from 'vue';
+import type { InputHTMLAttributes, ComputedRef } from 'vue';
+import { defineComponent, computed, ref, toRaw, shallowRef, nextTick, reactive } from 'vue';
 import { dkInputProps } from './props';
 import { getInputGlobal } from '../../_hooks';
 import { getInput } from '../../_hooks';
+import { dkInputType } from '../../_interface';
 
 export default defineComponent({
   name: 'DkInput',
@@ -20,7 +21,7 @@ export default defineComponent({
     const INPUT = shallowRef<HTMLInputElement>();
     const _ref = computed(() => INPUT.value);
     const { getInputType } = getInputGlobal(props);
-    const { type = getInputType(), placeholder, clearable } = props;
+    const { type = getInputType(), placeholder, clearable, showPassword } = props;
 
     const { styleList, wrapperClassList, innerClassList } = getInput(props);
 
@@ -36,17 +37,18 @@ export default defineComponent({
 
     const DISABLED = computed((): boolean => props.disabled);
     const PLACEHOLDER = ref<string | number>(placeholder);
-    const INPUT_ATTRS = computed(
-      (): InputHTMLAttributes => {
-        return {
-          class: innerClassList.value,
-          type,
-          placeholder: PLACEHOLDER.value,
-          onInput: update,
-          disabled: DISABLED.value
-        } as InputHTMLAttributes;
-      }
-    );
+    let passwordShowOrHide = ref<Boolean>(false);
+    const TYPE = computed((): dkInputType | ComputedRef<dkInputType> => {
+      return passwordShowOrHide.value ? 'text' : 'password';
+    });
+
+    const INPUT_ATTRS = reactive({
+      class: innerClassList.value,
+      type: TYPE as dkInputType | ComputedRef<dkInputType>,
+      placeholder: PLACEHOLDER.value,
+      onInput: update,
+      disabled: DISABLED.value
+    } as InputHTMLAttributes);
 
     const IS_CLEAR = computed(() => !!clearable && !DISABLED.value);
 
@@ -87,12 +89,25 @@ export default defineComponent({
       console.log('focus', MODEL_VALUE.value, _ref.value, INPUT.value);
     };
 
+    const IS_SHOW_PASSWORD = computed((): boolean => {
+      return type === 'password' && !!showPassword;
+    })
+
+    const TOGGLE_PASSWORD = (): void => {
+      passwordShowOrHide.value = !passwordShowOrHide.value;
+      FOCUS();
+    }
+
+    const SHOW_PASSWORD_CLASS = computed((): string[] => {
+      return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
+    })
+
     return {
       classList: CLASS_LIST.value,
       styleList,
       wrapperClassList,
       value: MODEL_VALUE,
-      inputAttrs: toRaw(INPUT_ATTRS.value),
+      inputAttrs: INPUT_ATTRS,
       isClear: IS_CLEAR,
       isShowClear: IS_SHOW_CLEAR,
       isPrefix: IS_PREFIX.value,
@@ -102,7 +117,10 @@ export default defineComponent({
       isSuffixIcon: IS_SUFFIX_ICON.value,
       suffixIconClass: SUFFIX_ICON_CLASS.value,
       clear: CLEAR,
-      input: INPUT
+      input: INPUT,
+      isShowPassword: IS_SHOW_PASSWORD.value,
+      togglePassword: TOGGLE_PASSWORD,
+      showPasswordClass: SHOW_PASSWORD_CLASS
     };
   }
 });
@@ -124,6 +142,9 @@ export default defineComponent({
       </div>
       <template v-if="isClear">
         <dk-icon v-show="isShowClear" class="dk-icon-del1 dk-input-clearable" @click="clear" />
+      </template>
+      <template v-if="isShowPassword">
+        <dk-icon :class="showPasswordClass" @click="togglePassword"></dk-icon>
       </template>
     </div>
   </div>

@@ -29,7 +29,9 @@ import type { DkButtonProps } from '../../dkbutton/src/props'
 
 export interface getButtonType {
   classList: ComputedRef<ClassListName>
-  styleList: ComputedRef<CSSProperties>
+  styleList: ComputedRef<CSSProperties>,
+  personaClassList: ComputedRef<ClassListName>,
+  personalityStylist: ComputedRef<CSSProperties>
 }
 
 /**
@@ -39,7 +41,7 @@ export interface getButtonType {
  * @description button组件方法封装
  */
 
-export const getButton = (props: DkButtonProps):getButtonType=> {
+export const getButton = (props: DkButtonProps): getButtonType => {
   /**
    * @name slot
    * @description 获取当前组件的插槽
@@ -95,8 +97,16 @@ export const getButton = (props: DkButtonProps):getButtonType=> {
    */
   const { classes } = getStyleList(params, 'button')
   const classList = classes([...defaultClassList], 'button')
+  /**
+   * @name styleList
+   * @description 样式自定义处理
+   */
   const styleList = computed((): CSSProperties => {
-    const { bgColor, fontColor, shadow, fontSize } = props
+    const { 
+      bgColor, fontColor, 
+      shadow, fontSize,
+      diffusionBgColor
+    } = props
     let defaultStyle = {
       '--button-color': fontColor,
       '--button-hover': fontColor ? getColor(props.fontColor).getDodge(0.4) : null,
@@ -107,7 +117,8 @@ export const getButton = (props: DkButtonProps):getButtonType=> {
         ? getColor(props.bgColor).getDodge(0.4)
         : null,
       '--button-hover-background': bgColor ? getColor(props.bgColor).getDodge(0.4) : null,
-      '--button-background': bgColor || null
+      '--button-background': bgColor || null,
+      '--button-ripples-BgColor':diffusionBgColor || null
     } as CSSProperties
     if (bgColor) {
       const bgStyle = {
@@ -119,9 +130,33 @@ export const getButton = (props: DkButtonProps):getButtonType=> {
     }
     return defaultStyle
   })
-
+  /**
+   * @name personaDefault
+   * @description 默认个性按钮Class
+   */
+    const personaDefault = [
+      'personalityType',
+      'personalitySize'
+    ]
+  /**
+   * @name personaClassList
+   * @description 个性按钮样Class名自定义处理
+   */
+  const personaClassList = classes([...personaDefault], 'button')
+  /**
+   * @name personalityStylist
+   * @description 个性按钮样式自定义处理
+   */
+  const personalityStylist = computed((): CSSProperties => {
+    const defaultStyle={
+    
+    }as CSSProperties
+    return defaultStyle
+  })
   return {
     classList,
-    styleList
+    styleList,
+    personaClassList,
+    personalityStylist
   }
 }

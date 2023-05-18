@@ -7,9 +7,7 @@ module.exports = {
   rules: {
     /**
      * vue.js 规则
-     *
      * @see 参考文档 https://eslint.vuejs.org/rules/
-     *
      *  0 = off, 1 = warn, 2 = error
      */
     // 关闭名称校验 https://eslint.vuejs.org/rules/multi-word-component-names.html
@@ -74,7 +72,7 @@ module.exports = {
         attribute: 1,
         baseIndent: 1,
         closeBracket: 0,
-        alignAttributesVertically: true
+        alignAttributesVertically: false
       }
     ],
     // 为模板中的组件命名样式强制执行特定的大小写 https://eslint.vuejs.org/rules/component-name-in-template-casing.html
@@ -235,6 +233,14 @@ module.exports = {
         alphabetical: false
       }
     ],
+    //可以配置是否允许在标签的闭合括号前插入换行符
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        singleline: 'never',
+        multiline: 'always'
+      }
+    ],
     // 在单行元素的内容之前和之后需要换行符 https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html
     'vue/singleline-html-element-content-newline': 'off',
     // 需要 props 的默认值 https://eslint.vuejs.org/rules/require-default-prop.html
@@ -266,7 +272,10 @@ module.exports = {
     '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
     //禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
-    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: true }],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports', disallowTypeAnnotations: true }
+    ],
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
     '@typescript-eslint/no-unused-vars': 'error',
     // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/
@@ -301,7 +310,7 @@ module.exports = {
     // 不允许使用未声明的变量 https://eslint.org/docs/latest/rules/no-undef
     'no-undef': 'off',
     // 函数括号前的空格 https://eslint.org/docs/latest/rules/space-before-function-paren
-    'space-before-function-paren': ['error', 'always'],
+    'space-before-function-paren': ['error', 'never'],
     // 禁止多个空行 https://eslint.org/docs/latest/rules/no-multiple-empty-lines#rule-details
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0, maxBOF: 0 }],
     // 在文件末尾要求或禁止换行 https://eslint.org/docs/latest/rules/eol-last#rule-details

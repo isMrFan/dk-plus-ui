@@ -18,14 +18,9 @@
     'last-week': DownloadItem | null
     'last-day': DownloadItem | null
   }
-  const downloadVolume: Download = reactive({
-    'last-month': null,
-    'last-week': null,
-    'last-day': null
-  })
 
   export default defineComponent({
-    name: 'downloads',
+    name: 'Downloads',
     setup() {
       const data = reactive({
         times: [

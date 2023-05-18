@@ -7,7 +7,7 @@ import type { PropType } from 'vue'
  * @param { any } val 校验的值
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type calibrator = (val:any) => boolean
+export type calibrator = (val: any) => boolean
 
 /**
  * @name returnType
@@ -66,7 +66,7 @@ export const setBooleanProps = (
 export const setStringProp = <T extends string>(
   defaultVal?: null | T,
   validator?: calibrator
-):returnType<PropType<T>, T | null> =>  {
+): returnType<PropType<T>, T | null> => {
   const config = {
     type: String as unknown as PropType<T>,
     default: (): T | null => defaultVal || null,

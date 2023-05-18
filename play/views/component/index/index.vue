@@ -1,42 +1,7 @@
-<template>
-  <div class="index">
-    <h1 class="index-h1">测试组件</h1>
-    <div class="index-conten">
-      <div class="index-conten-left">
-        <ul>
-          <li v-for="(item, ind) in rooterList" :key="ind">
-            <router-link
-              :to="item.path"
-              :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #ccc;'"
-              >{{ item.name }}</router-link
-            >
-            <ul v-if="item.children && $route.path === item.path">
-              <li
-                v-for="(child, index) in item.children"
-                :key="child.id"
-                @click="handleChildItemClick(child, index)"
-              >
-                <span
-                  :style="
-                    childLiActiveIndex === child.id ? 'color: #34ab98;' : 'color: #ccc;'
-                  "
-                  >{{ child.name }}</span
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="index-conten-right">
-        <router-view />
-      </div>
-    </div>
-  </div>
-</template>
 <script lang="ts">
   import { defineComponent, toRefs, reactive } from 'vue'
   export default defineComponent({
-    name: 'index',
+    name: 'Index',
     setup() {
       const data = reactive({
         rooterList: [
@@ -80,12 +45,16 @@
         childLiActiveIndex: '0'
       })
       // 子菜单点击事件 导航到对应的组件
-      const handleChildItemClick = (item, index) => {
+      interface ChildItem {
+        id: string
+        name: string
+      }
+      const handleChildItemClick = (item: ChildItem, index: number): void => {
         active.childLiActiveIndex = item.id
         const title = document.querySelectorAll('.cont_template_icon_title')[index]
         // 将 title scroll 到顶部
         if (title?.innerHTML === item.name) {
-          title!.scrollIntoView({ behavior: 'smooth' })
+          title.scrollIntoView({ behavior: 'smooth' })
         }
       }
       return {
@@ -96,6 +65,41 @@
     }
   })
 </script>
+<template>
+  <div class="index">
+    <h1 class="index-h1">测试组件</h1>
+    <div class="index-conten">
+      <div class="index-conten-left">
+        <ul>
+          <li v-for="(item, ind) in rooterList" :key="ind">
+            <router-link
+              :to="item.path"
+              :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #ccc;'"
+            >
+              {{ item.name }}
+            </router-link>
+            <ul v-if="item.children && $route.path === item.path">
+              <li
+                v-for="(child, index) in item.children"
+                :key="child.id"
+                @click="handleChildItemClick(child, index)"
+              >
+                <span
+                  :style="
+                    childLiActiveIndex === child.id ? 'color: #34ab98;' : 'color: #ccc;'
+                  "
+                >{{ child.name }}</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="index-conten-right">
+        <router-view />
+      </div>
+    </div>
+  </div>
+</template>
 <style lang="scss" scoped>
   ::-webkit-scrollbar {
     /*滚动条整体样式*/

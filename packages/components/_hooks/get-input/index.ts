@@ -3,7 +3,7 @@ import type { CSSProperties, ComputedRef } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
-import type { dkInputType,ClassListName } from '../../_interface'
+import type { dkInputType, ClassListName } from '../../_interface'
 
 /**
  * @name getInputGlobalType
@@ -50,12 +50,12 @@ export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
 }
 
 export interface iSGetInputType {
-  classList: ComputedRef<ClassListName>,
-  styleList: ComputedRef<CSSProperties>,
-  wrapperClassList: ComputedRef<ClassListName>,
-  wrapperStyleList: ComputedRef<CSSProperties>,
-  innerClassList: ComputedRef<ClassListName>,
-  clearableClassList: ComputedRef<ClassListName>,
+  classList: ComputedRef<ClassListName>
+  styleList: ComputedRef<CSSProperties>
+  wrapperClassList: ComputedRef<ClassListName>
+  wrapperStyleList: ComputedRef<CSSProperties>
+  innerClassList: ComputedRef<ClassListName>
+  clearableClassList: ComputedRef<ClassListName>
 }
 
 /**
@@ -64,7 +64,7 @@ export interface iSGetInputType {
  * @description 获取input组件的类名和样式
  * @returns
  */
-export const getInput = (props: DkInputProps):iSGetInputType => {
+export const getInput = (props: DkInputProps): iSGetInputType => {
   // const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
   //   getSassConfig()
 

@@ -4,12 +4,12 @@
   export default defineComponent({
     name: 'Dkcodedisplay',
     props: CodeDisplay,
-    setup () {
+    setup() {
       const data = reactive({
         open: false,
         height: 0 // 展开的高度
       })
-      const handleOpenCode = (e: Event):void => {
+      const handleOpenCode = (e: Event): void => {
         const TARGET = e.target as HTMLElement
         const TARGET_PARENT = TARGET.parentElement as HTMLElement
         const TARGET_PARENT_PARENT = TARGET_PARENT.parentElement as HTMLElement

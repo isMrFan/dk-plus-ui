@@ -23,14 +23,14 @@ import glob from 'fast-glob'
 import fs from 'fs/promises'
 import { parse } from '@vue/compiler-sfc'
 
-const buildEachComponent = async (): Promise<void[]> => {
+const buildEachComponent = async(): Promise<void[]> => {
   try {
     const files = sync('*', {
       cwd: compRoot,
       onlyDirectories: true
     });
 
-    const builds = files.map(async (file: string): Promise<void> => {
+    const builds = files.map(async(file: string): Promise<void> => {
       try {
         const input = path.resolve(compRoot, file, 'index.ts');
         const config = {
@@ -61,7 +61,7 @@ const buildEachComponent = async (): Promise<void[]> => {
   }
 };
 
-async function genTypes (): Promise<void> {
+async function genTypes(): Promise<void> {
   try {
     const project = new Project({
       compilerOptions: {
@@ -90,7 +90,7 @@ async function genTypes (): Promise<void> {
     const sourceFiles: SourceFile[] = [];
 
     await Promise.all(
-      filePaths.map(async (file) => {
+      filePaths.map(async(file) => {
         if (file.endsWith('.vue')) {
           const content = await fs.readFile(file, 'utf8');
           const sfc = parse(content);
@@ -111,9 +111,9 @@ async function genTypes (): Promise<void> {
       emitOnlyDtsFiles: true
     });
 
-    const tasks = sourceFiles.map(async (sourceFile) => {
+    const tasks = sourceFiles.map(async(sourceFile) => {
       const emitOutput = sourceFile.getEmitOutput();
-      const tasks = emitOutput.getOutputFiles().map(async (outputFile) => {
+      const tasks = emitOutput.getOutputFiles().map(async(outputFile) => {
         const filepath = outputFile.getFilePath();
         await fs.mkdir(path.dirname(filepath), {
           recursive: true
@@ -129,7 +129,7 @@ async function genTypes (): Promise<void> {
     throw e;
   }
 }
-function copyTypes (): TaskFunction {
+function copyTypes(): TaskFunction {
   const src = path.resolve(outDir, 'types/components/');
 
   const copy = (module: string): TaskFunction => {
@@ -140,7 +140,7 @@ function copyTypes (): TaskFunction {
   return parallel(copy('es'), copy('lib'));
 }
 
-async function buildComponentEntry (): Promise<void> {
+async function buildComponentEntry(): Promise<void> {
   try {
     const config = {
       input: path.resolve(compRoot, 'index.ts'),
@@ -163,7 +163,7 @@ async function buildComponentEntry (): Promise<void> {
   }
 }
 
-async function Finish (): Promise<void> {
+async function Finish(): Promise<void> {
   console.log('打包完成！');
 }
 

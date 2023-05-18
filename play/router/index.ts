@@ -1,9 +1,5 @@
-import {
-  createRouter,
-  createWebHistory,
-  createWebHashHistory,
-  RouteRecordRaw
-} from 'vue-router'
+import type { RouteRecordRaw, RouteLocationNormalized } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 const Index: Object = () => import('../views/component/index/index.vue')
@@ -11,7 +7,7 @@ const DkShadow: Object = () => import('../views/component/DkShadow/DkShadow.vue'
 const DkIcon: Object = () => import('../views/component/icon/icon.vue')
 const Dkbutton: Object = () => import('../views/component/Dkbutton/Dkbutton.vue')
 const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: '/',
@@ -77,7 +73,7 @@ const router = createRouter({
   history: createWebHashHistory(), //createWebHistory(),
   routes
 })
-router.beforeEach((to: any, from, next) => {
+router.beforeEach((to: RouteLocationNormalized, from, next) => {
   NProgress.start()
   const title = to.meta.title == undefined ? 'dk-UI' : 'dk-UI-' + to.meta.title
   window.document.title = title

@@ -73,6 +73,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active: #409eff;
     --button-active-borderColor: #409eff;
     --button-active-background: #ecf5ff;
+
+    --button-ripples-BgColor: #dcdfe6;
   }
   &_primary.#{$box} {
     --button-color: #ffffff;
@@ -86,6 +88,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active: #ffffff;
     --button-active-borderColor: #409eff;
     --button-active-background: #337ecc;
+
+    --button-ripples-BgColor: #409eff;
   }
   &_success.#{$box} {
     --button-color: #ffffff;
@@ -99,6 +103,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active: #ffffff;
     --button-active-borderColor: #93c77b;
     --button-active-background: #93c77b;
+
+    --button-ripples-BgColor: #67c23a;
   }
   &_info.#{$box} {
     --button-color: #ffffff;
@@ -112,6 +118,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active: #ffffff;
     --button-active-borderColor: #a4a6ad;
     --button-active-background: #a4a6ad;
+
+    --button-ripples-BgColor: #909399;
   }
   &_warning.#{$box} {
     --button-color: #ffffff;
@@ -125,6 +133,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active: #ffffff;
     --button-active-borderColor: #f5bd69;
     --button-active-background: #f5bd69;
+
+    --button-ripples-BgColor: #e6a23c;
   }
   &_danger.#{$box} {
     --button-color: #ffffff;
@@ -138,6 +148,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active: #ffffff;
     --button-active-borderColor: #d88383;
     --button-active-background: #d88383;
+
+    --button-ripples-BgColor: #f56c6c;
   }
   &-box {
     --button-height: 40px;
@@ -177,6 +189,8 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-padding: 15px;
     --button-font-size: 13px;
   }
+  //扩散效果
+
   //半圆角按钮逻辑处理
   &_circle {
     --button-border-radius: 50%;

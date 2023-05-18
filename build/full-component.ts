@@ -17,7 +17,7 @@ import fs from 'fs/promises'
 import { buildConfig } from './utils/config'
 import { pathRewriter } from './utils'
 
-async function buildFull (): Promise<void> {
+async function buildFull(): Promise<void> {
   // rollup打包的配置信息
   const config = {
     input: path.resolve(zpRoot, 'index.ts'), // 打包的入口
@@ -46,7 +46,7 @@ async function buildFull (): Promise<void> {
   await Promise.all(buildConfig.map(config => bundle.write(config)));
 }
 
-async function buildEntry (): Promise<void> {
+async function buildEntry(): Promise<void> {
   const entryFiles = await fs.readdir(zpRoot, { withFileTypes: true });
   const entryPoints = entryFiles
     .filter(f => f.isFile())

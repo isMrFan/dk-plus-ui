@@ -142,8 +142,13 @@
     bottom: 0;
     opacity: 0;
     border-radius: inherit;
-    transition: 0.3s;
-    box-shadow: 0 0 0 4px var(--button-background);
+    transition: 0.6s;
+    box-shadow: 0 0 0 8px var(--button-ripples-BgColor);
+}
+  &_diffusion:active::after{
+    box-shadow: none;
+    opacity: 1;
+    transition: 0s;
   }
   // 扩散效果需要的样式
   &:not([disabled]):active::after {
@@ -152,17 +157,3 @@
     transition: 0s;
   }
 }
-
-// .dk-button_ripples_diffusion::after{
-//   content: '';
-//   display: inline-block;
-//   position: relative;
-//   top: 0;
-//   right: 0;
-//   left: 0;
-//   bottom: 0;
-//   opacity: 0;
-//   border-radius: inherit;
-//   transition: 0.3s;
-//   box-shadow: 0 0 0 4px #67c23a;
-// }

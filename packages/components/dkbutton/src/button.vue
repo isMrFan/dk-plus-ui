@@ -12,10 +12,9 @@
   export default defineComponent({
     name: 'DkButton',
     props: dkButtonProps,
-    
-    setup (Props) {
+    setup(Props) {
       const dkBoxButton = ref<HTMLButtonElement>()
-      const { classList, styleList } = getButton(Props)
+      const { classList, styleList,personaClassList } = getButton(Props)
       const { getRun } = getReturn()
       const { getType } = getGlobal(Props)
       const EventClick = (evt: MouseEvent): void => {
@@ -46,7 +45,8 @@
         EventClick,
         dkBoxButton,
         classList,
-        styleList
+        styleList,
+        personaClassList
       }
     }
   })
@@ -83,6 +83,7 @@
     </template>
     <template v-else>
       <button
+        v-if="!personality"
         ref="dkBoxButton"
         :class="['dk-button-box', classList]"
         :style="styleList"
@@ -92,6 +93,13 @@
         <slot name="icon" />
         <slot></slot>
         <slot name="afterIcon" />
+      </button>
+      <button 
+        v-else ref="dkBoxButton" 
+        :class="['dk-button-personality',personaClassList]" 
+        role="button" 
+      >
+        BI 渐变 缺角按钮
       </button>
     </template>
   </div>

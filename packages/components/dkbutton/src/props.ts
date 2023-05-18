@@ -1,7 +1,7 @@
 import { setBooleanProps, setStringProp, setFunction } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import { DK_TYPE, DK_TARGET, DK_SIZE } from '../../_tokens'
-import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType } from '../../_interface'
+import { DK_TYPE, DK_TARGET, DK_SIZE ,DK_Personality_Type} from '../../_tokens'
+import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType,dkPersonalityButtonType } from '../../_interface'
 /**
  * @name dk-button
  * @author fanKai16
@@ -23,6 +23,10 @@ import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType } from '../../_in
  * @property {boolean} ripples 水波纹效果
  * @property {string} ripplesBgColor  水波纹效果的背景颜色
  * @property {boolean} diffusion   扩散效果哦
+ * @property {string} diffusionBgColor  扩散效果的背景颜色 
+ * @property {boolean} personality  是否为个性按钮
+ * @property {string} personalityType  个性按钮的类型
+ * @property {string} personalitySize  个性按钮的大小
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -38,7 +42,7 @@ export const dkButtonProps = {
    * @returns 按钮类型为 link 时生效
    */
   href: setStringProp(),
-  
+
   /**
    * @name target
    * @param { string } target ['_blank'] 默认值
@@ -139,11 +143,37 @@ export const dkButtonProps = {
   ripplesBgColor: setStringProp(),
   /**
    * @name diffusion
-   * @param { string }  涟漪效果的自定义颜色BG
+   * @param { Boolean }  扩散效果
    * @returns 扩散效果
    */
   diffusion: setBooleanProps(),
-
+  /**
+   * @name diffusionBgColor
+   * @param { string }  扩散效果自定义颜色BG
+   * @returns 扩散效果自定义颜色BG
+   */
+  diffusionBgColor: setStringProp(),
+  /**
+   * @name personality
+   * @param { boolean }  是否为个性按钮
+   * @returns 是否为个性按钮
+  */
+  personality: setBooleanProps(),
+  /**
+   * @name personalityType
+   * @param { string }  个性按钮类型
+   * @returns 个性按钮类型
+  */
+  personalityType:setStringProp<dkPersonalityButtonType>(null, (value: dkPersonalityButtonType): boolean => {
+    return DK_Personality_Type.includes(value)
+  }),
+  /**
+   * @name personalitySize
+   * @param { string }  个性按钮大小
+   * @returns 个性按钮大小
+  */
+  personalitySize:setStringProp(),
+  
   /**是否加载中 */
   loading: setBooleanProps(),
 
