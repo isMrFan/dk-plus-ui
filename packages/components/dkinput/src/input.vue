@@ -16,7 +16,7 @@ export default defineComponent({
   name: 'DkInput',
   props: dkInputProps,
   emits: ['update:modelValue'],
-  setup (props, { slots, emit }) {
+  setup(props, { slots, emit }) {
     const INPUT = shallowRef<HTMLInputElement>();
     const _ref = computed(() => INPUT.value);
     const { getInputType } = getInputGlobal(props);
@@ -80,11 +80,11 @@ export default defineComponent({
       emit('update:modelValue', '');
       FOCUS();
     };
-    
+
     const FOCUS = async (): Promise<void> => {
-      await nextTick()      
+      await nextTick()
       _ref.value?.focus();
-      console.log('focus', MODEL_VALUE.value,_ref.value,INPUT.value);
+      console.log('focus', MODEL_VALUE.value, _ref.value, INPUT.value);
     };
 
     return {
@@ -123,11 +123,7 @@ export default defineComponent({
         <dk-icon v-if="isSuffixIcon" :class="suffixIconClass"></dk-icon>
       </div>
       <template v-if="isClear">
-        <dk-icon
-          v-show="isShowClear"
-          class="dk-icon-del1 dk-input-clearable"
-          @click="clear"
-        />
+        <dk-icon v-show="isShowClear" class="dk-icon-del1 dk-input-clearable" @click="clear" />
       </template>
     </div>
   </div>
