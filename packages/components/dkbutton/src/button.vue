@@ -12,7 +12,7 @@
   export default defineComponent({
     name: 'DkButton',
     props: dkButtonProps,
-    
+
     setup (Props) {
       const dkBoxButton = ref<HTMLButtonElement>()
       const { classList, styleList } = getButton(Props)
@@ -27,12 +27,12 @@
         if (ripples.value) {
           const { ripplesBgColor } = toRefs(Props)
           const elementObj: RipplesType = reactive({
-              AnimationDuration: 1100,
-              component: 'dk-button',
-              className: 'dk-button_ripples',
+            AnimationDuration: 1100,
+            component: 'dk-button',
+            className: 'dk-button_ripples',
             ripplesBgColor: ripplesBgColor.value,
-            
-               type: getType()
+
+            type: getType()
           })
           const { useRipples } = getRipples(
             evt,
