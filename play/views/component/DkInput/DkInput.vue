@@ -52,7 +52,7 @@ export default defineComponent({
     </dk-input> -->
 
     <h4>文本域</h4>
-    <dk-input type="textarea" placeholder="文本域" />
+    <dk-input type="textarea" placeholder="文本域" autosize />
 
     <h4>数字框</h4>
     <dk-input type="number" placeholder="数字框" />
@@ -98,7 +98,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .input {
-  width: 100%;
+  width: 99%;
 
   .dk-input {
     margin-bottom: 20px;

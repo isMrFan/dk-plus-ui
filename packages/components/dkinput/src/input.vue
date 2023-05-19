@@ -6,7 +6,7 @@
  * @description 输入框组件
  * @example
  */
-import type { InputHTMLAttributes, ComputedRef } from 'vue';
+import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'vue';
 import { defineComponent, computed, ref, shallowRef, nextTick, reactive } from 'vue';
 import { dkInputProps } from './props';
 import { getInputGlobal } from '../../_hooks';
@@ -18,10 +18,11 @@ export default defineComponent({
   props: dkInputProps,
   emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
-    const INPUT = shallowRef<HTMLInputElement>();
-    const _ref = computed(() => INPUT.value);
     const { getInputType } = getInputGlobal(props);
     const { type = getInputType(), placeholder, clearable, showPassword } = props;
+    
+    const INPUT = shallowRef<HTMLInputElement>();
+    const _ref = computed(() => INPUT.value);
 
     const { styleList, wrapperClassList, innerClassList } = getInput(props);
 
@@ -57,6 +58,14 @@ export default defineComponent({
       disabled: DISABLED.value,
       inputmode: INPUT_MODE.value
     } as InputHTMLAttributes);
+
+    const TEXTAREA_ATTRS = reactive({
+      class: wrapperClassList.value,
+      type: TYPE as dkInputType | ComputedRef<dkInputType>,
+      placeholder: PLACEHOLDER.value,
+      onInput: update,
+      disabled: DISABLED.value
+    } as TextareaHTMLAttributes);
 
     const IS_CLEAR = computed(() => !!clearable && !DISABLED.value);
 
@@ -127,7 +136,8 @@ export default defineComponent({
       input: INPUT,
       isShowPassword: IS_SHOW_PASSWORD.value,
       togglePassword: TOGGLE_PASSWORD,
-      showPasswordClass: SHOW_PASSWORD_CLASS
+      showPasswordClass: SHOW_PASSWORD_CLASS,
+      textareaAttrs: TEXTAREA_ATTRS
     };
   }
 });
@@ -156,7 +166,7 @@ export default defineComponent({
     </div>
   </div>
   <div v-else :class="classList">
-    <input type="textarea" />
+    <textarea v-bind="textareaAttrs"></textarea>
   </div>
 </template>
 
