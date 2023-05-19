@@ -19,8 +19,8 @@
     }
   }
   @include block(wrapper) {
-    width: 100%;
-    height: 100%;
+    width: inherit;
+    height: inherit;
     overflow: hidden;
     border: 1px solid var(--input-border);
     border-radius: var(--input-border-radius, 4px);
@@ -28,6 +28,7 @@
     display: inline-flex;
     align-items: center;
     background-color: var(--input-color);
+    padding: 0 10px;
     &:hover {
       border: 1px solid var(--input-hover-border);
     }
@@ -36,10 +37,9 @@
     }
   }
   @include element(inner) {
-    flex: 9;
-    height: 100%;
-    line-height: 100%;
-    padding: 0 10px;
+    width: inherit;
+    height: inherit;
+    line-height: var(--input-height);
     font-size: var(--input-font-size);
     color: var(--input-text-color);
     border: none;
@@ -54,17 +54,28 @@
     display: inherit;
     justify-content: inherit;
     align-items: inherit;
-    padding: 0 10px;
     @include block(icon) {
       color: var(--input-prefix-icon-color);
     }
   }
+  @include element(prefix) {
+    padding-right: 10px;
+  }
+  @include element(suffix) {
+    padding-left: 10px;
+  }
   @include block(clearable) {
     padding: 0 4px;
+    // display: none;
     &:hover {
       cursor: pointer;
     }
   }
+  // &:focus-within:hover {
+  //   .dk-input-clearable {
+  //     display: block;
+  //   }
+  // }
   @include element(disabled) {
     &:hover * {
       cursor: not-allowed;

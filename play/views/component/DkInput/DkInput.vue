@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { defineComponent, ref, reactive } from 'vue'
+  import { defineComponent, ref } from 'vue'
   export default defineComponent({
     name: 'DkInputComponent',
-    setup() {
+    setup () {
       const oncopy = (code: string): void => {
         const input = document.createElement('input')
         input.setAttribute('readonly', 'readonly')
@@ -19,227 +19,17 @@
         console.log('handleFixClick')
       }
       const msg = ref('asdf')
-      const change = (e): void => {
-        console.log('父组件', e)
-      }
-      const focus = (e): void => {
-        console.log('父组件', e)
-      }
-      const blur = (e): void => {
-        console.log('父组件', e)
-        console.log(input)
-      }
       const input = ref(null)
-      const data = reactive({
-        htmlList: [
-          {
-            title: 'change',
-            code: '<dk-input v-model="msg" @change="change" prefix-icon="del1" @prefix-click="handleFixClick">',
-            attrs: {
-              placeholder: 'change',
-              prefixIcon: 'del1',
-              change: change,
-              modelValue: msg
-            }
-          },
-          {
-            title: '基础用法',
-            code: '<dk-input placeholder="基础用法"/>',
-            attrs: {
-              placeholder: '基础用法'
-            }
-          },
-          {
-            title: '禁用状态',
-            code: '<dk-input placeholder="禁用状态" disabled/>',
-            attrs: {
-              placeholder: '禁用状态',
-              disabled: true
-            }
-          },
-          {
-            title: '可清空',
-            code: '<dk-input placeholder="可清空" clearable/>',
-            attrs: {
-              placeholder: '可清空',
-              clearable: true
-            }
-          },
-          {
-            title: '密码框',
-            code: '<dk-input placeholder="密码框" type="password"/>',
-            attrs: {
-              placeholder: '密码框',
-              type: 'password'
-            }
-          },
-          {
-            title: '可查看密码',
-            code: '<dk-input placeholder="可查看密码" show-password type="password"/>',
-            attrs: {
-              placeholder: '密码框',
-              type: 'password',
-              showPassword: true
-            }
-          },
-          {
-            title: '前缀图标',
-            code: '<dk-input placeholder="前缀图标" prefix-icon="search"/>',
-            attrs: {
-              placeholder: '前缀图标',
-              prefixIcon: 'search'
-            },
-            emits: ['prefix-click']
-          },
-          {
-            title: '后缀图标',
-            code: '<dk-input placeholder="后缀图标" suffix-icon="search"/>',
-            attrs: {
-              placeholder: '后缀图标',
-              suffixIcon: 'search',
-              clearable: true
-            }
-          },
-          {
-            title: '前缀图标点击事件',
-            code: '<dk-input placeholder="前缀图标" @prefix-click=\'handleSuffixClick\' prefix-icon="search"/>',
-            attrs: {
-              placeholder: '前缀图标',
-              prefixIcon: 'search'
-            },
-            emits: ['prefix-click']
-          },
-          {
-            title: '后缀图标点击事件',
-            code: '<dk-input placeholder="后缀图标" @suffix-click=\'handleSuffixClick\' suffix-icon="search"/>',
-            attrs: {
-              placeholder: '后缀图标',
-              suffixIcon: 'search'
-            },
-            emits: ['suffix-click']
-          },
-          {
-            title: '前缀插槽',
-            code: `<dk-input placeholder="前缀插槽">
-  <template #prefix>
-    <dk-icon :size="13" class="dk-icon-search"></dk-icon>
-  </template>
-</dk-input>`,
-            attrs: {
-              placeholder: '前缀插槽',
-              prefixIcon: 'search'
-            }
-          },
-          {
-            title: '后缀插槽',
-            code: `<dk-input placeholder="后缀插槽">
-  <template #suffix>
-    <dk-icon :size="13" class="dk-icon-search"></dk-icon>
-  </template>
-</dk-input>`,
-            attrs: {
-              placeholder: '后缀插槽',
-              suffixIcon: 'search'
-            }
-          },
-          {
-            title: '文本域',
-            code: '<dk-input placeholder="文本域" type="textarea" rows="3"/>',
-            attrs: {
-              placeholder: '文本域',
-              type: 'textarea',
-              rows: 3
-            }
-          },
-          {
-            title: '高度自适应文本域',
-            code: '<dk-input placeholder="高度自适应文本域" type="textarea" autosize rows="3"/>',
-            attrs: {
-              placeholder: '高度自适应文本域',
-              type: 'textarea',
-              rows: 3,
-              autosize: true
-            }
-          },
-          {
-            title: '前缀内容',
-            code: `<dk-input placeholder="前缀内容" prepend="￥"> 
-  <template #prepend>
-    <dk-icon class="dk-icon-del1"></dk-icon>
-  </template>
-</dk-input>`,
-            attrs: {
-              placeholder: '前缀内容',
-              prepend: '￥',
-              vModel: msg
-            }
-          },
-          {
-            title: '后缀内容',
-            code: '<dk-input placeholder="后缀内容" append=".00"/>',
-            attrs: {
-              placeholder: '后缀内容',
-              append: '.00'
-            }
-          },
-          {
-            title: 'size',
-            code: '<dk-input placeholder="size" size=\'medium\'/>',
-            attrs: {
-              placeholder: 'medium',
-              size: 'medium'
-            }
-          },
-          {
-            title: 'size',
-            code: '<dk-input placeholder="size" size=\'small\'/>',
-            attrs: {
-              placeholder: 'small',
-              size: 'small'
-            }
-          },
-          {
-            title: 'size',
-            code: '<dk-input placeholder="size" size=\'mini\'/>',
-            attrs: {
-              placeholder: 'mini',
-              size: 'mini'
-            }
-          },
-          {
-            title: '输入框内容长度限制',
-            code: '<dk-input placeholder="输入框内容长度限制" maxlength="10" minlength=\'4\'/>',
-            attrs: {
-              placeholder: '输入框内容长度限制',
-              maxlength: 10,
-              minlength: 4
-            }
-          }
-        ]
-      })
-
-      function getComponentName(code): string | undefined {
-        // 在这里根据字符串 code 返回对应的组件名称
-        if (code === '<dk-input placeholder="基础用法"/>') {
-          return 'DkInput'
-        }
-      }
+      
       const isDisabled = ref(true)
-      const toggleDisabled = (): void => {
-        isDisabled.value = !isDisabled.value
-      }
       return {
-        ...data,
         oncopy,
-        getComponentName,
         handleFixClick,
         msg,
-        change,
         focus,
         blur,
         input,
-        isDisabled,
-        toggleDisabled
+        isDisabled
       }
     }
   })
@@ -260,6 +50,12 @@
         <dk-icon class="dk-icon-del1" />
       </template>
     </dk-input> -->
+
+    <h4>密码框</h4>
+    <dk-input type="password" placeholder="密码框" show-password />
+
+    <h4>前后缀</h4>
+    <dk-input></dk-input>
     <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon />
     <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="dk-icon-del1" />
     <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
@@ -270,6 +66,13 @@
         <dk-icon class="dk-icon-del1" />
       </template>
     </dk-input>
+
+    <h4>禁用</h4>
+    <dk-input disabled placeholder="禁用" />
+
+    <h4>清空</h4>
+    <dk-input v-model="msg" clearable placeholder="清空" />
+    {{ msg }}
 
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">
@@ -289,7 +92,7 @@
 
 <style lang="scss" scoped>
   .input {
-    width: 99%;
+    width: 100%;
     .dk-input {
       margin-bottom: 20px;
     }
