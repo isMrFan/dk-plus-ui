@@ -27,6 +27,9 @@ import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType,dkPersonalityButt
  * @property {boolean} personality  是否为个性按钮
  * @property {string} personalityType  个性按钮的类型
  * @property {string} personalitySize  个性按钮的大小
+ * @property {string} personalityBorderColor  个性按钮的边框颜色
+ * @property {string} personalityBgColor  个性按钮的背景颜色
+ * @property {string} personalityFontColor  个性按钮的字体颜色
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -161,7 +164,8 @@ export const dkButtonProps = {
   personality: setBooleanProps(),
   /**
    * @name personalityType
-   * @param { string }  个性按钮类型
+   * @param { string } [BiCurvedA] BI缺角渐变按钮
+   * @param { string } [multiple] 多重阴影按钮
    * @returns 个性按钮类型
   */
   personalityType:setStringProp<dkPersonalityButtonType>(null, (value: dkPersonalityButtonType): boolean => {
@@ -169,11 +173,34 @@ export const dkButtonProps = {
   }),
   /**
    * @name personalitySize
-   * @param { string }  个性按钮大小
-   * @returns 个性按钮大小
+   * @param { string }  [large] 大
+   * @param { string }  [medium] 中
+   * @param { string }  [small] 小
+   * @param { string }  [mini] 迷你
+   * @returns 按钮类型 是否为文本按钮(默认值:'large')
+   */
+  personalitySize:setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
+    return DK_SIZE.includes(value)
+  }),
+  /**
+   * @name personalityBorderColor
+   * @param { string }  个性按钮边框颜色
+   * @returns personality
   */
-  personalitySize:setStringProp(),
-  
+  personalityBorderColor: setStringProp(),
+  /**
+   * @name personalityBgColor
+   * @param { string }  个性按钮背景颜色
+   * @returns 个性按钮背景颜色
+  */
+  personalityBgColor: setStringProp(),
+  /**
+   * @name personalityFontColor
+   * @param { string }  个性按钮背字体颜色
+   * @returns 个性按钮背字体颜色
+  */
+  personalityFontColor: setStringProp(),
+
   /**是否加载中 */
   loading: setBooleanProps(),
 

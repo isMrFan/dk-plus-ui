@@ -809,9 +809,23 @@
         </div>
       </div>
       <div>
-        <h3>8.个性按钮  personalityType(个性按钮类型)</h3>
+        <h3>8.个性按钮</h3>
+        <p>personalityType(个性按钮类型):</p>
+        <p>disabled(是否禁用)</p>
+        <p>personalitySize(个性按钮大小):同传统按钮配置相同</p>
+        <p>personalityBorderColor:(自定义BORder) 支持数组['上','右','下','左']</p>
+        <p>personalityBgColor:(自定义背景色)</p>
+        <p>personalityColor:(自定义字体颜色)</p>
         <div class="dkButton_DK_wb">
-          <dk-button personality personality-type="BiCurvedA" personality-size="large">基础信息</dk-button>
+          <dk-button personality personality-type="BiCurvedA" personality-size="large">BI缺角渐变按钮(BiCurvedA)</dk-button>
+          <dk-button personality personality-type="multiple" personality-size="large">多重阴影按钮(multiple)</dk-button>
+          <dk-button 
+            personality 
+            personality-type="multiple" 
+            :personality-border-color="['red','red','red','red']"
+          >
+            多重阴影按钮(multiple)
+          </dk-button>
         </div>
       </div>
     </div>

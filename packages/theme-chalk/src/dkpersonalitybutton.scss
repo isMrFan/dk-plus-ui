@@ -1,100 +1,113 @@
+@use './mixins/configuration/var-personality-button.scss' as *;
 @use './mixins/mixin.scss' as *;
 
-.dk-button-personality {
-  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
-  --border-width: .125em;
-  --curve-size: .5em;
-  --blur: 30px;
-  --bg: #080312;
-  --color: #afffff;
-  color: var(--color);
-  position: relative;
-  isolation: isolate;
-  display: inline-grid;
-  place-content: center;
-  padding: .5em 1.5em;
-  font-size: 17px;
-  border: 0;
-  text-transform: uppercase;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-  clip-path: polygon(
-      0% var(--curve-size),
-      var(--curve-size) 0,
-      100% 0,
-      100% calc(100% - var(--curve-size)),
-      calc(100% - var(--curve-size)) 100%,
-      0 100%);
-  transition: color 250ms;
-}
-.dk-button-personality::after,
-.dk-button-personality::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-
-.dk-button-personality::before {
-  background: var(--border-color);
-  background-size: 300% 300%;
-  animation: move-bg7234 5s ease infinite;
-  z-index: -2;
-}
-
-@keyframes move-bg7234 {
-  0% {
-    background-position: 31% 0%
+.#{$namespace}-button{
+  .#{$personality}{
+    cursor: pointer;
   }
-
-  50% {
-    background-position: 70% 100%
+  // BI 渐变 缺角按钮 
+  &_BiCurvedA.#{$personality}{
+    color: var(--button-FontColor);
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+        0% var(--curve-size),
+        var(--curve-size) 0,
+        100% 0,
+        100% calc(100% - var(--curve-size)),
+        calc(100% - var(--curve-size)) 100%,
+        0 100%);
+    transition: color 250ms;
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+    &::before {
+      background: var(--border-color);
+      background-size: 300% 300%;
+      animation: move-bgPersonality 5s ease infinite;
+      z-index: -2;
+    }
+    &::after {
+      background: var(--button-bgColor);
+      z-index: -1;
+      clip-path: polygon(
+          /* Top-left */
+          var(--border-width) calc(var(--curve-size) + var(--border-width) * .5),
+          calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+          /* top-right */
+          calc(100% - var(--border-width)) var(--border-width),
+          calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+          /* bottom-right 1 */
+          calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+          /* bottom-right 2 */
+          var(--border-width) calc(100% - var(--border-width)));
+      transition: clip-path 500ms;
+    }
+    &:where(:hover, :focus)::after {
+      clip-path: polygon(
+          /* Top-left */
+          calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+          calc(100% - var(--border-width)) var(--border-width),
+          /* top-right */
+          calc(100% - var(--border-width)) var(--border-width),
+          calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+          /* bottom-right 1 */
+          calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+          /* bottom-right 2 */
+          calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)));
+      transition: 200ms;
+    }
+    &:where(:hover, :focus) {
+      color:#fff;
+    }
+    @keyframes move-bgPersonality{
+      0% {
+        background-position: 31% 0%
+      }
+    
+      50% {
+        background-position: 70% 100%
+      }
+    
+      100% {
+        background-position: 31% 0%
+      }
+    }
   }
-
-  100% {
-    background-position: 31% 0%
+  // 多重阴影按钮
+  &_multiple.#{$personality}{
+    padding: .8em 1.5em;
+    box-sizing: border-box;
+    font-weight: 700;
+    background: rgb(255, 255, 255);
+    color: var(--button-FontColor);
+    border-radius: .5rem;
+    border-bottom: 2px solid var(--button-borderColor-bottom);
+    border-right: 2px solid var(--button-borderColor-right);
+    border-top: 2px solid var(--button-borderColor-top);
+    border-left: 2px solid var(--button-borderColor-left);
+    transition-duration: 1s;
+    transition-property: border-top, 
+        border-left, 
+        border-bottom,
+        border-right,
+        box-shadow;
+    &:hover {
+      border-top: 2px solid var(--button-borderColor-top-hover);
+      border-left: 2px solid var(--button-borderColor-left-hover);
+      border-bottom: 2px solid var(--button-borderColor-bottom-hover);
+      border-right: 2px solid var(--button-borderColor-right-hover);
+      box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+    }
   }
-}
-
-.dk-button-personality::after {
-  background: var(--bg);
-  z-index: -1;
-  clip-path: polygon(
-      /* Top-left */
-      var(--border-width) calc(var(--curve-size) + var(--border-width) * .5),
-
-      calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
-
-      /* top-right */
-      calc(100% - var(--border-width)) var(--border-width),
-
-      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-
-      /* bottom-right 1 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-      /* bottom-right 2 */
-      var(--border-width) calc(100% - var(--border-width)));
-  transition: clip-path 500ms;
-}
-
-.dk-button-personality:where(:hover, :focus)::after {
-  clip-path: polygon(
-      /* Top-left */
-      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-
-      calc(100% - var(--border-width)) var(--border-width),
-
-      /* top-right */
-      calc(100% - var(--border-width)) var(--border-width),
-
-      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-
-      /* bottom-right 1 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-
-      /* bottom-right 2 */
-      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)));
-  transition: 200ms;
-}
-
-.dk-button-personality:where(:hover, :focus) {
-  color: #fff;
 }

@@ -39,6 +39,10 @@ export interface getButtonType {
  * @Time 2023年05月04日
  * @author CadWalaDers(范先生) <https://github.com/CadWalaDers>
  * @description button组件方法封装
+ * @return classList 传统按钮类名
+ * @return styleList 传统按钮style
+ * @return personaClassList 个性按钮类名
+ * @return personalityStylist 个性按钮style
  */
 
 export const getButton = (props: DkButtonProps): getButtonType => {
@@ -136,7 +140,8 @@ export const getButton = (props: DkButtonProps): getButtonType => {
    */
     const personaDefault = [
       'personalityType',
-      'personalitySize'
+      'personalitySize',
+      'disabled'
     ]
   /**
    * @name personaClassList
@@ -148,8 +153,23 @@ export const getButton = (props: DkButtonProps): getButtonType => {
    * @description 个性按钮样式自定义处理
    */
   const personalityStylist = computed((): CSSProperties => {
+    const { 
+      personalityBorderColor,
+      personalityBgColor,
+      personalityFontColor
+    } = props
     const defaultStyle={
-    
+      '--border-color': personalityBorderColor || null,
+      '--button-borderColor-top':personalityBorderColor?personalityBorderColor.length>0?personalityBorderColor[0]:null:null,
+      '--button-borderColor-right': personalityBorderColor?personalityBorderColor.length>1?personalityBorderColor[1]:null:null,
+      '--button-borderColor-bottom':personalityBorderColor?personalityBorderColor.length>2?personalityBorderColor[2]:null:null,
+      '--button-borderColor-left':personalityBorderColor?personalityBorderColor.length>=3?personalityBorderColor[3]:null:null,
+      '--button-borderColor-top-hover':personalityBorderColor||null,
+      '--button-borderColor-right-hover':personalityBorderColor||null,
+      '--button-borderColor-bottom-hover':personalityBorderColor||null,
+      '--button-borderColor-left-hover':personalityBorderColor||null,
+      '--button-bgColor': personalityBgColor || null,
+      '--button-FontColor': personalityFontColor || null
     }as CSSProperties
     return defaultStyle
   })
