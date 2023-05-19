@@ -7,11 +7,11 @@
  * @example
  */
 import type { InputHTMLAttributes, ComputedRef } from 'vue';
-import { defineComponent, computed, ref, toRaw, shallowRef, nextTick, reactive } from 'vue';
+import { defineComponent, computed, ref, shallowRef, nextTick, reactive } from 'vue';
 import { dkInputProps } from './props';
 import { getInputGlobal } from '../../_hooks';
 import { getInput } from '../../_hooks';
-import { dkInputType } from '../../_interface';
+import type { dkInputType } from '../../_interface';
 
 export default defineComponent({
   name: 'DkInput',
@@ -36,10 +36,17 @@ export default defineComponent({
     };
 
     const DISABLED = computed((): boolean => props.disabled);
+
     const PLACEHOLDER = ref<string | number>(placeholder);
-    let passwordShowOrHide = ref<Boolean>(false);
+
+    const PASSWORD_SHOW_OR_HIDE = ref<Boolean>(false);
+
     const TYPE = computed((): dkInputType | ComputedRef<dkInputType> => {
-      return passwordShowOrHide.value ? 'text' : 'password';
+      return type === 'password' ? PASSWORD_SHOW_OR_HIDE.value ? 'text' : 'password' : type;
+    });
+
+    const INPUT_MODE = computed((): string => {
+      return type === 'number' ? 'numeric' : 'text';
     });
 
     const INPUT_ATTRS = reactive({
@@ -47,7 +54,8 @@ export default defineComponent({
       type: TYPE as dkInputType | ComputedRef<dkInputType>,
       placeholder: PLACEHOLDER.value,
       onInput: update,
-      disabled: DISABLED.value
+      disabled: DISABLED.value,
+      inputmode: INPUT_MODE.value
     } as InputHTMLAttributes);
 
     const IS_CLEAR = computed(() => !!clearable && !DISABLED.value);
@@ -83,10 +91,9 @@ export default defineComponent({
       FOCUS();
     };
 
-    const FOCUS = async (): Promise<void> => {
+    const FOCUS = async(): Promise<void> => {
       await nextTick()
       _ref.value?.focus();
-      console.log('focus', MODEL_VALUE.value, _ref.value, INPUT.value);
     };
 
     const IS_SHOW_PASSWORD = computed((): boolean => {
@@ -94,12 +101,12 @@ export default defineComponent({
     })
 
     const TOGGLE_PASSWORD = (): void => {
-      passwordShowOrHide.value = !passwordShowOrHide.value;
+      PASSWORD_SHOW_OR_HIDE.value = !PASSWORD_SHOW_OR_HIDE.value;
       FOCUS();
     }
 
     const SHOW_PASSWORD_CLASS = computed((): string[] => {
-      return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
+      return ['dk-input_password-icon', PASSWORD_SHOW_OR_HIDE.value ? 'dk-icon-show' : 'dk-icon-hide'];
     })
 
     return {
@@ -127,7 +134,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div v-if="type !== 'textarea'" :class="classList" :style="styleList">
     <div :class="wrapperClassList">
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
@@ -148,9 +155,9 @@ export default defineComponent({
       </template>
     </div>
   </div>
-  <!-- <div>
+  <div v-else :class="classList">
     <input type="textarea" />
-  </div> -->
+  </div>
 </template>
 
 <style lang="scss"></style>
