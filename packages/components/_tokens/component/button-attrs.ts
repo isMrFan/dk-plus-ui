@@ -7,4 +7,4 @@
  * @param {string} type [number] 数字
  * @returns Input 组件的全局配置
  */
-export const DK_Personality_Type = ['BiCurvedA'] as const
+export const DK_Personality_Type = ['BiCurvedA','multiple'] as const

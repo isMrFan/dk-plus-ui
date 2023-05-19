@@ -14,7 +14,7 @@
     props: dkButtonProps,
     setup(Props) {
       const dkBoxButton = ref<HTMLButtonElement>()
-      const { classList, styleList,personaClassList } = getButton(Props)
+      const { classList, styleList,personaClassList,personalityStylist } = getButton(Props)
       const { getRun } = getReturn()
       const { getType } = getGlobal(Props)
       const EventClick = (evt: MouseEvent): void => {
@@ -46,7 +46,8 @@
         dkBoxButton,
         classList,
         styleList,
-        personaClassList
+        personaClassList,
+        personalityStylist
       }
     }
   })
@@ -97,9 +98,12 @@
       <button 
         v-else ref="dkBoxButton" 
         :class="['dk-button-personality',personaClassList]" 
+        :style="personalityStylist"
         role="button" 
-      >
-        BI 渐变 缺角按钮
+      > 
+        <slot name="icon" />
+        <slot></slot>
+        <slot name="afterIcon" />
       </button>
     </template>
   </div>

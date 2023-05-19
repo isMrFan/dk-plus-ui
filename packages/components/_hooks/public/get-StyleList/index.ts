@@ -17,7 +17,8 @@ export interface UseListReturn {
   styles: (
     list: FilterParams,
     pixel?: boolean | string | string[]
-  ) => ComputedRef<CSSProperties>
+  ) => ComputedRef<CSSProperties>,
+ // stylesList:(list: FilterParams, className?: string) => ComputedRef<ClassListName>
 }
 
 export const getStyleList = <T extends object>(props: T, name: string): UseListReturn => {
@@ -99,8 +100,24 @@ export const getStyleList = <T extends object>(props: T, name: string): UseListR
     return computed(() => styleList)
   }
 
+  /**
+   * @name stylesList
+   * @param { string[] } list 用户传来的样式组
+   * @param { number } position 数组长度 0 1 2 3
+   * @description 用户传来的样式组 用来给类似 ['上','右','下','左']这样的样式组添加样式
+   */
+  // list=['red','blue','green','yellow']
+  // const stylesList =(list:FilterParams,position:number): ComputedRef<CSSProperties> => {
+  //   if (list !== undefined && list !== null && list.length > 0) {
+  //     console.log('position', position)
+  //     return position >= 0 && position < list.length ? list[position] : -1
+  //   } else {
+  //     return position >= 0 && position < list.length ? list[position] : -1
+  //   }
+  // }
   return {
     classes,
     styles
+   // stylesList
   }
 }

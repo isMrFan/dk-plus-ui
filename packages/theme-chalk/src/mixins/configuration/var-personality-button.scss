@@ -1,0 +1,43 @@
+@use '../mixin.scss' as *;
+
+$personality: '#{$namespace}-button-personality' !default; // 命名空间
+
+
+.#{$namespace}-button{
+  // BI 渐变 缺角按钮 
+  &_BiCurvedA.#{$personality} {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: .125em;
+    --curve-size: .5em;
+    --blur: 30px;
+    --button-bgColor: #080312;
+    --button-FontColor: #afffff;
+  }
+  // 多重阴影按钮
+  &_multiple.#{$personality}{
+    --button-FontColor: blueviolet;
+    --button-borderColor-top: white;
+    --button-borderColor-right: blueviolet;
+    --button-borderColor-bottom: blueviolet;
+    --button-borderColor-left: white;
+
+    --button-borderColor-top-hover: blueviolet;
+    --button-borderColor-right-hover: rgb(238, 103, 238);
+    --button-borderColor-bottom-hover: rgb(238, 103, 238);
+    --button-borderColor-left-hover: blueviolet;
+  }
+  //不同尺寸处理
+  &_large.#{$personality} {
+    transform: scale(1);
+}
+  &_medium.#{$personality} {
+    transform: scale(0.9);
+}
+  &_small.#{$personality} {
+    transform: scale(0.8);
+}
+  &_mini.#{$personality} {
+    transform: scale(0.7);
+}
+}
+
