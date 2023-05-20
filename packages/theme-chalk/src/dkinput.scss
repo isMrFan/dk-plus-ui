@@ -3,6 +3,10 @@
 
 * {
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 @include block(('input')) {
   width: var(--input-width, 100%);
@@ -49,6 +53,41 @@
       outline: none;
     }
   }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @include element(textarea) {
+    width: inherit;
+    height: fit-content;
+    @include block('*input') {
+      @include block(wrapper) {
+        width: inherit;
+        min-height: 30px;
+        height: auto;
+        line-height: 30px;
+        resize: vertical;
+        overflow: auto;
+        transition: all 0s;
+        -webkit-transition: all 0s;
+        -moz-transition: all 0s;
+        -ms-transition: all 0s;
+        -o-transition: all 0s;
+        &:focus {
+          caret-color: var(--input-text-color);
+          outline: none;
+        }
+        &::-webkit-scrollbar-thumb {
+          width: 6px;
+          height: 6px;
+        }
+      }
+    }
+  }
+
   @include element(('prefix', 'suffix')) {
     height: inherit;
     display: inherit;
