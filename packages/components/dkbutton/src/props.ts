@@ -28,8 +28,13 @@ import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType,dkPersonalityButt
  * @property {string} personalityType  个性按钮的类型
  * @property {string} personalitySize  个性按钮的大小
  * @property {string} personalityBorderColor  个性按钮的边框颜色
+ * @property {string} personalityBorderHoveColor  个性按钮边框颜色悬停时
  * @property {string} personalityBgColor  个性按钮的背景颜色
+ * @property {string} personalityBgHoveColor  个性按钮背景颜色悬停时
  * @property {string} personalityFontColor  个性按钮的字体颜色
+ * @property {string} personalityFontHoveColor  个性按钮字体颜色悬停时
+ * @property {string} personalityBoxShadow  BoxShadow配置
+ * @property {string} personalityBoxShadowHove  BoxShadow配置悬停时
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -166,6 +171,8 @@ export const dkButtonProps = {
    * @name personalityType
    * @param { string } [BiCurvedA] BI缺角渐变按钮
    * @param { string } [multiple] 多重阴影按钮
+   * @param { string } [stretchBtn]  收缩动画按钮
+   * @param { string } [shine]  闪亮 发光
    * @returns 个性按钮类型
   */
   personalityType:setStringProp<dkPersonalityButtonType>(null, (value: dkPersonalityButtonType): boolean => {
@@ -188,19 +195,48 @@ export const dkButtonProps = {
    * @returns personality
   */
   personalityBorderColor: setStringProp(),
+   /**
+   * @name personalityBorderHoveColor
+   * @param { string }  个性按钮边框颜色悬停时
+   * @returns 个性按钮边框颜色悬停时
+  */
+   personalityBorderHoveColor: setStringProp(),
   /**
    * @name personalityBgColor
    * @param { string }  个性按钮背景颜色
    * @returns 个性按钮背景颜色
   */
   personalityBgColor: setStringProp(),
+   /**
+   * @name personalityBgHoveColor
+   * @param { string }  个性按钮背景颜色悬停时
+   * @returns 个性按钮背景颜色悬停时
+  */
+  personalityBgHoveColor: setStringProp(),
   /**
    * @name personalityFontColor
-   * @param { string }  个性按钮背字体颜色
+   * @param { string }  个性按钮字体颜色
    * @returns 个性按钮背字体颜色
   */
   personalityFontColor: setStringProp(),
-
+  /**
+   * @name personalityFontHoveColor
+   * @param { string }  个性按钮字体颜色悬停
+   * @returns 个性按钮字体颜色悬停
+  */
+  personalityFontHoveColor: setStringProp(),
+   /**
+   * @name personalityBoxShadow
+   * @param { string }  BoxShadow配置
+   * @returns BoxShadow配置
+  */
+   personalityBoxShadow: setStringProp(),
+    /**
+   * @name personalityBoxShadowHove
+   * @param { string }  BoxShadow悬停配置
+   * @returns BoxShadow悬停配置
+  */
+  personalityBoxShadowHove: setStringProp(),
   /**是否加载中 */
   loading: setBooleanProps(),
 

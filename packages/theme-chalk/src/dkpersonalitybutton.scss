@@ -1,42 +1,45 @@
 @use './mixins/configuration/var-personality-button.scss' as *;
 @use './mixins/mixin.scss' as *;
 
-.#{$namespace}-button{
-  .#{$personality}{
+.#{$namespace}-button {
+  .#{$personality} {
     cursor: pointer;
   }
+
   // BI 渐变 缺角按钮 
-  &_BiCurvedA.#{$personality}{
+  &_BiCurvedA.#{$personality} {
     color: var(--button-FontColor);
     position: relative;
     isolation: isolate;
     display: inline-grid;
     place-content: center;
     padding: .5em 1.5em;
-    font-size: 17px;
+    font-size: var(--button-font-size);
     border: 0;
     text-transform: uppercase;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-    clip-path: polygon(
-        0% var(--curve-size),
+    clip-path: polygon(0% var(--curve-size),
         var(--curve-size) 0,
         100% 0,
         100% calc(100% - var(--curve-size)),
         calc(100% - var(--curve-size)) 100%,
         0 100%);
     transition: color 250ms;
+
     &::after,
     &::before {
       content: '';
       position: absolute;
       inset: 0;
     }
+
     &::before {
       background: var(--border-color);
       background-size: 300% 300%;
       animation: move-bgPersonality 5s ease infinite;
       z-index: -2;
     }
+
     &::after {
       background: var(--button-bgColor);
       z-index: -1;
@@ -53,6 +56,7 @@
           var(--border-width) calc(100% - var(--border-width)));
       transition: clip-path 500ms;
     }
+
     &:where(:hover, :focus)::after {
       clip-path: polygon(
           /* Top-left */
@@ -67,29 +71,33 @@
           calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)));
       transition: 200ms;
     }
+
     &:where(:hover, :focus) {
-      color:#fff;
+      color: #fff;
     }
-    @keyframes move-bgPersonality{
+
+    @keyframes move-bgPersonality {
       0% {
         background-position: 31% 0%
       }
-    
+
       50% {
         background-position: 70% 100%
       }
-    
+
       100% {
         background-position: 31% 0%
       }
     }
   }
+
   // 多重阴影按钮
-  &_multiple.#{$personality}{
-    padding: .8em 1.5em;
+  &_multiple.#{$personality} {
+    padding: .5em 1.5em;
     box-sizing: border-box;
     font-weight: 700;
-    background: rgb(255, 255, 255);
+    font-size: var(--button-font-size);
+    background: var(--button-bgColor);
     color: var(--button-FontColor);
     border-radius: .5rem;
     border-bottom: 2px solid var(--button-borderColor-bottom);
@@ -97,17 +105,83 @@
     border-top: 2px solid var(--button-borderColor-top);
     border-left: 2px solid var(--button-borderColor-left);
     transition-duration: 1s;
-    transition-property: border-top, 
-        border-left, 
-        border-bottom,
-        border-right,
-        box-shadow;
+    transition-property: border-top,
+      border-left,
+      border-bottom,
+      border-right,
+      box-shadow;
+
     &:hover {
+      color: var(--button-FontColor-hover);
+      background: var(--button-bgColor-hover);
       border-top: 2px solid var(--button-borderColor-top-hover);
       border-left: 2px solid var(--button-borderColor-left-hover);
       border-bottom: 2px solid var(--button-borderColor-bottom-hover);
       border-right: 2px solid var(--button-borderColor-right-hover);
-      box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+      box-shadow: var(--button-box-shadow-hover)
     }
+  }
+
+  // 收缩动画按钮
+  &_stretchBtn.#{$personality} {
+    padding: .5em 1.5em;
+    box-sizing: border-box;
+    font-size:var(--button-font-size);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    background: var(--button-bgColor);  
+    color: var(--button-FontColor);
+    box-shadow: var(--button-box-shadow);
+
+    &:hover {
+      animation: stretchBtnAnimation 0.5s 1 linear;
+    }
+
+    @keyframes stretchBtnAnimation {
+      0% {
+        transform: var(--stretchBtnAnimation0);
+      }
+
+      25% {
+        transform: var(--stretchBtnAnimation25);
+      }
+
+      50% {
+        transform: var(--stretchBtnAnimation50);
+      }
+
+      75% {
+        transform: var(--stretchBtnAnimation75);
+      }
+
+      100% {
+        transform: var(--stretchBtnAnimation100);
+      }
+    }
+  }
+
+  // 闪亮 发光
+  &_shine.#{$personality}{
+    position: relative;
+    margin: 0;
+    padding: 17px 35px;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 1px solid rgba(22, 76, 167, 0.6);
+    border-radius: 10px;
+    color: #1d89ff;
+    font-weight: 400;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   }
 }

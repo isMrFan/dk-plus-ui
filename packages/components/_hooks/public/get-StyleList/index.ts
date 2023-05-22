@@ -18,9 +18,15 @@ export interface UseListReturn {
     list: FilterParams,
     pixel?: boolean | string | string[]
   ) => ComputedRef<CSSProperties>,
- // stylesList:(list: FilterParams, className?: string) => ComputedRef<ClassListName>
+  stylesList:(borderColor: string[] | string| undefined, index?: number) => string | null
 }
-
+/**
+ * @name getStyleList
+ * @function classes  用于生成样式名称的hooks简洁代码
+ * @function styles   用于生成样式hooks简洁代码
+ * @function stylesList 用户传来的样式组 用来给类似 ['上','右','下','左']这样的样式组添加样式
+ * @description 用于生成样式名称的hooks简洁代码
+ */
 export const getStyleList = <T extends object>(props: T, name: string): UseListReturn => {
   const { filter } = getProps(props)
   /**
@@ -102,22 +108,23 @@ export const getStyleList = <T extends object>(props: T, name: string): UseListR
 
   /**
    * @name stylesList
-   * @param { string[] } list 用户传来的样式组
-   * @param { number } position 数组长度 0 1 2 3
+   * @param { string[] } borderColor 用户传来的样式组
+   * @param { number } index 数组长度 0 1 2 3 默认0
    * @description 用户传来的样式组 用来给类似 ['上','右','下','左']这样的样式组添加样式
    */
-  // list=['red','blue','green','yellow']
-  // const stylesList =(list:FilterParams,position:number): ComputedRef<CSSProperties> => {
-  //   if (list !== undefined && list !== null && list.length > 0) {
-  //     console.log('position', position)
-  //     return position >= 0 && position < list.length ? list[position] : -1
-  //   } else {
-  //     return position >= 0 && position < list.length ? list[position] : -1
-  //   }
-  // }
+  const stylesList =(borderColor: string[] | string | undefined, index=0): string | null => {
+    if (Array.isArray(borderColor)) {
+      if (borderColor.length > index) {
+        return borderColor[index];
+      }
+    } else if (typeof borderColor === 'string' && index === 0) {
+      return borderColor;
+    }
+    return null;
+  }
   return {
     classes,
-    styles
-   // stylesList
+    styles,
+    stylesList
   }
 }
