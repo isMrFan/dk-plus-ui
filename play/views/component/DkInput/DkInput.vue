@@ -51,6 +51,9 @@ export default defineComponent({
       </template>
     </dk-input> -->
 
+    <h4>前后缀内容</h4>
+    <dk-input clearable placeholder="前后缀内容" append="http://" prepend=".com" />
+
     <h4>文本域</h4>
     <dk-input type="textarea" placeholder="文本域" autosize />
 

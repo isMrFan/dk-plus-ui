@@ -56,6 +56,7 @@ export interface iSGetInputType {
   wrapperStyleList: ComputedRef<CSSProperties>
   innerClassList: ComputedRef<ClassListName>
   clearableClassList: ComputedRef<ClassListName>
+  pendStyleList: ComputedRef<CSSProperties>
 }
 
 /**
@@ -143,7 +144,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultWrapperClassList
    * @description 期望被转换的wrapper类名
    */
-  const defaultWrapperClassList = []
+  const defaultWrapperClassList = ['append', 'prepend']
   const WRAPPER_CLASS_LIST = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
   /**
@@ -165,12 +166,23 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     'dk-input'
   )
 
+  const PEND_STYLE_LIST = computed((): CSSProperties => {
+    const { appendBackground, appendColor } = props
+    const defaultStyle = {
+      '--pend-background': appendBackground ? getColor(appendBackground).getDeepen(0) : null,
+      '--pend-hover-background': appendBackground ? getColor(appendBackground).getDeepen(0.4) : null,
+      '--pend-color': appendColor ? getColor(appendColor).getDeepen(0) : null
+    } as CSSProperties
+    return defaultStyle
+  })
+
   return {
     classList: CLASS_LIST,
     styleList: STYLE_LIST,
     wrapperClassList: WRAPPER_CLASS_LIST,
     wrapperStyleList: WRAPPER_STYLE_LIST,
     innerClassList: INNER_CLASS_LIST,
-    clearableClassList: CLEARABLE_CLASS_LIST
+    clearableClassList: CLEARABLE_CLASS_LIST,
+    pendStyleList: PEND_STYLE_LIST
   }
 }
