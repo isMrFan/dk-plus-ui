@@ -814,18 +814,29 @@
         <p>disabled(是否禁用)</p>
         <p>personalitySize(个性按钮大小):同传统按钮配置相同</p>
         <p>personalityBorderColor:(自定义BORder) 支持数组['上','右','下','左']</p>
+        <p>personalityBorderHoveColor:(自定义hoverBORder) 支持数组['上','右','下','左']</p>
         <p>personalityBgColor:(自定义背景色)</p>
-        <p>personalityColor:(自定义字体颜色)</p>
+        <p>personalityBgHoveColor:(自定义hover背景色)</p>
+        <p>personalityFontColor:(自定字体颜色)</p>
+        <p>personalityFontHoveColor:(自定字体颜色hover)</p>
+        <p>personalityBoxShadow:(自定义阴影)</p>
+        <p>personalityBoxShadowHove:(自定义阴影悬停配置)</p>
         <div class="dkButton_DK_wb">
           <dk-button personality personality-type="BiCurvedA" personality-size="large">BI缺角渐变按钮(BiCurvedA)</dk-button>
           <dk-button personality personality-type="multiple" personality-size="large">多重阴影按钮(multiple)</dk-button>
           <dk-button 
             personality 
             personality-type="multiple" 
+            loading
             :personality-border-color="['red','red','red','red']"
+            :personality-border-hove-color="['blue','blue','blue','blue']"
+            personality-font-color="red"
+            personality-box-shadow-hove="red 5px 5px, red 10px 10px,red 50px 50px"
           >
             多重阴影按钮(multiple)
           </dk-button>
+          <dk-button personality personality-type="stretchBtn" personality-size="medium">基础信息(stretchBtn)</dk-button>
+          <dk-button personality personality-type="shine" personality-size="medium">基础信息(shine)</dk-button>
         </div>
       </div>
     </div>

@@ -3,4 +3,4 @@
  * @param { string } type [BiCurvedA] 默认值
 */
 
-export type dkPersonalityButtonType = 'BiCurvedA' |'multiple'
+export type dkPersonalityButtonType = 'BiCurvedA' |'multiple' |'stretchBtn' |'shine'

@@ -12,32 +12,71 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
     --blur: 30px;
     --button-bgColor: #080312;
     --button-FontColor: #afffff;
+    --button-font-size:16px;
   }
   // 多重阴影按钮
   &_multiple.#{$personality}{
+    --button-font-size:16px;
+    --button-bgColor:#ffffff;
     --button-FontColor: blueviolet;
     --button-borderColor-top: white;
     --button-borderColor-right: blueviolet;
     --button-borderColor-bottom: blueviolet;
     --button-borderColor-left: white;
+    --button-box-shadow:''
 
+    --button-bgColor-hover:#ffffff;
+    --button-FontColor-hover: blueviolet;
     --button-borderColor-top-hover: blueviolet;
     --button-borderColor-right-hover: rgb(238, 103, 238);
     --button-borderColor-bottom-hover: rgb(238, 103, 238);
     --button-borderColor-left-hover: blueviolet;
+    --button-box-shadow-hover: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+  }
+  // 收缩动画按钮
+  &_stretchBtn.#{$personality}{
+    --button-font-size:16px;
+    --button-bgColor:#1e1e1e;
+    --button-FontColor:greenyellow;
+    --button-box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
+    --stretchBtnAnimation0:scale(0.7, 1.3);
+    --stretchBtnAnimation25:scale(1.3, 0.7);
+    --stretchBtnAnimation50:scale(0.7, 1.3);
+    --stretchBtnAnimation75:scale(1.3, 0.7);
+    --stretchBtnAnimation100:scale(1, 1);
   }
   //不同尺寸处理
   &_large.#{$personality} {
     transform: scale(1);
+    --stretchBtnAnimation0:scale(1, 1.1);
+    --stretchBtnAnimation25:scale(1.1, 1);
+    --stretchBtnAnimation50:scale(1, 1.1);
+    --stretchBtnAnimation75:scale(1.1, 1);
+    --stretchBtnAnimation100:scale(1, 1);
 }
   &_medium.#{$personality} {
     transform: scale(0.9);
+    --stretchBtnAnimation0:scale(0.9, 1);
+    --stretchBtnAnimation25:scale(1, 0.9);
+    --stretchBtnAnimation50:scale(0.9, 1);
+    --stretchBtnAnimation75:scale(1, 0.9);
+    --stretchBtnAnimation100:scale(0.9, 0.9);
 }
   &_small.#{$personality} {
     transform: scale(0.8);
+    --stretchBtnAnimation0:scale(0.8, 0.9);
+    --stretchBtnAnimation25:scale(0.9, 0.8);
+    --stretchBtnAnimation50:scale(0.8, 0.9);
+    --stretchBtnAnimation75:scale(0.9, 0.8);
+    --stretchBtnAnimation100:scale(0.8,0.8);
 }
   &_mini.#{$personality} {
     transform: scale(0.7);
+    --stretchBtnAnimation0:scale(0.7, 0.8);
+    --stretchBtnAnimation25:scale(0.8, 0.7);
+    --stretchBtnAnimation50:scale(0.7, 0.8);
+    --stretchBtnAnimation75:scale(0.8, 0.7);
+    --stretchBtnAnimation100:scale(0.7,0.7);
 }
 }
 

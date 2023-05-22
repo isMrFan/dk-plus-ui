@@ -18,7 +18,7 @@
       const { getRun } = getReturn()
       const { getType } = getGlobal(Props)
       const EventClick = (evt: MouseEvent): void => {
-        const { disabled, ripples } = toRefs(Props)
+        const { disabled, ripples} = toRefs(Props)
         if (disabled.value) {
           evt.preventDefault()
           return
@@ -41,6 +41,11 @@
         }
         getRun(Props.onClick, evt)
       }
+      const { personalityType } = toRefs(Props)
+      if(personalityType.value==='shine'){
+         console.log('personalityType', personalityType.value)
+      }
+     
       return {
         EventClick,
         dkBoxButton,

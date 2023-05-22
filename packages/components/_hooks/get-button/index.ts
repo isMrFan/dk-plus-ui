@@ -99,7 +99,7 @@ export const getButton = (props: DkButtonProps): getButtonType => {
    * @name classes
    * @description 进行类名的处理
    */
-  const { classes } = getStyleList(params, 'button')
+  const { classes,stylesList } = getStyleList(params, 'button')
   const classList = classes([...defaultClassList], 'button')
   /**
    * @name styleList
@@ -155,21 +155,30 @@ export const getButton = (props: DkButtonProps): getButtonType => {
   const personalityStylist = computed((): CSSProperties => {
     const { 
       personalityBorderColor,
+      personalityBorderHoveColor,
       personalityBgColor,
-      personalityFontColor
+      personalityBgHoveColor,
+      personalityFontColor,
+      personalityFontHoveColor,
+      personalityBoxShadowHove,
+      fontSize
     } = props
     const defaultStyle={
-      '--border-color': personalityBorderColor || null,
-      '--button-borderColor-top':personalityBorderColor?personalityBorderColor.length>0?personalityBorderColor[0]:null:null,
-      '--button-borderColor-right': personalityBorderColor?personalityBorderColor.length>1?personalityBorderColor[1]:null:null,
-      '--button-borderColor-bottom':personalityBorderColor?personalityBorderColor.length>2?personalityBorderColor[2]:null:null,
-      '--button-borderColor-left':personalityBorderColor?personalityBorderColor.length>=3?personalityBorderColor[3]:null:null,
-      '--button-borderColor-top-hover':personalityBorderColor||null,
-      '--button-borderColor-right-hover':personalityBorderColor||null,
-      '--button-borderColor-bottom-hover':personalityBorderColor||null,
-      '--button-borderColor-left-hover':personalityBorderColor||null,
+      '--border-color': stylesList(personalityBorderColor),
+      '--button-borderColor-top':stylesList(personalityBorderColor,0),
+      '--button-borderColor-right': stylesList(personalityBorderColor,1),
+      '--button-borderColor-bottom':stylesList(personalityBorderColor,2),
+      '--button-borderColor-left':stylesList(personalityBorderColor,3),
+      '--button-borderColor-top-hover':stylesList(personalityBorderHoveColor,0),
+      '--button-borderColor-right-hover':stylesList(personalityBorderHoveColor,1),
+      '--button-borderColor-bottom-hover':stylesList(personalityBorderHoveColor,2),
+      '--button-borderColor-left-hover':stylesList(personalityBorderHoveColor,3),
       '--button-bgColor': personalityBgColor || null,
-      '--button-FontColor': personalityFontColor || null
+      '--button-bgColor-hover': personalityBgHoveColor || null,
+      '--button-FontColor': personalityFontColor || null,
+      '--button-FontColor-hover':personalityFontHoveColor || null,
+      '--button-box-shadow-hover':personalityBoxShadowHove,
+      '--button-font-size': sizeChange(fontSize)
     }as CSSProperties
     return defaultStyle
   })
