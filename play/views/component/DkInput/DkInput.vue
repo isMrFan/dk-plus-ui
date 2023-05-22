@@ -1,38 +1,38 @@
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
-  export default defineComponent({
-    name: 'DkInputComponent',
-    setup () {
-      const oncopy = (code: string): void => {
-        const input = document.createElement('input')
-        input.setAttribute('readonly', 'readonly')
-        input.setAttribute('value', code)
-        document.body.appendChild(input)
-        input.select()
-        if (document.execCommand('copy')) {
-          document.execCommand('copy')
-          alert('复制成功')
-        }
-        document.body.removeChild(input)
+import { defineComponent, ref } from 'vue'
+export default defineComponent({
+  name: 'DkInputComponent',
+  setup() {
+    const oncopy = (code: string): void => {
+      const input = document.createElement('input')
+      input.setAttribute('readonly', 'readonly')
+      input.setAttribute('value', code)
+      document.body.appendChild(input)
+      input.select()
+      if (document.execCommand('copy')) {
+        document.execCommand('copy')
+        alert('复制成功')
       }
-      const handleFixClick = (): void => {
-        console.log('handleFixClick')
-      }
-      const msg = ref('asdf')
-      const input = ref(null)
-      
-      const isDisabled = ref(true)
-      return {
-        oncopy,
-        handleFixClick,
-        msg,
-        focus,
-        blur,
-        input,
-        isDisabled
-      }
+      document.body.removeChild(input)
     }
-  })
+    const handleFixClick = (): void => {
+      console.log('handleFixClick')
+    }
+    const msg = ref('asdf')
+    const input = ref(null)
+
+    const isDisabled = ref(true)
+    return {
+      oncopy,
+      handleFixClick,
+      msg,
+      focus,
+      blur,
+      input,
+      isDisabled
+    }
+  }
+})
 </script>
 
 <template>
@@ -50,6 +50,12 @@
         <dk-icon class="dk-icon-del1" />
       </template>
     </dk-input> -->
+
+    <h4>文本域</h4>
+    <dk-input type="textarea" placeholder="文本域" autosize />
+
+    <h4>数字框</h4>
+    <dk-input type="number" placeholder="数字框" />
 
     <h4>密码框</h4>
     <dk-input type="password" placeholder="密码框" show-password />
@@ -91,29 +97,32 @@
 </template>
 
 <style lang="scss" scoped>
-  .input {
-    width: 100%;
-    .dk-input {
+.input {
+  width: 99%;
+
+  .dk-input {
+    margin-bottom: 20px;
+  }
+
+  .box {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: #ccc 1px solid;
+    padding: 20px;
+    border-radius: 4px;
+
+    .index_Dk_code {
+      position: relative;
       margin-bottom: 20px;
-    }
-    .box {
-      margin-bottom: 20px;
-      margin-top: 10px;
-      margin-right: 10px;
-      border: #ccc 1px solid;
-      padding: 20px;
-      border-radius: 4px;
-      .index_Dk_code {
-        position: relative;
-        margin-bottom: 20px;
-        .copy {
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          cursor: pointer;
-          color: #ccc;
-        }
+
+      .copy {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        color: #ccc;
       }
     }
   }
-</style>
+}</style>
