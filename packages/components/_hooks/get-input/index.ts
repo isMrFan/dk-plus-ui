@@ -1,4 +1,4 @@
-import { computed, reactive, toRefs } from 'vue'
+import { computed, reactive, toRefs, toRaw } from 'vue'
 import type { CSSProperties, ComputedRef } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
@@ -76,11 +76,29 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   let defaultClassList = ['type']
 
   /**
+   * @name cloneProps
+   * @description 创建一个新的props对象 用于修改props
+   */
+  const cloneProps = { ...toRaw(props) }
+
+  if (props.append && props.prepend) {
+    cloneProps.append = 'wrapper-pend'
+    cloneProps.prepend = ''
+  } else {
+    if (props.append) {
+      cloneProps.append = 'wrapper-append'
+    }
+    if (props.prepend) {
+      cloneProps.prepend = 'wrapper-prepend'
+    }
+  }
+
+  /**
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
    */
   const params = reactive({
-    ...toRefs(props)
+    ...cloneProps
   })
 
   /**
@@ -104,7 +122,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @description 是否禁用
    */
   const isDisabled = computed((): boolean => {
-    return props.disabled
+    return cloneProps.disabled
   })
   if (isDisabled.value) {
     defaultClassList = [...defaultClassList, 'disabled']
@@ -115,7 +133,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const classList = classes([...defaultClassList], 'dk-input')
 
   const styleList = computed((): CSSProperties => {
-    const { width, height, fontSize, borderRadius, textColor } = props
+    const { width, height, fontSize, borderRadius, textColor } = cloneProps
 
     const defaultStyle = {
       '--input-width': width ? setSize(width) : null,
@@ -128,8 +146,8 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     return defaultStyle
   })
 
-  const wrapperStyleList  = computed((): CSSProperties => {
-    const { borderColor, focusBorderColor } = props
+  const wrapperStyleList = computed((): CSSProperties => {
+    const { borderColor, focusBorderColor } = cloneProps
     const defaultStyle = {
       '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
       '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
@@ -161,16 +179,17 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    */
   const defaultClearableStyleList = ['clearable']
   const clearableClass = getStyleList(params, 'input').classes
-  const clearableClassList = clearableClass(
-    [...defaultClearableStyleList],
-    'dk-input'
-  )
+  const clearableClassList = clearableClass([...defaultClearableStyleList], 'dk-input')
 
   const pendStyleList = computed((): CSSProperties => {
-    const { appendBackground, appendColor } = props
+    const { appendBackground, appendColor } = cloneProps
     const defaultStyle = {
-      '--pend-background': appendBackground ? getColor(appendBackground).getDeepen(0) : null,
-      '--pend-hover-background': appendBackground ? getColor(appendBackground).getDeepen(0.4) : null,
+      '--pend-background': appendBackground
+        ? getColor(appendBackground).getDeepen(0)
+        : null,
+      '--pend-hover-background': appendBackground
+        ? getColor(appendBackground).getDeepen(0.4)
+        : null,
       '--pend-color': appendColor ? getColor(appendColor).getDeepen(0) : null
     } as CSSProperties
     return defaultStyle

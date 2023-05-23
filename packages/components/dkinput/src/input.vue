@@ -30,7 +30,12 @@ export default defineComponent({
 
     const modelValueProp = ref<string | number>(props.modelValue);
 
+    const isFocus = ref<boolean>(false);
+
     const update = (e: Event): void => {
+      // TODO: 这里留着写个prepend和append的逻辑 2022.5.23
+      // if()
+
       const target = e.target as HTMLInputElement;
       modelValueProp.value = target.value;
       emit('update:modelValue', modelValueProp.value);
@@ -49,15 +54,6 @@ export default defineComponent({
     const inputmode = computed((): string => {
       return type === 'number' ? 'numeric' : 'text';
     });
-
-    const inputAttrs = reactive({
-      class: innerClassList.value,
-      type: inputType as dkInputType | ComputedRef<dkInputType>,
-      placeholder: placeholderProp.value,
-      onInput: update,
-      disabled: disabledProp.value,
-      inputmode: inputmode.value
-    } as InputHTMLAttributes);
 
     const textareaAttrs = reactive({
       class: wrapperClassList.value,
@@ -118,19 +114,39 @@ export default defineComponent({
       return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
     })
 
-    const prependMain = ref<string | number>(append);
+    const prependMain = ref<string | number>(prepend);
     const isPrepend = computed((): boolean => {
-      return !!append || !!slots.append
+      return !!prepend || !!slots.prepend
     })
-    const appendMain = ref<string | number>(prepend);
+    const appendMain = ref<string | number>(append);
     const isAppend = computed((): boolean => {
-      return !!prepend || !!slots.prepend;
+      return !!append || !!slots.append;
     })
-    const prependClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
-    const appendClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
+    const appendClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
+    const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
 
     const pendStyleLis = computed(() => getInput(props).pendStyleList);
 
+    const onfocus = (): void => {
+      console.log('onfocus');
+      
+      isFocus.value = true;
+    }
+
+    const onblur = (): void => {
+      isFocus.value = false;
+    }
+
+    const inputAttrs = reactive({
+      class: innerClassList.value,
+      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      placeholder: placeholderProp.value,
+      oninput: update,
+      disabled: disabledProp.value,
+      inputmode: inputmode.value,
+      onfocus,
+      onblur
+    } as InputHTMLAttributes);
     return {
       classList: inputClassList.value,
       styleList,
@@ -171,6 +187,7 @@ export default defineComponent({
         <span>{{ prependMain }}</span>
       </div>
     </template>
+
     <!-- wrapper -->
     <div :class="wrapperClassList">
       <!-- prefix -->
@@ -181,21 +198,25 @@ export default defineComponent({
         </span>
       </template>
 
+      <!-- inner -->
       <input v-bind="inputAttrs" ref="input" v-model="value" />
 
       <div v-if="isSuffix" class="dk-input_suffix">
         <slot name="suffix" />
         <dk-icon v-if="isSuffixIcon" :class="suffixIconClass"></dk-icon>
-
-        <template v-if="isClear">
-          <dk-icon v-show="isShowClear" class="dk-icon-del1 dk-input-clearable" @click="clear" />
-        </template>
-
-        <template v-if="isShowPassword">
-          <dk-icon :class="showPasswordClass" @click="togglePassword"></dk-icon>
-        </template>
       </div>
+
+      <!-- clearable -->
+      <template v-if="isClear">
+        <dk-icon v-show="isShowClear" class="dk-icon-del1 dk-input-clearable" @click="clear" />
+      </template>
+
+      <!-- show-password -->
+      <template v-if="isShowPassword">
+        <dk-icon :class="showPasswordClass" @click="togglePassword"></dk-icon>
+      </template>
     </div>
+    
     <!-- prepend -->
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
