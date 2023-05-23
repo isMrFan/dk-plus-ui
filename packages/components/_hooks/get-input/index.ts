@@ -100,21 +100,21 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   // }
 
   /**
-   * @name IS_DISABLED
+   * @name isDisabled
    * @description 是否禁用
    */
-  const IS_DISABLED = computed((): boolean => {
+  const isDisabled = computed((): boolean => {
     return props.disabled
   })
-  if (IS_DISABLED.value) {
+  if (isDisabled.value) {
     defaultClassList = [...defaultClassList, 'disabled']
   }
 
   const { classes } = getStyleList(params, 'input')
 
-  const CLASS_LIST = classes([...defaultClassList], 'dk-input')
+  const classList = classes([...defaultClassList], 'dk-input')
 
-  const STYLE_LIST = computed((): CSSProperties => {
+  const styleList = computed((): CSSProperties => {
     const { width, height, fontSize, borderRadius, textColor } = props
 
     const defaultStyle = {
@@ -128,7 +128,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     return defaultStyle
   })
 
-  const WRAPPER_STYLE_LIST = computed((): CSSProperties => {
+  const wrapperStyleList  = computed((): CSSProperties => {
     const { borderColor, focusBorderColor } = props
     const defaultStyle = {
       '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
@@ -145,28 +145,28 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @description 期望被转换的wrapper类名
    */
   const defaultWrapperClassList = ['append', 'prepend']
-  const WRAPPER_CLASS_LIST = classes([...defaultWrapperClassList], 'dk-input-wrapper')
+  const wrapperClassList = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
   /**
    * @name defaultInnerClassList
    * @description 期望被转换的inner类名
    */
-  const INNER_CLASSES = getStyleList(params, 'input').classes
+  const innerClasses = getStyleList(params, 'input').classes
   const defaultInnerClassList = []
-  const INNER_CLASS_LIST = INNER_CLASSES([...defaultInnerClassList], 'dk-input_inner')
+  const innerClassList = innerClasses([...defaultInnerClassList], 'dk-input_inner')
 
   /**
    * @name defaultClearableStyleList
    * @description 期望被转换的clearable类名
    */
   const defaultClearableStyleList = ['clearable']
-  const CLEARABLE_CLASSES = getStyleList(params, 'input').classes
-  const CLEARABLE_CLASS_LIST = CLEARABLE_CLASSES(
+  const clearableClass = getStyleList(params, 'input').classes
+  const clearableClassList = clearableClass(
     [...defaultClearableStyleList],
     'dk-input'
   )
 
-  const PEND_STYLE_LIST = computed((): CSSProperties => {
+  const pendStyleList = computed((): CSSProperties => {
     const { appendBackground, appendColor } = props
     const defaultStyle = {
       '--pend-background': appendBackground ? getColor(appendBackground).getDeepen(0) : null,
@@ -177,12 +177,12 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   })
 
   return {
-    classList: CLASS_LIST,
-    styleList: STYLE_LIST,
-    wrapperClassList: WRAPPER_CLASS_LIST,
-    wrapperStyleList: WRAPPER_STYLE_LIST,
-    innerClassList: INNER_CLASS_LIST,
-    clearableClassList: CLEARABLE_CLASS_LIST,
-    pendStyleList: PEND_STYLE_LIST
+    classList,
+    styleList,
+    wrapperClassList,
+    wrapperStyleList,
+    innerClassList,
+    clearableClassList,
+    pendStyleList
   }
 }
