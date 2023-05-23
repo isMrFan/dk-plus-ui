@@ -14,6 +14,7 @@
     props: dkButtonProps,
     setup(Props) {
       const dkBoxButton = ref<HTMLButtonElement>()
+      const { personalityType} = toRefs(Props)
       const { classList, styleList,personaClassList,personalityStylist } = getButton(Props)
       const { getRun } = getReturn()
       const { getType } = getGlobal(Props)
@@ -41,18 +42,14 @@
         }
         getRun(Props.onClick, evt)
       }
-      const { personalityType } = toRefs(Props)
-      if(personalityType.value==='shine'){
-         console.log('personalityType', personalityType.value)
-      }
-     
       return {
         EventClick,
         dkBoxButton,
         classList,
         styleList,
         personaClassList,
-        personalityStylist
+        personalityStylist,
+        personalityType
       }
     }
   })
@@ -106,9 +103,16 @@
         :style="personalityStylist"
         role="button" 
       > 
-        <slot name="icon" />
-        <slot></slot>
-        <slot name="afterIcon" />
+        <span v-if="personalityType==='shine'||personalityType==='flatBtn'">
+          <slot name="icon" />
+          <slot></slot>
+          <slot name="afterIcon" />
+        </span>
+        <template v-else>
+          <slot name="icon" />
+          <slot></slot>
+          <slot name="afterIcon" />
+        </template>
       </button>
     </template>
   </div>

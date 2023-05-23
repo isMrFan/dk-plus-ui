@@ -45,6 +45,37 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
     --stretchBtnAnimation75:scale(1.3, 0.7);
     --stretchBtnAnimation100:scale(1, 1);
   }
+  // 闪亮 发光
+  &_shine.#{$personality}{
+    --button-font-size:16px;
+    --button-FontColor:#1d89ff;
+    --border-color:rgba(22, 76, 167, 0.6);
+    --button-bgColor:#fff;
+    --button-bgColor-hover:#38ef7d;
+  }
+  //银光倒影
+  &_SilverReflection.#{$personality}{
+    --button-font-size:16px;
+    --button-bgColor:rgb(14, 14, 26);
+    --button-FontColor:rgb(234, 234, 234);
+    --button-box-shadow:0px 0px 20px #1f4c65;
+    --button-box-reflect:below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    --button-bgColor-hover:linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+    --button-FontColor-hover:rgb(4, 4, 38);
+  }
+  //扁平按钮
+  &_flatBtn.#{$personality}{
+    --button-bgColor:#212121;
+    --border-color:#ffffff;
+    --button-font-size:16px;
+    --button-FontColor:#ffffff;
+    --button-box-shadow: 0 0.2em 0.1em 0.019em #fff;
+    --button-box-shadow-hover:0 0 0 0 #fff;
+  }
+  //双展开按钮
+  &_TurnOpen.#{$personality}{
+  
+  }
   //不同尺寸处理
   &_large.#{$personality} {
     transform: scale(1);
@@ -53,7 +84,7 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
     --stretchBtnAnimation50:scale(1, 1.1);
     --stretchBtnAnimation75:scale(1.1, 1);
     --stretchBtnAnimation100:scale(1, 1);
-}
+  }
   &_medium.#{$personality} {
     transform: scale(0.9);
     --stretchBtnAnimation0:scale(0.9, 1);
@@ -61,7 +92,7 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
     --stretchBtnAnimation50:scale(0.9, 1);
     --stretchBtnAnimation75:scale(1, 0.9);
     --stretchBtnAnimation100:scale(0.9, 0.9);
-}
+  }
   &_small.#{$personality} {
     transform: scale(0.8);
     --stretchBtnAnimation0:scale(0.8, 0.9);
@@ -69,7 +100,7 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
     --stretchBtnAnimation50:scale(0.8, 0.9);
     --stretchBtnAnimation75:scale(0.9, 0.8);
     --stretchBtnAnimation100:scale(0.8,0.8);
-}
+  }
   &_mini.#{$personality} {
     transform: scale(0.7);
     --stretchBtnAnimation0:scale(0.7, 0.8);
@@ -77,6 +108,6 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
     --stretchBtnAnimation50:scale(0.7, 0.8);
     --stretchBtnAnimation75:scale(0.8, 0.7);
     --stretchBtnAnimation100:scale(0.7,0.7);
-}
+  }
 }
 

@@ -166,7 +166,8 @@
   &_shine.#{$personality}{
     position: relative;
     margin: 0;
-    padding: 17px 35px;
+    padding: .5em 1.5em;
+    font-size: var(--button-font-size);
     outline: none;
     text-decoration: none;
     display: flex;
@@ -174,14 +175,146 @@
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
-    background-color: #fff;
-    border: 1px solid rgba(22, 76, 167, 0.6);
+    background: var(--button-bgColor);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
-    color: #1d89ff;
+    color: var(--button-FontColor);
     font-weight: 400;
     font-family: inherit;
     z-index: 0;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    span {
+      font-weight: 500;
+      letter-spacing: 0.7px;
+      z-index: 20;
+    }
+    &:hover {
+      animation: shineAnimOne 0.7s ease-in-out both;
+    }
+    &:hover span{
+      animation: shineAnimTwo 0.7s ease-in-out both;
+    }
+    &:after {
+      background: var(--button-bgColor-hover);
+      content: "";
+      height: 155px;
+      left: -75px;
+      opacity: 0.4;
+      position: absolute;
+      top: -50px;
+      transform: rotate(35deg);
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+      width: 50px;
+      z-index: -10;
+    }
+    &:hover:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    @keyframes shineAnimOne {
+      0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    
+      25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+      }
+    
+      50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+      }
+    
+      75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+      }
+    
+      100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    }
+    @keyframes shineAnimTwo {
+      0% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+      }
+    
+      25% {
+        transform: translate3d(4px, 0, 0) translateZ(0);
+      }
+    
+      50% {
+        transform: translate3d(-3px, 0, 0) translateZ(0);
+      }
+    
+      75% {
+        transform: translate3d(2px, 0, 0) translateZ(0);
+      }
+    
+      100% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+      }
+    }
+  }
+
+  //银光倒影
+  &_SilverReflection.#{$personality}{
+    font-size: var(--button-font-size);
+    padding: .5em 1.5em;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color:var(--button-bgColor);
+    color: var(--button-FontColor);
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: var(--button-box-shadow);
+    -webkit-box-reflect:var(--button-box-reflect);
+    &:active {
+      scale: 0.92;
+    }
+    &:hover {
+      background: var(--button-bgColor-hover);
+      color: var(--button-FontColor-hover);
+    }
+  }
+
+  //扁平按钮
+  &_flatBtn.#{$personality}{
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: var(--button-bgColor);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: var(--button-font-size);
+    span{
+      padding: 5px;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 4px;
+      background-color: var(--button-bgColor);
+      border-radius:5px;
+      font-size: var(--button-font-size);
+      color: var(--button-FontColor);
+      border: 2px solid var(--border-color);
+      box-shadow:  var(--button-box-shadow);
+}
+    span:hover {
+      transition: all 0.5s;
+      transform: translate(0, 0.4em);
+      box-shadow: var(--button-box-shadow-hover)
+    }
+    span:not(hover) {
+      transition: all 1s;
+    }
+  }
+
+  //双展开按钮
+  &_TurnOpen.#{$personality}{
+    
   }
 }

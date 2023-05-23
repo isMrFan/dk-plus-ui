@@ -160,7 +160,9 @@ export const getButton = (props: DkButtonProps): getButtonType => {
       personalityBgHoveColor,
       personalityFontColor,
       personalityFontHoveColor,
+      personalityBoxShadow,
       personalityBoxShadowHove,
+      personalityReflect,
       fontSize
     } = props
     const defaultStyle={
@@ -177,8 +179,10 @@ export const getButton = (props: DkButtonProps): getButtonType => {
       '--button-bgColor-hover': personalityBgHoveColor || null,
       '--button-FontColor': personalityFontColor || null,
       '--button-FontColor-hover':personalityFontHoveColor || null,
+      '--button-box-shadow':personalityBoxShadow || null,
       '--button-box-shadow-hover':personalityBoxShadowHove,
-      '--button-font-size': sizeChange(fontSize)
+      '--button-font-size': sizeChange(fontSize),
+      '--button-box-reflect':personalityReflect|| null
     }as CSSProperties
     return defaultStyle
   })
