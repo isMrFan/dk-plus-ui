@@ -821,9 +821,25 @@
         <p>personalityFontHoveColor:(自定字体颜色hover)</p>
         <p>personalityBoxShadow:(自定义阴影)</p>
         <p>personalityBoxShadowHove:(自定义阴影悬停配置)</p>
+        <h4>8.1 BI缺角渐变按钮(BiCurvedA)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button personality personality-type="BiCurvedA" personality-size="large">BI缺角渐变按钮(BiCurvedA)</dk-button>
-          <dk-button personality personality-type="multiple" personality-size="large">多重阴影按钮(multiple)</dk-button>
+          <dk-button 
+            personality 
+            personality-type="BiCurvedA" 
+            personality-size="large"
+          >
+            BI缺角渐变按钮(BiCurvedA)
+          </dk-button>
+        </div>
+        <h4>8.2  多重阴影按钮(multiple)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="multiple" 
+            personality-size="large"
+          >
+            多重阴影按钮(multiple)
+          </dk-button>
           <dk-button 
             personality 
             personality-type="multiple" 
@@ -835,8 +851,65 @@
           >
             多重阴影按钮(multiple)
           </dk-button>
-          <dk-button personality personality-type="stretchBtn" personality-size="medium">基础信息(stretchBtn)</dk-button>
-          <dk-button personality personality-type="shine" personality-size="medium">基础信息(shine)</dk-button>
+        </div>
+        <h4>8.3  收缩动画按钮(stretchBtn)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="stretchBtn" 
+            personality-size="medium"
+          >
+            基础信息(stretchBtn)
+          </dk-button>
+        </div>
+        <h4>8.4  闪亮 发光(shine)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="shine" 
+            personality-size="medium"
+          >
+            基础信息(shine)
+          </dk-button>
+          <dk-button 
+            personality 
+            personality-type="shine" 
+            personality-bg-color="#38ef7d" 
+            personality-bg-hove-color="red" 
+            personality-size="medium"
+          >
+            自定义基础信息(shine)
+          </dk-button>
+        </div>
+        <h4>8.5  银光倒影(SilverReflection)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="SilverReflection" 
+            personality-size="medium"
+          >
+            银光倒影(SilverReflection)
+          </dk-button>
+        </div>
+        <h4 style="margin-top: 50px;">8.6  扁平按钮(flatBtn)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="flatBtn" 
+            personality-size="medium"
+          >
+            扁平按钮(flatBtn)
+          </dk-button>
+        </div>
+        <h4>8.7  双展开按钮(TurnOpen)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="TurnOpen" 
+            personality-size="medium"
+          >
+            双展开按钮(TurnOpen)
+          </dk-button>
         </div>
       </div>
     </div>

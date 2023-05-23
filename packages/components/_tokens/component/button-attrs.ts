@@ -1,10 +1,18 @@
 /**
- * @name DK_INPUT_TYPE
- * @Time 2023年04月28日
- * @param {string} type [text] 文本
- * @param {string} type [textarea] 多行文本
- * @param {string} type [password] 密码
- * @param {string} type [number] 数字
+ * @name DK_Personality_Type
+ * @Time 2023年05月23日
+ * @param {string} type [BiCurvedA] BI 渐变 缺角按钮 
+ * @param {string} type [BiCurvedA] 多重阴影按钮
+ * @param {string} type [BiCurvedA] 收缩动画按钮
+ * @param {string} type [BiCurvedA] 闪亮 发光
+ * @param {string} type [SilverReflection] 银光倒影
+ * @param {string} type [flatBtn] 扁平按钮
  * @returns Input 组件的全局配置
  */
-export const DK_Personality_Type = ['BiCurvedA','multiple','stretchBtn','shine'] as const
+export const DK_Personality_Type = [
+  'BiCurvedA',
+  'multiple',
+  'stretchBtn',
+  'shine',
+  'SilverReflection',
+  'flatBtn','TurnOpen'] as const

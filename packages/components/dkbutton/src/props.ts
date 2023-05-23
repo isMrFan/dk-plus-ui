@@ -35,6 +35,7 @@ import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType,dkPersonalityButt
  * @property {string} personalityFontHoveColor  个性按钮字体颜色悬停时
  * @property {string} personalityBoxShadow  BoxShadow配置
  * @property {string} personalityBoxShadowHove  BoxShadow配置悬停时
+ * @property {string} personalityReflect  倒影效果自定义
  * @description 按钮变量定义
  **/
 export const dkButtonProps = {
@@ -173,6 +174,9 @@ export const dkButtonProps = {
    * @param { string } [multiple] 多重阴影按钮
    * @param { string } [stretchBtn]  收缩动画按钮
    * @param { string } [shine]  闪亮 发光
+   * @param { string } [SilverReflection]  银光倒影
+   * @param { string } [flatBtn]  扁平按钮
+   * @param { string } [TurnOpen] 双展开按钮
    * @returns 个性按钮类型
   */
   personalityType:setStringProp<dkPersonalityButtonType>(null, (value: dkPersonalityButtonType): boolean => {
@@ -225,18 +229,24 @@ export const dkButtonProps = {
    * @returns 个性按钮字体颜色悬停
   */
   personalityFontHoveColor: setStringProp(),
-   /**
+  /**
    * @name personalityBoxShadow
    * @param { string }  BoxShadow配置
    * @returns BoxShadow配置
   */
-   personalityBoxShadow: setStringProp(),
-    /**
+  personalityBoxShadow: setStringProp(),
+  /**
    * @name personalityBoxShadowHove
    * @param { string }  BoxShadow悬停配置
    * @returns BoxShadow悬停配置
   */
   personalityBoxShadowHove: setStringProp(),
+   /**
+   * @name personalityReflect
+   * @param { string }  倒影效果
+   * @returns personalityReflect倒影效果
+  */
+  personalityReflect: setStringProp(),
   /**是否加载中 */
   loading: setBooleanProps(),
 
