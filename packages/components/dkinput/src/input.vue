@@ -19,8 +19,8 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
     const { getInputType } = getInputGlobal(props);
-    const { type = getInputType(), placeholder, clearable, showPassword } = props;
-    
+    const { type = getInputType(), placeholder, clearable, showPassword, append, prepend } = props;
+
     const INPUT = shallowRef<HTMLInputElement>();
     const _ref = computed(() => INPUT.value);
 
@@ -118,6 +118,19 @@ export default defineComponent({
       return ['dk-input_password-icon', PASSWORD_SHOW_OR_HIDE.value ? 'dk-icon-show' : 'dk-icon-hide'];
     })
 
+    const APPEND_MAIN = ref<string | number>(append);
+    const IS_APPEND = computed((): boolean => {
+      return !!append || !!slots.append;
+    })
+    const PREPEND_MAIN = ref<string | number>(prepend);
+    const IS_PREPEND = computed((): boolean => {
+      return !!prepend || !!slots.prepend;
+    })
+    const APPEND_CLASS_LIST = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
+    const PREPEND_CLASS_LIST = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
+
+    const PEND_STYLE_LIST = computed(() => getInput(props).pendStyleList);
+
     return {
       classList: CLASS_LIST.value,
       styleList,
@@ -137,7 +150,14 @@ export default defineComponent({
       isShowPassword: IS_SHOW_PASSWORD.value,
       togglePassword: TOGGLE_PASSWORD,
       showPasswordClass: SHOW_PASSWORD_CLASS,
-      textareaAttrs: TEXTAREA_ATTRS
+      textareaAttrs: TEXTAREA_ATTRS,
+      isAppend: IS_APPEND.value,
+      appendMain: APPEND_MAIN.value,
+      isPrepend: IS_PREPEND.value,
+      prependMain: PREPEND_MAIN.value,
+      appendClassList: APPEND_CLASS_LIST.value,
+      prependClassList: PREPEND_CLASS_LIST.value,
+      pendStyleList: PEND_STYLE_LIST.value
     };
   }
 });
@@ -145,6 +165,11 @@ export default defineComponent({
 
 <template>
   <div v-if="type !== 'textarea'" :class="classList" :style="styleList">
+    <template v-if="isAppend">
+      <div :class="appendClassList" :style="pendStyleList">
+        <span>{{ appendMain }}</span>
+      </div>
+    </template>
     <div :class="wrapperClassList">
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
@@ -164,6 +189,11 @@ export default defineComponent({
         <dk-icon :class="showPasswordClass" @click="togglePassword"></dk-icon>
       </template>
     </div>
+    <template v-if="isPrepend">
+      <div :class="prependClassList" :style="pendStyleList">
+        <span>{{ prependMain }}</span>
+      </div>
+    </template>
   </div>
   <div v-else :class="classList">
     <textarea v-bind="textareaAttrs"></textarea>

@@ -32,6 +32,10 @@ export const dkInputProps = {
   showPassword: setBooleanProps(),
   /** 前缀内容 */
   append: setStringProp(),
+  /** 前缀背景颜色 */
+  appendBackground: setStringProp(),
+  /** 前缀字体颜色 */
+  appendColor: setStringProp(),
   /** 后缀内容 */
   prepend: setStringProp(),
   /** 输入框内容 */

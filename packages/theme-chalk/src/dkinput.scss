@@ -61,21 +61,18 @@
   }
 
   @include element(textarea) {
-    width: inherit;
+    width: 100%;
     height: fit-content;
-    @include block('*input') {
+    @include block('>*input') {
       @include block(wrapper) {
         width: inherit;
         min-height: 30px;
-        height: auto;
-        line-height: 30px;
-        resize: vertical;
-        overflow: auto;
+        height: var(--input-height);
+        line-height: var(--textarea-line-height, 30px);
+        resize: var(--textarea-resize, none);
+        overflow: var(--textarea-overflow, auto);
         transition: all 0s;
-        -webkit-transition: all 0s;
-        -moz-transition: all 0s;
-        -ms-transition: all 0s;
-        -o-transition: all 0s;
+        transition: border 0.2s;
         &:focus {
           caret-color: var(--input-text-color);
           outline: none;
@@ -110,11 +107,28 @@
       cursor: pointer;
     }
   }
-  // &:focus-within:hover {
-  //   .dk-input-clearable {
-  //     display: block;
-  //   }
-  // }
+  @include element(pend) {
+    height: inherit;
+    display: inherit;
+    justify-content: inherit;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    color: var(--pend-color);
+    background-color: var(--pend-background);
+    font-size: inherit;
+    border: 1px solid var(--input-border);
+    box-sizing: border-box;
+    &:hover {
+      background-color: var(--pend-hover-background);
+    }
+  }
+  @include element(append){
+    border-right: none;
+  }
+  @include element(prepend){
+    border-left: none;
+  }
   @include element(disabled) {
     &:hover * {
       cursor: not-allowed;
