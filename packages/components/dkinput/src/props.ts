@@ -31,13 +31,13 @@ export const dkInputProps = {
   /** 是否展示密码 */
   showPassword: setBooleanProps(),
   /** 前缀内容 */
-  append: setStringProp(),
+  append: setStringProp() || setNumberProps(),
   /** 前缀背景颜色 */
   appendBackground: setStringProp(),
   /** 前缀字体颜色 */
   appendColor: setStringProp(),
   /** 后缀内容 */
-  prepend: setStringProp(),
+  prepend: setStringProp() || setNumberProps(),
   /** 输入框内容 */
   modelValue: setStringProp() || setNumberProps(),
   /**

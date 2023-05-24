@@ -23,22 +23,25 @@ export default defineComponent({
 
     const input = shallowRef<HTMLInputElement>();
     const _ref = computed(() => input.value);
-
     const { styleList, wrapperClassList, innerClassList } = getInput(props);
-
     const inputClassList = computed(() => getInput(props).classList);
-
     const modelValueProp = ref<string | number>(props.modelValue);
-
     const isFocus = ref<boolean>(false);
+    const prependMain = ref<string | number>(prepend);
+    const appendMain = ref<string | number>(append);
 
     const update = (e: Event): void => {
-      // TODO: 这里留着写个prepend和append的逻辑 2022.5.23
-      // if()
+      let updateModelValue = modelValueProp.value
+      if (prependMain.value) {
+        updateModelValue = `${prependMain.value}${updateModelValue}`
+      }
+      if (appendMain.value) {
+        updateModelValue = `${updateModelValue}${appendMain.value}`
+      }
 
       const target = e.target as HTMLInputElement;
       modelValueProp.value = target.value;
-      emit('update:modelValue', modelValueProp.value);
+      emit('update:modelValue', updateModelValue);
     };
 
     const disabledProp = computed((): boolean => props.disabled);
@@ -114,11 +117,9 @@ export default defineComponent({
       return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
     })
 
-    const prependMain = ref<string | number>(prepend);
     const isPrepend = computed((): boolean => {
       return !!prepend || !!slots.prepend
     })
-    const appendMain = ref<string | number>(append);
     const isAppend = computed((): boolean => {
       return !!append || !!slots.append;
     })
