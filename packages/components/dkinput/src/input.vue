@@ -21,143 +21,159 @@ export default defineComponent({
     const { getInputType } = getInputGlobal(props);
     const { type = getInputType(), placeholder, clearable, showPassword, append, prepend } = props;
 
-    const INPUT = shallowRef<HTMLInputElement>();
-    const _ref = computed(() => INPUT.value);
+    const input = shallowRef<HTMLInputElement>();
+    const _ref = computed(() => input.value);
 
     const { styleList, wrapperClassList, innerClassList } = getInput(props);
 
-    const CLASS_LIST = computed(() => getInput(props).classList);
+    const inputClassList = computed(() => getInput(props).classList);
 
-    const MODEL_VALUE = ref<string | number>(props.modelValue);
+    const modelValueProp = ref<string | number>(props.modelValue);
+
+    const isFocus = ref<boolean>(false);
 
     const update = (e: Event): void => {
-      const TARGET = e.target as HTMLInputElement;
-      MODEL_VALUE.value = TARGET.value;
-      emit('update:modelValue', MODEL_VALUE.value);
+      // TODO: 这里留着写个prepend和append的逻辑 2022.5.23
+      // if()
+
+      const target = e.target as HTMLInputElement;
+      modelValueProp.value = target.value;
+      emit('update:modelValue', modelValueProp.value);
     };
 
-    const DISABLED = computed((): boolean => props.disabled);
+    const disabledProp = computed((): boolean => props.disabled);
 
-    const PLACEHOLDER = ref<string | number>(placeholder);
+    const placeholderProp = ref<string | number>(placeholder);
 
-    const PASSWORD_SHOW_OR_HIDE = ref<Boolean>(false);
+    const passwordShowOrHide = ref<Boolean>(false);
 
-    const TYPE = computed((): dkInputType | ComputedRef<dkInputType> => {
-      return type === 'password' ? PASSWORD_SHOW_OR_HIDE.value ? 'text' : 'password' : type;
+    const inputType = computed((): dkInputType | ComputedRef<dkInputType> => {
+      return type === 'password' ? passwordShowOrHide.value ? 'text' : 'password' : type;
     });
 
-    const INPUT_MODE = computed((): string => {
+    const inputmode = computed((): string => {
       return type === 'number' ? 'numeric' : 'text';
     });
 
-    const INPUT_ATTRS = reactive({
-      class: innerClassList.value,
-      type: TYPE as dkInputType | ComputedRef<dkInputType>,
-      placeholder: PLACEHOLDER.value,
-      onInput: update,
-      disabled: DISABLED.value,
-      inputmode: INPUT_MODE.value
-    } as InputHTMLAttributes);
-
-    const TEXTAREA_ATTRS = reactive({
+    const textareaAttrs = reactive({
       class: wrapperClassList.value,
-      type: TYPE as dkInputType | ComputedRef<dkInputType>,
-      placeholder: PLACEHOLDER.value,
+      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      placeholder: placeholderProp.value,
       onInput: update,
-      disabled: DISABLED.value
+      disabled: disabledProp.value
     } as TextareaHTMLAttributes);
 
-    const IS_CLEAR = computed(() => !!clearable && !DISABLED.value);
+    const isClear = computed(() => !!clearable && !disabledProp.value);
 
-    const IS_PREFIX = computed(() => {
+    const isPrefix = computed(() => {
       return !!slots.prefix || !!props.prefixIcon;
     });
 
-    const IS_SHOW_CLEAR = computed(() => {
-      return !!clearable && !!MODEL_VALUE.value && !DISABLED.value;
+    const isShowClear = computed(() => {
+      return !!clearable && !!modelValueProp.value && !disabledProp.value;
     });
 
-    const IS_PREFIX_ICON = computed(() => !!props.prefixIcon);
+    const isPrefixIcon = computed(() => !!props.prefixIcon);
 
-    const PREFIX_ICON_CLASS = computed(() => {
-      const IS_DEFAULT = typeof props.prefixIcon === 'boolean';
-      return ['dk-input_prefix-icon', IS_DEFAULT ? 'dk-icon-search' : props.prefixIcon];
+    const prefixIconClass = computed(() => {
+      const isDefault = typeof props.prefixIcon === 'boolean';
+      return ['dk-input_prefix-icon', isDefault ? 'dk-icon-search' : props.prefixIcon];
     });
 
-    const IS_SUFFIX = computed(() => {
+    const isSuffix = computed(() => {
       return !!slots.suffix || !!props.suffixIcon;
     });
 
-    const IS_SUFFIX_ICON = computed(() => !!props.suffixIcon);
-    const SUFFIX_ICON_CLASS = computed(() => {
-      const IS_DEFAULT = typeof props.suffixIcon === 'boolean';
-      return ['dk-input_suffix-icon', IS_DEFAULT ? 'dk-icon-search' : props.suffixIcon];
+    const isSuffixIcon = computed(() => !!props.suffixIcon);
+    const suffixIconClass = computed(() => {
+      const isDefault = typeof props.suffixIcon === 'boolean';
+      return ['dk-input_suffix-icon', isDefault ? 'dk-icon-search' : props.suffixIcon];
     });
 
-    const CLEAR = (): void => {
-      MODEL_VALUE.value = '';
+    const clear = (): void => {
+      modelValueProp.value = '';
       emit('update:modelValue', '');
-      FOCUS();
+      focus();
     };
 
-    const FOCUS = async(): Promise<void> => {
+    const focus = async(): Promise<void> => {
       await nextTick()
       _ref.value?.focus();
     };
 
-    const IS_SHOW_PASSWORD = computed((): boolean => {
+    const isShowPassword = computed((): boolean => {
       return type === 'password' && !!showPassword;
     })
 
-    const TOGGLE_PASSWORD = (): void => {
-      PASSWORD_SHOW_OR_HIDE.value = !PASSWORD_SHOW_OR_HIDE.value;
-      FOCUS();
+    const togglePassword = (): void => {
+      passwordShowOrHide.value = !passwordShowOrHide.value;
+      focus();
     }
 
-    const SHOW_PASSWORD_CLASS = computed((): string[] => {
-      return ['dk-input_password-icon', PASSWORD_SHOW_OR_HIDE.value ? 'dk-icon-show' : 'dk-icon-hide'];
+    const showPasswordClass = computed((): string[] => {
+      return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
     })
 
-    const APPEND_MAIN = ref<string | number>(append);
-    const IS_APPEND = computed((): boolean => {
+    const prependMain = ref<string | number>(prepend);
+    const isPrepend = computed((): boolean => {
+      return !!prepend || !!slots.prepend
+    })
+    const appendMain = ref<string | number>(append);
+    const isAppend = computed((): boolean => {
       return !!append || !!slots.append;
     })
-    const PREPEND_MAIN = ref<string | number>(prepend);
-    const IS_PREPEND = computed((): boolean => {
-      return !!prepend || !!slots.prepend;
-    })
-    const APPEND_CLASS_LIST = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
-    const PREPEND_CLASS_LIST = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
+    const appendClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
+    const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
 
-    const PEND_STYLE_LIST = computed(() => getInput(props).pendStyleList);
+    const pendStyleLis = computed(() => getInput(props).pendStyleList);
 
+    const onfocus = (): void => {
+      console.log('onfocus');
+      
+      isFocus.value = true;
+    }
+
+    const onblur = (): void => {
+      isFocus.value = false;
+    }
+
+    const inputAttrs = reactive({
+      class: innerClassList.value,
+      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      placeholder: placeholderProp.value,
+      oninput: update,
+      disabled: disabledProp.value,
+      inputmode: inputmode.value,
+      onfocus,
+      onblur
+    } as InputHTMLAttributes);
     return {
-      classList: CLASS_LIST.value,
+      classList: inputClassList.value,
       styleList,
       wrapperClassList,
-      value: MODEL_VALUE,
-      inputAttrs: INPUT_ATTRS,
-      isClear: IS_CLEAR,
-      isShowClear: IS_SHOW_CLEAR,
-      isPrefix: IS_PREFIX.value,
-      isPrefixIcon: IS_PREFIX_ICON.value,
-      prefixIconClass: PREFIX_ICON_CLASS.value,
-      isSuffix: IS_SUFFIX.value,
-      isSuffixIcon: IS_SUFFIX_ICON.value,
-      suffixIconClass: SUFFIX_ICON_CLASS.value,
-      clear: CLEAR,
-      input: INPUT,
-      isShowPassword: IS_SHOW_PASSWORD.value,
-      togglePassword: TOGGLE_PASSWORD,
-      showPasswordClass: SHOW_PASSWORD_CLASS,
-      textareaAttrs: TEXTAREA_ATTRS,
-      isAppend: IS_APPEND.value,
-      appendMain: APPEND_MAIN.value,
-      isPrepend: IS_PREPEND.value,
-      prependMain: PREPEND_MAIN.value,
-      appendClassList: APPEND_CLASS_LIST.value,
-      prependClassList: PREPEND_CLASS_LIST.value,
-      pendStyleList: PEND_STYLE_LIST.value
+      value: modelValueProp,
+      inputAttrs: inputAttrs,
+      isClear,
+      isShowClear,
+      isPrefix: isPrefix.value,
+      isPrefixIcon: isPrefixIcon.value,
+      prefixIconClass: prefixIconClass.value,
+      isSuffix: isSuffix.value,
+      isSuffixIcon: isSuffixIcon.value,
+      suffixIconClass: suffixIconClass.value,
+      clear,
+      input: input,
+      isShowPassword: isShowPassword.value,
+      togglePassword,
+      showPasswordClass,
+      textareaAttrs,
+      isPrepend: isPrepend.value,
+      prependMain: prependMain.value,
+      isAppend: isAppend.value,
+      appendMain: appendMain.value,
+      prependClassList: prependClassList.value,
+      appendClassList: appendClassList.value,
+      pendStyleList: pendStyleLis.value
     };
   }
 });
@@ -165,33 +181,46 @@ export default defineComponent({
 
 <template>
   <div v-if="type !== 'textarea'" :class="classList" :style="styleList">
-    <template v-if="isAppend">
-      <div :class="appendClassList" :style="pendStyleList">
-        <span>{{ appendMain }}</span>
+    <!-- append -->
+    <template v-if="isPrepend">
+      <div :class="prependClassList" :style="pendStyleList">
+        <span>{{ prependMain }}</span>
       </div>
     </template>
+
+    <!-- wrapper -->
     <div :class="wrapperClassList">
+      <!-- prefix -->
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
           <slot name="prefix" />
           <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" size="16"></dk-icon>
         </span>
       </template>
+
+      <!-- inner -->
       <input v-bind="inputAttrs" ref="input" v-model="value" />
+
       <div v-if="isSuffix" class="dk-input_suffix">
         <slot name="suffix" />
         <dk-icon v-if="isSuffixIcon" :class="suffixIconClass"></dk-icon>
       </div>
+
+      <!-- clearable -->
       <template v-if="isClear">
         <dk-icon v-show="isShowClear" class="dk-icon-del1 dk-input-clearable" @click="clear" />
       </template>
+
+      <!-- show-password -->
       <template v-if="isShowPassword">
         <dk-icon :class="showPasswordClass" @click="togglePassword"></dk-icon>
       </template>
     </div>
-    <template v-if="isPrepend">
-      <div :class="prependClassList" :style="pendStyleList">
-        <span>{{ prependMain }}</span>
+    
+    <!-- prepend -->
+    <template v-if="isAppend">
+      <div :class="appendClassList" :style="pendStyleList">
+        <span>{{ appendMain }}</span>
       </div>
     </template>
   </div>

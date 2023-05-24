@@ -52,9 +52,10 @@ export default defineComponent({
     </dk-input> -->
 
     <h4>前后缀内容</h4>
-    <dk-input clearable placeholder="前后缀内容" append="http://" prepend=".com" />
+    <dk-input v-model="msg" clearable placeholder="前后缀内容" prepend="http://" append=".com" />
+    {{ msg }}
 
-    <h4>文本域</h4>
+    <!-- <h4>文本域</h4>
     <dk-input type="textarea" placeholder="文本域" autosize />
 
     <h4>数字框</h4>
@@ -81,7 +82,7 @@ export default defineComponent({
 
     <h4>清空</h4>
     <dk-input v-model="msg" clearable placeholder="清空" />
-    {{ msg }}
+    {{ msg }} -->
 
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">

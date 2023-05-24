@@ -35,9 +35,19 @@
     padding: 0 10px;
     &:hover {
       border: 1px solid var(--input-hover-border);
+      @include block('>*input') {
+        @include block(clearable){
+          display: block;
+        }
+      }
     }
     &:focus-within {
       border-color: var(--input-focus-border);
+      @include block('>*input') {
+        @include block(clearable){
+          display: block;
+        }
+      }
     }
   }
   @include element(inner) {
@@ -101,8 +111,8 @@
     padding-left: 10px;
   }
   @include block(clearable) {
-    padding: 0 4px;
-    // display: none;
+    padding-left: 4px;
+    display: none;
     &:hover {
       cursor: pointer;
     }
@@ -123,11 +133,25 @@
       background-color: var(--pend-hover-background);
     }
   }
-  @include element(append){
-    border-right: none;
-  }
   @include element(prepend){
+    border-right: none;
+    border-radius: var(--input-border-radius) 0 0 var(--input-border-radius)
+  }
+  
+  @include element(append){
     border-left: none;
+    border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0
+  }
+  @include element(wrapper){
+    @include block(prepend){
+      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0
+    }
+    @include block(append){
+      border-radius: var(--input-border-radius) 0 0 var(--input-border-radius)
+    }
+    @include block(pend){
+      border-radius: 0
+    }
   }
   @include element(disabled) {
     &:hover * {
