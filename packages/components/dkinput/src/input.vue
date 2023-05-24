@@ -19,7 +19,7 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
     const { getInputType } = getInputGlobal(props);
-    const { type = getInputType(), placeholder, clearable, showPassword, append, prepend } = props;
+    const { type = getInputType(), placeholder, clearable, showPassword, appendText, prependText } = props;
 
     const input = shallowRef<HTMLInputElement>();
     const _ref = computed(() => input.value);
@@ -27,8 +27,8 @@ export default defineComponent({
     const inputClassList = computed(() => getInput(props).classList);
     const modelValueProp = ref<string | number>(props.modelValue);
     const isFocus = ref<boolean>(false);
-    const prependMain = ref<string | number>(prepend);
-    const appendMain = ref<string | number>(append);
+    const prependMain = ref<string | number>(prependText);
+    const appendMain = ref<string | number>(appendText);
 
     const update = (e: Event): void => {
       let updateModelValue = modelValueProp.value
@@ -58,22 +58,21 @@ export default defineComponent({
       return type === 'number' ? 'numeric' : 'text';
     });
 
-    const textareaAttrs = reactive({
-      class: wrapperClassList.value,
-      type: inputType as dkInputType | ComputedRef<dkInputType>,
-      placeholder: placeholderProp.value,
-      onInput: update,
-      disabled: disabledProp.value
-    } as TextareaHTMLAttributes);
-
-    const isClear = computed(() => !!clearable && !disabledProp.value);
+    const isClear = computed((): boolean => {
+      let isClearable = !!clearable;
+      let isDisabled = !disabledProp.value;
+      let isTextarea = inputType.value === 'textarea';
+      let isPassword = inputType.value === 'password';
+      return isClearable && isDisabled && isTextarea && isPassword
+    });
 
     const isPrefix = computed(() => {
       return !!slots.prefix || !!props.prefixIcon;
     });
 
     const isShowClear = computed(() => {
-      return !!clearable && !!modelValueProp.value && !disabledProp.value;
+      let hasValue = modelValueProp.value.toString().length > 0;
+      return hasValue;
     });
 
     const isPrefixIcon = computed(() => !!props.prefixIcon);
@@ -118,10 +117,10 @@ export default defineComponent({
     })
 
     const isPrepend = computed((): boolean => {
-      return !!prepend || !!slots.prepend
+      return !!prependText
     })
     const isAppend = computed((): boolean => {
-      return !!append || !!slots.append;
+      return !!appendText;
     })
     const appendClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
     const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
@@ -148,6 +147,14 @@ export default defineComponent({
       onfocus,
       onblur
     } as InputHTMLAttributes);
+
+    const textareaAttrs = reactive({
+      class: wrapperClassList.value,
+      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      placeholder: placeholderProp.value,
+      onInput: update,
+      disabled: disabledProp.value
+    } as TextareaHTMLAttributes);
     return {
       classList: inputClassList.value,
       styleList,
