@@ -177,6 +177,8 @@ export const dkButtonProps = {
    * @param { string } [SilverReflection]  银光倒影
    * @param { string } [flatBtn]  扁平按钮
    * @param { string } [TurnOpen] 双展开按钮
+   * @param { string } [lightBtn] 灯光按钮
+   * @param { string } [stereoscopic] 立体嵌入式按钮
    * @returns 个性按钮类型
   */
   personalityType:setStringProp<dkPersonalityButtonType>(null, (value: dkPersonalityButtonType): boolean => {

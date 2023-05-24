@@ -911,6 +911,36 @@
             双展开按钮(TurnOpen)
           </dk-button>
         </div>
+        <h4>8.8  灯光按钮(lightBtn)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="lightBtn" 
+            personality-size="medium"
+          >
+            灯光按钮(lightBtn)
+          </dk-button>
+        </div>
+        <h4>8.9  立体嵌入式按钮(stereoscopic)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="stereoscopic" 
+            personality-size="medium"
+          >
+            立体嵌入式按钮(lightBtn)
+          </dk-button>
+        </div>
+        <h4>8.10  双展开按钮2(TurnOpenBorder)</h4>
+        <div class="dkButton_DK_wb">
+          <dk-button 
+            personality 
+            personality-type="TurnOpenBorder" 
+            personality-size="medium"
+          >
+            双展开按钮2(TurnOpenBorder)
+          </dk-button>
+        </div>
       </div>
     </div>
   </div>

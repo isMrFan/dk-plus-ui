@@ -8,7 +8,20 @@
  * @param {string} type [SilverReflection] 银光倒影
  * @param {string} type [flatBtn] 扁平按钮
  * @param {string} type [TurnOpen] 双展开按钮
+ * @param {string} type [lightBtn] 灯光按钮
+ * @param {string} type [stereoscopic] 立体嵌入式按钮
+ * @param {string} type [TurnOpenBorder] 双展开按钮2
  * @returns Input 组件的全局配置
  */
 
-export type dkPersonalityButtonType = 'BiCurvedA' |'multiple' |'stretchBtn' |'shine' | 'SilverReflection'|'flatBtn'|'TurnOpen'
+export type dkPersonalityButtonType = 
+'BiCurvedA' |
+'multiple' |
+'stretchBtn' |
+'shine' | 
+'SilverReflection'|
+'flatBtn'|
+'TurnOpen'|
+'lightBtn'|
+'stereoscopic'|
+'TurnOpenBorder'
