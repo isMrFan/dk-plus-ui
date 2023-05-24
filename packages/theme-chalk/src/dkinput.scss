@@ -19,7 +19,7 @@
     size: var(--input-font-size);
     &:hover {
       cursor: pointer;
-      color: var(--input-icon-hover-color);
+      // color: var(--input-icon-hover-color);
     }
   }
   @include block(wrapper) {
