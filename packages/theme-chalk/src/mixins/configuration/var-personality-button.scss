@@ -74,7 +74,30 @@ $personality: '#{$namespace}-button-personality' !default; // 命名空间
   }
   //双展开按钮
   &_TurnOpen.#{$personality}{
-  
+    --button-font-size:16px;
+    --button-box-shadow:0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    --border-color:#FF0072;
+    --button-FontColor:#FF0072;
+    --button-bgColor-hover:#FF0072;
+    --button-FontColor-hover:#ffffff;
+  }
+  //灯光按钮
+  &_lightBtn.#{$personality}{
+    
+  }
+  // 立体嵌入式按钮
+  &_stereoscopic.#{$personality}{
+    --button-font-size:16px;
+    --button-FontColor:#606060;
+    --button-bgColor:linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    --button-box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+  }
+  //双展开按钮2
+  &_TurnOpenBorder.#{$personality}{
+    --border-color:#149CEA;
+    --button-font-size:16px;
+    --button-bgColor:#ffffff;
+    --button-FontColor:#606060;
   }
   //不同尺寸处理
   &_large.#{$personality} {

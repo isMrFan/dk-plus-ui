@@ -315,6 +315,113 @@
 
   //双展开按钮
   &_TurnOpen.#{$personality}{
-    
+    font-size: var(--button-font-size);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: .5em 1.5em;
+    border: 3px solid var(--border-color);
+    border-radius: 2px;
+    position: relative;
+    box-shadow: var(--button-box-shadow);
+    color: var(--button-FontColor);
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1; 
+    &:before {
+      transition: 0.5s all ease;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      opacity: 0;
+      content: '';
+      background-color: var(--button-bgColor-hover);
+      z-index: -1;
+    }
+    &:hover,:focus {
+      color:var(--button-FontColor-hover);
+    }
+    &:hover:before,:focus:before {
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+    &:active {
+      transform: scale(0.9);
+    }
   }
-}
+
+  //灯光按钮
+  &_lightBtn.#{$personality}{
+  
+  }
+  // 立体嵌入式按钮
+  &_stereoscopic.#{$personality}{
+    display: flex;
+    padding: .5em 1.5em;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    background-image: var(--button-bgColor);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: var(--button-font-size);
+    font-weight: 600;
+    color: var(--button-FontColor);
+    text-shadow: 0 1px #fff;
+    &:hover {
+      box-shadow: var(--button-box-shadow);
+    }
+  }
+  //双展开按钮2
+  &_TurnOpenBorder.#{$personality}{
+    padding: .5em 1.5em;
+    box-sizing: border-box;
+    position: relative;
+    border: 3px ridge var(--border-color);
+    outline: none;
+    background-color: transparent;
+    color: var(--button-FontColor);
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 3%;
+      width: 95%;
+      height: 40%;
+      background-color: var(--button-bgColor);
+      transition: 0.5s;
+      transform-origin: center;
+    }
+    &::before {
+      content: "";
+      transform-origin: center;
+      position: absolute;
+      top: 80%;
+      left: 3%;
+      width: 95%;
+      height: 40%;
+      background-color: var(--button-bgColor);
+      transition: 0.5s;
+    }
+    &:hover::before,&:hover::after{
+      transform: scale(0);
+    }
+    :hover {
+      box-shadow: inset 0px 0px 25px var(--border-color);
+    }
+  }
+} 

@@ -7,6 +7,9 @@
  * @param {string} type [BiCurvedA] 闪亮 发光
  * @param {string} type [SilverReflection] 银光倒影
  * @param {string} type [flatBtn] 扁平按钮
+ * @param {string} type [TurnOpen] 双展开按钮
+ * @param {string} type [lightBtn] 灯光按钮
+ * @param {string} type [stereoscopic] 立体嵌入式按钮
  * @returns Input 组件的全局配置
  */
 export const DK_Personality_Type = [
@@ -15,4 +18,9 @@ export const DK_Personality_Type = [
   'stretchBtn',
   'shine',
   'SilverReflection',
-  'flatBtn','TurnOpen'] as const
+  'flatBtn',
+  'TurnOpen',
+  'lightBtn',
+  'stereoscopic',
+  'TurnOpenBorder'
+] as const

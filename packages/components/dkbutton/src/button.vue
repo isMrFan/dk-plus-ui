@@ -103,7 +103,11 @@
         :style="personalityStylist"
         role="button" 
       > 
-        <span v-if="personalityType==='shine'||personalityType==='flatBtn'">
+        <span
+          v-if="
+            personalityType==='shine'||
+              personalityType==='flatBtn'"
+        >
           <slot name="icon" />
           <slot></slot>
           <slot name="afterIcon" />
