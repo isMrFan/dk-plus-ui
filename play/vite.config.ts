@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 import viteCompression from 'vite-plugin-compression'
 import legacyPlugin from '@vitejs/plugin-legacy'
@@ -69,6 +70,14 @@ export default defineConfig({
         ws: true, //websocket支持
         rewrite: path => path.replace(/^\/api/, '')
       }
+    }
+  },
+  resolve: {
+    alias: {
+      '@dk-plus/dk-icon': resolve(
+        __dirname,
+        '../packages/dk-icon/src/index.ts'
+      )
     }
   }
 })

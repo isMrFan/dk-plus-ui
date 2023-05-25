@@ -30,7 +30,10 @@
 </script>
 
 <template>
-  <i class="dk-icon" :style="style">
-    <slot> </slot>
+  <i class="dk-icon" role="img" text-indent="middle" :style="style">
+    {{ icon }}
+    <dkicondelete1 />
+    <component :is="'dkicondelete1'" />
+
   </i>
 </template>

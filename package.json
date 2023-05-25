@@ -21,6 +21,7 @@
     "test": "jest",
     "prepare": "husky install",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "postinstall": "cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3"
@@ -80,9 +81,10 @@
   },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
+    "@dk-plus/dk-icon": "workspace:^0.4.0",
+    "@dk-plus/eslint-config": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0",
-    "@dk-plus/vite-plugin-vue-dk-setup-name": "workspace:^0.1.0",
-    "@dk-plus/eslint-config": "workspace:^1.0.0"
+    "@dk-plus/vite-plugin-vue-dk-setup-name": "workspace:^0.1.0"
   }
 }

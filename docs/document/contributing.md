@@ -28,6 +28,7 @@
 ### 📖 目录结构
 
 ```bash
+├── .husky      # 代码提交前检测
 ├── build       #打npm包工程文件
 ├── ├── utils   # 打包工具配置
 ├── ├── component.ts  #文件输出配置
@@ -36,6 +37,8 @@
 ├── ├── gulpfile.ts       #打包启动文件
 ├── └─ packages.ts       #专门打包util ， 指令 ， hook的
 ├── node_modules    # 项目依赖
+├── deploy          # 远程命令SSH上传到服务器配置
+├── images          # 远程图片备份
 ├── logo   #图标logo
 ├── docs   #文档项目
 ├── ├── .vitepress  #文档配置文件
@@ -53,11 +56,19 @@
 ├── └─ README.md  #打包后的说明文件
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
-├── ├── _hooks        # hooks
-├── ├── ├── get-button  # 获取按钮的方法(hooks_dk-button)
-├── ├── ├── get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
-├── ├── ├── index.ts    # hooks出口文件
-├── ├── _icon         # 图标存放文件的SVG
+├── ├── ├──_hooks        # hooks
+├── ├── ├── ├──get-button  # 获取按钮的方法(hooks_dk-button)
+├── ├── ├── ├──get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
+├── ├── ├── public       # 公共的hooks方法
+├── ├── ├── ├──  get-color  #颜色处理加深 减淡
+├── ├── ├── ├──  get-props  #获取组件的props
+├── ├── ├── ├──  get-Global   #获取组件props的size | type 值给定默认值
+├── ├── ├── ├──  get-props    #获取组件props string 类型的值 和obj类型的值
+├── ├── ├── ├──  get-return   #执行方法函数
+├── ├── ├── ├──  get-ripples  #指定元素内的点击未知 为特殊组件定制插入元素 例如dk-button 水波纹效果
+├── ├── ├── ├──  get-StyleList    #用于获取props内参数根据设置生成对应名称的class 获取传入的样式数组模式的值解析  判断是否为样式添加单位
+├── ├── ├── ├──  set-size     #简易版是否判断需要添加单位
+├── ├── ├── ├──index.ts    # hooks出口文件
 ├── ├── _interface    # 项目内的接口文件
 ├── ├── _tokens       # 项目内的默认值设置
 ├── ├── _utils        # 组件内用的工具方法
@@ -69,10 +80,14 @@
 ├── ├── icon      #图标组件
 ├── ├── index.ts  #组件入口文件
 ├── ├── utils         # 存放工具方法
-├── ├── theme-chalk   # 存放对应的样式打包工具箱
+├── ├── theme-chalk   # 存放对应的样式,样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
 ├── └─  └─ gulpfile.ts # 打包工具
-├── dk-plus         # 出口文件
+├── ├── dk-setup-name      #  根据命令生成组件文件夹 暂未实现
+├── ├── dk-eslint          #  项目内的eslint配置
+├── ├── dk-icon            #  图标项目
+├── ├── dk-plus         # 出口文件
+├── ├── utils           # 项目打包辅助器
 ├── play      # 组件调试测试项目
 ├── ├──  node_modules  # play的依赖 测试目录
 ├── ├──  router        # 路由配置
@@ -85,6 +100,8 @@
 ├── └─  vite.config.ts  # vite 轻量级启动项
 ├── typings        #  ts的声明文件
 ├── └─vue-shim.d.ts # typescript 声明文件
+├── .lintstagedrc   # lint-staged 配置文件提交前检测
+├── .markdownlint.json # markdownlint 配置文件
 ├── .eslintignore   #ESLint 去忽略特定的文件和目录
 ├── .eslintrc.js    #ESLint 配置文件
 ├── .gitignore      # git 过滤说明文件

@@ -1,7 +1,7 @@
 {
   "name": "@dk-plus/eslint-config",
   "version": "1.0.0",
-  "description": "",
+  "description": "Provides the eslint configuration for dk plus projects",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -16,12 +16,16 @@
     "eslint-plugin",
     "typescript-eslint"
   ],
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
     "eslint": "^8.40.0",
     "eslint-plugin-vue": "^9.13.0",
     "typescript": "^5.0.4"
-  }
+  },
+  "author": {
+    "name": "Mr.Fan",
+    "url": "https://cadwaladerss.com"
+  },
+  "license": "MIT"
 }

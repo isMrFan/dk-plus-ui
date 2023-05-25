@@ -1,5 +1,8 @@
 import type { ExtractPropTypes } from 'vue'
 export const iconProps = {
+  icon:{
+    type: String
+  },
   size: {
     type: Number
   },

@@ -397,6 +397,7 @@
 </script>
 <template>
   <div class="dkButton">
+    <dk-icon :icon="'DkIconDelete1'"></dk-icon>12
     <div class="dkButton_DK_csy">
       <div>
         <h3>1.文本按钮</h3>
