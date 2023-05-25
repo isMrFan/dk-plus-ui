@@ -398,7 +398,7 @@
 <template>
   <div class="dkButton">
     <div class="dkButton_DK_csy">
-      <div v-if="false">
+      <div>
         <h3>1.文本按钮</h3>
         <div class="dkButton_DK_wb">
           <dk-button text> 默认</dk-button>
@@ -568,7 +568,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div>
         <h3>2.A标签超文本标签</h3>
         <div class="dkButton_DK_wb">
           <dk-button link :href="'https://m.baidu.com/'" type="primary">
@@ -628,7 +628,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div>
         <h3>3.块元素按钮</h3>
         <div class="dkButton_DK_wb">
           <dk-button> 默认</dk-button>
@@ -669,7 +669,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div>
         <h3>4.圆按钮</h3>
         <div class="dkButton_DK_wb">
           <dk-button circle size="large">范</dk-button>
@@ -699,7 +699,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div>
         <h3>4.带有阴影</h3>
         <div class="dkButton_DK_wb">
           <dk-button shadow="0 1px 10px 0 #f0f0f0" size="large">默认按钮</dk-button>
@@ -740,7 +740,7 @@
           </div>
         </div>
       </div>
-      <div v-if="false">
+      <div>
         <h3>5.涟漪效果(不可和扩散效果联动因为太丑)</h3>
         <div class="dkButton_DK_wb">
           <dk-button ripples size="large">默认</dk-button>
@@ -807,6 +807,15 @@
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <h3>7.圆角按钮 round</h3>
+        <div class="dkButton_DK_wb">
+          <dk-button round>圆角按钮</dk-button>
+        </div>
+      </div>
+      <div>
+        <h3>7.1 按钮图标 icon</h3>
       </div>
       <div>
         <h3>8.个性按钮</h3>

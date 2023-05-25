@@ -19,6 +19,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(dkPlus)
-    app.component('vp-module', dkcodedisplay)
+    app.component('custom-module', dkcodedisplay)
   }
 }

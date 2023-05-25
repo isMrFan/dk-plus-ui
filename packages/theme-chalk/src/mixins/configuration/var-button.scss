@@ -168,6 +168,10 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active-borderColor: #409eff;
     --button-active-background: #ecf5ff;
   }
+  //圆角按钮
+  &_round {
+    --button-border-radius: 50px;
+  }
   //不同尺寸处理
   &_large {
     --button-height: 40px;

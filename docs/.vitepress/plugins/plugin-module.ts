@@ -34,13 +34,11 @@ export const PluginModule = (md: MarkdownIt): void => {
         const content: string =
           tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
         const source: string = md.utils.escapeHtml(content)
-
-        return `<vp-module source="${source}">${encodeURIComponent(
+        return `<custom-module source="${source}">${encodeURIComponent(
           markdown.render(description)
         )}`
       }
-
-      return '</vp-module>'
+      return '</custom-module>'
     }
   })
 }
