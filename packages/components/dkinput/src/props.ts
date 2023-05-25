@@ -34,12 +34,12 @@ export const dkInputProps = {
    * @name prependText 前缀内容
    * @description 优先级顺序 prepend(slot) > icon > text
    */
-  prependText: setStringProp() || setNumberProps(),
+  prependText: setStringProp(),
   /**
    * @name appendText 后缀内容
    * @description 优先级顺序 prepend(slot) > icon > text
    */
-  appendText: setStringProp() || setNumberProps(),
+  appendText: setStringProp(),
   /**
    * @name prependIcon 前缀图标
    * @description 优先级顺序 prepend(slot) > icon > text
