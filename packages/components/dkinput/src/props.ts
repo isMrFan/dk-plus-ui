@@ -30,14 +30,30 @@ export const dkInputProps = {
 
   /** 是否展示密码 */
   showPassword: setBooleanProps(),
-  /** 前缀内容 */
-  append: setStringProp(),
+  /**
+   * @name prependText 前缀内容
+   * @description 优先级顺序 prepend(slot) > icon > text
+   */
+  prependText: setStringProp() || setNumberProps(),
+  /**
+   * @name appendText 后缀内容
+   * @description 优先级顺序 prepend(slot) > icon > text
+   */
+  appendText: setStringProp() || setNumberProps(),
+  /**
+   * @name prependIcon 前缀图标
+   * @description 优先级顺序 prepend(slot) > icon > text
+   */
+  prependIcon: setStringProp(),
+  /**
+   * @name appendIcon 后缀图标
+   * @description 优先级顺序 prepend(slot) > icon > text
+   */
+  appendIcon: setStringProp(),
   /** 前缀背景颜色 */
   appendBackground: setStringProp(),
   /** 前缀字体颜色 */
   appendColor: setStringProp(),
-  /** 后缀内容 */
-  prepend: setStringProp(),
   /** 输入框内容 */
   modelValue: setStringProp() || setNumberProps(),
   /**

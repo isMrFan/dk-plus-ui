@@ -81,15 +81,15 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    */
   const cloneProps = { ...toRaw(props) }
 
-  if (props.append && props.prepend) {
-    cloneProps.append = 'wrapper-pend'
-    cloneProps.prepend = ''
+  if (props.appendText && props.prependText) {
+    cloneProps.appendText = 'wrapper-pend_text'
+    cloneProps.prependText = ''
   } else {
-    if (props.append) {
-      cloneProps.append = 'wrapper-append'
+    if (props.appendText) {
+      cloneProps.appendText = 'wrapper-append_text'
     }
-    if (props.prepend) {
-      cloneProps.prepend = 'wrapper-prepend'
+    if (props.prependText) {
+      cloneProps.prependText = 'wrapper-prepend_text'
     }
   }
 
@@ -162,7 +162,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultWrapperClassList
    * @description 期望被转换的wrapper类名
    */
-  const defaultWrapperClassList = ['append', 'prepend']
+  const defaultWrapperClassList = ['appendText', 'prependText']
   const wrapperClassList = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
   /**

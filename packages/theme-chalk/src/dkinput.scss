@@ -19,7 +19,7 @@
     size: var(--input-font-size);
     &:hover {
       cursor: pointer;
-      color: var(--input-icon-hover-color);
+      // color: var(--input-icon-hover-color);
     }
   }
   @include block(wrapper) {
@@ -144,13 +144,19 @@
   }
   @include element(wrapper){
     @include block(prepend){
-      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0
+      @include element(text){
+        border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0
+      }
     }
     @include block(append){
-      border-radius: var(--input-border-radius) 0 0 var(--input-border-radius)
+      @include element(text){
+        border-radius: var(--input-border-radius) 0 0 var(--input-border-radius)
+      }
     }
     @include block(pend){
-      border-radius: 0
+      @include element(text){
+        border-radius: 0
+      }
     }
   }
   @include element(disabled) {

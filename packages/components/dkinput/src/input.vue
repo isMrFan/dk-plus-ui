@@ -19,26 +19,63 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
     const { getInputType } = getInputGlobal(props);
-    const { type = getInputType(), placeholder, clearable, showPassword, append, prepend } = props;
+    const { type = getInputType(), placeholder, clearable, showPassword, appendText, prependText, prependIcon, appendIcon } = props;
 
     const input = shallowRef<HTMLInputElement>();
     const _ref = computed(() => input.value);
-
     const { styleList, wrapperClassList, innerClassList } = getInput(props);
-
     const inputClassList = computed(() => getInput(props).classList);
-
     const modelValueProp = ref<string | number>(props.modelValue);
-
     const isFocus = ref<boolean>(false);
+    const prependTextProp = ref<string | number>(prependText);
+    const appendTextProp = ref<string | number>(appendText);
 
+    const isPrependIcon = computed((): boolean => {
+      return !!prependIcon
+    })
+    const isPrependTextLen = computed((): boolean => {
+      return prependTextProp.value.toString().length > 0
+    });
+    const isPrepend = computed((): boolean => {
+      return isPrependTextLen.value || isPrependIcon.value
+    })
+    const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
+    const isPrependText = computed((): boolean => {
+      return isPrependTextLen.value && !isPrependIcon.value
+    })
+    const prependIconProp = computed((): string => {
+      return prependIcon
+    })
+
+    const isAppendIcon = computed((): boolean => {
+      return !!appendIcon
+    })
+    const isAppendTextLen = computed((): boolean => {
+      return appendTextProp.value.toString().length > 0
+    });
+    const isAppend = computed((): boolean => {
+      return isAppendTextLen.value || isAppendIcon.value;
+    })
+    const appendClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
+    const isAppendText = computed((): boolean => {
+      return isAppendTextLen.value && !isAppendIcon.value;
+    })
+    const appendIconProp = computed((): string => {
+      return appendIcon
+    })
+    const pendStyleLis = computed(() => getInput(props).pendStyleList);
     const update = (e: Event): void => {
-      // TODO: 这里留着写个prepend和append的逻辑 2022.5.23
-      // if()
+      let updateModelValue = modelValueProp.value
+      if (prependTextProp.value && !isPrependIcon.value) {
+        updateModelValue = `${prependTextProp.value}${updateModelValue}`
+      }
+      if (appendTextProp.value && !isAppendIcon.value) {
+        updateModelValue = `${updateModelValue}${appendTextProp.value}`
+      }
 
       const target = e.target as HTMLInputElement;
       modelValueProp.value = target.value;
-      emit('update:modelValue', modelValueProp.value);
+      emit('update:modelValue', updateModelValue);
     };
 
     const disabledProp = computed((): boolean => props.disabled);
@@ -55,22 +92,21 @@ export default defineComponent({
       return type === 'number' ? 'numeric' : 'text';
     });
 
-    const textareaAttrs = reactive({
-      class: wrapperClassList.value,
-      type: inputType as dkInputType | ComputedRef<dkInputType>,
-      placeholder: placeholderProp.value,
-      onInput: update,
-      disabled: disabledProp.value
-    } as TextareaHTMLAttributes);
-
-    const isClear = computed(() => !!clearable && !disabledProp.value);
+    const isClear = computed((): boolean => {
+      let isClearable = !!clearable;
+      let isDisabled = !disabledProp.value;
+      let isTextarea = inputType.value !== 'textarea';
+      let isPassword = inputType.value !== 'password';
+      return isClearable && isDisabled && isTextarea && isPassword
+    });
 
     const isPrefix = computed(() => {
       return !!slots.prefix || !!props.prefixIcon;
     });
 
     const isShowClear = computed(() => {
-      return !!clearable && !!modelValueProp.value && !disabledProp.value;
+      let hasValue = modelValueProp.value.toString().length > 0;
+      return hasValue;
     });
 
     const isPrefixIcon = computed(() => !!props.prefixIcon);
@@ -114,22 +150,7 @@ export default defineComponent({
       return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
     })
 
-    const prependMain = ref<string | number>(prepend);
-    const isPrepend = computed((): boolean => {
-      return !!prepend || !!slots.prepend
-    })
-    const appendMain = ref<string | number>(append);
-    const isAppend = computed((): boolean => {
-      return !!append || !!slots.append;
-    })
-    const appendClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
-    const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
-
-    const pendStyleLis = computed(() => getInput(props).pendStyleList);
-
     const onfocus = (): void => {
-      console.log('onfocus');
-      
       isFocus.value = true;
     }
 
@@ -147,6 +168,14 @@ export default defineComponent({
       onfocus,
       onblur
     } as InputHTMLAttributes);
+
+    const textareaAttrs = reactive({
+      class: wrapperClassList.value,
+      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      placeholder: placeholderProp.value,
+      onInput: update,
+      disabled: disabledProp.value
+    } as TextareaHTMLAttributes);
     return {
       classList: inputClassList.value,
       styleList,
@@ -167,13 +196,21 @@ export default defineComponent({
       togglePassword,
       showPasswordClass,
       textareaAttrs,
+
       isPrepend: isPrepend.value,
-      prependMain: prependMain.value,
-      isAppend: isAppend.value,
-      appendMain: appendMain.value,
+      prependTextProp: prependTextProp.value,
       prependClassList: prependClassList.value,
+      isPrependText: isPrependText.value,
+      isPrependIcon: isPrependIcon.value,
+      prependIconProp: prependIconProp.value,
+
+      isAppend: isAppend.value,
+      appendTextProp: appendTextProp.value,
       appendClassList: appendClassList.value,
-      pendStyleList: pendStyleLis.value
+      pendStyleList: pendStyleLis.value,
+      isAppendText: isAppendText.value,
+      isAppendIcon: isAppendIcon.value,
+      appendIconProp: appendIconProp.value
     };
   }
 });
@@ -184,7 +221,8 @@ export default defineComponent({
     <!-- append -->
     <template v-if="isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
-        <span>{{ prependMain }}</span>
+        <span v-if="isPrependText">{{ prependTextProp }}</span>
+        <dk-icon v-if="isPrependIcon" :class="prependIconProp"></dk-icon>
       </div>
     </template>
 
@@ -220,7 +258,8 @@ export default defineComponent({
     <!-- prepend -->
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
-        <span>{{ appendMain }}</span>
+        <span v-if="isAppendText">{{ appendTextProp }}</span>
+        <dk-icon v-if="isAppendIcon" :class="appendIconProp"></dk-icon>
       </div>
     </template>
   </div>
