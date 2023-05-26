@@ -30,10 +30,10 @@
 </script>
 
 <template>
-  <i class="dk-icon" role="img" text-indent="middle" :style="style">
-    {{ icon }}
-    <dkicondelete1 />
-    <component :is="'dkicondelete1'" />
-
-  </i>
+  <div>
+    <i class="dk-icon" role="img" text-indent="middle" :style="style">
+      <component :is="icon" v-if="icon" />
+      <slot v-else />
+    </i>
+  </div>
 </template>

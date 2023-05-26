@@ -267,5 +267,3 @@ export default defineComponent({
     <textarea v-bind="textareaAttrs"></textarea>
   </div>
 </template>
-
-<style lang="scss"></style>
