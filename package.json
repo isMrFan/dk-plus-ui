@@ -81,7 +81,6 @@
   },
   "dependencies": {
     "@dk-plus/components": "workspace:^1.0.0",
-    "@dk-plus/dk-icon": "workspace:^0.4.0",
     "@dk-plus/eslint-config": "workspace:^1.0.0",
     "@dk-plus/theme-chalk": "workspace:^1.0.0",
     "@dk-plus/utils": "workspace:^1.0.0",
