@@ -97,9 +97,9 @@ export const dkInputProps = {
   /** 是否显示字符限制 */
   showWordLimit: setBooleanProps(),
   /** 前缀图标 */
-  prefixIcon: setBooleanProps() || setStringProp(),
+  prefixIcon: setStringProp(),
   /** 后缀图标 */
-  suffixIcon: setBooleanProps() || setStringProp(),
+  suffixIcon: setStringProp(),
   /** 行数 */
   rows: setStringProp() || setNumberProps(),
   autosize: setBooleanProps() || setObjectProps()

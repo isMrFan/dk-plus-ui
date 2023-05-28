@@ -26,6 +26,25 @@ interface propDataModel {
   showPassword: boolean,
   prependIcon: string,
   appendIcon: string,
+  disabledProp: boolean,
+  prefixIcon: string,
+  inputType: dkInputType,
+  suffixIcon: string
+}
+
+interface dataType {
+  isPrepend: boolean,
+  isPrependText: boolean,
+  isAppendTextLen: boolean,
+  isPrefix: boolean,
+  isShowClear: boolean,
+  isClear: boolean,
+  inputType: dkInputType,
+  inputmode: string,
+  isPrefixIcon: boolean,
+  isSuffix: boolean,
+  isSuffixIcon: boolean,
+  isShowPassword: boolean
 }
 
 export default defineComponent({
@@ -50,7 +69,11 @@ export default defineComponent({
       clearable: props.clearable,
       showPassword: props.showPassword,
       prependIcon: props.prependIcon,
-      appendIcon: props.appendIcon
+      appendIcon: props.appendIcon,
+      disabledProp: props.disabled,
+      prefixIcon: props.prefixIcon,
+      inputType: props.type,
+      suffixIcon: props.suffixIcon
     })
 
     /**
@@ -58,20 +81,22 @@ export default defineComponent({
      * @param {string | array} target 
      * @returns {boolean}
      */
-    const getNull = (target: string | []): boolean => {
+    const getNull = (target: string | [] | number): boolean => {
       if (Array.isArray(target)) {
         if (target.length === 0) 
+        return false
+      } else {
+        target = target.toString().trim()
+        if(typeof target === 'string') {
+          if (target.length === 0) 
           return false
-      }
-      if(typeof target === 'string') {
-        if (target.length === 0) 
-          return false
+        }
       }
       return true
     }
 
     /** 
-     * @name getBoolean 获取布尔值
+     * @name getBoolean 获取布尔值 与
      * @param {boolean[]} target
      * @returns {boolean}
      */
@@ -85,26 +110,78 @@ export default defineComponent({
       return true
     }
 
-    // const 
-    
-    const isPrepend = computed((): boolean => {
-      return getBoolean([getNull(propData.prependText), !!propData.prependIcon])
-      // return getNull(propData.prependText) || !!propData.prependIcon
-    })
-    const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
-    const isPrependText = computed((): boolean => {
-      return getNull(propData.prependText) && !propData.prependIcon
-    })
+    /**
+     * @name getBooleanOr 获取或
+     * @param {boolean[]} target
+     * @returns {boolean}
+     */
+    const getBooleanOr = (target: boolean[]): boolean => {
+      if(target.length == 0) return false
+      let i = 0;
+      while (target[i]) {
+        return true
+      }
+      i++
+      return false
+    }
 
-    const isAppendTextLen = computed((): boolean => {
-      return propData.appendText.toString().length > 0
-    });
+    // const inputType = computed((): dkInputType | ComputedRef<dkInputType> => {
+    //   return type === 'password' ? passwordShowOrHide.value ? 'text' : 'password' : type;
+    // });
+
+    /**
+     * @name verifyInputType 获取input类型
+     * @returns {dkInputType}
+     */
+    const verifyInputType = (): dkInputType => {
+      let inputType: dkInputType = propData.inputType;
+      if (propData.inputType === 'password') {
+        if(passwordShowOrHide.value) {
+          inputType = 'text'
+        } else {
+          inputType = 'password'
+        }
+      } else {
+        inputType = propData.inputType
+      }
+      return inputType;
+    }
+
+    /**
+     * @name getIsClear 获取是否显示清除按钮
+     * @returns {boolean}
+     */
+    const getIsClear = (): boolean => {
+      let isClearable = propData.clearable;
+      let isDisabled = !propData.disabledProp;
+      let isTextarea = propData.inputType !== 'textarea';
+      let isPassword = propData.inputType !== 'password';
+      return getBoolean([isDisabled, isTextarea, isPassword, isClearable]);
+    }
+
+    const data = reactive<dataType>({
+      inputType: verifyInputType(),
+      isPrepend: getBoolean([getNull(propData.prependText), !!propData.prependIcon]),
+      isPrependText: getNull(propData.prependText) && !propData.prependIcon,
+      isAppendTextLen: getNull(propData.appendText),
+      isPrefix: getBooleanOr([!!slots.prefix, !!propData.prefixIcon]),
+      isShowClear: getNull(modelValueProp.value),
+      isClear: getIsClear(),
+      inputmode: type === 'number' ? 'numeric' : 'text',
+      isPrefixIcon: getBoolean([!!propData.prefixIcon]),
+      isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
+      isSuffixIcon: getBoolean([!!propData.suffixIcon]),
+      isShowPassword: getBoolean([type === 'password', propData.showPassword])
+    })
+    
+    const prependClassList = computed((): string[] => ['dk-input_prepend', 'dk-input_pend']);
+
     const isAppend = computed((): boolean => {
-      return isAppendTextLen.value || !!propData.appendIcon;
+      return data.isAppendTextLen || !!propData.appendIcon;
     })
     const appendClassList = computed((): string[] => ['dk-input_append', 'dk-input_pend']);
     const isAppendText = computed((): boolean => {
-      return isAppendTextLen.value && !propData.appendIcon;
+      return data.isAppendTextLen && !propData.appendIcon;
     })
 
     const pendStyleLis = computed(() => getInput(props).pendStyleList);
@@ -122,51 +199,17 @@ export default defineComponent({
       emit('update:modelValue', updateModelValue);
     };
 
-    const disabledProp = computed((): boolean => props.disabled);
-
     const passwordShowOrHide = ref<Boolean>(false);
 
-    const inputType = computed((): dkInputType | ComputedRef<dkInputType> => {
-      return type === 'password' ? passwordShowOrHide.value ? 'text' : 'password' : type;
-    });
-
-    const inputmode = computed((): string => {
-      return type === 'number' ? 'numeric' : 'text';
-    });
-
-    const isClear = computed((): boolean => {
-      let isClearable = propData.clearable;
-      let isDisabled = !disabledProp.value;
-      let isTextarea = inputType.value !== 'textarea';
-      let isPassword = inputType.value !== 'password';
-      return isClearable && isDisabled && isTextarea && isPassword
-    });
-
-    const isPrefix = computed(() => {
-      return !!slots.prefix || !!props.prefixIcon;
-    });
-
-    const isShowClear = computed(() => {
-      let hasValue = modelValueProp.value.toString().length > 0;
-      return hasValue;
-    });
-
-    const isPrefixIcon = computed(() => !!props.prefixIcon);
-
-    const prefixIconClass = computed(() => {
+    const prefixIconClass = (): string[] => {
       const isDefault = typeof props.prefixIcon === 'boolean';
       return ['dk-input_prefix-icon', isDefault ? 'dk-icon-search' : props.prefixIcon];
-    });
+    };
 
-    const isSuffix = computed(() => {
-      return !!slots.suffix || !!props.suffixIcon;
-    });
-
-    const isSuffixIcon = computed(() => !!props.suffixIcon);
-    const suffixIconClass = computed(() => {
+    const suffixIconClass = (): string[] => {
       const isDefault = typeof props.suffixIcon === 'boolean';
       return ['dk-input_suffix-icon', isDefault ? 'dk-icon-search' : props.suffixIcon];
-    });
+    };
 
     const clear = (): void => {
       modelValueProp.value = '';
@@ -179,18 +222,14 @@ export default defineComponent({
       _ref.value?.focus();
     };
 
-    const isShowPassword = computed((): boolean => {
-      return type === 'password' && propData.showPassword;
-    })
-
     const togglePassword = (): void => {
       passwordShowOrHide.value = !passwordShowOrHide.value;
       focus();
     }
 
-    const showPasswordClass = computed((): string[] => {
+    const showPasswordClass = (): string[] => {
       return ['dk-input_password-icon', passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'];
-    })
+    }
 
     const onfocus = (): void => {
       isFocus.value = true;
@@ -202,21 +241,21 @@ export default defineComponent({
 
     const inputAttrs = reactive({
       class: innerClassList.value,
-      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
       placeholder: propData.placeholder,
       oninput: update,
-      disabled: disabledProp.value,
-      inputmode: inputmode.value,
+      disabled: propData.disabledProp,
+      inputmode: data.inputmode,
       onfocus,
       onblur
     } as InputHTMLAttributes);
 
     const textareaAttrs = reactive({
       class: wrapperClassList.value,
-      type: inputType as dkInputType | ComputedRef<dkInputType>,
+      type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
       placeholder: propData.placeholder,
       onInput: update,
-      disabled: disabledProp.value
+      disabled: propData.disabledProp
     } as TextareaHTMLAttributes);
     return {
       classList: inputClassList.value,
@@ -224,25 +263,25 @@ export default defineComponent({
       wrapperClassList,
       value: modelValueProp,
       inputAttrs: inputAttrs,
-      isClear,
-      isShowClear,
-      isPrefix: isPrefix.value,
-      isPrefixIcon: isPrefixIcon.value,
-      prefixIconClass: prefixIconClass.value,
-      isSuffix: isSuffix.value,
-      isSuffixIcon: isSuffixIcon.value,
-      suffixIconClass: suffixIconClass.value,
+      isClear: data.isClear,
+      isShowClear: data.isShowClear,
+      isPrefix: data.isPrefix,
+      isPrefixIcon: data.isPrefixIcon,
+      prefixIconClass: prefixIconClass(),
+      isSuffix: data.isSuffix,
+      isSuffixIcon: data.isSuffixIcon,
+      suffixIconClass: suffixIconClass(),
       clear,
       input: input,
-      isShowPassword: isShowPassword.value,
+      isShowPassword: data.isShowPassword,
       togglePassword,
-      showPasswordClass,
+      showPasswordClass: showPasswordClass(),
       textareaAttrs,
 
-      isPrepend: isPrepend.value,
+      isPrepend: data.isPrepend,
       prependTextProp: propData.prependText,
       prependClassList: prependClassList.value,
-      isPrependText: isPrependText.value,
+      isPrependText: data.isPrependText,
       isPrependIcon: !!propData.prependIcon,
       prependIconProp: propData.prependIcon,
 
