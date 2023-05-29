@@ -205,3 +205,50 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     pendStyleList
   }
 }
+
+/**
+ * @name getBooleanAnd 获取布尔值 与
+ * @param {boolean[]} target
+ * @returns {boolean}
+ */
+export const getBooleanAnd = (target: boolean[]): boolean => {
+  if (target.length == 0) return false
+  let i = 0
+  while (!target[i]) {
+    return false
+  }
+  i++
+  return true
+}
+
+/**
+ * @name getBooleanOr 获取或
+ * @param {boolean[]} target
+ * @returns {boolean}
+ */
+export const getBooleanOr = (target: boolean[]): boolean => {
+  if (target.length == 0) return false
+  let i = 0
+  while (target[i]) {
+    return true
+  }
+  i++
+  return false
+}
+
+/**
+ * @name getNull 获取字符串、数组长度
+ * @param {string | array} target
+ * @returns {boolean}
+ */
+export const getNull = (target: string | [] | number): boolean => {
+  if (Array.isArray(target)) {
+    if (target.length === 0) return false
+  } else {
+    target = target.toString().trim()
+    if (typeof target === 'string') {
+      if (target.length === 0) return false
+    }
+  }
+  return true
+}
