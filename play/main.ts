@@ -20,8 +20,17 @@ import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import * as icons from '@dk-plus/components/_icon'
 import '@dk-plus/theme-chalk/src/index.scss'
 const { 
-  IconShanchu1 ,IconShanchu2,IconBigSearch,IconSearchSmall,
-  IconFile,IconOpenFile,IconSearch,IconSearch2
+  IconShanchu1 ,IconShanchu2,IconSysRun,
+  IconBigSearch,IconSearchSmall,
+  IconFile,IconOpenFile,IconSearch,
+  IconSearch2,IconSearch3,IconSysMenu,
+  IconSysBack,IconSysReset,IconLink,
+  IconSave,IconSys1,IconSys2,IconNetworkSys,
+  IconTheChildSys,IconIntelligenceSys,IconSysPer,
+  IconSysInformation,IconSearchFile,IconPrint,
+  IconAdministrator,IconSearchAdmin,IconDataSys,
+  IconSysRole,IconPause,IconEquipmentSearch,
+  IconEquipmentSearch1
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -36,6 +45,13 @@ app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)
 app.use(dkcodedisplay)
-app.use(IconShanchu1).use(IconShanchu2).use(IconSearchSmall).use(IconBigSearch)
+app.use(IconShanchu1).use(IconShanchu2).use(IconIntelligenceSys)
+.use(IconSearchSmall).use(IconBigSearch).use(IconTheChildSys)
 app.use(IconFile).use(IconOpenFile).use(IconSearch).use(IconSearch2)
+app.use(IconSearch3).use(IconSysMenu).use(IconSysBack).use(IconSysReset).use(IconSave)
+app.use(IconLink).use(IconSys1).use(IconSys2).use(IconNetworkSys)
+app.use(IconSysPer).use(IconSysRun).use(IconSysInformation).use(IconSearchFile)
+app.use(IconPrint).use(IconAdministrator).use(IconSearchAdmin)
+app.use(IconDataSys).use(IconSysRole).use(IconPause).use(IconEquipmentSearch)
+app.use(IconEquipmentSearch1)
 app.mount('#app')
