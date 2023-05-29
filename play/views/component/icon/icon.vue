@@ -4,8 +4,8 @@
     name: 'DkIconsm',
     setup() {
       const htmlJson = {
-        foundation: '<dkIcon class="dk-yinsi"></dkIcon>',
-        zidingyis: '<dkIcon :size="24" :color="\'red\'" class="dk-yinsi"></dkIcon>'
+        foundation: '<dkIcon :icon="IconShanchu1"></dkIcon>',
+        zidingyis: '<dkIcon :size="24" :color="\'red\'" :icon="IconShanchu1"></dkIcon>'
       }
       const iconList = [
         ['IconShanchu1', '删除1'],
@@ -39,30 +39,25 @@
         ['IconPause', '暂停'],
         ['IconEquipmentSearch', '设备搜索'],
         ['IconEquipmentSearch1', '设备搜索'],
-
-        ['icon-logOffSys', '注销系统'],
+        ['IconQuerySys', '设备搜索'],
+        ['IconLogOffSys', '注销系统'],
+        ['IconMysql', 'mysql'],
+        ['IconSystem', '系统'],
+        ['IconSysLoad', '系统负载'],
+        ['IconScienceSys', '科研系统'],
+        ['IconSysOperation', '系统运维'],
+        ['IconFileSys', '文档'],
+        ['IconFileSysMedicine', '药品'],
+        ['IconSysMsg1', '系统消息'],
+        ['IconSysUpload', '系统导入'],
+        ['IconSysSetting', '系统配置'],
+        ['IconNotice', '通知'],
+        ['IconLight', '提示'],
+        ['IconSystem2', '系统'],
+        ['IconSysManage', '系统管理'],
+        ['IconSetting', '设置'],
+        ['IconSetSeat', '位置配置'],
         
-        ['icon-adminSearch', '管理员搜索'],
-        
-        ['icon-dataSys', '数据系统'],
-        
-        ['icon-search1', '查询'],
-        ['icon-mysql', 'mysql'],
-        ['icon-system', '系统'],
-        ['icon-sysLoad', '系统负载'],
-        ['icon-scienceSys', '科研系统'],
-        ['icon-sysOperation', '系统运维'],
-        ['icon-fileSys', '文档'],
-        ['icon-fileSysMedicine', '药品'],
-        ['icon-sysMsg1', '系统消息'],
-        ['icon-sysUpload', '系统导入'],
-        ['icon-sysSetting', '系统配置'],
-        ['icon-notice', '通知'],
-        ['icon-light', '提示'],
-        ['icon-system2', '系统'],
-        ['icon-sysManage', '系统管理'],
-        ['icon-setting', '设置'],
-        ['icon-setSeat', '位置配置'],
         ['icon-assetsDic', '资产字典'],
         ['icon-sysConfig', '资产配置'],
         ['icon-sysLog', '系统日志'],

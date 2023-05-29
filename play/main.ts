@@ -30,7 +30,11 @@ const {
   IconSysInformation,IconSearchFile,IconPrint,
   IconAdministrator,IconSearchAdmin,IconDataSys,
   IconSysRole,IconPause,IconEquipmentSearch,
-  IconEquipmentSearch1
+  IconEquipmentSearch1,IconQuerySys,IconLogOffSys,
+  IconMysql,IconSystem,IconSysLoad,IconScienceSys,
+  IconSysOperation,IconFileSys,IconFileSysMedicine,
+  IconSysMsg1,IconSysUpload,IconSysSetting,IconNotice,
+  IconLight,IconSystem2,IconSysManage,IconSetting,IconSetSeat
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -53,5 +57,9 @@ app.use(IconLink).use(IconSys1).use(IconSys2).use(IconNetworkSys)
 app.use(IconSysPer).use(IconSysRun).use(IconSysInformation).use(IconSearchFile)
 app.use(IconPrint).use(IconAdministrator).use(IconSearchAdmin)
 app.use(IconDataSys).use(IconSysRole).use(IconPause).use(IconEquipmentSearch)
-app.use(IconEquipmentSearch1)
+app.use(IconEquipmentSearch1).use(IconQuerySys).use(IconLogOffSys)
+app.use(IconMysql).use(IconSystem).use(IconSysLoad).use(IconScienceSys)
+app.use(IconSysOperation).use(IconFileSys).use(IconFileSysMedicine)
+app.use(IconSysMsg1).use(IconSysUpload).use(IconSysSetting).use(IconSetting)
+app.use(IconNotice).use(IconLight).use(IconSystem2).use(IconSysManage).use(IconSetSeat)
 app.mount('#app')
