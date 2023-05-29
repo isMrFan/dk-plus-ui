@@ -1,3 +1,4 @@
+import type { VNode, Component } from 'vue'
 /**
  * @name ClassListName
  * @Time 2023年04月28日
@@ -51,3 +52,9 @@ export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
  */
 
 export type MouseEventType = (evt: MouseEvent) => void
+
+/**
+ * @name DkIcon
+ * @description DkIcon 组件类型(动态组件)
+ */
+export type DkIcon = VNode | Component

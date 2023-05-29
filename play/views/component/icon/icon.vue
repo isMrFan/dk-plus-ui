@@ -8,14 +8,15 @@
         zidingyis: '<dkIcon :size="24" :color="\'red\'" class="dk-yinsi"></dkIcon>'
       }
       const iconList = [
-        ['icon-del1', '删除'],
-        ['icon-searchSmall', '搜索变小'],
-        ['icon-searchBig', '搜索变大'],
-        ['icon-searchFill', '文件'],
-        ['icon-sysMsg', '信息'],
-        ['icon-search02', '搜索'],
-        ['icon-search', '搜索'],
-        ['icon-searchClass', '搜索'],
+        ['IconShanchu1', '删除1'],
+        ['IconShanchu2', '删除2'],
+        ['IconSearchSmall', '搜索变小'],
+        ['IconBigSearch', '搜索变大'],
+        ['IconFile', '文件'],
+        ['IconOpenFile', '打开的文件'],
+        ['IconSearch', '搜索'],
+        ['IconSearch2', '搜索2'],
+        ['IconSearch3', '搜索3'],
         ['icon-sysMenu', '系统菜单'],
         ['icon-sysBack', '系统返回'],
         ['icon-sysReset', '系统通知'],
@@ -212,7 +213,7 @@
     <div class="template_icon_jcsy">
       <!--基础使用-->
       <h2 class="template_icon_title">基础使用</h2>
-      <dk-icon class="dk-yinsi"></dk-icon>
+      <dk-icon icon="IconShanchu1"></dk-icon>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="htmlJson.foundation" />
         <span class="fuzhi" @click="oncopy(htmlJson.foundation)">复制代码</span>
@@ -221,7 +222,7 @@
     </div>
     <div class="template_icon_jcsy">
       <h2 class="template_icon_title">自定义大小和颜色(颜色只支持16进制 和英文单词)</h2>
-      <dk-icon :size="24" :color="'red'" class="dk-yinsi"></dk-icon>
+      <dk-icon :size="24" :color="'red'" icon="IconShanchu1"></dk-icon>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="htmlJson.zidingyis" />
         <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
@@ -233,17 +234,14 @@
         v-for="item in iconList"
         :key="item[0]"
         class="icon_library_item"
-        @click="oncopy('dk-' + item[0])"
+        @click="oncopy(item[0])"
       >
         <div class="icon_library_item_icon">
-          <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>
+          <dk-icon :icon="item[0]" :size="24" :color="'#606266'"></dk-icon>
         </div>
         <div class="icon_library_item_name">
           {{ item[0] }}
         </div>
-        <!-- <div class="icon_library_item_name" v-if="isChinese">
-          {{ item[1] }}
-        </div> -->
       </div>
     </div>
     <h3 class="cont_template_icon_title">other</h3>
@@ -260,9 +258,6 @@
         <div class="icon_library_item_name">
           {{ item[0] }}
         </div>
-        <!-- <div class="icon_library_item_name" v-if="isChinese">
-          {{ item[1] }}
-        </div> -->
       </div>
     </div>
     <h3 class="cont_template_icon_title">Arrow</h3>
@@ -271,7 +266,7 @@
         v-for="item in iconOther"
         :key="item[1]"
         class="icon_library_item"
-        @click="oncopy('dk-' + item[0])"
+        @click="oncopy(item[0])"
       >
         <div class="icon_library_item_icon">
           <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>

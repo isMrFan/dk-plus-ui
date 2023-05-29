@@ -1,2 +1,8 @@
 export { default as IconShanchu1 } from './src/i-shanchu1/index.vue'
 export { default as IconShanchu2 } from './src/i-shanchu2/index.vue'
+export { default as IconSearchSmall } from './src/i-searchSmall/index.vue'
+export { default as IconBigSearch } from './src/i-BigSearch/index.vue'
+export { default as IconFile } from './src/i-file/index.vue'
+export { default as IconOpenFile } from './src/i-openFile/index.vue'
+export { default as IconSearch } from './src/i-search01/index.vue'
+export { default as IconSearch2 } from './src/i-search02/index.vue'

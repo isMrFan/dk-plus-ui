@@ -19,7 +19,10 @@ import dkinput from '@dk-plus/components/dkinput'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import * as icons from '@dk-plus/components/_icon'
 import '@dk-plus/theme-chalk/src/index.scss'
-const { IconShanchu1 ,IconShanchu2} = icons.default
+const { 
+  IconShanchu1 ,IconShanchu2,IconBigSearch,IconSearchSmall,
+  IconFile,IconOpenFile,IconSearch,IconSearch2
+} = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
 //import '@dk-plus/theme-chalk/src/index.scss'
@@ -33,6 +36,6 @@ app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)
 app.use(dkcodedisplay)
-app.use(IconShanchu1)
-app.use(IconShanchu2)
+app.use(IconShanchu1).use(IconShanchu2).use(IconSearchSmall).use(IconBigSearch)
+app.use(IconFile).use(IconOpenFile).use(IconSearch).use(IconSearch2)
 app.mount('#app')

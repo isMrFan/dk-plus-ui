@@ -8,23 +8,18 @@
    * @function slot  -插槽
    * @description icon 图标
    **/
-  import { computed, defineComponent } from 'vue'
+  import { defineComponent } from 'vue'
   import { iconProps } from './icon'
+  import { getStyleList } from '../../_hooks'
   export default defineComponent({
     name: 'DkIcon',
     props: iconProps,
     setup(props) {
-      const style = computed(() => {
-        if (!props.size && !props.color) {
-          return {}
-        }
-        const style = {
-          ...(props.size ? { 'font-size': props.size + 'px' } : {}),
-          ...(props.color ? { color: props.color } : {})
-        }
-        return style
-      })
-      return { style }
+      const { styles } = getStyleList(props, 'icon')
+      const style=styles(['size','color'])
+      return {
+        style
+      }
     }
   })
 </script>
