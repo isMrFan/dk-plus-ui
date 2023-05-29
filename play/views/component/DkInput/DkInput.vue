@@ -52,7 +52,7 @@ export default defineComponent({
     </dk-input> -->
 
     <h4>前后缀内容</h4>
-    <dk-input v-model="msg" clearable placeholder="前后缀内容" prepend-text="http://" append-text=".com" append-icon="dk-icon-search" />
+    <dk-input v-model="msg" clearable placeholder="前后缀内容" prepend-icon="dk-icon-shanchu1" prepend-text="http://" append-text=".com" append-icon="dk-icon-search" />
     {{ msg }}
 
     <!-- <h4>文本域</h4>

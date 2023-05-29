@@ -213,12 +213,8 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
  */
 export const getBooleanAnd = (target: boolean[]): boolean => {
   if (target.length == 0) return false
-  let i = 0
-  while (!target[i]) {
-    return false
-  }
-  i++
-  return true
+  const result = target.find((item) => !item)
+  return result === undefined
 }
 
 /**
@@ -228,12 +224,8 @@ export const getBooleanAnd = (target: boolean[]): boolean => {
  */
 export const getBooleanOr = (target: boolean[]): boolean => {
   if (target.length == 0) return false
-  let i = 0
-  while (target[i]) {
-    return true
-  }
-  i++
-  return false
+  const result = target.find((item) => item)
+  return result !== undefined
 }
 
 /**
@@ -242,6 +234,7 @@ export const getBooleanOr = (target: boolean[]): boolean => {
  * @returns {boolean}
  */
 export const getNull = (target: string | [] | number): boolean => {
+  if (!target) return false
   if (Array.isArray(target)) {
     if (target.length === 0) return false
   } else {
