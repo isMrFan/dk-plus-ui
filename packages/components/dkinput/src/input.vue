@@ -89,13 +89,12 @@ export default defineComponent({
       inputmode: type === 'number' ? 'numeric' : 'text',
       isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
       isSuffixIcon: getBooleanAnd([!!propData.suffixIcon]),
-      isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
-      isAppendText: getBooleanOr([getNull(propData.appendText), !propData.appendIcon])
+      isShowPassword: getBooleanAnd([type === 'password', propData.showPassword])
     })    
     
     const pendData = reactive<pendType>({
-      isPrependText: getBooleanAnd([getNull(propData.prependText), !data.isPrependIcon])
-      
+      isPrependText: getBooleanAnd([getNull(propData.prependText), !data.isPrependIcon]),
+      isAppendText: getBooleanAnd([getNull(propData.appendText), !data.isAppendIcon])
     })
     
     const prependClassList = (): string[] => ['dk-input_prepend', 'dk-input_pend'];
@@ -194,8 +193,7 @@ export default defineComponent({
       prependClassList: prependClassList(),
       isAppend: data.isAppend,
       appendClassList: appendClassList(),
-      pendStyleList: pendStyleLis(),
-      isAppendText: data.isAppendText
+      pendStyleList: pendStyleLis()
     };
   }
 });
@@ -207,7 +205,7 @@ export default defineComponent({
     <template v-if="isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
         <span v-if="isPrependText">{{ prependText }}</span>
-        <dk-icon v-if="isPrependIcon" :class="prependIcon"></dk-icon>
+        <dk-icon v-if="isPrependIcon" :icon="prependIcon"></dk-icon>
       </div>
     </template>
 
@@ -244,7 +242,7 @@ export default defineComponent({
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
         <span v-if="isAppendText">{{ appendText }}</span>
-        <dk-icon v-if="isAppendIcon" :class="appendIcon"></dk-icon>
+        <dk-icon v-if="isAppendIcon" :icon="appendIcon"></dk-icon>
       </div>
     </template>
   </div>

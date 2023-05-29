@@ -133,14 +133,15 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const classList = classes([...defaultClassList], 'dk-input')
 
   const styleList = computed((): CSSProperties => {
-    const { width, height, fontSize, borderRadius, textColor } = cloneProps
+    const { width, height, fontSize, borderRadius, textColor, iconSize } = cloneProps
 
     const defaultStyle = {
       '--input-width': width ? setSize(width) : null,
       '--input-height': height ? setSize(height) : null,
       '--input-font-size': fontSize ? setSize(fontSize) : null,
       '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
-      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null
+      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
+      '--input-icon-size': iconSize ? setSize(iconSize) : null
     } as CSSProperties
 
     return defaultStyle
