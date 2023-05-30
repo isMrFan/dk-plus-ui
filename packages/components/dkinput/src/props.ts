@@ -4,11 +4,13 @@ import {
   setBooleanProps,
   setStringProp,
   setNumberProps,
-  setObjectProps
+  setObjectProps,
+  setFunction
 } from '../../_utils'
-import type { dkPlusSize, dkInputType } from '../../_interface'
+import type { dkPlusSize, dkInputType, MouseEventType } from '../../_interface'
 
 export const dkInputProps = {
+  onAppendClick: setFunction<MouseEventType>(),
   iconSize: setStringProp() || setNumberProps(),
   /** textColor */
   textColor: setStringProp() || setNumberProps(),

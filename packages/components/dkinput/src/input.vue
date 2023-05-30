@@ -12,7 +12,7 @@ import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'v
 import { defineComponent, computed, ref, shallowRef, nextTick, reactive } from 'vue';
 import { dkInputProps } from './props';
 import { getInputGlobal } from '../../_hooks';
-import { getInput, getBooleanAnd, getBooleanOr, getNull } from '../../_hooks';
+import { getInput, getBooleanAnd, getBooleanOr, getNull,getReturn } from '../../_hooks';
 import type { dkInputType } from '../../_interface';
 import type { propDataModel, dataType, pendType } from './type';
 
@@ -156,6 +156,11 @@ export default defineComponent({
       isFocus.value = false;
     }
 
+    const { getRun } = getReturn()
+    const AppendEventClick = (event: MouseEvent): void => {
+      getRun(props.onAppendClick, event)
+    }
+
     const inputAttrs = reactive({
       class: innerClassList.value,
       type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
@@ -193,7 +198,8 @@ export default defineComponent({
       prependClassList: prependClassList(),
       isAppend: data.isAppend,
       appendClassList: appendClassList(),
-      pendStyleList: pendStyleLis()
+      pendStyleList: pendStyleLis(),
+      AppendEventClick
     };
   }
 });
@@ -243,7 +249,7 @@ export default defineComponent({
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
         <slot name="append"></slot>
-        <dk-icon v-if="isAppendIcon" :icon="appendIcon"></dk-icon>
+        <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendEventClick"></dk-icon>
         <span v-if="isAppendText">{{ appendText }}</span>
       </div>
     </template>
