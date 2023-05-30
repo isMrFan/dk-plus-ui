@@ -20,12 +20,12 @@ import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import * as icons from '@dk-plus/components/_icon'
 import '@dk-plus/theme-chalk/src/index.scss'
 const { 
-  IconShanchu1 ,IconShanchu2,IconSysRun,
-  IconBigSearch,IconSearchSmall,
-  IconFile,IconOpenFile,IconSearch,
-  IconSearch2,IconSearch3,IconSysMenu,
-  IconSysBack,IconSysReset,IconLink,
-  IconSave,IconSys1,IconSys2,IconNetworkSys,
+  IconShanchu1 ,IconShanchu2,IconSysRun,IconSysConfig,
+  IconBigSearch,IconSearchSmall,IconAssetsDic,IconSystem3,
+  IconFile,IconOpenFile,IconSearch,IconSysLog,
+  IconSearch2,IconSearch3,IconSysMenu,IconSysMsg2,
+  IconSysBack,IconSysReset,IconLink,IconSysNotice1,
+  IconSave,IconSys1,IconSys2,IconNetworkSys,IconCallSys,
   IconTheChildSys,IconIntelligenceSys,IconSysPer,
   IconSysInformation,IconSearchFile,IconPrint,
   IconAdministrator,IconSearchAdmin,IconDataSys,
@@ -34,7 +34,9 @@ const {
   IconMysql,IconSystem,IconSysLoad,IconScienceSys,
   IconSysOperation,IconFileSys,IconFileSysMedicine,
   IconSysMsg1,IconSysUpload,IconSysSetting,IconNotice,
-  IconLight,IconSystem2,IconSysManage,IconSetting,IconSetSeat
+  IconLight,IconSystem2,IconSysManage,IconSetting,IconSetSeat,
+  IconSysSupervise,IconSysMaintain,IconLANSearch,
+  IconMonitorSys,IconSystem4,IconSysUpdate,IconFaceID
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -49,7 +51,7 @@ app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)
 app.use(dkcodedisplay)
-app.use(IconShanchu1).use(IconShanchu2).use(IconIntelligenceSys)
+app.use(IconShanchu1).use(IconShanchu2).use(IconIntelligenceSys).use(IconAssetsDic)
 .use(IconSearchSmall).use(IconBigSearch).use(IconTheChildSys)
 app.use(IconFile).use(IconOpenFile).use(IconSearch).use(IconSearch2)
 app.use(IconSearch3).use(IconSysMenu).use(IconSysBack).use(IconSysReset).use(IconSave)
@@ -59,7 +61,10 @@ app.use(IconPrint).use(IconAdministrator).use(IconSearchAdmin)
 app.use(IconDataSys).use(IconSysRole).use(IconPause).use(IconEquipmentSearch)
 app.use(IconEquipmentSearch1).use(IconQuerySys).use(IconLogOffSys)
 app.use(IconMysql).use(IconSystem).use(IconSysLoad).use(IconScienceSys)
-app.use(IconSysOperation).use(IconFileSys).use(IconFileSysMedicine)
+app.use(IconSysOperation).use(IconFileSys).use(IconFileSysMedicine).use(IconCallSys)
 app.use(IconSysMsg1).use(IconSysUpload).use(IconSysSetting).use(IconSetting)
 app.use(IconNotice).use(IconLight).use(IconSystem2).use(IconSysManage).use(IconSetSeat)
+app.use(IconSysConfig).use(IconSysLog).use(IconSysMsg2).use(IconSystem3).use(IconSysNotice1)
+app.use(IconSysSupervise).use(IconSysMaintain).use(IconLANSearch)
+app.use(IconMonitorSys).use(IconSystem4).use(IconSysUpdate).use(IconFaceID)
 app.mount('#app')

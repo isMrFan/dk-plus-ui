@@ -234,7 +234,7 @@
               </div>
             </div>
             <div class="home_content_main_second_container_info_empower">
-              <p>Copyright 2023 dk-plus 京ICP备2022007747号-2</p>
+              <p>Copyright 2023 dk-plus <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2022007747号-2</a></p>
             </div>
           </div>
         </div>
