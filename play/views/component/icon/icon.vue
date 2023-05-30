@@ -109,7 +109,11 @@
         ['IconRightArrow1','右边了'],
         ['LeftFastForward','左快进'],
         ['RightFastForward','右快进'],
-        ['IconUpArrow2','上边箭头']
+        ['IconUpArrow2','上边箭头'],
+        ['IconUpperTriangle','上三角'],
+        ['IconLowerTriangle','下三角'],
+        ['IconLeftTriangle','左三角'],
+        ['IconRightTriangle','右三角']
       ]
       const iconOther = [
         ['icon-halt', '暂停'],
