@@ -9,6 +9,7 @@ import {
 import type { dkPlusSize, dkInputType } from '../../_interface'
 
 export const dkInputProps = {
+  iconSize: setStringProp() || setNumberProps(),
   /** textColor */
   textColor: setStringProp() || setNumberProps(),
 
