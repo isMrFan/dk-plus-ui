@@ -79,44 +79,23 @@
         ['IconSysNotice', '系统公告']
       ]
       const iconNameSpace = [
-        ['icon-arrowDownFilling', '下箭头'],
-        ['icon-arrowLeftFilling', '左箭头'],
-        ['icon-arrowRightFilling', '右箭头'],
-        ['icon-arrowGoForwardFill', '返回'],
-        ['icon-icfNarrowScreenArrow', '缩小'],
-        ['icon-boxArrowInDownRight', '右下'],
-        ['icon-boxArrowInUpLeft', '左上'],
-        ['icon-arrowLeftBottom', '左下折线箭头'],
-        ['icon-arrowTopCurve', '曲线上箭头'],
-        ['icon-arrowAround', '箭头'],
-        ['icon-arrowRotate', '刷新'],
-        ['icon-arrowUp', '上箭头'],
-        ['icon-arrowDown1', '下箭头'],
-        ['icon-arrowAlt', '扩大'],
-        ['icon-arrowToBottom', '到底部'],
-        ['icon-arrowToTop', '到顶部'],
-        ['icon-longArrowDown', '下箭头'],
-        ['icon-longArrowUp', '上箭头'],
-        ['icon-arrowRight', '右箭头'],
-        ['icon-arrowLeft', '左箭头'],
-        ['icon-arrowsV', '展开'],
-        ['icon-arrowAltFromTop', '下载'],
-        ['icon-arrowAltFromBottom', '上传'],
-        ['icon-narrow', '缩小'],
-        ['icon-arrow', '退出'],
-        ['icon-arrowGrowth', '折线箭头'],
-        ['icon-rightArrowRect', '右箭头矩形'],
-        ['icon-leftArrowRect', '左箭头矩形'],
-        ['icon-arrowGrowth1', '折线箭头'],
-        ['icon-arrowLeft1', '左箭头'],
-        ['icon-arrowDown', '下箭头'],
-        ['icon-arrowUpArrowDown', '切换'],
-        ['icon-trayArrowDown', '下载'],
-        ['icon-arrowRight1', '右单箭头'],
-        ['icon-arrowDoubleLeft', '左双箭头'],
-        ['icon-arrowDoubleRight', '右双箭头'],
-        ['icon-arrowUpBold', '上箭头'],
-        ['icon-arrowUpFilling', '上箭头-实心']
+        ['IconIos', '苹果'],
+        ['IconAndroid', '安卓'],
+        ['IconStart', '开始'],
+        ['IconReduce', '下降折线'],
+        ['IconUpArrow', '上箭头'],
+        ['IconDoubleArrow', '双箭头'],
+        ['IconRefresh', '刷新'],
+        ['IconUpArrow1', '上箭头'],
+        ['IconDownArrow', '下箭头'],
+        ['IconCross', '十字'],
+        ['IconBottomArrow', '下底部箭头'],
+        ['IconTopArrow', '上部部箭头'],
+        ['IconUnderThe', '下箭头亿'],
+        ['IconOnThe', '上箭头亿'],
+        ['IconRightArrow', '右箭头亿'],
+        ['IconLeftArrow', '左箭头亿']
+        
       ]
       const iconOther = [
         ['icon-halt', '暂停'],
@@ -229,7 +208,7 @@
       </div>
     </div>
     <h4 class="cont_template_icon_title">System</h4>
-    <div class="icon_library">
+    <div v-if="false" class="icon_library">
       <div
         v-for="item in iconList"
         :key="item[0]"
@@ -253,7 +232,7 @@
         @click="oncopy('dk-' + item[0])"
       >
         <div class="icon_library_item_icon">
-          <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>
+          <dk-icon :icon="item[0]" :size="24" :color="'#606266'"></dk-icon>
         </div>
         <div class="icon_library_item_name">
           {{ item[0] }}
