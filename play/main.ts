@@ -48,7 +48,7 @@ const {
   IconUpperTriangle,IconLowerTriangle,IconLeftTriangle,IconRightTriangle,
   IconContraction1,IconLeftFold,IconTopFold,IconTrack,IconError,IconWeiXin,
   IconWeixinPlay,IconCollectActive,IconWeixin1,IconFemale,IconPasswordShow,
-  IconQQ,IconPassword,IconRecyclingStation,IconFileDeletion
+  IconQQ,IconPassword,IconRecyclingStation,IconFileDeletion,IconZFB
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -98,5 +98,5 @@ app.use(IconError).use(IconWeiXin).use(IconPaymentReminder).use(IconPositioning)
 app.use(IconShoppingCart).use(IconCollect).use(IconWeixinPlay)
 app.use(IconCollectActive).use(IconWeixin1).use(IconFemale).use(IconPasswordShow)
 app.use(IconRemarks).use(IconQQ).use(IconPassword).use(IconRecyclingStation)
-app.use(IconFileDeletion)
+app.use(IconFileDeletion).use(IconZFB)
 app.mount('#app')
