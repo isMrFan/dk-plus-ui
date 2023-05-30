@@ -105,7 +105,11 @@
         ['IconLeftarrow1', '左边箭头1'],
         ['IconBottomArrow2', '下箭头1'],
         ['IconUpAndDown1', '上下箭头'],
-        ['IconDownload','下载图标']
+        ['IconDownload','下载图标'],
+        ['IconRightArrow1','右边了'],
+        ['LeftFastForward','左快进'],
+        ['RightFastForward','右快进'],
+        ['IconUpArrow2','上边箭头']
       ]
       const iconOther = [
         ['icon-halt', '暂停'],

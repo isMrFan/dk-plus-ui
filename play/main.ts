@@ -43,7 +43,8 @@ const {
   IconBottomArrow,IconTopArrow,IconUnderThe,IconOnThe,
   IconRightArrow,IconLeftArrow,IconUpAndDown,IconBottomArrow1,
   IconContraction,IconExit,IconRise,IconLeftMenu,IconRightMenu,
-  IconLeftarrow1,IconBottomArrow2,IconUpAndDown1,IconDownload
+  IconLeftarrow1,IconBottomArrow2,IconUpAndDown1,IconDownload,
+  IconRightArrow1,LeftFastForward,RightFastForward,IconUpArrow2
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -85,4 +86,6 @@ app.use(IconOnThe).use(IconRightArrow).use(IconLeftArrow).use(IconUpAndDown)
 app.use(IconBottomArrow1).use(IconContraction).use(IconExit)
 app.use(IconRise).use(IconLeftMenu).use(IconRightMenu).use(IconDownload)
 app.use(IconLeftarrow1).use(IconBottomArrow2).use(IconUpAndDown1)
+app.use(IconRightArrow1).use(LeftFastForward).use(RightFastForward)
+app.use(IconUpArrow2)
 app.mount('#app')
