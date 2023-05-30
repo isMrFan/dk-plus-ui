@@ -61,7 +61,14 @@ export default defineComponent({
       append-icon="icon-file"
       append-text=".com" 
       icon-size="16px"
-    />
+    >
+      <template #prepend>
+        <dk-icon icon="icon-file" />
+      </template>
+      <template #append>
+        <dk-icon icon="icon-file" />
+      </template>
+    </dk-input>
     {{ msg }}
 
     <!-- <h4>文本域</h4>
