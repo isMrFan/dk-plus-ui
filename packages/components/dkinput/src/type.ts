@@ -115,8 +115,6 @@ export interface propDataModel {
 export interface dataType {
   /** 是否有前缀内容 */
   isPrepend: boolean
-  /** 是否有前缀文本 */
-  isPrependText: boolean
   /** 是否有后缀文本 */
   isAppendTextLen: boolean
   /** 是否有前缀 */
@@ -143,6 +141,11 @@ export interface dataType {
   isAppendIcon: boolean
   /** 是否有后缀内容 */
   isAppend: boolean
+}
+
+export interface pendType {
+  /** 是否有前缀文本 */
+  isPrependText: boolean
   /** 是否有后缀文本 */
   isAppendText: boolean
 }

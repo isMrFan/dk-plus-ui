@@ -133,14 +133,15 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const classList = classes([...defaultClassList], 'dk-input')
 
   const styleList = computed((): CSSProperties => {
-    const { width, height, fontSize, borderRadius, textColor } = cloneProps
+    const { width, height, fontSize, borderRadius, textColor, iconSize } = cloneProps
 
     const defaultStyle = {
       '--input-width': width ? setSize(width) : null,
       '--input-height': height ? setSize(height) : null,
       '--input-font-size': fontSize ? setSize(fontSize) : null,
       '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
-      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null
+      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
+      '--input-icon-size': iconSize ? setSize(iconSize) : null
     } as CSSProperties
 
     return defaultStyle
@@ -213,12 +214,8 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
  */
 export const getBooleanAnd = (target: boolean[]): boolean => {
   if (target.length == 0) return false
-  let i = 0
-  while (!target[i]) {
-    return false
-  }
-  i++
-  return true
+  const result = target.find((item) => !item)
+  return result === undefined
 }
 
 /**
@@ -228,12 +225,8 @@ export const getBooleanAnd = (target: boolean[]): boolean => {
  */
 export const getBooleanOr = (target: boolean[]): boolean => {
   if (target.length == 0) return false
-  let i = 0
-  while (target[i]) {
-    return true
-  }
-  i++
-  return false
+  const result = target.find((item) => item)
+  return result !== undefined
 }
 
 /**
@@ -242,6 +235,7 @@ export const getBooleanOr = (target: boolean[]): boolean => {
  * @returns {boolean}
  */
 export const getNull = (target: string | [] | number): boolean => {
+  if (!target) return false
   if (Array.isArray(target)) {
     if (target.length === 0) return false
   } else {
