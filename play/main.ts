@@ -41,7 +41,8 @@ const {
   IconAndroid,IconStart,IconReduce,IconUpArrow,IconCross,
   IconDoubleArrow,IconRefresh,IconUpArrow1,IconDownArrow,
   IconBottomArrow,IconTopArrow,IconUnderThe,IconOnThe,
-  IconRightArrow,IconLeftArrow
+  IconRightArrow,IconLeftArrow,IconUpAndDown,IconBottomArrow1,
+  IconContraction
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -79,5 +80,6 @@ app.use(IconAndroid).use(IconStart).use(IconReduce)
 app.use(IconUpArrow).use(IconDoubleArrow).use(IconRefresh)
 app.use(IconUpArrow1).use(IconDownArrow).use(IconCross)
 app.use(IconBottomArrow).use(IconTopArrow).use(IconUnderThe)
-app.use(IconOnThe).use(IconRightArrow).use(IconLeftArrow)
+app.use(IconOnThe).use(IconRightArrow).use(IconLeftArrow).use(IconUpAndDown)
+app.use(IconBottomArrow1).use(IconContraction)
 app.mount('#app')

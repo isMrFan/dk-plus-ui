@@ -94,7 +94,10 @@
         ['IconUnderThe', '下箭头亿'],
         ['IconOnThe', '上箭头亿'],
         ['IconRightArrow', '右箭头亿'],
-        ['IconLeftArrow', '左箭头亿']
+        ['IconLeftArrow', '左箭头亿'],
+        ['IconUpAndDown', '上下箭头'],
+        ['IconBottomArrow1', '上横bott'],
+        ['IconContraction', '收起']
         
       ]
       const iconOther = [
