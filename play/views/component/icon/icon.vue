@@ -97,8 +97,15 @@
         ['IconLeftArrow', '左箭头亿'],
         ['IconUpAndDown', '上下箭头'],
         ['IconBottomArrow1', '上横bott'],
-        ['IconContraction', '收起']
-        
+        ['IconContraction', '收起'],
+        ['IconExit', '退出登陆'],
+        ['IconRise', '上升图标'],
+        ['IconLeftMenu', '左菜单'],
+        ['IconRightMenu', '右菜单'],
+        ['IconLeftarrow1', '左边箭头1'],
+        ['IconBottomArrow2', '下箭头1'],
+        ['IconUpAndDown1', '上下箭头'],
+        ['IconDownload','下载图标']
       ]
       const iconOther = [
         ['icon-halt', '暂停'],
