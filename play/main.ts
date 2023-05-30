@@ -22,12 +22,12 @@ import '@dk-plus/theme-chalk/src/index.scss'
 const { 
   IconShanchu1 ,IconShanchu2,IconSysRun,IconSysConfig,
   IconBigSearch,IconSearchSmall,IconAssetsDic,IconSystem3,
-  IconFile,IconOpenFile,IconSearch,IconSysLog,
+  IconFile,IconOpenFile,IconSearch,IconSysLog,IconReturn,
   IconSearch2,IconSearch3,IconSysMenu,IconSysMsg2,
   IconSysBack,IconSysReset,IconLink,IconSysNotice1,
   IconSave,IconSys1,IconSys2,IconNetworkSys,IconCallSys,
   IconTheChildSys,IconIntelligenceSys,IconSysPer,
-  IconSysInformation,IconSearchFile,IconPrint,
+  IconSysInformation,IconSearchFile,IconPrint,IconCollect,
   IconAdministrator,IconSearchAdmin,IconDataSys,
   IconSysRole,IconPause,IconEquipmentSearch,IconIos,
   IconEquipmentSearch1,IconQuerySys,IconLogOffSys,
@@ -40,12 +40,14 @@ const {
   IconCloudSearch,IconSysPower,IconLogout,IconSysBugTesting,
   IconAndroid,IconStart,IconReduce,IconUpArrow,IconCross,
   IconDoubleArrow,IconRefresh,IconUpArrow1,IconDownArrow,
-  IconBottomArrow,IconTopArrow,IconUnderThe,IconOnThe,
+  IconBottomArrow,IconTopArrow,IconUnderThe,IconOnThe,IconPaymentReminder,
   IconRightArrow,IconLeftArrow,IconUpAndDown,IconBottomArrow1,
   IconContraction,IconExit,IconRise,IconLeftMenu,IconRightMenu,
-  IconLeftarrow1,IconBottomArrow2,IconUpAndDown1,IconDownload,
-  IconRightArrow1,LeftFastForward,RightFastForward,IconUpArrow2,
-  IconUpperTriangle,IconLowerTriangle,IconLeftTriangle,IconRightTriangle
+  IconLeftarrow1,IconBottomArrow2,IconUpAndDown1,IconDownload,IconShoppingCart,
+  IconRightArrow1,LeftFastForward,RightFastForward,IconUpArrow2,IconPositioning,
+  IconUpperTriangle,IconLowerTriangle,IconLeftTriangle,IconRightTriangle,
+  IconContraction1,IconLeftFold,IconTopFold,IconTrack,IconError,IconWeiXin,
+  IconWeixinPlay,IconCollectActive
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -89,5 +91,9 @@ app.use(IconRise).use(IconLeftMenu).use(IconRightMenu).use(IconDownload)
 app.use(IconLeftarrow1).use(IconBottomArrow2).use(IconUpAndDown1)
 app.use(IconRightArrow1).use(LeftFastForward).use(RightFastForward)
 app.use(IconUpArrow2).use(IconUpperTriangle).use(IconLowerTriangle)
-app.use(IconLeftTriangle).use(IconRightTriangle)
+app.use(IconLeftTriangle).use(IconRightTriangle).use(IconReturn)
+app.use(IconContraction1).use(IconLeftFold).use(IconTopFold).use(IconTrack)
+app.use(IconError).use(IconWeiXin).use(IconPaymentReminder).use(IconPositioning)
+app.use(IconShoppingCart).use(IconCollect).use(IconWeixinPlay)
+app.use(IconCollectActive)
 app.mount('#app')

@@ -113,7 +113,20 @@
         ['IconUpperTriangle','上三角'],
         ['IconLowerTriangle','下三角'],
         ['IconLeftTriangle','左三角'],
-        ['IconRightTriangle','右三角']
+        ['IconRightTriangle','右三角'],
+        ['IconReturn','返回'],
+        ['IconContraction1','收缩'],
+        ['IconLeftFold','右向下收起'],
+        ['IconTopFold','右向上收起'],
+        ['IconTrack','跟踪目标'],
+        ['IconError','出错了'],
+        ['IconWeiXin','微信'],
+        ['IconPaymentReminder','支付提醒'],
+        ['IconPositioning','定位'],
+        ['IconShoppingCart','购物车'],
+        ['IconCollect','收藏'],
+        ['IconWeixinPlay','微信支付'],
+        ['IconCollectActive','收藏']
       ]
       const iconOther = [
         ['icon-halt', '暂停'],
