@@ -126,7 +126,14 @@
         ['IconShoppingCart','购物车'],
         ['IconCollect','收藏'],
         ['IconWeixinPlay','微信支付'],
-        ['IconCollectActive','收藏']
+        ['IconCollectActive','收藏'],
+        ['IconWeixin1','微信1'],
+        ['IconFemale','女'],
+        ['IconPasswordShow','密码可见'],
+        ['IconRemarks','备注'],
+        ['IconQQ','QQ'],
+        ['IconPassword','密码'],
+        ['IconRecyclingStation','垃圾']
       ]
       const iconOther = [
         ['icon-halt', '暂停'],

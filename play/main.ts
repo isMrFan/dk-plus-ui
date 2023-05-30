@@ -39,7 +39,7 @@ const {
   IconMonitorSys,IconSystem4,IconSysUpdate,IconFaceID,IconSysFile,
   IconCloudSearch,IconSysPower,IconLogout,IconSysBugTesting,
   IconAndroid,IconStart,IconReduce,IconUpArrow,IconCross,
-  IconDoubleArrow,IconRefresh,IconUpArrow1,IconDownArrow,
+  IconDoubleArrow,IconRefresh,IconUpArrow1,IconDownArrow,IconRemarks,
   IconBottomArrow,IconTopArrow,IconUnderThe,IconOnThe,IconPaymentReminder,
   IconRightArrow,IconLeftArrow,IconUpAndDown,IconBottomArrow1,
   IconContraction,IconExit,IconRise,IconLeftMenu,IconRightMenu,
@@ -47,7 +47,8 @@ const {
   IconRightArrow1,LeftFastForward,RightFastForward,IconUpArrow2,IconPositioning,
   IconUpperTriangle,IconLowerTriangle,IconLeftTriangle,IconRightTriangle,
   IconContraction1,IconLeftFold,IconTopFold,IconTrack,IconError,IconWeiXin,
-  IconWeixinPlay,IconCollectActive
+  IconWeixinPlay,IconCollectActive,IconWeixin1,IconFemale,IconPasswordShow,
+  IconQQ,IconPassword,IconRecyclingStation
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -95,5 +96,6 @@ app.use(IconLeftTriangle).use(IconRightTriangle).use(IconReturn)
 app.use(IconContraction1).use(IconLeftFold).use(IconTopFold).use(IconTrack)
 app.use(IconError).use(IconWeiXin).use(IconPaymentReminder).use(IconPositioning)
 app.use(IconShoppingCart).use(IconCollect).use(IconWeixinPlay)
-app.use(IconCollectActive)
+app.use(IconCollectActive).use(IconWeixin1).use(IconFemale).use(IconPasswordShow)
+app.use(IconRemarks).use(IconQQ).use(IconPassword).use(IconRecyclingStation)
 app.mount('#app')
