@@ -70,14 +70,13 @@
         ['IconSystem4', '系统'],
         ['IconSysUpdate', '系统更新'],
         ['IconFaceID', '人脸识别'],
-
-        ['icon-cloudSearch', '云搜索'],
-        ['icon-sysPower', '权限'],
-        ['icon-logout', '退出'],
-        ['icon-sysBugTesting', '系统漏洞检测'],
-        ['icon-fingerprintVerify', '指纹验证'],
-        ['icon-sysFile', '系统文档'],
-        ['icon-sysNotice', '系统公告']
+        ['IconCloudSearch', '云搜索'],
+        ['IconSysPower', '权限'],
+        ['IconLogout', '退出'],
+        ['IconSysBugTesting', '系统漏洞检测'],
+        ['IconFingerprintVerify', '指纹验证'],
+        ['IconSysFile', '系统文档'],
+        ['IconSysNotice', '系统公告']
       ]
       const iconNameSpace = [
         ['icon-arrowDownFilling', '下箭头'],
