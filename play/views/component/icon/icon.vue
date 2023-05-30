@@ -133,7 +133,8 @@
         ['IconRemarks','备注'],
         ['IconQQ','QQ'],
         ['IconPassword','密码'],
-        ['IconRecyclingStation','垃圾']
+        ['IconRecyclingStation','垃圾'],
+        ['IconFileDeletion','文件删除']
       ]
       const iconOther = [
         ['icon-halt', '暂停'],
