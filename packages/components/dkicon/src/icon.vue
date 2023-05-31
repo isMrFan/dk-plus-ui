@@ -25,10 +25,8 @@
 </script>
 
 <template>
-  <div>
-    <i class="dk-icon" role="img" text-indent="middle" :style="style">
-      <component :is="icon" v-if="icon" />
-      <slot v-else />
-    </i>
-  </div>
+  <i class="dk-icon" role="img" text-indent="middle" :style="style">
+    <component :is="icon" v-if="icon" />
+    <slot v-else />
+  </i>
 </template>

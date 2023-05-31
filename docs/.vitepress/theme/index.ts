@@ -3,6 +3,7 @@ import Theme from 'vitepress/theme'
 import './style/vitepress.scss'
 import './style/global.scss'
 import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
+
 import '@dk-plus/theme-chalk/src/index.scss'
 export default {
   ...Theme,

@@ -31,7 +31,10 @@ export const sidebar = {
   '/components/': [
     {
       text: '基础组件',
-      items: [{ text: 'Button 按钮', link: '/components/button' }]
+      items: [
+        { text: 'icon 图标', link: '/components/icon' },
+        { text: 'Button 按钮', link: '/components/button' }
+      ]
     },
     {
       text: 'Form 表单组件',

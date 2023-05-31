@@ -1,7 +1,11 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
+  import {svgList} from 'dk-plus'
   export default defineComponent({
     name: 'DkIconsm',
+    components: {
+      IconShanchu1:svgList.IconShanchu1
+    },
     setup() {
       const htmlJson = {
         foundation: '<dkIcon :icon="IconShanchu1"></dkIcon>',
@@ -211,7 +215,10 @@
     <div class="template_icon_jcsy">
       <!--基础使用-->
       <h2 class="template_icon_title">基础使用</h2>
-      <dk-icon icon="IconShanchu1"></dk-icon>
+      <icon-shanchu1 />
+      <dk-icon>
+        <icon-shanchu1 />
+      </dk-icon>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="htmlJson.foundation" />
         <span class="fuzhi" @click="oncopy(htmlJson.foundation)">复制代码</span>
@@ -248,7 +255,7 @@
         v-for="item in iconNameSpace"
         :key="item[0]"
         class="icon_library_item"
-        @click="oncopy('dk-' + item[0])"
+        @click="oncopy(item[0])"
       >
         <div class="icon_library_item_icon">
           <dk-icon :icon="item[0]" :size="24" :color="'#606266'"></dk-icon>

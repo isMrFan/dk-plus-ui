@@ -19,7 +19,7 @@
     "@vitejs/plugin-legacy": "^4.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "babel-polyfill": "^6.26.0",
-    "dk-plus": "^1.0.8",
+    "dk-plus": "^1.0.10",
     "eslint": "^8.30.0",
     "eslint-plugin-vue": "^9.8.0",
     "highlight.js": "^11.7.0",
