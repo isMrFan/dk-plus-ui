@@ -227,7 +227,7 @@
       </div>
     </div>
     <h4 class="cont_template_icon_title">System</h4>
-    <div v-if="false" class="icon_library">
+    <div class="icon_library">
       <div
         v-for="item in iconList"
         :key="item[0]"
