@@ -21,6 +21,11 @@ export default defineComponent({
     const msg = ref('asdf')
     const input = ref(null)
 
+    const handlePendClick = (): void => {
+      console.log('handlePendClick');
+      
+    }
+
     const isDisabled = ref(true)
     return {
       oncopy,
@@ -29,7 +34,8 @@ export default defineComponent({
       focus,
       blur,
       input,
-      isDisabled
+      isDisabled,
+      handlePendClick
     }
   }
 })
@@ -52,6 +58,7 @@ export default defineComponent({
     </dk-input> -->
 
     <h4>前后缀内容</h4>
+    <!-- TODO: 写到这里了  @prepend-click="handlePendClick" 不生效 -->
     <dk-input 
       v-model="msg" 
       clearable 
@@ -61,7 +68,15 @@ export default defineComponent({
       append-icon="icon-file"
       append-text=".com" 
       icon-size="16px"
-    />
+      @prepend-click="handlePendClick"
+    >
+      <template #prepend>
+        <dk-icon icon="icon-file" />
+      </template>
+      <template #append>
+        <dk-icon icon="icon-file" />
+      </template>
+    </dk-input>
     {{ msg }}
 
     <!-- <h4>文本域</h4>

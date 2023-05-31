@@ -12,7 +12,7 @@ import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'v
 import { defineComponent, computed, ref, shallowRef, nextTick, reactive } from 'vue';
 import { dkInputProps } from './props';
 import { getInputGlobal } from '../../_hooks';
-import { getInput, getBooleanAnd, getBooleanOr, getNull } from '../../_hooks';
+import { getInput, getBooleanAnd, getBooleanOr, getNull,getReturn } from '../../_hooks';
 import type { dkInputType } from '../../_interface';
 import type { propDataModel, dataType, pendType } from './type';
 
@@ -78,8 +78,8 @@ export default defineComponent({
     const data = reactive<dataType>({
       inputType: verifyInputType(),
       isPrepend: getBooleanOr([getNull(propData.prependText), !!propData.prependIcon]),
-      isPrependIcon: getNull(propData.prependIcon),
-      isAppendIcon: getBooleanAnd([!!propData.appendIcon]),
+      isPrependIcon: getBooleanAnd([getNull(propData.prependIcon), !slots.prepend]),
+      isAppendIcon: getBooleanAnd([!slots.append, !!propData.appendIcon]),
       isAppend: getBooleanOr([getNull(propData.appendText), !!propData.appendIcon]),
       isPrefixIcon: getBooleanAnd([!!propData.prefixIcon]),
       isAppendTextLen: getNull(propData.appendText),
@@ -90,11 +90,11 @@ export default defineComponent({
       isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
       isSuffixIcon: getBooleanAnd([!!propData.suffixIcon]),
       isShowPassword: getBooleanAnd([type === 'password', propData.showPassword])
-    })    
+    })
     
     const pendData = reactive<pendType>({
-      isPrependText: getBooleanAnd([getNull(propData.prependText), !data.isPrependIcon]),
-      isAppendText: getBooleanAnd([getNull(propData.appendText), !data.isAppendIcon])
+      isPrependText: getBooleanAnd([!slots.prepend, getNull(propData.prependText), !data.isPrependIcon]),
+      isAppendText: getBooleanAnd([getNull(propData.appendText), !slots.append, !data.isAppendIcon])
     })
     
     const prependClassList = (): string[] => ['dk-input_prepend', 'dk-input_pend'];
@@ -156,6 +156,11 @@ export default defineComponent({
       isFocus.value = false;
     }
 
+    const { getRun } = getReturn()
+    const AppendEventClick = (event: MouseEvent): void => {
+      getRun(props.onAppendClick, event)
+    }
+
     const inputAttrs = reactive({
       class: innerClassList.value,
       type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
@@ -193,7 +198,8 @@ export default defineComponent({
       prependClassList: prependClassList(),
       isAppend: data.isAppend,
       appendClassList: appendClassList(),
-      pendStyleList: pendStyleLis()
+      pendStyleList: pendStyleLis(),
+      AppendEventClick
     };
   }
 });
@@ -204,8 +210,9 @@ export default defineComponent({
     <!-- append -->
     <template v-if="isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
-        <span v-if="isPrependText">{{ prependText }}</span>
+        <slot name="prepend"></slot>
         <dk-icon v-if="isPrependIcon" :icon="prependIcon"></dk-icon>
+        <span v-if="isPrependText">{{ prependText }}</span>
       </div>
     </template>
 
@@ -241,8 +248,9 @@ export default defineComponent({
     <!-- prepend -->
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
+        <slot name="append"></slot>
+        <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendEventClick"></dk-icon>
         <span v-if="isAppendText">{{ appendText }}</span>
-        <dk-icon v-if="isAppendIcon" :icon="appendIcon"></dk-icon>
       </div>
     </template>
   </div>
