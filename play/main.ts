@@ -23,32 +23,38 @@ const {
   IconShanchu1 ,IconShanchu2,IconSysRun,IconSysConfig,
   IconBigSearch,IconSearchSmall,IconAssetsDic,IconSystem3,
   IconFile,IconOpenFile,IconSearch,IconSysLog,IconReturn,
-  IconSearch2,IconSearch3,IconSysMenu,IconSysMsg2,
+  IconSearch2,IconSearch3,IconSysMenu,IconSysMsg2,IconDeletionGroup,
   IconSysBack,IconSysReset,IconLink,IconSysNotice1,
   IconSave,IconSys1,IconSys2,IconNetworkSys,IconCallSys,
-  IconTheChildSys,IconIntelligenceSys,IconSysPer,
+  IconTheChildSys,IconIntelligenceSys,IconSysPer,IconQQ1,
   IconSysInformation,IconSearchFile,IconPrint,IconCollect,
-  IconAdministrator,IconSearchAdmin,IconDataSys,
+  IconAdministrator,IconSearchAdmin,IconDataSys,IconPay1,
   IconSysRole,IconPause,IconEquipmentSearch,IconIos,
-  IconEquipmentSearch1,IconQuerySys,IconLogOffSys,
-  IconMysql,IconSystem,IconSysLoad,IconScienceSys,
+  IconEquipmentSearch1,IconQuerySys,IconLogOffSys,IconMale,
+  IconMysql,IconSystem,IconSysLoad,IconScienceSys,IconCreditCard,
   IconSysOperation,IconFileSys,IconFileSysMedicine,IconSysNotice,
   IconSysMsg1,IconSysUpload,IconSysSetting,IconNotice,
   IconLight,IconSystem2,IconSysManage,IconSetting,IconSetSeat,
   IconSysSupervise,IconSysMaintain,IconLANSearch,IconFingerprintVerify,
   IconMonitorSys,IconSystem4,IconSysUpdate,IconFaceID,IconSysFile,
   IconCloudSearch,IconSysPower,IconLogout,IconSysBugTesting,
-  IconAndroid,IconStart,IconReduce,IconUpArrow,IconCross,
+  IconAndroid,IconStart,IconReduce,IconUpArrow,IconCross,IconMinusSign,
   IconDoubleArrow,IconRefresh,IconUpArrow1,IconDownArrow,IconRemarks,
   IconBottomArrow,IconTopArrow,IconUnderThe,IconOnThe,IconPaymentReminder,
-  IconRightArrow,IconLeftArrow,IconUpAndDown,IconBottomArrow1,
+  IconRightArrow,IconLeftArrow,IconUpAndDown,IconBottomArrow1,IconDelete1,
   IconContraction,IconExit,IconRise,IconLeftMenu,IconRightMenu,
   IconLeftarrow1,IconBottomArrow2,IconUpAndDown1,IconDownload,IconShoppingCart,
   IconRightArrow1,LeftFastForward,RightFastForward,IconUpArrow2,IconPositioning,
   IconUpperTriangle,IconLowerTriangle,IconLeftTriangle,IconRightTriangle,
   IconContraction1,IconLeftFold,IconTopFold,IconTrack,IconError,IconWeiXin,
-  IconWeixinPlay,IconCollectActive,IconWeixin1,IconFemale,IconPasswordShow,
-  IconQQ,IconPassword,IconRecyclingStation,IconFileDeletion,IconZFB
+  IconWeixinPlay,IconCollectActive,IconWeixin1,IconFemale,IconPasswordShow,IconDeleteMeige,
+  IconQQ,IconPassword,IconRecyclingStation,IconFileDeletion,IconZFB,IconPositioning1,
+  IconPasswordSee,IconImageAddition,IconPassword1,IconPassword2,IconPassword3,
+  IconCollect1,IconAdd,IconCollect2,IconAddMessage,IconMeasurement,IconAdditive,
+  IconFailureToPay,IconCertificate,IconCollect3,PasswordDisplay,PasswordHiding,
+  IconDeletionGroup1,IconMale1,IconPayAttention,IconPassword4,IconFemale2,IconEdit,
+  IconFemale1,IconCollect4,IconCollect5,IconCollect6,IconRestoreDelete,IconPaymentSetup,
+  IconDeletionPersonnel,IconUnionPay,IconMale2,IconOnlinePayment,IconPassword5,IconPassword6
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from "dk-plus";
@@ -81,7 +87,7 @@ app.use(IconSysSupervise).use(IconSysMaintain).use(IconLANSearch)
 app.use(IconMonitorSys).use(IconSystem4).use(IconSysUpdate).use(IconFaceID)
 app.use(IconCloudSearch).use(IconSysPower).use(IconSysPer).use(IconLogout)
 app.use(IconSysBugTesting).use(IconFingerprintVerify).use(IconFingerprintVerify)
-app.use(IconSysFile).use(IconSysNotice).use(IconIos)
+app.use(IconSysFile).use(IconSysNotice).use(IconIos).use(IconMale),
 app.use(IconAndroid).use(IconStart).use(IconReduce)
 app.use(IconUpArrow).use(IconDoubleArrow).use(IconRefresh)
 app.use(IconUpArrow1).use(IconDownArrow).use(IconCross)
@@ -98,5 +104,17 @@ app.use(IconError).use(IconWeiXin).use(IconPaymentReminder).use(IconPositioning)
 app.use(IconShoppingCart).use(IconCollect).use(IconWeixinPlay)
 app.use(IconCollectActive).use(IconWeixin1).use(IconFemale).use(IconPasswordShow)
 app.use(IconRemarks).use(IconQQ).use(IconPassword).use(IconRecyclingStation)
-app.use(IconFileDeletion).use(IconZFB)
+app.use(IconFileDeletion).use(IconZFB).use(IconPositioning1).use(IconDeleteMeige)
+app.use(IconCreditCard).use(IconDelete1).use(IconPay1).use(IconAddMessage)
+app.use(IconPasswordSee).use(IconQQ1).use(IconImageAddition)
+app.use(IconPassword1).use(IconPassword2).use(IconPassword3)
+app.use(IconMinusSign).use(IconCollect1).use(IconAdd).use(IconCollect2)
+app.use(IconMeasurement).use(IconFailureToPay).use(IconCertificate)
+app.use(IconCollect3).use(PasswordDisplay).use(PasswordHiding)
+app.use(IconAdditive).use(IconDeletionGroup).use(IconDeletionGroup1)
+app.use(IconMale1).use(IconPayAttention).use(IconPassword4).use(IconRestoreDelete)
+app.use(IconFemale1).use(IconCollect4).use(IconCollect5).use(IconCollect6)
+app.use(IconRestoreDelete).use(IconFemale2).use(IconPaymentSetup)
+app.use(IconDeletionPersonnel).use(IconUnionPay).use(IconMale2).use(IconOnlinePayment)
+app.use(IconPassword5).use(IconPassword6).use(IconEdit)
 app.mount('#app')

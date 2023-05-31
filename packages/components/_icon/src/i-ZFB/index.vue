@@ -7,6 +7,8 @@ export default defineComponent({
 <template>
   <svg
     viewBox="0 0 1024 1024"
+    width="1em"
+    height="1em"
   >
     <g fill="currentColor" stroke="currentColor">
       <path
