@@ -9,16 +9,25 @@
 
 ::: module
  <template #code>
-    <dk-icon>
-      <IconWeiXin></IconWeiXin>
-    </dk-icon>
-    <dk-icon>
-      <IconWeiXin></IconWeiXin>
-    </dk-icon>
-</template>
+   <div style='display: flex;'>
+      <dk-icon>
+        <IconWeiXin></IconWeiXin>
+      </dk-icon>
+      <dk-icon :size='24' :color="'red'">
+        <IconWeiXin></IconWeiXin>
+      </dk-icon>
+    </div>
+ </template>
 
 ```html
-  <Dk-Button> 默认</Dk-Button>
+  <div style='display: flex;'>
+    <dk-icon>
+      <IconWeiXin></IconWeiXin>
+    </dk-icon>
+    <dk-icon :size='24' :color="'red'">
+      <IconWeiXin></IconWeiXin>
+  </dk-icon>
+  </div>
   //方法一 传统写法
   <script lang="ts">
     import {svgList} from 'dk-plus'
@@ -36,9 +45,17 @@
 
 :::
 
+## 集合
+
+`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: red;font-weight: bold;">{{svgListLength}}</span> 个图标
+
+<iconDom></iconDom>
 
 <script setup lang="ts">
+  import iconDom from './vueDome/icon/index.vue'
   import { svgList } from '@dk-plus/components/_icon'
   const { IconWeiXin } = svgList
+  const svgListLength=Object.keys(svgList).length
   const expose = { IconWeiXin }
 </script>
+

@@ -1,16 +1,12 @@
-<template>
-  <div id="app">
-    <router-view />
-  </div>
-</template>
 <script lang="ts">
   import { defineComponent } from 'vue'
   export default defineComponent({
     name: 'APP',
     setup() {
       window.alert = alert
-      function alert(data: any) {
-        var a: any = document.createElement('div'),
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+      function alert(data: string) {
+        let a = document.createElement('div') as HTMLElement,
           p = document.createElement('p'),
           btn = document.createElement('div'),
           textNode = document.createTextNode(data ? data : '')
@@ -50,17 +46,18 @@
         // a.appendChild(btn);
         // 整体显示到页面内
         document.getElementsByTagName('body')[0].appendChild(a)
-        setTimeout(function () {
-          a.parentNode.removeChild(a)
+        setTimeout(function() {
+          a.parentNode?.removeChild(a)
         }, 2000)
         // 确定绑定点击事件删除标签
         // btn.onclick = function () {
         //   a.parentNode.removeChild(a);
         // }
       }
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       function css(targetObj, cssObj) {
-        var str = targetObj.getAttribute('style') ? targetObj.getAttribute('style') : ''
-        for (var i in cssObj) {
+        let str = targetObj.getAttribute('style') ? targetObj.getAttribute('style') : ''
+        for (let i in cssObj) {
           str += i + ':' + cssObj[i] + ';'
         }
         targetObj.style.cssText = str
@@ -68,6 +65,11 @@
     }
   })
 </script>
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template>
 <style lang="scss">
   * {
     margin: 0;
