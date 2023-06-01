@@ -157,8 +157,11 @@ export default defineComponent({
     }
 
     const { getRun } = getReturn()
-    const AppendEventClick = (event: MouseEvent): void => {
-      getRun(props.onAppendClick, event)
+    const AppendIconEventClick = (event: MouseEvent): void => {
+      return getRun(props.onAppendClick, event)
+    }
+    const PrependIconEventClick = (event: MouseEvent): void => {
+      return getRun(props.onPrependClick, event)
     }
 
     const inputAttrs = reactive({
@@ -199,7 +202,8 @@ export default defineComponent({
       isAppend: data.isAppend,
       appendClassList: appendClassList(),
       pendStyleList: pendStyleLis(),
-      AppendEventClick
+      AppendIconEventClick,
+      PrependIconEventClick
     };
   }
 });
@@ -211,7 +215,7 @@ export default defineComponent({
     <template v-if="isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
         <slot name="prepend"></slot>
-        <dk-icon v-if="isPrependIcon" :icon="prependIcon"></dk-icon>
+        <dk-icon v-if="isPrependIcon" :icon="prependIcon" @click="PrependIconEventClick"></dk-icon>
         <span v-if="isPrependText">{{ prependText }}</span>
       </div>
     </template>
@@ -249,7 +253,7 @@ export default defineComponent({
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
         <slot name="append"></slot>
-        <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendEventClick"></dk-icon>
+        <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendIconEventClick"></dk-icon>
         <span v-if="isAppendText">{{ appendText }}</span>
       </div>
     </template>

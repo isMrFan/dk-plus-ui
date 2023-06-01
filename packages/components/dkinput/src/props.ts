@@ -10,6 +10,7 @@ import {
 import type { dkPlusSize, dkInputType, MouseEventType } from '../../_interface'
 
 export const dkInputProps = {
+  onPrependClick: setFunction<MouseEventType>(),
   onAppendClick: setFunction<MouseEventType>(),
   iconSize: setStringProp() || setNumberProps(),
   /** textColor */

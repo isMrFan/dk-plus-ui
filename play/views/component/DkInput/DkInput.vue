@@ -68,14 +68,15 @@ export default defineComponent({
       append-icon="icon-file"
       append-text=".com" 
       icon-size="16px"
+      @append-click="handlePendClick"
       @prepend-click="handlePendClick"
     >
-      <template #prepend>
+      <!-- <template #prepend>
         <dk-icon icon="icon-file" />
-      </template>
-      <template #append>
+      </template> -->
+      <!-- <template #append>
         <dk-icon icon="icon-file" />
-      </template>
+      </template> -->
     </dk-input>
     {{ msg }}
 
