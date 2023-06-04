@@ -158,10 +158,19 @@ export default defineComponent({
 
     const { getRun } = getReturn()
     const AppendIconEventClick = (event: MouseEvent): void => {
-      return getRun(props.onAppendClick, event)
+      getRun(props.onAppendClick, event)
     }
     const PrependIconEventClick = (event: MouseEvent): void => {
-      return getRun(props.onPrependClick, event)
+      getRun(props.onPrependClick, event)
+    }
+
+    const onKeydownEnter = (event: KeyboardEvent): void => {
+      if (event.which === 13) {
+        console.log('enter');
+        getRun(props.onEnter, event)
+      }
+      // getRun(props.onEnter, event)
+
     }
 
     const inputAttrs = reactive({
@@ -203,7 +212,8 @@ export default defineComponent({
       appendClassList: appendClassList(),
       pendStyleList: pendStyleLis(),
       AppendIconEventClick,
-      PrependIconEventClick
+      PrependIconEventClick,
+      onKeydownEnter
     };
   }
 });
@@ -231,7 +241,7 @@ export default defineComponent({
       </template>
 
       <!-- inner -->
-      <input v-bind="inputAttrs" ref="input" v-model="value" />
+      <input v-bind="inputAttrs" ref="input" v-model="value" @keydown.enter="onKeydownEnter" />
 
       <div v-if="isSuffix" class="dk-input_suffix">
         <slot name="suffix" />

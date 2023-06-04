@@ -58,3 +58,11 @@ export type MouseEventType = (evt: MouseEvent) => void
  * @description DkIcon 组件类型(动态组件)
  */
 export type DkIcon = VNode | Component
+
+/**
+ * @name KeyboardEventType
+ * @param { Object } evt 事件对象
+ * 
+ */
+
+export type KeyboardEventType = (evt: KeyboardEvent) => void

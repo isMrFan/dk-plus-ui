@@ -7,9 +7,15 @@ import {
   setObjectProps,
   setFunction
 } from '../../_utils'
-import type { dkPlusSize, dkInputType, MouseEventType } from '../../_interface'
+import type {
+  dkPlusSize,
+  dkInputType,
+  MouseEventType,
+  KeyboardEventType
+} from '../../_interface'
 
 export const dkInputProps = {
+  onEnter: setFunction<KeyboardEventType>(),
   onPrependClick: setFunction<MouseEventType>(),
   onAppendClick: setFunction<MouseEventType>(),
   iconSize: setStringProp() || setNumberProps(),
