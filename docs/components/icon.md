@@ -51,6 +51,31 @@
 
 <iconDom></iconDom>
 
+## 属性
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| color | icon 颜色 | string | --- | --- |
+| size | icon 大小 | string / number | --- | --- |
+| icon | icon 内容 | string | --- | --- |
+
+## Slots(插槽)
+
+| 参数 | 说明 |
+| --- | --- |
+| default | icon 内容 |
+
+## Contributors
+
+<div style='display: flex;'>
+  <a href="https://github.com/CadWalaDers" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
+  </a>
+  <a href="https://github.com/CadWalaDers" target="_blank" style='margin-left:20px;'>
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
+  </a>
+</div>
+
 <script setup lang="ts">
   import iconDom from './vueDome/icon/index.vue'
   import { svgList } from '@dk-plus/components/_icon'

@@ -48,7 +48,6 @@
   .box-icon_comp{
     .icon-name{
       font-size: 10px;
-      color: #666;
     }
     cursor: pointer;
     display: flex;

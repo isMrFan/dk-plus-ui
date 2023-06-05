@@ -19,7 +19,9 @@ export default {
     })
   },
   enhanceApp({ app }) {
-    window.alert = alert
+    if (typeof window !== 'undefined') {
+      window.alert = alert
+    }
       // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       function alert(data: string) {
         let a = document.createElement('div')as HTMLElement,
