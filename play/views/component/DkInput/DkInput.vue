@@ -58,7 +58,7 @@ export default defineComponent({
 
     <!-- <dk-input clearable placeholder="prefix插槽形式">
       <template #prefix>
-        <dk-icon class="dk-icon-del1" />
+        <dk-icon class="icon-shanchu1" />
       </template>
     </dk-input> -->
 
@@ -86,7 +86,7 @@ export default defineComponent({
     </dk-input>
     {{ msg }}
 
-    <!-- <h4>文本域</h4>
+    <h4>文本域</h4>
     <dk-input type="textarea" placeholder="文本域" autosize />
 
     <h4>数字框</h4>
@@ -98,13 +98,13 @@ export default defineComponent({
     <h4>前后缀</h4>
     <dk-input></dk-input>
     <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon />
-    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="dk-icon-del1" />
+    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="icon-shanchu1" />
     <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
       <template #prefix>
-        <dk-icon class="dk-icon-del1" />
+        <dk-icon class="icon-shanchu1" />
       </template>
       <template #suffix>
-        <dk-icon class="dk-icon-del1" />
+        <dk-icon class="icon-shanchu1" />
       </template>
     </dk-input>
 
@@ -113,7 +113,7 @@ export default defineComponent({
 
     <h4>清空</h4>
     <dk-input v-model="msg" clearable placeholder="清空" />
-    {{ msg }} -->
+    {{ msg }}
 
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">

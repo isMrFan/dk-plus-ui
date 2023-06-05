@@ -44,6 +44,8 @@ export default defineComponent({
       inputType: props.type,
       suffixIcon: props.suffixIcon
     });
+
+    const passwordShowOrHide = ref<Boolean>(false);
     
     /**
      * @name verifyInputType 获取input类型
@@ -116,16 +118,14 @@ export default defineComponent({
       emit('update:modelValue', updateModelValue);
     };
 
-    const passwordShowOrHide = ref<Boolean>(false);
-
     const prefixIconClass = (): string[] => {
-      const isDefault = typeof props.prefixIcon === 'boolean';
-      return ['dk-input_prefix-icon', isDefault ? 'dk-icon-search' : props.prefixIcon];
+      const isDefault = typeof propData.prefixIcon === 'boolean';
+      return ['dk-input_prefix-icon', isDefault ? 'dk-icon-search' : propData.prefixIcon];
     };
 
     const suffixIconClass = (): string[] => {
-      const isDefault = typeof props.suffixIcon === 'boolean';
-      return ['dk-input_suffix-icon', isDefault ? 'dk-icon-search' : props.suffixIcon];
+      const isDefault = typeof propData.suffixIcon === 'boolean';
+      return ['dk-input_suffix-icon', isDefault ? 'dk-icon-search' : propData.suffixIcon];
     };
 
     const clear = (): void => {
@@ -166,7 +166,6 @@ export default defineComponent({
 
     const onKeydownEnter = (event: KeyboardEvent): void => {
       if (event.which === 13) {
-        console.log('enter');
         getRun(props.onEnter, event)
       }
       // getRun(props.onEnter, event)
