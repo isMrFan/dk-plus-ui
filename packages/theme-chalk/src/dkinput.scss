@@ -169,4 +169,41 @@
       }
     }
   }
+
+  @include element(large){
+    height: calc(var(--input-height) * 1.5);
+    @include block('>*input') {
+      @include block(wrapper) {
+        padding: 0 15px;
+      }
+      @include element(inner){
+        font-size: calc(var(--input-font-size) * 1.5);
+      }
+    }
+  }
+  @include element(medium){
+    height: calc(var(--input-height) * 1.2);
+    @include block('>*input') {
+      @include block(wrapper) {
+        padding: 0 10px;
+      }
+      @include element(inner){
+        font-size: calc(var(--input-font-size) * 1.2);
+      }
+    }
+  }
+  @include element(small){
+    height: calc(var(--input-height) * 1);
+  }
+  @include element(mini){
+    height: calc(var(--input-height) * 0.8);
+    @include block('>*input') {
+      @include block(wrapper) {
+        padding: 0 5px;
+      }
+      @include element(inner){
+        font-size: calc(var(--input-font-size) * 0.8);
+      }
+    }
+  }
 }

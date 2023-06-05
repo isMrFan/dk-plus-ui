@@ -235,7 +235,7 @@ export default defineComponent({
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
           <slot name="prefix" />
-          <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" :icon="prefixIcon" size="16"></dk-icon>
+          <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" :icon="prefixIcon" size="19px"></dk-icon>
         </span>
       </template>
 
