@@ -63,26 +63,25 @@ export default defineComponent({
     </dk-input> -->
 
     <h4>前后缀内容</h4>
-    <!-- TODO: 写到这里了  @prepend-click="handlePendClick" 不生效 -->
     <dk-input 
       v-model="msg" 
-      clearable 
-      placeholder="前后缀内容" 
-      prepend-icon="icon-shanchu1" 
-      prepend-text="http://" 
-      append-icon="icon-file"
-      append-text=".com" 
+      clearable
+      placeholder="前后缀内容"
+      prepend-icon="IconShanchu1"
+      prepend-text="http://"
+      append-icon="IconShanchu1"
+      append-text=".com"
       icon-size="16px"
       @append-click="handlePendClick"
       @prepend-click="handlePendClick"
       @enter="handleKeydown"
     >
-      <!-- <template #prepend>
+      <template #prepend>
         <dk-icon icon="icon-file" />
-      </template> -->
-      <!-- <template #append>
+      </template>
+      <template #append>
         <dk-icon icon="icon-file" />
-      </template> -->
+      </template>
     </dk-input>
     {{ msg }}
 
@@ -97,14 +96,14 @@ export default defineComponent({
 
     <h4>前后缀</h4>
     <dk-input></dk-input>
-    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon />
-    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="icon-shanchu1" />
-    <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
+    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="IconShanchu1" />
+    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="IconShanchu1" />
+    <dk-input placeholder="插槽形式" prefix-icon="IconShanchu1" suffix-icon="IconShanchu1">
       <template #prefix>
-        <dk-icon class="icon-shanchu1" />
+        <dk-icon icon="IconShanchu1"></dk-icon>
       </template>
       <template #suffix>
-        <dk-icon class="icon-shanchu1" />
+        <dk-icon icon="IconShanchu1" />
       </template>
     </dk-input>
 

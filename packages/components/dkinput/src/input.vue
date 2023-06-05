@@ -40,8 +40,8 @@ export default defineComponent({
       prependIcon: props.prependIcon,
       appendIcon: props.appendIcon,
       disabledProp: props.disabled,
-      prefixIcon: props.prefixIcon,
       inputType: props.type,
+      prefixIcon: props.prefixIcon,
       suffixIcon: props.suffixIcon
     });
 
@@ -83,14 +83,14 @@ export default defineComponent({
       isPrependIcon: getBooleanAnd([getNull(propData.prependIcon), !slots.prepend]),
       isAppendIcon: getBooleanAnd([!slots.append, !!propData.appendIcon]),
       isAppend: getBooleanOr([getNull(propData.appendText), !!propData.appendIcon]),
-      isPrefixIcon: getBooleanAnd([!!propData.prefixIcon]),
+      isPrefixIcon: getBooleanAnd([!!propData.prefixIcon, !slots.prefix]),
       isAppendTextLen: getNull(propData.appendText),
       isPrefix: getBooleanOr([!!slots.prefix, !!propData.prefixIcon]),
       isShowClear: getNull(modelValueProp.value),
       isClear: getIsClear(),
       inputmode: type === 'number' ? 'numeric' : 'text',
       isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
-      isSuffixIcon: getBooleanAnd([!!propData.suffixIcon]),
+      isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
       isShowPassword: getBooleanAnd([type === 'password', propData.showPassword])
     })
     
@@ -235,7 +235,7 @@ export default defineComponent({
       <template v-if="isPrefix">
         <span class="dk-input_prefix">
           <slot name="prefix" />
-          <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" size="16"></dk-icon>
+          <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" :icon="prefixIcon" size="16"></dk-icon>
         </span>
       </template>
 
@@ -244,7 +244,7 @@ export default defineComponent({
 
       <div v-if="isSuffix" class="dk-input_suffix">
         <slot name="suffix" />
-        <dk-icon v-if="isSuffixIcon" :class="suffixIconClass"></dk-icon>
+        <dk-icon v-if="isSuffixIcon" :class="suffixIconClass" :icon="suffixIcon"></dk-icon>
       </div>
 
       <!-- clearable -->
