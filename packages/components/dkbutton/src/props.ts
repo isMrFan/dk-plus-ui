@@ -1,7 +1,13 @@
 import { setBooleanProps, setStringProp, setFunction } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import { DK_TYPE, DK_TARGET, DK_SIZE ,DK_Personality_Type} from '../../_tokens'
-import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType,dkPersonalityButtonType } from '../../_interface'
+import { DK_TYPE, DK_TARGET, DK_SIZE, DK_Personality_Type } from '../../_tokens'
+import type {
+  dkPlusType,
+  dkTarget,
+  dkPlusSize,
+  MouseEventType,
+  dkPersonalityButtonType
+} from '../../_interface'
 /**
  * @name dk-button
  * @author fanKai16
@@ -23,7 +29,7 @@ import type { dkPlusType, dkTarget, dkPlusSize, MouseEventType,dkPersonalityButt
  * @property {boolean} ripples 水波纹效果
  * @property {string} ripplesBgColor  水波纹效果的背景颜色
  * @property {boolean} diffusion   扩散效果哦
- * @property {string} diffusionBgColor  扩散效果的背景颜色 
+ * @property {string} diffusionBgColor  扩散效果的背景颜色
  * @property {boolean} personality  是否为个性按钮
  * @property {string} personalityType  个性按钮的类型
  * @property {string} personalitySize  个性按钮的大小
@@ -166,7 +172,7 @@ export const dkButtonProps = {
    * @name personality
    * @param { boolean }  是否为个性按钮
    * @returns 是否为个性按钮
-  */
+   */
   personality: setBooleanProps(),
   /**
    * @name personalityType
@@ -180,10 +186,13 @@ export const dkButtonProps = {
    * @param { string } [lightBtn] 灯光按钮
    * @param { string } [stereoscopic] 立体嵌入式按钮
    * @returns 个性按钮类型
-  */
-  personalityType:setStringProp<dkPersonalityButtonType>(null, (value: dkPersonalityButtonType): boolean => {
-    return DK_Personality_Type.includes(value)
-  }),
+   */
+  personalityType: setStringProp<dkPersonalityButtonType>(
+    null,
+    (value: dkPersonalityButtonType): boolean => {
+      return DK_Personality_Type.includes(value)
+    }
+  ),
   /**
    * @name personalitySize
    * @param { string }  [large] 大
@@ -192,62 +201,62 @@ export const dkButtonProps = {
    * @param { string }  [mini] 迷你
    * @returns 按钮类型 是否为文本按钮(默认值:'large')
    */
-  personalitySize:setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
+  personalitySize: setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
     return DK_SIZE.includes(value)
   }),
   /**
    * @name personalityBorderColor
    * @param { string }  个性按钮边框颜色
    * @returns personality
-  */
+   */
   personalityBorderColor: setStringProp(),
-   /**
+  /**
    * @name personalityBorderHoveColor
    * @param { string }  个性按钮边框颜色悬停时
    * @returns 个性按钮边框颜色悬停时
-  */
-   personalityBorderHoveColor: setStringProp(),
+   */
+  personalityBorderHoveColor: setStringProp(),
   /**
    * @name personalityBgColor
    * @param { string }  个性按钮背景颜色
    * @returns 个性按钮背景颜色
-  */
+   */
   personalityBgColor: setStringProp(),
-   /**
+  /**
    * @name personalityBgHoveColor
    * @param { string }  个性按钮背景颜色悬停时
    * @returns 个性按钮背景颜色悬停时
-  */
+   */
   personalityBgHoveColor: setStringProp(),
   /**
    * @name personalityFontColor
    * @param { string }  个性按钮字体颜色
    * @returns 个性按钮背字体颜色
-  */
+   */
   personalityFontColor: setStringProp(),
   /**
    * @name personalityFontHoveColor
    * @param { string }  个性按钮字体颜色悬停
    * @returns 个性按钮字体颜色悬停
-  */
+   */
   personalityFontHoveColor: setStringProp(),
   /**
    * @name personalityBoxShadow
    * @param { string }  BoxShadow配置
    * @returns BoxShadow配置
-  */
+   */
   personalityBoxShadow: setStringProp(),
   /**
    * @name personalityBoxShadowHove
    * @param { string }  BoxShadow悬停配置
    * @returns BoxShadow悬停配置
-  */
+   */
   personalityBoxShadowHove: setStringProp(),
-   /**
+  /**
    * @name personalityReflect
    * @param { string }  倒影效果
    * @returns personalityReflect倒影效果
-  */
+   */
   personalityReflect: setStringProp(),
   /**是否加载中 */
   loading: setBooleanProps(),

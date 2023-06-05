@@ -157,8 +157,20 @@ export default defineComponent({
     }
 
     const { getRun } = getReturn()
-    const AppendEventClick = (event: MouseEvent): void => {
+    const AppendIconEventClick = (event: MouseEvent): void => {
       getRun(props.onAppendClick, event)
+    }
+    const PrependIconEventClick = (event: MouseEvent): void => {
+      getRun(props.onPrependClick, event)
+    }
+
+    const onKeydownEnter = (event: KeyboardEvent): void => {
+      if (event.which === 13) {
+        console.log('enter');
+        getRun(props.onEnter, event)
+      }
+      // getRun(props.onEnter, event)
+
     }
 
     const inputAttrs = reactive({
@@ -199,7 +211,9 @@ export default defineComponent({
       isAppend: data.isAppend,
       appendClassList: appendClassList(),
       pendStyleList: pendStyleLis(),
-      AppendEventClick
+      AppendIconEventClick,
+      PrependIconEventClick,
+      onKeydownEnter
     };
   }
 });
@@ -211,7 +225,7 @@ export default defineComponent({
     <template v-if="isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
         <slot name="prepend"></slot>
-        <dk-icon v-if="isPrependIcon" :icon="prependIcon"></dk-icon>
+        <dk-icon v-if="isPrependIcon" :icon="prependIcon" @click="PrependIconEventClick"></dk-icon>
         <span v-if="isPrependText">{{ prependText }}</span>
       </div>
     </template>
@@ -227,7 +241,7 @@ export default defineComponent({
       </template>
 
       <!-- inner -->
-      <input v-bind="inputAttrs" ref="input" v-model="value" />
+      <input v-bind="inputAttrs" ref="input" v-model="value" @keydown.enter="onKeydownEnter" />
 
       <div v-if="isSuffix" class="dk-input_suffix">
         <slot name="suffix" />
@@ -249,7 +263,7 @@ export default defineComponent({
     <template v-if="isAppend">
       <div :class="appendClassList" :style="pendStyleList">
         <slot name="append"></slot>
-        <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendEventClick"></dk-icon>
+        <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendIconEventClick"></dk-icon>
         <span v-if="isAppendText">{{ appendText }}</span>
       </div>
     </template>
