@@ -9,16 +9,25 @@
 
 ::: module
  <template #code>
-    <dk-icon>
-      <IconWeiXin></IconWeiXin>
-    </dk-icon>
-    <dk-icon>
-      <IconWeiXin></IconWeiXin>
-    </dk-icon>
-</template>
+   <div style='display: flex;'>
+      <dk-icon>
+        <IconWeiXin></IconWeiXin>
+      </dk-icon>
+      <dk-icon :size='24' :color="'red'">
+        <IconWeiXin></IconWeiXin>
+      </dk-icon>
+    </div>
+ </template>
 
 ```html
-  <Dk-Button> 默认</Dk-Button>
+  <div style='display: flex;'>
+    <dk-icon>
+      <IconWeiXin></IconWeiXin>
+    </dk-icon>
+    <dk-icon :size='24' :color="'red'">
+      <IconWeiXin></IconWeiXin>
+  </dk-icon>
+  </div>
   //方法一 传统写法
   <script lang="ts">
     import {svgList} from 'dk-plus'
@@ -36,9 +45,42 @@
 
 :::
 
+## 集合
+
+`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: red;font-weight: bold;">{{svgListLength}}</span> 个图标
+
+<iconDom></iconDom>
+
+## 属性
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| color | icon 颜色 | string | --- | --- |
+| size | icon 大小 | string / number | --- | --- |
+| icon | icon 内容 | string | --- | --- |
+
+## Slots(插槽)
+
+| 参数 | 说明 |
+| --- | --- |
+| default | icon 内容 |
+
+## Contributors
+
+<div style='display: flex;'>
+  <a href="https://github.com/CadWalaDers" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
+  </a>
+  <a href="https://github.com/CadWalaDers" target="_blank" style='margin-left:20px;'>
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
+  </a>
+</div>
 
 <script setup lang="ts">
+  import iconDom from './vueDome/icon/index.vue'
   import { svgList } from '@dk-plus/components/_icon'
   const { IconWeiXin } = svgList
+  const svgListLength=Object.keys(svgList).length
   const expose = { IconWeiXin }
 </script>
+
