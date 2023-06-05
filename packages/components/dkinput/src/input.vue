@@ -168,10 +168,8 @@ export default defineComponent({
       if (event.which === 13) {
         getRun(props.onEnter, event)
       }
-      // getRun(props.onEnter, event)
-
     }
-
+    
     const inputAttrs = reactive({
       class: innerClassList.value,
       type: propData.inputType as dkInputType | ComputedRef<dkInputType>,

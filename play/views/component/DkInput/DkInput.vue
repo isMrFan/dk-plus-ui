@@ -63,7 +63,7 @@ export default defineComponent({
     </dk-input> -->
 
     <h4>尺寸</h4>
-    <dk-input size="large" prefix-icon="IconShanchu1" append-icon="IconShanchu1" prepend-icon="IconShanchu1" placeholder="large" />
+    <dk-input size="large" placeholder="large" />
     <dk-input size="medium" placeholder="medium" />
     <dk-input size="small" placeholder="small" />
     <dk-input size="mini" placeholder="mini" />
