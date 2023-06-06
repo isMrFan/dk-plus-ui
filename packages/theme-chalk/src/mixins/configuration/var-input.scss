@@ -55,4 +55,5 @@ $input-theme-colors: (
   --pend-color: #{getInputColor('text')};
 
   --input-icon-size: 19px;
+  --input-info-color: #{getInputColor('info')};
 }

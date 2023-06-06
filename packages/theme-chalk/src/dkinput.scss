@@ -70,16 +70,18 @@
   @include element(textarea) {
     width: 100%;
     height: fit-content;
+    position: relative;
     @include block('>*input') {
       @include block(wrapper) {
         width: inherit;
-        min-height: 30px;
+        min-height: 32px;
         height: var(--input-height);
         line-height: var(--textarea-line-height, 30px);
         resize: var(--textarea-resize, none);
         overflow: var(--textarea-overflow, auto);
         transition: all 0s;
         transition: border 0.2s;
+        color: var(--input-text-color);
         &:focus {
           caret-color: var(--input-text-color);
           outline: none;
@@ -90,6 +92,12 @@
         }
       }
     }
+    @include element(length){
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+
   }
 
   @include element(('prefix', 'suffix')) {
@@ -205,5 +213,9 @@
         font-size: calc(var(--input-font-size) * 0.8);
       }
     }
+  }
+  @include element((length, textarea_length)){
+    font-size: calc(var(--input-font-size) * 0.8);
+    color: var(--input-info-color);
   }
 }

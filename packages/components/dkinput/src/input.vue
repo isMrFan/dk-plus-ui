@@ -42,7 +42,9 @@ export default defineComponent({
       disabledProp: props.disabled,
       inputType: props.type,
       prefixIcon: props.prefixIcon,
-      suffixIcon: props.suffixIcon
+      suffixIcon: props.suffixIcon,
+      maxlengthProp: props.maxlength,
+      minlengthProp: props.minlength
     });
 
     const passwordShowOrHide = ref<Boolean>(false);
@@ -77,6 +79,23 @@ export default defineComponent({
       return getBooleanAnd([isDisabled, isTextarea, isPassword, isClearable]);
     }
 
+    const isShowLength = (): boolean => {
+      const isLength = getBooleanOr([getNull(propData.maxlengthProp), getNull(propData.minlengthProp)])
+      return getBooleanAnd([isLength, !propData.disabledProp]);
+    }
+
+    const getLength = (): string => {
+      let lengthLimit = '';
+      if (propData.maxlengthProp && propData.minlengthProp) {
+        lengthLimit = `${propData.minlengthProp}/${propData.maxlengthProp}`
+      } else if (propData.maxlengthProp) {
+        lengthLimit = `0/${propData.maxlengthProp}`
+      } else if (propData.minlengthProp) {
+        lengthLimit = `${propData.minlengthProp}`
+      }
+      return lengthLimit;
+    }
+
     const data = reactive<dataType>({
       inputType: verifyInputType(),
       isPrepend: getBooleanOr([getNull(propData.prependText), !!propData.prependIcon]),
@@ -91,7 +110,9 @@ export default defineComponent({
       inputmode: type === 'number' ? 'numeric' : 'text',
       isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
       isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
-      isShowPassword: getBooleanAnd([type === 'password', propData.showPassword])
+      isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
+      isLength: isShowLength(),
+      lengthLimit: getLength()
     })
     
     const pendData = reactive<pendType>({
@@ -178,7 +199,9 @@ export default defineComponent({
       disabled: propData.disabledProp,
       inputmode: data.inputmode,
       onfocus,
-      onblur
+      onblur,
+      maxlength: propData.maxlengthProp,
+      minlength: propData.minlengthProp
     } as InputHTMLAttributes);
 
     const textareaAttrs = reactive({
@@ -186,7 +209,9 @@ export default defineComponent({
       type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
       placeholder: propData.placeholder,
       onInput: update,
-      disabled: propData.disabledProp
+      disabled: propData.disabledProp,
+      maxlength: propData.maxlengthProp,
+      minlength: propData.minlengthProp
     } as TextareaHTMLAttributes);
     return {
       ...propData,
@@ -240,6 +265,13 @@ export default defineComponent({
       <!-- inner -->
       <input v-bind="inputAttrs" ref="input" v-model="value" @keydown.enter="onKeydownEnter" />
 
+      <!-- length -->
+      <template v-if="isLength">
+        <span class="dk-input_length">
+          {{ lengthLimit }}
+        </span>
+      </template>
+
       <div v-if="isSuffix" class="dk-input_suffix">
         <slot name="suffix" />
         <dk-icon v-if="isSuffixIcon" :class="suffixIconClass" :icon="suffixIcon"></dk-icon>
@@ -265,7 +297,13 @@ export default defineComponent({
       </div>
     </template>
   </div>
-  <div v-else :class="classList">
+  <div v-else :class="classList" :style="styleList">
     <textarea v-bind="textareaAttrs"></textarea>
+    <!-- length -->
+    <template v-if="isLength">
+      <span class="dk-input_textarea_length">
+        {{ lengthLimit }}
+      </span>
+    </template>
   </div>
 </template>
