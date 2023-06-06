@@ -84,12 +84,12 @@ export default defineComponent({
       return getBooleanAnd([isLength, !propData.disabledProp]);
     }
 
-    const getLength = (): string => {
+    const getLength = (value: string | number = ''): string => {
       let lengthLimit = '';
       if (propData.maxlengthProp && propData.minlengthProp) {
         lengthLimit = `${propData.minlengthProp}/${propData.maxlengthProp}`
       } else if (propData.maxlengthProp) {
-        lengthLimit = `0/${propData.maxlengthProp}`
+        lengthLimit = `${value.toString().length}/${propData.maxlengthProp}`
       } else if (propData.minlengthProp) {
         lengthLimit = `${propData.minlengthProp}`
       }
@@ -111,9 +111,10 @@ export default defineComponent({
       isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
       isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
       isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
-      isLength: isShowLength(),
-      lengthLimit: getLength()
+      isLength: isShowLength()
     })
+
+    let lengthLimit = ref<string>(getLength());
     
     const pendData = reactive<pendType>({
       isPrependText: getBooleanAnd([!slots.prepend, getNull(propData.prependText), !data.isPrependIcon]),
@@ -126,15 +127,19 @@ export default defineComponent({
 
     const pendStyleLis = (): {} => getInput(props).pendStyleList;
     const update = (e: Event): void => {
+      const target = e.target as HTMLInputElement;
       let updateModelValue = modelValueProp.value
       if (propData.prependText && !propData.prependIcon) {
         updateModelValue = `${propData.prependText}${updateModelValue}`
       }
       if (propData.appendText && !propData.appendIcon) {
-        updateModelValue = `${updateModelValue}${propData.appendText}`
+        updateModelValue = getLength()
       }
 
-      const target = e.target as HTMLInputElement;
+      if (propData.maxlengthProp) {
+        lengthLimit.value = `${target.value.length}/${propData.maxlengthProp}`
+      }
+
       modelValueProp.value = target.value;
       emit('update:modelValue', updateModelValue);
     };
@@ -235,7 +240,8 @@ export default defineComponent({
       pendStyleList: pendStyleLis(),
       AppendIconEventClick,
       PrependIconEventClick,
-      onKeydownEnter
+      onKeydownEnter,
+      lengthLimit
     };
   }
 });

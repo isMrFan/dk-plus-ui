@@ -144,7 +144,6 @@ export interface dataType {
   /** 是否有后缀内容 */
   isAppend: boolean
   isLength: boolean
-  lengthLimit: string
 }
 
 export interface pendType {
