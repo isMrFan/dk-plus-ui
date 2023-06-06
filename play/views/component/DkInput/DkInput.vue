@@ -58,60 +58,65 @@ export default defineComponent({
 
     <!-- <dk-input clearable placeholder="prefix插槽形式">
       <template #prefix>
-        <dk-icon class="dk-icon-del1" />
+        <dk-icon class="icon-shanchu1" />
       </template>
     </dk-input> -->
 
-    <h4>前后缀内容</h4>
-    <!-- TODO: 写到这里了  @prepend-click="handlePendClick" 不生效 -->
+    <h4>尺寸</h4>
+    <dk-input size="large" placeholder="large" />
+    <dk-input size="medium" placeholder="medium" />
+    <dk-input size="small" placeholder="small" />
+    <dk-input size="mini" placeholder="mini" />
+
+    <!-- <h4>前后缀内容</h4>
     <dk-input 
       v-model="msg" 
-      clearable 
-      placeholder="前后缀内容" 
-      prepend-icon="icon-shanchu1" 
-      prepend-text="http://" 
-      append-icon="icon-file"
-      append-text=".com" 
+      clearable
+      placeholder="前后缀内容"
+      prepend-icon="IconShanchu1"
+      prepend-text="http://"
+      append-icon="IconShanchu1"
+      append-text=".com"
       icon-size="16px"
       @append-click="handlePendClick"
       @prepend-click="handlePendClick"
       @enter="handleKeydown"
     >
-      <!-- <template #prepend>
+      <template #prepend>
         <dk-icon icon="icon-file" />
-      </template> -->
-      <!-- <template #append>
+      </template>
+      <template #append>
         <dk-icon icon="icon-file" />
-      </template> -->
+      </template>
     </dk-input>
-    {{ msg }}
+    {{ msg }} -->
 
     <!-- <h4>文本域</h4>
-    <dk-input type="textarea" placeholder="文本域" autosize />
+    <dk-input type="textarea" placeholder="文本域" autosize /> -->
 
-    <h4>数字框</h4>
-    <dk-input type="number" placeholder="数字框" />
+    <!-- <h4>数字框</h4>
+    <dk-input type="number" placeholder="数字框" /> -->
 
-    <h4>密码框</h4>
-    <dk-input type="password" placeholder="密码框" show-password />
+    <!-- <h4>密码框</h4>
+    <dk-input type="password" placeholder="密码框" show-password /> -->
 
-    <h4>前后缀</h4>
+    <!-- <h4>前后缀</h4>
     <dk-input></dk-input>
-    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon />
-    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="dk-icon-del1" />
-    <dk-input placeholder="插槽形式" prefix-icon suffix-icon>
+    <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="IconShanchu1" />
+    <dk-input clearable placeholder="prefix属性绑定形式" suffix-icon="IconShanchu1" />
+    <dk-input placeholder="插槽形式" prefix-icon="IconShanchu1" suffix-icon="IconShanchu1">
       <template #prefix>
-        <dk-icon class="dk-icon-del1" />
+        <dk-icon icon="IconShanchu1"></dk-icon>
       </template>
       <template #suffix>
-        <dk-icon class="dk-icon-del1" />
+        <dk-icon icon="IconShanchu1" />
       </template>
-    </dk-input>
+    </dk-input> -->
 
-    <h4>禁用</h4>
-    <dk-input disabled placeholder="禁用" />
+    <!-- <h4>禁用</h4>
+    <dk-input disabled placeholder="禁用" /> -->
 
-    <h4>清空</h4>
+    <!-- <h4>清空</h4>
     <dk-input v-model="msg" clearable placeholder="清空" />
     {{ msg }} -->
 

@@ -1,5 +1,5 @@
-import { computed, reactive, toRaw } from 'vue'
-import type { CSSProperties, ComputedRef } from 'vue'
+import { computed, reactive, toRaw, useSlots } from 'vue'
+import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
 import { DK_INPUT_TYPE } from '../../_tokens'
@@ -73,7 +73,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultClassList
    * @description 期望转换的类名
    */
-  let defaultClassList = ['type']
+  let defaultClassList = ['type', 'size']
 
   /**
    * @name cloneProps
@@ -81,14 +81,19 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    */
   const cloneProps = { ...toRaw(props) }
 
-  if (props.appendText && props.prependText) {
+  const slot: Slots = useSlots()
+
+  const prepend = props.prependText || props.prependIcon || slot.prepend
+  const append = props.appendText || props.appendIcon || slot.append
+
+  if (append && prepend) {
     cloneProps.appendText = 'wrapper-pend_text'
     cloneProps.prependText = ''
   } else {
-    if (props.appendText) {
+    if (append) {
       cloneProps.appendText = 'wrapper-append_text'
     }
-    if (props.prependText) {
+    if (prepend) {
       cloneProps.prependText = 'wrapper-prepend_text'
     }
   }
@@ -100,22 +105,6 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const params = reactive({
     ...cloneProps
   })
-
-  /**
-   * @name SLOT
-   * @description 获取插槽
-   */
-  // const SLOT: Slots = useSlots()
-  // const IS_SLOT = computed((): boolean => {
-  //   return !(SLOT.default && SLOT.default() && SLOT.default()[0].children)
-  // })
-  // if (IS_SLOT) {
-  //   const PREFIX = SLOT.prefix && SLOT.prefix()
-  //   if (PREFIX) {
-  //     defaultClassList = [...defaultClassList, 'prefix']
-  //     params['prefix'] = true
-  //   }
-  // }
 
   /**
    * @name isDisabled
