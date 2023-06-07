@@ -16,53 +16,66 @@
   transition: 0.3s;
   font-size: var(--button-font-size);
   cursor: pointer;
+  transition: all 0.2s;
+
   //禁用状态
   &_disabled {
     opacity: 0.5;
     pointer-events: none;
   }
+
   //文本按钮逻辑处理
   .#{$text},
   .#{$link} {
     color: var(--button-color);
     font-size: var(--button-font-size);
     cursor: var(--button-pointer);
+
     &:not([default]):hover {
       color: var(--button-hover);
     }
+
     &:not([default]):active {
       color: var(--button-active);
     }
   }
+
   .#{$link} {
     a {
       text-decoration: none;
       color: var(--button-color);
       font-size: var(--button-font-size);
+
       &:not([default]):hover {
         color: var(--button-hover);
       }
+
       &:not([default]):active {
         color: var(--button-active);
       }
     }
   }
+
   &_none.#{$text},
   &_none.#{$link} {
     text-decoration: none;
   }
+
   &_lineThrough.#{$text},
   &_lineThrough.#{$link} {
     text-decoration: line-through;
   }
+
   &_overline.#{$text},
   &_overline.#{$link} {
     text-decoration: overline;
   }
+
   &_underline.#{$text},
   &_underline.#{$link} {
     text-decoration: underline;
   }
+
   //文本按钮逻辑处理结束
   //盒子按钮逻辑处理
   .#{$box} {
@@ -83,17 +96,20 @@
     background-color: var(--button-background);
     border: 1px solid var(--button-borderColor);
     cursor: pointer;
+
     &:not([default]):hover {
       color: var(--button-hover);
       border-color: var(--button-hover-borderColor);
       background-color: var(--button-hover-background);
     }
+
     &:not([default]):active {
       color: var(--button-active);
       border-color: var(--button-active-borderColor);
       background-color: var(--button-active-background);
     }
   }
+
   // 涟漪效果
   &_ripples.#{$box} {
     position: relative;
@@ -102,6 +118,7 @@
     left: 0;
     right: 0;
     overflow: hidden;
+
     .dk-button_ripples {
       width: 2px;
       height: 2px;
@@ -113,12 +130,14 @@
       opacity: 0.5;
       background-color: #fff;
     }
+
     @keyframes dk-button_ripples-animation {
       from {
         width: 2px;
         height: 2px;
         opacity: 0.5;
       }
+
       to {
         opacity: 0;
         width: 500px;
@@ -126,11 +145,13 @@
       }
     }
   }
+
   //盒子按钮逻辑处理结束
   //圆形按钮逻辑处理
   &_circle {
     width: var(--button-height);
   }
+
   //扩散效果
   &_diffusion::after {
     content: '';
@@ -144,16 +165,37 @@
     border-radius: inherit;
     transition: 0.6s;
     box-shadow: 0 0 0 8px var(--button-ripples-BgColor);
-}
-  &_diffusion:active::after{
+  }
+
+  &_diffusion:active::after {
     box-shadow: none;
     opacity: 1;
     transition: 0s;
   }
+
   // 扩散效果需要的样式
   &:not([disabled]):active::after {
     box-shadow: none;
     opacity: 1;
     transition: 0s;
   }
+}
+
+.#{$namespace}-button_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.#{$namespace}-button_slot_left {
+  width: inherit;
+  height: inherit;
+  padding-right: 2px;
+  box-sizing: border-box;
+}
+
+.#{$namespace}-button_slot_right {
+  width: inherit;
+  height: inherit;
+  padding-left: 2px;
+  box-sizing: border-box;
 }

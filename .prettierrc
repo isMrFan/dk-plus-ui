@@ -17,7 +17,7 @@
   "vueIndentScriptAndStyle": true,
   "overrides": [
     {
-      "files": "*.js,*.jsx,*.mjs,*.ts,*.tsx,,*.vue",
+      "files": "*.js,*.jsx,*.mjs,*.ts,*.tsx,*.vue",
       "options": {
         "parser": "babel"
       }

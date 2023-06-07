@@ -260,9 +260,9 @@ export const dkButtonProps = {
   personalityReflect: setStringProp(),
   /**是否加载中 */
   loading: setBooleanProps(),
-
   /**半圆形按钮 */
   round: setBooleanProps(),
+
   /**按钮图标 */
   icon: setStringProp(),
   /**按钮图标后 */

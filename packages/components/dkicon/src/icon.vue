@@ -16,7 +16,7 @@
     props: iconProps,
     setup(props) {
       const { styles } = getStyleList(props, 'icon')
-      const style=styles(['size','color'])
+      const style = styles(['size', 'color'])
       return {
         style
       }
