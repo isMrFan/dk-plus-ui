@@ -163,6 +163,39 @@ async function buildComponentEntry(): Promise<void> {
   }
 }
 
+async function README(): Promise<void>{
+  try {
+    const sourcePath = '../npm/LICENSE'; // 源文件的路径
+    const targetPath = '../npm/dist'; // 目标目录的路径
+    // 构造目标文件的路径
+    const targetFile = path.join(targetPath, path.basename(sourcePath));
+    // 复制文件
+    fs.copyFile(sourcePath, targetFile)
+    .then(() => {
+      console.log('文件复制成功');
+    })
+    .catch((error) => {
+      console.error('文件复制失败', error);
+    });
+    const sourcePath1 = '../npm/README.md'; // 源文件的路径
+    // 构造目标文件的路径
+    const targetFile1 = path.join(targetPath, path.basename(sourcePath1));
+    // 复制文件
+    fs.copyFile(sourcePath1, targetFile1)
+    .then(() => {
+      console.log('文件复制成功');
+    })
+    .catch((error) => {
+      console.error('文件复制失败', error);
+    });
+    // await rename ('../npm/LICENSE', '../npm/dist/LICENSE');
+    // await rename ('../npm/README.md', '../npm/dist/README.md');
+  } catch (e) {
+    console.error('Error occurred in README:', e);
+    throw e;
+  }
+}
+
 async function Finish(): Promise<void> {
   console.log('打包完成！');
 }
@@ -172,5 +205,6 @@ export const buildComponent = series(
   genTypes,
   copyTypes(),
   buildComponentEntry,
-  Finish
+  Finish,
+  README
 )
