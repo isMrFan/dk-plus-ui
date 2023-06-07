@@ -112,6 +112,7 @@ export const dkInputProps = {
   suffixIcon: setStringProp(),
   /** 行数 */
   rows: setStringProp() || setNumberProps(),
+  maxRows: setStringProp() || setNumberProps(),
   autosize: setBooleanProps() || setObjectProps()
 } as const
 export type DkInputProps = ExtractPropTypes<typeof dkInputProps>

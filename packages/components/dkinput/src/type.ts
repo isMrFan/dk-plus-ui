@@ -112,6 +112,9 @@ export interface propDataModel {
   suffixIcon: string
   maxlengthProp: number | string
   minlengthProp: number | string
+  autosizeProp: boolean
+  rowsProp: number | string
+  readonlyProp: boolean
 }
 
 export interface dataType {
@@ -121,8 +124,6 @@ export interface dataType {
   isAppendTextLen: boolean
   /** 是否有前缀 */
   isPrefix: boolean
-  /** 是否显示清除按钮 */
-  isShowClear: boolean
   /** 是否显示清除按钮 */
   isClear: boolean
   /** 输入类型 */
@@ -144,6 +145,7 @@ export interface dataType {
   /** 是否有后缀内容 */
   isAppend: boolean
   isLength: boolean
+  rows: number | string
 }
 
 export interface pendType {

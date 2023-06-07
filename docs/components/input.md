@@ -5,7 +5,7 @@
 - [源代码](https://github.com/CadWalaDers/dk-ui/tree/master/packages/components/dkinput)
 - [文档编辑](https://github.com/CadWalaDers/dk-ui/blob/master/docs/components/input.md)
 
-## 1.基础输入框
+## 基础输入框
 
 `type` 输入框类型 type 设置 text | password | email | number | tel | url 默认:text
 
@@ -20,7 +20,7 @@
 
 :::
 
-## 2.禁用状态
+## 禁用状态
 
 `disabled` 属性可以将输入框设置为禁用状态
 
@@ -35,32 +35,169 @@
 
 :::
 
-## 3.前置/后置标签
+## 前后缀
 
-`prepend-text` 和 `append-text` 属性可以在输入框前后添加标签
+`prefix-icon` 和 `suffix-icon` 属性可以在输入框前后添加图标，
+`prefix` 和 `suffix` 插槽可以在输入框前后添加自定义内容。
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" prepend-text="https://" append-text=".com"></Dk-Input>
+<Dk-Input placeholder="prefix-icon" prefix-icon="dk-icon-search"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="suffix-icon" suffix-icon="dk-icon-search"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="slot">
+    <template #prefix>
+        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+    </template>
+    <template #suffix>
+        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+    </template>
+</Dk-Input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" prepend-text="https://" append-text=".com"></Dk-Input>
+<Dk-Input placeholder="prefix-icon" prefix-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="suffix-icon" suffix-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="slot">
+    <template #prefix>
+        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+    </template>
+    <template #suffix>
+        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+    </template>
+</Dk-Input>
 ```
 
 :::
 
-## 4.前置/后置图标
+## 前后置标签
 
-`prepend-icon` 和 `append-icon` 属性可以在输入框前后添加图标
+`prepend` 和 `append` 插槽可以在输入框前后添加标签，
+`prepend-icon` 和 `append-icon` 属性可以在输入框前后添加图标，
+`prepend-text` 和 `append-text` 属性可以在输入框前后添加文本，
+> 注意⚠️：优先级顺序为：prepend > prepend-icon > prepend-text
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" prepend-icon="IconFile" append-icon="IconCloudSearch"></Dk-Input>
+<Dk-Input placeholder="prepend" prepend>
+    <template #prepend>
+        <div>https://</div>
+    </template>
+</Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="append" append>
+    <template #append>
+        <div>.com</div>
+    </template>
+</Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="prepend-icon" prepend-icon="dk-icon-search"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="append-icon" append-icon="dk-icon-search"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" prepend-icon="IconFile" append-icon="IconCloudSearch" ></Dk-Input>
+<Dk-Input placeholder="prepend" prepend>
+    <template #prepend>
+        <div>https://</div>
+    </template>
+</Dk-Input>
+<Dk-Input placeholder="append" append>
+    <template #append>
+        <div>.com</div>
+    </template>
+</Dk-Input>
+<Dk-Input placeholder="prepend-icon" prepend-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="append-icon" append-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
+<Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
 ```
 
 :::
+
+## 文本域
+
+`type` 属性设置为 `textarea` 可以将输入框设置为文本域， `autosize` 属性可以自适应高度。
+
+::: module
+<template #code>
+<Dk-Input placeholder="请输入内容" type="textarea"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="请输入内容" type="textarea" autosize></Dk-Input>
+</template>
+
+```html
+<Dk-Input placeholder="请输入内容" type="textarea"></Dk-Input>
+<Dk-Input placeholder="请输入内容" type="textarea" autosize></Dk-Input>
+```
+
+:::
+
+## 数字输入框
+
+`type` 属性设置为 `number` 可以将输入框设置为数字输入框。
+
+::: module
+<template #code>
+<Dk-Input placeholder="请输入内容" type="number"></Dk-Input>
+</template>
+
+```html
+<Dk-Input placeholder="请输入内容" type="number"></Dk-Input>
+```
+
+:::
+
+## 密码输入框
+
+`type` 属性设置为 `password` 可以将输入框设置为密码输入框，`show-password` 属性可以显示密码切换按钮。
+
+::: module
+<template #code>
+<Dk-Input placeholder="请输入内容" type="password"></Dk-Input>
+<div style='margin-top: 10px;'></div>
+<Dk-Input placeholder="请输入内容" type="password" show-password></Dk-Input>
+</template>
+
+```html
+<Dk-Input placeholder="请输入内容" type="password"></Dk-Input>
+<Dk-Input placeholder="请输入内容" type="password" show-password></Dk-Input>
+```
+
+:::
+
+## 属性
+
+| 属性 | 说明 | 类型 | 可选值 | 默认值 | 
+| --- | --- | --- | --- | --- |
+| `type` | 类型 | `string` | `text` `textarea` `number` `password` `text` | `text` |
+| `placeholder` | 占位符 | `string` | - | - |
+| `disabled` | 禁用 | `boolean` | - | `false` |
+| `readonly` | 只读 | `boolean` | - | `false` |
+| `clearable` | 可清空 | `boolean` | - | `false` |
+| `show-password` | 显示密码切换按钮 | `boolean` | - | `false` |
+| `prefix-icon` | 输入框头部图标 | `string` | - | - |
+| `suffix-icon` | 输入框尾部图标 | `string` | - | - |
+| `prepend-icon` | 输入框前部图标 | `string` | - | - |
+| `append-icon` | 输入框后部图标 | `string` | - | - |
+| `prepend-text` | 输入框前部文本 | `string` | - | - |
+| `append-text` | 输入框后部文本 | `string` | - | - |
+| `autosize` | 自适应高度（只对textarea生效） | `boolean` | - | `false` |
+| `rows` | 输入框行数（只对textarea生效） | `number` | - | `1` |
+| `maxlength` | 输入框最大长度 | `number` | - | - |
+| `minlength` | 输入框最小长度 | `number` | - | - |
+<!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
+<!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
+<!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->
+<!-- | `step` | 输入框步长（只对number生效） | `number` | - | `1` | -->
+<!-- | `name` | 原生属性 | `string` | - | - | -->
+<!-- | `form` | 原生属性 | `string` | - | - | -->
+<!-- | `label` | 输入框标签 | `string` | - | - | -->
+<!-- | `label-width` | 输入框标签宽度 | `string` | - | - | -->
+
+

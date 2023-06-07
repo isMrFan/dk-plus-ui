@@ -30,6 +30,10 @@ export default defineComponent({
       
     }
 
+    const onFocus = (e: Event): void => {
+      console.log('onFocus', e);
+    }
+
     const isDisabled = ref(true)
     return {
       oncopy,
@@ -40,7 +44,8 @@ export default defineComponent({
       input,
       isDisabled,
       handlePendClick,
-      handleKeydown
+      handleKeydown,
+      onFocus
     }
   }
 })
@@ -62,18 +67,18 @@ export default defineComponent({
       </template>
     </dk-input> -->
 
-    <h4>长度</h4>
-    <dk-input placeholder="长度" maxlength="10" />
+    <!-- <h4>长度</h4>
+    <dk-input placeholder="长度" maxlength="10" @focus="onFocus" />
     <dk-input placeholder="长度" minlength="10" />
     <dk-input type="textarea" placeholder="长度" autosize minlength="4" maxlength="10" />
 
-    <!-- <h4>尺寸</h4>
+    <h4>尺寸</h4>
     <dk-input size="large" placeholder="large" />
     <dk-input size="medium" placeholder="medium" />
     <dk-input size="small" placeholder="small" />
-    <dk-input size="mini" placeholder="mini" /> -->
+    <dk-input size="mini" placeholder="mini" />
 
-    <!-- <h4>前后缀内容</h4>
+    <h4>前后缀内容</h4>
     <dk-input 
       v-model="msg" 
       clearable
@@ -96,16 +101,16 @@ export default defineComponent({
     </dk-input>
     {{ msg }} -->
 
-    <!-- <h4>文本域</h4>
-    <dk-input type="textarea" placeholder="文本域" autosize /> -->
+    <h4>文本域</h4>
+    <dk-input type="textarea" rows="10" readonly placeholder="文本域" autosize />
 
     <!-- <h4>数字框</h4>
-    <dk-input type="number" placeholder="数字框" /> -->
+    <dk-input type="number" placeholder="数字框" />
 
-    <!-- <h4>密码框</h4>
-    <dk-input type="password" placeholder="密码框" show-password /> -->
+    <h4>密码框</h4>
+    <dk-input type="password" placeholder="密码框" show-password />
 
-    <!-- <h4>前后缀</h4>
+    <h4>前后缀</h4>
     <dk-input></dk-input>
     <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="IconShanchu1" />
     <dk-input clearable placeholder="prefix属性绑定形式" suffix-icon="IconShanchu1" />
@@ -116,12 +121,12 @@ export default defineComponent({
       <template #suffix>
         <dk-icon icon="IconShanchu1" />
       </template>
-    </dk-input> -->
+    </dk-input>
 
-    <!-- <h4>禁用</h4>
-    <dk-input disabled placeholder="禁用" /> -->
+    <h4>禁用</h4>
+    <dk-input disabled placeholder="禁用" />
 
-    <!-- <h4>清空</h4>
+    <h4>清空</h4>
     <dk-input v-model="msg" clearable placeholder="清空" />
     {{ msg }} -->
 
