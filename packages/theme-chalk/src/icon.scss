@@ -1,6 +1,6 @@
 @use './mixins/mixin.scss' as *;
 
-.#{$namespace}-icon{
+.#{$namespace}-icon {
   width: 1em;
   height: 1em;
   line-height: 1em;
@@ -11,4 +11,5 @@
   vertical-align: middle;
   color: var(--icon-color);
   font-size: var(--icon-size, 20px);
+  margin-top: -3px;
 }

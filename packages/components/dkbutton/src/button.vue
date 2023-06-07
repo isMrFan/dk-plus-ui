@@ -14,12 +14,13 @@
     props: dkButtonProps,
     setup(Props) {
       const dkBoxButton = ref<HTMLButtonElement>()
-      const { personalityType} = toRefs(Props)
-      const { classList, styleList,personaClassList,personalityStylist } = getButton(Props)
+      const { personalityType, icon, afterIcon, circle } = toRefs(Props)
+      const { classList, styleList, personaClassList, personalityStylist } =
+        getButton(Props)
       const { getRun } = getReturn()
       const { getType } = getGlobal(Props)
       const EventClick = (evt: MouseEvent): void => {
-        const { disabled, ripples} = toRefs(Props)
+        const { disabled, ripples } = toRefs(Props)
         if (disabled.value) {
           evt.preventDefault()
           return
@@ -49,7 +50,10 @@
         styleList,
         personaClassList,
         personalityStylist,
-        personalityType
+        personalityType,
+        icon,
+        afterIcon,
+        circle
       }
     }
   })
@@ -63,12 +67,24 @@
     <template v-if="link || text">
       <div
         v-if="text"
-        :class="[classList, text ? 'dk-button-text' : '']"
+        :class="[
+          classList,
+          text ? 'dk-button-text' : '',
+          icon || afterIcon ? 'dk-button_flex' : ''
+        ]"
         :style="[styleList]"
       >
-        <slot name="icon"></slot>
-        <slot></slot>
-        <slot name="afterIcon"></slot>
+        <slot v-if="icon === '' || icon === null" name="icon"></slot>
+        <div v-else :class="icon ? 'dk-button_slot_left' : ''">
+          <dk-icon :icon="icon"></dk-icon>
+        </div>
+        <div>
+          <slot></slot>
+        </div>
+        <slot v-if="afterIcon === '' || afterIcon === null" name="afterIcon"></slot>
+        <div v-else :class="afterIcon ? 'dk-button_slot_right' : ''">
+          <dk-icon :icon="afterIcon"></dk-icon>
+        </div>
       </div>
       <div
         v-if="link"
@@ -76,11 +92,19 @@
         :style="styleList"
       >
         <a :href="href" tabindex="0" :target="target">
-          <span>
-            <slot name="icon" />
-            <slot></slot>
-            <slot name="afterIcon" />
-          </span>
+          <div :class="icon || afterIcon ? 'dk-button_flex' : ''">
+            <slot v-if="icon === '' || icon === null" name="icon"></slot>
+            <div v-else :class="icon ? 'dk-button_slot_left' : ''">
+              <dk-icon :icon="icon"></dk-icon>
+            </div>
+            <div>
+              <slot></slot>
+            </div>
+            <slot v-if="afterIcon === '' || afterIcon === null" name="afterIcon"></slot>
+            <div v-else :class="afterIcon ? 'dk-button_slot_right' : ''">
+              <dk-icon :icon="afterIcon"></dk-icon>
+            </div>
+          </div>
         </a>
       </div>
     </template>
@@ -93,21 +117,28 @@
         role="button"
         :disabled="disabled"
       >
-        <slot name="icon" />
-        <slot></slot>
-        <slot name="afterIcon" />
+        <div :class="icon || afterIcon ? 'dk-button_flex' : ''">
+          <slot v-if="icon === '' || icon === null" name="icon"></slot>
+          <div v-else :class="icon && !circle ? 'dk-button_slot_left' : ''">
+            <dk-icon :icon="icon"></dk-icon>
+          </div>
+          <div>
+            <slot></slot>
+          </div>
+          <slot v-if="afterIcon === '' || afterIcon === null" name="afterIcon"></slot>
+          <div v-else :class="afterIcon && !circle ? 'dk-button_slot_right' : ''">
+            <dk-icon :icon="afterIcon"></dk-icon>
+          </div>
+        </div>
       </button>
-      <button 
-        v-else ref="dkBoxButton" 
-        :class="['dk-button-personality',personaClassList]" 
+      <button
+        v-else
+        ref="dkBoxButton"
+        :class="['dk-button-personality', personaClassList]"
         :style="personalityStylist"
-        role="button" 
-      > 
-        <span
-          v-if="
-            personalityType==='shine'||
-              personalityType==='flatBtn'"
-        >
+        role="button"
+      >
+        <span v-if="personalityType === 'shine' || personalityType === 'flatBtn'">
           <slot name="icon" />
           <slot></slot>
           <slot name="afterIcon" />

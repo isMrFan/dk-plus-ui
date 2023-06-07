@@ -257,8 +257,23 @@
 
 :::
 
-## 9.图标按钮
+## 9.带有Icon的按钮
 
+`icon` 可以配置按钮的图标这个为左侧图标
+
+`afterIcon` 可以配置按钮的右侧图标
+
+::: module
+<template #code>
+<h6>1.文本图标</h6>
+<dk-button text :icon="'IconShanchu1'" :after-icon="'IconShanchu1'">默认</dk-button>
+</template>
+
+```html
+<Dk-Button size="large">默认</Dk-Button>
+```
+
+:::
 
 ## Button Attributes V0.0.1 版本
 

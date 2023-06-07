@@ -368,7 +368,7 @@
             data.customizeType8 = !data.customizeType8
           } else if (type === 9) {
             data.customizeType9 = !data.customizeType9
-          }else if (type === 10) {
+          } else if (type === 10) {
             data.customizeType10 = !data.customizeType10
           }
         },
@@ -401,7 +401,9 @@
       <div>
         <h3>1.文本按钮</h3>
         <div class="dkButton_DK_wb">
-          <dk-button text> 默认</dk-button>
+          <dk-button text :icon="'IconShanchu1'" :after-icon="'IconShanchu1'">
+            默认
+          </dk-button>
           <dk-button text type="primary"> 基础(primary) </dk-button>
           <dk-button text type="success"> 成功(success) </dk-button>
           <dk-button text type="info"> 信息(info) </dk-button>
@@ -571,7 +573,13 @@
       <div>
         <h3>2.A标签超文本标签</h3>
         <div class="dkButton_DK_wb">
-          <dk-button link :href="'https://m.baidu.com/'" type="primary">
+          <dk-button
+            link
+            :href="'https://m.baidu.com/'"
+            :icon="'IconShanchu1'"
+            :after-icon="'IconShanchu1'"
+            type="primary"
+          >
             默认https://m.baidu.com/
           </dk-button>
           <dk-button
@@ -631,8 +639,10 @@
       <div>
         <h3>3.块元素按钮</h3>
         <div class="dkButton_DK_wb">
-          <dk-button> 默认</dk-button>
-          <dk-button type="default">default</dk-button>
+          <dk-button :icon="'IconShanchu1'" :after-icon="'IconShanchu1'"> 默认</dk-button>
+          <dk-button :icon="'IconShanchu1'" :after-icon="'IconShanchu1'" type="default">
+            default
+          </dk-button>
           <dk-button type="primary">primary</dk-button>
           <dk-button type="success">success</dk-button>
           <dk-button type="info">info</dk-button>
@@ -672,8 +682,9 @@
       <div>
         <h3>4.圆按钮</h3>
         <div class="dkButton_DK_wb">
-          <dk-button circle size="large">范</dk-button>
-          <dk-button circle type="primary" size="medium">先</dk-button>
+          <dk-button circle :icon="'IconShanchu1'" size="large"></dk-button>
+          <dk-button circle :icon="'IconShanchu1'" type="primary" size="medium">
+          </dk-button>
           <dk-button circle type="success" size="small">生</dk-button>
           <dk-button circle type="info" size="mini">英</dk-button>
           <dk-button circle type="warning" size="small" disabled>杰</dk-button>
@@ -800,7 +811,11 @@
           </dk-shadow>
         </div>
         <div v-show="customizeType10" class="code_show">
-          <div v-for="(item, ind) in customizeTypeList10" :key="ind" class="index_Dk_list">
+          <div
+            v-for="(item, ind) in customizeTypeList10"
+            :key="ind"
+            class="index_Dk_list"
+          >
             <div class="index_Dk_code" style="margin-top: 5px; width: 90%">
               <highlightjs language="javascript" :code="item.name"></highlightjs>
               <span class="fuzhi" @click="oncopy(item.name)">复制代码</span>
@@ -816,6 +831,7 @@
       </div>
       <div>
         <h3>7.1 按钮图标 icon</h3>
+        <div class="dkButton_DK_wb">asdas</div>
       </div>
       <div>
         <h3>8.个性按钮</h3>
@@ -823,7 +839,9 @@
         <p>disabled(是否禁用)</p>
         <p>personalitySize(个性按钮大小):同传统按钮配置相同</p>
         <p>personalityBorderColor:(自定义BORder) 支持数组['上','右','下','左']</p>
-        <p>personalityBorderHoveColor:(自定义hoverBORder) 支持数组['上','右','下','左']</p>
+        <p>
+          personalityBorderHoveColor:(自定义hoverBORder) 支持数组['上','右','下','左']
+        </p>
         <p>personalityBgColor:(自定义背景色)</p>
         <p>personalityBgHoveColor:(自定义hover背景色)</p>
         <p>personalityFontColor:(自定字体颜色)</p>
@@ -832,119 +850,91 @@
         <p>personalityBoxShadowHove:(自定义阴影悬停配置)</p>
         <h4>8.1 BI缺角渐变按钮(BiCurvedA)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="BiCurvedA" 
-            personality-size="large"
-          >
+          <dk-button personality personality-type="BiCurvedA" personality-size="large">
             BI缺角渐变按钮(BiCurvedA)
           </dk-button>
         </div>
-        <h4>8.2  多重阴影按钮(multiple)</h4>
+        <h4>8.2 多重阴影按钮(multiple)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="multiple" 
-            personality-size="large"
-          >
+          <dk-button personality personality-type="multiple" personality-size="large">
             多重阴影按钮(multiple)
           </dk-button>
-          <dk-button 
-            personality 
-            personality-type="multiple" 
+          <dk-button
+            personality
+            personality-type="multiple"
             loading
-            :personality-border-color="['red','red','red','red']"
-            :personality-border-hove-color="['blue','blue','blue','blue']"
+            :personality-border-color="['red', 'red', 'red', 'red']"
+            :personality-border-hove-color="['blue', 'blue', 'blue', 'blue']"
             personality-font-color="red"
             personality-box-shadow-hove="red 5px 5px, red 10px 10px,red 50px 50px"
           >
             多重阴影按钮(multiple)
           </dk-button>
         </div>
-        <h4>8.3  收缩动画按钮(stretchBtn)</h4>
+        <h4>8.3 收缩动画按钮(stretchBtn)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="stretchBtn" 
-            personality-size="medium"
-          >
+          <dk-button personality personality-type="stretchBtn" personality-size="medium">
             基础信息(stretchBtn)
           </dk-button>
         </div>
-        <h4>8.4  闪亮 发光(shine)</h4>
+        <h4>8.4 闪亮 发光(shine)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="shine" 
-            personality-size="medium"
-          >
+          <dk-button personality personality-type="shine" personality-size="medium">
             基础信息(shine)
           </dk-button>
-          <dk-button 
-            personality 
-            personality-type="shine" 
-            personality-bg-color="#38ef7d" 
-            personality-bg-hove-color="red" 
+          <dk-button
+            personality
+            personality-type="shine"
+            personality-bg-color="#38ef7d"
+            personality-bg-hove-color="red"
             personality-size="medium"
           >
             自定义基础信息(shine)
           </dk-button>
         </div>
-        <h4>8.5  银光倒影(SilverReflection)</h4>
+        <h4>8.5 银光倒影(SilverReflection)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="SilverReflection" 
+          <dk-button
+            personality
+            personality-type="SilverReflection"
             personality-size="medium"
           >
             银光倒影(SilverReflection)
           </dk-button>
         </div>
-        <h4 style="margin-top: 50px;">8.6  扁平按钮(flatBtn)</h4>
+        <h4 style="margin-top: 50px">8.6 扁平按钮(flatBtn)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="flatBtn" 
-            personality-size="medium"
-          >
+          <dk-button personality personality-type="flatBtn" personality-size="medium">
             扁平按钮(flatBtn)
           </dk-button>
         </div>
-        <h4>8.7  双展开按钮(TurnOpen)</h4>
+        <h4>8.7 双展开按钮(TurnOpen)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="TurnOpen" 
-            personality-size="medium"
-          >
+          <dk-button personality personality-type="TurnOpen" personality-size="medium">
             双展开按钮(TurnOpen)
           </dk-button>
         </div>
-        <h4>8.8  灯光按钮(lightBtn)</h4>
+        <h4>8.8 灯光按钮(lightBtn)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="lightBtn" 
-            personality-size="medium"
-          >
+          <dk-button personality personality-type="lightBtn" personality-size="medium">
             灯光按钮(lightBtn)
           </dk-button>
         </div>
-        <h4>8.9  立体嵌入式按钮(stereoscopic)</h4>
+        <h4>8.9 立体嵌入式按钮(stereoscopic)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="stereoscopic" 
+          <dk-button
+            personality
+            personality-type="stereoscopic"
             personality-size="medium"
           >
             立体嵌入式按钮(lightBtn)
           </dk-button>
         </div>
-        <h4>8.10  双展开按钮2(TurnOpenBorder)</h4>
+        <h4>8.10 双展开按钮2(TurnOpenBorder)</h4>
         <div class="dkButton_DK_wb">
-          <dk-button 
-            personality 
-            personality-type="TurnOpenBorder" 
+          <dk-button
+            personality
+            personality-type="TurnOpenBorder"
             personality-size="medium"
           >
             双展开按钮2(TurnOpenBorder)

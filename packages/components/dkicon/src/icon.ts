@@ -1,9 +1,8 @@
 import type { ExtractPropTypes } from 'vue'
-import { setObjectProps,setStringNumberProps,setStringProp } from '../../_utils'
-import type { DkIcon } from '../../_interface'
+import { setStringNumberProps, setStringProp } from '../../_utils'
 export const iconProps = {
-  icon:setObjectProps<DkIcon>(),
+  icon: setStringProp(),
   size: setStringNumberProps(),
-  color:setStringProp()
+  color: setStringProp()
 } as const
 export type IconProps = ExtractPropTypes<typeof iconProps>

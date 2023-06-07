@@ -14,5 +14,6 @@
     "maxlength",
     "modelvalue",
     "Ying"
-  ]
+  ],
+  "vue.codeActions.enabled": false
 }
