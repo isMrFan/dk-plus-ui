@@ -62,11 +62,16 @@ export default defineComponent({
       </template>
     </dk-input> -->
 
-    <h4>尺寸</h4>
+    <h4>长度</h4>
+    <dk-input placeholder="长度" maxlength="10" />
+    <dk-input placeholder="长度" minlength="10" />
+    <dk-input type="textarea" placeholder="长度" autosize minlength="4" maxlength="10" />
+
+    <!-- <h4>尺寸</h4>
     <dk-input size="large" placeholder="large" />
     <dk-input size="medium" placeholder="medium" />
     <dk-input size="small" placeholder="small" />
-    <dk-input size="mini" placeholder="mini" />
+    <dk-input size="mini" placeholder="mini" /> -->
 
     <!-- <h4>前后缀内容</h4>
     <dk-input 

@@ -14,7 +14,7 @@ export interface UseInputProps {
   prefixIcon: string
   suffixIcon: string
   rows: number | string
-  autosize: boolean | object
+  autosize: boolean
   autocomplete: string
 }
 
@@ -110,6 +110,8 @@ export interface propDataModel {
   inputType: dkInputType
   /** 后缀图标 */
   suffixIcon: string
+  maxlengthProp: number | string
+  minlengthProp: number | string
 }
 
 export interface dataType {
@@ -141,6 +143,7 @@ export interface dataType {
   isAppendIcon: boolean
   /** 是否有后缀内容 */
   isAppend: boolean
+  isLength: boolean
 }
 
 export interface pendType {
