@@ -61,13 +61,13 @@ export default defineComponent({
     </Dk-Input>
     <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button> -->
 
-    <!-- <dk-input clearable placeholder="prefix插槽形式">
+    <dk-input clearable placeholder="prefix插槽形式">
       <template #prefix>
         <dk-icon class="icon-shanchu1" />
       </template>
-    </dk-input> -->
+    </dk-input>
 
-    <!-- <h4>长度</h4>
+    <h4>长度</h4>
     <dk-input placeholder="长度" maxlength="10" @focus="onFocus" />
     <dk-input placeholder="长度" minlength="10" />
     <dk-input type="textarea" placeholder="长度" autosize minlength="4" maxlength="10" />
@@ -99,12 +99,12 @@ export default defineComponent({
         <dk-icon icon="icon-file" />
       </template>
     </dk-input>
-    {{ msg }} -->
+    {{ msg }}
 
     <h4>文本域</h4>
     <dk-input type="textarea" rows="10" readonly placeholder="文本域" autosize />
 
-    <!-- <h4>数字框</h4>
+    <h4>数字框</h4>
     <dk-input type="number" placeholder="数字框" />
 
     <h4>密码框</h4>
@@ -128,7 +128,7 @@ export default defineComponent({
 
     <h4>清空</h4>
     <dk-input v-model="msg" clearable placeholder="清空" />
-    {{ msg }} -->
+    {{ msg }}
 
     <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
     <!-- <div class="box" v-for="item in htmlList" :key="item.title">
