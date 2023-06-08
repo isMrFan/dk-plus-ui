@@ -485,6 +485,12 @@
 | `personalityBoxShadowHove` | BoxShadow悬停配置 | string | 例: personality-box-shadow-hove="red 5px 5px, red 10px 10px,red 50px 50px" | - - |
 | `personalityReflect` | 倒影效果 | string | 例: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)) | - - |
 
+## Slots(插槽)
+
+| 名称 | 说明 |
+| ---  | --- |
+| icon | icon图标前置 |
+| afterIcon | icon图标后置 |
 ## Contributors
 
 <div style='display: flex;'>
