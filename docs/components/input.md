@@ -200,4 +200,14 @@
 <!-- | `label` | 输入框标签 | `string` | - | - | -->
 <!-- | `label-width` | 输入框标签宽度 | `string` | - | - | -->
 
+## 事件
+
+| 事件名称 | 说明 | 回调参数 |
+| --- | --- | --- |
+| `focus` | 输入框聚焦时触发 | `event: Event` |
+| `blur` | 输入框失焦时触发 | `event: Event` |
+| `clear` | 点击清空按钮时触发 | - |
+| `enter` | 按下回车键时触发 | `event: Event` |
+<!-- | `change` | 输入框内容变化时触发 | `value: string` | -->
+
 
