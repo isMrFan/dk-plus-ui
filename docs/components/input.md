@@ -191,6 +191,7 @@
 | `rows` | 输入框行数（只对textarea生效） | `number` | - | `1` |
 | `maxlength` | 输入框最大长度 | `number` | - | - |
 | `minlength` | 输入框最小长度 | `number` | - | - | 
+| `show-length` | 是否显示输入框长度 | `boolean` | - | `false` |
 <!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
 <!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
 <!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->
