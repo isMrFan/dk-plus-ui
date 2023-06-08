@@ -55,8 +55,8 @@
       }
       cursor: pointer;
       display: flex;
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border: 1px solid #eee;
       margin: 8px;
       flex-direction: column;

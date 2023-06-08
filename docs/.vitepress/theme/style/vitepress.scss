@@ -1,11 +1,14 @@
 @import './global.scss';
+
 .VPNavDark {
   border-bottom: 1px solid #3a3a3a;
 }
+
 // 菜单栏
 .VPSidebar.open {
   z-index: 99999;
 }
+
 // .content-body {
 //   background-color: transparent !important;
 //   background-image: radial-gradient(transparent 1px, #fff 1px) !important;
@@ -15,6 +18,7 @@
 .language-ts {
   background-color: #fff;
 }
+
 // 滚动条
 ::-webkit-scrollbar {
   width: 7px;
@@ -37,9 +41,11 @@
   // content: url('../assets/image/logo.png');
   height: auto !important;
 }
+
 .VPNavBarTitle a {
   color: $theme-color !important;
 }
+
 .VPHome {
   // margin: 0;
   padding: 0 !important;
@@ -66,4 +72,16 @@
     font-size: 15px;
     border-bottom: 1px solid #eee;
   }
+}
+
+.vp-doc table {
+  tbody {
+    tr {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 100% !important;
 }

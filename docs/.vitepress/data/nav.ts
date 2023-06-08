@@ -13,7 +13,7 @@ export const nav = [
   {
     text: '基础组件',
     activeMatch: '^/components/',
-    link: '/components/button'
+    link: '/components/icon'
   },
   {
     text: version,

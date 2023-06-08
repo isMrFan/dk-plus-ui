@@ -20,8 +20,8 @@
       const { getRun } = getReturn()
       const { getType } = getGlobal(Props)
       const EventClick = (evt: MouseEvent): void => {
-        const { disabled, ripples } = toRefs(Props)
-        if (disabled.value) {
+        const { disabled, ripples, loading } = toRefs(Props)
+        if (disabled.value || loading.value) {
           evt.preventDefault()
           return
         }
@@ -75,14 +75,19 @@
         :style="[styleList]"
       >
         <slot v-if="icon === '' || icon === null" name="icon"></slot>
-        <div v-else :class="icon ? 'dk-button_slot_left' : ''">
+        <div v-else :class="[icon ? 'dk-button_slot_left' : '']">
           <dk-icon :icon="icon"></dk-icon>
         </div>
         <div>
+          <dk-icon
+            v-if="loading"
+            :class="loading ? 'dk-button_rotate' : ''"
+            :icon="icon ? icon : 'IconRefresh'"
+          ></dk-icon>
           <slot></slot>
         </div>
         <slot v-if="afterIcon === '' || afterIcon === null" name="afterIcon"></slot>
-        <div v-else :class="afterIcon ? 'dk-button_slot_right' : ''">
+        <div v-else :class="[afterIcon ? 'dk-button_slot_right' : '']">
           <dk-icon :icon="afterIcon"></dk-icon>
         </div>
       </div>
@@ -94,14 +99,20 @@
         <a :href="href" tabindex="0" :target="target">
           <div :class="icon || afterIcon ? 'dk-button_flex' : ''">
             <slot v-if="icon === '' || icon === null" name="icon"></slot>
-            <div v-else :class="icon ? 'dk-button_slot_left' : ''">
+            <div v-else :class="[icon ? 'dk-button_slot_left' : '']">
+              <dk-icon v-if="loading" :icon="icon ? icon : 'IconRefresh'"></dk-icon>
               <dk-icon :icon="icon"></dk-icon>
             </div>
             <div>
+              <dk-icon
+                v-if="loading"
+                :class="loading ? 'dk-button_rotate' : ''"
+                :icon="icon ? icon : 'IconRefresh'"
+              ></dk-icon>
               <slot></slot>
             </div>
             <slot v-if="afterIcon === '' || afterIcon === null" name="afterIcon"></slot>
-            <div v-else :class="afterIcon ? 'dk-button_slot_right' : ''">
+            <div v-else :class="[afterIcon ? 'dk-button_slot_right' : '']">
               <dk-icon :icon="afterIcon"></dk-icon>
             </div>
           </div>
@@ -123,6 +134,11 @@
             <dk-icon :icon="icon"></dk-icon>
           </div>
           <div>
+            <dk-icon
+              v-if="loading"
+              :class="loading ? 'dk-button_rotate' : ''"
+              :icon="icon ? icon : 'IconRefresh'"
+            ></dk-icon>
             <slot></slot>
           </div>
           <slot v-if="afterIcon === '' || afterIcon === null" name="afterIcon"></slot>

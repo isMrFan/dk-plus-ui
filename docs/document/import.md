@@ -9,7 +9,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import dkPlus from 'dk-plus'
-import '@dk-plus/theme-chalk/src/index.scss'
+import 'dk-plus/theme-chalk/index.css'
 
 createApp(App).use(FightingDesign).mount('#app')
 ```
@@ -42,7 +42,7 @@ createApp(App).use(FButton).use(FCard).mount('#app')
 <head>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/dk-plus/dist/theme-chalk/index.css"
+    href="https://cdn.jsdelivr.net/npm/dk-plus/theme-chalk/index.css"
   />
 </head>
 
