@@ -55,9 +55,9 @@
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 | --- | --- | --- | --- | --- |
-| color | icon 颜色 | string | --- | --- |
-| size | icon 大小 | string / number | --- | --- |
-| icon | icon 内容 | string | --- | --- |
+| `color` | icon 颜色 | string | --- | --- |
+| `size` | icon 大小 | string / number | --- | --- |
+| `icon` | icon 内容 | <a href='/components/icon.html#_1-基本使用'>IconType</a> | --- | --- |
 
 ## Slots(插槽)
 
@@ -83,4 +83,3 @@
   const svgListLength=Object.keys(svgList).length
   const expose = { IconWeiXin }
 </script>
-

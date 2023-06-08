@@ -400,6 +400,7 @@
     <div class="dkButton_DK_csy">
       <div>
         <h3>1.文本按钮</h3>
+        <dk-button loading> 加载中 </dk-button>
         <div class="dkButton_DK_wb">
           <dk-button text :icon="'IconShanchu1'" :after-icon="'IconShanchu1'">
             默认

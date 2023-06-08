@@ -1,4 +1,4 @@
-import { version } from '../../../npm/package.json'
+import { version } from '../../../packages/dk-plus/package.json'
 /**
  * 顶部导航栏菜单
  *
@@ -13,7 +13,7 @@ export const nav = [
   {
     text: '基础组件',
     activeMatch: '^/components/',
-    link: '/components/button'
+    link: '/components/icon'
   },
   {
     text: version,

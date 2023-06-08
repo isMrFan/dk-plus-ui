@@ -129,7 +129,7 @@ export const dkButtonProps = {
   /**
    * @name onClick
    * @param { Function }  点击按钮事件回调
-   * @returns 按钮阴影效果
+   * @returns 点击事件
    */
   onClick: setFunction<MouseEventType>(),
   /**
@@ -199,7 +199,7 @@ export const dkButtonProps = {
    * @param { string }  [medium] 中
    * @param { string }  [small] 小
    * @param { string }  [mini] 迷你
-   * @returns 按钮类型 是否为文本按钮(默认值:'large')
+   * @returns 按钮类型大小(默认值:'large')
    */
   personalitySize: setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
     return DK_SIZE.includes(value)

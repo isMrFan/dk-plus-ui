@@ -1,6 +1,6 @@
 {
   "name": "dk-plus",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "DK-PLUS",
   "keywords": [
     "vue3",
@@ -11,13 +11,13 @@
     "components",
     "ui"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "index.js",
+  "module": "index.js",
   "types": "es/index.d.ts",
   "exports": {
     ".": {
-      "import": "./es/index.js",
-      "require": "./lib/index.js",
+      "import": "./index.js",
+      "require": "./index.js",
       "types": "./es/index.d.ts"
     },
     "./theme-chalk": "./theme-chalk/",

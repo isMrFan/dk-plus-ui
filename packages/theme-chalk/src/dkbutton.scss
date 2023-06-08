@@ -19,7 +19,8 @@
   transition: all 0.2s;
 
   //禁用状态
-  &_disabled {
+  &_disabled,
+  &_loading {
     opacity: 0.5;
     pointer-events: none;
   }
@@ -198,4 +199,18 @@
   height: inherit;
   padding-left: 2px;
   box-sizing: border-box;
+}
+
+.#{$namespace}-button_rotate {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+}
+
+  to {
+    transform: rotate(360deg);
+  }
 }
