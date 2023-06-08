@@ -113,6 +113,8 @@ export const dkInputProps = {
   /** 行数 */
   rows: setStringProp() || setNumberProps(),
   maxRows: setStringProp() || setNumberProps(),
-  autosize: setBooleanProps() || setObjectProps()
+  autosize: setBooleanProps() || setObjectProps(),
+  /** 是否显示字数统计 */
+  showLength: setBooleanProps()
 } as const
 export type DkInputProps = ExtractPropTypes<typeof dkInputProps>

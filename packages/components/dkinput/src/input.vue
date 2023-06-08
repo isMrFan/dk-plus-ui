@@ -50,7 +50,8 @@
         minlengthProp: props.minlength,
         autosizeProp: props.autosize,
         rowsProp: props.rows,
-        readonlyProp: props.readonly
+        readonlyProp: props.readonly,
+        showLengthProp: props.showLength
       })
 
       const passwordShowOrHide = ref<Boolean>(false)
@@ -105,6 +106,16 @@
         return lengthLimit
       }
 
+      const getshowLengthProp = (): boolean => {
+        let result = false
+        const isTextarea = propData.inputType === 'textarea'
+        const isText = propData.inputType === 'text'
+        const textOrTextarea = getBooleanOr([isTextarea, isText])
+        const isMaxlength = !propData.maxlengthProp
+        result = getBooleanAnd([textOrTextarea, isMaxlength])
+        return result
+      }
+
       const data = reactive<dataType>({
         inputType: verifyInputType(),
         isPrepend: getBooleanOr([
@@ -128,7 +139,8 @@
         isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
         isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
         isLength: isShowLength(),
-        rows: propData.rowsProp || 2
+        rows: propData.rowsProp || 2,
+        showLength: getshowLengthProp()
       })
 
       const isShowClear = computed((): boolean => getNull(inputValue.value))
@@ -151,6 +163,8 @@
       const prependClassList = (): string[] => ['dk-input_prepend', 'dk-input_pend']
 
       const appendClassList = (): string[] => ['dk-input_append', 'dk-input_pend']
+
+      const valueLength = ref<number>(0)
 
       const pendStyleLis = (): {} => getInput(props).pendStyleList
       const update = (e: Event): void => {
@@ -176,6 +190,11 @@
           const textarea = _ref.value as HTMLTextAreaElement
           textarea.style.height = 'auto'
           textarea.style.height = `${textarea.scrollHeight}px`
+        }
+
+        // length-count
+        if (data.showLength) {
+          valueLength.value = target.value.length
         }
 
         modelValueProp.value = target.value
@@ -311,7 +330,8 @@
         PrependIconEventClick,
         onKeydownEnter,
         lengthLimit,
-        isShowClear
+        isShowClear,
+        valueLength
       }
     }
   })
@@ -355,10 +375,17 @@
         @keydown.enter="onKeydownEnter"
       />
 
-      <!-- length -->
+      <!-- length-limit -->
       <template v-if="isLength">
         <span class="dk-input_length">
           {{ lengthLimit }}
+        </span>
+      </template>
+
+      <!-- length -->
+      <template v-if="showLength">
+        <span class="dk-input_length">
+          {{ valueLength }}
         </span>
       </template>
 

@@ -115,6 +115,8 @@ export interface propDataModel {
   autosizeProp: boolean
   rowsProp: number | string
   readonlyProp: boolean
+  /** 是否显示字符统计 - 只对 text textarea生效 */
+  showLengthProp: boolean
 }
 
 export interface dataType {
@@ -144,8 +146,12 @@ export interface dataType {
   isAppendIcon: boolean
   /** 是否有后缀内容 */
   isAppend: boolean
+  /** 是否显示长度限制 */
   isLength: boolean
+  /** 行 */
   rows: number | string
+  /** 是否显示字符统计 */
+  showLength: boolean
 }
 
 export interface pendType {

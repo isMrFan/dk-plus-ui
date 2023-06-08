@@ -253,6 +253,7 @@
   @include element((length, textarea_length)) {
     font-size: calc(var(--input-font-size) * 0.8);
     color: var(--input-info-color);
+    padding-left: 5px;
   }
   @include element('>readonly'){
     border-color: var(--input-border);
