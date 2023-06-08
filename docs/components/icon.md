@@ -83,4 +83,3 @@
   const svgListLength=Object.keys(svgList).length
   const expose = { IconWeiXin }
 </script>
-
