@@ -29,6 +29,9 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@algolia/client-search": "^4.17.0",
     "@rollup/plugin-commonjs": "^24.0.1",
