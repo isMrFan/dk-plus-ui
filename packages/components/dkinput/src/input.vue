@@ -106,7 +106,9 @@
         return lengthLimit
       }
 
-      const getshowLengthProp = (): boolean => {
+      const getShowLengthProp = (): boolean => {
+        const isShowLen = propData.showLengthProp;
+        if(!isShowLen) return false
         let result = false
         const isTextarea = propData.inputType === 'textarea'
         const isText = propData.inputType === 'text'
@@ -140,7 +142,7 @@
         isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
         isLength: isShowLength(),
         rows: propData.rowsProp || 2,
-        showLength: getshowLengthProp()
+        showLength: getShowLengthProp()
       })
 
       const isShowClear = computed((): boolean => getNull(inputValue.value))
@@ -429,10 +431,16 @@
   </div>
   <div v-else :class="classList" :style="styleList">
     <textarea ref="textarea" v-bind="textareaAttrs"></textarea>
-    <!-- length -->
+    <!-- length limit -->
     <template v-if="isLength">
       <span class="dk-input_textarea_length">
         {{ lengthLimit }}
+      </span>
+    </template>
+    <!-- length -->
+    <template v-if="showLength">
+      <span class="dk-input_length">
+        {{ valueLength }}
       </span>
     </template>
   </div>
