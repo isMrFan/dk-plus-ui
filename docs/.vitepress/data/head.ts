@@ -11,7 +11,7 @@ export const head: HeadConfig[] = [
     'link',
     {
       rel: 'icon',
-      href: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png'
+      href: 'https://oss.dk-plus-uis.com/dk-plus/images/24ICON.png'
     }
   ],
   /** 解决移动端点击输入框自动放大的问题 */
@@ -36,7 +36,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       name: 'author',
-      content: 'dk-plus CadWalaDers'
+      content: 'dk-plus dk-plus-ui'
     }
   ],
   /** OG 标题 */
@@ -76,7 +76,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:site_name',
-      content: 'cadwaladerss'
+      content: 'dk-plus-uis'
     }
   ]
 ] as HeadConfig[]

@@ -18,7 +18,7 @@
   import { friendlyList } from '../../json/friendlyLinks.json'
   import { useRouter } from 'vitepress'
   export default defineComponent({
-    name: 'home',
+    name: 'Home',
     setup() {
       const router = useRouter()
       const data = reactive({
@@ -27,19 +27,19 @@
           {
             id: 1,
             title: '简单',
-            img: 'https://oss.cadwaladerss.com/dk-plus/images/jiandan.png',
+            img: 'https://oss.dk-plus-uis.com/dk-plus/images/jiandan.png',
             message: '简单的API，简单的使用方式，让你的开发更加简单'
           },
           {
             id: 2,
             title: '轻量',
-            img: 'https://oss.cadwaladerss.com/dk-plus/images/qingliang.png',
+            img: 'https://oss.dk-plus-uis.com/dk-plus/images/qingliang.png',
             message: '轻量的组件，轻量的体积，让你的项目更加轻量'
           },
           {
             id: 3,
             title: '可靠',
-            img: 'https://oss.cadwaladerss.com/dk-plus/images/kekao.png',
+            img: 'https://oss.dk-plus-uis.com/dk-plus/images/kekao.png',
             message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
           }
         ],
@@ -115,7 +115,7 @@
           router.go('/document/install.html')
         },
         handleJoinUs() {
-          window.location.href = 'https://github.com/CadWalaDers/dk-ui'
+          window.location.href = 'https://github.com/dk-plus-ui/dk-ui'
         },
         showInfo() {
           router.go('/document/install.html')
@@ -153,9 +153,9 @@
             <p :class="isDark ? 'dark-text' : ''">DK-Plus</p>
             <span :class="isDark ? 'dark-text' : ''">一套基于 Vue3.0 的 UI 组件库</span>
             <dk-button
-              @click="handleStartClick"
               class="label--active_hover"
               type="primary"
+              @click="handleStartClick"
             >
               开始使用
               <dk-icon class="dk-icon-play" size="14"></dk-icon>
@@ -165,10 +165,10 @@
             <div class="contribution_title">贡献者</div>
             <div class="contribution_personnel">
               <div
-                :class="isDark ? 'btn-dark' : ''"
-                class="personnel"
                 v-for="(item, ind) in contributionList"
                 :key="ind"
+                :class="isDark ? 'btn-dark' : ''"
+                class="personnel"
               >
                 <a :href="item.avatar" target="_blank">
                   <img :src="item.imgUrl" :alt="item.name" />
@@ -176,16 +176,16 @@
               </div>
             </div>
             <div class="contribution_join">
-              <dk-button @click="handleJoinUs" size="small" type="success"
-                >加入其中</dk-button
-              >
+              <dk-button size="small" type="success" @click="handleJoinUs">
+                加入其中
+              </dk-button>
             </div>
           </div>
         </div>
         <div class="home_content_main_first_bill">
           <img
             :class="isDark ? 'home_content_main_first_bill_img--dark' : ''"
-            src="https://oss.cadwaladerss.com/dk-plus/images/home_index.svg"
+            src="https://oss.dk-plus-uis.com/dk-plus/images/home_index.svg"
             alt=""
           />
         </div>
@@ -194,21 +194,21 @@
         <div class="home_content_main_second_container">
           <div class="home_content_main_second_container_content">
             <div
+              v-for="item in infoList"
+              :key="item.id"
               :class="
                 isDark
                   ? 'home_content_main_second_container_content_item home_content_main_second_container_content_item--dark'
                   : 'home_content_main_second_container_content_item'
               "
-              v-for="item in infoList"
-              :key="item.id"
               @click="showInfo"
             >
               <img :src="item.img" alt="" />
               <h3 :class="isDark ? 'dark-text' : ''">{{ item.title }}</h3>
               <p :class="isDark ? 'dark-text' : ''">{{ item.message }}</p>
-              <dk-button :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''"
-                >查看详情</dk-button
-              >
+              <dk-button :class="isDark ? 'btn-dark-bg-border btn-dark-bg' : ''">
+                查看详情
+              </dk-button>
             </div>
           </div>
           <div
@@ -222,10 +222,10 @@
               <h3>友情链接</h3>
               <div class="home_content_main_second_container_info_friendly_list">
                 <div
-                  :class="isDark ? 'btn-dark' : ''"
-                  class="home_content_main_second_container_info_friendly_list_item"
                   v-for="(item, index) in friendlyLinks"
                   :key="index"
+                  :class="isDark ? 'btn-dark' : ''"
+                  class="home_content_main_second_container_info_friendly_list_item"
                 >
                   <a :href="item.logoSrc" target="_blank">
                     <img :src="item.logoImg" alt="" />
@@ -234,7 +234,10 @@
               </div>
             </div>
             <div class="home_content_main_second_container_info_empower">
-              <p>Copyright 2023 dk-plus <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2022007747号-2</a></p>
+              <p>
+                Copyright 2023 dk-plus
+                <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2022007747号-2</a>
+              </p>
             </div>
           </div>
         </div>

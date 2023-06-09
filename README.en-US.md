@@ -1,24 +1,24 @@
 <p align="center">
-   <img height="160px"  src="https://oss.cadwaladerss.com/dk-plus/images/isicon.jpg">
+   <img height="160px"  src="https://oss.dk-plus-uis.com/dk-plus/images/isicon.jpg">
 </p>
 <p align="center" style="margin-top:-50px">
   DK-plus can quickly build interactive interfaces in web applications based on Vue 3. With comprehensive components and convenient tools, you can easily create your project like a fish in water.
 </p>
 <p align="center">
-  English | <a href="https://github.com/CadWalaDers/dk-ui/blob/master/README.md">Chinese</a>
+  English | <a href="https://github.com/dk-plus-ui/dk-ui/blob/master/README.md">Chinese</a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/CadWalaDers/dk-ui/stargazers">
-    <img src="https://img.shields.io/github/stars/CadWalaDers/dk-ui" />
+  <a href="https://github.com/dk-plus-ui/dk-ui/stargazers">
+    <img src="https://img.shields.io/github/stars/dk-plus-ui/dk-ui" />
   </a>
   <a href="https://www.npmjs.com/package/dk-plus">
     <img src="https://badgen.net/npm/v/dk-plus" />
   </a>
-  <a href="https://cadwaladerss.com">
+  <a href="https://dk-plus-uis.com">
     <img src="https://img.shields.io/badge/dk--plus-Docs-blue" />
   </a>
-  <a href="https://github.com/CadWalaDers/dk-ui/blob/master/CUpdateLog.md">
+  <a href="https://github.com/dk-plus-ui/dk-ui/blob/master/CUpdateLog.md">
     <img src="https://img.shields.io/badge/dk--plus-CUpdateLog-blue" />
   </a>
 </p>
@@ -102,25 +102,25 @@ createApp(App).use(FightingDesign).mount('#app')
 
 ## 🐳 Related links
 
-- [Official documents](https://cadwaladerss.com)
+- [Official documents](https://dk-plus-uis.com)
 - [NPM](https://www.npmjs.com/package/dk-plus)
-- [CONTRIBUTING](https://github.com/CadWalaDers/dk-ui/blob/master/contribution.md)
-- [CHANGELOG](https://github.com/CadWalaDers/dk-ui/blob/master/CUpdateLog.md)
+- [CONTRIBUTING](https://github.com/dk-plus-ui/dk-ui/blob/master/contribution.md)
+- [CHANGELOG](https://github.com/dk-plus-ui/dk-ui/blob/master/CUpdateLog.md)
 
 ## 🌈 Join Fighting Design
 
 Add WeChat & please note the `Github` username
 
-<img height="200px"  src="https://oss.cadwaladerss.com/dk-plus/images/wxcrcoder.jpg">
+<img height="200px"  src="https://oss.dk-plus-uis.com/dk-plus/images/wxcrcoder.jpg">
 
 ## 💌 Special Thanks
 
-Thanks to [everyone](https://github.com/CadWalaDers/dk-ui/graphs/contributors)
+Thanks to [everyone](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)
 who has already contributed to `DK-plus`
-<a href="https://github.com/CadWalaDers/dk-ui/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
 </a>
 
 ## 💬 LICENSE
 
-[MIT](https://github.com/CadWalaDers/dk-ui/blob/master/LICENSE)
+[MIT](https://github.com/dk-plus-ui/dk-ui/blob/master/LICENSE)

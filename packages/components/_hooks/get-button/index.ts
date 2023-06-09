@@ -29,15 +29,15 @@ import type { DkButtonProps } from '../../dkbutton/src/props'
 
 export interface getButtonType {
   classList: ComputedRef<ClassListName>
-  styleList: ComputedRef<CSSProperties>,
-  personaClassList: ComputedRef<ClassListName>,
+  styleList: ComputedRef<CSSProperties>
+  personaClassList: ComputedRef<ClassListName>
   personalityStylist: ComputedRef<CSSProperties>
 }
 
 /**
  * @name getButton
  * @Time 2023年05月04日
- * @author CadWalaDers(范先生) <https://github.com/CadWalaDers>
+ * @author dk-plus-ui(范先生) <https://github.com/dk-plus-ui>
  * @description button组件方法封装
  * @return classList 传统按钮类名
  * @return styleList 传统按钮style
@@ -99,18 +99,14 @@ export const getButton = (props: DkButtonProps): getButtonType => {
    * @name classes
    * @description 进行类名的处理
    */
-  const { classes,stylesList } = getStyleList(params, 'button')
+  const { classes, stylesList } = getStyleList(params, 'button')
   const classList = classes([...defaultClassList], 'button')
   /**
    * @name styleList
    * @description 样式自定义处理
    */
   const styleList = computed((): CSSProperties => {
-    const { 
-      bgColor, fontColor, 
-      shadow, fontSize,
-      diffusionBgColor
-    } = props
+    const { bgColor, fontColor, shadow, fontSize, diffusionBgColor } = props
     let defaultStyle = {
       '--button-color': fontColor,
       '--button-hover': fontColor ? getColor(props.fontColor).getDodge(0.4) : null,
@@ -122,7 +118,7 @@ export const getButton = (props: DkButtonProps): getButtonType => {
         : null,
       '--button-hover-background': bgColor ? getColor(props.bgColor).getDodge(0.4) : null,
       '--button-background': bgColor || null,
-      '--button-ripples-BgColor':diffusionBgColor || null
+      '--button-ripples-BgColor': diffusionBgColor || null
     } as CSSProperties
     if (bgColor) {
       const bgStyle = {
@@ -138,11 +134,7 @@ export const getButton = (props: DkButtonProps): getButtonType => {
    * @name personaDefault
    * @description 默认个性按钮Class
    */
-    const personaDefault = [
-      'personalityType',
-      'personalitySize',
-      'disabled'
-    ]
+  const personaDefault = ['personalityType', 'personalitySize', 'disabled']
   /**
    * @name personaClassList
    * @description 个性按钮样Class名自定义处理
@@ -153,7 +145,7 @@ export const getButton = (props: DkButtonProps): getButtonType => {
    * @description 个性按钮样式自定义处理
    */
   const personalityStylist = computed((): CSSProperties => {
-    const { 
+    const {
       personalityBorderColor,
       personalityBorderHoveColor,
       personalityBgColor,
@@ -165,25 +157,25 @@ export const getButton = (props: DkButtonProps): getButtonType => {
       personalityReflect,
       fontSize
     } = props
-    const defaultStyle={
+    const defaultStyle = {
       '--border-color': stylesList(personalityBorderColor),
-      '--button-borderColor-top':stylesList(personalityBorderColor,0),
-      '--button-borderColor-right': stylesList(personalityBorderColor,1),
-      '--button-borderColor-bottom':stylesList(personalityBorderColor,2),
-      '--button-borderColor-left':stylesList(personalityBorderColor,3),
-      '--button-borderColor-top-hover':stylesList(personalityBorderHoveColor,0),
-      '--button-borderColor-right-hover':stylesList(personalityBorderHoveColor,1),
-      '--button-borderColor-bottom-hover':stylesList(personalityBorderHoveColor,2),
-      '--button-borderColor-left-hover':stylesList(personalityBorderHoveColor,3),
+      '--button-borderColor-top': stylesList(personalityBorderColor, 0),
+      '--button-borderColor-right': stylesList(personalityBorderColor, 1),
+      '--button-borderColor-bottom': stylesList(personalityBorderColor, 2),
+      '--button-borderColor-left': stylesList(personalityBorderColor, 3),
+      '--button-borderColor-top-hover': stylesList(personalityBorderHoveColor, 0),
+      '--button-borderColor-right-hover': stylesList(personalityBorderHoveColor, 1),
+      '--button-borderColor-bottom-hover': stylesList(personalityBorderHoveColor, 2),
+      '--button-borderColor-left-hover': stylesList(personalityBorderHoveColor, 3),
       '--button-bgColor': personalityBgColor || null,
       '--button-bgColor-hover': personalityBgHoveColor || null,
       '--button-FontColor': personalityFontColor || null,
-      '--button-FontColor-hover':personalityFontHoveColor || null,
-      '--button-box-shadow':personalityBoxShadow || null,
-      '--button-box-shadow-hover':personalityBoxShadowHove,
+      '--button-FontColor-hover': personalityFontHoveColor || null,
+      '--button-box-shadow': personalityBoxShadow || null,
+      '--button-box-shadow-hover': personalityBoxShadowHove,
       '--button-font-size': sizeChange(fontSize),
-      '--button-box-reflect':personalityReflect|| null
-    }as CSSProperties
+      '--button-box-reflect': personalityReflect || null
+    } as CSSProperties
     return defaultStyle
   })
   return {

@@ -2,8 +2,8 @@
 
 这是一个看起非常普通的按钮，但是它的功能却非常强大。
 
-- [源代码](https://github.com/CadWalaDers/dk-ui/tree/master/packages/components/dkbutton)
-- [文档编辑](https://github.com/CadWalaDers/dk-ui/blob/master/docs/components/button.md)
+- [源代码](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkbutton)
+- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/button.md)
 
 ## 1.基础按钮
 
@@ -522,10 +522,10 @@
 ## Contributors
 
 <div style='display: flex;'>
-  <a href="https://github.com/CadWalaDers" target="_blank" style='margin-right:10px;'>
+  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-right:10px;'>
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
   </a>
-  <a href="https://github.com/CadWalaDers" target="_blank">
+  <a href="https://github.com/dk-plus-ui" target="_blank">
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4"/>
   </a>
 </div>

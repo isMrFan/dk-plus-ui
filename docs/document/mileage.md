@@ -10,4 +10,4 @@
 
 ## 2023-03-20
 
-仓库正式开发日志 `2023-03-20`由[CadWalaDers(范先生)](https://github.com/CadWalaDers)第一次提交基础架构，就在这一天 `DK-plus` 诞生！
+仓库正式开发日志 `2023-03-20`由[dk-plus-ui(范先生)](https://github.com/dk-plus-ui)第一次提交基础架构，就在这一天 `DK-plus` 诞生！

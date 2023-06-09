@@ -60,7 +60,7 @@ const isDeFineConfig = defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/CadWalaDers/dk-ui'
+        link: 'https://github.com/dk-plus-ui/dk-ui'
       }
     ],
     /**
@@ -69,7 +69,7 @@ const isDeFineConfig = defineConfig({
      * @see logo https://vitepress.vuejs.org/config/theme-configs#logo
      */
     logo: {
-      src: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png',
+      src: 'https://oss.dk-plus-uis.com/dk-plus/images/24ICON.png',
       alt: 'dk-plus'
     },
     siteTitle: 'dk-plus'

@@ -12,15 +12,15 @@
 
 ## 💌 特别感谢
 
-感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/CadWalaDers/dk-ui/graphs/contributors)
+感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)
 
-<a href="https://github.com/CadWalaDers/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
 </a>
 
 ## 📃 协议许可证
 
-[MIT](https://github.com/CadWalaDers/dk-ui/blob/master/LICENSE)
+[MIT](https://github.com/dk-plus-ui/dk-ui/blob/master/LICENSE)
 
 ## 📈 下载量
 

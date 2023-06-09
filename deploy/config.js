@@ -57,13 +57,13 @@ const SERVER_LIST = {
   dosc: {
     id: 1,
     name: 'A-这是文档发布地址',
-    domain: 'https://cadwaladerss.com/',
+    domain: 'https://dk-plus-uis.com/',
     host: '', // 服务器ip
     port: 6098, // 登录服务器端口
     username: '', // 登录服务器的账号
     password: '', // 登录服务器的账号
-    path: '/www/wwwroot/cadwaladerss.com/dist', // 发布至静态服务器的项目路径
-    rootPath: '/www/wwwroot/cadwaladerss.com'
+    path: '/www/wwwroot/dk-plus-uis.com/dist', // 发布至静态服务器的项目路径
+    rootPath: '/www/wwwroot/dk-plus-uis.com'
   }
 }
 

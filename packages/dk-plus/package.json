@@ -34,14 +34,14 @@
     "theme-chalk/index.css",
     "theme-chalk/*.css"
   ],
-  "author": "cadwaladers <cadwaladers@vip.qq.com>",
+  "author": "dk-plus-ui <dk-plus-ui@vip.qq.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CadWalaDers/dk-ui"
+    "url": "https://github.com/dk-plus-ui/dk-ui"
   },
   "bugs": {
-    "url": "https://github.com/CadWalaDers/dk-ui/issues"
+    "url": "https://github.com/dk-plus-ui/dk-ui/issues"
   },
-  "homepage": "https://github.com/CadWalaDers/dk-ui"
+  "homepage": "https://github.com/dk-plus-ui/dk-ui"
 }

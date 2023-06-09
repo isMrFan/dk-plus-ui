@@ -23,7 +23,7 @@ Before contributing, you need to start the project so that you can better unders
 
 If you have completed the previous preparation, you can skip and start from here:
 
-- Fork [dk-plus](https://github.com/CadWalaDers/dk-ui)
+- Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
 
 - Clone your fork to your local machine.
 
@@ -101,7 +101,7 @@ Next, execute the command:
 
 ```shell
 # clone project
-git clone https://github.com/CadWalaDers/dk-ui.git
+git clone https://github.com/dk-plus-ui/dk-ui.git
 
 # Enter the project directory.
 cd dk-ui
@@ -131,7 +131,7 @@ We highly recommend using an editor. [Visual Studio Code](https://code.visualstu
 
 ## 🔓 Command descriptions.
 
-dk-plus has many built-in commands that can be viewed in the documentation.[package.json](https://github.com/CadWalaDers/dk-ui/blob/master/package.json) Below is a detailed description of each command:
+dk-plus has many built-in commands that can be viewed in the documentation.[package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) Below is a detailed description of each command:
 
 | Script Field | Corresponding Command | Command Description                         |
 | ------------ | --------------------- | ------------------------------------------- |
@@ -144,10 +144,10 @@ dk-plus has many built-in commands that can be viewed in the documentation.[pack
 
 ## 🚨 Development Standards
 
-The main source files are located in the [packages](https://github.com/CadWalaDers/dk-ui/tree/master/packages) directory, where each subdirectory has its own README.md file that provides specific instructions for that directory. For detailed development specifications for each module, please refer to the documentation below:
+The main source files are located in the [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) directory, where each subdirectory has its own README.md file that provides specific instructions for that directory. For detailed development specifications for each module, please refer to the documentation below:
 
-- [dk-plus-components](https://github.com/CadWalaDers/dk-ui/tree/master/packages/components/README.md)Creating a new component
-- [dk-plus-components](https://github.com/CadWalaDers/dk-ui/tree/master/packages/theme-chalk/README.md) themes
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md)Creating a new component
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) themes
 
 ## ⚠️ Submission specification
 
@@ -216,13 +216,13 @@ Add a description to your PR to let other developers know what changes you made 
 
 If you feel that dk-plus has helped you, you can invite the author for a cup of coffee to encourage you.
 
-<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
-<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
+<img width="200px" src="https://oss.dk-plus-uis.com/dk-plus/images/zfb.jpg" />
+<img width="200px" src="https://oss.dk-plus-uis.com/dk-plus/images/wx.jpg" />
 
 ## 💌 Thank you very much
 
-Thank you for all that has been done DK-plus [People who make contributions](https://github.com/CadWalaDers/dk-ui/graphs/contributors)！
+Thank you for all that has been done DK-plus [People who make contributions](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
 
-<a href="https://github.com/CadWalaDers/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=CadWalaDers/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
 </a>
