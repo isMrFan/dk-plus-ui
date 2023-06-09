@@ -31,7 +31,7 @@ import '@dk-plus/theme-chalk/dkbutton.css'
 import '@dk-plus/theme-chalk/dkshadow.css'
 import '@dk-plus/theme-chalk/icon.css'
 
-createApp(App).use(FButton).use(FCard).mount('#app')
+createApp(App).use(DkIcon).use(DkShadow).use(DkButton).mount('#app')
 ```
 
 ## 使用 UMD
