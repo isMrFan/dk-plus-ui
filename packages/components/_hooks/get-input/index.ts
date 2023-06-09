@@ -152,7 +152,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultWrapperClassList
    * @description 期望被转换的wrapper类名
    */
-  const defaultWrapperClassList = ['appendText', 'prependText']
+  const defaultWrapperClassList = ['appendText', 'prependText', 'readonly']
   const wrapperClassList = classes([...defaultWrapperClassList], 'dk-input-wrapper')
 
   /**

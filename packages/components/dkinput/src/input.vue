@@ -19,17 +19,20 @@
   export default defineComponent({
     name: 'DkInput',
     props: dkInputProps,
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'focus', 'blur'],
     setup(props, { slots, emit }) {
       const { getInputType } = getInputGlobal(props)
       const { type = getInputType() } = props
 
       const input = shallowRef<HTMLInputElement>()
-      const _ref = computed(() => input.value)
+      const textarea = shallowRef<HTMLTextAreaElement>()
+      const _ref = computed(() => input.value || textarea.value)
       const { styleList, wrapperClassList, innerClassList } = getInput(props)
       const inputClassList = computed(() => getInput(props).classList)
       const modelValueProp = ref<string | number>(props.modelValue)
       const isFocus = ref<boolean>(false)
+
+      const inputValue = ref<string | number>(props.modelValue)
 
       const propData = reactive<propDataModel>({
         prependText: props.prependText,
@@ -44,7 +47,11 @@
         prefixIcon: props.prefixIcon,
         suffixIcon: props.suffixIcon,
         maxlengthProp: props.maxlength,
-        minlengthProp: props.minlength
+        minlengthProp: props.minlength,
+        autosizeProp: props.autosize,
+        rowsProp: props.rows,
+        readonlyProp: props.readonly,
+        showLengthProp: props.showLength
       })
 
       const passwordShowOrHide = ref<Boolean>(false)
@@ -99,23 +106,44 @@
         return lengthLimit
       }
 
+      const getshowLengthProp = (): boolean => {
+        let result = false
+        const isTextarea = propData.inputType === 'textarea'
+        const isText = propData.inputType === 'text'
+        const textOrTextarea = getBooleanOr([isTextarea, isText])
+        const isMaxlength = !propData.maxlengthProp
+        result = getBooleanAnd([textOrTextarea, isMaxlength])
+        return result
+      }
+
       const data = reactive<dataType>({
         inputType: verifyInputType(),
-        isPrepend: getBooleanOr([getNull(propData.prependText), !!propData.prependIcon]),
+        isPrepend: getBooleanOr([
+          !!slots.prepend,
+          getNull(propData.prependText),
+          !!propData.prependIcon
+        ]),
         isPrependIcon: getBooleanAnd([getNull(propData.prependIcon), !slots.prepend]),
         isAppendIcon: getBooleanAnd([!slots.append, !!propData.appendIcon]),
-        isAppend: getBooleanOr([getNull(propData.appendText), !!propData.appendIcon]),
+        isAppend: getBooleanOr([
+          !!slots.append,
+          getNull(propData.appendText),
+          !!propData.appendIcon
+        ]),
         isPrefixIcon: getBooleanAnd([!!propData.prefixIcon, !slots.prefix]),
         isAppendTextLen: getNull(propData.appendText),
         isPrefix: getBooleanOr([!!slots.prefix, !!propData.prefixIcon]),
-        isShowClear: getNull(modelValueProp.value),
         isClear: getIsClear(),
         inputmode: type === 'number' ? 'numeric' : 'text',
         isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
         isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
         isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
-        isLength: isShowLength()
+        isLength: isShowLength(),
+        rows: propData.rowsProp || 2,
+        showLength: getshowLengthProp()
       })
+
+      const isShowClear = computed((): boolean => getNull(inputValue.value))
 
       let lengthLimit = ref<string>(getLength())
 
@@ -136,9 +164,14 @@
 
       const appendClassList = (): string[] => ['dk-input_append', 'dk-input_pend']
 
+      const valueLength = ref<number>(0)
+
       const pendStyleLis = (): {} => getInput(props).pendStyleList
       const update = (e: Event): void => {
         const target = e.target as HTMLInputElement
+        inputValue.value = target.value
+
+        // prependText | appendText
         let updateModelValue = modelValueProp.value
         if (propData.prependText && !propData.prependIcon) {
           updateModelValue = `${propData.prependText}${updateModelValue}`
@@ -147,14 +180,27 @@
           updateModelValue = getLength()
         }
 
+        // maxlength
         if (propData.maxlengthProp) {
           lengthLimit.value = `${target.value.length}/${propData.maxlengthProp}`
+        }
+
+        // autoSize
+        if (getTextareaRows() !== 1) {
+          const textarea = _ref.value as HTMLTextAreaElement
+          textarea.style.height = 'auto'
+          textarea.style.height = `${textarea.scrollHeight}px`
+        }
+
+        // length-count
+        if (data.showLength) {
+          valueLength.value = target.value.length
         }
 
         modelValueProp.value = target.value
         emit('update:modelValue', updateModelValue)
       }
-
+      
       const prefixIconClass = (): string[] => {
         const isDefault = typeof propData.prefixIcon === 'boolean'
         return [
@@ -194,12 +240,14 @@
         ]
       }
 
-      const onfocus = (): void => {
+      const onfocus = (event: Event): void => {
         isFocus.value = true
+        emit('focus', event)
       }
 
-      const onblur = (): void => {
+      const onblur = (event: Event): void => {
         isFocus.value = false
+        emit('blur', event)
       }
 
       const { getRun } = getReturn()
@@ -216,6 +264,19 @@
         }
       }
 
+      const getTextareaRows = (): number => {
+        let row = 1
+        const isRows = getBooleanAnd([
+          !!propData.rowsProp,
+          +propData.autosizeProp > 0,
+          propData.inputType === 'textarea'
+        ])
+        if (isRows && +propData.rowsProp > 0) {
+          row = +propData.rowsProp
+        }
+        return row
+      }
+
       const inputAttrs = reactive({
         class: innerClassList.value,
         type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
@@ -226,7 +287,8 @@
         onfocus,
         onblur,
         maxlength: propData.maxlengthProp,
-        minlength: propData.minlengthProp
+        minlength: propData.minlengthProp,
+        readonly: propData.readonlyProp
       } as InputHTMLAttributes)
 
       const textareaAttrs = reactive({
@@ -234,12 +296,17 @@
         type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
         placeholder: propData.placeholder,
         onInput: update,
+        onfocus,
+        onblur,
         disabled: propData.disabledProp,
         maxlength: propData.maxlengthProp,
-        minlength: propData.minlengthProp
+        minlength: propData.minlengthProp,
+        autosize: propData.autosizeProp,
+        rows: getTextareaRows(),
+        readonly: propData.readonlyProp
       } as TextareaHTMLAttributes)
       return {
-        ...propData,
+        // ...propData,
         ...data,
         ...pendData,
         classList: inputClassList.value,
@@ -251,6 +318,7 @@
         suffixIconClass: suffixIconClass(),
         clear,
         input,
+        textarea,
         togglePassword,
         showPasswordClass: showPasswordClass(),
         textareaAttrs,
@@ -261,7 +329,9 @@
         AppendIconEventClick,
         PrependIconEventClick,
         onKeydownEnter,
-        lengthLimit
+        lengthLimit,
+        isShowClear,
+        valueLength
       }
     }
   })
@@ -305,10 +375,17 @@
         @keydown.enter="onKeydownEnter"
       />
 
-      <!-- length -->
+      <!-- length-limit -->
       <template v-if="isLength">
         <span class="dk-input_length">
           {{ lengthLimit }}
+        </span>
+      </template>
+
+      <!-- length -->
+      <template v-if="showLength">
+        <span class="dk-input_length">
+          {{ valueLength }}
         </span>
       </template>
 
@@ -325,7 +402,8 @@
       <template v-if="isClear">
         <dk-icon
           v-show="isShowClear"
-          class="dk-icon-del1 dk-input-clearable"
+          class="dk-input-clearable"
+          icon="IconShanchu1"
           @click="clear"
         />
       </template>
@@ -350,7 +428,7 @@
     </template>
   </div>
   <div v-else :class="classList" :style="styleList">
-    <textarea v-bind="textareaAttrs"></textarea>
+    <textarea ref="textarea" v-bind="textareaAttrs"></textarea>
     <!-- length -->
     <template v-if="isLength">
       <span class="dk-input_textarea_length">
