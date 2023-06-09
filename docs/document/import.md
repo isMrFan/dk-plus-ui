@@ -11,7 +11,7 @@ import App from './App.vue'
 import dkPlus from 'dk-plus'
 import 'dk-plus/theme-chalk/index.css'
 
-createApp(App).use(FightingDesign).mount('#app')
+createApp(App).use(dkPlus).mount('#app')
 ```
 
 ## 按需引入

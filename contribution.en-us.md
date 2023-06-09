@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-Chinese | [English](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
+Chinese | [English](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/contribution.en-us.md)
 
 ## 🙋 Before you contribute, please read the following:
 
@@ -55,10 +55,21 @@ If you have completed the previous preparation, you can skip and start from here
 ├── └─ README.md  #打包后的说明文件
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
-├── ├── ├── dkbutton  #按钮组件
-├── ├── ├── dkshadow  #盒模型阴影组件
-├── ├── ├── icon      #图标组件
-├── ├── ├── index.ts  #组件入口文件
+├── ├── _hooks        # hooks
+├── ├── ├── get-button  # 获取按钮的方法(hooks_dk-button)
+├── ├── ├── get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
+├── ├── ├── index.ts    # hooks出口文件
+├── ├── _icon         # 图标存放文件的SVG
+├── ├── _interface    # 项目内的接口文件
+├── ├── _tokens       # 项目内的默认值设置
+├── ├── _utils        # 组件内用的工具方法
+├── ├── ├── index.ts      # 组件内工具出口文件
+├── ├── ├── props         # 组件内props推断方法
+├── ├── ├── typeof        # 组件内typeof数据类型判断方法
+├── ├── dkbutton  #按钮组件
+├── ├── dkshadow  #盒模型阴影组件
+├── ├── icon      #图标组件
+├── ├── index.ts  #组件入口文件
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
@@ -109,11 +120,21 @@ cd dk-ui
 # Install dependencies.
 pnpm install
 
+Note that a joint instruction is referenced here. If you haven't installed cnpm, please install cnpm first. For international users, please change the postinstall command in the scripts section of the package.json file in the root directory from cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 to npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3.
+
+# CNPM安装
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
 # Start the development project.
 pnpm dev:play
 
 # Start the documentation.
 pnpm dev:docs
+
+# publish
+npm init
+npm login
+npm publish
 
 ```
 
@@ -126,7 +147,7 @@ We highly recommend using an editor. [Visual Studio Code](https://code.visualstu
 - [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue3 official development plugin.
 
 - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)Used to support importing `*.vue` files in TypeScript.
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)Code formatting validation. If not installed, then...[fighting-eslint-config](https://github.com/FightingDesign/fighting-design/blob/master/packages/fighting-eslint-config)it will not take effect.
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)Code formatting validation. If not installed, then...[dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint)it will not take effect.
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)Used for detecting spelling errors in the code.
 
 ## 🔓 Command descriptions.

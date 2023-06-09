@@ -61,7 +61,7 @@ import App from './App.vue'
 import dkPlus from 'dk-plus'
 import '@dk-plus/theme-chalk/src/index.scss'
 
-createApp(App).use(FightingDesign).mount('#app')
+createApp(App).use(dkPlus).mount('#app')
 ```
 
 ## 🪂 Quick experience
