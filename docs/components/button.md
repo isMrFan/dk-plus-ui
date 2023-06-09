@@ -291,7 +291,34 @@
 
 :::
 
-## 10.个性按钮(示例)
+## 10.加载中状态
+
+`loading` 可以配置按钮的加载状态
+
+::: module
+<template #code>
+<dk-button loading> 加载中 </dk-button>
+<dk-button loading text> 加载中 </dk-button>
+<dk-button
+    loading
+    link
+    :icon="'IconShanchu1'"
+    :href="'https://m.baidu.com/'"
+    type="primary"
+>
+  默认https://m.baidu.com/
+</dk-button>
+</template>
+
+```html
+<dk-button loading> 加载中 </dk-button>
+```
+
+:::
+
+
+
+## 11.个性按钮(示例)
 
 ::: module
 <template #code>

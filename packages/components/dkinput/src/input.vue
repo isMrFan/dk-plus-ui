@@ -403,7 +403,7 @@
         <dk-icon
           v-show="isShowClear"
           class="dk-input-clearable"
-          icon="IconShanchu1"
+          :icon="'IconShanchu1'"
           @click="clear"
         />
       </template>

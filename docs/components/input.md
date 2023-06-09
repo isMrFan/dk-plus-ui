@@ -92,9 +92,9 @@
     </template>
 </Dk-Input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="prepend-icon" prepend-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="prepend-icon" prepend-icon="IconSearch"></Dk-Input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append-icon" append-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="append-icon" append-icon="IconSearch"></Dk-Input>
 <div style='margin-top: 10px;'></div>
 <Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
 <div style='margin-top: 10px;'></div>
@@ -221,3 +221,13 @@
 | `suffix` | 输入框尾部内容 |
 
 
+## Contributors
+
+<div style='display: flex;'>
+  <a href="https://github.com/CadWalaDers" target="_blank" style='margin-right:10px;'>
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
+  </a>
+  <a href="https://github.com/CadWalaDers" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4"/>
+  </a>
+</div>

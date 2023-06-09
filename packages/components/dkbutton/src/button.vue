@@ -76,11 +76,16 @@
       >
         <slot v-if="icon === '' || icon === null" name="icon"></slot>
         <div v-else :class="[icon ? 'dk-button_slot_left' : '']">
-          <dk-icon :icon="icon"></dk-icon>
+          <dk-icon
+            v-if="loading"
+            :icon="icon ? icon : 'IconRefresh'"
+            :class="loading ? 'dk-button_rotate' : ''"
+          ></dk-icon>
+          <dk-icon v-else :icon="icon"></dk-icon>
         </div>
         <div>
           <dk-icon
-            v-if="loading"
+            v-if="loading && !icon"
             :class="loading ? 'dk-button_rotate' : ''"
             :icon="icon ? icon : 'IconRefresh'"
           ></dk-icon>
@@ -100,12 +105,16 @@
           <div :class="icon || afterIcon ? 'dk-button_flex' : ''">
             <slot v-if="icon === '' || icon === null" name="icon"></slot>
             <div v-else :class="[icon ? 'dk-button_slot_left' : '']">
-              <dk-icon v-if="loading" :icon="icon ? icon : 'IconRefresh'"></dk-icon>
-              <dk-icon :icon="icon"></dk-icon>
+              <dk-icon
+                v-if="loading"
+                :icon="icon ? icon : 'IconRefresh'"
+                :class="loading ? 'dk-button_rotate' : ''"
+              ></dk-icon>
+              <dk-icon v-else :icon="icon"></dk-icon>
             </div>
             <div>
               <dk-icon
-                v-if="loading"
+                v-if="loading && !icon"
                 :class="loading ? 'dk-button_rotate' : ''"
                 :icon="icon ? icon : 'IconRefresh'"
               ></dk-icon>
@@ -131,11 +140,16 @@
         <div :class="icon || afterIcon ? 'dk-button_flex' : ''">
           <slot v-if="icon === '' || icon === null" name="icon"></slot>
           <div v-else :class="icon && !circle ? 'dk-button_slot_left' : ''">
-            <dk-icon :icon="icon"></dk-icon>
+            <dk-icon
+              v-if="loading"
+              :icon="icon ? icon : 'IconRefresh'"
+              :class="loading ? 'dk-button_rotate' : ''"
+            ></dk-icon>
+            <dk-icon v-else :icon="icon"></dk-icon>
           </div>
           <div>
             <dk-icon
-              v-if="loading"
+              v-if="loading && !icon"
               :class="loading ? 'dk-button_rotate' : ''"
               :icon="icon ? icon : 'IconRefresh'"
             ></dk-icon>
