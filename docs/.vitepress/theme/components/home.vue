@@ -27,19 +27,19 @@
           {
             id: 1,
             title: '简单',
-            img: 'https://oss.dk-plus-uis.com/dk-plus/images/jiandan.png',
+            img: 'https://oss.cadwaladerss.com/dk-plus/images/jiandan.png',
             message: '简单的API，简单的使用方式，让你的开发更加简单'
           },
           {
             id: 2,
             title: '轻量',
-            img: 'https://oss.dk-plus-uis.com/dk-plus/images/qingliang.png',
+            img: 'https://oss.cadwaladerss.com/dk-plus/images/qingliang.png',
             message: '轻量的组件，轻量的体积，让你的项目更加轻量'
           },
           {
             id: 3,
             title: '可靠',
-            img: 'https://oss.dk-plus-uis.com/dk-plus/images/kekao.png',
+            img: 'https://oss.cadwaladerss.com/dk-plus/images/kekao.png',
             message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
           }
         ],
@@ -185,7 +185,7 @@
         <div class="home_content_main_first_bill">
           <img
             :class="isDark ? 'home_content_main_first_bill_img--dark' : ''"
-            src="https://oss.dk-plus-uis.com/dk-plus/images/home_index.svg"
+            src="https://oss.cadwaladerss.com/dk-plus/images/home_index.svg"
             alt=""
           />
         </div>

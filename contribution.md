@@ -237,8 +237,8 @@ PR 的提交应该尽可能小，每个 PR 都应该只包含一组相关的更�
 
 如果您觉得 dk-plus 帮助到了您，您可以请作者喝杯咖啡，以资鼓励。
 
-<img width="200px" src="https://oss.dk-plus-uis.com/dk-plus/images/zfb.jpg" />
-<img width="200px" src="https://oss.dk-plus-uis.com/dk-plus/images/wx.jpg" />
+<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
+<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
 
 ## 💌 非常感谢
 

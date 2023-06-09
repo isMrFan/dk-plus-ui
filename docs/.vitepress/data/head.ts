@@ -11,7 +11,7 @@ export const head: HeadConfig[] = [
     'link',
     {
       rel: 'icon',
-      href: 'https://oss.dk-plus-uis.com/dk-plus/images/24ICON.png'
+      href: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png'
     }
   ],
   /** 解决移动端点击输入框自动放大的问题 */
