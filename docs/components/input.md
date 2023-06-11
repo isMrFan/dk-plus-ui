@@ -42,29 +42,29 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="prefix-icon" prefix-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="prefix-icon" prefix-icon="IconSearch"></Dk-Input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="suffix-icon" suffix-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="suffix-icon" suffix-icon="IconSearch"></Dk-Input>
 <div style='margin-top: 10px;'></div>
 <Dk-Input placeholder="slot">
     <template #prefix>
-        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+        <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
     <template #suffix>
-        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+        <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
 </Dk-Input>
 </template>
 
 ```html
-<Dk-Input placeholder="prefix-icon" prefix-icon="dk-icon-search"></Dk-Input>
-<Dk-Input placeholder="suffix-icon" suffix-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="prefix-icon" prefix-icon="IconSearch"></Dk-Input>
+<Dk-Input placeholder="suffix-icon" suffix-icon="IconSearch"></Dk-Input>
 <Dk-Input placeholder="slot">
     <template #prefix>
-        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+        <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
     <template #suffix>
-        <Dk-Icon name="dk-icon-search"></Dk-Icon>
+        <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
 </Dk-Input>
 ```
@@ -112,8 +112,8 @@
         <div>.com</div>
     </template>
 </Dk-Input>
-<Dk-Input placeholder="prepend-icon" prepend-icon="dk-icon-search"></Dk-Input>
-<Dk-Input placeholder="append-icon" append-icon="dk-icon-search"></Dk-Input>
+<Dk-Input placeholder="prepend-icon" prepend-icon="IconSearch"></Dk-Input>
+<Dk-Input placeholder="append-icon" append-icon="IconSearch"></Dk-Input>
 <Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
 <Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
 ```
