@@ -12,6 +12,10 @@ import { isString } from '..'
  * @see toLowerCase() 字符串原型方法  将调用字符串值转换为小写形式并返回   https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
  * @param { string } str 需要转换的字符串
  * @description 驼峰转换为短横线命名 例如：dkButton => dk-button
+ * @example
+ * ```ts
+ *  humpConversion("dkButton") // output "dk-button"
+ * ```
  */
 
 export const humpConversion = (str: string): string => {
