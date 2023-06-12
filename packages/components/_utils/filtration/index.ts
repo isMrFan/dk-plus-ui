@@ -4,6 +4,7 @@ import { isString } from '..'
  * @Time 2023年05月04日
  * @description 工具箱主要是一些公用方法
  * {humpConversion}  驼峰转换为短横线命名 例如：dkButton => dk-button
+ * {sizeChange}  将数字尺寸改为字符串 例如：12 => 12px 12px => 12px
  */
 
 /**

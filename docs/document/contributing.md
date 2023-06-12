@@ -56,7 +56,7 @@
 ├── └─ README.md  #打包后的说明文件
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
-├── ├── ├──_hooks        # hooks
+├── ├── ├── _hooks        # hooks
 ├── ├── ├── ├──get-button  # 获取按钮的方法(hooks_dk-button)
 ├── ├── ├── ├──get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
 ├── ├── ├── public       # 公共的hooks方法
@@ -69,12 +69,15 @@
 ├── ├── ├── ├──  get-StyleList    #用于获取props内参数根据设置生成对应名称的class 获取传入的样式数组模式的值解析  判断是否为样式添加单位
 ├── ├── ├── ├──  set-size     #简易版是否判断需要添加单位
 ├── ├── ├── ├──index.ts    # hooks出口文件
+├── ├── ├── _icon     # 存放所有的图标动态组件的地方
 ├── ├── _interface    # 项目内的接口文件
 ├── ├── _tokens       # 项目内的默认值设置
 ├── ├── _utils        # 组件内用的工具方法
 ├── ├── ├── index.ts      # 组件内工具出口文件
 ├── ├── ├── props         # 组件内props推断方法
 ├── ├── ├── typeof        # 组件内typeof数据类型判断方法
+├── ├── ├── filtration    # 驼峰转换为短横线命名  将数字尺寸改为字符串
+├── ├── ├── test          # 组件内测试方法
 ├── ├── dkbutton  #按钮组件
 ├── ├── dkshadow  #盒模型阴影组件
 ├── ├── icon      #图标组件
