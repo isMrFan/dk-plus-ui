@@ -32,6 +32,10 @@
             ]
           },
           {
+            name: '常见页面布局',
+            path: '/DkContainer'
+          },
+          {
             name: '按钮组件',
             path: '/Dkbutton'
           },
