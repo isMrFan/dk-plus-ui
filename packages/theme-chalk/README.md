@@ -44,29 +44,37 @@ theme-chalk          主题样式目录
     //...... styles
   }
   // block   通用分隔符 -    //用于组件内部的样式  .dk-xxx-xxx 加 * 号表示不需要加上父级的样式名
-  @include block(* xxx) {
+  @include block(*xxx) {
     //解析后是  .dk-xxx
     //...... styles
   }
-  // element   通用分隔符 __    //用于组件内部的样式  .dk-xxx__xxx
+  @include block(>xxx){
+    //解析后是  .dk-input .dk-input-xxx
+    //...... styles
+  }
+  // element   通用分隔符 __    //用于组件内部的样式  .dk-xxx_xxx
   @include element(wrapper) {
     //解析后是  .dk-xxx__xxx
     //...... styles
-    @include element(* xxx) {
+    @include element(*xxx) {
       //解析后是  .dk-xxx__xxx 加 * 号表示不需要加上父级的样式名
+      //...... styles
+    }
+    @include element(>xxx){
+      //解析后是  .dk-input__wrapper .dk-input_wrapper_xxx
       //...... styles
     }
     // modifier  修饰符分隔符 --
     @include modifier(readonly) {
-      //用于组件内部的样式  .dk-xxx__xxx--xxx
+      //用于组件内部的样式  .dk-xxx_xxx--xxx
       //...... styles
-      @include modifier(* xxx) {
-        //用于组件内部的样式  .dk-xxx__xxx--xxx 加 * 号表示不需要加上父级的样式名
+      @include modifier(*xxx) {
+        //用于组件内部的样式  .dk-xxx_xxx--xxx 加 * 号表示不需要加上父级的样式名
         //...... styles
       }
     }
     @include state() {
-      //用于组件内部的样式  .dk-xxx__xxx.is-xxx
+      //用于组件内部的样式  .dk-xxx_xxx.is-xxx
       //...... styles
     }
   }

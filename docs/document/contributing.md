@@ -59,14 +59,14 @@
 ├── ├── ├── _hooks        # hooks
 ├── ├── ├── ├──get-button  # 获取按钮的方法(hooks_dk-button)
 ├── ├── ├── ├──get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
-├── ├── ├── public       # 公共的hooks方法
-├── ├── ├── ├──  get-color  #颜色处理加深 减淡
-├── ├── ├── ├──  get-props  #获取组件的props
-├── ├── ├── ├──  get-Global   #获取组件props的size | type 值给定默认值
-├── ├── ├── ├──  get-props    #获取组件props string 类型的值 和obj类型的值
-├── ├── ├── ├──  get-return   #执行方法函数
-├── ├── ├── ├──  get-ripples  #指定元素内的点击未知 为特殊组件定制插入元素 例如dk-button 水波纹效果
-├── ├── ├── ├──  get-StyleList    #用于获取props内参数根据设置生成对应名称的class 获取传入的样式数组模式的值解析  判断是否为样式添加单位
+├── ├── ├── ├── public       # 公共的hooks方法
+├── ├── ├── ├── ├──  get-color  #颜色处理加深 减淡
+├── ├── ├── ├── ├──  get-props  #获取组件的props
+├── ├── ├── ├── ├──  get-Global   #获取组件props的size | type 值给定默认值
+├── ├── ├── ├── ├──  get-props    #获取组件props string 类型的值 和obj类型的值
+├── ├── ├── ├── ├──  get-return   #执行方法函数
+├── ├── ├── ├── ├──  get-ripples  #指定元素内的点击未知 为特殊组件定制插入元素 例如dk-button 水波纹效果
+├── ├── ├── ├── ├──  get-StyleList    #用于获取props内参数根据设置生成对应名称的class 获取传入的样式数组模式的值解析  判断是否为样式添加单位
 ├── ├── ├── ├──  set-size     #简易版是否判断需要添加单位
 ├── ├── ├── ├──index.ts    # hooks出口文件
 ├── ├── ├── _icon     # 存放所有的图标动态组件的地方
@@ -85,6 +85,8 @@
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式,样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
+├── ├── ├── ├── mixins  # 全局class命名生成方法
+├── ├── ├── ├── ├── configuration # 私有组件样式配置
 ├── └─  └─ gulpfile.ts # 打包工具
 ├── ├── dk-setup-name      #  根据命令生成组件文件夹 暂未实现
 ├── ├── dk-eslint          #  项目内的eslint配置
