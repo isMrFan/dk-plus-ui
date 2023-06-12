@@ -5,8 +5,8 @@
 ## 🦩 目录说明
 
 ```
+theme-chalk          主题样式目录
 ├── src                   每个组件的主样式表存放目录
-├── ├── font              图标或者字体存放目录
 ├── ├── mixins            组件的一些配置变量
 ├── index.scss            主样式表
 ├── gulpfile.ts           样式打包入口

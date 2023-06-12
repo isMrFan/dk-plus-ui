@@ -14,6 +14,7 @@
 ├── dkbutton    按钮组件
 ├── dkcodedisplay    内部用展开收起组件
 ├── dkicon           图标文件
+├── dkinput          input组件
 ├── dkshadow         阴影组件
 ```
 
@@ -25,4 +26,11 @@
   3.在packages/theme-chalk/src目录下添加组件样式
   4.在packages/theme-chalk/src/index.scss中导入组件样式
   5.在packages/dk-plus/index.ts中导出组件
+```
+
+## 注意❗❗
+
+```shell
+  1.大家在编写工具方法时务必带上example
+  2.如果是重载函数请务必在example中写明使用场景
 ```
