@@ -139,7 +139,13 @@ cd dk-ui
 
 # 安装依赖项
 pnpm install
-ps: 注意这里引用了联合指令,如没安装cnpm 请先安装cnpm 国外用户把根目录下的package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
+
+ps: 注意这里引用了联合指令
+
+如没安装 cnpm 请先安装cnpm
+
+国外用户 package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
+
 # CNPM安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
@@ -160,6 +166,8 @@ pnpm dev:docs
 - [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue3 官方开发插件
 - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) 用于支持在 TS 中 import `*.vue` 文件
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 代码格式校验，如果不安装，那么 [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) 则不生效
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 代码格式校验，如果不安装，那么 [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) 则不生效
+
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) 用于检测代码中的拼写错误
 
 ## 🔓 命令说明
@@ -174,6 +182,9 @@ dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/d
 | dev:docs    | pnpm dev:docs   | 启动开发文档项目 |
 | build:docs  | pnpm build:docs | 打包开发文档项目 |
 | format      | pnpm format     | 项目代码格式化   |
+| lint        | pnpm lint       | 项目代码检查     |
+| prepare     | pnpm prepare    | 运行单元格测试   |
+
 
 ## 🚨 开发规范
 

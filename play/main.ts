@@ -14,6 +14,7 @@ hljs.registerLanguage('javascript', javascript)
 //本地开发调试
 import dkIcon from '@dk-plus/components/dkicon'
 import DkShadow from '@dk-plus/components/dkshadow'
+import DkContainer from '@dk-plus/components/dkcontainer'
 import dkbutton from '@dk-plus/components/dkbutton'
 import dkinput from '@dk-plus/components/dkinput'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
@@ -200,6 +201,7 @@ app.use(router)
 //app.use(dkPlus)
 app.use(hljsVuePlugin)
 app.use(dkIcon)
+app.use(DkContainer)
 app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)

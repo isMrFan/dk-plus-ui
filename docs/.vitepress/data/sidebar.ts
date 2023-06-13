@@ -40,5 +40,15 @@ export const sidebar = {
       text: 'Form 表单组件',
       items: [{ text: 'Input', link: '/components/input' }]
     }
+  ],
+  '/expansion/': [
+    {
+      text: 'Flutter在vsCode中快速创建项目',
+      items: [
+        { text: '1.基础安装', link: '/expansion/Flutter/WinInstall' },
+        { text: '2.fvm安装(多版本Flutter)', link: '/expansion/Flutter/fvmInstall' },
+        { text: '3.在vs code 运行 安卓环境', link: '/expansion/Flutter/AndroidInstall' }
+      ]
+    }
   ]
 }

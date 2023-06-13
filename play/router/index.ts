@@ -5,6 +5,7 @@ import 'nprogress/nprogress.css'
 const Index: Object = () => import('../views/component/index/index.vue')
 const DkShadow: Object = () => import('../views/component/DkShadow/DkShadow.vue')
 const DkIcon: Object = () => import('../views/component/icon/icon.vue')
+const DkContainer: Object = () => import('../views/component/Dkcontainer/Dkcontainer.vue')
 const Dkbutton: Object = () => import('../views/component/Dkbutton/Dkbutton.vue')
 const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
 const routes: RouteRecordRaw[] = [
@@ -42,6 +43,16 @@ const routes: RouteRecordRaw[] = [
         component: DkIcon,
         meta: {
           title: '图标中心',
+          keepAlive: false,
+          isunnewList: false
+        }
+      },
+      {
+        path: '/DkContainer',
+        name: 'DkContainer',
+        component: DkContainer,
+        meta: {
+          title: '布局容器',
           keepAlive: false,
           isunnewList: false
         }

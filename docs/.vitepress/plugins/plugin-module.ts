@@ -1,13 +1,12 @@
 import MarkContainer from 'markdown-it-container'
 import MarkdownIt from 'markdown-it'
-import type { Token } from 'markdown-it'
 
 /**
  * 创建 markdown 实例
  *
  * @see markdown-it https://markdown-it.docschina.org
  */
-const markdown: MarkdownIt = MarkdownIt({
+const markdown = MarkdownIt({
   breaks: true // 转换段落里的 '\n' 到 <br>
 })
 
@@ -16,7 +15,7 @@ const markdown: MarkdownIt = MarkdownIt({
  *
  * @param { Object } md markdown 实例
  */
-export const PluginModule = (md: MarkdownIt): void => {
+export const PluginModule = (md): void => {
   /**
    * 自定义 md 语法
    *
@@ -27,7 +26,7 @@ export const PluginModule = (md: MarkdownIt): void => {
       return !!params.trim().match(/^module\s*(.*)$/)
     },
 
-    render(tokens: Token[], idx: number) {
+    render(tokens, idx: number) {
       if (tokens[idx].nesting === 1) {
         const m: RegExpMatchArray = tokens[idx].info.trim().match(/^module\s*(.*)$/)
         const description: string = m && m.length > 1 ? m[1] : ''

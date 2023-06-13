@@ -1,69 +1,63 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-export default defineComponent({
-  name: 'DkInputComponent',
-  setup() {
-    const oncopy = (code: string): void => {
-      const input = document.createElement('input')
-      input.setAttribute('readonly', 'readonly')
-      input.setAttribute('value', code)
-      document.body.appendChild(input)
-      input.select()
-      if (document.execCommand('copy')) {
-        document.execCommand('copy')
-        alert('复制成功')
+  import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+    name: 'DkInputComponent',
+    setup() {
+      const oncopy = (code: string): void => {
+        const input = document.createElement('input')
+        input.setAttribute('readonly', 'readonly')
+        input.setAttribute('value', code)
+        document.body.appendChild(input)
+        input.select()
+        if (document.execCommand('copy')) {
+          document.execCommand('copy')
+          alert('复制成功')
+        }
+        document.body.removeChild(input)
       }
-      document.body.removeChild(input)
-    }
-    const handleFixClick = (): void => {
-      console.log('handleFixClick')
-    }
-    const msg = ref('asdf')
-    const input = ref(null)
+      const handleFixClick = (): void => {
+        console.log('handleFixClick')
+      }
+      const msg = ref('asdf')
+      const input = ref(null)
 
-    const handlePendClick = (): void => {
-      console.log('handlePendClick');
-    }
+      const handlePendClick = (): void => {
+        console.log('handlePendClick')
+      }
 
-    const handleKeydown = (event: Event): void => {
-      console.log('handleKeydown', event);
-      
-    }
+      const handleKeydown = (event: Event): void => {
+        console.log('handleKeydown', event)
+      }
 
-    const onFocus = (e: Event): void => {
-      console.log('onFocus', e);
-    }
+      const onFocus = (e: Event): void => {
+        console.log('onFocus', e)
+      }
 
-    const isDisabled = ref(true)
-    return {
-      oncopy,
-      handleFixClick,
-      msg,
-      focus,
-      blur,
-      input,
-      isDisabled,
-      handlePendClick,
-      handleKeydown,
-      onFocus
+      const isDisabled = ref(true)
+      return {
+        oncopy,
+        handleFixClick,
+        msg,
+        focus,
+        blur,
+        input,
+        isDisabled,
+        handlePendClick,
+        handleKeydown,
+        onFocus
+      }
     }
-  }
-})
+  })
 </script>
 
 <template>
   <div class="input">
-    <!-- <Dk-Input
-      v-model="msg"
-      placeholder="change"
-      :disabled="isDisabled"
-    >
-    </Dk-Input>
-    <dk-button @click="toggleDisabled">切换{{ isDisabled }}</dk-button> -->
+    <dk-input v-model="msg" placeholder="change" :disabled="isDisabled"> </dk-input>
+    <dk-button>切换{{ isDisabled }}</dk-button>
 
     <dk-input show-length></dk-input>
 
-    <!-- <dk-input clearable placeholder="prefix插槽形式">
+    <dk-input clearable placeholder="prefix插槽形式">
       <template #prefix>
         <dk-icon class="icon-shanchu1" />
       </template>
@@ -81,8 +75,8 @@ export default defineComponent({
     <dk-input size="mini" placeholder="mini" />
 
     <h4>前后缀内容</h4>
-    <dk-input 
-      v-model="msg" 
+    <dk-input
+      v-model="msg"
       clearable
       placeholder="前后缀内容"
       prepend-icon="IconShanchu1"
@@ -116,7 +110,11 @@ export default defineComponent({
     <dk-input></dk-input>
     <dk-input clearable placeholder="prefix属性绑定形式" prefix-icon="IconShanchu1" />
     <dk-input clearable placeholder="prefix属性绑定形式" suffix-icon="IconShanchu1" />
-    <dk-input placeholder="插槽形式" prefix-icon="IconShanchu1" suffix-icon="IconShanchu1">
+    <dk-input
+      placeholder="插槽形式"
+      prefix-icon="IconShanchu1"
+      suffix-icon="IconShanchu1"
+    >
       <template #prefix>
         <dk-icon icon="IconShanchu1"></dk-icon>
       </template>
@@ -130,51 +128,44 @@ export default defineComponent({
 
     <h4>清空</h4>
     <dk-input v-model="msg" clearable placeholder="清空" />
-    {{ msg }} -->
+    {{ msg }}
 
-    <!-- <Dk-Input focus-border-color="#f0f" text-color="#f0f"></Dk-Input> -->
-    <!-- <div class="box" v-for="item in htmlList" :key="item.title">
-      <div>{{ item.title }}</div>
-      <div class="index_Dk_code">
-        <highlightjs language="javascript" :code="item.code" />
-        <span class="copy" @click="oncopy(item.code)">复制代码</span>
-      </div>
-      <dk-input v-bind="item.attrs" />
-    </div>
+    <dk-input focus-border-color="#f0f" text-color="#f0f"></dk-input>
     <div class="box">
       <dk-input v-model="msg" type="" placeholder="清空" clearable />
       {{ msg }}
-    </div> -->
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.input {
-  width: 99%;
+  .input {
+    width: 99%;
 
-  .dk-input {
-    margin-bottom: 20px;
-  }
-
-  .box {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    margin-right: 10px;
-    border: #ccc 1px solid;
-    padding: 20px;
-    border-radius: 4px;
-
-    .index_Dk_code {
-      position: relative;
+    .dk-input {
       margin-bottom: 20px;
+    }
 
-      .copy {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        cursor: pointer;
-        color: #ccc;
+    .box {
+      margin-bottom: 20px;
+      margin-top: 10px;
+      margin-right: 10px;
+      border: #ccc 1px solid;
+      padding: 20px;
+      border-radius: 4px;
+
+      .index_Dk_code {
+        position: relative;
+        margin-bottom: 20px;
+
+        .copy {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
+          color: #ccc;
+        }
       }
     }
   }
-}</style>
+</style>
