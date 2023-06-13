@@ -75,7 +75,7 @@ const isDeFineConfig = defineConfig({
     siteTitle: 'dk-plus'
   },
   markdown: {
-    config: (md: MarkdownIt): void => {
+    config: (md): void => {
       md.use(PluginModule)
     }
   }

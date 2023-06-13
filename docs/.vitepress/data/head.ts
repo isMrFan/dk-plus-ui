@@ -60,7 +60,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:image',
-      content: ''
+      content: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png'
     }
   ],
   /** OG 描述 */
@@ -68,7 +68,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:description',
-      content: 'dk-ui'
+      content: '面向设计人员和开发人员的基于Vue 3的组件库'
     }
   ],
   /** OG 页面所在网站名 */
@@ -76,7 +76,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:site_name',
-      content: 'dk-plus-uis'
+      content: 'dk-plus-ui'
     }
   ]
 ] as HeadConfig[]

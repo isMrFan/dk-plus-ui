@@ -16,6 +16,16 @@ export const nav = [
     link: '/components/icon'
   },
   {
+    text: '技术拓展',
+    items: [
+      {
+        text: '1.Flutter',
+        activeMatch: '^/expansion/',
+        link: '/expansion/Flutter/WinInstall'
+      }
+    ]
+  },
+  {
     text: version,
     link: 'https://www.npmjs.com/package/dk-plus'
   },
