@@ -9,14 +9,8 @@
   z-index: 99999;
 }
 
-// .content-body {
-//   background-color: transparent !important;
-//   background-image: radial-gradient(transparent 1px, #fff 1px) !important;
-//   background-size: 4px 4px !important;
-//   backdrop-filter: saturate(50%) blur(4px) !important;
-// }
 .language-ts {
-  background-color: #fff;
+  background-color: var(--background-color);
 }
 
 // 滚动条
@@ -47,7 +41,6 @@
 }
 
 .VPHome {
-  // margin: 0;
   padding: 0 !important;
 }
 
@@ -84,4 +77,25 @@
 
 .VPDoc.has-aside .content-container {
   max-width: 100% !important;
+}
+
+#app{
+  .Layout{
+    .VPNav{
+      .VPNavBar {
+        .fill{
+          background-color: transparent;
+        }
+        .container{
+          .content{
+            &-body{
+              background-color: rgba($color: var(--background-color), $alpha: .8);
+              background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
+              background-size: 4px 4px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
