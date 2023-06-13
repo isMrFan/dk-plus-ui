@@ -3,7 +3,8 @@
   .main {
     width: calc(100% / 3 * 2);
     min-width: 1170px;
-    height: fit-content;
+    // height: fit-content;
+    height: 1000vh;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -17,7 +18,7 @@
       color: var(--text-color);
     }
     .text:nth-child(1) {
-      color: var(--theme-color);
+      color: var(--theme-color, #3eaf7c);
     }
     .text:nth-child(3) {
       color: var(--sub-text-color);

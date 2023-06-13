@@ -82,16 +82,17 @@
 #app{
   .Layout{
     .VPNav{
+      .fill{
+        background-color: transparent;
+      }
       .VPNavBar {
-        .fill{
-          background-color: transparent;
-        }
         .container{
           .content{
             &-body{
               background-color: rgba($color: var(--background-color), $alpha: .8);
               background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
-              background-size: 4px 4px;
+              background-size: 5px 5px;
+              transition: all 0s !important;
             }
           }
         }
