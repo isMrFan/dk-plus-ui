@@ -6,40 +6,29 @@
       <p class="text">轻量便捷，打造高效界面，<br />简洁灵活，提升用户体验。</p>
     </div>
     <div class="container"></div>
-    <div class="footer"></div>
+    <div class="footer">
+      <p>京ICP备2022007747号-2     https://beian.miit.gov.cn/</p>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, onUnmounted } from 'vue'
+import { setStyle } from '../../../assets/setStyle'
 export default defineComponent({
   name: 'Home',
   setup() {
     const theme = ref<string | null>(
       window.localStorage.getItem('vitepress-theme-appearance')
     )
-    /**
-     * @name loadThemeStyle
-     * @description 加载主题样式
-     */
-    const loadThemeStyle = (): void => {
-      const isDark: boolean = theme.value === 'dark'
-      const homeStyleList = reactive({
-        '--theme-color': '#3eaf7c',
-        '--text-color': isDark ? '#dfdfd7' : '#333',
-        '--background-color': isDark ? '#1e1e20' : '#fff',
-        '--sub-text-color': '#666'
-      })
-      const keyList: string[] = Object.keys(homeStyleList)
-      const len: number = keyList.length
-      for (let i = 0; i < len; i++) {
-        const dom = document.documentElement as HTMLElement
-        const body = dom.querySelector('body') as HTMLElement
-        body.style.setProperty(keyList[i], homeStyleList[keyList[i]])
-      }
-    }
+    const setStyleClass = new setStyle(theme.value)
+    
     onMounted(() => {
-      loadThemeStyle()
+      setStyleClass.init()
+    })
+
+    onUnmounted(() => {
+      setStyleClass.unInstall()
     })
     return {}
   }
