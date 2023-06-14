@@ -8,11 +8,11 @@
  * @function handleSizeChange 页面尺寸变化时，重载按钮点击事件
  * @function loadHamburgerMenu 加载菜单点击事件
  * @function getWindowSize 获取页面尺寸
- * @function unEventListener 卸载事件监听
+ * @function unInstall 卸载事件监听
  */
-export class setStyle {
+class setStyle {
   theme: string | null = 'auto'
-  constructor(theme: 'string') {
+  constructor(theme: string | null) {
     this.theme = theme
   }
 
@@ -21,8 +21,9 @@ export class setStyle {
    * @description 拦截切换主题的按钮点击事件
    */
   intercept = (): void => {
-    const VPSwitchAppearanceList = document.getElementsByClassName('VPSwitchAppearance')
-    const len = VPSwitchAppearanceList.length
+    const VPSwitchAppearanceList: HTMLCollectionOf<Element> =
+      document.getElementsByClassName('VPSwitchAppearance')
+    const len: number = VPSwitchAppearanceList.length
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
         this.theme = window.localStorage.getItem('vitepress-theme-appearance')
@@ -37,7 +38,7 @@ export class setStyle {
    */
   loadThemeStyle = (): void => {
     const isDark: boolean = this.theme === 'dark'
-    const homeStyleList = {
+    const homeStyleList: Record<string, string> = {
       '--theme-color': '#3eaf7c',
       '--text-color': isDark ? '#dfdfd7' : '#333',
       '--background-color': isDark ? '#1e1e20' : '#fff',
@@ -99,10 +100,10 @@ export class setStyle {
   }
 
   /**
-   * @name unEventListener
+   * @name unInstall
    * @description 卸载事件监听
    */
-  unEventListener = (): void => {
+  unInstall = (): void => {
     // 卸载拦截切换主题的按钮点击事件
     const VPSwitchAppearanceList = document.getElementsByClassName('VPSwitchAppearance')
     const len = VPSwitchAppearanceList.length
@@ -121,4 +122,18 @@ export class setStyle {
       null
     })
   }
+
+  /**
+   * @name init
+   * @description 初始化
+   */
+  init = (): void => {
+    this.getSize()
+    this.getWindowSize()
+    this.loadThemeStyle()
+  }
 }
+
+export { setStyle }
+
+export default setStyle

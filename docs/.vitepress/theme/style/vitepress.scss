@@ -85,14 +85,14 @@
       .fill{
         background-color: transparent;
       }
+      background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
+      background-size: 5px 5px;
+      transition: all 0s !important;
       .VPNavBar {
         .container{
           .content{
             &-body{
               background-color: rgba($color: var(--background-color), $alpha: .8);
-              background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
-              background-size: 5px 5px;
-              transition: all 0s !important;
             }
           }
         }
