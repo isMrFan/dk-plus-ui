@@ -11,10 +11,8 @@
  * @function unInstall 卸载事件监听
  */
 class setStyle {
-  theme: string | null = 'auto'
-  constructor(theme: string | null) {
-    this.theme = theme
-  }
+  theme: string | null = window.localStorage.getItem('vitepress-theme-appearance')
+  timeoutId: NodeJS.Timeout | null = null
 
   /**
    * @name intercept
@@ -23,7 +21,9 @@ class setStyle {
   intercept = (): void => {
     const VPSwitchAppearanceList: HTMLCollectionOf<Element> =
       document.getElementsByClassName('VPSwitchAppearance')
+
     const len: number = VPSwitchAppearanceList.length
+
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
         this.theme = window.localStorage.getItem('vitepress-theme-appearance')
@@ -34,7 +34,7 @@ class setStyle {
 
   /**
    * @name loadThemeStyle
-   * @description 加载主题样式
+   * @description 主题样式 黑白主题
    */
   loadThemeStyle = (): void => {
     const isDark: boolean = this.theme === 'dark'
@@ -99,7 +99,7 @@ class setStyle {
     }
   }
 
-  /**
+  /**title
    * @name unInstall
    * @description 卸载事件监听
    */
@@ -108,7 +108,7 @@ class setStyle {
     const VPSwitchAppearanceList = document.getElementsByClassName('VPSwitchAppearance')
     const len = VPSwitchAppearanceList.length
     for (let i = 0; i < len; i++) {
-      VPSwitchAppearanceList[i].removeEventListener('click', () => {
+      VPSwitchAppearanceList[i].removeEventListener('click', (): void => {
         null
       })
     }
@@ -118,9 +118,11 @@ class setStyle {
 
     // 卸载拦截切换主题的按钮点击事件
     const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
-    VPNavBarHamburger[0].removeEventListener('click', () => {
+    VPNavBarHamburger[0].removeEventListener('click', (): void => {
       null
     })
+
+    this.timeoutId && clearTimeout(this.timeoutId)
   }
 
   /**
@@ -128,12 +130,49 @@ class setStyle {
    * @description 初始化
    */
   init = (): void => {
-    this.getSize()
-    this.getWindowSize()
     this.loadThemeStyle()
+
+    this.timeoutId = setTimeout(() => {
+      this.getSize()
+      this.getWindowSize()
+      this.browserBackground(this.unInstall, this.init)
+    }, 100)
+  }
+
+  /**
+   * @name destroy
+   * @description 销毁 监听浏览器窗口变化
+   */
+
+  /**
+   * @function browserBackground
+   * @description 监听浏览器窗口变化
+   * @param {Function} unInstall 卸载
+   * @param {Function} mount 挂载
+   */
+  browserBackground = (unInstall: Function, mount: Function): void => {
+    const event = (): void => {
+      if (document.hidden) {
+        unInstall && unInstall()
+      } else {
+        mount && mount()
+      }
+    }
+    window.addEventListener('load', (): void => {
+      document.addEventListener('visibilitychange', event)
+    })
+    window.addEventListener('beforeunload', (): void => {
+      document.removeEventListener('visibilitychange', event)
+    })
   }
 }
 
-export { setStyle }
+/**
+ * @name loadStyle
+ * @description 加载样式 外部只能调用init方法
+ */
+const loadStyle = new setStyle().init
 
-export default setStyle
+export { loadStyle }
+
+export default loadStyle
