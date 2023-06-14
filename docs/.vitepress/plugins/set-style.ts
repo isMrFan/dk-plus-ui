@@ -24,8 +24,6 @@ class setStyle {
 
     const len: number = VPSwitchAppearanceList.length
 
-    console.log('🚀 ~ file: index.ts:33 ~ setStyle ~ len:', len)
-
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
         this.theme = window.localStorage.getItem('vitepress-theme-appearance')
@@ -36,7 +34,7 @@ class setStyle {
 
   /**
    * @name loadThemeStyle
-   * @description 加载主题样式
+   * @description 主题样式 黑白主题
    */
   loadThemeStyle = (): void => {
     const isDark: boolean = this.theme === 'dark'
