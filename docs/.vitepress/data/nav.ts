@@ -20,8 +20,13 @@ export const nav = [
     items: [
       {
         text: '1.Flutter',
-        activeMatch: '^/expansion/',
+        activeMatch: '^/expansion/Flutter/',
         link: '/expansion/Flutter/WinInstall'
+      },
+      {
+        text: '2.Xcode',
+        activeMatch: '^/expansion/Xcode/',
+        link: '/expansion/Xcode/installXcode'
       }
     ]
   },
