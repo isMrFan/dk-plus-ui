@@ -4,7 +4,6 @@ import { nav } from './data/nav'
 import { sidebar } from './data/sidebar'
 import { head } from './data/head'
 import { PluginModule } from './plugins'
-import type MarkdownIt from 'markdown-it'
 /**
  * vitepress 配置项文件
  *

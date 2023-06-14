@@ -3,6 +3,7 @@
  *
  * @see sidebar https://vitepress.vuejs.org/guide/theme-sidebar#sidebar
  */
+import { expansionNav } from './expansionNav'
 export const sidebar = {
   '/document/': [
     {
@@ -41,21 +42,5 @@ export const sidebar = {
       items: [{ text: 'Input', link: '/components/input' }]
     }
   ],
-  '/expansion/': [
-    {
-      text: 'Flutter在vsCode中快速创建项目',
-      items: [
-        { text: '1.基础安装', link: '/expansion/Flutter/WinInstall' },
-        { text: '2.fvm安装(多版本Flutter)', link: '/expansion/Flutter/fvmInstall' },
-        { text: '3.在vs code 运行 安卓环境', link: '/expansion/Flutter/AndroidInstall' }
-      ]
-    },
-    {
-      text: '在 Xcode 中快速创建项目',
-      items: [
-        { text: '1.基础安装', link: '/expansion/Xcode/installXcode' },
-        { text: '2.创建项目', link: '/expansion/Xcode/createProject' },
-      ]
-    }
-  ]
+  '/expansion/': expansionNav
 }
