@@ -90,7 +90,7 @@
         .container{
           .content{
             &-body{
-              background-color: rgba($color: var(--background-color), $alpha: .8);
+              background-color: rgba($color: var(--background-color), $alpha: 1);
               background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
               background-size: 5px 5px;
             }

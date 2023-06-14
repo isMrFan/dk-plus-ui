@@ -11,10 +11,8 @@
  * @function unInstall 卸载事件监听
  */
 class setStyle {
-  theme: string | null = 'auto'
-  constructor(theme: string | null) {
-    this.theme = theme
-  }
+  theme: string | null = window.localStorage.getItem('vitepress-theme-appearance')
+  timeoutId: NodeJS.Timeout | null = null
 
   /**
    * @name intercept
@@ -23,7 +21,11 @@ class setStyle {
   intercept = (): void => {
     const VPSwitchAppearanceList: HTMLCollectionOf<Element> =
       document.getElementsByClassName('VPSwitchAppearance')
+
     const len: number = VPSwitchAppearanceList.length
+
+    console.log('🚀 ~ file: index.ts:33 ~ setStyle ~ len:', len)
+
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
         this.theme = window.localStorage.getItem('vitepress-theme-appearance')
@@ -108,7 +110,7 @@ class setStyle {
     const VPSwitchAppearanceList = document.getElementsByClassName('VPSwitchAppearance')
     const len = VPSwitchAppearanceList.length
     for (let i = 0; i < len; i++) {
-      VPSwitchAppearanceList[i].removeEventListener('click', () => {
+      VPSwitchAppearanceList[i].removeEventListener('click', (): void => {
         null
       })
     }
@@ -118,9 +120,11 @@ class setStyle {
 
     // 卸载拦截切换主题的按钮点击事件
     const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
-    VPNavBarHamburger[0].removeEventListener('click', () => {
+    VPNavBarHamburger[0].removeEventListener('click', (): void => {
       null
     })
+
+    this.timeoutId && clearTimeout(this.timeoutId)
   }
 
   /**
@@ -128,9 +132,13 @@ class setStyle {
    * @description 初始化
    */
   init = (): void => {
-    this.getSize()
-    this.getWindowSize()
     this.loadThemeStyle()
+
+    this.timeoutId = setTimeout(() => {
+      this.getSize()
+      this.getWindowSize()
+      this.browserBackground(this.unInstall, this.init)
+    }, 100)
   }
 
   /**
@@ -139,27 +147,34 @@ class setStyle {
    */
 
   /**
-   * @function 页面隐藏与显示
-   * @param {Function} endCallBack 离开
-   * @param {Function} startCallBack 进入
+   * @function browserBackground
+   * @description 监听浏览器窗口变化
+   * @param {Function} unInstall 卸载
+   * @param {Function} mount 挂载
    */
-  browserBackground = (endCallBack: Function, startCallBack: Function): void => {
+  browserBackground = (unInstall: Function, mount: Function): void => {
     const event = (): void => {
       if (document.hidden) {
-        endCallBack && endCallBack()
+        unInstall && unInstall()
       } else {
-        startCallBack && startCallBack()
+        mount && mount()
       }
     }
     window.addEventListener('load', (): void => {
       document.addEventListener('visibilitychange', event)
     })
-    window.addEventListener('unload', (): void => {
+    window.addEventListener('beforeunload', (): void => {
       document.removeEventListener('visibilitychange', event)
     })
   }
 }
 
-export { setStyle }
+/**
+ * @name loadStyle
+ * @description 加载样式 外部只能调用init方法
+ */
+const loadStyle = new setStyle().init
 
-export default setStyle
+export { loadStyle }
+
+export default loadStyle
