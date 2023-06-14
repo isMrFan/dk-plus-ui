@@ -5,6 +5,13 @@ import './style/global.scss'
 import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
 
 import '@dk-plus/theme-chalk/src/index.scss'
+
+import setStyle from '../../assets/setStyle'
+const theme: string | null = window.localStorage.getItem('vitepress-theme-appearance')
+const initStyle = new setStyle(theme)
+initStyle.init()
+
+
 export default {
   ...Theme,
   Layout() {

@@ -1,7 +1,6 @@
 <script lang="ts">
-import { defineComponent, onMounted, ref, onUnmounted } from 'vue'
+import { defineComponent } from 'vue'
 import svgList from '@dk-plus/components/_icon'
-import { setStyle } from '../../../assets/setStyle'
 export default defineComponent({
   name: 'VueDomeIcon',
   setup() {
@@ -16,20 +15,6 @@ export default defineComponent({
       document.body.removeChild(input)
       alert('复制成功')
     }
-
-    const theme = ref<string | null>(
-      window.localStorage.getItem('vitepress-theme-appearance')
-    )
-
-    const setStyleClass = new setStyle(theme.value)
-
-    onMounted(() => {
-      setStyleClass.init()
-    })
-
-    onUnmounted(() => {
-      setStyleClass.unInstall()
-    })
 
     return {
       oncopy,

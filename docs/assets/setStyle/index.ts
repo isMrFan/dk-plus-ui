@@ -99,7 +99,7 @@ class setStyle {
     }
   }
 
-  /**
+  /**title
    * @name unInstall
    * @description 卸载事件监听
    */
@@ -131,6 +131,32 @@ class setStyle {
     this.getSize()
     this.getWindowSize()
     this.loadThemeStyle()
+  }
+
+  /**
+   * @name destroy
+   * @description 销毁 监听浏览器窗口变化
+   */
+
+  /**
+   * @function 页面隐藏与显示
+   * @param {Function} endCallBack 离开
+   * @param {Function} startCallBack 进入
+   */
+  browserBackground = (endCallBack: Function, startCallBack: Function): void => {
+    const event = (): void => {
+      if (document.hidden) {
+        endCallBack && endCallBack()
+      } else {
+        startCallBack && startCallBack()
+      }
+    }
+    window.addEventListener('load', (): void => {
+      document.addEventListener('visibilitychange', event)
+    })
+    window.addEventListener('unload', (): void => {
+      document.removeEventListener('visibilitychange', event)
+    })
   }
 }
 
