@@ -27,6 +27,8 @@ export const expansionNav = [
   },
   {
     text: '2.开发指南',
-    items: [{ text: 'DOM', link: '/expansion/Flutter/FlutterDome/dome' }]
+    items: [
+      { text: '1.项目基础结构创建', link: '/expansion/Flutter/FlutterDome/structure' }
+    ]
   }
 ]
