@@ -8,22 +8,24 @@
         <dk-button type="success" round @click="start">现在开始</dk-button>
         <dk-button round @click="handleToGitClick">查看 GitHub</dk-button>
       </div>
-    </div>
-    <div class="container">
-      <div class="banner-list">
-        <div class="list-item">
-          
+      <div class="container">
+        <div class="banner-list">
+          <div class="list-item" v-for="item in bannerList" :key="item.id">
+            <div class="icon">{{ item.icon }}</div>
+            <div class="title">{{ item.title }}</div>
+            <div class="message">{{ item.message }}</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-    <div class="footer">
-      <p>京ICP备2022007747号-2 <br/> https://beian.miit.gov.cn/</p>
-    </div>
+  <div class="footer">
+    <p>京ICP备2022007747号-2 <br /> https://beian.miit.gov.cn/</p>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import { useRouter } from 'vitepress'
 export default defineComponent({
   name: 'Home',
@@ -38,9 +40,39 @@ export default defineComponent({
       window.open('https://github.com/dk-plus-ui/dk-plus-ui')
     }
 
+    const data = reactive({
+      bannerList: [
+        {
+          id: 1,
+          title: '简单',
+          icon: '🔰',
+          message: '简单的API，简单的使用方式，让你的开发更加简单'
+        },
+        {
+          id: 2,
+          title: '轻量',
+          icon: '🚀',
+          message: '轻量的组件，轻量的体积，让你的项目更加轻量'
+        },
+        {
+          id: 3,
+          title: '可靠',
+          icon: '🔱',
+          message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
+        },
+        {
+          id: 4,
+          title: '灵活',
+          icon: '🎨',
+          message: '灵活的组件，灵活的使用方式，让你的项目更加灵活'
+        }
+      ]
+    })
+
     return {
       start,
-      handleToGitClick
+      handleToGitClick,
+      ...data
     }
   }
 })
