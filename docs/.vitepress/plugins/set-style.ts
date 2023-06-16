@@ -18,7 +18,6 @@ class setStyle {
 
   constructor() {
     this.theme = window.localStorage.getItem('vitepress-theme-appearance')
-    this.isDark = this.theme === 'dark'
     this.init()
   }
 
@@ -29,12 +28,15 @@ class setStyle {
   intercept = (): void => {
     const VPSwitchAppearanceList: HTMLCollectionOf<Element> =
       document.getElementsByClassName('VPSwitchAppearance')
-    console.log(
-      '🚀 ~ file: set-style.ts:37 ~ setStyle ~ VPSwitchAppearanceList:',
-      VPSwitchAppearanceList
-    )
 
     const len: number = VPSwitchAppearanceList.length
+
+    if (len === 0) { // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
+      setTimeout(() => {
+        this.intercept()
+      }, 0)
+      return
+    }
 
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
@@ -49,14 +51,14 @@ class setStyle {
    * @description 主题样式 黑白主题
    */
   loadThemeStyle = (): void => {
-    this.isDark = this.theme === 'dark'
+    const isDark = this.theme === 'dark'
     const homeStyleList: Record<string, string> = {
       '--theme-color': '#3eaf7c',
-      '--text-color': this.isDark ? '#dfdfd7' : '#333',
-      '--background-color': this.isDark ? '#1e1e20' : '#fff',
+      '--text-color': isDark ? '#dfdfd7' : '#333',
+      '--background-color': isDark ? '#1e1e20' : '#fff',
       '--sub-text-color': '#666',
-      '--grey-background-color': this.isDark ? '#1e1e20' : '#f5f5f5',
-      '--dark-grey-background-color': this.isDark ? '#1e1e20' : '#ebebeb'
+      '--grey-background-color': isDark ? '#1e1e20' : '#f5f5f5',
+      '--dark-grey-background-color': isDark ? '#1e1e20' : '#bbb'
     }
 
     const keyList: string[] = Object.keys(homeStyleList)
@@ -146,11 +148,15 @@ class setStyle {
    */
   init = (): void => {
     this.loadThemeStyle()
-    this.timeoutId = setTimeout(() => {
-      this.getSize()
-      this.getWindowSize()
-      this.browserBackground(this.unInstall, this.init)
-    }, 100)
+    // this.timeoutId = setTimeout(() => {
+    console.log('loadStyle')
+
+    // dom全部更新完毕执行
+
+    this.getSize()
+    this.getWindowSize()
+    this.browserBackground(this.unInstall, this.init)
+    // }, 100)
   }
 
   /**
