@@ -1,3 +1,5 @@
+import { nextTick } from 'vue'
+
 /**
  * @name setStyle
  * @description 设置样式
@@ -12,8 +14,6 @@
  */
 class setStyle {
   theme: string | null = null
-  timeoutId: NodeJS.Timeout | null = null
-
   isDark: boolean = false
 
   constructor() {
@@ -31,7 +31,8 @@ class setStyle {
 
     const len: number = VPSwitchAppearanceList.length
 
-    if (len === 0) { // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
+    if (len === 0) {
+      // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
       setTimeout(() => {
         this.intercept()
       }, 0)
@@ -57,8 +58,8 @@ class setStyle {
       '--text-color': isDark ? '#dfdfd7' : '#333',
       '--background-color': isDark ? '#1e1e20' : '#fff',
       '--sub-text-color': '#666',
-      '--grey-background-color': isDark ? '#1e1e20' : '#f5f5f5',
-      '--dark-grey-background-color': isDark ? '#1e1e20' : '#bbb'
+      '--grey-background-color': isDark ? '#1e1e20' : '#f6f6f6',
+      '--dark-grey-background-color': isDark ? '#1e1e20' : '#e3e3e6'
     }
 
     const keyList: string[] = Object.keys(homeStyleList)
@@ -93,8 +94,15 @@ class setStyle {
    * @name loadHamburgerMenu
    * @description 加载菜单点击事件
    */
-  loadHamburgerMenu = (): void => {
+  loadHamburgerMenu = async (): Promise<void> => {
+    await nextTick()
     const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
+    if (VPNavBarHamburger[0] === undefined) { // TODO: 这里同上
+      setTimeout(() => {
+        this.loadHamburgerMenu()
+      }, 0)
+      return
+    }
     VPNavBarHamburger[0].addEventListener('click', () => {
       const isLaunch = VPNavBarHamburger[0].attributes['aria-expanded'].value === 'true'
       if (isLaunch) {
@@ -138,8 +146,6 @@ class setStyle {
     VPNavBarHamburger[0].removeEventListener('click', (): void => {
       null
     })
-
-    this.timeoutId && clearTimeout(this.timeoutId)
   }
 
   /**
@@ -148,15 +154,9 @@ class setStyle {
    */
   init = (): void => {
     this.loadThemeStyle()
-    // this.timeoutId = setTimeout(() => {
-    console.log('loadStyle')
-
-    // dom全部更新完毕执行
-
     this.getSize()
     this.getWindowSize()
     this.browserBackground(this.unInstall, this.init)
-    // }, 100)
   }
 
   /**

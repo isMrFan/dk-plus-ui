@@ -1,9 +1,11 @@
 <template>
   <div class="home">
     <div class="main">
-      <p class="text">dk-plus</p>
-      <p class="text">一套基于 Vue3.0 <br />的 UI 组件库</p>
-      <p class="text">轻量便捷，打造高效界面，<br />简单灵活，提升用户体验。</p>
+      <div class="explain">
+        <p class="text">dk-plus</p>
+        <p class="text">一套基于 Vue3.0 的 UI 组件库</p>
+        <p class="text">轻量便捷，打造高效界面，<br />简单灵活，提升用户体验。</p>
+      </div>
       <div class="button-list">
         <dk-button type="success" round @click="start">现在开始</dk-button>
         <dk-button round @click="handleToGitClick">查看 GitHub</dk-button>
@@ -11,8 +13,10 @@
       <div class="container">
         <div class="banner-list">
           <div class="list-item" v-for="item in bannerList" :key="item.id">
-            <div class="icon">{{ item.icon }}</div>
-            <div class="title">{{ item.title }}</div>
+            <div class="item-title">
+              <div class="title">{{ item.title }}</div>
+              <div class="icon">{{ item.icon }}</div>
+            </div>
             <div class="message">{{ item.message }}</div>
           </div>
         </div>
@@ -25,11 +29,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, nextTick } from 'vue'
 import { useRouter } from 'vitepress'
 export default defineComponent({
   name: 'Home',
-  setup() {
+  setup() {    
     const router = useRouter()
 
     const start = (): void => {
