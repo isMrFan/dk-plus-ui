@@ -14,6 +14,10 @@ class setStyle {
   theme: string | null = window.localStorage.getItem('vitepress-theme-appearance')
   timeoutId: NodeJS.Timeout | null = null
 
+  constructor() {
+    this.init()
+  }
+
   /**
    * @name intercept
    * @description 拦截切换主题的按钮点击事件
@@ -129,7 +133,7 @@ class setStyle {
    * @name init
    * @description 初始化
    */
-  init = (): void => {
+  init = (): void => {    
     this.loadThemeStyle()
 
     this.timeoutId = setTimeout(() => {

@@ -6,9 +6,7 @@ import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
 
 import '@dk-plus/theme-chalk/src/index.scss'
 
-import { loadStyle } from '../plugins/set-style'
-
-loadStyle()
+import '../plugins/set-style'
 
 export default {
   ...Theme,
