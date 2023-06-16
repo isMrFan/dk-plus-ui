@@ -1,3 +1,5 @@
+import { nextTick } from 'vue'
+
 /**
  * @name setStyle
  * @description 设置样式
@@ -11,8 +13,13 @@
  * @function unInstall 卸载事件监听
  */
 class setStyle {
-  theme: string | null = window.localStorage.getItem('vitepress-theme-appearance')
-  timeoutId: NodeJS.Timeout | null = null
+  theme: string | null = null
+  isDark: boolean = false
+
+  constructor() {
+    this.theme = window.localStorage.getItem('vitepress-theme-appearance')
+    this.init()
+  }
 
   /**
    * @name intercept
@@ -23,6 +30,14 @@ class setStyle {
       document.getElementsByClassName('VPSwitchAppearance')
 
     const len: number = VPSwitchAppearanceList.length
+
+    if (len === 0) {
+      // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
+      setTimeout(() => {
+        this.intercept()
+      }, 0)
+      return
+    }
 
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
@@ -37,13 +52,16 @@ class setStyle {
    * @description 主题样式 黑白主题
    */
   loadThemeStyle = (): void => {
-    const isDark: boolean = this.theme === 'dark'
+    const isDark = this.theme === 'dark'
     const homeStyleList: Record<string, string> = {
       '--theme-color': '#3eaf7c',
       '--text-color': isDark ? '#dfdfd7' : '#333',
       '--background-color': isDark ? '#1e1e20' : '#fff',
-      '--sub-text-color': '#666'
+      '--sub-text-color': '#666',
+      '--grey-background-color': isDark ? '#1e1e20' : '#f6f6f6',
+      '--dark-grey-background-color': isDark ? '#1e1e20' : '#e3e3e6'
     }
+
     const keyList: string[] = Object.keys(homeStyleList)
     const len: number = keyList.length
     for (let i = 0; i < len; i++) {
@@ -76,8 +94,15 @@ class setStyle {
    * @name loadHamburgerMenu
    * @description 加载菜单点击事件
    */
-  loadHamburgerMenu = (): void => {
+  loadHamburgerMenu = async (): Promise<void> => {
+    await nextTick()
     const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
+    if (VPNavBarHamburger[0] === undefined) { // TODO: 这里同上
+      setTimeout(() => {
+        this.loadHamburgerMenu()
+      }, 0)
+      return
+    }
     VPNavBarHamburger[0].addEventListener('click', () => {
       const isLaunch = VPNavBarHamburger[0].attributes['aria-expanded'].value === 'true'
       if (isLaunch) {
@@ -121,8 +146,6 @@ class setStyle {
     VPNavBarHamburger[0].removeEventListener('click', (): void => {
       null
     })
-
-    this.timeoutId && clearTimeout(this.timeoutId)
   }
 
   /**
@@ -131,12 +154,9 @@ class setStyle {
    */
   init = (): void => {
     this.loadThemeStyle()
-
-    this.timeoutId = setTimeout(() => {
-      this.getSize()
-      this.getWindowSize()
-      this.browserBackground(this.unInstall, this.init)
-    }, 100)
+    this.getSize()
+    this.getWindowSize()
+    this.browserBackground(this.unInstall, this.init)
   }
 
   /**
