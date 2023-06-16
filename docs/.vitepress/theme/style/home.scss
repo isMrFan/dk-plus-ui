@@ -1,8 +1,9 @@
 .home {
   width: 100%;
   padding: 0 50px;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 130px);
   overflow: auto;
+
   .main {
     width: calc(100% / 3 * 2);
     // width: 1170px;
@@ -14,19 +15,23 @@
     gap: 32px;
     margin: 0 auto;
     margin-top: 80px;
-    .explain{
+
+    .explain {
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 16px;
+
       .text {
         font-size: 56px;
         line-height: 64px;
         font-weight: 600;
         color: var(--text-color);
+
         &:nth-child(1) {
           color: var(--theme-color, #3eaf7c);
         }
+
         &:nth-child(3) {
           color: var(--sub-text-color);
           font-size: 24px;
@@ -35,20 +40,25 @@
         }
       }
     }
+
     .button-list {
       display: flex;
+
       .dk-button {
         .dk-button-box {
           padding: 100px 20px;
         }
       }
     }
+
     .container {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
+      margin-bottom: 20px;
+
       .banner-list {
         display: flex;
         flex-direction: row;
@@ -56,30 +66,35 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 1%;
+
         .list-item {
           flex-basis: calc(100% / 4 - 1%);
           background-color: var(--grey-background-color);
           border-radius: 10px;
           padding: 20px;
           margin-top: 5px;
-          .item-title{
+
+          .item-title {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            .icon{
+
+            .icon {
               width: fit-content;
               padding: 10px;
               font-size: 24px;
               background-color: var(--dark-grey-background-color);
               border-radius: 10px;
             }
-            .title{
+
+            .title {
               font-size: 24px;
               font-weight: bolder;
               line-height: 40px;
             }
           }
-          .message{
+
+          .message {
             margin-top: 10px;
             font-size: 14px;
             line-height: 24px;
@@ -107,8 +122,9 @@
   .home {
     min-width: 1170px;
     margin: 0 auto;
+
     .main {
-      .explain{
+      .explain {
         .text {
           width: 80%;
         }
@@ -122,16 +138,19 @@
     width: 100%;
     max-width: 970px;
     margin: 0;
+
     .main {
       margin: 0;
       width: 100%;
-      .explain{
+
+      .explain {
         .text {
           font-size: 48px;
           line-height: 56px;
           width: 100%;
         }
       }
+
       .container {
         .banner-list {
           .list-item {
@@ -148,25 +167,31 @@
     width: 100%;
     min-width: 100%;
     padding-left: 20px;
+
     .main {
       margin: 0;
       margin-top: 40px;
-      .explain{
+
+      .explain {
         gap: 0;
+
         .text {
           font-size: 32px;
           line-height: 40px;
           white-space: pre-wrap;
           width: 66%;
+
           &:nth-child(3) {
             font-size: 18px;
             line-height: 24px;
           }
         }
       }
+
       .container {
         .banner-list {
           gap: 0;
+
           .list-item {
             flex-basis: 100%;
           }
