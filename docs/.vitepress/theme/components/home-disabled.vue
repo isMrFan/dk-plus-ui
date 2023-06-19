@@ -251,7 +251,7 @@
 
   .home_subject {
     width: 100%;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 130px);
     margin: 0 auto;
 
     .home_content_main {

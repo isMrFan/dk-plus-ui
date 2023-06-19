@@ -1,47 +1,5 @@
-<template>
-  <div class="home">
-    <div class="main">
-      <div class="explain">
-        <p class="text">dk-plus</p>
-        <p class="text">一套基于 Vue3.0 的 UI 组件库</p>
-        <p class="text">轻量便捷，打造高效界面，<br />简单灵活，提升用户体验。</p>
-      </div>
-      <div class="button-list">
-        <dk-button type="success" round @click="start">现在开始</dk-button>
-        <dk-button round @click="handleToGitClick">查看 GitHub</dk-button>
-      </div>
-      <div class="container">
-        <div class="banner-list">
-          <div class="list-item" v-for="item in bannerList" :key="item.id">
-            <div class="item-title">
-              <div class="title">{{ item.title }}</div>
-              <div class="icon">{{ item.icon }}</div>
-            </div>
-            <div class="message">{{ item.message }}</div>
-          </div>
-        </div>
-      </div>
-      <div class="contributions">
-        <div class="contributions-title">贡献者名单：</div>
-        <div class="contributions-list">
-          <div class="list-item" v-for="item in contributionList" :key="item.avatar"
-            @click="handleToGitUserClick(item.avatar)" :title="item.name">
-            <div class="avatar">
-              <img :src="item.imgUrl" alt="avatar" />
-            </div>
-          </div>
-        </div>
-        <dk-button type="success" round size="mini" @click="handleToGitClick">加入其中</dk-button>
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <p>京ICP备2022007747号-2 <br /> https://beian.miit.gov.cn/</p>
-  </div>
-</template>
-
 <script lang="ts">
-import { defineComponent, reactive, nextTick } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import { useRouter } from 'vitepress'
 import contribution from '../../../.vitepress/json/contribution.json'
 export default defineComponent({
@@ -87,19 +45,64 @@ export default defineComponent({
       contributionList: contribution.contribution
     })
 
-    const handleToGitUserClick = (url): void => {
+    const handleToGitUserClick = (url: string): void => {
       window.open(url)
     }
 
     return {
-      ...data,
       start,
       handleToGitClick,
+      ...data,
       handleToGitUserClick
     }
   }
 })
 </script>
+
+<template>
+  <div class="home">
+    <div class="main">
+      <div class="explain">
+        <p class="text">dk-plus</p>
+        <p class="text">一套基于 Vue3.0 的 UI 组件库</p>
+        <p class="text">轻量便捷，打造高效界面，<br />简单灵活，提升用户体验。</p>
+      </div>
+      <div class="button-list">
+        <dk-button type="success" round @click="start">现在开始</dk-button>
+        <dk-button round @click="handleToGitClick">查看 GitHub</dk-button>
+      </div>
+      <div class="container">
+        <div class="banner-list">
+          <div v-for="item in bannerList" :key="item.id" class="list-item">
+            <div class="item-title">
+              <div class="title">{{ item.title }}</div>
+              <div class="icon">{{ item.icon }}</div>
+            </div>
+            <div class="message">{{ item.message }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="contributions">
+        <div class="contributions-title">贡献者名单：</div>
+        <div class="contributions-list">
+          <div class="list-item" v-for="item in contributionList" :key="item.avatar"
+            @click="handleToGitUserClick(item.avatar)" :title="item.name">
+            <div class="avatar">
+              <img :src="item.imgUrl" alt="avatar" />
+            </div>
+          </div>
+        </div>
+        <dk-button type="success" round size="mini" @click="handleToGitClick">加入其中</dk-button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>
+      Copyright 2023 dk-plus
+      <a href="https://beian.miit.gov.cn/">京ICP备2022007747号-2</a>
+    </p>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 @import '../style/home.scss';
