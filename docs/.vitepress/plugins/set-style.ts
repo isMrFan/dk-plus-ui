@@ -15,10 +15,11 @@ import { nextTick } from 'vue'
 class setStyle {
   theme: string | null = null
   isDark: boolean = false
-
-  constructor() {
+  window: Window
+  constructor(window: Window) {
+    this.window = window
     this.theme = window.localStorage.getItem('vitepress-theme-appearance')
-    this.init()
+    // this.init()
   }
 
   /**
@@ -30,18 +31,19 @@ class setStyle {
       document.getElementsByClassName('VPSwitchAppearance')
 
     const len: number = VPSwitchAppearanceList.length
+    console.log("🚀 ~ file: set-style.ts:34 ~ setStyle ~ len:", len)
 
-    if (len === 0) {
-      // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
-      setTimeout(() => {
-        this.intercept()
-      }, 0)
-      return
-    }
+    // if (len === 0) {
+    //   // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
+    //   setTimeout(() => {
+    //     this.intercept()
+    //   }, 0)
+    //   return
+    // }
 
     for (let i = 0; i < len; i++) {
       VPSwitchAppearanceList[i].addEventListener('click', () => {
-        this.theme = window.localStorage.getItem('vitepress-theme-appearance')
+        this.theme = this.window.localStorage.getItem('vitepress-theme-appearance')
         this.loadThemeStyle()
       })
     }
@@ -76,7 +78,7 @@ class setStyle {
    * @description 获取页面尺寸
    */
   getSize = (): void => {
-    window.addEventListener('resize', this.handleSizeChange)
+    this.window.addEventListener('resize', this.handleSizeChange)
   }
 
   /**
@@ -97,12 +99,12 @@ class setStyle {
   loadHamburgerMenu = async (): Promise<void> => {
     await nextTick()
     const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
-    if (VPNavBarHamburger[0] === undefined) { // TODO: 这里同上
-      setTimeout(() => {
-        this.loadHamburgerMenu()
-      }, 0)
-      return
-    }
+    // if (VPNavBarHamburger[0] === undefined) { // TODO: 这里同上
+    //   setTimeout(() => {
+    //     this.loadHamburgerMenu()
+    //   }, 0)
+    //   return
+    // }
     VPNavBarHamburger[0].addEventListener('click', () => {
       const isLaunch = VPNavBarHamburger[0].attributes['aria-expanded'].value === 'true'
       if (isLaunch) {
@@ -116,7 +118,7 @@ class setStyle {
    * @description 获取页面尺寸
    */
   getWindowSize = (): void => {
-    const innerWidth = window.innerWidth
+    const innerWidth = this.window.innerWidth
     if (innerWidth > 768) {
       this.intercept()
     } else {
@@ -139,7 +141,7 @@ class setStyle {
     }
 
     // 卸载获取页面尺寸
-    window.removeEventListener('resize', this.handleSizeChange)
+    this.window.removeEventListener('resize', this.handleSizeChange)
 
     // 卸载拦截切换主题的按钮点击事件
     const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
@@ -157,6 +159,8 @@ class setStyle {
     this.getSize()
     this.getWindowSize()
     this.browserBackground(this.unInstall, this.init)
+    console.log('init');
+    
   }
 
   /**
@@ -178,10 +182,10 @@ class setStyle {
         mount && mount()
       }
     }
-    window.addEventListener('load', (): void => {
+    this.window.addEventListener('load', (): void => {
       document.addEventListener('visibilitychange', event)
     })
-    window.addEventListener('beforeunload', (): void => {
+    this.window.addEventListener('beforeunload', (): void => {
       document.removeEventListener('visibilitychange', event)
     })
   }
@@ -191,8 +195,8 @@ class setStyle {
  * @name loadStyle
  * @description 加载样式 外部只能调用init方法
  */
-const loadStyle = new setStyle().init
+// const loadStyle = new setStyle().init
 
-export { loadStyle }
+export { setStyle }
 
-export default loadStyle
+export default setStyle

@@ -21,6 +21,18 @@
           </div>
         </div>
       </div>
+      <div class="contributions">
+        <div class="contributions-title">贡献者名单：</div>
+        <div class="contributions-list">
+          <div class="list-item" v-for="item in contributionList" :key="item.avatar"
+            @click="handleToGitUserClick(item.avatar)" :title="item.name">
+            <div class="avatar">
+              <img :src="item.imgUrl" alt="avatar" />
+            </div>
+          </div>
+        </div>
+        <dk-button type="success" round size="mini" @click="handleToGitClick">加入其中</dk-button>
+      </div>
     </div>
   </div>
   <div class="footer">
@@ -31,9 +43,10 @@
 <script lang="ts">
 import { defineComponent, reactive, nextTick } from 'vue'
 import { useRouter } from 'vitepress'
+import contribution from '../../../.vitepress/json/contribution.json'
 export default defineComponent({
   name: 'Home',
-  setup() {    
+  setup() {
     const router = useRouter()
 
     const start = (): void => {
@@ -70,13 +83,19 @@ export default defineComponent({
           icon: '🎨',
           message: '灵活的组件，灵活的使用方式，让你的项目更加灵活'
         }
-      ]
+      ],
+      contributionList: contribution.contribution
     })
 
+    const handleToGitUserClick = (url): void => {
+      window.open(url)
+    }
+
     return {
+      ...data,
       start,
       handleToGitClick,
-      ...data
+      handleToGitUserClick
     }
   }
 })
