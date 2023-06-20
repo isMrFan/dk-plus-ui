@@ -97,7 +97,7 @@ if (typeof window !== 'undefined') {
      * @name loadHamburgerMenu
      * @description 加载菜单点击事件
      */
-    loadHamburgerMenu = async(): Promise<void> => {
+    loadHamburgerMenu = async (): Promise<void> => {
       await nextTick()
       const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
       if (VPNavBarHamburger[0] === undefined) {
@@ -190,12 +190,12 @@ if (typeof window !== 'undefined') {
       })
     }
   }
-
-  /**
-   * @name loadStyle
-   * @description 加载样式 外部只能调用init方法
-   */
 }
+
+/**
+ * @name loadStyle
+ * @description 加载样式 外部只能调用init方法
+ */
 const loadStyle = setStyle === null ? '' : new setStyle().init
 export { loadStyle }
 export default loadStyle

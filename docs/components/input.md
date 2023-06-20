@@ -192,6 +192,17 @@
 | `maxlength` | 输入框最大长度 | `number` | - | - |
 | `minlength` | 输入框最小长度 | `number` | - | - | 
 | `show-length` | 是否显示输入框长度 | `boolean` | - | `false` |
+| `width` | 输入框宽度 | `string` | - | - |
+| `height` | 输入框高度 | `string` | - | - |
+| `size` | 输入框尺寸 | `string` | `large` `medium` `small` | `medium` |
+| `font-size` | 输入框字体大小 | `string` | - | - |
+| `border-radius` | 输入框圆角 | `string` | - | - |
+| `text-color` | 输入框字体颜色 | `string` | - | - |
+| `icon-size` | 输入框图标大小 | `string` | - | - |
+| `border-color` | 输入框边框颜色 | `string` | - | - |
+| `focus-border-color` | 输入框聚焦边框颜色 | `string` | - | - |
+| `append-background` | 输入框前后置内容背景颜色 | `string` | - | - |
+| `append-color` | 输入框前后置内容字体颜色 | `string` | - | - |
 <!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
 <!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
 <!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->

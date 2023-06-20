@@ -76,6 +76,16 @@ const routes: RouteRecordRaw[] = [
           keepAlive: false,
           isunnewList: false
         }
+      },
+      {
+        path: '/DkNumber',
+        name: 'DkNumber',
+        component: () => import('../views/component/DkNumber/dkNumber.vue'),
+        meta: {
+          title: '数字输入框DkNumber',
+          keepAlive: false,
+          isunnewList: false
+        }
       }
     ]
   }

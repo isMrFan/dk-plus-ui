@@ -23,75 +23,71 @@ export interface UseEmitType {
 }
 
 export interface propDataModel {
-  /** 前置文本 */
   prependText: string
-  /** 后置文本 */
   appendText: string
-  /** 占位符 */
   placeholder: string
-  /** 是否显示清除按钮 */
+  /** Show clearable button or not */
   clearable: boolean
-  /** 是否显示密码 */
+  /** Show password or not */
   showPassword: boolean
-  /** 前置图标 */
   prependIcon: string
-  /** 后置图标 */
   appendIcon: string
-  /** 是否禁用 */
+  /** Disabled or not */
   disabledProp: boolean
-  /** 前缀图标 */
   prefixIcon: string
-  /** 输入类型 */
   inputType: dkInputType
-  /** 后缀图标 */
   suffixIcon: string
   maxlengthProp: number | string
   minlengthProp: number | string
+  /** Is there textarea height adaptive */
   autosizeProp: boolean
+  /** Textarea line limit */
   rowsProp: number | string
   readonlyProp: boolean
-  /** 是否显示字符统计 - 只对 text textarea生效 */
+  /** Show character statistics or not - Only text textarea take effect */
   showLengthProp: boolean
 }
 
 export interface dataType {
-  /** 是否有前缀内容 */
+  /**
+   * @description Is there prepend text
+   * @type {boolean} [true | false]
+   * @default false
+   */
   isPrepend: boolean
-  /** 是否有后缀文本 */
+  /** Is there append text */
   isAppendTextLen: boolean
-  /** 是否有前缀 */
+  /** Is there prefix */
   isPrefix: boolean
-  /** 是否显示清除按钮 */
+  /** Show clear button or not */
   isClear: boolean
-  /** 输入类型 */
+  /** Input box type */
   inputType: dkInputType
-  /** 输入方式 */
   inputmode: string
-  /** 是否有前缀图标 */
+  /** Is there prefix icon */
   isPrefixIcon: boolean
-  /** 是否有后缀 */
+  /** Is there suffix icon */
   isSuffix: boolean
-  /** 是否显示后缀图标 */
+  /** Show suffix icon or not */
   isSuffixIcon: boolean
-  /** 是否显示密码 */
+  /** Show password or not */
   isShowPassword: boolean
-  /** 是否有前缀图标 */
+  /** Is there prefix icon */
   isPrependIcon: boolean
-  /** 是否有后缀图标 */
+  /** Is there suffix icon */
   isAppendIcon: boolean
-  /** 是否有后缀内容 */
+  /** Is there append content */
   isAppend: boolean
-  /** 是否显示长度限制 */
+  /** Display or not length */
   isLength: boolean
-  /** 行 */
   rows: number | string
-  /** 是否显示字符统计 */
+  /** Is display character statistics */
   showLength: boolean
 }
 
 export interface pendType {
-  /** 是否有前缀文本 */
+  /** Is there prepend text */
   isPrependText: boolean
-  /** 是否有后缀文本 */
+  /** Is there append text */
   isAppendText: boolean
 }

@@ -1,0 +1,5 @@
+@use './mixins/mixin.scss' as *;
+
+@include block('input-number'){
+  width: 100%;
+}

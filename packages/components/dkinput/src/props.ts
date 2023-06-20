@@ -26,54 +26,54 @@ export const dkInputProps = {
   borderRadius: setStringProp() || setNumberProps(),
   /** fontSize */
   fontSize: setStringProp() || setNumberProps(),
-  /** input宽度 */
+  /** input width */
   width: setStringProp() || setNumberProps(),
 
-  /** input高度 */
+  /** input height */
   height: setStringProp() || setNumberProps(),
-  /** input边框颜色 */
+  /** input border color */
   borderColor: setStringProp(),
-  /** input聚焦边框颜色 */
+  /** input focus border color */
   focusBorderColor: setStringProp(),
-  /** input悬浮颜色 */
+  /** input hover border color */
   hoverBorderColor: setStringProp(),
 
-  /** 是否展示密码 */
+  /** Whether display password */
   showPassword: setBooleanProps(),
   /**
-   * @name prependText 前缀内容
-   * @description 优先级顺序 prepend(slot) > icon > text
+   * @name prependText Prefix content
+   * @description Priority Order:  prepend(slot) > icon > text
    */
   prependText: setStringProp(),
   /**
-   * @name appendText 后缀内容
-   * @description 优先级顺序 prepend(slot) > icon > text
+   * @name appendText Append content
+   * @description Priority order:  prepend(slot) > icon > text
    */
   appendText: setStringProp(),
   /**
-   * @name prependIcon 前缀图标
-   * @description 优先级顺序 prepend(slot) > icon > text
+   * @name prependIcon Prepend icon
+   * @description Priority order: prepend(slot) > icon > text
    */
   prependIcon: setStringProp(),
   /**
-   * @name appendIcon 后缀图标
-   * @description 优先级顺序 prepend(slot) > icon > text
+   * @name appendIcon Append icon
+   * @description Priority order: prepend(slot) > icon > text
    */
   appendIcon: setStringProp(),
-  /** 前缀背景颜色 */
+  /** Append background color */
   appendBackground: setStringProp(),
-  /** 前缀字体颜色 */
+  /** Append text color */
   appendColor: setStringProp(),
-  /** 输入框内容 */
+  /** input box content */
   modelValue: setStringProp() || setNumberProps(),
   /**
-   * 输入框类型
+   * Input box type
    * @default text
-   * @param { string } type [text] 文本
-   * @param { string } type [number] 数字
-   * @param { string } type [password] 密码
-   * @param { string } type [textarea] 多行文本
-   * @returns { string } 返回一个字符串 默认值为 text
+   * @param { string } type [text]
+   * @param { string } type [number]
+   * @param { string } type [password]
+   * @param { string } type [textarea]
+   * @returns { string } Returns a string, default: text
    */
   type: setStringProp<dkInputType>('text', (val: dkInputType): boolean => {
     return DK_INPUT_TYPE.includes(val)
@@ -81,40 +81,40 @@ export const dkInputProps = {
   /**
    * 输入框尺寸
    * @default small
-   * @param { string } type [large] 大
-   * @param { string } type [medium] 中
-   * @param { string } type [small] 小
-   * @param { string } type [mini] 迷你
-   * @returns { string } 返回一个字符串 默认值为 small
+   * @param { string } type [large]
+   * @param { string } type [medium]
+   * @param { string } type [small]
+   * @param { string } type [mini]
+   * @returns { string } Returns a string, default: small
    */
   size: setStringProp<dkPlusSize>(null, (val: dkPlusSize) => {
     return DK_SIZE.includes(val)
   }),
-  /** 输入框禁用 */
+  /** Whether input box disabled */
   disabled: setBooleanProps(),
-  /** 是否显示清空 */
+  /** Whether display clear button */
   clearable: setBooleanProps(),
-  /** 是否只读 */
+  /** Whether input box readonly */
   readonly: setBooleanProps(),
-  /** 提示信息 */
+  /** Tip message */
   placeholder: setStringProp(),
-  /** 是否显示长度限制 */
+  /** Whether display length limit */
   showLengthLimit: setBooleanProps(),
-  /** 最大长度 */
+  /** Max length */
   maxlength: setStringProp(),
-  /** 最小长度 */
+  /** Min length */
   minlength: setStringProp(),
-  /** 是否显示字符限制 */
+  /** Whether display limit */
   showWordLimit: setBooleanProps(),
-  /** 前缀图标 */
+  /** Prefix icon */
   prefixIcon: setStringProp(),
-  /** 后缀图标 */
+  /** Suffix icon */
   suffixIcon: setStringProp(),
-  /** 行数 */
   rows: setStringProp() || setNumberProps(),
   maxRows: setStringProp() || setNumberProps(),
+  /** Auto height */
   autosize: setBooleanProps() || setObjectProps(),
-  /** 是否显示字数统计 */
+  /** Whether display character statistics */
   showLength: setBooleanProps()
 } as const
 export type DkInputProps = ExtractPropTypes<typeof dkInputProps>

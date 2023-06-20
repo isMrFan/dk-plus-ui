@@ -53,7 +53,6 @@
 <template>
   <div class="input">
     <dk-input v-model="msg" placeholder="change" :disabled="isDisabled"> </dk-input>
-    <dk-button>切换{{ isDisabled }}</dk-button>
 
     <dk-input show-length></dk-input>
 
