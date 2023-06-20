@@ -42,6 +42,10 @@
           {
             name: '输入框组件',
             path: '/Dkinput'
+          },
+          {
+            name: '计数器组件',
+            path: '/DkNumber'
           }
         ]
       })

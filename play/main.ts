@@ -17,6 +17,7 @@ import DkShadow from '@dk-plus/components/dkshadow'
 import DkContainer from '@dk-plus/components/dkcontainer'
 import dkbutton from '@dk-plus/components/dkbutton'
 import dkinput from '@dk-plus/components/dkinput'
+import dkInputNumber from '@dk-plus/components/dk-input-number'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import * as icons from '@dk-plus/components/_icon'
 import '@dk-plus/theme-chalk/src/index.scss'
@@ -205,6 +206,7 @@ app.use(DkContainer)
 app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)
+app.use(dkInputNumber)
 app.use(dkcodedisplay)
 app
   .use(IconShanchu1)
