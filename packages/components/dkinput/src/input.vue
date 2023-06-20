@@ -3,9 +3,9 @@
    * @name dk-input
    * @author WangYingJie
    * @Time 2323/4/12
-   * @description 输入框组件
-   * @function getNull 获取字符串、数组长度
-   * @function getBooleanAnd 获取布尔值
+   * @description input component
+   * @function getNull Get string array length
+   * @function getBooleanAnd Obtaining Results from Relationships
    * @example
    */
   import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'vue'
@@ -57,7 +57,7 @@
       const passwordShowOrHide = ref<Boolean>(false)
 
       /**
-       * @name verifyInputType 获取input类型
+       * @name verifyInputType Get input type
        * @returns {dkInputType}
        */
       const verifyInputType = (): dkInputType => {
@@ -75,7 +75,7 @@
       }
 
       /**
-       * @name getIsClear 获取是否显示清除按钮
+       * @name getIsClear Whether to display the clear button
        * @returns {boolean}
        */
       const getIsClear = (): boolean => {
@@ -107,8 +107,8 @@
       }
 
       const getShowLengthProp = (): boolean => {
-        const isShowLen = propData.showLengthProp;
-        if(!isShowLen) return false
+        const isShowLen = propData.showLengthProp
+        if (!isShowLen) return false
         let result = false
         const isTextarea = propData.inputType === 'textarea'
         const isText = propData.inputType === 'text'
@@ -188,10 +188,10 @@
         }
 
         // autoSize
-        if (getTextareaRows() !== 1) {
+        if (getTextareaRows().autosize) {
           const textarea = _ref.value as HTMLTextAreaElement
           textarea.style.height = 'auto'
-          textarea.style.height = `${textarea.scrollHeight}px`
+          textarea.style.height = `${textarea.scrollHeight + 2}px`
         }
 
         // length-count
@@ -202,7 +202,7 @@
         modelValueProp.value = target.value
         emit('update:modelValue', updateModelValue)
       }
-      
+
       const prefixIconClass = (): string[] => {
         const isDefault = typeof propData.prefixIcon === 'boolean'
         return [
@@ -266,17 +266,22 @@
         }
       }
 
-      const getTextareaRows = (): number => {
+      const getTextareaRows = (): Record<string, boolean | number> => {
         let row = 1
-        const isRows = getBooleanAnd([
-          !!propData.rowsProp,
-          +propData.autosizeProp > 0,
-          propData.inputType === 'textarea'
-        ])
-        if (isRows && +propData.rowsProp > 0) {
-          row = +propData.rowsProp
+
+        const isTextarea = propData.inputType === 'textarea'
+        const isAutosize = propData.autosizeProp
+        const rows = +propData.rowsProp
+        const isRows = rows > 0
+        
+        if (isTextarea && isRows) {
+          row = rows
         }
-        return row
+
+        return {
+          row,
+          autosize: isTextarea && isAutosize
+        }
       }
 
       const inputAttrs = reactive({
@@ -304,7 +309,7 @@
         maxlength: propData.maxlengthProp,
         minlength: propData.minlengthProp,
         autosize: propData.autosizeProp,
-        rows: getTextareaRows(),
+        rows: getTextareaRows().row,
         readonly: propData.readonlyProp
       } as TextareaHTMLAttributes)
       return {

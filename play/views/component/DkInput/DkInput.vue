@@ -52,8 +52,9 @@
 
 <template>
   <div class="input">
-    <dk-input v-model="msg" placeholder="change" :disabled="isDisabled"> </dk-input>
-    <dk-button>切换{{ isDisabled }}</dk-button>
+    <dk-input type="textarea" autosize></dk-input>
+
+    <!-- <dk-input v-model="msg" placeholder="change" :disabled="isDisabled"> </dk-input>
 
     <dk-input show-length></dk-input>
 
@@ -134,7 +135,7 @@
     <div class="box">
       <dk-input v-model="msg" type="" placeholder="清空" clearable />
       {{ msg }}
-    </div>
+    </div> -->
   </div>
 </template>
 
