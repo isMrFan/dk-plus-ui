@@ -1,0 +1,10 @@
+@use './mixins/mixin.scss' as *;
+
+.#{$namespace}-laside {
+  overflow: auto;
+  box-sizing: border-box;
+  width: var(--aside-width, 20%);
+  padding: var(--aside-padding, 0);
+  height: var(--aside-height, 300px);
+  background-color: var(--aside-background);
+}

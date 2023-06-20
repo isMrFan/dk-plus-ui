@@ -1,0 +1,12 @@
+@use './mixins/mixin.scss' as *;
+
+.#{$namespace}-main {
+  box-sizing: border-box;
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: var(--main-padding, 0);
+  height: var(--main-height, 180);
+}

@@ -16,6 +16,10 @@ import dkIcon from '@dk-plus/components/dkicon'
 import DkShadow from '@dk-plus/components/dkshadow'
 import DkContainer from '@dk-plus/components/dkcontainer'
 import dkbutton from '@dk-plus/components/dkbutton'
+import dkheader from '@dk-plus/components/dkheader'
+import dkmain from '@dk-plus/components/dkmain'
+import dkfooter from '@dk-plus/components/dkfooter'
+import dklaside from '@dk-plus/components/dklaside'
 import dkinput from '@dk-plus/components/dkinput'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import * as icons from '@dk-plus/components/_icon'
@@ -206,6 +210,9 @@ app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)
 app.use(dkcodedisplay)
+app.use(dkmain)
+app.use(dkfooter)
+app.use(dklaside)
 app
   .use(IconShanchu1)
   .use(IconShanchu2)
@@ -265,4 +272,5 @@ app.use(IconFemale1).use(IconCollect4).use(IconCollect5).use(IconCollect6)
 app.use(IconRestoreDelete).use(IconFemale2).use(IconPaymentSetup)
 app.use(IconDeletionPersonnel).use(IconUnionPay).use(IconMale2).use(IconOnlinePayment)
 app.use(IconPassword5).use(IconPassword6).use(IconEdit)
+app.use(dkheader)
 app.mount('#app')
