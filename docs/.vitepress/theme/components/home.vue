@@ -90,6 +90,7 @@ export default defineComponent({
             <div class="avatar">
               <img :src="item.imgUrl" alt="avatar" />
             </div>
+            <p class="name">{{ item.name }}</p>
           </div>
         </div>
         <dk-button type="success" round size="mini" @click="handleToGitClick">加入其中</dk-button>
