@@ -119,6 +119,7 @@
         flex: 1;
         margin-top: auto;
         display: flex;
+        flex-wrap: wrap;
         gap: 3px;
         .list-item{
           width: 32px;
