@@ -21,6 +21,7 @@ import dkmain from '@dk-plus/components/dkmain'
 import dkfooter from '@dk-plus/components/dkfooter'
 import dklaside from '@dk-plus/components/dklaside'
 import dkinput from '@dk-plus/components/dkinput'
+import dkInputNumber from '@dk-plus/components/dk-input-number'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import * as icons from '@dk-plus/components/_icon'
 import '@dk-plus/theme-chalk/src/index.scss'
@@ -209,6 +210,7 @@ app.use(DkContainer)
 app.use(DkShadow)
 app.use(dkbutton)
 app.use(dkinput)
+app.use(dkInputNumber)
 app.use(dkcodedisplay)
 app.use(dkmain)
 app.use(dkfooter)

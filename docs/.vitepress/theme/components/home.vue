@@ -1,55 +1,62 @@
 <script lang="ts">
-  import { defineComponent, reactive, nextTick } from 'vue'
-  import { useRouter } from 'vitepress'
-  export default defineComponent({
-    name: 'Home',
-    setup() {
-      const router = useRouter()
+import { defineComponent, reactive } from 'vue'
+import { useRouter } from 'vitepress'
+import contribution from '../../../.vitepress/json/contribution.json'
+export default defineComponent({
+  name: 'Home',
+  setup() {
+    const router = useRouter()
 
-      const start = (): void => {
-        router.go('/document/install.html')
-      }
-
-      const handleToGitClick = (): void => {
-        window.open('https://github.com/dk-plus-ui/dk-plus-ui')
-      }
-
-      const data = reactive({
-        bannerList: [
-          {
-            id: 1,
-            title: '简单',
-            icon: '🔰',
-            message: '简单的API，简单的使用方式，让你的开发更加简单'
-          },
-          {
-            id: 2,
-            title: '轻量',
-            icon: '🚀',
-            message: '轻量的组件，轻量的体积，让你的项目更加轻量'
-          },
-          {
-            id: 3,
-            title: '可靠',
-            icon: '🔱',
-            message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
-          },
-          {
-            id: 4,
-            title: '灵活',
-            icon: '🎨',
-            message: '灵活的组件，灵活的使用方式，让你的项目更加灵活'
-          }
-        ]
-      })
-
-      return {
-        start,
-        handleToGitClick,
-        ...data
-      }
+    const start = (): void => {
+      router.go('/document/install.html')
     }
-  })
+
+    const handleToGitClick = (): void => {
+      window.open('https://github.com/dk-plus-ui/dk-plus-ui')
+    }
+
+    const data = reactive({
+      bannerList: [
+        {
+          id: 1,
+          title: '简单',
+          icon: '🔰',
+          message: '简单的API，简单的使用方式，让你的开发更加简单'
+        },
+        {
+          id: 2,
+          title: '轻量',
+          icon: '🚀',
+          message: '轻量的组件，轻量的体积，让你的项目更加轻量'
+        },
+        {
+          id: 3,
+          title: '可靠',
+          icon: '🔱',
+          message: '可靠的组件，可靠的开发团队，让你的项目更加可靠'
+        },
+        {
+          id: 4,
+          title: '灵活',
+          icon: '🎨',
+          message: '灵活的组件，灵活的使用方式，让你的项目更加灵活'
+        }
+      ],
+      contributionList: contribution.contribution
+    })
+
+    const handleToGitUserClick = (url: string): void => {
+      window.open(url)
+    }
+
+    return {
+      start,
+      handleToGitClick,
+      ...data,
+      handleToGitUserClick
+    }
+  }
+})
 </script>
 
 <template>
@@ -75,6 +82,19 @@
           </div>
         </div>
       </div>
+      <div class="contributions">
+        <div class="contributions-title">贡献者名单：</div>
+        <div class="contributions-list">
+          <div class="list-item" v-for="item in contributionList" :key="item.avatar"
+            @click="handleToGitUserClick(item.avatar)" :title="item.name">
+            <div class="avatar">
+              <img :src="item.imgUrl" alt="avatar" />
+            </div>
+            <p class="name">{{ item.name }}</p>
+          </div>
+        </div>
+        <dk-button type="success" round size="mini" @click="handleToGitClick">加入其中</dk-button>
+      </div>
     </div>
   </div>
   <div class="footer">
@@ -86,5 +106,5 @@
 </template>
 
 <style lang="scss" scoped>
-  @import '../style/home.scss';
+@import '../style/home.scss';
 </style>
