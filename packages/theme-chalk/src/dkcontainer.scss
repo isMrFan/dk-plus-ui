@@ -1,0 +1,13 @@
+@use './mixins/mixin.scss' as *;
+
+.#{$namespace}-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-basis: auto;
+
+  &.#{$namespace}-container_vertical {
+    flex-direction: column;
+  }
+}

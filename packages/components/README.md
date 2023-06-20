@@ -13,7 +13,12 @@
 ├── _tokens     全局定义变量
 ├── _utils      全局工具方法
 ├── dkbutton    按钮组件
-├── dkcontainer      DK页面布局
+├── dkcontainer      DK页面布局  用于页面布局  一般用于页面最外层
+├── dkheader         DK页面头部  用于页面头部
+├── dkmain           DK页面菜单  用于页面中心区域
+├── dkfooter         DK页面底部  用于页面底部
+├── dklaside         DK页面左侧  用于页面左侧
+├── dkraside         DK页面右侧  用于页面右侧
 ├── dkcodedisplay    内部用展开收起组件
 ├── dkicon           图标文件
 ├── dkinput          input组件

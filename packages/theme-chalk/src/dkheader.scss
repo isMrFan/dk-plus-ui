@@ -1,0 +1,8 @@
+@use './mixins/mixin.scss' as *;
+
+.#{$namespace}-header {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: var(--header-height, 60px);
+  padding: var(--header-padding, 0);
+}
