@@ -19,8 +19,8 @@ export default defineComponent({
 
 <template>
   <div class="dk-input-number">
-    <dk-button size="mini">-</dk-button>
-    <input type="text" />
-    <dk-button size="mini">+</dk-button>
+    <div class="dk-input-number_reduce">-</div>
+    <input type="text" class="dk-input-number_inner" />
+    <div class="dk-input-number_add">+</div>
   </div>
 </template>
