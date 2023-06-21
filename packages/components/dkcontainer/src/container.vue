@@ -3,7 +3,7 @@
    * @name DkContainer
    * @author fanKai16
    * @Time 2023/06/12
-   * @description 面布局
+   * @description 页面布局
    **/
   import { defineComponent } from 'vue'
   import { DkContainerProps } from './props'

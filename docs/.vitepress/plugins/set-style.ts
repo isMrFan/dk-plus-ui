@@ -33,7 +33,6 @@ if (typeof window !== 'undefined') {
         document.getElementsByClassName('VPSwitchAppearance')
 
       const len: number = VPSwitchAppearanceList.length
-      console.log('len', len)
       if (len === 0) {
         // TODO: 没办法了 只能这样了 有更好的方法请告诉我 谢谢
         setTimeout(() => {
@@ -97,7 +96,7 @@ if (typeof window !== 'undefined') {
      * @name loadHamburgerMenu
      * @description 加载菜单点击事件
      */
-    loadHamburgerMenu = async (): Promise<void> => {
+    loadHamburgerMenu = async(): Promise<void> => {
       await nextTick()
       const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
       if (VPNavBarHamburger[0] === undefined) {

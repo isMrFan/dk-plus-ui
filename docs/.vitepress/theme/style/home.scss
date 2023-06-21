@@ -74,7 +74,8 @@
           padding: 20px;
           margin-top: 5px;
           user-select: none;
-          .item-title{
+
+          .item-title {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -104,24 +105,27 @@
       }
     }
 
-    .contributions{
+    .contributions {
       display: flex;
       flex-direction: column;
       gap: 10px;
       overflow: auto;
-      &-title{
+
+      &-title {
         font-size: 13px;
         color: var(--text-color);
       }
-      &-list{
+
+      &-list {
         width: 100%;
         height: fit-content;
         flex: 1;
         margin-top: auto;
         display: flex;
         flex-wrap: wrap;
-        gap: 3px;
-        .list-item{
+        gap: 8px;
+
+        .list-item {
           width: fit-content;
           height: 32px;
           overflow: hidden;
@@ -130,23 +134,27 @@
           justify-content: start;
           align-items: center;
           gap: 2px;
-          &:hover{
-            .avatar img{
+
+          &:hover {
+            .avatar img {
               transition: all 0.1s ease-in-out;
               transform: scale(1.2);
             }
           }
-          .avatar{
+
+          .avatar {
             width: 32px;
             height: 32px;
             border-radius: 50%;
             overflow: hidden;
-            img{
+
+            img {
               width: 100%;
               height: 100%;
             }
           }
-          .name{
+
+          .name {
             font-size: 12px;
             color: var(--text-color);
             font-weight: 600;

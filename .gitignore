@@ -21,4 +21,4 @@ play/report.html
 # 特定文件或目录的忽略
 pnpm-lock.yaml
 .DS_Store
-.vscode
+
