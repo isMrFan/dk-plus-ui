@@ -22,7 +22,9 @@
     "resolveJsonModule": true, // 解析json模块
     "strict": true, // 是否启动严格模式
     "skipLibCheck": true, // 跳过类库检测
-    "types": ["sass"]
+    "types": [
+      "sass"
+    ]
   },
   "exclude": [
     // 排除掉哪些类库
@@ -36,6 +38,9 @@
     "vue"
   ],
   "paths": {
-    "*": ["node_modules/*", "node_modules/@types/*"]
+    "*": [
+      "node_modules/*",
+      "node_modules/@types/*"
+    ]
   }
 }

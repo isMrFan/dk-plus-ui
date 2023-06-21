@@ -10,6 +10,7 @@ cache/
 npm/dist
 packages/theme-chalk/dist
 play/report.html
+docs/build.log
 
 # 特定文件类型的忽略
 **/*.cache

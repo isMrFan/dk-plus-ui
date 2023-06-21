@@ -1,5 +1,6 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
+import onSearch from './components/search.vue'
 import './style/vitepress.scss'
 import './style/global.scss'
 import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
@@ -10,19 +11,12 @@ import { loadStyle } from '../plugins/set-style'
 if (typeof loadStyle === 'function') {
   loadStyle()
 }
-// import '../plugins/set-style'
 
 export default {
   ...Theme,
   Layout() {
     return h(Theme.Layout, null, {
-      /**
-       * 导航栏插入搜索的输入框插槽
-       *
-       * 更多插槽参考
-       *
-       * @see layout-slots https://vitepress.vuejs.org/guide/theme-introduction#layout-slots
-       */
+      'nav-bar-content-before': () => h(onSearch)
     })
   },
   enhanceApp({ app }) {
@@ -31,7 +25,7 @@ export default {
     }
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     function alert(data: string) {
-      let a = document.createElement('div') as HTMLElement,
+      const a = document.createElement('div') as HTMLElement,
         p = document.createElement('p'),
         btn = document.createElement('div'),
         textNode = document.createTextNode(data ? data : '')
@@ -71,7 +65,7 @@ export default {
       // a.appendChild(btn);
       // 整体显示到页面内
       document.getElementsByTagName('body')[0].appendChild(a)
-      setTimeout(function () {
+      setTimeout(function() {
         a.parentNode?.removeChild(a)
       }, 2000)
       // 确定绑定点击事件删除标签
@@ -82,13 +76,13 @@ export default {
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     function css(targetObj, cssObj) {
       let str = targetObj.getAttribute('style') ? targetObj.getAttribute('style') : ''
-      for (let i in cssObj) {
+      for (const i in cssObj) {
         str += i + ':' + cssObj[i] + ';'
       }
       targetObj.style.cssText = str
     }
 
     app.use(dkPlus)
-    app.component('custom-module', dkcodedisplay)
+    app.component('CustomModule', dkcodedisplay)
   }
 }

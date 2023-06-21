@@ -34,6 +34,7 @@ export const sidebar = {
       text: '基础组件',
       items: [
         { text: 'icon 图标', link: '/components/icon' },
+        { text: 'container 页面布局', link: '/components/container' },
         { text: 'Button 按钮', link: '/components/button' }
       ]
     },

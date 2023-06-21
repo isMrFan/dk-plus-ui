@@ -5,7 +5,7 @@
   "description": "",
   "scripts": {
     "dev:docs": "vitepress dev --host 0.0.0.0 --port 6099",
-    "build:docs": "vitepress build",
+    "build:docs": "vitepress build > build.log",
     "serve": "vitepress serve"
   },
   "dependencies": {
