@@ -1,26 +1,26 @@
 <script lang="ts">
-  /**
-   * @name DkInputNumber
-   * @author WangYingJie
-   * @Time 2023/06/20
-   * @description
-   * @example
-   */
-  import { defineComponent } from 'vue'
+/**
+ * @name dk-input-number
+ * @author WangYingJie
+ * @Time 2323/4/12
+ * @description 
+ * @example
+ */
+import { defineComponent } from 'vue'
 
-  export default defineComponent({
-    name: 'DkInputNumber',
-    emits: ['update:modelValue'],
-    setup() {
-      return {}
-    }
-  })
+export default defineComponent({
+  name: 'DkInputNumber',
+  emits: ['update:modelValue'],
+  setup() {
+    return {}
+  }
+})
 </script>
 
 <template>
   <div class="dk-input-number">
-    <dk-button size="mini">-</dk-button>
-    <input type="text" />
-    <dk-button size="mini">+</dk-button>
+    <div class="dk-input-number_reduce">-</div>
+    <input type="text" class="dk-input-number_inner" />
+    <div class="dk-input-number_add">+</div>
   </div>
 </template>
