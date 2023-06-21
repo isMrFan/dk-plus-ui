@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') {
   // 在这里使用 window 对象
   setStyle = class SetStyle {
     theme: string | null = null
-    isDark = false
+    isDark: boolean = false
 
     constructor() {
       this.theme = window.localStorage.getItem('vitepress-theme-appearance')
@@ -42,9 +42,11 @@ if (typeof window !== 'undefined') {
       }
 
       for (let i = 0; i < len; i++) {
-        VPSwitchAppearanceList[i].addEventListener('click', () => {
-          this.theme = window.localStorage.getItem('vitepress-theme-appearance')
-          this.loadThemeStyle()
+        VPSwitchAppearanceList[i].addEventListener('click', (): void => {
+          setTimeout(() => { 
+            this.theme = window.localStorage.getItem('vitepress-theme-appearance')
+            this.loadThemeStyle()
+          }, 0)
         })
       }
     }
@@ -53,7 +55,7 @@ if (typeof window !== 'undefined') {
      * @name loadThemeStyle
      * @description 主题样式 黑白主题
      */
-    loadThemeStyle = (): void => {
+    loadThemeStyle = (): void => {      
       const isDark = this.theme === 'dark'
       const homeStyleList: Record<string, string> = {
         '--theme-color': '#3eaf7c',
@@ -195,6 +197,6 @@ if (typeof window !== 'undefined') {
  * @name loadStyle
  * @description 加载样式 外部只能调用init方法
  */
-const loadStyle = setStyle === null ? '' : new setStyle().init
+const loadStyle = setStyle === null ? '' : new setStyle()
 export { loadStyle }
 export default loadStyle
