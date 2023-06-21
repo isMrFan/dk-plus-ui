@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686541646667" clover="3.2.0">
-  <project timestamp="1686541646667" name="All files">
-    <metrics statements="298" coveredstatements="236" conditionals="8" coveredconditionals="8" methods="17" coveredmethods="3" elements="323" coveredelements="247" complexity="0" loc="298" ncloc="298" packages="4" files="4" classes="4"/>
+<coverage generated="1687327232888" clover="3.2.0">
+  <project timestamp="1687327232889" name="All files">
+    <metrics statements="299" coveredstatements="237" conditionals="8" coveredconditionals="8" methods="17" coveredmethods="3" elements="324" coveredelements="248" complexity="0" loc="299" ncloc="299" packages="4" files="4" classes="4"/>
     <package name="_utils">
       <metrics statements="26" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="E:\iscode.cadwaladerss.com\dk-plus\packages\components\_utils\index.ts">
@@ -35,9 +35,9 @@
       </file>
     </package>
     <package name="_utils.filtration">
-      <metrics statements="38" coveredstatements="38" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <metrics statements="39" coveredstatements="39" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
       <file name="index.ts" path="E:\iscode.cadwaladerss.com\dk-plus\packages\components\_utils\filtration\index.ts">
-        <metrics statements="38" coveredstatements="38" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <metrics statements="39" coveredstatements="39" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -58,9 +58,9 @@
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
@@ -72,10 +72,11 @@
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="4" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="4" type="stmt"/>
       </file>
     </package>
     <package name="_utils.props">
