@@ -2,4 +2,8 @@
 
 @include block('input-number'){
   width: 100%;
+  display: flex;
+  align-items: center;
+  border: solid 1px #ccc;
+  box-sizing: border-box;
 }
