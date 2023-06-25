@@ -50,7 +50,7 @@ if (typeof window !== 'undefined') {
 
       for (let i = 0; i < len; i++) {
         VPSwitchAppearanceList[i].addEventListener('click', (): void => {
-          setTimeout(() => {
+          setTimeout(() => { 
             this.theme = window.localStorage.getItem('vitepress-theme-appearance')
             this.loadThemeStyle()
           }, 0)
@@ -62,7 +62,7 @@ if (typeof window !== 'undefined') {
      * @name loadThemeStyle
      * @description 主题样式 黑白主题
      */
-    loadThemeStyle = (): void => {
+    loadThemeStyle = (): void => {  
       const isDark = this.theme === 'dark'
       const homeStyleList: Record<string, string> = {
         '--theme-color': '#3eaf7c',
