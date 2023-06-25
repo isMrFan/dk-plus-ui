@@ -11,13 +11,17 @@ import { nextTick } from 'vue'
  * @function loadHamburgerMenu 加载菜单点击事件
  * @function getWindowSize 获取页面尺寸
  * @function unInstall 卸载事件监听
+ * @function init 初始化
+ * @function browserBackground 监听浏览器窗口变化
  */
 let setStyle: any = null
 if (typeof window !== 'undefined') {
   // 在这里使用 window 对象
   setStyle = class SetStyle {
     theme: string | null = null
-    isDark = false
+    isDark: boolean = false
+    hamburgerMenuCount: number = 0
+    interceptCount: number = 0
 
     constructor() {
       this.theme = window.localStorage.getItem('vitepress-theme-appearance')
@@ -41,10 +45,15 @@ if (typeof window !== 'undefined') {
         return
       }
 
+      this.interceptCount++
+      if (this.interceptCount > 1) return
+
       for (let i = 0; i < len; i++) {
-        VPSwitchAppearanceList[i].addEventListener('click', () => {
-          this.theme = window.localStorage.getItem('vitepress-theme-appearance')
-          this.loadThemeStyle()
+        VPSwitchAppearanceList[i].addEventListener('click', (): void => {
+          setTimeout(() => {
+            this.theme = window.localStorage.getItem('vitepress-theme-appearance')
+            this.loadThemeStyle()
+          }, 0)
         })
       }
     }
@@ -60,8 +69,10 @@ if (typeof window !== 'undefined') {
         '--text-color': isDark ? '#dfdfd7' : '#333',
         '--background-color': isDark ? '#1e1e20' : '#fff',
         '--sub-text-color': '#666',
-        '--grey-background-color': isDark ? '#1e1e20' : '#f6f6f6',
-        '--dark-grey-background-color': isDark ? '#1e1e20' : '#e3e3e6'
+        '--grey-background-color': isDark ? '#252525' : '#f6f6f6',
+        '--dark-grey-background-color': isDark ? '#1e1e20' : '#e3e3e6',
+        '--border-color': isDark ? '#333' : '#eaecef',
+        '--hover-border-color': isDark ? '#656464' : '#eaecef'
       }
 
       const keyList: string[] = Object.keys(homeStyleList)
@@ -96,7 +107,7 @@ if (typeof window !== 'undefined') {
      * @name loadHamburgerMenu
      * @description 加载菜单点击事件
      */
-    loadHamburgerMenu = async(): Promise<void> => {
+    loadHamburgerMenu = async (): Promise<void> => {
       await nextTick()
       const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
       if (VPNavBarHamburger[0] === undefined) {
@@ -106,7 +117,11 @@ if (typeof window !== 'undefined') {
         }, 0)
         return
       }
-      VPNavBarHamburger[0].addEventListener('click', () => {
+      this.hamburgerMenuCount++
+
+      if (this.hamburgerMenuCount > 1) return
+
+      VPNavBarHamburger[0].addEventListener('click', (): void => {
         const isLaunch = VPNavBarHamburger[0].attributes['aria-expanded'].value === 'true'
         if (isLaunch) {
           this.intercept()
@@ -163,11 +178,6 @@ if (typeof window !== 'undefined') {
     }
 
     /**
-     * @name destroy
-     * @description 销毁 监听浏览器窗口变化
-     */
-
-    /**
      * @function browserBackground
      * @description 监听浏览器窗口变化
      * @param {Function} unInstall 卸载
@@ -195,6 +205,6 @@ if (typeof window !== 'undefined') {
  * @name loadStyle
  * @description 加载样式 外部只能调用init方法
  */
-const loadStyle = setStyle === null ? '' : new setStyle().init
+const loadStyle = setStyle === null ? '' : new setStyle()
 export { loadStyle }
 export default loadStyle

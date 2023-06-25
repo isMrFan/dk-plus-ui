@@ -49,13 +49,14 @@ export default defineComponent({
   .box-icon_comp {
     .icon-name {
       font-size: 10px;
+      color: var(--text-color);
     }
 
     cursor: pointer;
     display: flex;
     width: 110px;
     height: 110px;
-    border: 1px solid #eee;
+    border: 1px solid var(--border-color);
     margin: 8px;
     flex-direction: column;
     align-items: center;

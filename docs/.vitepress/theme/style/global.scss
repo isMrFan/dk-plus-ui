@@ -16,9 +16,7 @@ $title-style-list: (
 
 // 一级标题样式块
 @mixin title-style {
-
-  @each $key,
-  $value in $title-style-list {
+  @each $key, $value in $title-style-list {
     #{$key}: $value;
   }
 }
@@ -32,9 +30,7 @@ $sub-title-style-list: (
 
 // 一级副标题样式块
 @mixin sub-title-style {
-
-  @each $key,
-  $value in $sub-title-style-list {
+  @each $key, $value in $sub-title-style-list {
     #{$key}: $value;
   }
 }
@@ -54,9 +50,7 @@ $sec-title-style-list: (
 
 // 二级标题样式块
 @mixin sec-title-style {
-
-  @each $key,
-  $value in $sec-title-style-list {
+  @each $key, $value in $sec-title-style-list {
     #{$key}: $value;
   }
 }
@@ -70,9 +64,7 @@ $border-style-list: (
 
 // 边框样式块
 @mixin border-style {
-
-  @each $key,
-  $value in $border-style-list {
+  @each $key, $value in $border-style-list {
     #{$key}: $value;
   }
 }
@@ -86,9 +78,7 @@ $scroll-style-list: (
 
 // y轴滚动样式块
 @mixin scroll-style {
-
-  @each $key,
-  $value in $scroll-style-list {
+  @each $key, $value in $scroll-style-list {
     #{$key}: $value;
   }
 }
@@ -101,9 +91,7 @@ $scroll-child-style-list: (
 
 // y轴子元素滚动样式块
 @mixin scroll-child-style {
-
-  @each $key,
-  $value in $scroll-child-style-list {
+  @each $key, $value in $scroll-child-style-list {
     #{$key}: $value;
   }
 }
@@ -119,3 +107,20 @@ $dark-border-color: #8a8a8e; // 暗黑边框题色
   background-color: #1e1e20 !important;
   background: #1e1e20 !important;
 }
+
+  .dk-input {
+    .dk-input-wrapper,
+    .dk-input_pend {
+      background-color: var(--vp-c-bg);
+      color: var(--text-color);
+      border-color: var(--border-color);
+      &:hover,
+      &:focus-within {
+        border-color: var(--theme-color);
+      }
+    }
+    .dk-input_inner {
+      background-color: inherit;
+    }
+  }
+
