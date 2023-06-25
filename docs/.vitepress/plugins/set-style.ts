@@ -55,7 +55,7 @@ if (typeof window !== 'undefined') {
      * @name loadThemeStyle
      * @description 主题样式 黑白主题
      */
-    loadThemeStyle = (): void => {      
+    loadThemeStyle = (): void => {  
       const isDark = this.theme === 'dark'
       const homeStyleList: Record<string, string> = {
         '--theme-color': '#3eaf7c',
@@ -98,8 +98,7 @@ if (typeof window !== 'undefined') {
      * @name loadHamburgerMenu
      * @description 加载菜单点击事件
      */
-    loadHamburgerMenu = async (): Promise<void> => {
-      
+    loadHamburgerMenu = async(): Promise<void> => {
       await nextTick()
       const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
       if (VPNavBarHamburger[0] === undefined) {
@@ -109,7 +108,8 @@ if (typeof window !== 'undefined') {
         }, 0)
         return
       }
-      console.log('loadHamburgerMenu');
+      console.log('VPNavBarHamburger');
+      
       VPNavBarHamburger[0].addEventListener('click', () => {
         const isLaunch = VPNavBarHamburger[0].attributes['aria-expanded'].value === 'true'
         if (isLaunch) {
@@ -165,11 +165,6 @@ if (typeof window !== 'undefined') {
       this.getWindowSize()
       this.browserBackground(this.unInstall, this.init)
     }
-
-    /**
-     * @name destroy
-     * @description 销毁 监听浏览器窗口变化
-     */
 
     /**
      * @function browserBackground
