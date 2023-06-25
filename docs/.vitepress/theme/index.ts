@@ -80,7 +80,7 @@ export default {
     }
 
     app.use(dkPlus)
-    app.component('CustomModule', dkcodedisplay)
+    app.component('CustomModule', dkcodedisplay)    
     loadStyle && loadStyle?.init()
   }
 }

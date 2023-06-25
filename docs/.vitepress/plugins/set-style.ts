@@ -98,7 +98,8 @@ if (typeof window !== 'undefined') {
      * @name loadHamburgerMenu
      * @description 加载菜单点击事件
      */
-    loadHamburgerMenu = async(): Promise<void> => {
+    loadHamburgerMenu = async (): Promise<void> => {
+      
       await nextTick()
       const VPNavBarHamburger = document.getElementsByClassName('VPNavBarHamburger')
       if (VPNavBarHamburger[0] === undefined) {
@@ -108,6 +109,7 @@ if (typeof window !== 'undefined') {
         }, 0)
         return
       }
+      console.log('loadHamburgerMenu');
       VPNavBarHamburger[0].addEventListener('click', () => {
         const isLaunch = VPNavBarHamburger[0].attributes['aria-expanded'].value === 'true'
         if (isLaunch) {
