@@ -41,16 +41,6 @@
       }
     }
 
-    .button-list {
-      display: flex;
-
-      .dk-button {
-        .dk-button-box {
-          padding: 100px 20px;
-        }
-      }
-    }
-
     .container {
       width: 100%;
       display: flex;
@@ -250,7 +240,6 @@
       .container {
         .banner-list {
           gap: 0;
-
           .list-item {
             flex-basis: 100%;
           }
