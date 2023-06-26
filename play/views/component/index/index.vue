@@ -36,6 +36,10 @@
             path: '/DkContainer'
           },
           {
+            name: '间距',
+            path: '/DkInterval'
+          },
+          {
             name: '按钮组件',
             path: '/Dkbutton'
           },

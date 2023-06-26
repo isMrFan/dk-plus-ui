@@ -35,6 +35,7 @@ export const sidebar = {
       items: [
         { text: 'icon 图标', link: '/components/icon' },
         { text: 'container 页面布局', link: '/components/container' },
+        { text: 'space 间距', link: '/components/space' },
         { text: 'Button 按钮', link: '/components/button' }
       ]
     },

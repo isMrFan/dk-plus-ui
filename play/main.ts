@@ -23,6 +23,7 @@ import dklaside from '@dk-plus/components/dklaside'
 import dkinput from '@dk-plus/components/dkinput'
 import dkInputNumber from '@dk-plus/components/dkInputNumber'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
+import dkspace from '@dk-plus/components/dkspace'
 import * as icons from '@dk-plus/components/_icon'
 import '@dk-plus/theme-chalk/src/index.scss'
 const {
@@ -275,4 +276,5 @@ app.use(IconRestoreDelete).use(IconFemale2).use(IconPaymentSetup)
 app.use(IconDeletionPersonnel).use(IconUnionPay).use(IconMale2).use(IconOnlinePayment)
 app.use(IconPassword5).use(IconPassword6).use(IconEdit)
 app.use(dkheader)
+app.use(dkspace)
 app.mount('#app')

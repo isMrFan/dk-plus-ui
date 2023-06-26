@@ -63,7 +63,6 @@ if (typeof window !== 'undefined') {
         '--grey-background-color': isDark ? '#1e1e20' : '#f6f6f6',
         '--dark-grey-background-color': isDark ? '#1e1e20' : '#e3e3e6'
       }
-
       const keyList: string[] = Object.keys(homeStyleList)
       const len: number = keyList.length
       for (let i = 0; i < len; i++) {
