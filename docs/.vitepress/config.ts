@@ -6,7 +6,6 @@ import { head } from './data/head'
 import { PluginModule } from './plugins'
 /**
  * vitepress 配置项文件
- *
  * @see Introduction https://vitepress.vuejs.org/config/introduction
  */
 const isDeFineConfig = defineConfig({
@@ -17,13 +16,11 @@ const isDeFineConfig = defineConfig({
 
   /**
    * 是否显示最后更新时间
-   *
    * @see last-updated https://vitepress.vuejs.org/guide/theme-last-updated#last-updated
    */
   lastUpdated: true,
   /**
    * 语言配置
-   *
    * @see separate-directory-for-each-locale https://vitepress.vuejs.org/guide/i18n#separate-directory-for-each-locale
    */
   locales: {
@@ -44,7 +41,6 @@ const isDeFineConfig = defineConfig({
   themeConfig: {
     /**
      * 最后更新时间的文案显示
-     *
      * @see lastUpdatedText https://vitepress.vuejs.org/config/theme-configs#lastupdatedtext
      */
     lastUpdatedText: '最后更新时间',
@@ -53,7 +49,6 @@ const isDeFineConfig = defineConfig({
 
     /**
      * 配置导航栏图表
-     *
      * @see socialLinks https://vitepress.vuejs.org/config/theme-configs#sociallinks
      */
     socialLinks: [
@@ -64,7 +59,6 @@ const isDeFineConfig = defineConfig({
     ],
     /**
      * 配置 logo
-     *
      * @see logo https://vitepress.vuejs.org/config/theme-configs#logo
      */
     logo: {

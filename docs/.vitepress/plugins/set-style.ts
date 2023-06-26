@@ -74,7 +74,6 @@ if (typeof window !== 'undefined') {
         '--border-color': isDark ? '#333' : '#eaecef',
         '--hover-border-color': isDark ? '#656464' : '#eaecef'
       }
-
       const keyList: string[] = Object.keys(homeStyleList)
       const len: number = keyList.length
       for (let i = 0; i < len; i++) {

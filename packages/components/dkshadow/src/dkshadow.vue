@@ -22,6 +22,7 @@
     name: 'DkShadow',
     props: DKshadowProps,
     setup(props) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const DkShadow: any = ref(null)
       const type = computed(() => {
         if (props.type === undefined || props.type === null || props.type === '') {
@@ -63,12 +64,12 @@
           return props.hoverClass
         }
       })
-      const onhoverType = () => {
+      const onhoverType = (): void => {
         if (hoverType.value) {
           DkShadow.value.classList.add('dk-shadow-hover', hoverClass.value)
         }
       }
-      const oncloshoverType = () => {
+      const oncloshoverType = (): void => {
         if (hoverType.value) {
           DkShadow.value.classList.remove('dk-shadow-hover', hoverClass.value)
         }
@@ -86,13 +87,13 @@
 </script>
 <template>
   <div
-    class="dk-shadow"
     ref="DkShadow"
+    class="dk-shadow"
     :class="[shadowClass]"
     @mouseenter="onhoverType"
     @mouseleave="oncloshoverType"
   >
-    <div class="dk-title" v-if="type === 'title'">
+    <div v-if="type === 'title'" class="dk-title">
       <div class="dk-shadow-left">
         <slot name="left"></slot>
       </div>
@@ -100,7 +101,7 @@
         <slot name="right"></slot>
       </div>
     </div>
-    <div class="dk-box" v-else>
+    <div v-else class="dk-box">
       <slot></slot>
     </div>
   </div>

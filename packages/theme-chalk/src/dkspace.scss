@@ -1,0 +1,40 @@
+@use './mixins/mixin.scss' as *;
+
+.#{$namespace}-space {
+  display: inline-flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  column-gap: var(--space-land-scape, 10px);
+  row-gap: var(--space-port-rait, 10px);
+
+  // 纵向排列
+  &.#{$namespace}-space_vertical {
+    flex-direction: column;
+  }
+
+  // 是否禁止换行
+  &.#{$namespace}-space_nowrap {
+    flex-wrap: nowrap;
+  }
+
+  // 不同尺寸
+  &.#{$namespace}-space_large {
+    column-gap: 14px;
+    row-gap: 14px;
+  }
+
+  &.#{$namespace}-space_middle {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  &.#{$namespace}-space_small {
+    column-gap: 6px;
+    row-gap: 6px;
+  }
+
+  &.#{$namespace}-space_mini {
+    column-gap: 2px;
+    row-gap: 2px;
+  }
+}
