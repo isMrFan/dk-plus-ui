@@ -1,8 +1,8 @@
 .home {
   width: 100%;
-  padding: 0 50px;
+  padding: 0 50px 10px 50px;
   height: calc(100vh - 130px);
-  overflow: auto;
+  box-sizing: border-box;
 
   .main {
     width: calc(100% / 3 * 2);
@@ -12,9 +12,9 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 32px;
+    gap: 25px;
     margin: 0 auto;
-    margin-top: 80px;
+
 
     .explain {
       width: 100%;
@@ -23,7 +23,7 @@
       gap: 16px;
 
       .text {
-        font-size: 56px;
+        font-size: 46px;
         line-height: 64px;
         font-weight: 600;
         color: var(--text-color);
@@ -152,6 +152,53 @@
         }
       }
     }
+
+    .friendship {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: auto;
+
+      &-title {
+        font-size: 13px;
+        color: var(--text-color);
+      }
+
+
+
+      &-list {
+        width: 100%;
+        height: fit-content;
+        flex: 1;
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .friendship-item {
+          width: fit-content;
+          width: 150px;
+          height: 50px;
+          overflow: hidden;
+          cursor: pointer;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 2px;
+          border-radius: 5px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+
+          img:hover {
+            transition: all 0.1s ease-in-out;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -187,6 +234,7 @@
     width: 100%;
     max-width: 970px;
     margin: 0;
+    height: auto;
 
     .main {
       margin: 0;
@@ -216,6 +264,7 @@
     width: 100%;
     min-width: 100%;
     padding-left: 20px;
+    height: auto;
 
     .main {
       margin: 0;
@@ -240,6 +289,7 @@
       .container {
         .banner-list {
           gap: 0;
+
           .list-item {
             flex-basis: 100%;
           }
