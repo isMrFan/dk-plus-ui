@@ -35,7 +35,7 @@ export interface propDataModel {
   /** Disabled or not */
   disabledProp: boolean
   prefixIcon: string
-  inputType: dkInputType
+  typeProp: dkInputType
   suffixIcon: string
   maxlengthProp: number | string
   minlengthProp: number | string
@@ -61,8 +61,6 @@ export interface dataType {
   isPrefix: boolean
   /** Show clear button or not */
   isClear: boolean
-  /** Input box type */
-  inputType: dkInputType
   inputmode: string
   /** Is there prefix icon */
   isPrefixIcon: boolean
