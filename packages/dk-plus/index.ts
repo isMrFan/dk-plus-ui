@@ -3,12 +3,13 @@
  * @author fankai16
  * @Time 2023/01/04
  * @description  入口文件
-**/
+ **/
 
 import * as components from '@dk-plus/components'
 import type { App } from 'vue' // ts中的优化只获取类型
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const IsComponents:any=[]
+const IsComponents: any = []
 for (const key in components) {
   if (Object.prototype.hasOwnProperty.call(components, key)) {
     const component = components[key]

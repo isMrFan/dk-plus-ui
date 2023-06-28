@@ -10,7 +10,6 @@ export const withInstall = <T>(comp: any) => {
 
 /**
  * 注册自定义指令组件
- *
  * @param { Object } main 组件实例
  * @param { string } name 组件名
  * @returns { Object } 组件实例

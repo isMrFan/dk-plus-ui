@@ -9,6 +9,7 @@ const DkContainer: Object = () => import('../views/component/Dkcontainer/Dkconta
 const DkInterval: Object = () => import('../views/component/DkInterval/DkInterval.vue')
 const Dkbutton: Object = () => import('../views/component/Dkbutton/Dkbutton.vue')
 const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
+const DkLoading: Object = () => import('../views/component/DkLoading/DkLoading.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -64,6 +65,16 @@ const routes: RouteRecordRaw[] = [
         component: DkInterval,
         meta: {
           title: '间距',
+          keepAlive: false,
+          isunnewList: false
+        }
+      },
+      {
+        path: '/DkLoading',
+        name: 'DkLoading',
+        component: DkLoading,
+        meta: {
+          title: '加载中',
           keepAlive: false,
           isunnewList: false
         }

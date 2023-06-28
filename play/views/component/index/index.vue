@@ -40,6 +40,10 @@
             path: '/DkInterval'
           },
           {
+            name: '加载中',
+            path: '/DkLoading'
+          },
+          {
             name: '按钮组件',
             path: '/Dkbutton'
           },
