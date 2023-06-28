@@ -71,7 +71,7 @@
       </div>
       <div class="button-list">
         <dk-button type="success" round @click="start">现在开始</dk-button>
-        <dk-button round @click="handleToGitClick">查看 GitHub</dk-button>
+        <dk-button class="to-github" round @click="handleToGitClick">查看 GitHub</dk-button>
       </div>
       <div class="container">
         <div class="banner-list">

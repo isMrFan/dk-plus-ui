@@ -43,7 +43,7 @@
         prependIcon: props.prependIcon,
         appendIcon: props.appendIcon,
         disabledProp: props.disabled,
-        inputType: props.type,
+        typeProp: props.type,
         prefixIcon: props.prefixIcon,
         suffixIcon: props.suffixIcon,
         maxlengthProp: props.maxlength,
@@ -61,18 +61,20 @@
        * @returns {dkInputType}
        */
       const verifyInputType = (): dkInputType => {
-        let inputType: dkInputType = propData.inputType
-        if (propData.inputType === 'password') {
+        let type: dkInputType = propData.typeProp
+        if (propData.typeProp === 'password') {
           if (passwordShowOrHide.value) {
-            inputType = 'text'
+            type = 'text'
           } else {
-            inputType = 'password'
+            type = 'password'
           }
         } else {
-          inputType = propData.inputType
+          type = propData.typeProp
         }
-        return inputType
+        return type
       }
+
+      let inputType = ref<dkInputType>(verifyInputType())
 
       /**
        * @name getIsClear Whether to display the clear button
@@ -81,8 +83,8 @@
       const getIsClear = (): boolean => {
         let isClearable = propData.clearable
         let isDisabled = !propData.disabledProp
-        let isTextarea = propData.inputType !== 'textarea'
-        let isPassword = propData.inputType !== 'password'
+        let isTextarea = inputType.value !== 'textarea'
+        let isPassword = inputType.value !== 'password'
         return getBooleanAnd([isDisabled, isTextarea, isPassword, isClearable])
       }
 
@@ -110,8 +112,8 @@
         const isShowLen = propData.showLengthProp
         if (!isShowLen) return false
         let result = false
-        const isTextarea = propData.inputType === 'textarea'
-        const isText = propData.inputType === 'text'
+        const isTextarea = inputType.value === 'textarea'
+        const isText = inputType.value === 'text'
         const textOrTextarea = getBooleanOr([isTextarea, isText])
         const isMaxlength = !propData.maxlengthProp
         result = getBooleanAnd([textOrTextarea, isMaxlength])
@@ -119,7 +121,6 @@
       }
 
       const data = reactive<dataType>({
-        inputType: verifyInputType(),
         isPrepend: getBooleanOr([
           !!slots.prepend,
           getNull(propData.prependText),
@@ -229,16 +230,22 @@
         await nextTick()
         _ref.value?.focus()
       }
-
+      let showPasswordIcon = ref<string>('IconPasswordSee')
       const togglePassword = (): void => {
         passwordShowOrHide.value = !passwordShowOrHide.value
+        showPasswordIcon.value = passwordShowOrHide.value ? 'IconPasswordShow' : 'IconPasswordSee'
+        inputType.value = passwordShowOrHide.value ? 'text' : 'password'
+        if (passwordShowOrHide.value) {
+          _ref.value?.setAttribute('type', 'text')
+        } else {
+          _ref.value?.setAttribute('type', 'password')
+        }
         focus()
       }
 
       const showPasswordClass = (): string[] => {
         return [
-          'dk-input_password-icon',
-          passwordShowOrHide.value ? 'dk-icon-show' : 'dk-icon-hide'
+          'dk-input_password-icon'
         ]
       }
 
@@ -269,7 +276,7 @@
       const getTextareaRows = (): Record<string, boolean | number> => {
         let row = 1
 
-        const isTextarea = propData.inputType === 'textarea'
+        const isTextarea = inputType.value === 'textarea'
         const isAutosize = propData.autosizeProp
         const rows = +propData.rowsProp
         const isRows = rows > 0
@@ -286,7 +293,7 @@
 
       const inputAttrs = reactive({
         class: innerClassList.value,
-        type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
+        type: inputType.value as dkInputType | ComputedRef<dkInputType>,
         placeholder: propData.placeholder,
         oninput: update,
         disabled: propData.disabledProp,
@@ -300,7 +307,7 @@
 
       const textareaAttrs = reactive({
         class: wrapperClassList.value,
-        type: propData.inputType as dkInputType | ComputedRef<dkInputType>,
+        type: inputType.value as dkInputType | ComputedRef<dkInputType>,
         placeholder: propData.placeholder,
         onInput: update,
         onfocus,
@@ -338,7 +345,10 @@
         onKeydownEnter,
         lengthLimit,
         isShowClear,
-        valueLength
+        valueLength,
+        showPasswordIcon,
+        inputType,
+        passwordShowOrHide,
       }
     }
   })
@@ -376,6 +386,7 @@
 
       <!-- inner -->
       <input
+        :type="inputType"
         v-bind="inputAttrs"
         ref="input"
         v-model="value"
@@ -417,7 +428,7 @@
 
       <!-- show-password -->
       <template v-if="isShowPassword">
-        <dk-icon :class="showPasswordClass" @click="togglePassword"></dk-icon>
+        <dk-icon :class="showPasswordClass" :icon="showPasswordIcon" @click="togglePassword"></dk-icon>
       </template>
     </div>
 
@@ -435,7 +446,7 @@
     </template>
   </div>
   <div v-else :class="classList" :style="styleList">
-    <textarea ref="textarea" v-bind="textareaAttrs"></textarea>
+    <textarea :type="inputType" ref="textarea" v-bind="textareaAttrs"></textarea>
     <!-- length limit -->
     <template v-if="isLength">
       <span class="dk-input_textarea_length">

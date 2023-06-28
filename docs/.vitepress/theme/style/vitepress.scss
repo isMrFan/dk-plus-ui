@@ -82,18 +82,24 @@
 #app{
   .Layout{
     .VPNav{
-      transition: all 0s !important;
+      background-color: rgba($color: var(--background-color), $alpha: 1);
+      background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
+      background-size: 5px 5px;
       .fill{
         background-color: transparent;
       }
       .VPNavBar {
         .container{
           .content{
+
+            background-color: transparent;
             &-body{
-              background-color: rgba($color: var(--background-color), $alpha: 1);
-              background-image: radial-gradient(transparent 1px, var(--background-color) 1px);
-              background-size: 5px 5px;
+              background-color: transparent;
             }
+          }
+          .title{
+            background-color: var(--background-color);
+            transition: all 0s;
           }
         }
       }

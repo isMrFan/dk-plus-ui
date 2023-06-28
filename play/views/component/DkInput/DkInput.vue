@@ -103,7 +103,7 @@
     <dk-input type="number" placeholder="数字框" />
 
     <h4>密码框</h4>
-    <dk-input type="password" placeholder="密码框" show-password />
+    <dk-input v-model='msg' type="password" placeholder="密码框" show-password />
 
     <h4>前后缀</h4>
     <dk-input></dk-input>
