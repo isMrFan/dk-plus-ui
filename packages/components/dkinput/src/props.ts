@@ -7,7 +7,8 @@ import {
   setStringProp,
   setNumberProps,
   setObjectProps,
-  setFunction
+  setFunction,
+  setStringNumberProps
 } from '../../_utils'
 import type {
   dkPlusSize,
@@ -17,6 +18,7 @@ import type {
 } from '../../_interface'
 
 export const dkInputProps = {
+  border: setStringProp(),
   align: setStringProp<DkPlusAlign>('left'),
   onEnter: setFunction<KeyboardEventType>(),
   onPrependClick: setFunction<MouseEventType>(),
@@ -68,7 +70,7 @@ export const dkInputProps = {
   /** Append text color */
   appendColor: setStringProp(),
   /** input box content */
-  modelValue: setStringProp() || setNumberProps(),
+  modelValue: setStringNumberProps(),
   /**
    * Input box type
    * @default text

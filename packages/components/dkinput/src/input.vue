@@ -31,9 +31,7 @@
       const inputClassList = computed(() => getInput(props).classList)
       const modelValueProp = ref<string | number>(props.modelValue)
       const isFocus = ref<boolean>(false)
-
-      const inputValue = ref<string | number>(props.modelValue)
-
+      
       const propData = reactive<propDataModel>({
         prependText: props.prependText,
         appendText: props.appendText,
@@ -51,9 +49,10 @@
         autosizeProp: props.autosize,
         rowsProp: props.rows,
         readonlyProp: props.readonly,
-        showLengthProp: props.showLength,
-        alignProp: props.align // TODO: add align prop
+        showLengthProp: props.showLength
       })
+
+      const inputValue = ref<string | number>(props.modelValue)
 
       const passwordShowOrHide = ref<Boolean>(false)
 

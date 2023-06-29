@@ -53,7 +53,6 @@ export interface iSGetInputType {
   classList: ComputedRef<ClassListName>
   styleList: ComputedRef<CSSProperties>
   wrapperClassList: ComputedRef<ClassListName>
-  wrapperStyleList: ComputedRef<CSSProperties>
   innerClassList: ComputedRef<ClassListName>
   clearableClassList: ComputedRef<ClassListName>
   pendStyleList: ComputedRef<CSSProperties>
@@ -122,8 +121,33 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const classList = classes([...defaultClassList], 'dk-input')
 
   const styleList = computed((): CSSProperties => {
-    const { width, height, fontSize, borderRadius, textColor, iconSize, align } = cloneProps
+    const {
+      width,
+      height,
+      fontSize,
+      borderRadius,
+      textColor,
+      iconSize,
+      align,
+      borderColor,
+      focusBorderColor,
+      border
+    } = cloneProps
 
+    type BorderColorType = string | number | undefined | null
+    let inputBorder: BorderColorType = 'transparent'
+    let hoverBorder: BorderColorType = 'transparent'
+    let focusColor: BorderColorType = 'transparent'
+    const getBorder = (value: string): void => {
+      if (value === 'none') {
+        return
+      }
+      inputBorder = borderColor ? getColor(borderColor).getDeepen(0) : null
+      hoverBorder = borderColor ? getColor(borderColor).getDeepen(0.4) : null
+      focusColor = focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null
+    }
+    getBorder(border)
+    
     const defaultStyle = {
       '--input-width': width ? setSize(width) : null,
       '--input-height': height ? setSize(height) : null,
@@ -131,21 +155,12 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
       '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
       '--input-icon-size': iconSize ? setSize(iconSize) : null,
-      '--input-align': align || 'left'
+      '--input-align': align || 'left',
+      '--input-border': inputBorder,
+      '--input-hover-border': hoverBorder,
+      '--input-focus-border': focusColor
     } as CSSProperties
 
-    return defaultStyle
-  })
-
-  const wrapperStyleList = computed((): CSSProperties => {
-    const { borderColor, focusBorderColor } = cloneProps
-    const defaultStyle = {
-      '--input-border': borderColor ? getColor(borderColor).getDeepen(0) : null,
-      '--input-hover-border': borderColor ? getColor(borderColor).getDeepen(0.4) : null,
-      '--input-focus-border': focusBorderColor
-        ? getColor(focusBorderColor).getDeepen(0)
-        : null
-    } as CSSProperties
     return defaultStyle
   })
 
@@ -190,7 +205,6 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     classList,
     styleList,
     wrapperClassList,
-    wrapperStyleList,
     innerClassList,
     clearableClassList,
     pendStyleList
@@ -204,7 +218,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
  */
 export const getBooleanAnd = (target: boolean[]): boolean => {
   if (target.length == 0) return false
-  const result = target.find((item) => !item)
+  const result = target.find(item => !item)
   return result === undefined
 }
 
@@ -215,7 +229,7 @@ export const getBooleanAnd = (target: boolean[]): boolean => {
  */
 export const getBooleanOr = (target: boolean[]): boolean => {
   if (target.length == 0) return false
-  const result = target.find((item) => item)
+  const result = target.find(item => item)
   return result !== undefined
 }
 

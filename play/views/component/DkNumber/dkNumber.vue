@@ -1,13 +1,16 @@
 <script lang='ts'>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: 'Number',
   emits: ['update:modelValue'],
   setup() {
-    return {}
+    let value = ref<number>(0)
+    return {
+      value
+    }
   }
 })
 </script>
 <template>
-  <dk-input-number></dk-input-number>
+  <dk-input-number v-model="value"></dk-input-number>
 </template>

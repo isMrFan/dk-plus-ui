@@ -33,26 +33,33 @@
     align-items: center;
     background-color: var(--input-color);
     padding: 0 10px;
-
-    &:hover {
-      border: 1px solid var(--input-hover-border);
-
-      @include block('>*input') {
-        @include block(clearable) {
-          display: block;
+    @if (var(--input-border-display) == auto) {
+      border: none;
+      @debug '无边框';
+    }
+    @else {      
+      @debug '有边框';
+      &:hover {
+        border: 1px solid var(--input-hover-border);
+        
+        @include block('>*input') {
+          @include block(clearable) {
+            display: block;
+          }
+        }
+      }
+  
+      &:focus-within {
+        border-color: var(--input-focus-border);
+  
+        @include block('>*input') {
+          @include block(clearable) {
+            display: block;
+          }
         }
       }
     }
-
-    &:focus-within {
-      border-color: var(--input-focus-border);
-
-      @include block('>*input') {
-        @include block(clearable) {
-          display: block;
-        }
-      }
-    }
+    
   }
 
   @include element(inner) {

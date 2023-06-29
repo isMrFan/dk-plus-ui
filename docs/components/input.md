@@ -204,6 +204,7 @@
 | `append-background` | 输入框前后置内容背景颜色 | `string` | - | - |
 | `append-color` | 输入框前后置内容字体颜色 | `string` | - | - |
 | `align` | 输入框内容对齐方式 | `string` | `left` `center` `right` | `left` |
+| `border` | 输入框边框 | `string` | `auto` `none` | `auto` |
 <!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
 <!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
 <!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->

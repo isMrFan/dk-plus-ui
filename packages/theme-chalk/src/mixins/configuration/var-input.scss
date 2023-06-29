@@ -45,16 +45,13 @@ $input-theme-colors: (
   --input-icon-color: #{getInputColor('hover')};
   --input-icon-hover-color: #{getInputColor('text')};
   --input-prefix-icon-color: #{getInputColor('hover')};
-
   --textarea-resize: vertical;
   --textarea-line-height: 30px;
   --textarea-overflow: auto;
-
   --pend-background: #{getInputColor('disabled')};
   --pend-hover-background: #{getInputColor('disabled')};
   --pend-color: #{getInputColor('text')};
-
   --input-icon-size: 19px;
   --input-info-color: #{getInputColor('info')};
-  --input-align: 'left'
+  --input-align: 'left';
 }

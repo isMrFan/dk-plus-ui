@@ -43,7 +43,7 @@
     >
       <dk-icon icon="IconReduce1"></dk-icon>
     </button>
-    <dk-input v-model="modelValue" type="number" align="center" class="dk-input-number_inner" />
+    <dk-input v-model="modelValue" type="number" align="center" border="none" class="dk-input-number_inner" />
     <button class="dk-input-number_add dk-input-number_button" @click="update(modelValue + step)">
       <dk-icon icon="IconAdd1"></dk-icon>
     </button>
