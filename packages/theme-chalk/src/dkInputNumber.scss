@@ -1,9 +1,42 @@
 @use './mixins/mixin.scss' as *;
+@use './mixins/configuration/var-input-number.scss' as *;
 
 @include block('input-number'){
-  width: 100%;
+  width: var(--input-number-width);
   display: flex;
+  height: 30px;
   align-items: center;
-  border: solid 1px #ccc;
   box-sizing: border-box;
+  border: solid 1px var(--input-number-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  &:hover{
+    border: solid 1px var(--input-number-border-color--hover);
+  }
+  @include element(inner){
+    width: calc(100% - 60px);
+    height: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.5;
+    outline: none;
+    text-align: center;
+    border: solid 1px var(--input-number-border-color);
+    border-top: none;
+    border-bottom: none;
+  }
+  @include element(button){
+    width: 30px;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+  }
+  .dk-input-number_button{
+    padding: 0 10px;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    
+  }
 }
