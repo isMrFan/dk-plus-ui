@@ -51,7 +51,8 @@
         autosizeProp: props.autosize,
         rowsProp: props.rows,
         readonlyProp: props.readonly,
-        showLengthProp: props.showLength
+        showLengthProp: props.showLength,
+        alignProp: props.align // TODO: add align prop
       })
 
       const passwordShowOrHide = ref<Boolean>(false)

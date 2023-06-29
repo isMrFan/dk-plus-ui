@@ -63,6 +63,7 @@
     color: var(--input-text-color);
     border: none;
     background-color: transparent;
+    text-align: var(--input-align);
 
     &:focus {
       caret-color: var(--input-text-color);

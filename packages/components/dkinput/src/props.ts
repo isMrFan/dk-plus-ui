@@ -1,5 +1,7 @@
 import type { ExtractPropTypes } from 'vue'
 import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
+import type { DkPlusAlign } from '../../_interface';
+
 import {
   setBooleanProps,
   setStringProp,
@@ -15,6 +17,7 @@ import type {
 } from '../../_interface'
 
 export const dkInputProps = {
+  align: setStringProp<DkPlusAlign>('left'),
   onEnter: setFunction<KeyboardEventType>(),
   onPrependClick: setFunction<MouseEventType>(),
   onAppendClick: setFunction<MouseEventType>(),

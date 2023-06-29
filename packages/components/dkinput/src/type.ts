@@ -46,6 +46,8 @@ export interface propDataModel {
   readonlyProp: boolean
   /** Show character statistics or not - Only text textarea take effect */
   showLengthProp: boolean
+  /** Alignment */
+  alignProp: 'left' | 'center' | 'right'
 }
 
 export interface dataType {
