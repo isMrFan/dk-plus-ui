@@ -46,7 +46,8 @@ export const DirectiveLoading = (): Directive => {
       visible: !!binding.value,
       text: getProps('text'),
       color: getProps('color'),
-      background: getProps('background')
+      background: getProps('background'),
+      spinner: getProps('spinner')
     } as LoadingPropsType
   }
 
@@ -61,6 +62,7 @@ export const DirectiveLoading = (): Directive => {
     }
     const options = optionsOrganizer(el, binding)
     const loadingInstance = createApp(loadingVue, options)
+    console.log('loadingInstance', loadingInstance)
     const _vm = loadingInstance.mount(
       document.createElement('div')
     ) as ComponentPublicInstance

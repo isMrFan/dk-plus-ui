@@ -24,7 +24,7 @@ import dkinput from '@dk-plus/components/dkinput'
 import dkInputNumber from '@dk-plus/components/dkInputNumber'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import dkspace from '@dk-plus/components/dkspace'
-import dkloading from '@dk-plus/components/dkloading'
+//import dkloading from '@dk-plus/components/dkloading'
 import * as icons from '@dk-plus/components/_icon'
 import { DirectiveLoading } from '@dk-plus/components/_directive/loading/index'
 import '@dk-plus/theme-chalk/src/index.scss'
@@ -280,5 +280,5 @@ app.use(IconDeletionPersonnel).use(IconUnionPay).use(IconMale2).use(IconOnlinePa
 app.use(IconPassword5).use(IconPassword6).use(IconEdit)
 app.use(dkheader)
 app.use(dkspace)
-app.use(dkloading)
+//app.use(dkloading)
 app.mount('#app')

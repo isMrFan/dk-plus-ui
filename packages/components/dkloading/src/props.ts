@@ -28,10 +28,10 @@ export const loadingProps = {
    **/
   background: setStringProp(),
   /**
-   * @name icon 自定义ICON
-   * @description {string} 默认值：
+   * @name spinner 自定义svg 图标
+   * @description {string} 默认值
    **/
-  icon: setStringProp()
+  spinner: setStringProp()
 } as const
 
 export type LoadingPropsType = ExtractPropTypes<typeof loadingProps>
