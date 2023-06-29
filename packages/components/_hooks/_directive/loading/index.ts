@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-import loadingVue from '../../dkloading/src/loading.vue'
+import loadingVue from '../../../dkloading/src/loading.vue'
 import type { Directive, ComponentPublicInstance, DirectiveBinding, App } from 'vue'
-import type { LoadingPropsType } from '../../dkloading/src/props'
+import type { LoadingPropsType } from '../../../dkloading/src/props'
 
 /**
  * @name Dkloading 元素节点类型接口
@@ -45,9 +45,11 @@ export const DirectiveLoading = (): Directive => {
     return {
       visible: !!binding.value,
       text: getProps('text'),
+      textSize: getProps('textSize'),
       color: getProps('color'),
       background: getProps('background'),
-      spinner: getProps('spinner')
+      spinner: getProps('spinner'),
+      spinnerSize: getProps('spinnerSize')
     } as LoadingPropsType
   }
 
@@ -62,7 +64,6 @@ export const DirectiveLoading = (): Directive => {
     }
     const options = optionsOrganizer(el, binding)
     const loadingInstance = createApp(loadingVue, options)
-    console.log('loadingInstance', loadingInstance)
     const _vm = loadingInstance.mount(
       document.createElement('div')
     ) as ComponentPublicInstance

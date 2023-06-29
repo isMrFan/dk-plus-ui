@@ -1,8 +1,7 @@
-import LoadingModule from './src/loading.vue'
-import { DirectiveLoading } from '../_directive/loading/index'
-import { withInstall, installDirective } from '@dk-plus/utils/with-install'
-const dkloading = withInstall(LoadingModule)
-installDirective(DirectiveLoading(), 'dk-loading')
+import { DirectiveLoading } from '../_hooks/_directive/loading/index'
+import { installDirective, withInstall } from '@dk-plus/utils/with-install'
 
-export { dkloading }
+export const dkloading = withInstall({
+  directive: installDirective(DirectiveLoading(), 'dk-loading')
+})
 export default dkloading

@@ -26,7 +26,7 @@ import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import dkspace from '@dk-plus/components/dkspace'
 //import dkloading from '@dk-plus/components/dkloading'
 import * as icons from '@dk-plus/components/_icon'
-import { DirectiveLoading } from '@dk-plus/components/_directive/loading/index'
+import { DirectiveLoading } from '@dk-plus/components/_hooks/_directive/loading/index'
 import '@dk-plus/theme-chalk/src/index.scss'
 const {
   IconShanchu1,

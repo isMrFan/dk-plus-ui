@@ -18,6 +18,11 @@ export const loadingProps = {
    **/
   text: setStringProp(),
   /**
+   * @name textSize 加载中文案大小
+   * @description {string}  默认值：加载中...
+   **/
+  textSize: setStringProp(),
+  /**
    * @name color 加载中文案的颜色
    * @description {string} 默认值：#ffffff
    **/
@@ -31,7 +36,12 @@ export const loadingProps = {
    * @name spinner 自定义svg 图标
    * @description {string} 默认值
    **/
-  spinner: setStringProp()
+  spinner: setStringProp(),
+  /**
+   * @name spinnerSize 自定义svg 图标大小
+   * @description {string} 默认值
+   **/
+  spinnerSize: setStringProp()
 } as const
 
 export type LoadingPropsType = ExtractPropTypes<typeof loadingProps>

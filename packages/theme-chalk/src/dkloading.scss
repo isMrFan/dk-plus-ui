@@ -3,6 +3,7 @@
 .#{$namespace}-loading {
   --loading-background: rgba(0, 0, 0, 0.8);
   --loading-color: #fff;
+  --loading-text-size: 15px;
 }
 
 .#{$namespace}-loading {
@@ -21,7 +22,7 @@
   color: var(--loading-color);
 
   &_title {
-    font-size: 15px;
+    font-size: var(--loading-text-size);
     margin-top: 5px;
   }
 
