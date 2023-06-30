@@ -13,11 +13,12 @@ export const getInputNumber = (props: DkInputNumberProps): inputNumberType => {
   const data = { ...toRaw(props) }
 
   const { classes } = getStyleList(data, 'input-number')
-  const defaultClass = ['size']
+  const defaultClass = ['disabled']
   const classList = classes([...defaultClass], 'dk-input-number')
 
   const styleList = computed((): CSSProperties => {
-    const { size } = data
+    const { size, disabled } = data
+
     const sizeTarget = {
       large: ['240px', '45px'],
       medium: ['180px', '36px'],
@@ -26,7 +27,9 @@ export const getInputNumber = (props: DkInputNumberProps): inputNumberType => {
     }
     const styleList = {
       '--input-number-width': sizeTarget[size][0],
-      '--input-number-height': sizeTarget[size][1]
+      '--input-number-height': sizeTarget[size][1],
+      '--input-number-background-color': disabled ? '#f5f7fa' : '#fff',
+      '--input-number-border-color--hover': disabled ? '#ccc' : '#409eff'
     }
     return styleList
   })

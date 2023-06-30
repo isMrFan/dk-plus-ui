@@ -18,8 +18,6 @@
     setup(props, { emit }) {
       const input = shallowRef<HTMLInputElement>()
 
-      const modelValue = ref<number>(props.modelValue)
-
       const iconSizeTarget = {
         large: 24,
         medium: 20,
@@ -28,12 +26,29 @@
       }
 
       const data = reactive<DataType>({
-        step: props.step,
+        step: Number(props.step),
         min: props.min,
         max: props.max,
         size: props.size,
-        iconSize: iconSizeTarget[props.size]
+        iconSize: iconSizeTarget[props.size],
+        strict: props.strict,
+        precision: Number(props.precision)
       })
+
+      const getModelValue = (): number => {
+        if (props.modelValue === undefined) {
+          return 0
+        }
+        let value = Number(props.modelValue)
+        if (data.precision) {
+          value = Number(value.toFixed(data.precision))
+        }
+        return value
+      }
+
+      const modelValue = ref<number>(getModelValue())
+
+      const disabled = ref<boolean>(props.disabled)
 
       const reduceDisabled = ref<boolean>(modelValue.value <= data.min)
       const plusDisabled = ref<boolean>(modelValue.value >= data.max)
@@ -56,17 +71,23 @@
         modelValue.value += data.step
       }
 
+      const handleInputChange = (): void => {
+        if (data.strict) {
+          modelValue.value = Math.ceil(modelValue.value / data.step) * data.step
+        }
+      }
+
       watch(
         (): number => modelValue.value,
         (val): void => {
-          let value: number = val;
+          let value: number = val
           if (value <= data.min) {
             value = data.min
             reduceDisabled.value = true
           } else {
             reduceDisabled.value = false
           }
-          
+
           if (value >= data.max) {
             value = data.max
             plusDisabled.value = true
@@ -76,7 +97,7 @@
 
           const target = input.value as HTMLInputElement
           target.value = value.toString()
-          
+
           modelValue.value = value
           emit('update:modelValue', Number(value))
         }
@@ -93,7 +114,9 @@
         classList,
         styleList,
         plusDisabled,
-        reduceDisabled
+        reduceDisabled,
+        disabled,
+        handleInputChange
       }
     }
   })
@@ -101,18 +124,20 @@
 
 <template>
   <div :class="classList" :style="styleList">
-    <dk-button :disabled="reduceDisabled" :size="size" @click="reduce">
+    <dk-button :disabled="disabled || reduceDisabled" :size="size" @click="reduce">
       <dk-icon :size="iconSize" icon="IconReduce1"></dk-icon>
     </dk-button>
-    <dk-input 
-      ref="input" 
-      v-model="value" 
-      type="number" 
-      align="center" 
-      border="none" 
+    <dk-input
+      ref="input"
+      v-model="value"
+      type="number"
+      align="center"
+      border="none"
       :size="size"
+      :disabled="disabled"
+      @change="handleInputChange"
     />
-    <dk-button :disabled="plusDisabled" :size="size" @click="plus">
+    <dk-button :disabled="disabled || plusDisabled" :size="size" @click="plus">
       <dk-icon :size="iconSize" icon="IconAdd1"></dk-icon>
     </dk-button>
   </div>
