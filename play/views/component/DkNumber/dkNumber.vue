@@ -12,5 +12,11 @@ export default defineComponent({
 })
 </script>
 <template>
-  <dk-input-number v-model="value"></dk-input-number>
+  <dk-input size="small"></dk-input>
+  <dk-input-number v-model="value" :step="10" :min="0" size="large"></dk-input-number>
+  <dk-input-number v-model="value" :step="10" :min="0" size="medium"></dk-input-number>
+  <dk-input-number v-model="value" :step="10" :min="0" size="small"></dk-input-number>
+  <dk-input-number v-model="value" :step="10" :min="0"></dk-input-number>
+  <dk-input-number v-model="value" :step="10" :min="0" size="mini"></dk-input-number>
+  父组件{{ value }}
 </template>

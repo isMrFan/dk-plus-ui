@@ -24,7 +24,6 @@
 
   @include block(wrapper) {
     width: inherit;
-    height: inherit;
     overflow: hidden;
     border: 1px solid var(--input-border);
     border-radius: var(--input-border-radius, 4px);
@@ -33,33 +32,25 @@
     align-items: center;
     background-color: var(--input-color);
     padding: 0 10px;
-    @if (var(--input-border-display) == auto) {
-      border: none;
-      @debug '无边框';
-    }
-    @else {      
-      @debug '有边框';
-      &:hover {
-        border: 1px solid var(--input-hover-border);
-        
-        @include block('>*input') {
-          @include block(clearable) {
-            display: block;
-          }
-        }
-      }
-  
-      &:focus-within {
-        border-color: var(--input-focus-border);
-  
-        @include block('>*input') {
-          @include block(clearable) {
-            display: block;
-          }
+    &:hover {
+      border: 1px solid var(--input-hover-border);
+      
+      @include block('>*input') {
+        @include block(clearable) {
+          display: block;
         }
       }
     }
-    
+
+    &:focus-within {
+      border-color: var(--input-focus-border);
+
+      @include block('>*input') {
+        @include block(clearable) {
+          display: block;
+        }
+      }
+    }
   }
 
   @include element(inner) {

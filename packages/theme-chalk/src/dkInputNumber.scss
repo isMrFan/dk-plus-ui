@@ -4,13 +4,14 @@
 @include block('input-number'){
   width: var(--input-number-width);
   display: flex;
-  height: 30px;
+  height: var(--input-number-height);
   align-items: center;
   box-sizing: border-box;
   border: solid 1px var(--input-number-border-color);
   border-radius: 4px;
   overflow: hidden;
-  &:hover{
+  &:hover,
+  &:focus-within{
     border: solid 1px var(--input-number-border-color--hover);
   }
   @include element(inner){
@@ -26,18 +27,27 @@
     border-top: none;
     border-bottom: none;
   }
-  @include element(button){
-    padding: 0 8px;
-    height: 100%;
-    cursor: pointer;
+  @include element(reduce){
+    border-right: solid 1px var(--input-number-border-color);
+  }
+  @include element(add){
+    border-left: solid 1px var(--input-number-border-color);
+  }
+  @include block('*button'){
+    margin: 0;
+    @include block(box){
+      --button-height: var(--input-number-height);
+      --button-padding: 6px 20px;
+      --button-border-radius: 0px;
+      --button-borderColor: transparent;
+      --button-hover-borderColor: transparent;
+      --button-hover-background: transparent;
+      --button-active-borderColor: transparent;
+    }
     border: none;
-    .dk-icon{
-      font-size: 12px;
-    }
-    &:hover{
-      .dk-icon{
-        color: var(--input-number-border-color--hover);
-      }
-    }
+  }
+
+  @include element(large){
+
   }
 }
