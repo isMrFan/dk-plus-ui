@@ -38,7 +38,7 @@
     border-left: solid 1px var(--input-number-border-color);
   }
 
-  @include block('*button') {
+  .dk-button {
     margin: 0;
 
     @include block(box) {
