@@ -13,10 +13,12 @@ export default defineComponent({
 </script>
 <template>
   <div class="number">
+    <h4>浮点型</h4>
+    <dk-input-number v-model="value" precision="4" step="0.1"></dk-input-number>
     <h4>禁用</h4>
     <dk-input-number v-model="value" disabled></dk-input-number>
     <h4>最大、最小值</h4>
-    <dk-input-number v-model="value" :min="0" :max="3"></dk-input-number>
+    <dk-input-number v-model="value" :min="0" :max="10"></dk-input-number>
     <h4>严格模式</h4>
     <dk-input-number v-model="value" :step="2" strict></dk-input-number>
     <h4>步长</h4>

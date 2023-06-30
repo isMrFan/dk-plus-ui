@@ -35,13 +35,19 @@
         precision: Number(props.precision)
       })
 
+      const setParseFloat = (value: number | string): number => {
+        const targetValue = Number(value)
+        const floatValue = targetValue.toFixed(data.precision)
+        return parseFloat(floatValue)
+      }
+
       const getModelValue = (): number => {
         if (props.modelValue === undefined) {
-          return 0
+          return 0.00
         }
         let value = Number(props.modelValue)
         if (data.precision) {
-          value = Number(value.toFixed(data.precision))
+          value = setParseFloat(value)
         }
         return value
       }
@@ -95,8 +101,12 @@
             plusDisabled.value = false
           }
 
+          if (data.precision) {
+            value = setParseFloat(value)
+          }
+
           const target = input.value as HTMLInputElement
-          target.value = value.toString()
+          target.value = value.toFixed(data.precision)
 
           modelValue.value = value
           emit('update:modelValue', Number(value))
