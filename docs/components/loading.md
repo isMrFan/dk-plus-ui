@@ -22,7 +22,7 @@
     class="ls_loading"
     v-dk-loading="loadingType"
     >
-    <img src='../assets/image/isImg.bmp' />
+    <img src='https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp' />
   </div>
 </dk-space>
 
@@ -32,7 +32,7 @@
 <dk-space vertical>
   <dk-button @click="onOpen" type="primary" size="mini"> 点击开启加载中状态 </dk-button>
   <div class="ls_loading" v-dk-loading="loadingType">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 <script lang="ts">
@@ -72,19 +72,19 @@
     class="ls_loading" 
     v-dk-loading="true" 
     dk-loading-text="加载中...">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div 
     class="ls_loading" 
     v-dk-loading="true" 
     dk-loading-text="自定义文案">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
    <div 
     class="ls_loading" 
     v-dk-loading="true" 
     dk-loading-text="哈哈嘿嘿">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 </template>
@@ -92,13 +92,13 @@
 ```html
 <dk-space>
   <div class="ls_loading" v-dk-loading="true" dk-loading-text="加载中...">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div class="ls_loading" v-dk-loading="true" dk-loading-text="自定义文案">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div class="ls_loading" v-dk-loading="true" dk-loading-text="哈哈嘿嘿">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 ```
@@ -123,7 +123,7 @@
     v-dk-loading="true" 
     dk-loading-color="red"
     dk-loading-text="自定义颜色">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div 
     class="ls_loading" 
@@ -131,7 +131,7 @@
     dk-loading-color="red"
     dk-loading-background="rgba(26, 115, 232, 0.7)"
     dk-loading-text="自定义背景颜色">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
    <div 
     class="ls_loading" 
@@ -140,7 +140,7 @@
     dk-loading-background="rgba(26, 115, 232, 0.7)"
     dk-loading-textSize="18px"
     dk-loading-text="自定义文字大小">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 </template>
@@ -153,7 +153,7 @@
     dk-loading-color="red"
     dk-loading-text="自定义颜色"
   >
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div
     class="ls_loading"
@@ -162,7 +162,7 @@
     dk-loading-background="rgba(26, 115, 232, 0.7)"
     dk-loading-text="自定义背景颜色"
   >
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div
     class="ls_loading"
@@ -172,7 +172,7 @@
     dk-loading-textSize="18px"
     dk-loading-text="自定义文字大小"
   >
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 ```
@@ -196,7 +196,7 @@
     dk-loading-color="red"
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
     dk-loading-text="自定义颜色">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div 
     class="ls_loading" 
@@ -206,7 +206,7 @@
     dk-loading-spinnerSize="28px"
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
     dk-loading-text="自定义颜色">
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 </template>
@@ -220,7 +220,7 @@
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
     dk-loading-text="自定义颜色"
   >
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div
     class="ls_loading"
@@ -231,7 +231,7 @@
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
     dk-loading-text="自定义颜色"
   >
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 ```
@@ -283,7 +283,7 @@ row-reverse(右) column-reverse(下)
     dk-loading-color="red"
     dk-loading-text="自定义颜色"
   >
-    <img src="../assets/image/isImg.bmp" />
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
 ```
