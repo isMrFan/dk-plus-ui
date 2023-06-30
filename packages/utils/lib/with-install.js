@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.interior = exports.installDirective = exports.withInstall = void 0;
 const withInstall = (comp) => {
-    ;
     comp.install = function (app) {
-        app.component(comp.name, comp);
+        const { name } = comp;
+        name && app.component(name, comp);
     };
     return comp;
 };

@@ -1,7 +1,7 @@
 export const withInstall = (comp) => {
-    ;
     comp.install = function (app) {
-        app.component(comp.name, comp);
+        const { name } = comp;
+        name && app.component(name, comp);
     };
     return comp;
 };
