@@ -14,7 +14,7 @@
   export default defineComponent({
     name: 'DkInputNumber',
     props: dkInputNumberProps,
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'change'],
     setup(props, { emit }) {
       const input = shallowRef<HTMLInputElement>()
 
@@ -43,7 +43,7 @@
 
       const getModelValue = (): number => {
         if (props.modelValue === undefined) {
-          return 0.00
+          return 0
         }
         let value = Number(props.modelValue)
         if (data.precision) {
@@ -60,26 +60,27 @@
       const plusDisabled = ref<boolean>(modelValue.value >= data.max)
 
       const reduce = (): void => {
-        if (modelValue.value <= data.min) return
-        if (modelValue.value - data.step < data.min) {
-          modelValue.value = data.min
-          return
+        const newValue = modelValue.value - data.step;
+        if (newValue < data.min) {
+          modelValue.value = data.min;
+        } else {
+          modelValue.value = newValue;
         }
-        modelValue.value -= data.step
-      }
+      };
 
       const plus = (): void => {
-        if (modelValue.value >= data.max) return
-        if (modelValue.value + data.step > data.max) {
-          modelValue.value = data.max
-          return
+        const newValue = modelValue.value + data.step;
+        if (newValue > data.max) {
+          modelValue.value = data.max;
+        } else {
+          modelValue.value = newValue;
         }
-        modelValue.value += data.step
       }
 
       const handleInputChange = (): void => {
         if (data.strict) {
-          modelValue.value = Math.ceil(modelValue.value / data.step) * data.step
+          const ceilValue = Math.ceil(modelValue.value / data.step) * data.step
+          modelValue.value = ceilValue
         }
       }
 
@@ -87,18 +88,16 @@
         (): number => modelValue.value,
         (val): void => {
           let value: number = val
-          if (value <= data.min) {
+
+          reduceDisabled.value = value <= data.min
+          plusDisabled.value = value >= data.max
+
+          if (reduceDisabled.value) {
             value = data.min
-            reduceDisabled.value = true
-          } else {
-            reduceDisabled.value = false
           }
 
-          if (value >= data.max) {
+          if (plusDisabled.value) {
             value = data.max
-            plusDisabled.value = true
-          } else {
-            plusDisabled.value = false
           }
 
           if (data.precision) {
@@ -106,10 +105,11 @@
           }
 
           const target = input.value as HTMLInputElement
-          target.value = value.toFixed(data.precision)
+          target.value = value.toString()
 
           modelValue.value = value
-          emit('update:modelValue', Number(value))
+          emit('update:modelValue', value)
+          emit('change', value)
         }
       )
 

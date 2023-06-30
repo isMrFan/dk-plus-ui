@@ -5,8 +5,12 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup() {
     let value = ref<number>(5)
+    const handleChange = (value: number): void => {
+      console.log(value);
+    }
     return {
-      value
+      value,
+      handleChange
     }
   }
 })
@@ -14,7 +18,7 @@ export default defineComponent({
 <template>
   <div class="number">
     <h4>浮点型</h4>
-    <dk-input-number v-model="value" precision="4" step="0.1"></dk-input-number>
+    <dk-input-number v-model="value" precision="4" step="0.2" strict @change="handleChange"></dk-input-number>
     <h4>禁用</h4>
     <dk-input-number v-model="value" disabled></dk-input-number>
     <h4>最大、最小值</h4>
