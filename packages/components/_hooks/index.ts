@@ -6,6 +6,7 @@
  * get-input   input用的hooks
  * get-input-number hooks for input box
  * **************公共hooks(public)**************
+ * get-color   颜色用的hooks (getColor)
  * get-Global  全局用的hooks  (getGlobal)
  * get-props   props用的hooks (getProps) 用于过滤掉不需要的props例如特殊的Function,Object
  * get-StyleList  样式用的hooks (getStyleList)
@@ -23,3 +24,4 @@ export * from './public/get-StyleList'
 export * from './public/get-return'
 export * from './public/set-size'
 export * from './public/get-ripples'
+export * from './_directive/loading'

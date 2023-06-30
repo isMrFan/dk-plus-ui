@@ -1,14 +1,11 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'IconSysSetting'
-});
+  import { defineComponent } from 'vue'
+  export default defineComponent({
+    name: 'IconSysSetting'
+  })
 </script>
 <template>
-  <svg
-    viewBox="0 0 1024 1024" 
-    width="120" height="120"
-  >
+  <svg viewBox="0 0 1024 1024" width="1em" height="1em">
     <g fill="currentColor" stroke="currentColor">
       <path
         d="M214 687c-55.2 0-100 44.8-100 100s44.8 100 100 100 100-44.8 100-100-44.8-100-100-100z m0 150c-27.6 0-50-22.4-50-50s22.4-50 50-50 50 22.4 50 50-22.4 50-50 50z"

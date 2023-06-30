@@ -20,7 +20,8 @@
     "inputconfig",
     "maxlength",
     "modelvalue",
-    "Ying"
+    "Ying",
+    "dkloading"
   ],
   "vue.codeActions.enabled": false
 }

@@ -9,7 +9,7 @@
     setup() {
       const htmlJson = {
         foundation: '<dkIcon :icon="IconShanchu1"></dkIcon>',
-        zidingyis: '<dkIcon :size="24" :color="\'red\'" :icon="IconShanchu1"></dkIcon>'
+        zidingyis: '<dkIcon :size="50" :color="\'red\'" :icon="IconShanchu1"></dkIcon>'
       }
       const iconList = [
         ['IconShanchu1', '删除1'],
@@ -227,7 +227,7 @@
     </div>
     <div class="template_icon_jcsy">
       <h2 class="template_icon_title">自定义大小和颜色(颜色只支持16进制 和英文单词)</h2>
-      <dk-icon :size="24" :color="'red'" icon="IconShanchu1"></dk-icon>
+      <dk-icon :size="50" :color="'red'" icon="IconShanchu1"></dk-icon>
       <div class="index_Dk_code">
         <highlightjs language="javascript" :code="htmlJson.zidingyis" />
         <span class="fuzhi" @click="oncopy(htmlJson.zidingyis)">复制代码</span>
@@ -242,7 +242,7 @@
         @click="oncopy(item[0])"
       >
         <div class="icon_library_item_icon">
-          <dk-icon :icon="item[0]" :size="24" :color="'#606266'"></dk-icon>
+          <dk-icon :icon="item[0]" :size="50" :color="'#606266'"></dk-icon>
         </div>
         <div class="icon_library_item_name">
           {{ item[0] }}
@@ -258,7 +258,7 @@
         @click="oncopy(item[0])"
       >
         <div class="icon_library_item_icon">
-          <dk-icon :icon="item[0]" :size="24" :color="'#606266'"></dk-icon>
+          <dk-icon :icon="item[0]" :size="50" :color="'#606266'"></dk-icon>
         </div>
         <div class="icon_library_item_name">
           {{ item[0] }}
@@ -274,7 +274,7 @@
         @click="oncopy(item[0])"
       >
         <div class="icon_library_item_icon">
-          <dk-icon :class="'dk-' + item[0]" :size="24" :color="'#606266'"></dk-icon>
+          <dk-icon :class="'dk-' + item[0]" :size="50" :color="'#606266'"></dk-icon>
         </div>
         <div class="icon_library_item_name">
           {{ item[0] }}
