@@ -59,7 +59,6 @@
       )
 
       const { classList, styleList } = getInputNumber(props)
-      console.log(styleList)
 
       return {
         ...data,
