@@ -1,0 +1,9 @@
+@use '../mixin.scss' as *;
+
+@include block('input-number') {
+  --input-number-width: 150px;
+  --input-number-height: 30px;
+  --input-number-border-color: #ccc;
+  --input-number-border-color--hover: #409eff;
+  --input-number-box-sizing: border-box;
+}

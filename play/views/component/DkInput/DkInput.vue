@@ -131,7 +131,6 @@
 
     <dk-input focus-border-color="#f0f" text-color="#f0f"></dk-input>
     <div class="box">
-      <dk-input v-model="msg" type="" placeholder="清空" clearable />
       {{ msg }}
     </div>
   </div>

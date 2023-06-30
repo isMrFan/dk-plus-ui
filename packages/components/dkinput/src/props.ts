@@ -1,11 +1,14 @@
 import type { ExtractPropTypes } from 'vue'
 import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
+import type { DkPlusAlign } from '../../_interface';
+
 import {
   setBooleanProps,
   setStringProp,
   setNumberProps,
   setObjectProps,
-  setFunction
+  setFunction,
+  setStringNumberProps
 } from '../../_utils'
 import type {
   dkPlusSize,
@@ -15,6 +18,8 @@ import type {
 } from '../../_interface'
 
 export const dkInputProps = {
+  border: setStringProp(),
+  align: setStringProp<DkPlusAlign>('left'),
   onEnter: setFunction<KeyboardEventType>(),
   onPrependClick: setFunction<MouseEventType>(),
   onAppendClick: setFunction<MouseEventType>(),
@@ -65,7 +70,7 @@ export const dkInputProps = {
   /** Append text color */
   appendColor: setStringProp(),
   /** input box content */
-  modelValue: setStringProp() || setNumberProps(),
+  modelValue: setStringNumberProps(),
   /**
    * Input box type
    * @default text

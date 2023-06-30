@@ -24,7 +24,6 @@
 
   @include block(wrapper) {
     width: inherit;
-    height: inherit;
     overflow: hidden;
     border: 1px solid var(--input-border);
     border-radius: var(--input-border-radius, 4px);
@@ -33,10 +32,9 @@
     align-items: center;
     background-color: var(--input-color);
     padding: 0 10px;
-
     &:hover {
       border: 1px solid var(--input-hover-border);
-
+      
       @include block('>*input') {
         @include block(clearable) {
           display: block;
@@ -63,6 +61,7 @@
     color: var(--input-text-color);
     border: none;
     background-color: transparent;
+    text-align: var(--input-align);
 
     &:focus {
       caret-color: var(--input-text-color);

@@ -182,7 +182,9 @@
         ['IconOnlinePayment', '在线支付'],
         ['IconPassword5', '密码'],
         ['IconPassword6', '密码'],
-        ['IconEdit', '编辑']
+        ['IconEdit', '编辑'],
+        ['IconAdd1', '添加'],
+        ['IconReduce1', '删除']
       ]
       const iconOther = []
       const oncopy = (e: string): void => {

@@ -66,3 +66,14 @@ export type DkIcon = VNode | Component
  */
 
 export type KeyboardEventType = (evt: KeyboardEvent) => void
+
+/**
+ * @name DkPlusAlign
+ * @Time 2023年04月28日
+ * @param { string }  [left] 居左
+ * @param { string }  [center] 居中
+ * @param { string }  [right] 居右
+ * @description 不同的组件对齐方式公共类型
+ */
+
+export type DkPlusAlign = 'left' | 'center' | 'right';

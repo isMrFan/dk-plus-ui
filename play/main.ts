@@ -198,7 +198,9 @@ const {
   IconMale2,
   IconOnlinePayment,
   IconPassword5,
-  IconPassword6
+  IconPassword6,
+  IconAdd1,
+  IconReduce1
 } = icons.default
 //全局的npm install 引用
 // import dkPlus from 'dk-plus';
@@ -277,7 +279,7 @@ app.use(IconMale1).use(IconPayAttention).use(IconPassword4)
 app.use(IconFemale1).use(IconCollect4).use(IconCollect5).use(IconCollect6)
 app.use(IconRestoreDelete).use(IconFemale2).use(IconPaymentSetup)
 app.use(IconDeletionPersonnel).use(IconUnionPay).use(IconMale2).use(IconOnlinePayment)
-app.use(IconPassword5).use(IconPassword6).use(IconEdit)
+app.use(IconPassword5).use(IconPassword6).use(IconEdit).use(IconAdd1).use(IconReduce1)
 app.use(dkheader)
 app.use(dkspace)
 //app.use(dkloading)

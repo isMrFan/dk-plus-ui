@@ -31,9 +31,7 @@
       const inputClassList = computed(() => getInput(props).classList)
       const modelValueProp = ref<string | number>(props.modelValue)
       const isFocus = ref<boolean>(false)
-
-      const inputValue = ref<string | number>(props.modelValue)
-
+      
       const propData = reactive<propDataModel>({
         prependText: props.prependText,
         appendText: props.appendText,
@@ -53,6 +51,8 @@
         readonlyProp: props.readonly,
         showLengthProp: props.showLength
       })
+
+      const inputValue = ref<string | number>(props.modelValue)
 
       const passwordShowOrHide = ref<Boolean>(false)
 
@@ -293,7 +293,6 @@
 
       const inputAttrs = reactive({
         class: innerClassList.value,
-        type: inputType.value as dkInputType | ComputedRef<dkInputType>,
         placeholder: propData.placeholder,
         oninput: update,
         disabled: propData.disabledProp,
@@ -348,7 +347,7 @@
         valueLength,
         showPasswordIcon,
         inputType,
-        passwordShowOrHide,
+        passwordShowOrHide
       }
     }
   })
@@ -386,10 +385,10 @@
 
       <!-- inner -->
       <input
-        :type="inputType"
-        v-bind="inputAttrs"
         ref="input"
         v-model="value"
+        :type="inputType"
+        v-bind="inputAttrs"
         @keydown.enter="onKeydownEnter"
       />
 
@@ -446,7 +445,7 @@
     </template>
   </div>
   <div v-else :class="classList" :style="styleList">
-    <textarea :type="inputType" ref="textarea" v-bind="textareaAttrs"></textarea>
+    <textarea ref="textarea" :type="inputType" v-bind="textareaAttrs"></textarea>
     <!-- length limit -->
     <template v-if="isLength">
       <span class="dk-input_textarea_length">

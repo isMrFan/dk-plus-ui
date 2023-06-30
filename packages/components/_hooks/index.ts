@@ -4,6 +4,7 @@
  * @returns _hooks出口文件
  * get-button  按钮用的hooks
  * get-input   input用的hooks
+ * get-input-number hooks for input box
  * **************公共hooks(public)**************
  * get-color   颜色用的hooks (getColor)
  * get-Global  全局用的hooks  (getGlobal)
@@ -15,6 +16,7 @@
  */
 export * from './get-button'
 export * from './get-input'
+export * from './get-input-number'
 export * from './public/get-color'
 export * from './public/get-Global'
 export * from './public/get-props'
