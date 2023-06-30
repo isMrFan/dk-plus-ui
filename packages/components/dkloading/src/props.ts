@@ -41,7 +41,16 @@ export const loadingProps = {
    * @name spinnerSize 自定义svg 图标大小
    * @description {string} 默认值
    **/
-  spinnerSize: setStringProp()
+  spinnerSize: setStringProp(),
+  /**
+   * @name flexDirection 排列方式上下还是左右
+   * @description {string}
+   * 默认值 column(上)
+   * row(左)
+   * row-reverse(右)
+   * column-reverse(下)
+   **/
+  flexDirection: setStringProp()
 } as const
 
 export type LoadingPropsType = ExtractPropTypes<typeof loadingProps>

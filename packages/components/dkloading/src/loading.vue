@@ -19,13 +19,14 @@
       const nbSpinner = ref<HTMLButtonElement>()
       const { classes, styles } = getStyleList(props, 'loading')
       const classList = classes(['loading'], 'dk-loading')
-      const styleList = styles(['background', 'color', 'textSize'])
+      const styleList = styles(['background', 'color', 'textSize', 'flexDirection'])
+      const Size = props.spinnerSize ? props.spinnerSize : '20px'
       onMounted(() => {
         const isSvg = props.spinner
         // 获取svg代码
         const svgCode = `
-          <svg viewBox="0 0 1024 1024" width="${props.spinnerSize}" height="${props.spinnerSize}">
-           ${isSvg}
+          <svg viewBox="0 0 1024 1024" width="${Size}" height="${Size}">
+          ${isSvg}
           </svg>
         `
         // 添加元素样式或其他操作
@@ -36,7 +37,8 @@
       return {
         classList,
         styleList,
-        nbSpinner
+        nbSpinner,
+        Size
       }
     }
   })
@@ -46,14 +48,14 @@
     <div
       v-if="spinner === ''"
       :color="color"
-      :style="[`width:${spinnerSize}; height:${spinnerSize};`]"
+      :style="[`width:${Size}; height:${Size};`]"
       class="dk-loading_animation"
     >
-      <icon-refresh :width="spinnerSize" :height="spinnerSize"></icon-refresh>
+      <icon-refresh :width="Size" :height="Size"></icon-refresh>
     </div>
     <div
       v-else
-      :style="[`width:${spinnerSize}; height:${spinnerSize};`]"
+      :style="[`width:${Size}; height:${Size};`]"
       :color="color"
       class="dk-loading_animation"
     >
