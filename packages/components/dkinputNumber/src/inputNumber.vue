@@ -47,13 +47,17 @@
         (): number => modelValue.value,
         (val): void => {
           let value: number = val;
-          if (value < data.min || value > data.max) {
+          if (value < data.min) {
             value = data.min
+          }
+          if (value > data.max) {
+            value = data.max
           }
 
           const target = input.value as HTMLInputElement
           target.value = value.toString()
-
+          
+          modelValue.value = value
           emit('update:modelValue', Number(value))
         }
       )
