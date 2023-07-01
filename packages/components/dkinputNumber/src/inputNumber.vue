@@ -32,7 +32,8 @@
         size: props.size,
         iconSize: iconSizeTarget[props.size],
         strict: props.strict,
-        precision: Number(props.precision)
+        precision: Number(props.precision),
+        readonly: props.readonly
       })
 
       const setParseFloat = (value: number | string): number => {
@@ -60,6 +61,7 @@
       const plusDisabled = ref<boolean>(modelValue.value >= data.max)
 
       const reduce = (): void => {
+        if (data.readonly) return;
         const newValue = modelValue.value - data.step;
         if (newValue < data.min) {
           modelValue.value = data.min;
@@ -69,6 +71,7 @@
       };
 
       const plus = (): void => {
+        if (data.readonly) return;
         const newValue = modelValue.value + data.step;
         if (newValue > data.max) {
           modelValue.value = data.max;
@@ -145,6 +148,7 @@
       border="none"
       :size="size"
       :disabled="disabled"
+      :readonly="readonly"
       @change="handleInputChange"
     />
     <dk-button :disabled="disabled || plusDisabled" :size="size" @click="plus">

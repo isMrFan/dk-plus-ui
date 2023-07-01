@@ -10,6 +10,24 @@ import { DK_SIZE } from '../../_tokens'
 
 export const dkInputNumberProps = {
   /**
+   * @name controlsPosition
+   * @description Position of built-in buttons
+   * @type string
+   * @param { string } type [right]
+   * @param { string } type [left]
+   * @default right
+  */
+  controlsPosition: setStringProp<'right' | 'left'>('right', (val: 'right' | 'left') => {
+    return ['right', 'left'].includes(val)
+  }),
+  /**
+   * @name readonly
+   * @description Native readonly attribute
+   * @type boolean
+   * @default false
+  */
+  readonly: setBooleanProps(false),
+  /**
    * @name precision
    * @description Set precision of input value
    * @type number | string

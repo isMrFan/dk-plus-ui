@@ -1,4 +1,13 @@
+import type { dkPlusSize } from '../../_interface';
+
 export interface DataType {
+  /**
+   * @name readonly
+   * @description Native readonly attribute
+   * @type boolean
+   * @default false
+   */
+  readonly: boolean
   /**
    * @name step
    * @description step value when click button
@@ -30,7 +39,7 @@ export interface DataType {
    * @param { string } type [mini]
    * @default small
    */
-  size: string
+  size: dkPlusSize
   /**
    * @name iconSize
    * @description Size of built-in buttons
