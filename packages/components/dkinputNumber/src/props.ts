@@ -5,8 +5,8 @@ import {
   setStringProp,
   setStringNumberProps
 } from '../../_utils'
-import type { dkPlusSize } from '../../_interface'
-import { DK_SIZE } from '../../_tokens'
+import type { dkPlusSize, DkPlusPosition } from '../../_interface'
+import { DK_SIZE, DK_POSITION } from '../../_tokens'
 
 export const dkInputNumberProps = {
   /**
@@ -17,8 +17,8 @@ export const dkInputNumberProps = {
    * @param { string } type [left]
    * @default right
   */
-  controlsPosition: setStringProp<'right' | 'left'>('right', (val: 'right' | 'left') => {
-    return ['right', 'left'].includes(val)
+  controlsPosition: setStringProp<DkPlusPosition>('right', (val: DkPlusPosition) => {
+    return DK_POSITION.includes(val)
   }),
   /**
    * @name readonly

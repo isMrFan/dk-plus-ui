@@ -65,7 +65,7 @@ export const DK_TARGET = ['_blank', '_self', '_parent', '_top'] as const
 
 /**
  * @name DK_POSITION
- * @Time 2023年07月1日
+ * @Time July 1, 2023
  * @param { string }  [top] on the top
  * @param { string }  [bottom] on the bottom
  * @param { string }  [left] on the left

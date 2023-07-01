@@ -77,3 +77,15 @@ export type KeyboardEventType = (evt: KeyboardEvent) => void
  */
 
 export type DkPlusAlign = 'left' | 'center' | 'right';
+
+/**
+ * @name DkPlusPosition
+ * @Time July 1, 2023
+ * @param { string }  [top] On top
+ * @param { string }  [right] On right
+ * @param { string }  [bottom] On bottom
+ * @param { string }  [left] On left
+ * @description Different component position public type
+ */
+
+export type DkPlusPosition = 'top' | 'right' | 'bottom' | 'left';
