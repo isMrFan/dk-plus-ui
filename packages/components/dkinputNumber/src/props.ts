@@ -17,7 +17,7 @@ export const dkInputNumberProps = {
    * @param { string } type [left]
    * @default right
   */
-  position: setStringProp<dkInputNumberPosition>('right', (val: dkInputNumberPosition) => {
+  position: setStringProp<dkInputNumberPosition>(null, (val: dkInputNumberPosition) => {
     return DK_INPUT_NUMBER_POSITION.includes(val)
   }),
   /**

@@ -48,6 +48,7 @@
         readonly: props.readonly,
         position: props.position
       })
+      console.log('🚀 ~ file: inputNumber.vue:48 ~ setup ~ position:', data.position)
 
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)

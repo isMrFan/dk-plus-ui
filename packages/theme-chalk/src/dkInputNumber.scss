@@ -60,4 +60,19 @@
       cursor: not-allowed;
     }
   }
+
+  // @include element(left){
+  //   .dk-button{
+  //     float: left;
+  //   }
+  //   @include block('*input-number'){
+  //     @include block(wrapper){
+  //       float: right;
+  //       @include element(inner){
+  //         border-right: none;
+  //         background-color: #f00;
+  //       }
+  //     }
+  //   }
+  // }
 }

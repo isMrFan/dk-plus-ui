@@ -52,16 +52,16 @@ theme-chalk          主题样式目录
     //解析后是  .dk-input .dk-input-xxx
     //...... styles
   }
-  // element   通用分隔符 __    //用于组件内部的样式  .dk-xxx_xxx
+  // element   通用分隔符 _    //用于组件内部的样式  .dk-xxx_xxx
   @include element(wrapper) {
-    //解析后是  .dk-xxx__xxx
+    //解析后是  .dk-xxx_xxx
     //...... styles
     @include element(*xxx) {
-      //解析后是  .dk-xxx__xxx 加 * 号表示不需要加上父级的样式名
+      //解析后是  .dk-xxx_xxx 加 * 号表示不需要加上父级的样式名
       //...... styles
     }
     @include element(>xxx){
-      //解析后是  .dk-input__wrapper .dk-input_wrapper_xxx
+      //解析后是  .dk-input_wrapper .dk-input_wrapper_xxx
       //...... styles
     }
     // modifier  修饰符分隔符 --
