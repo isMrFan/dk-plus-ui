@@ -83,11 +83,13 @@
 
       const handleInputChange = (event: Event): void => {
         const target = event.target as HTMLInputElement
+        const value = Number(target.value)
         if (data.strict) {
-          const ceilValue = Math.ceil(modelValue.value / data.step) * data.step
+          const ceilValue = Math.ceil(value / data.step) * data.step
           modelValue.value = ceilValue
+        } else {
+          modelValue.value = value
         }
-        modelValue.value = Number(target.value)
       }
 
       watch(() => props.modelValue, (val) => {
