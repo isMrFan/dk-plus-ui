@@ -2,8 +2,20 @@
   /**
    * @name dk-input-number
    * @author WangYingJie
-   * @Time 2323/4/12
+   * @Time July 3, 2023
    * @description
+   * @function setParseFloat Retain Decimal Places
+   * @function getModelValue Get the value of the input box
+   * @type [string | number] modelValue The value of the input box
+   * @params [boolean] disabled Whether to disable the input box 
+   * @params [boolean] reduceDisabled Whether to disable the reduce button
+   * @params [boolean] plusDisabled Whether to disable the plus button
+   * @function reduce Reduce the value of the input box
+   * @function plus Increase the value of the input box
+   * @function handleInputChange Input box value change event
+   * @function handleMouseDown Mouse down event
+   * @function handleMouseUp Mouse up event
+   * @function handleMouseLeave Mouse leave event
    * @example
    */
   import { defineComponent, ref, reactive, shallowRef, watch } from 'vue'
