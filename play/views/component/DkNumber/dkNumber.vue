@@ -23,8 +23,6 @@ export default defineComponent({
 </script>
 <template>
   <div class="number">
-    <dk-button @click="changeMsg">改变msg,{{ msg }}</dk-button>
-    <dk-input v-model="msg"></dk-input>
     <h4>位置</h4>
     <dk-input-number v-model="value" position="left"></dk-input-number>
     <h4>浮点型</h4>
