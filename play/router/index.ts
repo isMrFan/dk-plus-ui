@@ -10,6 +10,7 @@ const DkInterval: Object = () => import('../views/component/DkInterval/DkInterva
 const Dkbutton: Object = () => import('../views/component/Dkbutton/Dkbutton.vue')
 const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
 const DkLoading: Object = () => import('../views/component/DkLoading/DkLoading.vue')
+const DKcollapse: Object = () => import('../views/component/DKcollapse/DKcollapse.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -75,6 +76,16 @@ const routes: RouteRecordRaw[] = [
         component: DkLoading,
         meta: {
           title: '加载中',
+          keepAlive: false,
+          isunnewList: false
+        }
+      },
+      {
+        path: '/DKcollapse',
+        name: 'DKcollapse',
+        component: DKcollapse,
+        meta: {
+          title: '折叠面板',
           keepAlive: false,
           isunnewList: false
         }

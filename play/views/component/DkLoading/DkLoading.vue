@@ -7,13 +7,18 @@
     <h3>5.指令dk-loading-textSize 加载中文案字体大小 默认值:15px</h3>
     <h3>6.指令dk-loading-spinnerSize 加载中文案图标大小 默认值:1em</h3>
     <h3>7.指令dk-loading-spinner 加载中文案图标 只要写入svg文件的内元素就OK</h3>
+    <h3>
+      8.指令dk-loading-flexDirection 加载中文案图标方向 默认值 column(上) row(左)
+      row-reverse(右) column-reverse(下)
+    </h3>
     <div
       v-dk-loading="true"
       dk-loading-text="加载中..."
       dk-loading-color="#262335"
       dk-loading-background="rgba(26, 115, 232, 0.7)"
-      dk-loading-textSize="60px"
-      dk-loading-spinnerSize="90px"
+      dk-loading-textSize="15px"
+      dk-loading-spinnerSize="30px"
+      dk-loading-flexDirection="column"
       class="isHello"
     ></div>
   </div>

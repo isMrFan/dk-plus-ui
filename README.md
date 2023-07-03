@@ -1,4 +1,3 @@
-
 <p align="center">
    <img height="160px"  src="https://oss.cadwaladerss.com/dk-plus/images/isicon.jpg">
 </p>
@@ -26,7 +25,7 @@
 
 ## ✨ 特性
 
-- 🪐 3+ 常用组件
+- 🪐 6+ 常用组件
 - 🏆 支持完整引入和按需引入
 - 🤟 配置简单，上手容易
 - ❤️ 根据实际需求开发
@@ -71,23 +70,21 @@ createApp(App).use(dkPlus).mount('#app')
 <head>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/dk-plus/dist/theme-chalk/index.css"
+    href="https://cdn.jsdelivr.net/npm/dk-plus/theme-chalk/index.css"
   />
 </head>
 
 <body>
   <div id="app">
-    <Dk-Button round type="default">默认</Dk-Button>
-    <Dk-Button round type="primary">主要按钮</Dk-Button>
-    <Dk-Button round type="success">成功</Dk-Button>
-    <Dk-Button round type="info">信息</Dk-Button>
-    <Dk-Button round type="warning">警告</Dk-Button>
-    <Dk-Button round type="danger">danger</Dk-Button>
+    <h1>示例</h1>
+    <dk-button type="primary">默认按钮</dk-button>
+    <dk-button type="success">主要按钮</dk-button>
+    <dk-button type="danger">成功按钮</dk-button>
+    <dk-button type="warning">警告按钮</dk-button>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dk-plus/dist/index.js"></script>
-  <script>
+  <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dk-plus"></script>
+  <script type="module">
     const { createApp, ref } = Vue
     const app = createApp({
       setup() {
@@ -95,7 +92,7 @@ createApp(App).use(dkPlus).mount('#app')
         return { visible }
       }
     })
-    app.use(DKplush.default)
+    app.use(dkPlus.default)
     app.mount('#app')
   </script>
 </body>
