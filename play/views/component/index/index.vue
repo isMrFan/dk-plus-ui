@@ -54,6 +54,10 @@
           {
             name: '计数器组件',
             path: '/DkNumber'
+          },
+          {
+            name: '计数器组件2',
+            path: '/DkNumber'
           }
         ]
       })
