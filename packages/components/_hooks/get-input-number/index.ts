@@ -25,8 +25,8 @@ export const getInputNumber = (props: DkInputNumberProps): inputNumberType => {
       mini: ['120px', '30px']
     }
     const styleList = {
-      '--input-number-width': sizeTarget[size][0] || sizeTarget.small[0],
-      '--input-number-height': sizeTarget[size][1] || sizeTarget.small[1]
+      '--input-number-width': sizeTarget[size][0],
+      '--input-number-height': sizeTarget[size][1]
     }
     return styleList
   })
