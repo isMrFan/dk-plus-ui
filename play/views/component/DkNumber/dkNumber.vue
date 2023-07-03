@@ -7,18 +7,29 @@ export default defineComponent({
     let value = ref<number>(5)
     const handleChange = (value: number): void => {
       console.log(value);
+      value = value + 1
+    }
+    const msg = ref<string>('asdf')
+    const changeMsg = (): void => {
+      msg.value = 'aaa'
     }
     return {
       value,
-      handleChange
+      handleChange,
+      msg,
+      changeMsg
     }
   }
 })
 </script>
 <template>
   <div class="number">
+    <dk-button @click="changeMsg">改变msg,{{ msg }}</dk-button>
+    <dk-input v-model="msg"></dk-input>
+    <h4>位置</h4>
+    <dk-input-number v-model="value" position="left"></dk-input-number>
     <h4>浮点型</h4>
-    <dk-input-number v-model="value" precision="4" step="0.2" strict readonly @change="handleChange"></dk-input-number>
+    <dk-input-number v-model="value" precision="2" step="0.2" strict @change="handleChange"></dk-input-number>
     <h4>禁用</h4>
     <dk-input-number v-model="value" disabled></dk-input-number>
     <h4>最大、最小值</h4>

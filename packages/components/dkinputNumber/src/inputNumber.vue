@@ -33,7 +33,8 @@
         iconSize: iconSizeTarget[props.size],
         strict: props.strict,
         precision: Number(props.precision),
-        readonly: props.readonly
+        readonly: props.readonly,
+        position: props.position
       })
 
       const setParseFloat = (value: number | string): number => {
@@ -80,12 +81,19 @@
         }
       }
 
-      const handleInputChange = (): void => {
+      const handleInputChange = (event: Event): void => {
+        const target = event.target as HTMLInputElement
         if (data.strict) {
           const ceilValue = Math.ceil(modelValue.value / data.step) * data.step
           modelValue.value = ceilValue
         }
+        modelValue.value = Number(target.value)
       }
+
+      watch(() => props.modelValue, (val) => {
+        val = Number(val)
+        modelValue.value = val
+      })
 
       watch(
         (): number => modelValue.value,
@@ -106,11 +114,7 @@
           if (data.precision) {
             value = setParseFloat(value)
           }
-
-          const target = input.value as HTMLInputElement
-          target.value = value.toString()
-
-          modelValue.value = value
+          
           emit('update:modelValue', value)
           emit('change', value)
         }
@@ -136,13 +140,14 @@
 </script>
 
 <template>
+  inputNumber组件{{ value }}
   <div :class="classList" :style="styleList">
     <dk-button :disabled="disabled || reduceDisabled" :size="size" @click="reduce">
       <dk-icon :size="iconSize" icon="IconReduce1"></dk-icon>
     </dk-button>
     <dk-input
       ref="input"
-      v-model="value"
+      :model-value="value"
       type="number"
       align="center"
       border="none"

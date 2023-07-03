@@ -51,7 +51,12 @@
 </script>
 
 <template>
+  msg: {{ msg }}
   <div class="input">
+    <h4>前后置内容</h4>
+    <dk-input v-model="msg" prepend-text="http://" append-text=".com"></dk-input>
+
+    <h4>change</h4>
     <dk-input v-model="msg" placeholder="change" :disabled="isDisabled"> </dk-input>
 
     <dk-input show-length></dk-input>

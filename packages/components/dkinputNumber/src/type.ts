@@ -1,6 +1,15 @@
-import type { dkPlusSize } from '../../_interface';
+import type { dkPlusSize, DkPlusPosition } from '../../_interface'
 
 export interface DataType {
+  /**
+   * @name position
+   * @description Position of built-in buttons
+   * @type string
+   * @param { string } type [right]
+   * @param { string } type [left]
+   * @default right
+   */
+  position: DkPlusPosition,
   /**
    * @name readonly
    * @description Native readonly attribute
