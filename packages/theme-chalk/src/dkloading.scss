@@ -4,17 +4,17 @@
   --loading-background: rgba(0, 0, 0, 0.8);
   --loading-color: #fff;
   --loading-text-size: 15px;
+  --loading-flex-direction: column;
 }
 
 .#{$namespace}-loading {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000;
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--loading-flex-direction);
   align-items: center;
   justify-content: center;
   background: var(--loading-background);
@@ -23,7 +23,7 @@
 
   &_title {
     font-size: var(--loading-text-size);
-    margin-top: 5px;
+    margin: 8px;
   }
 
   &_animation {

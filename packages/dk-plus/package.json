@@ -1,6 +1,6 @@
 {
   "name": "dk-plus",
-  "version": "1.0.18.7",
+  "version": "1.0.19",
   "description": "DK-PLUS",
   "keywords": [
     "vue3",
@@ -34,7 +34,7 @@
     "theme-chalk/index.css",
     "theme-chalk/*.css"
   ],
-  "author": "dk-plus-ui <dk-plus-ui@vip.qq.com>",
+  "author": "dk-plus-ui <dk-plus-ui@foxmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -45,6 +45,10 @@ export const sidebar = {
         { text: 'Input输入框', link: '/components/input' },
         { text: 'InputNumber数字输入框', link: '/components/inputNumber' },
       ]
+    },
+    {
+      text: '反馈组件',
+      items: [{ text: 'loading', link: '/components/loading' }]
     }
   ],
   '/expansion/': expansionNav

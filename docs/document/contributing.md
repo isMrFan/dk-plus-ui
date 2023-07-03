@@ -91,6 +91,8 @@
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
 ├── ├── ├── _hooks        # hooks
+├── ├── ├── ├── _directive     # 自定义指令代码
+├── ├── ├── ├── ├── loading   # loading 指令
 ├── ├── ├── ├──get-button  # 获取按钮的方法(hooks_dk-button)
 ├── ├── ├── ├──get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
 ├── ├── ├── ├── public       # 公共的hooks方法
@@ -121,6 +123,7 @@
 ├── ├── dkinput       #输入框组件
 ├── ├── dkinputNumber #输入框组件按钮
 ├── ├── dklaside      #页面布局组件-左侧组件
+├── ├── dkloading     #加载中指令用的组件
 ├── ├── dkmain        #页面布局组件-中级布局
 ├── ├── dkshadow  #盒模型阴影组件
 ├── ├── index.ts  #组件入口文件
@@ -215,20 +218,19 @@ pnpm dev:docs
 
 dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
 
-| script 字段 | 对应命令        | 命令说明         |
-| ----------- | --------------- | ---------------- |
-| dev:play    | pnpm -C play dev   | 启动测试开发项目 |
-| build:play  | pnpm -C play build | 打包测试开发项目 |
-| build       | gulp -f build/gulpfile.ts      | 打包组件库       |
-| dev:docs    | pnpm -C docs dev:docs  | 启动开发文档项目 |
-| build:docs  | pnpm -C docs build:docs| 打包开发文档项目 |
-| format      | prettier --write \"**/*.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\" | 项目代码格式化   |
-| deploy:docs | cross-env NODE_ENV=docs node ./deploy | 测试     |
-| test        | vitest      | 测试流程    |
-| coverage        | vitest run --coverage      | 生成测试日志    |
-| lint        | pnpm lint       | 项目代码检查     |
-| prepare     | pnpm prepare    | 运行单元格测试   |
-
+| script 字段 | 对应命令                                                                  | 命令说明         |
+| ----------- | ------------------------------------------------------------------------- | ---------------- |
+| dev:play    | pnpm -C play dev                                                          | 启动测试开发项目 |
+| build:play  | pnpm -C play build                                                        | 打包测试开发项目 |
+| build       | gulp -f build/gulpfile.ts                                                 | 打包组件库       |
+| dev:docs    | pnpm -C docs dev:docs                                                     | 启动开发文档项目 |
+| build:docs  | pnpm -C docs build:docs                                                   | 打包开发文档项目 |
+| format      | prettier --write \"\*_/_.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\" | 项目代码格式化   |
+| deploy:docs | cross-env NODE_ENV=docs node ./deploy                                     | 测试             |
+| test        | vitest                                                                    | 测试流程         |
+| coverage    | vitest run --coverage                                                     | 生成测试日志     |
+| lint        | pnpm lint                                                                 | 项目代码检查     |
+| prepare     | pnpm prepare                                                              | 运行单元格测试   |
 
 ## 🚨 开发规范
 
@@ -305,7 +307,7 @@ git commit -m 'feat: 新增***组件'
 PR 的提交应该尽可能小，每个 PR 都应该只包含一组相关的更改。这使得审核更容易，也使得代码更容易维护。
 为您的 PR 添加描述，让其他开发者了解您所做的更改及其目的
 
-## 📦 NPM发布流程
+## 📦 NPM 发布流程
 
 1.登录 npm 账号
 
@@ -327,8 +329,6 @@ npm publish
 <img width="200px" style='margin-right:50px;' src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
 <img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
 </div>
-
-
 
 ## 💌 非常感谢
 

@@ -44,6 +44,10 @@
             path: '/DkLoading'
           },
           {
+            name: '折叠面板',
+            path: '/DKcollapse'
+          },
+          {
             name: '按钮组件',
             path: '/Dkbutton'
           },

@@ -49,7 +49,8 @@ export const DirectiveLoading = (): Directive => {
       color: getProps('color'),
       background: getProps('background'),
       spinner: getProps('spinner'),
-      spinnerSize: getProps('spinnerSize')
+      spinnerSize: getProps('spinnerSize'),
+      flexDirection: getProps('flexDirection')
     } as LoadingPropsType
   }
 

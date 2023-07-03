@@ -28,7 +28,6 @@
 ### 📖 目录结构
 
 ```bash
-
 ├── .github     # github配置文件
 ├── .husky      # 代码提交前检测
 ├── .vscode     # vscode配置文件
@@ -92,6 +91,8 @@
 ├── packages        # 组件库组件
 ├── ├── components    # 存放所有的组件
 ├── ├── ├── _hooks        # hooks
+├── ├── ├── ├── _directive     # 自定义指令代码
+├── ├── ├── ├── ├── loading   # loading 指令
 ├── ├── ├── ├──get-button  # 获取按钮的方法(hooks_dk-button)
 ├── ├── ├── ├──get-Global  # 获取全局的方法(hooks_包含组件类型_组件属性)
 ├── ├── ├── ├── public       # 公共的hooks方法
@@ -122,6 +123,7 @@
 ├── ├── dkinput       #输入框组件
 ├── ├── dkinputNumber #输入框组件按钮
 ├── ├── dklaside      #页面布局组件-左侧组件
+├── ├── dkloading     #加载中指令用的组件
 ├── ├── dkmain        #页面布局组件-中级布局
 ├── ├── dkshadow  #盒模型阴影组件
 ├── ├── index.ts  #组件入口文件
@@ -181,7 +183,12 @@ cd dk-ui
 
 # 安装依赖项
 pnpm install
-ps: 注意这里引用了联合指令,如没安装cnpm 请先安装cnpm 国外用户把根目录下的package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
+
+ps: 注意这里引用了联合指令
+
+如没安装 cnpm 请先安装cnpm
+
+国外用户 package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
 
 # CNPM安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -191,11 +198,6 @@ pnpm dev:play
 
 # 启动文档
 pnpm dev:docs
-
-# 发布
-npm init
-npm login
-npm publish
 
 ```
 
@@ -208,20 +210,27 @@ npm publish
 - [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue3 官方开发插件
 - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) 用于支持在 TS 中 import `*.vue` 文件
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 代码格式校验，如果不安装，那么 [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) 则不生效
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 代码格式校验，如果不安装，那么 [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) 则不生效
+
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) 用于检测代码中的拼写错误
 
 ## 🔓 命令说明
 
 dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
 
-| script 字段 | 对应命令        | 命令说明         |
-| ----------- | --------------- | ---------------- |
-| dev:play    | pnpm dev:play   | 启动测试开发项目 |
-| build:play  | pnpm build:play | 打包测试开发项目 |
-| build       | pnpm build      | 打包组件库       |
-| dev:docs    | pnpm dev:docs   | 启动开发文档项目 |
-| build:docs  | pnpm build:docs | 打包开发文档项目 |
-| format      | pnpm format     | 项目代码格式化   |
+| script 字段 | 对应命令                                                                  | 命令说明         |
+| ----------- | ------------------------------------------------------------------------- | ---------------- |
+| dev:play    | pnpm -C play dev                                                          | 启动测试开发项目 |
+| build:play  | pnpm -C play build                                                        | 打包测试开发项目 |
+| build       | gulp -f build/gulpfile.ts                                                 | 打包组件库       |
+| dev:docs    | pnpm -C docs dev:docs                                                     | 启动开发文档项目 |
+| build:docs  | pnpm -C docs build:docs                                                   | 打包开发文档项目 |
+| format      | prettier --write \"\*_/_.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\" | 项目代码格式化   |
+| deploy:docs | cross-env NODE_ENV=docs node ./deploy                                     | 测试             |
+| test        | vitest                                                                    | 测试流程         |
+| coverage    | vitest run --coverage                                                     | 生成测试日志     |
+| lint        | pnpm lint                                                                 | 项目代码检查     |
+| prepare     | pnpm prepare                                                              | 运行单元格测试   |
 
 ## 🚨 开发规范
 
@@ -254,7 +263,7 @@ Git 允许我们在每次提交时，附带一个提交信息作为说明，当�
 | perfect   | git commit -m 'perfect: 完善\*\*\* '             | 完善之前代码块哪里的代码块 |
 | utils     | git commit -m 'utils: 组件工具箱\*\*\*           | 更新工具箱                 |
 | interface | git commit -m 'interface: 增加组件全局接口\*\*\* | 全局接口                   |
-| deps      | git commit -m 'deps: 依赖升级                    | 全局接口                   |
+| deps      | git commit -m 'deps: 依赖升级                    | 依赖升级                   |
 
 可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
 
@@ -298,12 +307,28 @@ git commit -m 'feat: 新增***组件'
 PR 的提交应该尽可能小，每个 PR 都应该只包含一组相关的更改。这使得审核更容易，也使得代码更容易维护。
 为您的 PR 添加描述，让其他开发者了解您所做的更改及其目的
 
+## 📦 NPM 发布流程
+
+1.登录 npm 账号
+
+```shell
+npm login
+```
+
+2.发布
+
+```shell
+npm publish
+```
+
 ## 📰 财务支持
 
 如果您觉得 dk-plus 帮助到了您，您可以请作者喝杯咖啡，以资鼓励。
 
-<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
+<div style='display: flex;'>
+<img width="200px" style='margin-right:50px;' src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
 <img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
+</div>
 
 ## 💌 非常感谢
 
