@@ -7,7 +7,6 @@ export default defineComponent({
     let value = ref<number>(5)
     const handleChange = (value: number): void => {
       console.log(value);
-      value = value + 1
     }
     const msg = ref<string>('asdf')
     const changeMsg = (): void => {
