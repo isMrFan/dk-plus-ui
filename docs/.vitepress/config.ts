@@ -1,15 +1,12 @@
 import { defineConfig } from 'vitepress'
 import { description } from './data/description'
-import { nav } from './data/nav'
-import { sidebar } from './data/sidebar'
 import { head } from './data/head'
 import { PluginModule } from './plugins'
+import getNavs from '../.vitepress/src/navs/zh'
+import { zhConfig } from './src/configs/zh'
+import { enConfig } from './src/configs/en'
 
-/**
- * vitepress 配置项文件
- * @see Introduction https://vitepress.dev/reference/site-config
- */
-const isDeFineConfig = defineConfig({
+module.exports = defineConfig({
   lang: 'zh-CN',
   title: 'dk-plus',
   head,
@@ -20,20 +17,9 @@ const isDeFineConfig = defineConfig({
    * @see last-updated https://vitepress.vuejs.org/guide/theme-last-updated#last-updated
    */
   lastUpdated: true,
-  /**
-   * 语言配置
-   * @see separate-directory-for-each-locale https://vitepress.vuejs.org/guide/i18n#separate-directory-for-each-locale
-   */
-
   locales: {
-    '/zh-CN': {
-      lang: 'zh-CN',
-      label: '简体中文'
-    },
-    '/en-US': {
-      lang: 'en-US',
-      label: 'English'
-    }
+    zh: { label: '简体中文', lang: 'zh-CN', link: '/zh/', ...zhConfig },
+    en: { label: 'English', lang: 'en-US', link: '/en/', ...enConfig }
   },
   /**
    * 主题配置
@@ -46,10 +32,7 @@ const isDeFineConfig = defineConfig({
      * @see lastUpdatedText https://vitepress.vuejs.org/config/theme-configs#lastupdatedtext
      */
     lastUpdatedText: '最后更新时间',
-
-    nav,
-    sidebar,
-
+    nav: getNavs(),
     /**
      * 配置导航栏图表
      * @see socialLinks https://vitepress.vuejs.org/config/theme-configs#sociallinks
@@ -76,6 +59,3 @@ const isDeFineConfig = defineConfig({
     }
   }
 })
-module.exports = {
-  ...isDeFineConfig
-}
