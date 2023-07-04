@@ -8,8 +8,8 @@
    * @function getBooleanAnd Obtaining Results from Relationships
    * @example
    */
+  import { defineComponent, computed, ref, shallowRef, nextTick, reactive, watch } from 'vue'
   import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'vue'
-  import { defineComponent, computed, ref, shallowRef, nextTick, reactive } from 'vue'
   import { dkInputProps } from './props'
   import { getInputGlobal } from '../../_hooks'
   import { getInput, getBooleanAnd, getBooleanOr, getNull, getReturn } from '../../_hooks'
@@ -162,30 +162,60 @@
           !data.isAppendIcon
         ])
       })
-
+      
       const prependClassList = (): string[] => ['dk-input_prepend', 'dk-input_pend']
-
+      
       const appendClassList = (): string[] => ['dk-input_append', 'dk-input_pend']
-
+      
       const valueLength = ref<number>(0)
-
+      
       const pendStyleLis = (): {} => getInput(props).pendStyleList
-      const update = (e: Event): void => {
-        const target = e.target as HTMLInputElement
-        inputValue.value = target.value
-
-        // prependText | appendText
-        let updateModelValue = modelValueProp.value
+      
+      const getValue = (value: string | number): string => {
+        value = value.toString()
+        let val = value
         if (propData.prependText && !propData.prependIcon) {
-          updateModelValue = `${propData.prependText}${updateModelValue}`
+          const reg = new RegExp(`^${propData.prependText}`)
+          val = val.replace(reg, '')
         }
+        
         if (propData.appendText && !propData.appendIcon) {
-          updateModelValue = getLength()
+          const reg = new RegExp(`${propData.appendText}$`)
+          val = val.replace(reg, '')
         }
+        return val
+      }
+
+      const getPendValue = (value: string | number): string => {
+        value = value.toString()
+        let val = value
+        if (propData.prependText && !propData.prependIcon) {
+          const reg = new RegExp(`^${propData.prependText}`)
+          if (!reg.test(value)) {
+            val = propData.prependText + value
+          }
+        }
+        
+        if (propData.appendText && !propData.appendIcon) {
+          const reg = new RegExp(`${propData.appendText}$`)
+          if (!reg.test(value)) {
+            val = val + propData.appendText
+          }
+        }
+        return val
+      }
+
+      watch(() => props.modelValue, () => {
+        inputValue.value = getValue(props.modelValue)
+        modelValueProp.value = inputValue.value
+      })
+
+      watch(() => inputValue.value, (val) => {
+        const len = val.toString().length
 
         // maxlength
         if (propData.maxlengthProp) {
-          lengthLimit.value = `${target.value.length}/${propData.maxlengthProp}`
+          lengthLimit.value = `${len}/${propData.maxlengthProp}`
         }
 
         // autoSize
@@ -197,11 +227,18 @@
 
         // length-count
         if (data.showLength) {
-          valueLength.value = target.value.length
+          valueLength.value = len
         }
+        if(propData.typeProp === 'number') {
+          emit('update:modelValue', Number(val))
+        } else {
+          emit('update:modelValue', getPendValue(val))
+        }
+      })
 
-        modelValueProp.value = target.value
-        emit('update:modelValue', updateModelValue)
+      const update = (e: Event): void => {
+        const target = e.target as HTMLInputElement
+        inputValue.value = target.value
       }
 
       const prefixIconClass = (): string[] => {

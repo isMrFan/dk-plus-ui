@@ -4,6 +4,7 @@
  * @returns 属性定义的出口文件
  * input-attrs input组件的属性定义
  * button-attrs button个性组件的属性定义
+ * input-number-attrs inputNumber组件的属性定义
  * **************公共定义变量(public)**************
  * DK_SIZE  尺寸大小
  * DK_TYPE  组件Type类型
@@ -12,4 +13,5 @@
  */
 export * from './component/input-attrs'
 export * from './component/button-attrs'
+export * from './component/input-number-attrs'
 export * from './public'

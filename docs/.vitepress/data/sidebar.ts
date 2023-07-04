@@ -41,7 +41,10 @@ export const sidebar = {
     },
     {
       text: 'Form 表单组件',
-      items: [{ text: 'Input', link: '/components/input' }]
+      items: [
+        { text: 'Input输入框', link: '/components/input' },
+        { text: 'InputNumber数字输入框', link: '/components/inputNumber' },
+      ]
     },
     {
       text: '反馈组件',

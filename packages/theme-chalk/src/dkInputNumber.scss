@@ -49,10 +49,15 @@
       --button-hover-borderColor: transparent;
       // --button-hover-background: transparent;
       --button-active-borderColor: transparent;
+      --button-background: transparent;
     }
 
     border: none;
   }
-
-  @include element(large) {}
+  @include element(disabled){
+    background-color: var(--input-number-background-color);
+    &:hover *{
+      cursor: not-allowed;
+    }
+  }
 }

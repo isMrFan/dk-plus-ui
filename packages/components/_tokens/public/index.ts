@@ -62,3 +62,15 @@ export const DK_TYPE_COLOR = {
  **/
 
 export const DK_TARGET = ['_blank', '_self', '_parent', '_top'] as const
+
+/**
+ * @name DK_POSITION
+ * @Time July 1, 2023
+ * @param { string }  [top] on the top
+ * @param { string }  [bottom] on the bottom
+ * @param { string }  [left] on the left
+ * @param { string }  [right] on the right
+ * @description The position of the component
+ */
+
+export const DK_POSITION = ['top', 'bottom', 'left', 'right'] as const
