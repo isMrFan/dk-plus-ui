@@ -1,8 +1,8 @@
-# 快速上手
+# Quick Start
 
-## 完整引入
+## Full Import
 
-在 `main.ts` 中引入下面内容
+In your `main.ts`  file, import the following:
 
 ```ts
 import { createApp } from 'vue'
@@ -14,9 +14,9 @@ import 'dk-plus/theme-chalk/index.css'
 createApp(App).use(dkPlus).mount('#app')
 ```
 
-## 按需引入
+## Import on Demand
 
-为了减小体积，只希望引入部分组件，可以使用按需引入的方式
+To reduce bundle size and only import specific components, you can use the import-on-demand approach:
 
 ```ts
 import { createApp } from 'vue'
@@ -34,9 +34,9 @@ import '@dk-plus/theme-chalk/icon.css'
 createApp(App).use(DkIcon).use(DkShadow).use(DkButton).mount('#app')
 ```
 
-## 使用 UMD
+## Using UMD
 
-可通过 `UMD` 模式在 `*.html` 中引入 `dk-plus`，快速构建您的程序
+You can also use the `UMD` mode to include `dk-plus` in your `*.html` file and quickly build your application:
 
 ```html
 <head>
@@ -48,11 +48,11 @@ createApp(App).use(DkIcon).use(DkShadow).use(DkButton).mount('#app')
 
 <body>
   <div id="app">
-    <h1>示例</h1>
-    <dk-button type="primary">默认按钮</dk-button>
-    <dk-button type="success">主要按钮</dk-button>
-    <dk-button type="danger">成功按钮</dk-button>
-    <dk-button type="warning">警告按钮</dk-button>
+    <h1>Example</h1>
+    <dk-button type="primary">Default Button</dk-button>
+    <dk-button type="success">Primary Button</dk-button>
+    <dk-button type="danger">Success Button</dk-button>
+    <dk-button type="warning">Warning Button</dk-button>
   </div>
   <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dk-plus"></script>

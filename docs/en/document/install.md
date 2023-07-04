@@ -1,8 +1,8 @@
-# 安装
+# Installation
 
 ## pnpm
 
-使用快速的，节省磁盘空间的包管理工具 [pnpm](https://pnpm.io/zh) 进行安装
+Install using the fast and disk-space efficient package manager [pnpm](https://pnpm.io/zh)
 
 ```shell
 pnpm add --save-dev dk-plus
@@ -10,7 +10,7 @@ pnpm add --save-dev dk-plus
 
 ## npm
 
-使用 `npm` 进行安装
+Install using `npm`
 
 ```shell
 npm install --save-dev dk-plus
@@ -18,7 +18,7 @@ npm install --save-dev dk-plus
 
 ## yarn
 
-或者使用 `yarn` 进行安装
+Alternatively, install using `yarn` 
 
 ```shell
 yarn add --save-dev dk-plus

@@ -1,31 +1,33 @@
-# 贡献
+# Contribution
 
-## 🙋 在您贡献之前，请先阅读以下内容
+## 🙋 Before contributing, please read the following information
 
-你好！欢迎使用 DK-plus！
+Hello! Welcome to DK-plus!
 
-我很高兴你有兴趣为 DK-plus 做贡献。在提交您的贡献之前，请务必花点时间阅读以下指南. 这可以让我们更好地协作，避免不必要的工作量，节省大家的时间。
+I'm glad that you are interested in contributing to DK-plus. Before submitting your contribution, please take some time to read the following guidelines. This will help us collaborate better, avoid unnecessary work, and save everyone's time.
 
-## 🚫 禁止直接搬运
+## 🚫 No direct copying
 
-众所周知，在市面上的组件库有很多，很多时候我们需要开发的新组件在市面上早已经开发好了，但是请勿直接复制其它第三方源码进行使用
+As we all know, there are many existing component libraries in the market. Often, the components we need to develop have already been created by other third-party libraries. However, please refrain from directly copying and using source code from other libraries.
 
-开发组件库本身是一个学习进步的过程，不要仅仅是为了新增组件而新增组件，希望各位参与者可以在新增组件过程中学习到一些东西来提升自己的技术。如果在开发阶段的某个功能遇到了困难，你可以发起一个讨论，或者也可以直接联系我或在群里求助，当然去学习参考其它开源库也是可以的，只是希望你在写的时候，是已经理解了问题，自己来动手实践的。
+The development of a component library itself is a process of learning and progress. It's not just about adding components for the sake of adding them. We hope that participants can learn something and improve their skills while adding new components. If you encounter difficulties with a specific feature during the development phase, you can initiate a discussion or directly contact me or seek help in the group. Of course, it's also acceptable to learn from and reference other open-source libraries. However, we expect you to have a solid understanding of the problem and tackle it by yourself when writing the code.
 
-## 🛠️ 启动项目
+If you have any specific questions or need further guidance on how to contribute, please let me know. I'm here to assist you.
 
-在贡献之前，你需要先将项目启动起来，这样你才能更好的了解项目的结构，以及如何进行开发。
+## 🛠️ Getting Started
 
-- 安装 [node](http://nodejs.cn)，版本 >= 16
-- 安装 [pnpm](https://pnpm.io/zh)，最新版即可
+Before contributing, you need to get the project up and running so that you can better understand its structure and how to develop it.
 
-如果你已经做好了前面的准备，可以直接跳过，从这里开始:
+- Install  [node](http://nodejs.cn), version  >= 16
+- Install  [pnpm](https://pnpm.io/zh)the latest version is recommended.
+
+If you have completed the previous preparations, you can skip ahead and start from here:
 
 - Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
 
-- 克隆你的 fork 到本地
+- Clone your fork to your local machine.
 
-### 📖 目录结构
+### 📖  Directory Structure
 
 ```bash
 ├── .github     # github配置文件
@@ -172,7 +174,7 @@
 
 ```
 
-接下来执行命令：
+Next execute the command:
 
 ```shell
 # clone 项目
@@ -184,11 +186,11 @@ cd dk-ui
 # 安装依赖项
 pnpm install
 
-ps: 注意这里引用了联合指令
+ps: Note that the federation directive is referenced here
 
-如没安装 cnpm 请先安装cnpm
+If the cnpm is not installed, install the cnpm first
 
-国外用户 package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
+Foreign user package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
 
 # CNPM安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -201,138 +203,140 @@ pnpm dev:docs
 
 ```
 
-## 🔧 开发工具和插件
+## 🔧 Develop tools and plug-ins
 
-请先阅读 [IDE 支持](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
+Please read first [IDE 支持](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
 
-编辑器强烈推荐使用 [Visual Studio Code](https://code.visualstudio.com/)，内置插件请务必安装以下几款：
+The editor is highly recommended [Visual Studio Code](https://code.visualstudio.com/)，Please be sure to install the following plug-ins:
 
-- [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue3 官方开发插件
-- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) 用于支持在 TS 中 import `*.vue` 文件
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 代码格式校验，如果不安装，那么 [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) 则不生效
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 代码格式校验，如果不安装，那么 [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) 则不生效
+- [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)Vue3 official development plugin:
+- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) Used to support importing `*.vue`  files in TS
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) Code format verification, if not installed, then [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) Do not take effect
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Code format verification, if not installed, then [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) Do not take effect
 
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) 用于检测代码中的拼写错误
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) Used to detect spelling errors in code
 
-## 🔓 命令说明
+## 🔓 Command description
 
-dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
+dk-plus Internally set up a lot of commands in [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) Is available for viewing. Each command is described in detail below:
 
-| script 字段 | 对应命令                                                                  | 命令说明         |
+| script fields | Corresponding command                                                   | Command description        |
 | ----------- | ------------------------------------------------------------------------- | ---------------- |
-| dev:play    | pnpm -C play dev                                                          | 启动测试开发项目 |
-| build:play  | pnpm -C play build                                                        | 打包测试开发项目 |
-| build       | gulp -f build/gulpfile.ts                                                 | 打包组件库       |
-| dev:docs    | pnpm -C docs dev:docs                                                     | 启动开发文档项目 |
-| build:docs  | pnpm -C docs build:docs                                                   | 打包开发文档项目 |
-| format      | prettier --write \"\*_/_.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\" | 项目代码格式化   |
-| deploy:docs | cross-env NODE_ENV=docs node ./deploy                                     | 测试             |
-| test        | vitest                                                                    | 测试流程         |
-| coverage    | vitest run --coverage                                                     | 生成测试日志     |
-| lint        | pnpm lint                                                                 | 项目代码检查     |
-| prepare     | pnpm prepare                                                              | 运行单元格测试   |
+| dev:play    | pnpm -C play dev                                                          | Start the test development project |
+| build:play  | pnpm -C play build                                                        | Package test development projects |
+| build       | gulp -f build/gulpfile.ts                                                 | Packaging component library       |
+| dev:docs    | pnpm -C docs dev:docs                                                     | Start the development documentation project |
+| build:docs  | pnpm -C docs build:docs                                                   | Package development documentation projects |
+| format      | prettier --write \"\*_/_.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\" | Project code formatting   |
+| deploy:docs | cross-env NODE_ENV=docs node ./deploy                                     | test             |
+| test        | vitest                                                                    | Test process         |
+| coverage    | vitest run --coverage                                                     | Generate test logs     |
+| lint        | pnpm lint                                                                 | Project code review     |
+| prepare     | pnpm prepare                                                              | Run cell tests   |
 
-## 🚨 开发规范
+## 🚨 Development specification
 
-主要源文件都在 [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档:
+The main source files are all there [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) Directory, where each subdirectory has a separate `README.md` For a description of the specified directory, refer to the following documents for detailed specifications of each module:
 
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md) 创建新组件
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) 样式主题目录
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md) Create a new component
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) Style subject directory
 
-## ⚠️ 提交规范
+## ⚠️ Submission specification
 
-Git 允许我们在每次提交时，附带一个提交信息作为说明，当执行 `commit` 的时候，需要严格按照下方说明规范进行填写说明信息，提交信息必须是下面信息中的一个，后面跟随 `英文的冒号 + 空格
+Git allows us to commit each time, with a commit information as a description when executed `commit` When, you need to fill in the description information in strict accordance with the specification below, the submission information must be one of the following information, followed by 'English colon + space
 
-类型必须是下面类型之一，并对照类型描述填写。
+The type must be one of the following and be entered against the type description.
 
-| 类型      | 示例                                             | 描述                       |
+| type      | Give an example                                 | Description                       |
 | --------- | ------------------------------------------------ | -------------------------- |
-| build     | git commit -m 'build: 打包\*\*\*配置'            | 修改打包配置               |
-| ci        | git commit -m 'ci: 修改 ci 配置'                 | 修改 ci 配置               |
-| docs      | git commit -m 'docs: 修改文档'                   | 修改文档                   |
-| feat      | git commit -m 'feat: 新增\*\*\*组件'             | 新增组件                   |
-| fix       | git commit -m 'fix: 修复\*\*\*bug'               | 修复 bug                   |
-| perf      | git commit -m 'perf: 优化\*\*\*性能'             | 优化性能                   |
-| refactor  | git commit -m 'refactor: 重构\*\*\*代码'         | 重构代码                   |
-| style     | git commit -m 'style: 修改\*\*\*样式'            | 修改样式                   |
-| test      | git commit -m 'test: 新增\*\*\*测试用例'         | 新增测试用例               |
-| revert    | git commit -m 'revert: 回滚\*\*\*代码'           | 回滚代码                   |
-| chore     | git commit -m 'chore: 修改\*\*\*配置'            | 修改配置                   |
-| release   | git commit -m 'release: 发布\*\*\*版本'          | 发布版本                   |
-| hooks     | git commit -m 'hooks: 新增\*\*\*                 | 开发                       |
-| perfect   | git commit -m 'perfect: 完善\*\*\* '             | 完善之前代码块哪里的代码块 |
-| utils     | git commit -m 'utils: 组件工具箱\*\*\*           | 更新工具箱                 |
-| interface | git commit -m 'interface: 增加组件全局接口\*\*\* | 全局接口                   |
-| deps      | git commit -m 'deps: 依赖升级                    | 依赖升级                   |
+| build     | git commit -m 'build: 打包\*\*\*配置'            | Modifying the packaging configuration               |
+| ci        | git commit -m 'ci: 修改 ci 配置'                 | Modifying ci Configuration               |
+| docs      | git commit -m 'docs: 修改文档'                   | Modify a document                   |
+| feat      | git commit -m 'feat: 新增\*\*\*组件'             | New component                   |
+| fix       | git commit -m 'fix: 修复\*\*\*bug'               | Fix bugs                  |
+| perf      | git commit -m 'perf: 优化\*\*\*性能'             | Optimized performance                   |
+| refactor  | git commit -m 'refactor: 重构\*\*\*代码'         | Refactoring code                   |
+| style     | git commit -m 'style: 修改\*\*\*样式'            | Modify style                   |
+| test      | git commit -m 'test: 新增\*\*\*测试用例'         | Added test cases               |
+| revert    | git commit -m 'revert: 回滚\*\*\*代码'           | Rollback code                   |
+| chore     | git commit -m 'chore: 修改\*\*\*配置'            | Modify configuration                   |
+| release   | git commit -m 'release: 发布\*\*\*版本'          | Release version                   |
+| hooks     | git commit -m 'hooks: 新增\*\*\*                 | exploit                       |
+| perfect   | git commit -m 'perfect: 完善\*\*\* '             | Perfect previous code block Where code block |
+| utils     | git commit -m 'utils: 组件工具箱\*\*\*           | Update toolbox                 |
+| interface | git commit -m 'interface: 增加组件全局接口\*\*\* | Global interface                   |
+| deps      | git commit -m 'deps: 依赖升级                    | Dependent upgrade                   |
 
-可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
+Available by [Markdown Emoji](https://tianyuhao.cn/emoji) Add emoticons after "message"
 
-## ✏️ 关于 PR
+## ✏️ About PR
 
-在你提交 `PR` 之前，请务必保证你 `fork` 的仓库是当前最新的代码，以免发生冲突。
+Before you commit `PR`, make sure that your `fork` repository is up to date to avoid conflicts.
 
-1.克隆远程仓库到本地：
+
+1. Clone the remote repository to the local:
 
 ```shell
 git clone <repository-url>
 ```
 
-2.添加远程仓库：
+2. Add a remote repository:
 
 ```shell
 git checkout -b <branch-name>
 ```
 
-3.进行修改并提交到本地仓库：
+3. Make modifications and submit to local warehouse:
 
 ```shell
 git add .
 git commit -m 'feat: 新增***组件'
 ```
 
-4.推送分支到远程仓库
+4.Push a branch to a remote repository
 
     ```shell
     git push origin <branch-name>
     ```
 
-5.在远程仓库中创建 PR
-在 GitHub 或 GitLab 等代码托管平台上，找到您刚刚推送的分支，并创建一个 PR。您可以在 PR 中提供有关您所做更改的详细信息和任何其他有关 PR 的注释。
+5. Create a PR in the remote repository
+On a code hosting platform like GitHub or GitLab, find the branch you just pushed and create a PR. You can provide details about the changes you have made and any other comments about PR in the PR.
 
-6.等待审核和合并：
-一旦您的 PR 提交后，团队成员将会对您的代码进行审核和讨论，并可能会提出更改建议。一旦所有问题得到解决并得到批准，您的 PR 将被合并到主分支中。
+6.Pending review and consolidation:
+Once your PR is submitted, team members will review and discuss your code and may suggest changes. Once all issues have been resolved and approved, your PR will be merged into the main branch.
 
-注意事项:
-在提交 PR 之前，请确保您的本地分支是基于最新的主分支。
-PR 的提交应该尽可能小，每个 PR 都应该只包含一组相关的更改。这使得审核更容易，也使得代码更容易维护。
-为您的 PR 添加描述，让其他开发者了解您所做的更改及其目的
+Matters needing attention:
+Before submitting your PR, make sure your local branch is based on the latest main branch.
+PR commits should be as small as possible, and each PR should contain only one set of related changes. This makes auditing easier and also makes the code easier to maintain.
 
-## 📦 NPM 发布流程
+Add a description to your PR to let other developers know about the changes you've made and their purpose
 
-1.登录 npm 账号
+## 📦 NPM Release process
+
+1.Log in to your npm account
 
 ```shell
 npm login
 ```
 
-2.发布
+2.publish
 
 ```shell
 npm publish
 ```
 
-## 📰 财务支持
+## 📰 Financial support
 
-如果您觉得 dk-plus 帮助到了您，您可以请作者喝杯咖啡，以资鼓励。
+If you feel that dk-plus has helped you, you can ask the author for a cup of coffee to encourage you.
 
 <div style='display: flex;'>
 <img width="200px" style='margin-right:50px;' src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
 <img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
 </div>
 
-## 💌 非常感谢
+## 💌 Thank you very much
 
-感谢所有已经为 DK-plus [做出贡献的人](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
+Thanks for all that has been done DK-plus [People who contribute](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
 
 <a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
