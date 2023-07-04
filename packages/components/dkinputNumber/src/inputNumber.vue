@@ -188,7 +188,6 @@
     <dk-button
       :disabled="disabled || reduceDisabled"
       :size="size"
-      @click="reduce"
       @mousedown="handleMouseDown($event, () => reduce)"
       @mouseleave="handleMouseLeave"
       @mouseup="handleMouseUp"
