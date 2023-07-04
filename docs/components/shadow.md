@@ -124,3 +124,14 @@
 | [hoverType](#hoverType)  | 开启悬停效果 | Boolean | —      | false  |
 | [hoverClass](#hoverType) | 自定义悬停样式 | String  | —      | —      |
 
+
+## Contributors
+
+<div style='display: flex;'>
+  <a href="https://github.com/dk-plus-ui" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
+  </a>
+  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-left:20px;'>
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
+  </a>
+</div>

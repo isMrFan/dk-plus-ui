@@ -39,7 +39,8 @@ async function buildFull(): Promise<void> {
     },
     {
       format: 'esm',
-      file: path.resolve(outDir, 'index.esm.js')
+      file: path.resolve(outDir, 'index.esm.js'),
+      exports: 'named' 
     }
   ] as OutputOptions[];
   const bundle = await rollup(config);
