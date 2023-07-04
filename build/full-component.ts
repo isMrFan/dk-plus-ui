@@ -1,6 +1,6 @@
 /**
  * @name index
- * @author fankai16
+ * @author fanKai16
  * @Time 2022/12/29
  * @description 打包文件输出过滤设置
  **/
@@ -39,7 +39,8 @@ async function buildFull(): Promise<void> {
     },
     {
       format: 'esm',
-      file: path.resolve(outDir, 'index.esm.js')
+      file: path.resolve(outDir, 'index.esm.js'),
+      exports: 'named' 
     }
   ] as OutputOptions[];
   const bundle = await rollup(config);

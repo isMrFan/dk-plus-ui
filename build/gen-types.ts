@@ -1,6 +1,6 @@
 /**
  * @name gen-types
- * @author fankai16
+ * @author fanKai16
  * @Time 2022/12/29
  * @description gulpfile设置
  **/

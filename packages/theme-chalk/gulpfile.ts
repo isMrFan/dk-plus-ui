@@ -27,7 +27,7 @@ function CopyFont(): NodeJS.ReadWriteStream {
 }
 function CopyFullStyle(): NodeJS.ReadWriteStream {
   return src(path.resolve(__dirname, './dist/**')).pipe(
-    dest(path.resolve(__dirname, '../../npm/dist/theme-chalk'))
+    dest(path.resolve(__dirname, '../../dist/theme-chalk'))
   )
 }
 
