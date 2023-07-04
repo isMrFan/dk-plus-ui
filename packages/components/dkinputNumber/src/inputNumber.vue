@@ -48,7 +48,6 @@
         readonly: props.readonly,
         position: props.position
       })
-      console.log('🚀 ~ file: inputNumber.vue:48 ~ setup ~ position:', data.position)
 
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)
@@ -189,7 +188,6 @@
     <dk-button
       :disabled="disabled || reduceDisabled"
       :size="size"
-      @click="reduce"
       @mousedown="handleMouseDown($event, () => reduce)"
       @mouseleave="handleMouseLeave"
       @mouseup="handleMouseUp"
