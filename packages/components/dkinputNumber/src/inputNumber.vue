@@ -48,7 +48,6 @@
         readonly: props.readonly,
         position: props.position
       })
-      console.log('🚀 ~ file: inputNumber.vue:48 ~ setup ~ position:', data.position)
 
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)
@@ -105,11 +104,14 @@
         }
       }
 
+      const showValue = ref<string>('')
+
       watch(
         () => props.modelValue,
         val => {
           val = Number(val)
           modelValue.value = val
+          showValue.value = val.toFixed(data.precision)
         }
       )
 
@@ -168,7 +170,7 @@
         ...data,
         reduce,
         plus,
-        value: modelValue,
+        value: showValue,
         input,
         classList,
         styleList,
@@ -189,7 +191,6 @@
     <dk-button
       :disabled="disabled || reduceDisabled"
       :size="size"
-      @click="reduce"
       @mousedown="handleMouseDown($event, () => reduce)"
       @mouseleave="handleMouseLeave"
       @mouseup="handleMouseUp"
