@@ -1,5 +1,5 @@
 ---
-layout: usHome
+layout: home
 title: dk-plus
 ---
 
