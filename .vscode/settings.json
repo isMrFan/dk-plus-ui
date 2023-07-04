@@ -3,6 +3,7 @@
   "cSpell.words": [
     "btnconfig",
     "codedisplay",
+    "commitlint",
     "dkbutton",
     "Dkbuttonsm",
     "dkcodedisplay",
@@ -11,6 +12,7 @@
     "dkicon",
     "dkinput",
     "dklaside",
+    "dkloading",
     "dkmain",
     "dkmenu",
     "dkraside",
@@ -20,8 +22,11 @@
     "inputconfig",
     "maxlength",
     "modelvalue",
+    "personalitybutton",
     "Ying",
-    "dkloading"
+    "IconShanchu1",
+    "IconShanchu2"
   ],
-  "vue.codeActions.enabled": false
+  "vue.codeActions.enabled": false,
+  "cSpell.languageSettings": []
 }
