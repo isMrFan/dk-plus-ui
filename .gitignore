@@ -7,7 +7,6 @@ node_modules/
 dist/
 cache/
 .history
-npm/dist
 packages/theme-chalk/dist
 play/report.html
 docs/build.log

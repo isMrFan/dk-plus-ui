@@ -25,7 +25,7 @@
 
 ## ✨ Features
 
-- 🪐 3+ common components
+- 🪐 10+ common components
 - 🏆 support full import and on-demand import
 - 🤟 easy to configure and get started
 - ❤️ developed according to actual needs

@@ -1,6 +1,6 @@
 /**
  * @name index
- * @author fankai16
+ * @author fanKai16
  * @Time 2022/12/29
  * @description 打包文件输出过滤设置
  **/

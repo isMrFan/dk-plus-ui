@@ -1,4 +1,5 @@
 import { version } from '../../../packages/dk-plus/package.json'
+
 /**
  * 顶部导航栏菜单
  *

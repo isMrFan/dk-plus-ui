@@ -4,9 +4,12 @@ import { nav } from './data/nav'
 import { sidebar } from './data/sidebar'
 import { head } from './data/head'
 import { PluginModule } from './plugins'
+import { useRoute } from 'vitepress'
+import type { Route } from 'vitepress'
+
 /**
  * vitepress 配置项文件
- * @see Introduction https://vitepress.vuejs.org/config/introduction
+ * @see Introduction https://vitepress.dev/reference/site-config
  */
 const isDeFineConfig = defineConfig({
   title: 'dk-plus',

@@ -1,7 +1,7 @@
 // @ts-check
 /**
  * @name gulpfile.ts
- * @author fankai
+ * @author fanKai16
  * @Time 2022/12/29
  * @description 打包
  **/

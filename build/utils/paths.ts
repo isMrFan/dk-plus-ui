@@ -1,6 +1,6 @@
 /**
  * @name index
- * @author fankai16
+ * @author fanKai16
  * @Time 2022/12/29
  * @description 打包配置文件--路径
  **/

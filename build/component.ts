@@ -1,6 +1,6 @@
 /**
  * @name index
- * @author fankai16
+ * @author fanKai16
  * @Time 2022/12/29
  * @description 打包文件输出配置
  **/
@@ -157,7 +157,7 @@ async function README(): Promise<void>{
   try {
     console.warn('现在开始写入🎇许可证和项目说明🎇');
     const sourcePath = '../LICENSE'; // 源文件的路径
-    const targetPath = '../npm/dist'; // 目标目录的路径
+    const targetPath = '../dist'; // 目标目录的路径
     // 构造目标文件的路径
     const targetFile = path.join(targetPath, path.basename(sourcePath));
     // 复制文件
