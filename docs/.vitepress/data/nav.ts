@@ -33,8 +33,8 @@ export const nav = [
   {
     text: '语言',
     items: [
-      { text: '简体中文', activeMatch: '/', link: '/index' },
-      { text: 'English', activeMatch: '/en-US', link: '/en-US/index' }
+      { text: '简体中文', activeMatch: '^/', link: '/index' },
+      { text: 'English', activeMatch: '^/en-US', link: '/en-US/index' }
     ]
   }
 ]

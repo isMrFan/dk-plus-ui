@@ -10,13 +10,19 @@ import { DK_SIZE, DK_INPUT_NUMBER_POSITION } from '../../_tokens'
 
 export const dkInputNumberProps = {
   /**
+   * @name placeholder
+   * @description Placeholder of dk-input-number
+   * @type string
+  */
+  placeholder: setStringProp(''),
+  /**
    * @name position
    * @description Position of built-in buttons
    * @type string
    * @param { string } type [right]
    * @param { string } type [left]
    * @default right
-  */
+   */
   position: setStringProp<dkInputNumberPosition>(null, (val: dkInputNumberPosition) => {
     return DK_INPUT_NUMBER_POSITION.includes(val)
   }),
@@ -25,7 +31,7 @@ export const dkInputNumberProps = {
    * @description Native readonly attribute
    * @type boolean
    * @default false
-  */
+   */
   readonly: setBooleanProps(false),
   /**
    * @name precision
