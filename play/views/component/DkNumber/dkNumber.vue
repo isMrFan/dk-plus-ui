@@ -24,7 +24,7 @@ export default defineComponent({
 <template>
   <div class="number">
     <h4>位置</h4>
-    <dk-input-number v-model="value" position="left"></dk-input-number>
+    <dk-input-number position="left" placeholder="aaa"></dk-input-number>
     <h4>浮点型</h4>
     <dk-input-number v-model="value" precision="2" step="0.2" strict @change="handleChange"></dk-input-number>
     <h4>禁用</h4>

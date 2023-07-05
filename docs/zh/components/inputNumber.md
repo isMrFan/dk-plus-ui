@@ -184,6 +184,7 @@
 | `step`      | 设置步长                                                             | `number`  | —      | `1`      |
 | `precision` | 数值精度                                                             | `number`  | —      | `0`      |
 | `strict`    | 是否严格模式，严格模式下，输入框的值只能输入设置好的步长值 | `boolean` | —      | `false`  |
+| `placeholder`    | 占位文本 | `string` | — | — |
 
 ## 事件
 
