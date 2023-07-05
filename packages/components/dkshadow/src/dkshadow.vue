@@ -18,12 +18,12 @@
    **/
   import { computed, defineComponent, ref } from 'vue'
   import { DKshadowProps } from './dkshadow'
+
   export default defineComponent({
     name: 'DkShadow',
     props: DKshadowProps,
     setup(props) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const DkShadow: any = ref(null)
+      const DkShadow = ref<HTMLButtonElement>()
       const type = computed(() => {
         if (props.type === undefined || props.type === null || props.type === '') {
           return 'box'
@@ -66,12 +66,12 @@
       })
       const onhoverType = (): void => {
         if (hoverType.value) {
-          DkShadow.value.classList.add('dk-shadow-hover', hoverClass.value)
+          DkShadow.value?.classList.add('dk-shadow-hover', hoverClass.value)
         }
       }
       const oncloshoverType = (): void => {
         if (hoverType.value) {
-          DkShadow.value.classList.remove('dk-shadow-hover', hoverClass.value)
+          DkShadow.value?.classList.remove('dk-shadow-hover', hoverClass.value)
         }
       }
       return {
