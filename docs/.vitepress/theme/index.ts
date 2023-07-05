@@ -7,7 +7,7 @@ import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
 
 import '@dk-plus/theme-chalk/src/index.scss'
 
-import { loadStyle } from '../plugins/set-style'
+// import { loadStyle } from '../plugins/set-style'
 
 export default {
   ...Theme,
@@ -81,6 +81,6 @@ export default {
 
     app.use(dkPlus)
     app.component('CustomModule', dkcodedisplay)
-    loadStyle && loadStyle?.init()
+    // loadStyle && loadStyle?.init()
   }
 }

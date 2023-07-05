@@ -46,7 +46,8 @@
         strict: props.strict,
         precision: Number(props.precision),
         readonly: props.readonly,
-        position: props.position
+        position: props.position,
+        placeholder: props.placeholder
       })
 
       const setParseFloat = (value: number | string): number => {
@@ -55,18 +56,7 @@
         return parseFloat(floatValue)
       }
 
-      const getModelValue = (): number => {
-        if (props.modelValue === undefined) {
-          return 0
-        }
-        let value = Number(props.modelValue)
-        if (data.precision) {
-          value = setParseFloat(value)
-        }
-        return value
-      }
-
-      const modelValue = ref<number>(getModelValue())
+      const modelValue = ref<number>(props.modelValue)
 
       const disabled = ref<boolean>(props.disabled)
 
@@ -104,14 +94,20 @@
         }
       }
 
-      const showValue = ref<string>('')
+      const showValue = ref<string | number>('')
 
       watch(
         () => props.modelValue,
         val => {
-          val = Number(val)
-          modelValue.value = val
-          showValue.value = val.toFixed(data.precision)
+          let numberValue = Number(val)
+          modelValue.value = numberValue
+          showValue.value = val
+          if (data.precision > 0) {
+            showValue.value = numberValue.toFixed(data.precision)
+          }
+        },
+        {
+          immediate: true
         }
       )
 
@@ -206,6 +202,7 @@
       :size="size"
       :disabled="disabled"
       :readonly="readonly"
+      :placeholder="placeholder"
       @change="handleInputChange"
     />
     <dk-button

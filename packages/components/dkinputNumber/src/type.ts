@@ -2,6 +2,12 @@ import type { dkPlusSize, DkPlusPosition } from '../../_interface'
 
 export interface DataType {
   /**
+   * @name placeholder
+   * @description Placeholder of dk-input-number
+   * @type string
+   */
+  placeholder: string
+  /**
    * @name position
    * @description Position of built-in buttons
    * @type string
@@ -9,7 +15,7 @@ export interface DataType {
    * @param { string } type [left]
    * @default right
    */
-  position: DkPlusPosition,
+  position: DkPlusPosition
   /**
    * @name readonly
    * @description Native readonly attribute
