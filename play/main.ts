@@ -25,6 +25,7 @@ import dkInputNumber from '@dk-plus/components/dkInputNumber'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import dkspace from '@dk-plus/components/dkspace'
 //import dkloading from '@dk-plus/components/dkloading'
+import dkcard from '@dk-plus/components/dkcard'
 import * as icons from '@dk-plus/components/_icon'
 import { DirectiveLoading } from '@dk-plus/components/_hooks/_directive/loading/index'
 import '@dk-plus/theme-chalk/src/index.scss'
@@ -283,4 +284,5 @@ app.use(IconPassword5).use(IconPassword6).use(IconEdit).use(IconAdd1).use(IconRe
 app.use(dkheader)
 app.use(dkspace)
 //app.use(dkloading)
+app.use(dkcard)
 app.mount('#app')
