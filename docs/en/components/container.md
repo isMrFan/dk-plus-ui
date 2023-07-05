@@ -1,40 +1,40 @@
 # container 页面布局容器
 
-处理常见的一些网页布局，实现快速搭建
+Handle some common web layout, to achieve fast construction
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkcontainer)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/container.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkcontainer)
+- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/container.md)
 
-## 基本使用
+## Basic use
 
-- `dk-container` 最外层容器, 用于设置页面最大宽度,可以实现垂直,水平,嵌套布局
-- `dk-header` 顶部布局容器
-- `dk-laside` 侧边栏布局容器
-- `dk-main` 主要内容布局容器
-- `dk-footer` 底部布局容器
+- `dk-container` The outermost container, used to set the maximum width of the page, can achieve vertical, horizontal, nested layout
+- `dk-header` Top layout container
+- `dk-laside` Sidebar layout container
+- `dk-main` Main contents Layout container
+- `dk-footer` Bottom layout container
 
 
-## 基本布局
+## Basic layout
 
-下面是由 `dk plus` 提供的几种常见的页面布局演示
+Here are some common page layout demos provided by `dk plus` 
 
 ::: module
 
 <template #code>
-  <h6>示例1</h6>
+  <h6>Give an example 1</h6>
   <dk-container>
     <dk-header> header </dk-header>
   </dk-container>
   <br/>
   <br/>
-  <h6>示例2</h6>
+  <h6>Give an example 2</h6>
   <dk-container>
     <dk-header> header </dk-header>
     <dk-main> main </dk-main>
   </dk-container>
   <br/>
   <br/>
-  <h6>示例3</h6>
+  <h6>Give an example 3</h6>
   <dk-container>
     <dk-header> header </dk-header>
     <dk-main> main </dk-main>
@@ -42,14 +42,14 @@
   </dk-container>
   <br/>
   <br/>
-  <h6>示例4</h6>
+  <h6>Give an example 4</h6>
   <dk-container>
     <dk-laside> Laside </dk-laside>
     <dk-main> main </dk-main>
   </dk-container>
   <br/>
   <br/>
-  <h6>示例5</h6>
+  <h6>Give an example 5</h6>
   <dk-container>
     <dk-laside> Laside </dk-laside>
     <dk-laside> Laside </dk-laside>
@@ -57,7 +57,7 @@
   </dk-container>
   <br/>
   <br/>
-  <h6>示例6</h6>
+  <h6>Give an example 6</h6>
   <dk-container>
     <dk-laside> Laside </dk-laside>
     <dk-main> main </dk-main>
@@ -65,7 +65,7 @@
   </dk-container>
   <br/>
   <br/>
-  <h6>示例7</h6>
+  <h6>Give an example 7</h6>
   <dk-container>
     <dk-container>
       <dk-laside> Laside </dk-laside>
@@ -76,7 +76,7 @@
   </dk-container>
   <br/>
   <br/>
-  <h6>示例8</h6>
+  <h6>Give an example 8</h6>
   <dk-container>
     <dk-header > header </dk-header>
     <dk-container>
@@ -89,39 +89,39 @@
 </template>
 
 ```html
-<h6>示例1</h6>
+<h6>Give an example 1</h6>
 <dk-container>
   <dk-header> header </dk-header>
 </dk-container>
-<h6>示例2</h6>
+<h6>Give an example 2</h6>
 <dk-container>
   <dk-header> header </dk-header>
   <dk-main> main </dk-main>
 </dk-container>
-<h6>示例3</h6>
+<h6>Give an example 3</h6>
 <dk-container>
   <dk-header> header </dk-header>
   <dk-main> main </dk-main>
   <dk-footer> footer </dk-footer>
 </dk-container>
-<h6>示例4</h6>
+<h6>Give an example 4</h6>
 <dk-container>
   <dk-laside> Laside </dk-laside>
   <dk-main> main </dk-main>
 </dk-container>
-<h6>示例5</h6>
+<h6>Give an example 5</h6>
 <dk-container>
   <dk-laside> Laside </dk-laside>
   <dk-laside> Laside </dk-laside>
   <dk-main> main </dk-main>
 </dk-container>
-<h6>示例6</h6>
+<h6>Give an example 6</h6>
 <dk-container>
   <dk-laside> Laside </dk-laside>
   <dk-main> main </dk-main>
   <dk-laside> Laside </dk-laside>
 </dk-container>
-<h6>示例7</h6>
+<h6>Give an example 7</h6>
 <dk-container>
   <dk-container>
     <dk-laside> Laside </dk-laside>
@@ -130,7 +130,7 @@
   </dk-container>
   <dk-footer> footer </dk-footer>
 </dk-container>
-<h6>示例8</h6>
+<h6>Give an example 8</h6>
 <dk-container>
   <dk-header > header </dk-header>
   <dk-container>
@@ -175,44 +175,44 @@
 
 ## container Attributes
 
-| 参数 | 说明| 类型| 可选值| 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | ---- | ----| ---- | -------| ------ |
-| `direction` |<a href="#DkContainerPropsType">布局方向</a>   | String | horizontal / vertical | horizontal |
+| `direction` |<a href="#DkContainerPropsType">Layout direction</a>   | String | horizontal / vertical | horizontal |
 
 ## header Attributes
 
-| 参数 | 说明| 类型| 可选值| 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | ---- | ----| ---- | -------| ------ |
-| `height` | header高度   | String/number | - | 60px |
-| `padding` | header内间距   | String/number | - | - |
+| `height` | header   Altitude | String/number | - | 60px |
+| `padding` | header Inner distance   | String/number | - | - |
 
 ## laside Attributes
 
-| 参数 | 说明| 类型| 可选值| 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | ---- | ----| ---- | -------| ------ |
-| `width` | aside宽度   | String/number | - | 20% |
-| `padding` | aside内间距   | String/number | - | - |
-| `height` | header高度   | String/number | - | 300px |
+| `width` | aside breadth   | String/number | - | 20% |
+| `padding` | aside Inner distance   | String/number | - | - |
+| `height` | header Altitude   | String/number | - | 300px |
 
 ## main Attributes
 
-| 参数 | 说明| 类型| 可选值| 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | ---- | ----| ---- | -------| ------ |
-| `height` | header高度   | String/number | - | 180px |
-| `padding` | header内间距   | String/number | - | - |
+| `height` | header Altitude   | String/number | - | 180px |
+| `padding` | header Inner distance   | String/number | - | - |
 
 ## footer Attributes
 
-| 参数 | 说明| 类型| 可选值| 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | ---- | ----| ---- | -------| ------ |
-| `height` | header高度   | String/number | - | 60px |
-| `padding` | header内间距   | String/number | - | - |
+| `height` | header Altitude   | String/number | - | 60px |
+| `padding` | header Inner distance   | String/number | - | - |
 
-## Slots(插槽)
+## Slots
 
-| name | 说明|
+| name | Instructions |
 | ---- | ----|
-| `default` | 默认插槽 |
+| `default` | Default slot |
 
 ### DkContainerPropsType
 

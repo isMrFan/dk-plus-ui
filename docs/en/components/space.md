@@ -1,199 +1,199 @@
 # space 间距
 
-最基础的用法，通过这个组件来给组件之间提供统一的间距。
+The most basic use of this component is to provide uniform spacing between components。
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkspace)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/space.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkspace)
+- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/space.md)
 
-## 基本使用
+## Basic use
 
-`dk-space` 的基本使用
+`dk-space` Basic use
 
 ::: module
 
 <template #code>
 <dk-space>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 </template>
 
 ```html
 <dk-space>
-  <dk-button type="primary">主要按钮</dk-button>
-  <dk-button type="success">成功按钮</dk-button>
-  <dk-button type="warning">警告按钮</dk-button>
+  <dk-button type="primary">Main button</dk-button>
+  <dk-button type="success">Success button</dk-button>
+  <dk-button type="warning">Warning button</dk-button>
 </dk-space>
 ```
 
 :::
 
-## 间距尺寸
+## Spacing size
 
-`dk-space` 通过 `spacingType` 属性来控制间距的尺寸，可选值为 `large`、`medium`、`small`,、`mini`，默认为 `large`。
+`dk-space` pass `spacingType` Property to control the size of the spacing. The optional value is `large`、`medium`、`small`,、`mini` the default is `large`。
 
-### 1.大尺寸间距
+### 1.Large size spacing
 
-`spacingType` 值为 `large` 时，间距为 `14px`。
+When `spacingType` is`large`, the spacing is`14px`.
 
 ::: module
 
 <template #code>
 <dk-space spacingType='large'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 </template>
 
 ```html
 <dk-space spacingType='large'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 ```
 
 :::
 
-### 2.中尺寸间距
+### 2.Medium dimensional spacing
 
-`spacingType` 值为 `medium` 时，间距为 `10px`。
+When `spacingType` is `medium`, the spacing is `10px`.
 
 ::: module
 
 <template #code>
 <dk-space spacingType='medium'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 </template>
 
 ```html
 <dk-space spacingType='medium'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 ```
 
 :::
 
-### 3.小尺寸间距
+### 3.Small size spacing
 
-`spacingType` 值为 `small` 时，间距为 `6px`。
+When spacingType is`small`, the spacing is`6px`.
 
 ::: module
 
 <template #code>
 <dk-space spacingType='small'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 </template>
 
 ```html
 <dk-space spacingType='small'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 ```
 
 :::
 
-### 4.超小尺寸间距
+### 4.Super small size spacing
 
-`spacingType` 值为 `mini` 时，间距为 `2px`。
+When `spacingType` is `mini`, the spacing is `2px`.
 
 ::: module
 
 <template #code>
 <dk-space spacingType='mini'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 </template>
 
 ```html
 <dk-space spacingType='mini'>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 ```
 
 :::
 
-## 间距方向
+## Spacing direction
 
-可使用 `vertical` 设置间距是否为垂直方向。
+You can use `vertical` to set whether the spacing is vertical.
 
 ::: module
 
 <template #code>
 <dk-space vertical>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 </template>
 
 ```html
 <dk-space vertical>
-  <Dk-Button type="primary">主要按钮</Dk-Button>
-  <Dk-Button type="success">成功按钮</Dk-Button>
-  <Dk-Button type="info">信息按钮</Dk-Button>
-  <Dk-Button type="warning">警告按钮</Dk-Button>
-  <Dk-Button type="danger">危险按钮</Dk-Button>
+  <Dk-Button type="primary">Main button</Dk-Button>
+  <Dk-Button type="success">Success button</Dk-Button>
+  <Dk-Button type="info">Information button</Dk-Button>
+  <Dk-Button type="warning">Warning button</Dk-Button>
+  <Dk-Button type="danger">Danger button</Dk-Button>
 </dk-space>
 ```
 
 :::
 
-## 自定义间距
+## Custom spacing
 
-纵向间距可使用 `port-rait`属性来自定义间距的尺寸，单位为 `px`。
+Vertical spacing can be customized using the `port-rait` attribute to define the size of the spacing in units of `px`.
 
-横向间距可使用 `land-scape`属性来自定义间距的尺寸，单位为 `px`。
+Horizontal spacing can be customized using the `land-scape` property to define the size of the spacing in units of `px`.
 
 ::: module
 
 <template #code>
 <dk-space vertical port-rait="55px">
-  <dk-button type="primary" size="large"> large(大) </dk-button>
-  <dk-button type="primary" size="large"> large(大)</dk-button>
+  <dk-button type="primary" size="large"> large </dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
 </dk-space>
 </template>
 
 ```html
 <dk-space vertical port-rait="55px">
-  <dk-button type="primary" size="large"> large(大) </dk-button>
-  <dk-button type="primary" size="large"> large(大)</dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
 </dk-space>
 ```
 
@@ -203,29 +203,29 @@
 
 <template #code>
 <dk-space land-scape="55px">
-  <dk-button type="primary" size="large"> large(大) </dk-button>
-  <dk-button type="primary" size="large"> large(大)</dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
 </dk-space>
 </template>
 
 ```html
 <dk-space land-scape="55px">
-  <dk-button type="primary" size="large"> large(大) </dk-button>
-  <dk-button type="primary" size="large"> large(大)</dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
+  <dk-button type="primary" size="large"> large</dk-button>
 </dk-space>
 ```
 
 :::
 
-## Attributes(属性)
+## Attributes
 
-| 参数 | 说明| 类型 | 可选值 | 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | --- | --- | --- | --- | --- |
-| vertical | 是否竖直排列 | boolean | --- | false |
-| nowrap | 是否禁止换行 | boolean | --- | false |
-| port-rait | 自定义纵向间距(记得添加单位`px`) | string | --- | 10px |
-| land-scape | 自定义横向间距(记得添加单位`px`) | string | --- | 10px |
-| spacingType | 间距尺寸 | string | `large` `middle` `small` `mini` | large |
+| vertical | Vertical or not | boolean | --- | false |
+| nowrap | Whether to disable line feed | boolean | --- | false |
+| port-rait | Custom vertical spacing (remember to add units`px`)| string | --- | 10px |
+| land-scape | Custom horizontal spacing (remember to add units`px`) | string | --- | 10px |
+| spacingType | Spacing size | string | `large` `middle` `small` `mini` | large |
 
 ## Contributors
 
