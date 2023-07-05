@@ -104,11 +104,14 @@
         }
       }
 
+      const showValue = ref<string>('')
+
       watch(
         () => props.modelValue,
         val => {
           val = Number(val)
           modelValue.value = val
+          showValue.value = val.toFixed(data.precision)
         }
       )
 
@@ -167,7 +170,7 @@
         ...data,
         reduce,
         plus,
-        value: modelValue,
+        value: showValue,
         input,
         classList,
         styleList,
@@ -188,7 +191,6 @@
     <dk-button
       :disabled="disabled || reduceDisabled"
       :size="size"
-      @click="reduce"
       @mousedown="handleMouseDown($event, () => reduce)"
       @mouseleave="handleMouseLeave"
       @mouseup="handleMouseUp"

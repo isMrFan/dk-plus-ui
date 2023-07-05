@@ -31,6 +31,7 @@ export const loadingProps = {
    * @name background 自定义遮罩层背景色
    * @description {string} 默认值：rgba(0, 0, 0, 0.7)
    **/
+
   background: setStringProp(),
   /**
    * @name spinner 自定义svg 图标

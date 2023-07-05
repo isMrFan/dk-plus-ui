@@ -62,7 +62,7 @@ export default {
       // a.appendChild(btn);
       // 整体显示到页面内
       document.getElementsByTagName('body')[0].appendChild(a)
-      setTimeout(function () {
+      setTimeout(function() {
         a.parentNode?.removeChild(a)
       }, 2000)
       // 确定绑定点击事件删除标签
@@ -80,7 +80,7 @@ export default {
     }
 
     app.use(dkPlus)
-    app.component('CustomModule', dkcodedisplay)    
+    app.component('CustomModule', dkcodedisplay)
     loadStyle && loadStyle?.init()
   }
 }

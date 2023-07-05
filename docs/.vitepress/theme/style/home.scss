@@ -4,7 +4,7 @@
 .home {
   width: 100%;
   padding: 0 50px 10px 50px;
-  height: calc(100vh - 130px);
+ 
   box-sizing: border-box;
 
   .main {
@@ -51,6 +51,10 @@
       align-items: center;
       gap: 20px;
       margin-bottom: 20px;
+      .content{
+        width: 100%;
+        box-sizing: border-box;
+      }
 
       .banner-list {
         display: flex;
@@ -67,7 +71,8 @@
           padding: 20px;
           margin-top: 5px;
           user-select: none;
-
+          min-width: 212px;
+          box-sizing: border-box;
           .item-title {
             display: flex;
             align-items: center;
@@ -225,7 +230,7 @@
     .main {
       .explain {
         .text {
-          width: 80%;
+          width: 100%;
         }
       }
     }
