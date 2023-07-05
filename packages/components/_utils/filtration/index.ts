@@ -28,12 +28,14 @@ export const humpConversion = (str: string): string => {
 /**
  * @name sizeChange
  * @param { string | number | undefined } size 需要转换的尺寸
- * @param { string } unit 需要转换的单位
+ * @param { string } [unit='px'] 需要转换的单位
  * @returns { string } 返回转换后的尺寸
  * @description 将数字尺寸改为字符串 例如：12 => 12px 12px => 12px
  */
-
-export const sizeChange = (size: string | number | undefined, unit = 'px'): string => {
+export const sizeChange = (
+  size: string | number | undefined,
+  unit: string = 'px'
+): string => {
   if (!size) return ''
   return isString(size) ? size : size + unit
 }

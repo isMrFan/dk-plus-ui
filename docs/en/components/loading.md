@@ -1,23 +1,22 @@
-# loading 加载中指令
+# loading Loading instruction
 
-自定义加载中指令，用于异步请求时的加载中状态。
+Custom loading-in instructions for the loading-in state on asynchronous requests.
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkloading)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/loading.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkloading)
+- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/loading.md)
 
-## 基本使用
+## Basic use
 
-`loading` 的基本使用
+`loading` Basic use
 
-`v-dk-loading="true"` 指令绑定一个布尔值，当值为 `true` 时，显示加载中状态，为 `false` 时，隐藏加载中状态。
+`v-dk-loading='true'` is bound to a Boolean value, when the value is`true`, the loading state is displayed, when the value is`false`, the loading state is hidden.
 
 ::: module
 
 <template #code>
 <dk-space vertical >
-<dk-button @click="onOpen" type="primary" size='mini'>点击开启加载中状态
+<dk-button @click="onOpen" type="primary" size='mini'>Click to open the loading state
 </dk-button>
-
   <div 
     class="ls_loading"
     v-dk-loading="loadingType"
@@ -30,7 +29,7 @@
 
 ```html
 <dk-space vertical>
-  <dk-button @click="onOpen" type="primary" size="mini"> 点击开启加载中状态 </dk-button>
+  <dk-button @click="onOpen" type="primary" size="mini"> Click to open the loading state </dk-button>
   <div class="ls_loading" v-dk-loading="loadingType">
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -59,59 +58,9 @@
 
 :::
 
-## 自定义文字
+## Custom text
 
-`dk-loading-text` 可以通过`自定义属性`来设置加载文字
-
-::: module
-
-<template #code>
-<dk-space>
-
-  <div 
-    class="ls_loading" 
-    v-dk-loading="true" 
-    dk-loading-text="加载中...">
-    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
-  </div>
-  <div 
-    class="ls_loading" 
-    v-dk-loading="true" 
-    dk-loading-text="自定义文案">
-    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
-  </div>
-   <div 
-    class="ls_loading" 
-    v-dk-loading="true" 
-    dk-loading-text="哈哈嘿嘿">
-    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
-  </div>
-</dk-space>
-</template>
-
-```html
-<dk-space>
-  <div class="ls_loading" v-dk-loading="true" dk-loading-text="加载中...">
-    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
-  </div>
-  <div class="ls_loading" v-dk-loading="true" dk-loading-text="自定义文案">
-    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
-  </div>
-  <div class="ls_loading" v-dk-loading="true" dk-loading-text="哈哈嘿嘿">
-    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
-  </div>
-</dk-space>
-```
-
-:::
-
-## 加载中文案颜色/背景颜色/字体大小
-
-`dk-loading-color` 加载中文案颜色
-
-`dk-loading-textSize` 加载中文案字体大小
-
-`dk-loading-background` 自定义遮罩层背景色
+`dk-loading-text` can be set by `custom properties` to load the text
 
 ::: module
 
@@ -121,8 +70,58 @@
   <div 
     class="ls_loading" 
     v-dk-loading="true" 
+    dk-loading-text="Loading...">
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
+  </div>
+  <div 
+    class="ls_loading" 
+    v-dk-loading="true" 
+    dk-loading-text="Custom copy">
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
+  </div>
+   <div 
+    class="ls_loading" 
+    v-dk-loading="true" 
+    dk-loading-text="Ha ha ha">
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
+  </div>
+</dk-space>
+</template>
+
+```html
+<dk-space>
+  <div class="ls_loading" v-dk-loading="true" dk-loading-text="Loading...">
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
+  </div>
+  <div class="ls_loading" v-dk-loading="true" dk-loading-text="Custom copy">
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
+  </div>
+  <div class="ls_loading" v-dk-loading="true" dk-loading-text="Ha ha ha">
+    <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
+  </div>
+</dk-space>
+```
+
+:::
+
+## Load Chinese case color/background color/font size
+
+`dk-loading-color` Load the Chinese case color
+
+`dk-loading-textSize` Load Chinese case font size
+
+`dk-loading-background` Custom mask background color
+
+::: module
+
+<template #code>
+<dk-space>
+
+  <div 
+    class="ls_loading" 
+    v-dk-loading="true" 
     dk-loading-color="red"
-    dk-loading-text="自定义颜色">
+    dk-loading-text="Custom color">
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div 
@@ -130,7 +129,7 @@
     v-dk-loading="true" 
     dk-loading-color="red"
     dk-loading-background="rgba(26, 115, 232, 0.7)"
-    dk-loading-text="自定义背景颜色">
+    dk-loading-text="Customize the background color">
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
    <div 
@@ -139,7 +138,7 @@
     dk-loading-color="red"
     dk-loading-background="rgba(26, 115, 232, 0.7)"
     dk-loading-textSize="18px"
-    dk-loading-text="自定义文字大小">
+    dk-loading-text="Customize the text size">
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
@@ -151,7 +150,7 @@
     class="ls_loading"
     v-dk-loading="true"
     dk-loading-color="red"
-    dk-loading-text="自定义颜色"
+    dk-loading-text="Custom color"
   >
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -160,7 +159,7 @@
     v-dk-loading="true"
     dk-loading-color="red"
     dk-loading-background="rgba(26, 115, 232, 0.7)"
-    dk-loading-text="自定义背景颜色"
+    dk-loading-text="Customize the background color"
   >
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -170,7 +169,7 @@
     dk-loading-color="red"
     dk-loading-background="rgba(26, 115, 232, 0.7)"
     dk-loading-textSize="18px"
-    dk-loading-text="自定义文字大小"
+    dk-loading-text="Customize the text size"
   >
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -179,11 +178,11 @@
 
 :::
 
-## 自定义加载中文案图标
+## Custom load Chinese file icon
 
-`dk-loading-spinnerSize` 加载中文案图标大小
+`dk-loading-spinnerSize` Load Chinese case icon size
 
-`dk-loading-spinner` 加载中文案图标
+`dk-loading-spinner` Load the Chinese case icon
 
 ::: module
 
@@ -195,7 +194,7 @@
     v-dk-loading="true" 
     dk-loading-color="red"
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
-    dk-loading-text="自定义颜色">
+    dk-loading-text="Custom color">
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
   <div 
@@ -205,7 +204,7 @@
     dk-loading-textSize="18px"
     dk-loading-spinnerSize="28px"
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
-    dk-loading-text="自定义颜色">
+    dk-loading-text="Custom color">
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
 </dk-space>
@@ -218,7 +217,7 @@
     v-dk-loading="true"
     dk-loading-color="red"
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
-    dk-loading-text="自定义颜色"
+    dk-loading-text="Custom color"
   >
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -229,7 +228,7 @@
     dk-loading-textSize="18px"
     dk-loading-spinnerSize="28px"
     dk-loading-spinner='<g fill="currentColor" stroke="currentColor"><path d="M512 954.88c-243.712 0-442.88-199.168-442.88-442.88s199.168-442.88 442.88-442.88 442.88 199.168 442.88 442.88-199.168 442.88-442.88 442.88z m0-63.488c208.896 0 379.392-170.496 379.392-379.392s-170.496-379.392-379.392-379.392-379.392 170.496-379.392 379.392 170.496 379.392 379.392 379.392z m192-360.96h-363.52c-14.336 0-26.624-11.776-26.624-26.624V496.64c0-14.336 11.776-26.624 26.624-26.624h363.52c14.336 0 26.624 11.776 26.624 26.624v7.168c0 14.336-12.288 26.624-26.624 26.624z m-212.48 171.52l1.024-363.52c0-14.336 11.776-26.624 26.624-26.624h7.168c14.336 0 26.624 11.776 26.624 26.624l-1.024 363.52c0 14.336-11.776 26.624-26.624 26.624h-7.168c-14.848 0-26.624-11.776-26.624-26.624z"></path></g>'
-    dk-loading-text="自定义颜色"
+    dk-loading-text="Custom color"
   >
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -238,10 +237,10 @@
 
 :::
 
-## 加载中文案图标方向
+## Load Chinese case icon direction
 
-`dk-loading-flexDirection` column(上) row(左)
-row-reverse(右) column-reverse(下)
+`dk-loading-flexDirection` column(Up.) row(Left)
+row-reverse(right) column-reverse(Under the)
 
 ::: module
 
@@ -251,25 +250,25 @@ row-reverse(右) column-reverse(下)
    <div
       class="ls_loading"
       v-dk-loading="true"
-      dk-loading-text="图标在文字上"
+      dk-loading-text="ICONS on text"
       dk-loading-flexDirection="column"
     ></div>
      <div
         class="ls_loading"
         v-dk-loading="true"
-        dk-loading-text="图标在文字左"
+        dk-loading-text="The icon is to the left of the text"
         dk-loading-flexDirection="row"
     ></div>
      <div
         class="ls_loading"
         v-dk-loading="true"
-        dk-loading-text="图标在文字右"
+        dk-loading-text="The icon is to the right of the text"
         dk-loading-flexDirection="row-reverse"
     ></div>
      <div
         class="ls_loading"
         v-dk-loading="true"
-        dk-loading-text="图标在文字下"
+        dk-loading-text="ICONS are under the text"
         dk-loading-flexDirection="column-reverse"
     ></div>
 </dk-space>
@@ -281,7 +280,7 @@ row-reverse(右) column-reverse(下)
     class="ls_loading"
     v-dk-loading="true"
     dk-loading-color="red"
-    dk-loading-text="自定义颜色"
+    dk-loading-text="Custom color"
   >
     <img src="https://oss.cadwaladerss.com/dk-plus/images/isImg.bmp" />
   </div>
@@ -292,16 +291,16 @@ row-reverse(右) column-reverse(下)
 
 ## Attributes
 
-| 参数                     | 说明               | 类型    | 可选值                                                | 默认值             |
-| ------------------------ | ------------------ | ------- | ----------------------------------------------------- | ------------------ |
-| v-dk-loading             | 开启加载中指令组件 | boolean | ---                                                   | false              |
-| dk-loading-text          | 加载中文案         | string  | ---                                                   | ---                |
-| dk-loading-color         | 加载中文案颜色     | string  | ---                                                   | #ffffff            |
-| dk-loading-background    | 自定义遮罩层背景色 | string  | ---                                                   | rgba(0, 0, 0, 0.7) |
-| dk-loading-textSize      | 加载中文案字体大小 | string  | ---                                                   | 15px               |
-| dk-loading-spinnerSize   | 加载中文案图标大小 | string  | ---                                                   | 1em                |
-| dk-loading-flexDirection | 加载中文案图标方向 | string  | column(上) row(左) row-reverse(右) column-reverse(下) | column             |
-| dk-loading-spinner       | 加载中文案图标     | string  | svg 字符串不要父级 svg 标签                           | ---                |
+| argument | Instructions | type | Optional value | Default value |
+| --- | --- | --- | --- | --- |
+| v-dk-loading             | Opens the loading instruction component | boolean | ---                                                   | false              |
+| dk-loading-text          | Load Chinese file         | string  | ---                                                   | ---                |
+| dk-loading-color         | Load the Chinese case color     | string  | ---                                                   | #ffffff            |
+| dk-loading-background    | Custom mask background color | string  | ---                                                   | rgba(0, 0, 0, 0.7) |
+| dk-loading-textSize      | Load Chinese case font size | string  | ---                                                   | 15px               |
+| dk-loading-spinnerSize   | Load Chinese case icon size | string  | ---                                                   | 1em                |
+| dk-loading-flexDirection | Load Chinese case icon direction | string  | column(up) row(left) row-reverse(right) column-reverse(Under the) | column             |
+| dk-loading-spinner       | Load the Chinese case icon     | string  | svg String does not have a parent svg 标签                           | ---                |
 
 ## Contributors
 

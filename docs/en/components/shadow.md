@@ -1,24 +1,24 @@
 # 自定义盒子模型
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkshadow)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/shadow.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkshadow)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/shadow.md)
 
-## 介绍
+## introduce
 
-`DkShadow` 是一个自定义盒子模型的组件，可以自定义阴影、圆角、边框、背景色等。
+`DkShadow` Is a custom box model component, you can customize the shadow, rounded corners, borders, background color, etc.
 
-## 基础用法
+## Basic usage
 
 ::: module
 <template #code>
 <Dk-Shadow>
-<div style="width: 100px; height: 100px; background-color: #fff;">我是盒子内容</div>
+<div style="width: 100px; height: 100px; background-color: #fff;">I'm the contents of the box</div>
 </Dk-Shadow>
 </template>
 
 ```html
 <Dk-Shadow>
-  <div style="width: 100px; height: 100px; background-color: #fff;">我是盒子内容</div>
+  <div style="width: 100px; height: 100px; background-color: #fff;">I'm the contents of the box</div>
 </Dk-Shadow>
 ```
 
@@ -26,17 +26,17 @@
 
 ## <a id='type'>type</a>
 
-`type` 用来判定是标题还是内容(`title`|标题,`box`|自定义内容,默认为`box`)(标题插槽|`slot-left` -左插槽,`slot-right` -右插槽,`slot-box` -内容插槽)
+`type` is used to determine the title or content (` title`| `title`,`box`  custom content, default is`box`)(title slots |`slot-left` -left slot, `slot-right` -right slot, `slot-box` - content slot)
 
 ::: module
 
 <template #code>
 <Dk-Shadow :type="'title'" :hoverType="false">
   <template #left>
-    <span>1.左插槽(#left) </span>
+    <span>1.Left slot(#left) </span>
   </template>
   <template #right>
-    <span>2.右插槽(#right)</span>
+    <span>2.Right slot(#right)</span>
   </template>
 </Dk-Shadow>
 </template>
@@ -44,10 +44,10 @@
 ```html
 <Dk-Shadow :type="'title'" :hoverType="false">
   <template #left>
-    <span>1.左插槽(#left) </span>
+    <span>1.Left slot(#left) </span>
   </template>
   <template #right>
-    <span>2.右插槽(#right)</span>
+    <span>2.Right slot(#right)</span>
   </template>
 </Dk-Shadow>
 ```
@@ -55,14 +55,14 @@
 :::
 
 
-## <a id='shadowClass'>自定义样式</a>
+## <a id='shadowClass'>Custom style</a>
 
-使用 `shadowClass` 配置自定义样式
+Use `shadowClass` to configure custom styles
 
 ::: module
 
 <template #code>
-<Dk-Shadow :shadowClass="'shadow'">自定义样式(shadowClass)</Dk-Shadow>
+<Dk-Shadow :shadowClass="'shadow'">Custom style(shadowClass)</Dk-Shadow>
 
 <style>
   .shadow {
@@ -72,7 +72,7 @@
 </template>
 
 ```html
-<Dk-Shadow :shadowClass="'cesa'">自定义样式(shadowClass)</Dk-Shadow>
+<Dk-Shadow :shadowClass="'cesa'">Custom style(shadowClass)</Dk-Shadow>
 <style>
   .shadow {
     box-shadow: 0 0 4px #10b981;
@@ -82,15 +82,15 @@
 
 :::
 
-## <a id='hoverType'>悬停效果</a>
+## <a id='hoverType'>Hover effect</a>
 
-`hoverType` 开启悬停效果, `hoverClass` 自定义悬停样式
+`hoverType` opens hover effect, `hoverClass` customizes hover style
 
 ::: module
 
 <template #code>
-<Dk-Shadow :hoverType="true">悬停效果(hoverType)</Dk-Shadow>
-<Dk-Shadow :hoverType="true" :hoverClass="'hoverClass'">自定义悬停效果:hoverClass</Dk-Shadow>
+<Dk-Shadow :hoverType="true">Hover effect(hoverType)</Dk-Shadow>
+<Dk-Shadow :hoverType="true" :hoverClass="'hoverClass'">Customize the hover effect:hoverClass</Dk-Shadow>
 
 <style>
   .hoverClass {
@@ -101,9 +101,9 @@
 </template>
 
 ```html
-<Dk-Shadow :hoverType="true">悬停效果(hoverType)</Dk-Shadow>
+<Dk-Shadow :hoverType="true">Hover effect(hoverType)</Dk-Shadow>
 <Dk-Shadow :hoverType="true" :hoverClass="'hoverClass'"
-  >自定义悬停效果:hoverClass</Dk-Shadow
+  >Customize the hover effect:hoverClass</Dk-Shadow
 >
 <style>
   .hoverClass {
@@ -117,12 +117,12 @@
 
 ## API
 
-| 参数       | 说明                                                                 | 类型    | 可选值 | 默认值 |
-| ---------- | -------------------------------------------------------------------- | ------- | ------ | ------ |
-| [type](#type)       | 判定是标题还是内容(`title`|标题,`box`|自定义内容,默认为`box`) | String  | —      | box    |
-| [shadowClass](#shadowClass)| 自定义样式 | String  | —      | —    |
-| [hoverType](#hoverType)  | 开启悬停效果 | Boolean | —      | false  |
-| [hoverClass](#hoverType) | 自定义悬停样式 | String  | —      | —      |
+| argument | Instructions | type | Optional value | Default value |
+| --- | --- | --- | --- | --- |
+| [type](#type)       | Decide whether it's the title or the content(`title`|title,`box`|The default value is`box`) | String  | —      | box    |
+| [shadowClass](#shadowClass)| Custom style | String  | —      | —    |
+| [hoverType](#hoverType)  | Turn on hover effect | Boolean | —      | false  |
+| [hoverClass](#hoverType) | Customize the hover style | String  | —      | —      |
 
 
 ## Contributors

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { humpConversion, sizeChange } from '../filtration/index'
+import { humpConversion, sizeChange } from './'
 
 describe('checking _utils/props/filtration.ts', () => {
   it('runnning humpConversion', () => {

@@ -164,7 +164,9 @@
 <dk-button type="info" ripples>信息按钮</dk-button>
 <dk-button type="warning" ripples>警告按钮</dk-button>
 <dk-button type="danger" ripples>危险按钮</dk-button>
-
+<dk-button ripples type="primary" ripples-bg-color="red">
+  自定义涟漪颜色
+</dk-button>
 ```
 
 :::
