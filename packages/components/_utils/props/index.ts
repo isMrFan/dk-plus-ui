@@ -43,12 +43,11 @@ export const setStringNumberProps = <T extends string | number>(
 /**
  * @name setBooleanProps
  * @Time 2023年04月27日
- * @param { boolean } defaultVal 默认值:false
- * @param { unknown } BooleanConstructor 布尔类型构造函数
+ * @param {boolean} defaultVal 默认值:false
  * @returns 设置 boolean(布尔类型) 类型的 props 参数
  */
 export const setBooleanProps = (
-  defaultVal = false
+  defaultVal: boolean = false
 ): returnType<BooleanConstructor, boolean> => {
   return {
     type: Boolean,
@@ -93,13 +92,12 @@ export const setNumberProps = <T extends number>(
 /**
  * @name setObjectProps
  * @Time 2023年04月27日
- * @param { Object } [defaultVal] 默认值
+ * @param { object } defaultVal 默认值
  * @returns 设置 object(一个对象) 类型 props 参数
  */
-
 export const setObjectProps = <T extends object>(
-  defaultVal = null
-): returnType<PropType<T>, null> => {
+  defaultVal?: T
+): returnType<PropType<T>, typeof defaultVal> => {
   return {
     type: Object as PropType<T>,
     default: () => defaultVal
@@ -109,13 +107,12 @@ export const setObjectProps = <T extends object>(
 /**
  * @name setFunctionProps
  * @Time 2023年04月27日
- * @param { Function } [defaultVal] 默认值
+ * @param { Function } defaultVal 默认值
  * @returns 设置 function(一个方法函数) 类型 props 参数
  */
-
 export const setFunctionProps = <T extends Function>(
-  defaultVal = null
-): returnType<PropType<T>, null> => {
+  defaultVal?: T
+): returnType<PropType<T>, typeof defaultVal> => {
   return {
     type: Function as PropType<T>,
     default: () => defaultVal
@@ -125,29 +122,27 @@ export const setFunctionProps = <T extends Function>(
 /**
  * @name setArrayProps
  * @Time 2023年04月27日
- * @param { Array } [defaultVal] 默认值
+ * @param { Array } defaultVal 默认值
  * @returns 设置 array(数组类型) 类型 props 参数
  */
-
 export const setArrayProps = <T>(
-  defaultVal?: null | T
-): returnType<PropType<T>, T | null> => {
+  defaultVal?: T[]
+): returnType<PropType<T>, typeof defaultVal> => {
   return {
     type: Array as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
+    default: () => defaultVal
   }
 }
 
 /**
  * @name setFunction
  * @Time 2023年05月10日
- * @param { Function } [defaultVal] 默认值
+ * @param { Function } defaultVal 默认值
  * @returns 点击按钮事件回调函数
  */
-
 export const setFunction = <T extends Function>(
-  defaultVal = null
-): returnType<PropType<T>, null> => {
+  defaultVal?: T
+): returnType<PropType<T>, typeof defaultVal> => {
   return {
     type: Function as PropType<T>,
     default: () => defaultVal
