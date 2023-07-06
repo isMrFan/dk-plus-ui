@@ -1,9 +1,9 @@
-# input-number 数字输入框
+# input-number Number input box
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
+- [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
+- [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
 
-## 基础用法
+## Basic usage
 
 ::: module
 <template #code>
@@ -27,9 +27,9 @@
 
 :::
 
-## 禁用状态
+## Disabled state
 
-`disabled` 属性设置为 `true` 时，数字输入框为禁用状态。
+`disabled` Property set to `true`, The digital input box is disabled.
 
 ::: module
 <template #code>
@@ -43,9 +43,9 @@
 
 :::
 
-## 尺寸
+## size
 
-`size` 属性用于控制数字输入框组件的尺寸，可选值为 `large`、`medium`、`small`(默认)和 `mini`。
+`size` The attribute is used to control the size of the digital input box component, with optional values being `large`、`medium`、`small`(default)and `mini`。
 
 ::: module
 <template #code>
@@ -67,9 +67,9 @@
 
 :::
 
-## 最大值与最小值
+## Maximum and minimum values
 
-`max` 属性用于设置数字输入框的最大值，`min` 属性用于设置数字输入框的最小值。
+`max` Property is used to set the maximum value of the numeric input box,`min` Property is used to set the minimum value of the numeric input box.
 
 ::: module
 
@@ -94,9 +94,9 @@
 
 :::
 
-## 步长
+## step
 
-`step` 属性用于设置数字输入框的步长，默认为 `1`。
+`step` Property is used to set the step size of the numeric input box, which defaults to `1`。
 
 ::: module
 <template #code>
@@ -120,9 +120,9 @@
 
 :::
 
-## 精度
+## accuracy
 
-`precision` 属性用于设置数字输入框的精度，默认为 `0`。
+`precision` Property is used to set the precision of the numeric input box, which defaults to `0`。
 
 ::: module
 <template #code>
@@ -148,7 +148,7 @@
 
 ## 严格模式
 
-`strict` 属性用于设置数字输入框的严格模式，当 `strict` 属性为 `true` 时，输入框的值只能输入设置好的步长值。
+`strict` Property is used to set the strict mode of the numeric input box, when `strict` Attribute is `true` , The value in the input box can only enter the set step size value.
 
 ::: module
 <template #code>
@@ -172,24 +172,24 @@
 
 :::
 
-## 属性
+## attribute
 
-| 参数      | 说明                                                                 | 类型    | 可选值 | 默认值 |
+| parameter      | explain                                                                 | type    | Optional values | Default value |
 | --------- | -------------------------------------------------------------------- | ------- | ------ | ------ |
-| `v-model`     | 绑定值                                                               | `number`  | —      | —      |
-| `size`      | 输入框尺寸                                                           | `string`  | `large` `medium` `small` `mini`      | `small`  |
-| `disabled`  | 是否禁用状态                                                         | `boolean` | —      | `false`  |
-| `max`       | 设置最大值                                                           | `number`  | —      | `Infinity` |
-| `min`       | 设置最小值                                                           | `number`  | —      | `-Infinity` |
-| `step`      | 设置步长                                                             | `number`  | —      | `1`      |
-| `precision` | 数值精度                                                             | `number`  | —      | `0`      |
-| `strict`    | 是否严格模式，严格模式下，输入框的值只能输入设置好的步长值 | `boolean` | —      | `false`  |
+| `v-model`     | v-model                                                               | `number`  | —      | —      |
+| `size`      | Input box size                                                           | `string`  | `large` `medium` `small` `mini`      | `small`  |
+| `disabled`  | Is the state disabled                                                         | `boolean` | —      | `false`  |
+| `max`       | Set maximum value                                                           | `number`  | —      | `Infinity` |
+| `min`       | Set minimum value                                                           | `number`  | —      | `-Infinity` |
+| `step`      | Set Step Size                                                             | `number`  | —      | `1`      |
+| `precision` | Numerical accuracy                                                             | `number`  | —      | `0`      |
+| `strict`    | Is it strict mode? In strict mode, the value in the input box can only enter the set step size value | `boolean` | —      | `false`  |
 
-## 事件
+## Event
 
-| 事件名称 | 说明             | 回调参数 |
+| Event Name | explain             | Callback Arguments  |
 | -------- | ---------------- | -------- |
-| `change` | 绑定值变化时触发 | `value`  |
+| `change` | Triggered when the binding value changes | `value`  |
 
 
 
