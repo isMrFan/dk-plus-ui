@@ -11,7 +11,6 @@ const Dkbutton: Object = () => import('../views/component/Dkbutton/Dkbutton.vue'
 const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
 const DkLoading: Object = () => import('../views/component/DkLoading/DkLoading.vue')
 const DKcollapse: Object = () => import('../views/component/DKcollapse/DKcollapse.vue')
-const DkCard: Object = () => import('../views/component/DkCard/DkCard.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -117,16 +116,6 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/component/DkNumber/dkNumber.vue'),
         meta: {
           title: '数字输入框DkNumber',
-          keepAlive: false,
-          isunnewList: false
-        }
-      },
-      {
-        path: '/DkCard',
-        name: 'DkCard',
-        component: DkCard,
-        meta: {
-          title: '卡片DkCard',
           keepAlive: false,
           isunnewList: false
         }

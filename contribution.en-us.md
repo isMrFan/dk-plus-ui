@@ -126,7 +126,6 @@ If you have completed the previous preparation, you can skip and start from here
 ├── ├── dkinputNumber #输入框组件按钮
 ├── ├── dklaside      #页面布局组件-左侧组件
 ├── ├── dkloading     #加载中指令用的组件
-├── ├── dkcard        #卡片组件
 ├── ├── dkmain        #页面布局组件-中级布局
 ├── ├── dkshadow  #盒模型阴影组件
 ├── ├── index.ts  #组件入口文件

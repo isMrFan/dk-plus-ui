@@ -58,10 +58,6 @@
           {
             name: '计数器组件',
             path: '/DkNumber'
-          },
-          {
-            name: '卡片组件',
-            path: '/DkCard'
           }
         ]
       })
