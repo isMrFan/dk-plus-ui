@@ -22,6 +22,7 @@ import dkfooter from '@dk-plus/components/dkfooter'
 import dklaside from '@dk-plus/components/dklaside'
 import dkinput from '@dk-plus/components/dkinput'
 import dkInputNumber from '@dk-plus/components/dkInputNumber'
+import dkAlert from '@dk-plus/components/dkalert'
 import dkcodedisplay from '@dk-plus/components/dkcodedisplay'
 import dkspace from '@dk-plus/components/dkspace'
 //import dkloading from '@dk-plus/components/dkloading'
@@ -214,6 +215,7 @@ app.use(hljsVuePlugin)
 app.use(dkIcon)
 app.use(DkContainer)
 app.use(DkShadow)
+app.use(dkAlert)
 app.use(dkbutton)
 app.use(dkinput)
 app.use(dkInputNumber)
