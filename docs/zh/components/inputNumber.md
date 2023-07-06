@@ -7,12 +7,12 @@
 
 ::: module
 <template #code>
-<dk-input-number v-model="value"></dk-input-number>
+<dk-input-number class='docs-number'></dk-input-number>
 </template>
 
 ```html
 <dk-input-number v-model="value"></dk-input-number>
-<script lang='ts'>
+<script>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
     setup() {
@@ -33,7 +33,7 @@
 
 ::: module
 <template #code>
-<dk-input-number v-model="value" disabled></dk-input-number>
+<dk-input-number class='docs-number' v-model="value" disabled></dk-input-number>
 </template>
 
 ```html
@@ -49,13 +49,13 @@
 
 ::: module
 <template #code>
-<dk-input-number size="large"></dk-input-number>
+<dk-input-number class='docs-number' size="large"></dk-input-number>
 <div style='margin-top: 10px'></div>
-<dk-input-number size="medium"></dk-input-number>
+<dk-input-number class='docs-number' size="medium"></dk-input-number>
 <div style='margin-top: 10px'></div>
-<dk-input-number size="small"></dk-input-number>
+<dk-input-number class='docs-number' size="small"></dk-input-number>
 <div style='margin-top: 10px'></div>
-<dk-input-number size="mini"></dk-input-number>
+<dk-input-number class='docs-number' size="mini"></dk-input-number>
 </template>
 
 ```html
@@ -74,7 +74,7 @@
 ::: module
 
 <template #code>
-<dk-input-number v-model="value" :max="10" :min="0"></dk-input-number>
+<dk-input-number class='docs-number' v-model="value" :max="10" :min="0"></dk-input-number>
 </template>
 
 ```html
@@ -100,7 +100,7 @@
 
 ::: module
 <template #code>
-<dk-input-number v-model="value" :step="2"></dk-input-number>
+<dk-input-number class='docs-number' v-model="value" :step="2"></dk-input-number>
 </template>
 
 ```html
@@ -126,7 +126,7 @@
 
 ::: module
 <template #code>
-<dk-input-number v-model="value" :precision="2"></dk-input-number>
+<dk-input-number class='docs-number' v-model="value" :precision="2"></dk-input-number>
 </template>
 
 ```html
@@ -152,7 +152,7 @@
 
 ::: module
 <template #code>
-<dk-input-number v-model="value" :step="2" strict></dk-input-number>
+<dk-input-number class='docs-number' v-model="value" :step="2" strict></dk-input-number>
 </template>
 
 ```html

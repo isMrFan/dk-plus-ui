@@ -124,9 +124,36 @@ $dark-border-color: #8a8a8e; // 暗黑边框题色
     }
   }
 }
-
-.docs-input{
-  .dk-input-wrapper{
-    background-color: transparent;
+.dk-box{
+  .docs-{
+    &input{
+      .dk-input-wrapper,
+      .dk-input_pend{
+        background-color: var(--vp-c-bg);
+        border-color: var(--vp-c-border);
+      }
+      .dk-input_inner{
+        color: #ccc;
+      }
+    }
+    &number{
+      border-color: var(--vp-c-border);
+      .dk-input{
+        .dk-input-wrapper{
+          background-color: var(--vp-c-bg);
+        }
+      }
+      .dk-button{
+        &-box{
+          &:not([default]):hover{
+            background-color: var(--vp-c-bg);
+          }
+        }
+        &_disabled{
+          background-color: var(--vp-c-bg);
+          opacity: .8;
+        }
+      }
+    }
   }
 }
