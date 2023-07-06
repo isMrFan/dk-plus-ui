@@ -54,14 +54,14 @@
     .box-icon_comp {
       .icon-name {
         font-size: 10px;
-        color: var(--text-color);
+        color: var(--vp-c-text-2);
       }
 
       cursor: pointer;
       display: flex;
       width: 110px;
       height: 110px;
-      border: 1px solid #eee;
+      border: 1px solid var(--vp-c-border);
       margin: 8px;
       flex-direction: column;
       align-items: center;

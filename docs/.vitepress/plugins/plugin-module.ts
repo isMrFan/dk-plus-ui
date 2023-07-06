@@ -33,6 +33,8 @@ export const PluginModule = (md): void => {
         const content: string =
           tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
         const source: string = md.utils.escapeHtml(content)
+        console.log(source)
+        
         return `<custom-module source="${source}">${encodeURIComponent(
           markdown.render(description)
         )}`

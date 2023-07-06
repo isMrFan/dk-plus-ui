@@ -1,4 +1,4 @@
-# 自定义盒子模型
+# Custom Box Model
 
 - [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkshadow)
 - [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/shadow.md)
