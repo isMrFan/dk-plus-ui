@@ -1,237 +1,237 @@
-# input 输入框
+# Input box
 
-简易且不简单的输入框组件
+Simple and not simple input box components
 
-- [源代码](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkinput)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/input.md)
+- [source code](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkinput)
+- [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/input.md)
 
-## 基础输入框
+## Basic Input Box
 
-`type` 输入框类型 type 设置 text | password | email | number | tel | url 默认:text
+`type` Input Box `type` set up `text` | `password` | `email` | `number` | `tel` | `url` default:`text`
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容"></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content"></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容"></Dk-Input>
+<dk-input placeholder="Please enter content"></dk-input>
 ```
 
 :::
 
-## 禁用状态
+## Disabled state
 
-`disabled` 属性可以将输入框设置为禁用状态
+`disabled` Property can set the input box to a disabled state
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" disabled></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content" disabled></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" disabled></Dk-Input>
+<dk-input placeholder="Please enter content" disabled></dk-input>
 ```
 
 :::
 
-## 前后缀
+## prefix and suffix
 
-`prefix-icon` 和 `suffix-icon` 属性可以在输入框前后添加图标，
-`prefix` 和 `suffix` 插槽可以在输入框前后添加自定义内容。
+`prefix-icon` and `suffix-icon` Attributes can be added with icons before and after the input box,
+`prefix` and `suffix` Slots can add custom content before and after the input box.
 
 ::: module
 <template #code>
-<Dk-Input placeholder="prefix-icon" prefix-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="prefix-icon" prefix-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="suffix-icon" suffix-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="suffix-icon" suffix-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="slot">
+<dk-input class='docs-input' placeholder="slot">
     <template #prefix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
     <template #suffix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
-</Dk-Input>
+</dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="prefix-icon" prefix-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="suffix-icon" suffix-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="slot">
+<dk-input placeholder="prefix-icon" prefix-icon="IconSearch"></dk-input>
+<dk-input placeholder="suffix-icon" suffix-icon="IconSearch"></dk-input>
+<dk-input placeholder="slot">
     <template #prefix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
     <template #suffix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
-</Dk-Input>
+</dk-input>
 ```
 
 :::
 
-## 前后置标签
+## Front and rear labels
 
-`prepend` 和 `append` 插槽可以在输入框前后添加标签，
-`prepend-icon` 和 `append-icon` 属性可以在输入框前后添加图标，
-`prepend-text` 和 `append-text` 属性可以在输入框前后添加文本，
-> 注意⚠️：优先级顺序为：prepend > prepend-icon > prepend-text
+`prepend` and `append` Slots can be labeled before and after the input box,
+`prepend-icon` and `append-icon` Attributes can be added with icons before and after the input box,
+`prepend-text` and `append-text` Attributes can be added with text before and after the input box,
+> take care ⚠ : The priority order is: prepend > prepend-icon > prepend-text
 
 ::: module
 <template #code>
-<Dk-Input placeholder="prepend" prepend>
+<dk-input class='docs-input' placeholder="prepend" prepend>
     <template #prepend>
         <div>https://</div>
     </template>
-</Dk-Input>
+</dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append" append>
+<dk-input class='docs-input' placeholder="append" append>
     <template #append>
         <div>.com</div>
     </template>
-</Dk-Input>
+</dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="prepend-icon" prepend-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="prepend-icon" prepend-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append-icon" append-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="append-icon" append-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
+<dk-input class='docs-input' placeholder="prepend-text" prepend-text="https://"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
+<dk-input class='docs-input' placeholder="append-text" append-text=".com"></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="prepend" prepend>
+<dk-input placeholder="prepend" prepend>
     <template #prepend>
         <div>https://</div>
     </template>
-</Dk-Input>
-<Dk-Input placeholder="append" append>
+</dk-input>
+<dk-input placeholder="append" append>
     <template #append>
         <div>.com</div>
     </template>
-</Dk-Input>
-<Dk-Input placeholder="prepend-icon" prepend-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="append-icon" append-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
-<Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
+</dk-input>
+<dk-input placeholder="prepend-icon" prepend-icon="IconSearch"></dk-input>
+<dk-input placeholder="append-icon" append-icon="IconSearch"></dk-input>
+<dk-input placeholder="prepend-text" prepend-text="https://"></dk-input>
+<dk-input placeholder="append-text" append-text=".com"></dk-input>
 ```
 
 :::
 
-## 文本域
+## Textarea
 
-`type` 属性设置为 `textarea` 可以将输入框设置为文本域， `autosize` 属性可以自适应高度。
+`type` Property set to `textarea` You can set the input box as a text field, `autosize` The attribute can adapt to height.
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" type="textarea"></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content" type="textarea"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="请输入内容" type="textarea" autosize></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content" type="textarea" autosize></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" type="textarea"></Dk-Input>
-<Dk-Input placeholder="请输入内容" type="textarea" autosize></Dk-Input>
+<dk-input placeholder="Please enter content" type="textarea"></dk-input>
+<dk-input placeholder="Please enter content" type="textarea" autosize></dk-input>
 ```
 
 :::
 
-## 数字输入框
+## Number input box
 
-`type` 属性设置为 `number` 可以将输入框设置为数字输入框。
+`type` Property set to `number` You can set the input box as a numeric input box.
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" type="number"></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content" type="number"></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" type="number"></Dk-Input>
+<dk-input placeholder="Please enter content" type="number"></dk-input>
 ```
 
 :::
 
-## 密码输入框
+## Password input box
 
-`type` 属性设置为 `password` 可以将输入框设置为密码输入框，`show-password` 属性可以显示密码切换按钮。
+`type` Property set to `password` You can set the input box as a password input box,`show-password` The property can display a password switch button.
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" type="password"></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content" type="password"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="请输入内容" type="password" show-password></Dk-Input>
+<dk-input class='docs-input' placeholder="Please enter content" type="password" show-password></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" type="password"></Dk-Input>
-<Dk-Input placeholder="请输入内容" type="password" show-password></Dk-Input>
+<dk-input placeholder="Please enter content" type="password"></dk-input>
+<dk-input placeholder="Please enter content" type="password" show-password></dk-input>
 ```
 
 :::
 
-## 属性
+## attribute
 
-| 属性 | 说明 | 类型 | 可选值 | 默认值 | 
+| attribute | explain | type | Optional values | Default value | 
 | --- | --- | --- | --- | --- |
-| `type` | 类型 | `string` | `text` `textarea` `number` `password` `text` | `text` |
-| `placeholder` | 占位符 | `string` | - | - |
-| `disabled` | 禁用 | `boolean` | - | `false` |
-| `readonly` | 只读 | `boolean` | - | `false` |
-| `clearable` | 可清空 | `boolean` | - | `false` |
-| `show-password` | 显示密码切换按钮 | `boolean` | - | `false` |
-| `prefix-icon` | 输入框头部图标 | `string` | - | - |
-| `suffix-icon` | 输入框尾部图标 | `string` | - | - |
-| `prepend-icon` | 输入框前部图标 | `string` | - | - |
-| `append-icon` | 输入框后部图标 | `string` | - | - |
-| `prepend-text` | 输入框前部文本 | `string` | - | - |
-| `append-text` | 输入框后部文本 | `string` | - | - |
-| `autosize` | 自适应高度（只对textarea生效） | `boolean` | - | `false` |
-| `rows` | 输入框行数（只对textarea生效） | `number` | - | `1` |
-| `maxlength` | 输入框最大长度 | `number` | - | - |
-| `minlength` | 输入框最小长度 | `number` | - | - | 
-| `show-length` | 是否显示输入框长度 | `boolean` | - | `false` |
-| `width` | 输入框宽度 | `string` | - | - |
-| `height` | 输入框高度 | `string` | - | - |
-| `size` | 输入框尺寸 | `string` | `large` `medium` `small` | `medium` |
-| `font-size` | 输入框字体大小 | `string` | - | - |
-| `border-radius` | 输入框圆角 | `string` | - | - |
-| `text-color` | 输入框字体颜色 | `string` | - | - |
-| `icon-size` | 输入框图标大小 | `string` | - | - |
-| `border-color` | 输入框边框颜色 | `string` | - | - |
-| `focus-border-color` | 输入框聚焦边框颜色 | `string` | - | - |
-| `append-background` | 输入框前后置内容背景颜色 | `string` | - | - |
-| `append-color` | 输入框前后置内容字体颜色 | `string` | - | - |
-| `align` | 输入框内容对齐方式 | `string` | `left` `center` `right` | `left` |
-| `border` | 输入框边框 | `string` | `auto` `none` | `auto` |
+| `type` | type | `string` | `text` `textarea` `number` `password` `text` | `text` |
+| `placeholder` | placeholder | `string` | - | - |
+| `disabled` | Disabled | `boolean` | - | `false` |
+| `readonly` | readonly | `boolean` | - | `false` |
+| `clearable` | clearable | `boolean` | - | `false` |
+| `show-password` | Show password switch button | `boolean` | - | `false` |
+| `prefix-icon` | Input box header icon | `string` | - | - |
+| `suffix-icon` | Input box tail icon | `string` | - | - |
+| `prepend-icon` | Icon in front of input box | `string` | - | - |
+| `append-icon` | Icon at the back of the input box | `string` | - | - |
+| `prepend-text` | Enter text at the front of the box | `string` | - | - |
+| `append-text` | Enter the text at the end of the box | `string` | - | - |
+| `autosize` | Adaptive height (only for textarea) | `boolean` | - | `false` |
+| `rows` | Number of input box lines (only effective for textarea) | `number` | - | `1` |
+| `maxlength` | Maximum length of input box | `number` | - | - |
+| `minlength` | Minimum length of input box | `number` | - | - | 
+| `show-length` | Display input box length | `boolean` | - | `false` |
+| `width` | Input box width | `string` | - | - |
+| `height` | Input box height | `string` | - | - |
+| `size` | Input box size | `string` | `large` `medium` `small` | `medium` |
+| `font-size` | Input box font size | `string` | - | - |
+| `border-radius` | Input box rounded corners | `string` | - | - |
+| `text-color` | Input box font color | `string` | - | - |
+| `icon-size` | Input box icon size | `string` | - | - |
+| `border-color` | Input box border color | `string` | - | - |
+| `focus-border-color` | Input box focus border color | `string` | - | - |
+| `append-background` | Input box front and back content background color | `string` | - | - |
+| `append-color` | Input box front and back content font color | `string` | - | - |
+| `align` | Input box content alignment | `string` | `left` `center` `right` | `left` |
+| `border` | Input Box Border | `string` | `auto` `none` | `auto` |
 <!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
 <!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
 <!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->
 <!-- | `step` | 输入框步长（只对number生效） | `number` | - | `1` | -->
-<!-- | `name` | 原生属性 | `string` | - | - | -->
-<!-- | `form` | 原生属性 | `string` | - | - | -->
+<!-- | `name` | 原生attribute | `string` | - | - | -->
+<!-- | `form` | 原生attribute | `string` | - | - | -->
 <!-- | `label` | 输入框标签 | `string` | - | - | -->
 <!-- | `label-width` | 输入框标签宽度 | `string` | - | - | -->
 
-## 事件
+## Event
 
-| 事件名称 | 说明 | 回调参数 |
+| Event Name | explain | Callback Arguments |
 | --- | --- | --- |
-| `focus` | 输入框聚焦时触发 | `event: Event` |
-| `blur` | 输入框失焦时触发 | `event: Event` |
-| `clear` | 点击清空按钮时触发 | - |
-| `enter` | 按下回车键时触发 | `event: Event` |
+| `focus` | Triggered when the input box is focused | `event: Event` |
+| `blur` | Triggered when the input box is out of focus | `event: Event` |
+| `clear` | Triggered when the clear button is clicked | - |
+| `enter` | Triggered when the Enter key is pressed | `event: Event` |
 <!-- | `change` | 输入框内容变化时触发 | `value: string` | -->
 
-## 插槽
+## slot 
 
-| 插槽名称 | 说明 |
+| Slot Name | explain |
 | --- | --- |
-| `prepend` | 输入框前部内容 |
-| `append` | 输入框后部内容 |
-| `prefix` | 输入框头部内容 |
-| `suffix` | 输入框尾部内容 |
+| `prepend` | Input box front content |
+| `append` | Content at the back of the input box |
+| `prefix` | Input box header content |
+| `suffix` | Input box tail content |
 
 
 ## Contributors

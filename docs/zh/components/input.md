@@ -11,11 +11,11 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容"></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容"></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容"></Dk-Input>
+<dk-input placeholder="请输入内容"></dk-input>
 ```
 
 :::
@@ -26,11 +26,11 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" disabled></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容" disabled></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" disabled></Dk-Input>
+<dk-input placeholder="请输入内容" disabled></dk-input>
 ```
 
 :::
@@ -42,31 +42,31 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="prefix-icon" prefix-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="prefix-icon" prefix-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="suffix-icon" suffix-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="suffix-icon" suffix-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="slot">
+<dk-input class='docs-input' placeholder="slot">
     <template #prefix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
     <template #suffix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
-</Dk-Input>
+</dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="prefix-icon" prefix-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="suffix-icon" suffix-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="slot">
+<dk-input placeholder="prefix-icon" prefix-icon="IconSearch"></dk-input>
+<dk-input placeholder="suffix-icon" suffix-icon="IconSearch"></dk-input>
+<dk-input placeholder="slot">
     <template #prefix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
     <template #suffix>
         <Dk-Icon icon="IconSearch"></Dk-Icon>
     </template>
-</Dk-Input>
+</dk-input>
 ```
 
 :::
@@ -80,42 +80,42 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="prepend" prepend>
+<dk-input class='docs-input' placeholder="prepend" prepend>
     <template #prepend>
         <div>https://</div>
     </template>
-</Dk-Input>
+</dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append" append>
+<dk-input class='docs-input' placeholder="append" append>
     <template #append>
         <div>.com</div>
     </template>
-</Dk-Input>
+</dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="prepend-icon" prepend-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="prepend-icon" prepend-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append-icon" append-icon="IconSearch"></Dk-Input>
+<dk-input class='docs-input' placeholder="append-icon" append-icon="IconSearch"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
+<dk-input class='docs-input' placeholder="prepend-text" prepend-text="https://"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
+<dk-input class='docs-input' placeholder="append-text" append-text=".com"></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="prepend" prepend>
+<dk-input placeholder="prepend" prepend>
     <template #prepend>
         <div>https://</div>
     </template>
-</Dk-Input>
-<Dk-Input placeholder="append" append>
+</dk-input>
+<dk-input placeholder="append" append>
     <template #append>
         <div>.com</div>
     </template>
-</Dk-Input>
-<Dk-Input placeholder="prepend-icon" prepend-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="append-icon" append-icon="IconSearch"></Dk-Input>
-<Dk-Input placeholder="prepend-text" prepend-text="https://"></Dk-Input>
-<Dk-Input placeholder="append-text" append-text=".com"></Dk-Input>
+</dk-input>
+<dk-input placeholder="prepend-icon" prepend-icon="IconSearch"></dk-input>
+<dk-input placeholder="append-icon" append-icon="IconSearch"></dk-input>
+<dk-input placeholder="prepend-text" prepend-text="https://"></dk-input>
+<dk-input placeholder="append-text" append-text=".com"></dk-input>
 ```
 
 :::
@@ -126,14 +126,14 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" type="textarea"></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容" type="textarea"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="请输入内容" type="textarea" autosize></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容" type="textarea" autosize></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" type="textarea"></Dk-Input>
-<Dk-Input placeholder="请输入内容" type="textarea" autosize></Dk-Input>
+<dk-input placeholder="请输入内容" type="textarea"></dk-input>
+<dk-input placeholder="请输入内容" type="textarea" autosize></dk-input>
 ```
 
 :::
@@ -144,11 +144,11 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" type="number"></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容" type="number"></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" type="number"></Dk-Input>
+<dk-input placeholder="请输入内容" type="number"></dk-input>
 ```
 
 :::
@@ -159,14 +159,14 @@
 
 ::: module
 <template #code>
-<Dk-Input placeholder="请输入内容" type="password"></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容" type="password"></dk-input>
 <div style='margin-top: 10px;'></div>
-<Dk-Input placeholder="请输入内容" type="password" show-password></Dk-Input>
+<dk-input class='docs-input' placeholder="请输入内容" type="password" show-password></dk-input>
 </template>
 
 ```html
-<Dk-Input placeholder="请输入内容" type="password"></Dk-Input>
-<Dk-Input placeholder="请输入内容" type="password" show-password></Dk-Input>
+<dk-input placeholder="请输入内容" type="password"></dk-input>
+<dk-input placeholder="请输入内容" type="password" show-password></dk-input>
 ```
 
 :::
