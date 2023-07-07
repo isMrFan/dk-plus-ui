@@ -46,16 +46,18 @@
 </script>
 <template>
   <template v-if="alertVisible">
-    <div ref="dkAlertRef" class="dk-alert">
+    <div ref="dkAlertRef" :class="['dk-alert']">
       <slot v-if="icon === '' || icon === null" name="icon"></slot>
       <div>
         <dk-icon :icon="icon"></dk-icon>
       </div>
       <slot></slot>
 
-      <slot v-if="closeIcon === '' || closeIcon === null" name="closeIcon"></slot>
-      <div>
-        <dk-icon :icon="closeIcon" @click="onClose"></dk-icon>
+      <div v-if="closable">
+        <slot v-if="closeIcon === '' || closeIcon === null" name="closeIcon"></slot>
+        <div>
+          <dk-icon :icon="closeIcon" @click="onClose"></dk-icon>
+        </div>
       </div>
     </div>
   </template>

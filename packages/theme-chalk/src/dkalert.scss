@@ -14,15 +14,15 @@
   background: var(--alert-background);
   border: 1px solid red;
   
-  .#{$success}{
-    background-color: #f6ffed;
-    border: 1px solid #b7eb8f;
-    margin: 0;
-      padding: 8px 12px;
-          font-size: 14px;
-              color: rgba(0, 0, 0, 0.88);
-              display: flex;
-                align-items: center;
-                word-wrap: break-word;
-  }
+  // .#{$success}{
+  //   background-color: #f6ffed;
+  //   border: 1px solid #b7eb8f;
+  //   margin: 0;
+  //   padding: 8px 12px;
+  //   font-size: 14px;
+  //   color: rgba(0, 0, 0, 0.88);
+  //   display: flex;
+  //   align-items: center;
+  //   word-wrap: break-word;
+  // }
 }
