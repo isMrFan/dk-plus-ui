@@ -36,7 +36,7 @@
         small: 16,
         mini: 12
       }
-
+      
       const data = reactive<DataType>({
         step: Number(props.step),
         min: props.min,
@@ -49,17 +49,18 @@
         position: props.position,
         placeholder: props.placeholder
       })
-
+      
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)
         const floatValue = targetValue.toFixed(data.precision)
         return parseFloat(floatValue)
       }
-
+      
       const modelValue = ref<number>(props.modelValue)
-
+      const showValue = ref<string | number>('')
+      
       const disabled = ref<boolean>(props.disabled)
-
+      
       const reduceDisabled = ref<boolean>(modelValue.value <= data.min)
       const plusDisabled = ref<boolean>(modelValue.value >= data.max)
 
@@ -71,6 +72,10 @@
         } else {
           modelValue.value = newValue
         }
+        showValue.value = modelValue.value
+        if (data.precision > 0) {
+          showValue.value = modelValue.value.toFixed(data.precision)
+        }
       }
 
       const plus = (): void => {
@@ -80,6 +85,10 @@
           modelValue.value = data.max
         } else {
           modelValue.value = newValue
+        }
+        showValue.value = modelValue.value
+        if (data.precision > 0) {
+          showValue.value = modelValue.value.toFixed(data.precision)
         }
       }
 
@@ -93,8 +102,6 @@
           modelValue.value = value
         }
       }
-
-      const showValue = ref<string | number>('')
 
       watch(
         () => props.modelValue,
