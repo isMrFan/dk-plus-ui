@@ -21,7 +21,9 @@ import type { dkPlusAlertType } from '../../_interface'
  * @property {boolean} center 文字是否居中
  * @property {boolean} closable 是否可关闭
  * @property {string} closeText 自定义关闭按钮文本
- * @property {function} onClose 关闭时触发的回调函数
+ * @property {function} onClick 关闭时触发的回调函数
+ * @property {string} icon 前置icon
+ * @property {string} closeIcon 关闭icon
  * 
  * */
 export const dkAlertProps = {
@@ -33,6 +35,8 @@ export const dkAlertProps = {
   center: setBooleanProps(),
   closable: setBooleanProps(),
   closeText: setStringProp(),
-  onClose: setFunction()
+  onClick: setFunction(),
+  icon: setStringProp(),
+  closeIcon: setStringProp()
 }
 export type DkAlertProps = ExtractPropTypes<typeof dkAlertProps>

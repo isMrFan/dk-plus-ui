@@ -10,8 +10,15 @@
 <template>
   <div class="alert">
     <h2>Dk-Alert 组件</h2>
-    <p>基础用法</p>
-    <dk-alert></dk-alert>
+
+    <p>默认</p>
+    <dk-alert>123</dk-alert>
+
+    <p>前置图标</p>
+    <dk-alert :icon="'IconShanchu1'">123</dk-alert>
+
+    <p>前置图标+关闭图标</p>
+    <dk-alert :icon="'IconShanchu1'" :close-icon="'IconShanchu1'">123</dk-alert>
   </div>
 </template>
 <style lang="scss" scoped>
