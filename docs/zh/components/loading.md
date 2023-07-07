@@ -3,7 +3,7 @@
 自定义加载中指令，用于异步请求时的加载中状态。
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkloading)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/loading.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/loading.md)
 
 ## 基本使用
 
