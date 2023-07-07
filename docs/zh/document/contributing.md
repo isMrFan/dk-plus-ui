@@ -292,9 +292,9 @@ git commit -m 'feat: 新增***组件'
 
 4.推送分支到远程仓库
 
-    ```shell
-    git push origin <branch-name>
-    ```
+```shell
+  git push origin <branch-name>
+```
 
 5.在远程仓库中创建 PR
 在 GitHub 或 GitLab 等代码托管平台上，找到您刚刚推送的分支，并创建一个 PR。您可以在 PR 中提供有关您所做更改的详细信息和任何其他有关 PR 的注释。
