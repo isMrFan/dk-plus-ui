@@ -9,7 +9,7 @@
       const router = useRouter()
 
       const start = (): void => {
-        router.go('/document/install.html')
+        router.go('/en/document/install.html')
       }
 
       const handleToGitClick = (): void => {
