@@ -74,3 +74,10 @@ export const DK_TARGET = ['_blank', '_self', '_parent', '_top'] as const
  */
 
 export const DK_POSITION = ['top', 'bottom', 'left', 'right'] as const
+
+export const DK_ALERTTYPE = [
+  'success',
+  'info',
+  'warning',
+  'error'
+] as const

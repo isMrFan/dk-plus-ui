@@ -1,0 +1,10 @@
+@use '../mixin.scss' as *;
+
+
+
+.#{$namespace}-alert {
+  --alert-border-radius: 4px;
+  --alert-font-size: 16px;
+  --alert-color: #409eff;
+  --alert-background: transparent;
+}
