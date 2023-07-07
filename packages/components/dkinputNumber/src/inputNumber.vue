@@ -203,6 +203,7 @@
       :disabled="disabled"
       :readonly="readonly"
       :placeholder="placeholder"
+      border-radius="0"
       @change="handleInputChange"
     />
     <dk-button
