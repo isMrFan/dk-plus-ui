@@ -295,9 +295,9 @@ git commit -m 'feat: 新增***组件'
 
 4.Push a branch to a remote repository
 
-    ```shell
-    git push origin <branch-name>
-    ```
+```shell
+  git push origin <branch-name>
+```
 
 5. Create a PR in the remote repository
 On a code hosting platform like GitHub or GitLab, find the branch you just pushed and create a PR. You can provide details about the changes you have made and any other comments about PR in the PR.
