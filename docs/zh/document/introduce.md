@@ -12,15 +12,15 @@
 
 ## 💌 特别感谢
 
-感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)
+感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors" />
 </a>
 
 ## 📃 协议许可证
 
-[MIT](https://github.com/dk-plus-ui/dk-ui/blob/master/LICENSE)
+[MIT](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/LICENSE)
 
 ## 📈 下载量
 

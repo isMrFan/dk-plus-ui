@@ -9,7 +9,7 @@
       const router = useRouter()
 
       const start = (): void => {
-        router.go('/document/install.html')
+        router.go('/zh/document/install.html')
       }
 
       const handleToGitClick = (): void => {
@@ -71,7 +71,9 @@
       </div>
       <div class="button-list">
         <dk-button type="success" round @click="start">现在开始</dk-button>
-        <dk-button class="to-github" round @click="handleToGitClick">查看 GitHub</dk-button>
+        <dk-button class="to-github" round @click="handleToGitClick">
+          查看 GitHub
+        </dk-button>
       </div>
       <div class="container">
         <div class="banner-list">

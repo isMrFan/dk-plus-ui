@@ -40,7 +40,7 @@ module.exports = defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/dk-plus-ui/dk-ui'
+        link: 'https://github.com/dk-plus-ui/dk-plus-ui'
       }
     ],
     /**

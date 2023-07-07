@@ -9,4 +9,4 @@
 <img height="200px"  src="https://oss.cadwaladerss.com/dk-plus/images/wxcrcoder.jpg">
 ## 社区组织
 
-- [dk-plus](https://github.com/dk-plus-ui/dk-ui)
+- [dk-plus](https://github.com/dk-plus-ui/dk-plus-ui)

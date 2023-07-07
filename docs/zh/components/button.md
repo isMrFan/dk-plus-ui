@@ -2,8 +2,8 @@
 
 这是一个看起非常普通的按钮，但是它的功能却非常强大。
 
-- [源代码](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkbutton)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/button.md)
+- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkbutton)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/button.md)
 
 ## 1.基础按钮
 

@@ -1,33 +1,36 @@
 # CONTRIBUTING
 
 Chinese | [English](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/contribution.en-us.md)
+# Contribution
 
-## 🙋 Before you contribute, please read the following:
+## 🙋 Before contributing, please read the following information
 
 Hello! Welcome to DK-plus!
 
-I'm glad you're interested in contributing to DK-plus. Before submitting your contributions, please take some time to read the following guidelines. This can help us collaborate better, avoid unnecessary work, and save everyone's time.
+I'm glad that you are interested in contributing to DK-plus. Before submitting your contribution, please take some time to read the following guidelines. This will help us collaborate better, avoid unnecessary work, and save everyone's time.
 
-## 🚫 Prohibit direct plagiarism
+## 🚫 No direct copying
 
-As we all know, there are many component libraries on the market, and often the new components we need to develop have already been developed by others. However, please do not directly copy and use the source code of other third-party libraries.
+As we all know, there are many existing component libraries in the market. Often, the components we need to develop have already been created by other third-party libraries. However, please refrain from directly copying and using source code from other libraries.
 
-Developing a component library is a process of learning and progress. Don't just add new components for the sake of adding them. We hope that participants can learn something while adding new components to improve their own skills. If you encounter difficulties in developing a certain function during the development stage, you can initiate a discussion or directly contact me or ask for help in the group. Of course, it is also possible to learn from other open source libraries, but we hope that you have understood the problem and tried it out yourself when writing the code.
+The development of a component library itself is a process of learning and progress. It's not just about adding components for the sake of adding them. We hope that participants can learn something and improve their skills while adding new components. If you encounter difficulties with a specific feature during the development phase, you can initiate a discussion or directly contact me or seek help in the group. Of course, it's also acceptable to learn from and reference other open-source libraries. However, we expect you to have a solid understanding of the problem and tackle it by yourself when writing the code.
 
-## 🛠️ start the project
+If you have any specific questions or need further guidance on how to contribute, please let me know. I'm here to assist you.
 
-Before contributing, you need to start the project so that you can better understand the project structure and how to develop it
+## 🛠️ Getting Started
 
-- Install [node](http://nodejs.cn), version >= 16
-- Install [pnpm](https://pnpm.io/zh), latest version is fine
+Before contributing, you need to get the project up and running so that you can better understand its structure and how to develop it.
 
-If you have completed the previous preparation, you can skip and start from here:
+- Install  [node](http://nodejs.cn), version  >= 16
+- Install  [pnpm](https://pnpm.io/zh)the latest version is recommended.
 
-- Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
+If you have completed the previous preparations, you can skip ahead and start from here:
+
+- Fork [dk-plus](https://github.com/dk-plus-ui/dk-plus-ui)
 
 - Clone your fork to your local machine.
 
-### 📖 directory structure
+### 📖  Directory Structure
 
 ```bash
 ├── .github     # github配置文件
@@ -174,142 +177,170 @@ If you have completed the previous preparation, you can skip and start from here
 
 ```
 
-Next, execute the command:
+Next execute the command:
 
 ```shell
-# clone project
-git clone https://github.com/dk-plus-ui/dk-ui.git
+# clone 项目
+git clone https://github.com/dk-plus-ui/dk-plus-ui.git
 
-# Enter the project directory.
+# 进入项目目录
 cd dk-ui
 
-# Install dependencies.
+# 安装依赖项
 pnpm install
 
-Note that a joint instruction is referenced here. If you haven't installed cnpm, please install cnpm first. For international users, please change the postinstall command in the scripts section of the package.json file in the root directory from cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 to npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3.
+ps: Note that the federation directive is referenced here
+
+If the cnpm is not installed, install the cnpm first
+
+Foreign user package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
 
 # CNPM安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
-# Start the development project.
+# 启动开发项目
 pnpm dev:play
 
-# Start the documentation.
+# 启动文档
 pnpm dev:docs
-
-# publish
-npm init
-npm login
-npm publish
 
 ```
 
-## 🔧 Tools and plugins for development.
+## 🔧 Develop tools and plug-ins
 
 Please read first [IDE 支持](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
 
-We highly recommend using an editor. [Visual Studio Code](https://code.visualstudio.com/) Please make sure to install the following built-in plugins:
+The editor is highly recommended [Visual Studio Code](https://code.visualstudio.com/)，Please be sure to install the following plug-ins:
 
-- [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) Vue3 official development plugin.
+- [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)Vue3 official development plugin:
+- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) Used to support importing `*.vue`  files in TS
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) Code format verification, if not installed, then [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) Do not take effect
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Code format verification, if not installed, then [dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint) Do not take effect
 
-- [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)Used to support importing `*.vue` files in TypeScript.
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)Code formatting validation. If not installed, then...[dk-eslint](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/dk-eslint)it will not take effect.
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)Used for detecting spelling errors in the code.
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) Used to detect spelling errors in code
 
-## 🔓 Command descriptions.
+## 🔓 Command description
 
-dk-plus has many built-in commands that can be viewed in the documentation.[package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) Below is a detailed description of each command:
+dk-plus Internally set up a lot of commands in [package.json](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/package.json) Is available for viewing. Each command is described in detail below:
 
-| Script Field | Corresponding Command | Command Description                         |
-| ------------ | --------------------- | ------------------------------------------- |
-| dev:play     | pnpm dev:play         | Start the testing and development project   |
-| build:play   | pnpm build:play       | Build the testing and development project   |
-| build        | pnpm build            | Build the component library                 |
-| dev:docs     | pnpm dev:docs         | Start the development documentation project |
-| build:docs   | pnpm build:docs       | Build the development documentation project |
-| format       | pnpm format           | Format the project code                     |
+| script fields | Corresponding command                                                   | Command description        |
+| ----------- | ------------------------------------------------------------------------- | ---------------- |
+| dev:play    | pnpm -C play dev                                                          | Start the test development project |
+| build:play  | pnpm -C play build                                                        | Package test development projects |
+| build       | gulp -f build/gulpfile.ts                                                 | Packaging component library       |
+| dev:docs    | pnpm -C docs dev:docs                                                     | Start the development documentation project |
+| build:docs  | pnpm -C docs build:docs                                                   | Package development documentation projects |
+| format      | prettier --write \"\*_/_.{ts,tsx,js,json,css,scss,json,md,vue,yml,yaml}\" | Project code formatting   |
+| deploy:docs | cross-env NODE_ENV=docs node ./deploy                                     | test             |
+| test        | vitest                                                                    | Test process         |
+| coverage    | vitest run --coverage                                                     | Generate test logs     |
+| lint        | pnpm lint                                                                 | Project code review     |
+| prepare     | pnpm prepare                                                              | Run cell tests   |
 
-## 🚨 Development Standards
+## 🚨 Development specification
 
-The main source files are located in the [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) directory, where each subdirectory has its own README.md file that provides specific instructions for that directory. For detailed development specifications for each module, please refer to the documentation below:
+The main source files are all there [packages](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages) Directory, where each subdirectory has a separate `README.md` For a description of the specified directory, refer to the following documents for detailed specifications of each module:
 
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md)Creating a new component
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) themes
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/README.md) Create a new component
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/theme-chalk/README.md) Style subject directory
 
 ## ⚠️ Submission specification
 
-The Git allows us to attach a submission message as a description with each submission. When executing commit, it is necessary to strictly follow the specifications below to fill in the submission information. The submission information must be one of the information below, followed by English colon + space.
+Git allows us to commit each time, with a commit information as a description when executed `commit` When, you need to fill in the description information in strict accordance with the specification below, the submission information must be one of the following information, followed by 'English colon + space
 
-The type must be one of the following types and fill in the description according to the type description.
+The type must be one of the following and be entered against the type description.
 
-| Type     | Example                                           | Description                      |
-| -------- | ------------------------------------------------- | -------------------------------- |
-| build    | git commit -m 'build: package\*\*\*configuration' | Modify the package configuration |
-| ci       | git commit -m 'ci: modify ci configuration'       | Modify the CI configuration      |
-| docs     | git commit -m 'docs: modify documentation'        | Modify the documentation         |
-| feat     | git commit -m 'feat: add\*\*\*component'          | Add a new component              |
-| fix      | git commit -m 'fix: fix\*\*\*bug'                 | Fix a bug                        |
-| perf     | git commit -m 'perf: optimize\*\*\*performance'   | Optimize performance             |
-| refactor | git commit -m 'refactor: refactor\*\*\*code'      | Refactor code                    |
-| style    | git commit -m 'style: modify\*\*\*style'          | Modify style                     |
-| test     | git commit -m 'test: add\*\*\*test case'          | Add a new test case              |
-| revert   | git commit -m 'revert: rollback\*\*\*code'        | Rollback code                    |
-| chore    | git commit -m 'chore: modify\*\*\*configuration'  | Modify configuration             |
-| release  | git commit -m 'release: release\*\*\*version'     | Release version                  |
+| type      | Give an example                                 | Description                       |
+| --------- | ------------------------------------------------ | -------------------------- |
+| build     | git commit -m 'build: 打包\*\*\*配置'            | Modifying the packaging configuration               |
+| ci        | git commit -m 'ci: 修改 ci 配置'                 | Modifying ci Configuration               |
+| docs      | git commit -m 'docs: 修改文档'                   | Modify a document                   |
+| feat      | git commit -m 'feat: 新增\*\*\*组件'             | New component                   |
+| fix       | git commit -m 'fix: 修复\*\*\*bug'               | Fix bugs                  |
+| perf      | git commit -m 'perf: 优化\*\*\*性能'             | Optimized performance                   |
+| refactor  | git commit -m 'refactor: 重构\*\*\*代码'         | Refactoring code                   |
+| style     | git commit -m 'style: 修改\*\*\*样式'            | Modify style                   |
+| test      | git commit -m 'test: 新增\*\*\*测试用例'         | Added test cases               |
+| revert    | git commit -m 'revert: 回滚\*\*\*代码'           | Rollback code                   |
+| chore     | git commit -m 'chore: 修改\*\*\*配置'            | Modify configuration                   |
+| release   | git commit -m 'release: 发布\*\*\*版本'          | Release version                   |
+| hooks     | git commit -m 'hooks: 新增\*\*\*                 | exploit                       |
+| perfect   | git commit -m 'perfect: 完善\*\*\* '             | Perfect previous code block Where code block |
+| utils     | git commit -m 'utils: 组件工具箱\*\*\*           | Update toolbox                 |
+| interface | git commit -m 'interface: 增加组件全局接口\*\*\* | Global interface                   |
+| deps      | git commit -m 'deps: 依赖升级                    | Dependent upgrade                   |
 
-You can add emojis to the commit message by using [Markdown Emoji](https://tianyuhao.cn/emoji)after the message.
+Available by [Markdown Emoji](https://tianyuhao.cn/emoji) Add emoticons after "message"
 
 ## ✏️ About PR
 
-Before submitting a pull request, please make sure that the repository you forked is up to date with the latest code to avoid conflicts.
+Before you commit `PR`, make sure that your `fork` repository is up to date to avoid conflicts.
 
-1.Clone remote repository to local
+
+1. Clone the remote repository to the local:
 
 ```shell
 git clone <repository-url>
 ```
 
-2.Add remote repository
+2. Add a remote repository:
 
 ```shell
 git checkout -b <branch-name>
 ```
 
-3.Make modifications to the files and commit them to the local repository
+3. Make modifications and submit to local warehouse:
 
 ```shell
 git add .
 git commit -m 'feat: 新增***组件'
 ```
 
-4.Push the branch to the remote repository.
+4.Push a branch to a remote repository
 
     ```shell
     git push origin <branch-name>
     ```
 
-5.Create a PR in the remote repository.
-When you push your branch to a code hosting platform like GitHub or GitLab, find the branch you just pushed and create a pull request (PR). In the PR, you can provide detailed information about the changes you made and any other comments about the PR.
+5. Create a PR in the remote repository
+On a code hosting platform like GitHub or GitLab, find the branch you just pushed and create a PR. You can provide details about the changes you have made and any other comments about PR in the PR.
 
-6.Waiting for review and merge.
-Once your PR is submitted, the team members will review and discuss your code and may provide suggestions for changes. Once all issues are resolved and approved, your PR will be merged into the main branch.
+6.Pending review and consolidation:
+Once your PR is submitted, team members will review and discuss your code and may suggest changes. Once all issues have been resolved and approved, your PR will be merged into the main branch.
 
-Notes for Attention:
-Before submitting a PR, make sure your local branch is based on the latest main branch.
-PR submissions should be as small as possible and each PR should only contain a related set of changes. This makes reviewing easier and also makes the code easier to maintain.
-Add a description to your PR to let other developers know what changes you made and their purpose.
+Matters needing attention:
+Before submitting your PR, make sure your local branch is based on the latest main branch.
+PR commits should be as small as possible, and each PR should contain only one set of related changes. This makes auditing easier and also makes the code easier to maintain.
+
+Add a description to your PR to let other developers know about the changes you've made and their purpose
+
+## 📦 NPM Release process
+
+1.Log in to your npm account
+
+```shell
+npm login
+```
+
+2.publish
+
+```shell
+npm publish
+```
 
 ## 📰 Financial support
 
-If you feel that dk-plus has helped you, you can invite the author for a cup of coffee to encourage you.
+If you feel that dk-plus has helped you, you can ask the author for a cup of coffee to encourage you.
 
-<img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
+<div style='display: flex;'>
+<img width="200px" style='margin-right:50px;' src="https://oss.cadwaladerss.com/dk-plus/images/zfb.jpg" />
 <img width="200px" src="https://oss.cadwaladerss.com/dk-plus/images/wx.jpg" />
+</div>
 
 ## 💌 Thank you very much
 
-Thank you for all that has been done DK-plus [People who make contributions](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
+Thanks for all that has been done DK-plus [People who contribute](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)！
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors" />
 </a>

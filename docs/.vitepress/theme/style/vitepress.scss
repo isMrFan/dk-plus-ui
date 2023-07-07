@@ -89,6 +89,9 @@
         background-color: transparent;
       }
       .VPNavBar {
+        .curtain::before{
+          background: transparent;
+        }
         .container{
           .content{
 

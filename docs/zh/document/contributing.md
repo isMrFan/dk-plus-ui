@@ -21,7 +21,7 @@
 
 如果你已经做好了前面的准备，可以直接跳过，从这里开始:
 
-- Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
+- Fork [dk-plus](https://github.com/dk-plus-ui/dk-plus-ui)
 
 - 克隆你的 fork 到本地
 
@@ -176,7 +176,7 @@
 
 ```shell
 # clone 项目
-git clone https://github.com/dk-plus-ui/dk-ui.git
+git clone https://github.com/dk-plus-ui/dk-plus-ui.git
 
 # 进入项目目录
 cd dk-ui
@@ -216,7 +216,7 @@ pnpm dev:docs
 
 ## 🔓 命令说明
 
-dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
+dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
 
 | script 字段 | 对应命令                                                                  | 命令说明         |
 | ----------- | ------------------------------------------------------------------------- | ---------------- |
@@ -234,10 +234,10 @@ dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/d
 
 ## 🚨 开发规范
 
-主要源文件都在 [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档:
+主要源文件都在 [packages](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档:
 
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md) 创建新组件
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) 样式主题目录
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/README.md) 创建新组件
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/theme-chalk/README.md) 样式主题目录
 
 ## ⚠️ 提交规范
 
@@ -292,9 +292,9 @@ git commit -m 'feat: 新增***组件'
 
 4.推送分支到远程仓库
 
-    ```shell
-    git push origin <branch-name>
-    ```
+```shell
+  git push origin <branch-name>
+```
 
 5.在远程仓库中创建 PR
 在 GitHub 或 GitLab 等代码托管平台上，找到您刚刚推送的分支，并创建一个 PR。您可以在 PR 中提供有关您所做更改的详细信息和任何其他有关 PR 的注释。
@@ -306,6 +306,37 @@ git commit -m 'feat: 新增***组件'
 在提交 PR 之前，请确保您的本地分支是基于最新的主分支。
 PR 的提交应该尽可能小，每个 PR 都应该只包含一组相关的更改。这使得审核更容易，也使得代码更容易维护。
 为您的 PR 添加描述，让其他开发者了解您所做的更改及其目的
+
+7.如提交一直443错误，可以尝试修改本地仓库的远程仓库地址为ssh地址或者设置代理
+
+(1).修改本地仓库的远程仓库地址为ssh地址
+
+```shell
+ git remote set-url origin git@github.com:dk-plus-ui/dk-plus-ui.git
+```
+
+(2).设置代理
+
+```shell
+git config --global http.proxy socks5 127.0.0.1:7890
+git config --global https.proxy socks5 127.0.0.1:7890
+git config --global http.proxy 127.0.0.1:7890
+git config --global https.proxy 127.0.0.1:7890
+```
+
+(3).查看代理
+
+```shell
+git config --global --get http.proxy
+git config --global --get https.proxy
+```
+
+(4).取消代理
+
+```shell
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
 
 ## 📦 NPM 发布流程
 
@@ -332,8 +363,8 @@ npm publish
 
 ## 💌 非常感谢
 
-感谢所有已经为 DK-plus [做出贡献的人](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
+感谢所有已经为 DK-plus [做出贡献的人](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)！
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors" />
 </a>

@@ -36,7 +36,7 @@
         small: 16,
         mini: 12
       }
-
+      
       const data = reactive<DataType>({
         step: Number(props.step),
         min: props.min,
@@ -49,17 +49,18 @@
         position: props.position,
         placeholder: props.placeholder
       })
-
+      
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)
         const floatValue = targetValue.toFixed(data.precision)
         return parseFloat(floatValue)
       }
-
+      
       const modelValue = ref<number>(props.modelValue)
-
+      const showValue = ref<string | number>('')
+      
       const disabled = ref<boolean>(props.disabled)
-
+      
       const reduceDisabled = ref<boolean>(modelValue.value <= data.min)
       const plusDisabled = ref<boolean>(modelValue.value >= data.max)
 
@@ -94,8 +95,6 @@
         }
       }
 
-      const showValue = ref<string | number>('')
-
       watch(
         () => props.modelValue,
         val => {
@@ -114,8 +113,10 @@
       watch(
         (): number => modelValue.value,
         (val): void => {
+          if (disabled.value) return
+          
           let value: number = val
-
+          
           reduceDisabled.value = value <= data.min
           plusDisabled.value = value >= data.max
 
@@ -203,6 +204,7 @@
       :disabled="disabled"
       :readonly="readonly"
       :placeholder="placeholder"
+      border-radius="0"
       @change="handleInputChange"
     />
     <dk-button
