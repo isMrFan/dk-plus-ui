@@ -56,8 +56,7 @@ const buildEachComponent = async(): Promise<void[]> => {
     return [];
   }
 }
-
-async function genTypes(): Promise<void> {
+const genTypes: TaskFunction =async() =>{
   try {
     console.warn('现在开始打包🎇packages🎇内的ts声明文件和样式');
     const project = new Project({
@@ -131,7 +130,7 @@ function copyTypes(): TaskFunction {
   return parallel(copy('es'), copy('lib'));
 }
 
-async function buildComponentEntry(): Promise<void> {
+const buildComponentEntry: TaskFunction =async() => {
   console.warn('现在开始打包🎇输出JS文件🎇');
   try {
     const config = {
@@ -193,8 +192,11 @@ async function Finish(): Promise<void> {
   console.warn('║                           ║');
   console.warn('╚═══════════════════════════╝');
 }
-
-export const buildComponent = series(
+const clean: TaskFunction = async() => {
+  await run('rm -rf ./dist');
+};
+export const buildComponent: TaskFunction = series(
+  clean,
   buildEachComponent,
   genTypes,
   copyTypes(),

@@ -14,6 +14,7 @@ import type {TaskFunction } from 'gulp';
 import { parallel, series  } from 'gulp'
 import { run } from './utils'
 import { buildConfig } from './utils/config'
+
 export const genEntryTypes = async(): Promise<void> => {
   const files = await glob('*.ts', {
     cwd: zpRoot,
@@ -70,4 +71,4 @@ const copyEntryTypes = (): TaskFunction => {
   return parallel([copy('esm'), copy('cjs')]);
 };
 
-export const genTypes = series(genEntryTypes, copyEntryTypes())
+export const genTypes:TaskFunction = series(genEntryTypes, copyEntryTypes())

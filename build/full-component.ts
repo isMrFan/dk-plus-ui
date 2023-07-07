@@ -5,6 +5,7 @@
  * @description 打包文件输出过滤设置
  **/
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import type {TaskFunction } from 'gulp';
 import commonjs from '@rollup/plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 import typescript from 'rollup-plugin-typescript2'
@@ -73,4 +74,4 @@ async function buildEntry(): Promise<void> {
   );
 }
 
-export const buildFullComponent = parallel(buildFull, buildEntry)
+export const buildFullComponent:TaskFunction = parallel(buildFull, buildEntry)
