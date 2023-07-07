@@ -1,7 +1,7 @@
 # input-number 数字输入框
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/inputNumber.md)
 
 ## 基础用法
 

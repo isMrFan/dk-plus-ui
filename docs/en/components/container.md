@@ -3,7 +3,7 @@
 Handle some common web layout, to achieve fast construction
 
 - [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkcontainer)
-- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/container.md)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/container.md)
 
 ## Basic use
 

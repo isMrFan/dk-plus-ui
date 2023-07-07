@@ -26,7 +26,7 @@ Before contributing, you need to get the project up and running so that you can 
 
 If you have completed the previous preparations, you can skip ahead and start from here:
 
-- Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
+- Fork [dk-plus](https://github.com/dk-plus-ui/dk-plus-ui)
 
 - Clone your fork to your local machine.
 
@@ -181,7 +181,7 @@ Next execute the command:
 
 ```shell
 # clone 项目
-git clone https://github.com/dk-plus-ui/dk-ui.git
+git clone https://github.com/dk-plus-ui/dk-plus-ui.git
 
 # 进入项目目录
 cd dk-ui
@@ -221,7 +221,7 @@ The editor is highly recommended [Visual Studio Code](https://code.visualstudio.
 
 ## 🔓 Command description
 
-dk-plus Internally set up a lot of commands in [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) Is available for viewing. Each command is described in detail below:
+dk-plus Internally set up a lot of commands in [package.json](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/package.json) Is available for viewing. Each command is described in detail below:
 
 | script fields | Corresponding command                                                   | Command description        |
 | ----------- | ------------------------------------------------------------------------- | ---------------- |
@@ -239,10 +239,10 @@ dk-plus Internally set up a lot of commands in [package.json](https://github.com
 
 ## 🚨 Development specification
 
-The main source files are all there [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) Directory, where each subdirectory has a separate `README.md` For a description of the specified directory, refer to the following documents for detailed specifications of each module:
+The main source files are all there [packages](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages) Directory, where each subdirectory has a separate `README.md` For a description of the specified directory, refer to the following documents for detailed specifications of each module:
 
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md) Create a new component
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) Style subject directory
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/README.md) Create a new component
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/theme-chalk/README.md) Style subject directory
 
 ## ⚠️ Submission specification
 
@@ -339,8 +339,8 @@ If you feel that dk-plus has helped you, you can ask the author for a cup of cof
 
 ## 💌 Thank you very much
 
-Thanks for all that has been done DK-plus [People who contribute](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
+Thanks for all that has been done DK-plus [People who contribute](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)！
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors" />
 </a>
