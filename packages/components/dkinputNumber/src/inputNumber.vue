@@ -72,10 +72,6 @@
         } else {
           modelValue.value = newValue
         }
-        showValue.value = modelValue.value
-        if (data.precision > 0) {
-          showValue.value = modelValue.value.toFixed(data.precision)
-        }
       }
 
       const plus = (): void => {
@@ -85,10 +81,6 @@
           modelValue.value = data.max
         } else {
           modelValue.value = newValue
-        }
-        showValue.value = modelValue.value
-        if (data.precision > 0) {
-          showValue.value = modelValue.value.toFixed(data.precision)
         }
       }
 
@@ -121,8 +113,10 @@
       watch(
         (): number => modelValue.value,
         (val): void => {
+          if (disabled.value) return
+          
           let value: number = val
-
+          
           reduceDisabled.value = value <= data.min
           plusDisabled.value = value >= data.max
 
