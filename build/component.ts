@@ -192,11 +192,7 @@ async function Finish(): Promise<void> {
   console.warn('║                           ║');
   console.warn('╚═══════════════════════════╝');
 }
-const clean: TaskFunction = async() => {
-  await run('rm -rf ./dist');
-};
 export const buildComponent: TaskFunction = series(
-  clean,
   buildEachComponent,
   genTypes,
   copyTypes(),

@@ -19,9 +19,13 @@ const copySourceCode: TaskFunction = async() => {
   await run(`cp ${zpRoot}/package.json ${outDir}/package.json`);
 };
 
+const clean: TaskFunction = async() => {
+  await run('rm -rf ./dist');
+};
+
 //1.打包样式 2.打包工具方法 2.打包所有组件 3.打包每个组件 4.生成一个组件库 5.发布组件
-export default series(
-  withTaskName('clean', () => run('pnpm run build clean')),
+const defaultTask: TaskFunction =  series(
+  withTaskName('clean', clean),
   parallel(
     withTaskName('buildPackages', () =>
       run('pnpm run --filter ./packages/* --parallel build')
@@ -33,7 +37,7 @@ export default series(
   ),
   parallel(genTypes, copySourceCode)
 )
-
+export default defaultTask;
 //  这是一个任务
 // 任务执行器  gulp 任务名 就会执行对应的任务
 export * from './full-component'
