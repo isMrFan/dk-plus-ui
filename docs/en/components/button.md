@@ -2,8 +2,8 @@
 
 This is a very ordinary looking button, but it is very powerful。
 
-- [Source code](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkbutton)
-- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/button.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkbutton)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/button.md)
 
 ## 1.Base button
 

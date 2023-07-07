@@ -2,8 +2,8 @@
 
 Simple and not simple input box components
 
-- [source code](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkinput)
-- [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/input.md)
+- [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinput)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/input.md)
 
 ## Basic Input Box
 
