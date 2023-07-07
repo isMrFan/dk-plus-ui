@@ -3,7 +3,7 @@
 Custom loading-in instructions for the loading-in state on asynchronous requests.
 
 - [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkloading)
-- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/loading.md)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/loading.md)
 
 ## Basic use
 

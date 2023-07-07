@@ -1,7 +1,7 @@
 # input-number Number input box
 
 - [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
-- [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/inputNumber.md)
 
 ## Basic usage
 

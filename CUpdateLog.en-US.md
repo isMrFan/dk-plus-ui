@@ -2,7 +2,7 @@
 
 > English documents are not synchronized in time most of the time. Please refer to Chinese documents for details.
 
-English | [Chinese](https://github.com/dk-plus-ui/dk-ui/blob/master/CUpdateLog.md)
+English | [Chinese](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/CUpdateLog.md)
 
 
 ## 1.0.21-alpha.1 (2023-07-07)

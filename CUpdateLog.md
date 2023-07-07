@@ -1,6 +1,6 @@
 # 更新日志
 
-中文 | [英文](https://github.com/dk-plus-ui/dk-ui/blob/master/CUpdateLog.en-US.md)
+中文 | [英文](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/CUpdateLog.en-US.md)
 
 ## 1.0.21-alpha.1 (2023-07-07)
 

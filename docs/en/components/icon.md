@@ -2,8 +2,8 @@
 
 Using an SVG icon library can reduce project size and improve loading speed.
 
-- [Source code](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkicon)
-- [Document editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/icon.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkicon)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/icon.md)
 
 ## 1. Basic use
 
