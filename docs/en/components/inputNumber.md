@@ -3,27 +3,15 @@
 - [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
 - [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
 
-<script lang='ts'>
-  import { defineComponent, ref } from 'vue'
-  export default defineComponent({
-    setup() {
-      const value = ref(0)
-      return {
-        value
-      }
-    }
-  })
-</script>
-
 ## Basic usage
 
 ::: module
 <template #code>
-<dk-input-number class='docs-number' v-model="value"></dk-input-number>
+<VueDomeInputNumber class='docs-number'></VueDomeInputNumber>
 </template>
 
 ```html
-<dk-input-number v-model="value"></dk-input-number>
+<dk-input-number></dk-input-number>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -45,11 +33,11 @@
 
 ::: module
 <template #code>
-<dk-input-number class='docs-number' v-model="value" disabled></dk-input-number>
+<VueDomeInputNumber class='docs-number' disabled></VueDomeInputNumber>
 </template>
 
 ```html
-<dk-input-number v-model="value" disabled></dk-input-number>
+<dk-input-number disabled></dk-input-number>
 </script>
 ```
 
@@ -61,13 +49,13 @@
 
 ::: module
 <template #code>
-<dk-input-number class='docs-number' size="large"></dk-input-number>
+<VueDomeInputNumber class='docs-number' size="large"></VueDomeInputNumber>
 <div style='margin-top: 10px'></div>
-<dk-input-number class='docs-number' size="medium"></dk-input-number>
+<VueDomeInputNumber class='docs-number' size="medium"></VueDomeInputNumber>
 <div style='margin-top: 10px'></div>
-<dk-input-number class='docs-number' size="small"></dk-input-number>
+<VueDomeInputNumber class='docs-number' size="small"></VueDomeInputNumber>
 <div style='margin-top: 10px'></div>
-<dk-input-number class='docs-number' size="mini"></dk-input-number>
+<VueDomeInputNumber class='docs-number' size="mini"></VueDomeInputNumber>
 </template>
 
 ```html
@@ -86,11 +74,11 @@
 ::: module
 
 <template #code>
-<dk-input-number class='docs-number' v-model="value" :max="10" :min="0"></dk-input-number>
+<VueDomeInputNumber class='docs-number' :max="10" :min="0"></VueDomeInputNumber>
 </template>
 
 ```html
-<dk-input-number v-model="value" :max="10" :min="0"></dk-input-number>
+<dk-input-number :max="10" :min="0"></dk-input-number>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -112,11 +100,11 @@
 
 ::: module
 <template #code>
-<dk-input-number class='docs-number' v-model="value" :step="2"></dk-input-number>
+<VueDomeInputNumber class='docs-number' :step="2"></VueDomeInputNumber>
 </template>
 
 ```html
-<dk-input-number v-model="value" :step="2"></dk-input-number>
+<dk-input-number :step="2"></dk-input-number>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -138,11 +126,11 @@
 
 ::: module
 <template #code>
-<dk-input-number class='docs-number' v-model="value" :precision="2"></dk-input-number>
+<VueDomeInputNumber class='docs-number' :precision="2" step="0.2"></VueDomeInputNumber>
 </template>
 
 ```html
-<dk-input-number v-model="value" :precision="2"></dk-input-number>
+<dk-input-number :precision="2"></dk-input-number>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -164,11 +152,11 @@
 
 ::: module
 <template #code>
-<dk-input-number class='docs-number' v-model="value" :step="2" strict></dk-input-number>
+<VueDomeInputNumber class='docs-number' :step="2" strict></VueDomeInputNumber>
 </template>
 
 ```html
-<dk-input-number v-model="value" :step="2" strict></dk-input-number>
+<dk-input-number :step="2" strict></dk-input-number>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -212,3 +200,7 @@
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
   </a>
 </div>
+
+<script lang='ts' setup>
+  import VueDomeInputNumber from './vueDome/inputNumber/index.vue';
+</script>
