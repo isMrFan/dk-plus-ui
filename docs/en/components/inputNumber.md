@@ -3,6 +3,18 @@
 - [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
 - [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
 
+<script lang='ts'>
+  import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+    setup() {
+      const value = ref(0)
+      return {
+        value
+      }
+    }
+  })
+</script>
+
 ## Basic usage
 
 ::: module
