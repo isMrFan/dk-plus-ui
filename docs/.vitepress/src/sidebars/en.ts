@@ -33,9 +33,9 @@ export const sidebar = {
     {
       text: 'Base component',
       items: [
-        { text: 'icon', link: '/en/components/icon' },
-        { text: 'container', link: '/en/components/container' },
-        { text: 'space', link: '/en/components/space' },
+        { text: 'Icon', link: '/en/components/icon' },
+        { text: 'Container', link: '/en/components/container' },
+        { text: 'Space', link: '/en/components/space' },
         { text: 'Button', link: '/en/components/button' },
         { text: 'Shadow', link: '/en/components/shadow' }
       ]

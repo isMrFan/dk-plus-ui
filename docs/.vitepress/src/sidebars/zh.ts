@@ -33,9 +33,9 @@ export const sidebar = {
     {
       text: '基础组件',
       items: [
-        { text: 'icon 图标', link: '/zh/components/icon' },
-        { text: 'container 页面布局', link: '/zh/components/container' },
-        { text: 'space 间距', link: '/zh/components/space' },
+        { text: 'Icon 图标', link: '/zh/components/icon' },
+        { text: 'Container 页面布局', link: '/zh/components/container' },
+        { text: 'Space 间距', link: '/zh/components/space' },
         { text: 'Button 按钮', link: '/zh/components/button' },
         { text: 'Shadow 盒子', link: '/zh/components/shadow' }
       ]
