@@ -41,15 +41,15 @@ export const sidebar = {
       ]
     },
     {
-      text: 'Form 表单组件',
+      text: '表单组件',
       items: [
-        { text: 'Input输入框', link: '/zh/components/input' },
-        { text: 'InputNumber数字输入框', link: '/zh/components/inputNumber' }
+        { text: 'Input 输入框', link: '/zh/components/input' },
+        { text: 'InputNumber 数字输入框', link: '/zh/components/inputNumber' }
       ]
     },
     {
       text: '反馈组件',
-      items: [{ text: 'loading', link: '/zh/components/loading' }]
+      items: [{ text: 'Loading 加载', link: '/zh/components/loading' }]
     }
   ],
   '/expansion/': expansionNav
