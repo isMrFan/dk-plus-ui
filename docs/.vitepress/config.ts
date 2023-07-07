@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import { description } from './data/description'
 import { head } from './data/head'
 import { PluginModule } from './plugins'
 import getNavs from '../.vitepress/src/navs/zh'
@@ -10,7 +9,6 @@ module.exports = defineConfig({
   lang: 'zh-CN',
   title: 'dk-plus',
   head,
-  description,
   appearance: true,
   /**
    * 是否显示最后更新时间
