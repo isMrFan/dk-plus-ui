@@ -1,6 +1,6 @@
 import type { Plugin } from 'vue'
 import * as svgList from './default'
-import { withInstall } from '@dk-plus/utils/with-install'
+import { withInstall } from '../_utils'
 
 const installedComponents: Record<string, Plugin<[]>> = {}
 for (const key in svgList) {

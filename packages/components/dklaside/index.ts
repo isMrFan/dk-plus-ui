@@ -1,5 +1,5 @@
 import las from './src/laside.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
+import { withInstall } from '../_utils/index'
 const DkLaside = withInstall(las)
 export type lasInstance = InstanceType<typeof las>
 export { DkLaside }

@@ -1,5 +1,4 @@
 import installer from './exportFile'
-
 export * from './components'
 
 export * from './_hooks'

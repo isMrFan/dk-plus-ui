@@ -1,6 +1,5 @@
 import Container from './src/container.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
-const dkContainer = withInstall(Container)
+import { withInstall } from '../_utils/index'
+export const DkContainer = withInstall(Container)
 export type ContainerInstance = InstanceType<typeof Container>
-export { dkContainer }
-export default dkContainer
+export default DkContainer

@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
     "module": "ESNext", // 打包模块类型ESNext
-    "declaration": true, // 默认不要声明文件
-    "outDir": "dist/entry/types", // 输出目录
     "noImplicitAny": false, // 支持类型不标注可以默认any
     "removeComments": true, // 删除注释
     "moduleResolution": "node", // 按照node模块来解析

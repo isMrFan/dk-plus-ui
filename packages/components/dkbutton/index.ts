@@ -1,6 +1,5 @@
 import button from './src/button.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
-const dkbutton = withInstall(button)
+import { withInstall } from '../_utils/index'
+export const DkButton = withInstall(button)
 export type ButtonInstance = InstanceType<typeof button>
-export { dkbutton }
-export default dkbutton
+export default DkButton
