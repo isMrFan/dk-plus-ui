@@ -10,14 +10,18 @@
     border-bottom: 1px solid var(--vp-badge-info-border);
     box-sizing: border-box;
     span {
+      display: block;
       cursor: pointer;
       user-select: none;
+      border: 1px solid #10b981;
+      border-radius: 20px;
+      padding: 10px 0;
     }
     span:hover {
       color: #10b981;
     }
   }
-  .dk-shadow{
+  .dk-shadow {
     box-shadow: 0 0 4px var(--vp-badge-info-border);
   }
   .dkcodedisplay_code {
