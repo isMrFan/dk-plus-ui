@@ -37,15 +37,15 @@ export default (): UserConfigExport => {
       }
     },
     build: {
-      assetsDir: 'theme',
+      assetsDir: 'theme-chalk',
       rollupOptions: {
         input: readdirSync(input).map((name): string => {
           return `${input}/${name}`
         }),
         output: {
-          entryFileNames: 'theme/[name].js',
-          chunkFileNames: 'theme/[name].js',
-          assetFileNames: 'theme/[name].[ext]'
+          entryFileNames: 'theme-chalk/[name].js',
+          chunkFileNames: 'theme-chalk/[name].js',
+          assetFileNames: 'theme-chalk/[name].[ext]'
         }
       }
     }

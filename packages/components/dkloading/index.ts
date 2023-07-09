@@ -1,4 +1,4 @@
-import { DirectiveLoading } from '../_hooks/_directive/loading/index'
+import { DirectiveLoading } from '../_hooks'
 import { installDirective, withInstall } from '../_utils/index'
 
 import type loading from './src/loading.vue'

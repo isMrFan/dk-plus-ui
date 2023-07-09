@@ -1,5 +1,6 @@
 import * as components from './components'
-import { version } from '../dk-plus/package.json'
+import * as componentsIcon from './components-icon'
+import { version } from '../components/package.json'
 import { DkLoading } from './dkloading'
 import { objectEntries } from './_utils'
 import type { App } from 'vue'
@@ -20,7 +21,10 @@ const install = (app: App): App => {
   objectEntries(components).forEach(([key, value]): void => {
     app.component(key, value)
   })
-  app.directive('loading', DkLoading.directive)
+  objectEntries(componentsIcon).forEach(([key, value]): void => {
+    app.component(key, value)
+  })
+  app.directive('dk-loading', DkLoading.directive)
 
   return app
 }

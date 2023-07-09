@@ -1,9 +1,8 @@
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
-import dkNamePlugin from './packages/dk-setup-name'
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
-import { name, version } from './packages/dk-plus/package.json'
+import { name, version } from './packages/components/package.json'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
@@ -41,9 +40,7 @@ export default (): UserConfigExport => {
         afterBuild: (): void => {
           move()
         }
-      }),
-      /** 可设置组件名称 */
-      dkNamePlugin()
+      })
     ],
     css: {},
 
@@ -125,7 +122,7 @@ export default (): UserConfigExport => {
 const move = (): void => {
   const files = [
     { input: './README.md', outDir: 'dist/README.md' },
-    { input: './packages/dk-plus/package.json', outDir: 'dist/package.json' },
+    { input: './packages/components/package.json', outDir: 'dist/package.json' },
     { input: './LICENSE', outDir: 'dist/LICENSE' }
   ] as const
 

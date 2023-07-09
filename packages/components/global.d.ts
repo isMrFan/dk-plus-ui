@@ -1,4 +1,5 @@
 import type * as components from './components'
+import type * as componentsIcon from './components-icon'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
@@ -13,6 +14,7 @@ declare module '@vue/runtime-core' {
     DkMain: typeof components.DkMain
     DkShadow: typeof components.DkShadow
     DkSpace: typeof components.DkSpace
+    IconRefresh: typeof componentsIcon.IconRefresh
   }
   interface ComponentCustomProperties {
     DkLoading: typeof components.DkLoading
