@@ -2,6 +2,7 @@
   "compilerOptions": {
     "module": "ESNext", // 打包模块类型ESNext
     "declaration": true, // 默认不要声明文件
+    "outDir": "dist/entry/types", // 输出目录
     "noImplicitAny": false, // 支持类型不标注可以默认any
     "removeComments": true, // 删除注释
     "moduleResolution": "node", // 按照node模块来解析
@@ -30,7 +31,10 @@
     // 排除掉哪些类库
     "node_modules",
     "**/__tests__",
-    "dist/**"
+    "dist/**",
+    "play",
+    "docs",
+    "build"
   ],
   "types": [
     // 类型声明
@@ -41,6 +45,21 @@
     "*": [
       "node_modules/*",
       "node_modules/@types/*"
+    ],
+    "~/*": [
+      "packages/*"
     ]
-  }
+  },
+  "include": [
+    "play/**/*.ts",
+    "play/**/*.tsx",
+    "play/**/*.vue",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/**/*.vue",
+    "typings/**/*.ts",
+    "typings/shims-vue.d.ts",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ]
 }

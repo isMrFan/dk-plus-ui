@@ -193,8 +193,8 @@ async function Finish(): Promise<void> {
   console.warn('╚═══════════════════════════╝');
 }
 export const buildComponent: TaskFunction = series(
-  buildEachComponent,
   genTypes,
+  buildEachComponent,
   copyTypes(),
   buildComponentEntry,
   Finish,

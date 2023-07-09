@@ -11,8 +11,9 @@ import path from 'path'
 import { outDir, projectRoot } from './utils/paths'
 import ts from 'gulp-typescript'
 import { withTaskName } from './utils'
+import type {TaskFunction } from 'gulp';
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const buildPackages = (dirname: string, name: string)=> {
+export const buildPackages = (dirname: string, name: string):TaskFunction=> {
   // 打包的格式需要是什么类型的？ 模块规范 cjs  es模块规范
   // umd 是在浏览器中用的
   // 可以用rollup， 这个逻辑知识让ts-> js即可

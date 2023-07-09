@@ -1,2 +1,4 @@
 import { buildPackages } from '../../build/packages'
-export default buildPackages(__dirname, 'utils')
+import type { TaskFunction } from 'gulp';
+const isBuildPackages:TaskFunction=buildPackages(__dirname, 'utils')
+export default isBuildPackages

@@ -4,7 +4,7 @@ import dartSass from 'sass'
 import autoprefixer from 'gulp-autoprefixer'
 import cleanCss from 'gulp-clean-css'
 import path from 'path'
-
+import type { TaskFunction } from 'gulp'
 import { series, src, dest } from 'gulp'
 function compile(): NodeJS.ReadWriteStream {
   const sass = gulpSass(dartSass)
@@ -31,4 +31,5 @@ function CopyFullStyle(): NodeJS.ReadWriteStream {
   )
 }
 
-export default series(compile, CopyFont, CopyFullStyle)
+const isSeries: TaskFunction = series(compile, CopyFont, CopyFullStyle)
+export default isSeries
