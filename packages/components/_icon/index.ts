@@ -170,7 +170,7 @@ import i_Password6 from './src/i-Password6/index.vue'
 import i_Edit from './src/i-edit/index.vue'
 import i_Add1 from './src/i-Add1/index.vue'
 import i_Reduce1 from './src/i-Reduce1/index.vue'
-
+import i_searchSmall from './src/i-searchSmall/index.vue'
 export const IconShanchu1 = withInstall(i_shanchu1)
 export const IconShanchu2 = withInstall(i_Shanchu2)
 export const IconRefresh = withInstall(i_Refresh)
@@ -342,3 +342,4 @@ export const IconPassword6 = withInstall(i_Password6)
 export const IconEdit = withInstall(i_Edit)
 export const IconAdd1 = withInstall(i_Add1)
 export const IconReduce1 = withInstall(i_Reduce1)
+export const IconSearchSmall = withInstall(i_searchSmall)

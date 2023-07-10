@@ -8,8 +8,10 @@
   import { defineComponent, ref, onMounted } from 'vue'
   import { loadingProps } from './props'
   import { getStyleList } from '../../_hooks'
+  import { IconRefresh } from '../../_icon'
   export default defineComponent({
     name: 'DkLoading',
+    components: { IconRefresh },
     props: loadingProps,
     setup(props) {
       const nbSpinner = ref<HTMLButtonElement>()

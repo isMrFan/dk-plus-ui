@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
+    "@types/highlight.js": "^10.1.0",
     "@types/node": "^18.11.15",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
