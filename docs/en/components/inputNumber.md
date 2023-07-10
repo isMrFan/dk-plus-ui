@@ -1,7 +1,7 @@
 # input-number Number input box
 
 - [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
-- [documents editing](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/inputNumber.md)
 
 ## Basic usage
 
@@ -37,7 +37,17 @@
 </template>
 
 ```html
-<dk-input-number disabled></dk-input-number>
+<dk-input-number v-model='value' disabled></dk-input-number>
+<script lang='ts'>
+  import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+    setup() {
+      const value = ref(0)
+      return {
+        value
+      }
+    }
+  })
 </script>
 ```
 

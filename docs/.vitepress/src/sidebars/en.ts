@@ -16,7 +16,7 @@ export const sidebar = {
     {
       text: 'guide',
       items: [
-        { text: 'introduce', link: '/en/document/introduce' },
+        { text: 'Introduce', link: '/en/document/introduce' },
         { text: 'Contribution guide', link: '/en/document/contributing' },
         { text: 'Join us', link: '/en/document/join' }
       ]
@@ -25,7 +25,7 @@ export const sidebar = {
       text: 'Development course',
       items: [
         { text: 'Update log', link: '/en/document/update' },
-        { text: 'milestone', link: '/en/document/mileage' }
+        { text: 'Milestone', link: '/en/document/mileage' }
       ]
     }
   ],
@@ -33,9 +33,9 @@ export const sidebar = {
     {
       text: 'Base component',
       items: [
-        { text: 'icon', link: '/en/components/icon' },
-        { text: 'container', link: '/en/components/container' },
-        { text: 'space', link: '/en/components/space' },
+        { text: 'Icon', link: '/en/components/icon' },
+        { text: 'Container', link: '/en/components/container' },
+        { text: 'Space', link: '/en/components/space' },
         { text: 'Button', link: '/en/components/button' },
         { text: 'Shadow', link: '/en/components/shadow' }
       ]
@@ -49,7 +49,7 @@ export const sidebar = {
     },
     {
       text: 'Feedback element',
-      items: [{ text: 'loading', link: '/en/components/loading' }]
+      items: [{ text: 'Loading', link: '/en/components/loading' }]
     }
   ],
   '/expansion/': expansionNav

@@ -1,5 +1,9 @@
 # milestone
 
+## 2023-07-10
+
+Because the next technical gulp packaging declaration file is always set doll leafing through a lot of documents failed to solve so changed to vite packaging
+
 ## 2023-06-21
 
 dk-plus Official website home page revision

@@ -5,11 +5,11 @@
   DK-plus 可在 vue3 的web应用中快速构建交互界面,全面的组件和便捷的工具会让您信手拈来，如鱼得水
 </p>
 <p align="center">
-  中文 | <a href="https://github.com/dk-plus-ui/dk-ui/blob/master/README.en-US.md">English</a>
+  中文 | <a href="https://github.com/dk-plus-ui/dk-plus-ui/blob/master/README.en-US.md">English</a>
 </p>
-
+////"build": "gulp -f build/gulpfile.ts",
 <p align="center">
-  <a href="https://github.com/dk-plus-ui/dk-ui/stargazers">
+  <a href="https://github.com/dk-plus-ui/dk-plus-ui/stargazers">
     <img src="https://img.shields.io/github/stars/dk-plus-ui/dk-ui" />
   </a>
   <a href="https://www.npmjs.com/package/dk-plus">
@@ -18,7 +18,7 @@
   <a href="https://dk-plus-uis.com">
     <img src="https://img.shields.io/badge/dk--plus-Docs-blue" />
   </a>
-  <a href="https://github.com/dk-plus-ui/dk-ui/blob/master/CUpdateLog.md">
+  <a href="https://github.com/dk-plus-ui/dk-plus-ui/blob/master/CUpdateLog.md">
     <img src="https://img.shields.io/badge/dk--plus-CUpdateLog-blue" />
   </a>
 </p>
@@ -102,8 +102,8 @@ createApp(App).use(dkPlus).mount('#app')
 
 - [官方文档](https://dk-plus-uis.com)
 - [NPM](https://www.npmjs.com/package/dk-plus)
-- [贡献指南](https://github.com/dk-plus-ui/dk-ui/blob/master/contribution.md)
-- [更新日志](https://github.com/dk-plus-ui/dk-ui/blob/master/CUpdateLog.md)
+- [贡献指南](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/contribution.md)
+- [更新日志](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/CUpdateLog.md)
 
 ## 🌈 加入 DK-plus
 
@@ -113,12 +113,12 @@ createApp(App).use(dkPlus).mount('#app')
 
 ## 💌 特别感谢
 
-感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)
+感谢所有已经为 `DK-plus` [做出贡献的人！](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-plus-ui" />
 </a>
 
 ## 📃 协议许可证
 
-[MIT](https://github.com/dk-plus-ui/dk-ui/blob/master/LICENSE)
+[MIT](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/LICENSE)

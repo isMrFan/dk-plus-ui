@@ -3,7 +3,7 @@
 最基础的用法，通过这个组件来给组件之间提供统一的间距。
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkspace)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/space.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/space.md)
 
 ## 基本使用
 

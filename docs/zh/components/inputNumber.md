@@ -1,9 +1,9 @@
 # input-number 数字输入框
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/inputNumber.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/inputNumber.md)
 
-## 基础用法
+## <a id='基础用法'>基础用法</a>
 
 ::: module
 <template #code>
@@ -27,7 +27,7 @@
 
 :::
 
-## 禁用状态
+## <a id='禁用状态'>禁用状态</a>
 
 `disabled` 属性设置为 `true` 时，数字输入框为禁用状态。
 
@@ -37,13 +37,23 @@
 </template>
 
 ```html
-<dk-input-number disabled></dk-input-number>
+<dk-input-number v-model='value' disabled></dk-input-number>
+<script lang='ts'>
+  import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+    setup() {
+      const value = ref(0)
+      return {
+        value
+      }
+    }
+  })
 </script>
 ```
 
 :::
 
-## 尺寸
+## <a id='尺寸'>尺寸</a>
 
 `size` 属性用于控制数字输入框组件的尺寸，可选值为 `large`、`medium`、`small`(默认)和 `mini`。
 
@@ -67,7 +77,7 @@
 
 :::
 
-## 最大值与最小值
+## <a id='最大值与最小值'>最大值与最小值</a>
 
 `max` 属性用于设置数字输入框的最大值，`min` 属性用于设置数字输入框的最小值。
 
@@ -94,7 +104,7 @@
 
 :::
 
-## 步长
+## <a id='步长'>步长</a>
 
 `step` 属性用于设置数字输入框的步长，默认为 `1`。
 
@@ -120,7 +130,7 @@
 
 :::
 
-## 精度
+## <a id='精度'>精度</a>
 
 `precision` 属性用于设置数字输入框的精度，默认为 `0`。
 
@@ -146,7 +156,7 @@
 
 :::
 
-## 严格模式
+## <a id='严格模式'>严格模式</a>
 
 `strict` 属性用于设置数字输入框的严格模式，当 `strict` 属性为 `true` 时，输入框的值只能输入设置好的步长值。
 
@@ -172,21 +182,21 @@
 
 :::
 
-## 属性
+## <a id='属性'>属性</a>
 
 | 参数      | 说明                                                                 | 类型    | 可选值 | 默认值 |
 | --------- | -------------------------------------------------------------------- | ------- | ------ | ------ |
 | `v-model`     | 绑定值                                                               | `number`  | —      | —      |
-| `size`      | 输入框尺寸                                                           | `string`  | `large` `medium` `small` `mini`      | `small`  |
-| `disabled`  | 是否禁用状态                                                         | `boolean` | —      | `false`  |
-| `max`       | 设置最大值                                                           | `number`  | —      | `Infinity` |
-| `min`       | 设置最小值                                                           | `number`  | —      | `-Infinity` |
-| `step`      | 设置步长                                                             | `number`  | —      | `1`      |
-| `precision` | 数值精度                                                             | `number`  | —      | `0`      |
+| `size`      | [输入框尺寸](#尺寸)                                                           | `string`  | `large` `medium` `small` `mini`      | `small`  |
+| `disabled`  | [是否禁用状态](#禁用状态)                                                         | `boolean` | —      | `false`  |
+| `max`       | [设置最大值](#最大值与最小值)                                                           | `number`  | —      | `Infinity` |
+| `min`       | [设置最小值](#最大值与最小值)                                                           | `number`  | —      | `-Infinity` |
+| `step`      | [设置步长](#步长)                                                             | `number`  | —      | `1`      |
+| `precision` | [数值精度](#精度)                                                             | `number`  | —      | `0`      |
 | `strict`    | 是否严格模式，严格模式下，输入框的值只能输入设置好的步长值 | `boolean` | —      | `false`  |
 | `placeholder`    | 占位文本 | `string` | — | — |
 
-## 事件
+## <a id='事件'>事件</a>
 
 | 事件名称 | 说明             | 回调参数 |
 | -------- | ---------------- | -------- |
@@ -194,7 +204,7 @@
 
 
 
-## Contributors
+## <a id='Contributors'>Contributors</a>
 
 <div style='display: flex;'>
   <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-left:20px;'>

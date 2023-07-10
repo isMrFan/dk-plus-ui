@@ -23,7 +23,7 @@ Before contributing, you need to get the project up and running so that you can 
 
 If you have completed the previous preparations, you can skip ahead and start from here:
 
-- Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
+- Fork [dk-plus](https://github.com/dk-plus-ui/dk-plus-ui)
 
 - Clone your fork to your local machine.
 
@@ -33,13 +33,6 @@ If you have completed the previous preparations, you can skip ahead and start fr
 ├── .github     # github配置文件
 ├── .husky      # 代码提交前检测
 ├── .vscode     # vscode配置文件
-├── build       #打npm包工程文件
-├── ├── utils   # 打包工具配置
-├── ├── component.ts  #文件输出配置
-├── ├── full-component.ts #打包文件输出过滤设置
-├── ├── gen-types.ts      #gulpfile设置
-├── ├── gulpfile.ts       #打包启动文件
-├── └─ packages.ts       #专门打包util ， 指令 ， hook的
 ├── coverage   #测试覆盖率
 ├── deploy          # 远程命令SSH上传到服务器配置
 ├── ├── config.js   # 远程命令SSH上传到服务器配置
@@ -132,13 +125,10 @@ If you have completed the previous preparations, you can skip ahead and start fr
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式,样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
-├── ├── ├── ├── mixins  # 全局class命名生成方法
-├── ├── ├── ├── ├── configuration # 私有组件样式配置
-├── └─  └─ gulpfile.ts # 打包工具
+├── ├── ├── mixins  # 全局class命名生成方法
+├── ├── ├── ├── configuration # 私有组件样式配置
 ├── ├── dk-setup-name      #  根据命令生成组件文件夹 暂未实现
 ├── ├── dk-eslint          #  项目内的eslint配置
-├── ├── dk-plus         # 出口文件
-├── └─ utils           # 项目打包辅助器
 ├── play      # 组件调试测试项目
 ├── ├──  node_modules  # play的依赖 测试目录
 ├── ├──  router        # 路由配置
@@ -170,6 +160,9 @@ If you have completed the previous preparations, you can skip ahead and start fr
 ├── package.json    # 项目配置文件
 ├── pnpm-lock.yaml  # pnpm配置文件
 ├── pnpm-workspace.yaml #pnpm配置文件
+├── vite.config.css.ts  # 打包css文件配置
+├── vite.config.theme.ts  # 打包css文件配置
+├── vite.config.ts  # vite配置文件打包配置
 └─  tsconfig.json # TS配置文件
 
 ```
@@ -178,7 +171,7 @@ Next execute the command:
 
 ```shell
 # clone 项目
-git clone https://github.com/dk-plus-ui/dk-ui.git
+git clone https://github.com/dk-plus-ui/dk-plus-ui.git
 
 # 进入项目目录
 cd dk-ui
@@ -218,7 +211,7 @@ The editor is highly recommended [Visual Studio Code](https://code.visualstudio.
 
 ## 🔓 Command description
 
-dk-plus Internally set up a lot of commands in [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) Is available for viewing. Each command is described in detail below:
+dk-plus Internally set up a lot of commands in [package.json](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/package.json) Is available for viewing. Each command is described in detail below:
 
 | script fields | Corresponding command                                                   | Command description        |
 | ----------- | ------------------------------------------------------------------------- | ---------------- |
@@ -236,10 +229,10 @@ dk-plus Internally set up a lot of commands in [package.json](https://github.com
 
 ## 🚨 Development specification
 
-The main source files are all there [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) Directory, where each subdirectory has a separate `README.md` For a description of the specified directory, refer to the following documents for detailed specifications of each module:
+The main source files are all there [packages](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages) Directory, where each subdirectory has a separate `README.md` For a description of the specified directory, refer to the following documents for detailed specifications of each module:
 
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md) Create a new component
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) Style subject directory
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/README.md) Create a new component
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/theme-chalk/README.md) Style subject directory
 
 ## ⚠️ Submission specification
 
@@ -295,9 +288,9 @@ git commit -m 'feat: 新增***组件'
 
 4.Push a branch to a remote repository
 
-    ```shell
-    git push origin <branch-name>
-    ```
+```shell
+  git push origin <branch-name>
+```
 
 5. Create a PR in the remote repository
 On a code hosting platform like GitHub or GitLab, find the branch you just pushed and create a PR. You can provide details about the changes you have made and any other comments about PR in the PR.
@@ -336,8 +329,8 @@ If you feel that dk-plus has helped you, you can ask the author for a cup of cof
 
 ## 💌 Thank you very much
 
-Thanks for all that has been done DK-plus [People who contribute](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
+Thanks for all that has been done DK-plus [People who contribute](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)！
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors" />
 </a>
