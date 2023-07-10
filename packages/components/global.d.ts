@@ -7,7 +7,7 @@ declare module '@vue/runtime-core' {
     Dkcodedisplay: typeof components.Dkcodedisplay
     DkContainer: typeof components.DkContainer
     DkFooter: typeof components.DkFooter
-    dkHeader: typeof components.dkHeader
+    DkHeader: typeof components.DkHeader
     DkIcon: typeof components.DkIcon
     DkInput: typeof components.DkInput
     DkInputNumber: typeof components.DkInputNumber
