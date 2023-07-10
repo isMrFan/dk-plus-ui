@@ -78,8 +78,6 @@ Using an SVG icon library can reduce project size and improve loading speed.
 
 <script setup lang="ts">
   import iconDom from './vueDome/icon/index.vue'
-  import { svgList } from '@dk-plus/components/_icon'
-  const { IconWeiXin } = svgList
+  import svgList from 'isIcon'
   const svgListLength=Object.keys(svgList).length
-  const expose = { IconWeiXin }
 </script>

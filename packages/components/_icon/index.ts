@@ -1,185 +1,348 @@
-import type { Plugin } from 'vue'
+import { withInstall } from '../_utils/index'
+import i_shanchu1 from './src/i-shanchu1/index.vue'
+import i_Shanchu2 from './src/i-shanchu2/index.vue'
+import i_Refresh from './src/i-Refresh/index.vue'
+import i_BigSearch from './src/i-BigSearch/index.vue'
+import i_File from './src/i-file/index.vue'
+import i_OpenFile from './src/i-openFile/index.vue'
+import i_Search from './src/i-search01/index.vue'
+import i_Search2 from './src/i-search02/index.vue'
+import i_Search3 from './src/i-search03/index.vue'
+import i_SysMenu from './src/i-sysMenu/index.vue'
+import i_SysBack from './src/i-sysBack/index.vue'
+import i_SysReset from './src/i-sysReset/index.vue'
+import i_Link from './src/i-link/index.vue'
+import i_Save from './src/i-save/index.vue'
+import i_Sys1 from './src/i-sys1/index.vue'
+import i_Sys2 from './src/i-sys2/index.vue'
+import i_NetworkSys from './src/i-networkSys/index.vue'
+import i_TheChildSys from './src/i-TheChildSys/index.vue'
+import i_IntelligenceSys from './src/i-intelligenceSys/index.vue'
+import i_SysPer from './src/i-sysPer/index.vue'
+import i_SysRun from './src/i-SysRun/index.vue'
+import i_SysInformation from './src/i-SysInformation/index.vue'
+import i_SearchFile from './src/i-searchFile/index.vue'
+import i_Print from './src/i-print/index.vue'
+import i_Administrator from './src/i-IconAdministrator/index.vue'
+import i_SearchAdmin from './src/i-searchAdmin/index.vue'
+import i_DataSys from './src/i-dataSys/index.vue'
+import i_SysRole from './src/i-sysRole/index.vue'
+import i_Pause from './src/i-pause/index.vue'
+import i_EquipmentSearch from './src/i-equipmentSeach/index.vue'
+import i_EquipmentSearch1 from './src/i-equipmentSeach1/index.vue'
+import i_QuerySys from './src/i-querySys/index.vue'
+import i_LogOffSys from './src/i-LogOffSys/index.vue'
+import i_Mysql from './src/i-Mysql/index.vue'
+import i_System from './src/i-System/index.vue'
+import i_SysLoad from './src/i-SysLoad/index.vue'
+import i_ScienceSys from './src/i-ScienceSys/index.vue'
+import i_SysOperation from './src/i-SysOperation/index.vue'
+import i_FileSys from './src/i-FileSys/index.vue'
+import i_FileSysMedicine from './src/i-FileSysMedicine/index.vue'
+import i_SysMsg1 from './src/i-sysMsg1/index.vue'
+import i_SysUpload from './src/i-sysUpload/index.vue'
+import i_SysSetting from './src/i-sysSetting/index.vue'
+import i_Notice from './src/i-Notice/index.vue'
+import i_Light from './src/i-light/index.vue'
+import i_System2 from './src/i-System2/index.vue'
+import i_SysManage from './src/i-sysManage/index.vue'
+import i_Setting from './src/i-Setting/index.vue'
+import i_SetSeat from './src/i-SetSeat/index.vue'
+import i_AssetsDic from './src/i-AssetsDic/index.vue'
+import i_SysConfig from './src/i-SysConfig/index.vue'
+import i_SysLog from './src/i-SysLog/index.vue'
+import i_SysMsg2 from './src/i-SysMsg2/index.vue'
+import i_System3 from './src/i-System3/index.vue'
+import i_SysNotice1 from './src/i-SysNotice1/index.vue'
+import i_CallSys from './src/i-CallSys/index.vue'
+import i_SysSupervise from './src/i-SysSupervise/index.vue'
+import i_SysMaintain from './src/i-SysMaintain/index.vue'
+import i_LANSearch from './src/i-LANSearch/index.vue'
+import i_MonitorSys from './src/i-MonitorSys/index.vue'
+import i_System4 from './src/i-System4/index.vue'
+import i_SysUpdate from './src/i-SysUpdate/index.vue'
+import i_FaceID from './src/i-FaceID/index.vue'
+import i_CloudSearch from './src/i-CloudSearch/index.vue'
+import i_SysPower from './src/i-SysPower/index.vue'
+import i_Logout from './src/i-Logout/index.vue'
+import i_SysBugTesting from './src/i-SysBugTesting/index.vue'
+import i_FingerprintVerify from './src/i-FingerprintVerify/index.vue'
+import i_SysFile from './src/i-SysFile/index.vue'
+import i_SysNotice from './src/i-SysNotice/index.vue'
+import i_Ios from './src/i-Ios/index.vue'
+import i_Android from './src/i-Android/index.vue'
+import i_Start from './src/i-Start/index.vue'
+import i_Reduce from './src/i-Reduce/index.vue'
+import i_UpArrow from './src/i-UpArrow/index.vue'
+import i_DoubleArrow from './src/i-DoubleArrow/index.vue'
+import i_UpArrow1 from './src/i-UpArrow1/index.vue'
+import i_DownArrow from './src/i-DownArrow/index.vue'
+import i_Cross from './src/i-cross/index.vue'
+import i_BottomArrow from './src/i-BottomArrow/index.vue'
+import i_TopArrow from './src/i-TopArrow/index.vue'
+import i_UnderThe from './src/i-UnderThe/index.vue'
+import i_OnThe from './src/i-OnThe/index.vue'
+import i_RightArrow from './src/i-RightArrow/index.vue'
+import i_LeftArrow from './src/i-LeftArrow/index.vue'
+import i_UpAndDown from './src/i-UpAndDown/index.vue'
+import i_BottomArrow1 from './src/i-bottomArrow1/index.vue'
+import i_Contraction from './src/i-contraction/index.vue'
+import i_Exit from './src/i-exit/index.vue'
+import i_Rise from './src/i-Rise/index.vue'
+import i_LeftMenu from './src/i-LeftMenu/index.vue'
+import i_RightMenu from './src/i-RightMenu/index.vue'
+import i_Leftarrow1 from './src/i-Leftarrow1/index.vue'
+import i_BottomArrow2 from './src/i-BottomArrow2/index.vue'
+import i_UpAndDown1 from './src/i-UpAndDown1/index.vue'
+import i_Download from './src/i-download/index.vue'
+import i_RightArrow1 from './src/i-RightArrow1/index.vue'
+import i_LeftFastForward from './src/i-LeftFastForward/index.vue'
+import i_RightFastForward from './src/i-RightFastForward/index.vue'
+import i_UpArrow2 from './src/i-UpArrow2/index.vue'
+import i_UpperTriangle from './src/i-UpperTriangle/index.vue'
+import i_LowerTriangle from './src/i-LowerTriangle/index.vue'
+import i_LeftTriangle from './src/i-LeftTriangle/index.vue'
+import i_RightTriangle from './src/i-RightTriangle/index.vue'
+import i_Return from './src/i-Return/index.vue'
+import i_Contraction1 from './src/i-Contraction1/index.vue'
+import i_LeftFold from './src/i-LeftFold/index.vue'
+import i_TopFold from './src/i-TopFold/index.vue'
+import i_Track from './src/i-track/index.vue'
+import i_Error from './src/i-error/index.vue'
+import i_WeiXin from './src/i-weixin/index.vue'
+import i_PaymentReminder from './src/i-PaymentReminder/index.vue'
+import i_Positioning from './src/i-positioning/index.vue'
+import i_ShoppingCart from './src/i-ShoppingCart/index.vue'
+import i_Collect from './src/i-Collect/index.vue'
+import i_WeixinPlay from './src/i-weixinPlay/index.vue'
+import i_CollectActive from './src/i-CollectActive/index.vue'
+import i_Weixin1 from './src/i-weixin1/index.vue'
+import i_Female from './src/i-female/index.vue'
+import i_PasswordShow from './src/i-PasswordShow/index.vue'
+import i_Remarks from './src/i-Remarks/index.vue'
+import i_QQ from './src/i-QQ/index.vue'
+import i_Password from './src/i-Password/index.vue'
+import i_RecyclingStation from './src/i-RecyclingStation/index.vue'
+import i_FileDeletion from './src/i-FileDeletion/index.vue'
+import i_ZFB from './src/i-ZFB/index.vue'
+import i_Positioning1 from './src/i-positioning1/index.vue'
+import i_DeleteMeige from './src/i-deleteMeige/index.vue'
+import i_Male from './src/i-Male/index.vue'
+import i_CreditCard from './src/i-CreditCard/index.vue'
+import i_Delete1 from './src/i-delete1/index.vue'
+import i_Pay1 from './src/i-pay1/index.vue'
+import i_PasswordSee from './src/i-PasswordSee/index.vue'
+import i_QQ1 from './src/i-QQ1/index.vue'
+import i_ImageAddition from './src/i-ImageAddition/index.vue'
+import i_Password1 from './src/i-password1/index.vue'
+import i_Password2 from './src/i-Password2/index.vue'
+import i_Password3 from './src/i-password3/index.vue'
+import i_MinusSign from './src/i-MinusSign/index.vue'
+import i_Collect1 from './src/i-Collect1/index.vue'
+import i_Add from './src/i-Add/index.vue'
+import i_Collect2 from './src/i-Collect2/index.vue'
+import i_AddMessage from './src/i-AddMessage/index.vue'
+import i_Measurement from './src/i-measurement/index.vue'
+import i_FailureToPay from './src/i-FailureToPay/index.vue'
+import i_Certificate from './src/i-certificate/index.vue'
+import i_Collect3 from './src/i-Collect3/index.vue'
+import i_PasswordDisplay from './src/i-PasswordDisplay/index.vue'
+import i_PasswordHiding from './src/i-PasswordHiding/index.vue'
+import i_Additive from './src/i-Additive/index.vue'
+import i_DeletionGroup from './src/i-DeletionGroup/index.vue'
+import i_DeletionGroup1 from './src/i-DeletionGroup1/index.vue'
+import i_Male1 from './src/i-Male1/index.vue'
+import i_PayAttention from './src/i-PayAttention/index.vue'
+import i_Password4 from './src/i-password4/index.vue'
+import i_Female1 from './src/i-female1/index.vue'
+import i_Collect4 from './src/i-Collect4/index.vue'
+import i_Collect5 from './src/i-Collect5/index.vue'
+import i_Collect6 from './src/i-Collect6/index.vue'
+import i_RestoreDelete from './src/i-RestoreDelete/index.vue'
+import i_Female2 from './src/i-Female2/index.vue'
+import i_PaymentSetup from './src/i-PaymentSetup/index.vue'
+import i_DeletionPersonnel from './src/i-DeletionPersonnel/index.vue'
+import i_UnionPay from './src/i-UnionPay/index.vue'
+import i_Male2 from './src/i-Male2/index.vue'
+import i_OnlinePayment from './src/i-OnlinePayment/index.vue'
+import i_Password5 from './src/i-Password5/index.vue'
+import i_Password6 from './src/i-Password6/index.vue'
+import i_Edit from './src/i-edit/index.vue'
+import i_Add1 from './src/i-Add1/index.vue'
+import i_Reduce1 from './src/i-Reduce1/index.vue'
+import i_searchSmall from './src/i-searchSmall/index.vue'
+export const IconShanchu1 = withInstall(i_shanchu1)
+export const IconShanchu2 = withInstall(i_Shanchu2)
+export const IconRefresh = withInstall(i_Refresh)
+export const IconBigSearch = withInstall(i_BigSearch)
+export const IconFile = withInstall(i_File)
+export const IconOpenFile = withInstall(i_OpenFile)
+export const IconSearch = withInstall(i_Search)
+export const IconSearch2 = withInstall(i_Search2)
+export const IconSearch3 = withInstall(i_Search3)
+export const IconSysMenu = withInstall(i_SysMenu)
+export const IconSysBack = withInstall(i_SysBack)
+export const IconSysReset = withInstall(i_SysReset)
+export const IconLink = withInstall(i_Link)
+export const IconSave = withInstall(i_Save)
+export const IconSys1 = withInstall(i_Sys1)
+export const IconSys2 = withInstall(i_Sys2)
+export const IconNetworkSys = withInstall(i_NetworkSys)
+export const IconTheChildSys = withInstall(i_TheChildSys)
+export const IconIntelligenceSys = withInstall(i_IntelligenceSys)
+export const IconSysPer = withInstall(i_SysPer)
+export const IconSysRun = withInstall(i_SysRun)
+export const IconSysInformation = withInstall(i_SysInformation)
+export const IconSearchFile = withInstall(i_SearchFile)
+export const IconPrint = withInstall(i_Print)
+export const IconAdministrator = withInstall(i_Administrator)
+export const IconSearchAdmin = withInstall(i_SearchAdmin)
+export const IconDataSys = withInstall(i_DataSys)
+export const IconSysRole = withInstall(i_SysRole)
+export const IconPause = withInstall(i_Pause)
+export const IconEquipmentSearch = withInstall(i_EquipmentSearch)
+export const IconEquipmentSearch1 = withInstall(i_EquipmentSearch1)
+export const IconQuerySys = withInstall(i_QuerySys)
+export const IconLogOffSys = withInstall(i_LogOffSys)
+export const IconMysql = withInstall(i_Mysql)
+export const IconSystem = withInstall(i_System)
+export const IconSysLoad = withInstall(i_SysLoad)
+export const IconScienceSys = withInstall(i_ScienceSys)
+export const IconSysOperation = withInstall(i_SysOperation)
+export const IconFileSys = withInstall(i_FileSys)
+export const IconFileSysMedicine = withInstall(i_FileSysMedicine)
+export const IconSysMsg1 = withInstall(i_SysMsg1)
+export const IconSysUpload = withInstall(i_SysUpload)
+export const IconSysSetting = withInstall(i_SysSetting)
+export const IconNotice = withInstall(i_Notice)
+export const IconLight = withInstall(i_Light)
+export const IconSystem2 = withInstall(i_System2)
+export const IconSysManage = withInstall(i_SysManage)
+export const IconSetting = withInstall(i_Setting)
+export const IconSetSeat = withInstall(i_SetSeat)
+export const IconAssetsDic = withInstall(i_AssetsDic)
+export const IconSysConfig = withInstall(i_SysConfig)
+export const IconSysLog = withInstall(i_SysLog)
+export const IconSysMsg2 = withInstall(i_SysMsg2)
+export const IconSystem3 = withInstall(i_System3)
+export const IconSysNotice1 = withInstall(i_SysNotice1)
+export const IconCallSys = withInstall(i_CallSys)
+export const IconSysSupervise = withInstall(i_SysSupervise)
+export const IconSysMaintain = withInstall(i_SysMaintain)
+export const IconLANSearch = withInstall(i_LANSearch)
+export const IconMonitorSys = withInstall(i_MonitorSys)
+export const IconSystem4 = withInstall(i_System4)
+export const IconSysUpdate = withInstall(i_SysUpdate)
+export const IconFaceID = withInstall(i_FaceID)
+export const IconCloudSearch = withInstall(i_CloudSearch)
+export const IconSysPower = withInstall(i_SysPower)
+export const IconLogout = withInstall(i_Logout)
+export const IconSysBugTesting = withInstall(i_SysBugTesting)
+export const IconFingerprintVerify = withInstall(i_FingerprintVerify)
+export const IconSysFile = withInstall(i_SysFile)
+export const IconSysNotice = withInstall(i_SysNotice)
+export const IconIos = withInstall(i_Ios)
+export const IconAndroid = withInstall(i_Android)
+export const IconStart = withInstall(i_Start)
+export const IconReduce = withInstall(i_Reduce)
+export const IconUpArrow = withInstall(i_UpArrow)
+export const IconDoubleArrow = withInstall(i_DoubleArrow)
+export const IconUpArrow1 = withInstall(i_UpArrow1)
+export const IconDownArrow = withInstall(i_DownArrow)
+export const IconCross = withInstall(i_Cross)
+export const IconBottomArrow = withInstall(i_BottomArrow)
+export const IconTopArrow = withInstall(i_TopArrow)
+export const IconUnderThe = withInstall(i_UnderThe)
+export const IconOnThe = withInstall(i_OnThe)
+export const IconRightArrow = withInstall(i_RightArrow)
+export const IconLeftArrow = withInstall(i_LeftArrow)
+export const IconUpAndDown = withInstall(i_UpAndDown)
+export const IconBottomArrow1 = withInstall(i_BottomArrow1)
+export const IconContraction = withInstall(i_Contraction)
+export const IconExit = withInstall(i_Exit)
+export const IconRise = withInstall(i_Rise)
+export const IconLeftMenu = withInstall(i_LeftMenu)
+export const IconRightMenu = withInstall(i_RightMenu)
+export const IconLeftarrow1 = withInstall(i_Leftarrow1)
+export const IconBottomArrow2 = withInstall(i_BottomArrow2)
+export const IconUpAndDown1 = withInstall(i_UpAndDown1)
+export const IconDownload = withInstall(i_Download)
+export const IconRightArrow1 = withInstall(i_RightArrow1)
+export const LeftFastForward = withInstall(i_LeftFastForward)
+export const RightFastForward = withInstall(i_RightFastForward)
+export const IconUpArrow2 = withInstall(i_UpArrow2)
+export const IconUpperTriangle = withInstall(i_UpperTriangle)
+export const IconLowerTriangle = withInstall(i_LowerTriangle)
+export const IconLeftTriangle = withInstall(i_LeftTriangle)
+export const IconRightTriangle = withInstall(i_RightTriangle)
+export const IconReturn = withInstall(i_Return)
+export const IconContraction1 = withInstall(i_Contraction1)
+export const IconLeftFold = withInstall(i_LeftFold)
+export const IconTopFold = withInstall(i_TopFold)
+export const IconTrack = withInstall(i_Track)
+export const IconError = withInstall(i_Error)
+export const IconWeiXin = withInstall(i_WeiXin)
+export const IconPaymentReminder = withInstall(i_PaymentReminder)
+export const IconPositioning = withInstall(i_Positioning)
+export const IconShoppingCart = withInstall(i_ShoppingCart)
+export const IconCollect = withInstall(i_Collect)
+export const IconWeixinPlay = withInstall(i_WeixinPlay)
+export const IconCollectActive = withInstall(i_CollectActive)
+export const IconWeixin1 = withInstall(i_Weixin1)
+export const IconFemale = withInstall(i_Female)
+export const IconPasswordShow = withInstall(i_PasswordShow)
+export const IconRemarks = withInstall(i_Remarks)
+export const IconQQ = withInstall(i_QQ)
+export const IconPassword = withInstall(i_Password)
+export const IconRecyclingStation = withInstall(i_RecyclingStation)
+export const IconFileDeletion = withInstall(i_FileDeletion)
+export const IconZFB = withInstall(i_ZFB)
+export const IconPositioning1 = withInstall(i_Positioning1)
+export const IconDeleteMeige = withInstall(i_DeleteMeige)
+export const IconMale = withInstall(i_Male)
+export const IconCreditCard = withInstall(i_CreditCard)
+export const IconDelete1 = withInstall(i_Delete1)
+export const IconPay1 = withInstall(i_Pay1)
+export const IconPasswordSee = withInstall(i_PasswordSee)
+export const IconQQ1 = withInstall(i_QQ1)
+export const IconImageAddition = withInstall(i_ImageAddition)
+export const IconPassword1 = withInstall(i_Password1)
+export const IconPassword2 = withInstall(i_Password2)
+export const IconPassword3 = withInstall(i_Password3)
+export const IconMinusSign = withInstall(i_MinusSign)
+export const IconCollect1 = withInstall(i_Collect1)
+export const IconAdd = withInstall(i_Add)
+export const IconCollect2 = withInstall(i_Collect2)
+export const IconAddMessage = withInstall(i_AddMessage)
+export const IconMeasurement = withInstall(i_Measurement)
+export const IconFailureToPay = withInstall(i_FailureToPay)
+export const IconCertificate = withInstall(i_Certificate)
+export const IconCollect3 = withInstall(i_Collect3)
+export const PasswordDisplay = withInstall(i_PasswordDisplay)
+export const PasswordHiding = withInstall(i_PasswordHiding)
+export const IconAdditive = withInstall(i_Additive)
+export const IconDeletionGroup = withInstall(i_DeletionGroup)
+export const IconDeletionGroup1 = withInstall(i_DeletionGroup1)
+export const IconMale1 = withInstall(i_Male1)
+export const IconPayAttention = withInstall(i_PayAttention)
+export const IconPassword4 = withInstall(i_Password4)
+export const IconFemale1 = withInstall(i_Female1)
+export const IconCollect4 = withInstall(i_Collect4)
+export const IconCollect5 = withInstall(i_Collect5)
+export const IconCollect6 = withInstall(i_Collect6)
+export const IconRestoreDelete = withInstall(i_RestoreDelete)
+export const IconFemale2 = withInstall(i_Female2)
+export const IconPaymentSetup = withInstall(i_PaymentSetup)
+export const IconDeletionPersonnel = withInstall(i_DeletionPersonnel)
+export const IconUnionPay = withInstall(i_UnionPay)
+export const IconMale2 = withInstall(i_Male2)
+export const IconOnlinePayment = withInstall(i_OnlinePayment)
+export const IconPassword5 = withInstall(i_Password5)
+export const IconPassword6 = withInstall(i_Password6)
+export const IconEdit = withInstall(i_Edit)
+export const IconAdd1 = withInstall(i_Add1)
+export const IconReduce1 = withInstall(i_Reduce1)
+export const IconSearchSmall = withInstall(i_searchSmall)
 import * as svgList from './default'
-import { withInstall } from '@dk-plus/utils/with-install'
-
-const installedComponents: Record<string, Plugin<[]>> = {}
-for (const key in svgList) {
-  if (Object.prototype.hasOwnProperty.call(svgList, key)) {
-    const component = svgList[key]
-    const installedComponent = withInstall(component)
-    installedComponents[key] = installedComponent
-  }
-}
-export { installedComponents as default, svgList }
-export { default as IconShanchu1 } from './src/i-shanchu1/index.vue'
-export { default as IconShanchu2 } from './src/i-shanchu2/index.vue'
-export { default as IconSearchSmall } from './src/i-searchSmall/index.vue'
-export { default as IconBigSearch } from './src/i-BigSearch/index.vue'
-export { default as IconFile } from './src/i-file/index.vue'
-export { default as IconOpenFile } from './src/i-openFile/index.vue'
-export { default as IconSearch } from './src/i-search01/index.vue'
-export { default as IconSearch2 } from './src/i-search02/index.vue'
-export { default as IconSearch3 } from './src/i-search03/index.vue'
-export { default as IconSysMenu } from './src/i-sysMenu/index.vue'
-export { default as IconSysBack } from './src/i-sysBack/index.vue'
-export { default as IconSysReset } from './src/i-sysReset/index.vue'
-export { default as IconLink } from './src/i-link/index.vue'
-export { default as IconSave } from './src/i-save/index.vue'
-export { default as IconSys1 } from './src/i-sys1/index.vue'
-export { default as IconSys2 } from './src/i-sys2/index.vue'
-export { default as IconNetworkSys } from './src/i-networkSys/index.vue'
-export { default as IconTheChildSys } from './src/i-TheChildSys/index.vue'
-export { default as IconIntelligenceSys } from './src/i-intelligenceSys/index.vue'
-export { default as IconSysPer } from './src/i-sysPer/index.vue'
-export { default as IconSysRun } from './src/i-SysRun/index.vue'
-export { default as IconSysInformation } from './src/i-SysInformation/index.vue'
-export { default as IconSearchFile } from './src/i-searchFile/index.vue'
-export { default as IconPrint } from './src/i-print/index.vue'
-export { default as IconAdministrator } from './src/i-IconAdministrator/index.vue'
-export { default as IconSearchAdmin } from './src/i-searchAdmin/index.vue'
-export { default as IconDataSys } from './src/i-dataSys/index.vue'
-export { default as IconSysRole } from './src/i-sysRole/index.vue'
-export { default as IconPause } from './src/i-pause/index.vue'
-export { default as IconEquipmentSearch } from './src/i-equipmentSeach/index.vue'
-export { default as IconEquipmentSearch1 } from './src/i-equipmentSeach1/index.vue'
-export { default as IconQuerySys } from './src/i-querySys/index.vue'
-export { default as IconLogOffSys } from './src/i-LogOffSys/index.vue'
-export { default as IconMysql } from './src/i-Mysql/index.vue'
-export { default as IconSystem } from './src/i-System/index.vue'
-export { default as IconSysLoad } from './src/i-SysLoad/index.vue'
-export { default as IconScienceSys } from './src/i-ScienceSys/index.vue'
-export { default as IconSysOperation } from './src/i-SysOperation/index.vue'
-export { default as IconFileSys } from './src/i-FileSys/index.vue'
-export { default as IconFileSysMedicine } from './src/i-FileSysMedicine/index.vue'
-export { default as IconSysMsg1 } from './src/i-sysMsg1/index.vue'
-export { default as IconSysUpload } from './src/i-sysUpload/index.vue'
-export { default as IconSysSetting } from './src/i-sysSetting/index.vue'
-export { default as IconNotice } from './src/i-Notice/index.vue'
-export { default as IconLight } from './src/i-light/index.vue'
-export { default as IconSystem2 } from './src/i-System2/index.vue'
-export { default as IconSysManage } from './src/i-sysManage/index.vue'
-export { default as IconSetting } from './src/i-Setting/index.vue'
-export { default as IconSetSeat } from './src/i-SetSeat/index.vue'
-export { default as IconAssetsDic } from './src/i-AssetsDic/index.vue'
-export { default as IconSysConfig } from './src/i-SysConfig/index.vue'
-export { default as IconSysLog } from './src/i-SysLog/index.vue'
-export { default as IconSysMsg2 } from './src/i-SysMsg2/index.vue'
-export { default as IconSystem3 } from './src/i-System3/index.vue'
-export { default as IconSysNotice1 } from './src/i-SysNotice1/index.vue'
-export { default as IconCallSys } from './src/i-CallSys/index.vue'
-export { default as IconSysSupervise } from './src/i-SysSupervise/index.vue'
-export { default as IconSysMaintain } from './src/i-SysMaintain/index.vue'
-export { default as IconLANSearch } from './src/i-LANSearch/index.vue'
-export { default as IconMonitorSys } from './src/i-MonitorSys/index.vue'
-export { default as IconSystem4 } from './src/i-System4/index.vue'
-export { default as IconSysUpdate } from './src/i-SysUpdate/index.vue'
-export { default as IconFaceID } from './src/i-FaceID/index.vue'
-export { default as IconCloudSearch } from './src/i-CloudSearch/index.vue'
-export { default as IconSysPower } from './src/i-SysPower/index.vue'
-export { default as IconLogout } from './src/i-Logout/index.vue'
-export { default as IconSysBugTesting } from './src/i-SysBugTesting/index.vue'
-export { default as IconFingerprintVerify } from './src/i-FingerprintVerify/index.vue'
-export { default as IconSysFile } from './src/i-SysFile/index.vue'
-export { default as IconSysNotice } from './src/i-SysNotice/index.vue'
-export { default as IconIos } from './src/i-Ios/index.vue'
-export { default as IconAndroid } from './src/i-Android/index.vue'
-export { default as IconStart } from './src/i-Start/index.vue'
-export { default as IconReduce } from './src/i-Reduce/index.vue'
-export { default as IconUpArrow } from './src/i-UpArrow/index.vue'
-export { default as IconDoubleArrow } from './src/i-DoubleArrow/index.vue'
-export { default as IconRefresh } from './src/i-Refresh/index.vue'
-export { default as IconUpArrow1 } from './src/i-UpArrow1/index.vue'
-export { default as IconDownArrow } from './src/i-DownArrow/index.vue'
-export { default as IconCross } from './src/i-cross/index.vue'
-export { default as IconBottomArrow } from './src/i-BottomArrow/index.vue'
-export { default as IconTopArrow } from './src/i-TopArrow/index.vue'
-export { default as IconUnderThe } from './src/i-UnderThe/index.vue'
-export { default as IconOnThe } from './src/i-OnThe/index.vue'
-export { default as IconRightArrow } from './src/i-RightArrow/index.vue'
-export { default as IconLeftArrow } from './src/i-LeftArrow/index.vue'
-export { default as IconUpAndDown } from './src/i-UpAndDown/index.vue'
-export { default as IconBottomArrow1 } from './src/i-bottomArrow1/index.vue'
-export { default as IconContraction } from './src/i-contraction/index.vue'
-export { default as IconExit } from './src/i-exit/index.vue'
-export { default as IconRise } from './src/i-Rise/index.vue'
-export { default as IconLeftMenu } from './src/i-LeftMenu/index.vue'
-export { default as IconRightMenu } from './src/i-RightMenu/index.vue'
-export { default as IconLeftarrow1 } from './src/i-Leftarrow1/index.vue'
-export { default as IconBottomArrow2 } from './src/i-BottomArrow2/index.vue'
-export { default as IconUpAndDown1 } from './src/i-UpAndDown1/index.vue'
-export { default as IconDownload } from './src/i-download/index.vue'
-export { default as IconRightArrow1 } from './src/i-RightArrow1/index.vue'
-export { default as LeftFastForward } from './src/i-LeftFastForward/index.vue'
-export { default as RightFastForward } from './src/i-RightFastForward/index.vue'
-export { default as IconUpArrow2 } from './src/i-UpArrow2/index.vue'
-export { default as IconUpperTriangle } from './src/i-UpperTriangle/index.vue'
-export { default as IconLowerTriangle } from './src/i-LowerTriangle/index.vue'
-export { default as IconLeftTriangle } from './src/i-LeftTriangle/index.vue'
-export { default as IconRightTriangle } from './src/i-RightTriangle/index.vue'
-export { default as IconReturn } from './src/i-Return/index.vue'
-export { default as IconContraction1 } from './src/i-Contraction1/index.vue'
-export { default as IconLeftFold } from './src/i-LeftFold/index.vue'
-export { default as IconTopFold } from './src/i-TopFold/index.vue'
-export { default as IconTrack } from './src/i-track/index.vue'
-export { default as IconError } from './src/i-error/index.vue'
-export { default as IconWeiXin } from './src/i-weixin/index.vue'
-export { default as IconPaymentReminder } from './src/i-PaymentReminder/index.vue'
-export { default as IconPositioning } from './src/i-positioning/index.vue'
-export { default as IconShoppingCart } from './src/i-ShoppingCart/index.vue'
-export { default as IconCollect } from './src/i-Collect/index.vue'
-export { default as IconWeixinPlay } from './src/i-weixinPlay/index.vue'
-export { default as IconCollectActive } from './src/i-CollectActive/index.vue'
-export { default as IconWeixin1 } from './src/i-weixin1/index.vue'
-export { default as IconFemale } from './src/i-female/index.vue'
-export { default as IconPasswordShow } from './src/i-PasswordShow/index.vue'
-export { default as IconRemarks } from './src/i-Remarks/index.vue'
-export { default as IconQQ } from './src/i-QQ/index.vue'
-export { default as IconPassword } from './src/i-Password/index.vue'
-export { default as IconRecyclingStation } from './src/i-RecyclingStation/index.vue'
-export { default as IconFileDeletion } from './src/i-FileDeletion/index.vue'
-export { default as IconZFB } from './src/i-ZFB/index.vue'
-export { default as IconPositioning1 } from './src/i-positioning1/index.vue'
-export { default as IconDeleteMeige } from './src/i-deleteMeige/index.vue'
-export { default as IconMale } from './src/i-Male/index.vue'
-export { default as IconCreditCard } from './src/i-CreditCard/index.vue'
-export { default as IconDelete1 } from './src/i-delete1/index.vue'
-export { default as IconPay1 } from './src/i-pay1/index.vue'
-export { default as IconPasswordSee } from './src/i-PasswordSee/index.vue'
-export { default as IconQQ1 } from './src/i-QQ1/index.vue'
-export { default as IconImageAddition } from './src/i-ImageAddition/index.vue'
-export { default as IconPassword1 } from './src/i-password1/index.vue'
-export { default as IconPassword2 } from './src/i-Password2/index.vue'
-export { default as IconPassword3 } from './src/i-password3/index.vue'
-export { default as IconMinusSign } from './src/i-MinusSign/index.vue'
-export { default as IconCollect1 } from './src/i-Collect1/index.vue'
-export { default as IconAdd } from './src/i-Add/index.vue'
-export { default as IconCollect2 } from './src/i-Collect2/index.vue'
-export { default as IconAddMessage } from './src/i-AddMessage/index.vue'
-export { default as IconMeasurement } from './src/i-measurement/index.vue'
-export { default as IconFailureToPay } from './src/i-FailureToPay/index.vue'
-export { default as IconCertificate } from './src/i-certificate/index.vue'
-export { default as IconCollect3 } from './src/i-Collect3/index.vue'
-export { default as PasswordDisplay } from './src/i-PasswordDisplay/index.vue'
-export { default as PasswordHiding } from './src/i-PasswordHiding/index.vue'
-export { default as IconAdditive } from './src/i-Additive/index.vue'
-export { default as IconDeletionGroup } from './src/i-DeletionGroup/index.vue'
-export { default as IconDeletionGroup1 } from './src/i-DeletionGroup1/index.vue'
-export { default as IconMale1 } from './src/i-Male1/index.vue'
-export { default as IconPayAttention } from './src/i-PayAttention/index.vue'
-export { default as IconPassword4 } from './src/i-password4/index.vue'
-export { default as IconFemale1 } from './src/i-female1/index.vue'
-export { default as IconCollect4 } from './src/i-Collect4/index.vue'
-export { default as IconCollect5 } from './src/i-Collect5/index.vue'
-export { default as IconCollect6 } from './src/i-Collect6/index.vue'
-export { default as IconRestoreDelete } from './src/i-RestoreDelete/index.vue'
-export { default as IconFemale2 } from './src/i-Female2/index.vue'
-export { default as IconPaymentSetup } from './src/i-PaymentSetup/index.vue'
-export { default as IconDeletionPersonnel } from './src/i-DeletionPersonnel/index.vue'
-export { default as IconUnionPay } from './src/i-UnionPay/index.vue'
-export { default as IconMale2 } from './src/i-Male2/index.vue'
-export { default as IconOnlinePayment } from './src/i-OnlinePayment/index.vue'
-export { default as IconPassword5 } from './src/i-Password5/index.vue'
-export { default as IconPassword6 } from './src/i-Password6/index.vue'
-export { default as IconEdit } from './src/i-edit/index.vue'
-export { default as IconAdd1 } from './src/i-Add1/index.vue'
-export { default as IconReduce1 } from './src/i-Reduce1/index.vue'
+export * from './default'
+export default svgList

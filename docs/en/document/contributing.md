@@ -33,13 +33,6 @@ If you have completed the previous preparations, you can skip ahead and start fr
 ├── .github     # github配置文件
 ├── .husky      # 代码提交前检测
 ├── .vscode     # vscode配置文件
-├── build       #打npm包工程文件
-├── ├── utils   # 打包工具配置
-├── ├── component.ts  #文件输出配置
-├── ├── full-component.ts #打包文件输出过滤设置
-├── ├── gen-types.ts      #gulpfile设置
-├── ├── gulpfile.ts       #打包启动文件
-├── └─ packages.ts       #专门打包util ， 指令 ， hook的
 ├── coverage   #测试覆盖率
 ├── deploy          # 远程命令SSH上传到服务器配置
 ├── ├── config.js   # 远程命令SSH上传到服务器配置
@@ -132,13 +125,10 @@ If you have completed the previous preparations, you can skip ahead and start fr
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式,样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
-├── ├── ├── ├── mixins  # 全局class命名生成方法
-├── ├── ├── ├── ├── configuration # 私有组件样式配置
-├── └─  └─ gulpfile.ts # 打包工具
+├── ├── ├── mixins  # 全局class命名生成方法
+├── ├── ├── ├── configuration # 私有组件样式配置
 ├── ├── dk-setup-name      #  根据命令生成组件文件夹 暂未实现
 ├── ├── dk-eslint          #  项目内的eslint配置
-├── ├── dk-plus         # 出口文件
-├── └─ utils           # 项目打包辅助器
 ├── play      # 组件调试测试项目
 ├── ├──  node_modules  # play的依赖 测试目录
 ├── ├──  router        # 路由配置
@@ -170,6 +160,9 @@ If you have completed the previous preparations, you can skip ahead and start fr
 ├── package.json    # 项目配置文件
 ├── pnpm-lock.yaml  # pnpm配置文件
 ├── pnpm-workspace.yaml #pnpm配置文件
+├── vite.config.css.ts  # 打包css文件配置
+├── vite.config.theme.ts  # 打包css文件配置
+├── vite.config.ts  # vite配置文件打包配置
 └─  tsconfig.json # TS配置文件
 
 ```

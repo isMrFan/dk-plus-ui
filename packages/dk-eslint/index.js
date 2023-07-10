@@ -332,7 +332,7 @@ module.exports = {
     {
       files: '*',
       globals: {
-        __DEV__: 'readonly'
+        isDev: 'readonly'
       }
     }
   ]

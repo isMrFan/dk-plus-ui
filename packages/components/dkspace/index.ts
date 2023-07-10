@@ -1,5 +1,5 @@
 import Space from './src/dkspace.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
-const dkSpace = withInstall(Space)
-export { dkSpace }
-export default dkSpace
+import { withInstall } from '../_utils/index'
+export const DkSpace = withInstall(Space)
+export type SpaceInstance = InstanceType<typeof Space>
+export default DkSpace
