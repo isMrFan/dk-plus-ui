@@ -2,8 +2,8 @@
 
 使用 svg 的图标库，可以减少项目体积，提高加载速度。
 
-- [源代码](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/dkicon)
-- [文档编辑](https://github.com/dk-plus-ui/dk-ui/blob/master/docs/components/icon.md)
+- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkicon)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/icon.md)
 
 ## 1.基本使用
 
@@ -78,8 +78,6 @@
 
 <script setup lang="ts">
   import iconDom from './vueDome/icon/index.vue'
-  import { svgList } from '@dk-plus/components/_icon'
-  const { IconWeiXin } = svgList
+  import svgList from 'isIcon'
   const svgListLength=Object.keys(svgList).length
-  const expose = { IconWeiXin }
 </script>

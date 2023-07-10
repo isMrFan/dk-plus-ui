@@ -21,7 +21,7 @@
 
 如果你已经做好了前面的准备，可以直接跳过，从这里开始:
 
-- Fork [dk-plus](https://github.com/dk-plus-ui/dk-ui)
+- Fork [dk-plus](https://github.com/dk-plus-ui/dk-plus-ui)
 
 - 克隆你的 fork 到本地
 
@@ -31,13 +31,6 @@
 ├── .github     # github配置文件
 ├── .husky      # 代码提交前检测
 ├── .vscode     # vscode配置文件
-├── build       #打npm包工程文件
-├── ├── utils   # 打包工具配置
-├── ├── component.ts  #文件输出配置
-├── ├── full-component.ts #打包文件输出过滤设置
-├── ├── gen-types.ts      #gulpfile设置
-├── ├── gulpfile.ts       #打包启动文件
-├── └─ packages.ts       #专门打包util ， 指令 ， hook的
 ├── coverage   #测试覆盖率
 ├── deploy          # 远程命令SSH上传到服务器配置
 ├── ├── config.js   # 远程命令SSH上传到服务器配置
@@ -130,13 +123,10 @@
 ├── ├── utils         # 存放工具方法
 ├── ├── theme-chalk   # 存放对应的样式,样式打包工具箱
 ├── ├── ├── src       # 存放对应的样式
-├── ├── ├── ├── mixins  # 全局class命名生成方法
-├── ├── ├── ├── ├── configuration # 私有组件样式配置
-├── └─  └─ gulpfile.ts # 打包工具
+├── ├── ├── mixins  # 全局class命名生成方法
+├── ├── ├── ├── configuration # 私有组件样式配置
 ├── ├── dk-setup-name      #  根据命令生成组件文件夹 暂未实现
 ├── ├── dk-eslint          #  项目内的eslint配置
-├── ├── dk-plus         # 出口文件
-├── └─ utils           # 项目打包辅助器
 ├── play      # 组件调试测试项目
 ├── ├──  node_modules  # play的依赖 测试目录
 ├── ├──  router        # 路由配置
@@ -168,6 +158,9 @@
 ├── package.json    # 项目配置文件
 ├── pnpm-lock.yaml  # pnpm配置文件
 ├── pnpm-workspace.yaml #pnpm配置文件
+├── vite.config.css.ts  # 打包css文件配置
+├── vite.config.theme.ts  # 打包css文件配置
+├── vite.config.ts  # vite配置文件打包配置
 └─  tsconfig.json # TS配置文件
 
 ```
@@ -176,7 +169,7 @@
 
 ```shell
 # clone 项目
-git clone https://github.com/dk-plus-ui/dk-ui.git
+git clone https://github.com/dk-plus-ui/dk-plus-ui.git
 
 # 进入项目目录
 cd dk-ui
@@ -216,7 +209,7 @@ pnpm dev:docs
 
 ## 🔓 命令说明
 
-dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
+dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/package.json) 中可进行查看。下面详细介绍每一条命令：
 
 | script 字段 | 对应命令                                                                  | 命令说明         |
 | ----------- | ------------------------------------------------------------------------- | ---------------- |
@@ -234,10 +227,10 @@ dk-plus 内部设置了很多的命令，在 [package.json](https://github.com/d
 
 ## 🚨 开发规范
 
-主要源文件都在 [packages](https://github.com/dk-plus-ui/dk-ui/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档:
+主要源文件都在 [packages](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages) 目录下，其中每个子目录都有单独的 `README.md` 对指定目录进行说明，每个模块详细的规范参考下面文档:
 
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/components/README.md) 创建新组件
-- [dk-plus-components](https://github.com/dk-plus-ui/dk-ui/tree/master/packages/theme-chalk/README.md) 样式主题目录
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/README.md) 创建新组件
+- [dk-plus-components](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/theme-chalk/README.md) 样式主题目录
 
 ## ⚠️ 提交规范
 
@@ -292,9 +285,9 @@ git commit -m 'feat: 新增***组件'
 
 4.推送分支到远程仓库
 
-    ```shell
-    git push origin <branch-name>
-    ```
+```shell
+  git push origin <branch-name>
+```
 
 5.在远程仓库中创建 PR
 在 GitHub 或 GitLab 等代码托管平台上，找到您刚刚推送的分支，并创建一个 PR。您可以在 PR 中提供有关您所做更改的详细信息和任何其他有关 PR 的注释。
@@ -363,8 +356,8 @@ npm publish
 
 ## 💌 非常感谢
 
-感谢所有已经为 DK-plus [做出贡献的人](https://github.com/dk-plus-ui/dk-ui/graphs/contributors)！
+感谢所有已经为 DK-plus [做出贡献的人](https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors)！
 
-<a href="https://github.com/dk-plus-ui/dk-ui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dk-plus-ui/dk-ui" />
+<a href="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors">
+  <img src="https://github.com/dk-plus-ui/dk-plus-ui/graphs/contributors" />
 </a>

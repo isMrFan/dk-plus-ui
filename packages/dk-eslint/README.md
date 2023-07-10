@@ -58,9 +58,9 @@ pnpm lint:fix
 
 ## 🛑 规则
 
- 参考 [index.js](https://github.com/dk-plus-ui/dk-ui/blob/master/packages/dk-eslint/index.js)
+ 参考 [index.js](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/packages/dk-eslint/index.js)
 
 ## 📄 协议
 
-[MIT](https://github.com/dk-plus-ui/dk-ui/blob/master/LICENSE)
+[MIT](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/LICENSE)
 

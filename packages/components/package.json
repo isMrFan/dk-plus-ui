@@ -1,9 +1,53 @@
 {
-  "name": "@dk-plus/components",
-  "version": "1.0.12",
+  "name": "dk-plus",
+  "version": "1.0.22",
   "description": "DK-PLUS",
-  "main": "index.ts",
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "keywords": [
+    "vue3",
+    "DK-PLUS",
+    "css",
+    "vite",
+    "vueJs",
+    "components",
+    "ui"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "types": "./es/index.d.ts"
+    },
+    "./dist": "./dist/",
+    "./theme-chalk": "./theme-chalk/",
+    "./es": "./es/index.js",
+    "./es/*": "./es/*.js",
+    "./es/*.js": "./es/*.js",
+    "./lib": "./lib/index.js",
+    "./lib/*": "./lib/*.js",
+    "./lib/*.js": "./lib/*.js",
+    "./*": "./*"
+  },
+  "unpkg": "dist/index.umd.js",
+  "style": "dist/index.css",
+  "sideEffects": [
+    "theme-chalk/index.css",
+    "theme-chalk/*",
+    "*.css"
+  ],
+  "author": {
+    "name": "dk-plus-ui",
+    "email": "dk-plus-ui@foxmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dk-plus-ui/dk-plus-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/dk-plus-ui/dk-plus-ui/issues"
+  },
+  "homepage": "https://github.com/dk-plus-ui/dk-plus-ui"
 }
