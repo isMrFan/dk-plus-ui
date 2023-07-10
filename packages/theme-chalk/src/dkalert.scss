@@ -1,5 +1,5 @@
-@use './mixins/configuration/var-alert.scss' as *;
-@use './mixins/mixin.scss' as *;
+@use '../mixins/configuration/var-alert.scss' as *;
+@use '../mixins/mixin.scss' as *;
 
 
 .#{$namespace}-alert {
