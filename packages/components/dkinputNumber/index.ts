@@ -1,5 +1,5 @@
 import number from './src/inputNumber.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
-const dkInputNumber = withInstall(number)
-export { dkInputNumber }
-export default dkInputNumber
+import { withInstall } from '../_utils/index'
+export const DkInputNumber = withInstall(number)
+export type numberInstance = InstanceType<typeof number>
+export default DkInputNumber

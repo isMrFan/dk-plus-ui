@@ -1,6 +1,6 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import svgList from '@dk-plus/components/_icon'
+  import svgList from '../../../../../packages/components/_icon/index'
   export default defineComponent({
     name: 'VueDomeIcon',
     setup() {

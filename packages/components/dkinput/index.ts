@@ -1,5 +1,5 @@
 import input from './src/input.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
-const dkinput = withInstall(input)
-export { dkinput }
-export default dkinput
+import { withInstall } from '../_utils/index'
+export const DkInput = withInstall(input)
+export type inputInstance = InstanceType<typeof input>
+export default DkInput

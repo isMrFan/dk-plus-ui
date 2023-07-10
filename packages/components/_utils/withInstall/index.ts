@@ -1,10 +1,10 @@
-import type { App,Directive ,Component} from 'vue' // 只导入类型 而不是导入值
+import type { App, Directive, Component } from 'vue' // 只导入类型 而不是导入值
 // 类型必须导出 否则生成不了.d.ts
 export type Install<T> = T & {
   install(app: App): void
 }
-export const withInstall = <T extends Component>(comp: T) : Install<T> => {
-  (comp as Record<string, unknown>).install = function (app: App) {
+export const withInstall = <T extends Component>(comp: T): Install<T> => {
+  (comp as Record<string, unknown>).install = (app: App): void => {
     const { name } = comp
     name && app.component(name, comp)
   }
