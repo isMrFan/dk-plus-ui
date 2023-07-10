@@ -343,3 +343,6 @@ export const IconEdit = withInstall(i_Edit)
 export const IconAdd1 = withInstall(i_Add1)
 export const IconReduce1 = withInstall(i_Reduce1)
 export const IconSearchSmall = withInstall(i_searchSmall)
+import * as svgList from './default'
+export * from './default'
+export default svgList

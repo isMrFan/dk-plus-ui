@@ -16,10 +16,11 @@
   "types": "es/index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.js",
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
       "types": "./es/index.d.ts"
     },
+    "./dist": "./dist/",
     "./theme-chalk": "./theme-chalk/",
     "./es": "./es/index.js",
     "./es/*": "./es/*.js",
