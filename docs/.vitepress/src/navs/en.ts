@@ -1,4 +1,4 @@
-import { version } from '../../../../packages/dk-plus/package.json'
+import { version } from '../../../../packages/components/package.json'
 export default function getNavs() {
   return [
     {

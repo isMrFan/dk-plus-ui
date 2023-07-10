@@ -9,7 +9,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import dkPlus from 'dk-plus'
-import 'dk-plus/theme-chalk/index.css'
+import 'dk-plus/dist/index.css'
 
 createApp(App).use(dkPlus).mount('#app')
 ```
@@ -42,7 +42,7 @@ createApp(App).use(DkIcon).use(DkShadow).use(DkButton).mount('#app')
 <head>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/dk-plus/theme-chalk/index.css"
+    href="https://cdn.jsdelivr.net/npm/dk-plus/dist/index.css"
   />
 </head>
 
@@ -55,7 +55,7 @@ createApp(App).use(DkIcon).use(DkShadow).use(DkButton).mount('#app')
     <dk-button type="warning">警告按钮</dk-button>
   </div>
   <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dk-plus"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dk-plus/dist/index.umd.js"></script>
   <script type="module">
     const { createApp, ref } = Vue
     const app = createApp({
