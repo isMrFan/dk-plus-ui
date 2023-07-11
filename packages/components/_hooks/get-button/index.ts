@@ -44,8 +44,13 @@ export interface getButtonType {
  * @return personaClassList 个性按钮类名
  * @return personalityStylist 个性按钮style
  */
+interface Params {
+  iconSlot: boolean
+  afterIconSlot: boolean
+}
+type MergedParams = Params & DkButtonProps
 
-export const getButton = (props: DkButtonProps): getButtonType => {
+export const getButton = (props: MergedParams): getButtonType => {
   /**
    * @name slot
    * @description 获取当前组件的插槽

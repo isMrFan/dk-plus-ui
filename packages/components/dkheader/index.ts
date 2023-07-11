@@ -1,6 +1,6 @@
 import Header from './src/dkheader.vue'
 import { withInstall } from '../_utils/index'
-const dkHeader = withInstall(Header)
+const DkHeader = withInstall(Header)
 export type HeaderInstance = InstanceType<typeof Header>
-export { dkHeader }
-export default dkHeader
+export { DkHeader }
+export default DkHeader
