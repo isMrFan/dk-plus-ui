@@ -23,7 +23,7 @@ export const dkInputProps = {
   onAppendClick: setFunction<MouseEventType>(),
   iconSize: setStringNumberProps(),
   /** textColor */
-  textColor: setStringNumberProps(),
+  textColor: setStringProp(),
 
   /** borderRadius */
   borderRadius: setStringNumberProps(),

@@ -169,7 +169,7 @@
       
       const valueLength = ref<number>(0)
       
-      const pendStyleLis = (): {} => getInput(props).pendStyleList
+      const {pendStyleList} = getInput(props)
       
       const getValue = (value: string | number): string => {
         value = value.toString()
@@ -375,7 +375,7 @@
         prependClassList: prependClassList(),
         isAppend: data.isAppend,
         appendClassList: appendClassList(),
-        pendStyleList: pendStyleLis(),
+        pendStyleList,
         AppendIconEventClick,
         PrependIconEventClick,
         onKeydownEnter,
