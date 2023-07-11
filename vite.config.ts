@@ -108,7 +108,7 @@ export default (): UserConfigExport => {
             format: 'umd',
             exports: 'named',
             sourcemap: false,
-            dir: 'dist/dist',
+            dir: 'dist/dkPlus',
             entryFileNames: 'index.umd.js',
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
