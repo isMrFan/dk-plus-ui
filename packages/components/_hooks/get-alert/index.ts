@@ -23,6 +23,7 @@ export const getAlert = (props: DkAlertProps): getAlertType => {
     }
     return defaultStyle
   })
+  console.log('styleList', styleList);
 
   return {
     isSuccess,

@@ -17,8 +17,8 @@
       const { type, title, description, center, closable, closeText, icon, closeIcon } =
         toRefs(Props)
 
-      const { isSuccess, styleList } = getAlert
-
+      const { isSuccess, styleList } = getAlert(Props)
+     
       const { getRun } = getReturn()
       const EventClick = (evt: MouseEvent): void => {
         getRun(Props.onClick, evt)
