@@ -10,7 +10,7 @@ export * from './dkcontainer'
 export { DkFooter } from './dkfooter'
 export * from './dkfooter'
 
-export { dkHeader } from './dkheader'
+export { DkHeader } from './dkheader'
 export * from './dkheader'
 
 export { DkIcon } from './dkicon'

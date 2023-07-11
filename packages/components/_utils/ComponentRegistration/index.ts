@@ -5,11 +5,11 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
     }
     return []
   }
-
-  if (Object.entries && Object.entries !== undefined) {
+  
+  if (Object.entries && Object.entries !== undefined) { 
     return Object.entries(obj) as [keyof T, T[keyof T]][]
   }
-
+  
   const entries: [keyof T, T[keyof T]][] = []
 
   for (const key in obj) {
@@ -17,6 +17,6 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
       entries.push([key, obj[key]])
     }
   }
-
+  
   return entries
 }
