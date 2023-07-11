@@ -17,9 +17,12 @@
     <p>前置图标</p>
     <dk-alert :icon="'IconShanchu1'">123</dk-alert>
 
-    <p>前置图标+关闭图标</p>
-    <dk-alert :icon="'IconShanchu1'" :close-icon="'IconShanchu1'" :closable="false">
-      123
+    <dk-alert :icon="'IconShanchu1'" :close-icon="'IconShanchu1'" closable>
+      <p>前置图标+关闭图标</p>
+    </dk-alert>
+
+    <dk-alert :icon="'IconShanchu1'" :closable="false">
+      <p>前置图标+不可关闭</p>
     </dk-alert>
   </div>
 </template>

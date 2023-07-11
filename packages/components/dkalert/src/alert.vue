@@ -7,7 +7,7 @@
    **/
   import { defineComponent, ref, toRefs } from 'vue'
   import { dkAlertProps } from './props'
-  import { getReturn } from '../../_hooks'
+  import { getAlert, getReturn } from '../../_hooks'
   export default defineComponent({
     name: 'DkAlert',
     props: dkAlertProps,
@@ -16,6 +16,8 @@
       const alertVisible = ref<boolean>(true)
       const { type, title, description, center, closable, closeText, icon, closeIcon } =
         toRefs(Props)
+
+      const { isSuccess, styleList } = getAlert
 
       const { getRun } = getReturn()
       const EventClick = (evt: MouseEvent): void => {
@@ -39,14 +41,16 @@
         closeIcon,
         EventClick,
         alertVisible,
-        onClose
+        onClose,
+        isSuccess,
+        styleList
       }
     }
   })
 </script>
 <template>
   <template v-if="alertVisible">
-    <div ref="dkAlertRef" :class="['dk-alert']">
+    <div ref="dkAlertRef" :class="['dk-alert']" :style="[styleList]">
       <slot v-if="icon === '' || icon === null" name="icon"></slot>
       <div>
         <dk-icon :icon="icon"></dk-icon>
