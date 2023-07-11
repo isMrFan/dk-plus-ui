@@ -40,6 +40,11 @@ export default (): UserConfigExport => {
        */
       dts({
         skipDiagnostics: true,
+        // todo 如果丢失了声明文件 打开下面两行
+        // skipDiagnostics: false,
+        // afterDiagnostic: diagnostics => {
+        //   console.log(diagnostics)
+        // },
         staticImport: true,
         outputDir: ['./dist/lib', './dist/es'],
         insertTypesEntry: true,

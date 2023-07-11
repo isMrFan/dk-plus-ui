@@ -15,6 +15,8 @@
     "allowJs": true, // 允许 JavaScript 文件在你的工程中被引入
     "isolatedModules": true, // 将每个文件做为单独的模块
     "esModuleInterop": true, // 允许使用ES模块的默认导入和命名空间导入
+    "declaration": true,
+    "baseUrl": ".",
     "lib": [
       "ESNext",
       "DOM"
