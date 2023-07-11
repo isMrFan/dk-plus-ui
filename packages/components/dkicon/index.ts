@@ -1,6 +1,6 @@
 import Icon from './src/icon.vue'
-import { withInstall } from '@dk-plus/utils/with-install'
-const dkIcon = withInstall(Icon)
-export { dkIcon }
-export default dkIcon
+import { withInstall } from '../_utils/index'
+export const DkIcon = withInstall(Icon)
+export type IconInstance = InstanceType<typeof Icon>
+export default DkIcon
 export * from './src/icon'

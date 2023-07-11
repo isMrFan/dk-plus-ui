@@ -37,7 +37,17 @@
 </template>
 
 ```html
-<dk-input-number disabled></dk-input-number>
+<dk-input-number v-model='value' disabled></dk-input-number>
+<script lang='ts'>
+  import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+    setup() {
+      const value = ref(0)
+      return {
+        value
+      }
+    }
+  })
 </script>
 ```
 

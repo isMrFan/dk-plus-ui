@@ -3,9 +3,9 @@ import Theme from 'vitepress/theme'
 import onSearch from './components/search.vue'
 import './style/vitepress.scss'
 import './style/global.scss'
-import dkPlus, { dkcodedisplay } from '../../../packages/dk-plus/index'
-
-import '@dk-plus/theme-chalk/src/index.scss'
+import dkPlus, { Dkcodedisplay } from '../../../packages/components/index'
+console.log('dkPlus', dkPlus)
+import '@dk-plus/theme-chalk/index.scss'
 
 // import { loadStyle } from '../plugins/set-style'
 
@@ -80,7 +80,7 @@ export default {
     }
 
     app.use(dkPlus)
-    app.component('CustomModule', dkcodedisplay)
+    app.component('CustomModule', Dkcodedisplay)
     // loadStyle && loadStyle?.init()
   }
 }

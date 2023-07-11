@@ -1,5 +1,5 @@
-@use './mixins/mixin.scss' as *;
-@use './mixins/configuration/var-input-number.scss' as *;
+@use '../mixins/mixin.scss' as *;
+@use '../mixins/configuration/var-input-number.scss' as *;
 
 @include block('input-number') {
   width: var(--input-number-width);

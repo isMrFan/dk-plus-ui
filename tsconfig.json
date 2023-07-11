@@ -1,36 +1,39 @@
 {
   "compilerOptions": {
-    "module": "ESNext", // 打包模块类型ESNext
-    "declaration": false, // 默认不要声明文件
-    "noImplicitAny": false, // 支持类型不标注可以默认any
-    "removeComments": true, // 删除注释
+    "module": "ESNext", // 打包模块类型ESNext 
     "moduleResolution": "node", // 按照node模块来解析
-    "esModuleInterop": true, // 支持es6,commonjs模块
-    "jsx": "preserve", // jsx 不转
-    "noLib": false, // 不处理类库
-    "target": "es6", // 遵循es6版本
+    "removeComments": true, // 删除注释
+    "target": "ESNext", // 目标语言
+    "useDefineForClassFields": true, // 使用defineProperty来定义类的属性
     "sourceMap": true,
-    "lib": [
-      // 编译时用的库
-      "dom",
-      "DOM.Iterable",
-      "ESNext"
-    ],
     "allowSyntheticDefaultImports": true, // 允许没有导出的模块中导入
     "experimentalDecorators": true, // 装饰器语法
     "forceConsistentCasingInFileNames": true, // 强制区分大小写
     "resolveJsonModule": true, // 解析json模块
     "strict": true, // 是否启动严格模式
     "skipLibCheck": true, // 跳过类库检测
-    "types": [
-      "sass"
-    ]
+    "allowJs": true, // 允许 JavaScript 文件在你的工程中被引入
+    "isolatedModules": true, // 将每个文件做为单独的模块
+    "esModuleInterop": true, // 允许使用ES模块的默认导入和命名空间导入
+    "declaration": true,
+    "baseUrl": ".",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ], // 编译过程中需要引入的库文件的列表
+    "typeRoots": [
+      "node_modules/@types",
+      "@types"
+    ] // 声明文件路径
   },
   "exclude": [
     // 排除掉哪些类库
     "node_modules",
     "**/__tests__",
-    "dist/**"
+    "dist/**",
+    "play",
+    "docs",
+    "build"
   ],
   "types": [
     // 类型声明
@@ -41,6 +44,12 @@
     "*": [
       "node_modules/*",
       "node_modules/@types/*"
-    ]
-  }
+    ],
+  },
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.d.ts",
+    "packages/**/*.vue",
+    "docs/**/*.vue"
+  ]
 }

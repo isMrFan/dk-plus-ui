@@ -5,7 +5,7 @@
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinput)
 - [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/input.md)
 
-## 基础输入框
+## <a id='基础输入框'>基础输入框</a>
 
 `type` 输入框类型 type 设置 text | password | email | number | tel | url 默认:text
 
@@ -20,7 +20,7 @@
 
 :::
 
-## 禁用状态
+## <a id='禁用状态'>禁用状态</a>
 
 `disabled` 属性可以将输入框设置为禁用状态
 
@@ -35,7 +35,7 @@
 
 :::
 
-## 前后缀
+## <a id='前后缀'>前后缀</a>
 
 `prefix-icon` 和 `suffix-icon` 属性可以在输入框前后添加图标，
 `prefix` 和 `suffix` 插槽可以在输入框前后添加自定义内容。
@@ -71,7 +71,7 @@
 
 :::
 
-## 前后置标签
+## <a id='前后置标签'>前后置标签</a>
 
 `prepend` 和 `append` 插槽可以在输入框前后添加标签，
 `prepend-icon` 和 `append-icon` 属性可以在输入框前后添加图标，
@@ -120,7 +120,7 @@
 
 :::
 
-## 文本域
+## <a id='文本域'>文本域</a>
 
 `type` 属性设置为 `textarea` 可以将输入框设置为文本域， `autosize` 属性可以自适应高度。
 
@@ -138,7 +138,7 @@
 
 :::
 
-## 数字输入框
+## <a id='数字输入框'>数字输入框</a>
 
 `type` 属性设置为 `number` 可以将输入框设置为数字输入框。
 
@@ -153,7 +153,7 @@
 
 :::
 
-## 密码输入框
+## <a id='密码输入框'>密码输入框</a>
 
 `type` 属性设置为 `password` 可以将输入框设置为密码输入框，`show-password` 属性可以显示密码切换按钮。
 
@@ -171,27 +171,45 @@
 
 :::
 
-## 属性
+## <a id='长度限制'>长度限制</a>
+
+`maxlength` 和 `minlength` 属性可以限制输入框的最大长度和最小长度, `show-length` 属性可以显示输入框的长度。
+
+::: module
+<template #code>
+<dk-input class='docs-input' placeholder="请输入内容" show-length maxlength="10"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="请输入内容" minlength="10"></dk-input>
+</template>
+
+```html
+<dk-input placeholder="请输入内容" show-length maxlength="10"></dk-input>
+<dk-input placeholder="请输入内容" minlength="10"></dk-input>
+```
+
+:::
+
+## <a id='属性'>属性</a>
 
 | 属性 | 说明 | 类型 | 可选值 | 默认值 | 
 | --- | --- | --- | --- | --- |
-| `type` | 类型 | `string` | `text` `textarea` `number` `password` `text` | `text` |
+| `type` | [类型](#基础输入框) | `string` | `text` `textarea` `number` `password` `text` | `text` |
 | `placeholder` | 占位符 | `string` | - | - |
-| `disabled` | 禁用 | `boolean` | - | `false` |
+| `disabled` | [禁用](#禁用状态) | `boolean` | - | `false` |
 | `readonly` | 只读 | `boolean` | - | `false` |
 | `clearable` | 可清空 | `boolean` | - | `false` |
 | `show-password` | 显示密码切换按钮 | `boolean` | - | `false` |
-| `prefix-icon` | 输入框头部图标 | `string` | - | - |
-| `suffix-icon` | 输入框尾部图标 | `string` | - | - |
-| `prepend-icon` | 输入框前部图标 | `string` | - | - |
-| `append-icon` | 输入框后部图标 | `string` | - | - |
-| `prepend-text` | 输入框前部文本 | `string` | - | - |
-| `append-text` | 输入框后部文本 | `string` | - | - |
-| `autosize` | 自适应高度（只对textarea生效） | `boolean` | - | `false` |
-| `rows` | 输入框行数（只对textarea生效） | `number` | - | `1` |
-| `maxlength` | 输入框最大长度 | `number` | - | - |
-| `minlength` | 输入框最小长度 | `number` | - | - | 
-| `show-length` | 是否显示输入框长度 | `boolean` | - | `false` |
+| `prefix-icon` | [输入框头部图标](#前后缀) | `string` | - | - |
+| `suffix-icon` | [输入框尾部图标](#前后缀) | `string` | - | - |
+| `prepend-icon` | [输入框前部图标](#前后置标签) | `string` | - | - |
+| `append-icon` | [输入框后部图标](#前后置标签) | `string` | - | - |
+| `prepend-text` | [输入框前部文本](#前后置标签) | `string` | - | - |
+| `append-text` | [输入框后部文本](#前后置标签) | `string` | - | - |
+| `autosize` | [自适应高度（只对textarea生效）](#文本域) | `boolean` | - | `false` |
+| `rows` | [输入框行数（只对textarea生效）](#文本域) | `number` | - | `1` |
+| `maxlength` | [输入框最大长度](#长度限制) | `number` | - | - |
+| `minlength` | [输入框最小长度](#长度限制) | `number` | - | - | 
+| `show-length` | [是否显示输入框长度](#长度限制) | `boolean` | - | `false` |
 | `width` | 输入框宽度 | `string` | - | - |
 | `height` | 输入框高度 | `string` | - | - |
 | `size` | 输入框尺寸 | `string` | `large` `medium` `small` | `medium` |
@@ -214,7 +232,7 @@
 <!-- | `label` | 输入框标签 | `string` | - | - | -->
 <!-- | `label-width` | 输入框标签宽度 | `string` | - | - | -->
 
-## 事件
+## <a id='事件'>事件</a>
 
 | 事件名称 | 说明 | 回调参数 |
 | --- | --- | --- |
@@ -224,7 +242,7 @@
 | `enter` | 按下回车键时触发 | `event: Event` |
 <!-- | `change` | 输入框内容变化时触发 | `value: string` | -->
 
-## 插槽
+## <a id='插槽'>插槽</a>
 
 | 插槽名称 | 说明 |
 | --- | --- |
@@ -233,8 +251,7 @@
 | `prefix` | 输入框头部内容 |
 | `suffix` | 输入框尾部内容 |
 
-
-## Contributors
+## <a id='Contributors'>Contributors</a>
 
 <div style='display: flex;'>
   <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-right:10px;'>

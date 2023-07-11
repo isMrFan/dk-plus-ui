@@ -7,7 +7,6 @@
 <p align="center">
   中文 | <a href="https://github.com/dk-plus-ui/dk-plus-ui/blob/master/README.en-US.md">English</a>
 </p>
-
 <p align="center">
   <a href="https://github.com/dk-plus-ui/dk-plus-ui/stargazers">
     <img src="https://img.shields.io/github/stars/dk-plus-ui/dk-ui" />

@@ -7,6 +7,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { resolve } from 'path'
 export default defineConfig({
   base: './',
   plugins: [
@@ -69,6 +70,11 @@ export default defineConfig({
         ws: true, //websocket支持
         rewrite: path => path.replace(/^\/api/, '')
       }
+    }
+  },
+  resolve: {
+    alias: {
+      'dk-plus': resolve(__dirname, '../packages/components/index.ts')
     }
   }
 })

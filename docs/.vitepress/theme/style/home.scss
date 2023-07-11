@@ -173,17 +173,14 @@
       flex-direction: column;
       gap: 10px;
       overflow: auto;
-
+      height: 175px;
       &-title {
         font-size: 13px;
         color: var(--text-color);
       }
-
-
-
       &-list {
         width: 100%;
-        height: fit-content;
+        height:130px;
         flex: 1;
         margin-top: auto;
         display: flex;
@@ -192,8 +189,8 @@
 
         .friendship-item {
           width: fit-content;
-          width: 150px;
-          height: 50px;
+          width: 173px;
+          height: 60px;
           overflow: hidden;
           cursor: pointer;
           display: flex;

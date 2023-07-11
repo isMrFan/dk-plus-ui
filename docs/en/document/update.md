@@ -1,5 +1,9 @@
 # Update log
 
+## 1.0.22-alpha.1 (2023-07-10)
+
+- Change the packaging method. Change the reference method. See the Getting Started documentation
+  
 ## 1.0.21-alpha.1 (2023-07-07)
 
 - BUG fix for `index.css` Style failure problem

@@ -1,11 +1,11 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import { svgList } from 'dk-plus'
+  // import { svgList } from 'dk-plus'
   export default defineComponent({
     name: 'DkIconsm',
-    components: {
-      IconShanchu1: svgList.IconShanchu1
-    },
+    // components: {
+    //   IconShanchu1: svgList.IconShanchu1
+    // },
     setup() {
       const htmlJson = {
         foundation: '<dkIcon :icon="IconShanchu1"></dkIcon>',
