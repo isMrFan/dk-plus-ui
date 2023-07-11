@@ -97,7 +97,7 @@ export default (): UserConfigExport => {
          * @inlineDynamicImports 是否内联动态导入
          * @see output.outputinlinedynamicimports https://rollupjs.org/guide/en/#outputinlinedynamicimports
          * @globals 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-         * @namespaceToStringTag 为命名空间提供 toStringTag
+         * @namespaceToStringTag 为命名空间提供 toStringTag1
          *  @see output.outputnamespacetostringtag https://rollupjs.org/guide/en/#outputnamespacetostringtag
          * @description 外部化处理那些你不想打包进库的依赖
          */
