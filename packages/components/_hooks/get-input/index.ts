@@ -176,7 +176,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @description 期望被转换的inner类名
    */
   const innerClasses = getStyleList(params, 'input').classes
-  const defaultInnerClassList = []
+  const defaultInnerClassList: string[] = []
   const innerClassList = innerClasses([...defaultInnerClassList], 'dk-input_inner')
 
   /**

@@ -5,8 +5,6 @@ import type { DkPlusAlign } from '../../_interface';
 import {
   setBooleanProps,
   setStringProp,
-  setNumberProps,
-  setObjectProps,
   setFunction,
   setStringNumberProps
 } from '../../_utils'
@@ -23,19 +21,19 @@ export const dkInputProps = {
   onEnter: setFunction<KeyboardEventType>(),
   onPrependClick: setFunction<MouseEventType>(),
   onAppendClick: setFunction<MouseEventType>(),
-  iconSize: setStringProp() || setNumberProps(),
+  iconSize: setStringNumberProps(),
   /** textColor */
-  textColor: setStringProp() || setNumberProps(),
+  textColor: setStringNumberProps(),
 
   /** borderRadius */
-  borderRadius: setStringProp() || setNumberProps(),
+  borderRadius: setStringNumberProps(),
   /** fontSize */
-  fontSize: setStringProp() || setNumberProps(),
+  fontSize: setStringNumberProps(),
   /** input width */
-  width: setStringProp() || setNumberProps(),
+  width: setStringNumberProps(),
 
   /** input height */
-  height: setStringProp() || setNumberProps(),
+  height: setStringNumberProps(),
   /** input border color */
   borderColor: setStringProp(),
   /** input focus border color */
@@ -115,10 +113,10 @@ export const dkInputProps = {
   prefixIcon: setStringProp(),
   /** Suffix icon */
   suffixIcon: setStringProp(),
-  rows: setStringProp() || setNumberProps(),
-  maxRows: setStringProp() || setNumberProps(),
+  rows: setStringNumberProps(),
+  maxRows: setStringNumberProps(),
   /** Auto height */
-  autosize: setBooleanProps() || setObjectProps(),
+  autosize: setBooleanProps(),
   /** Whether display character statistics */
   showLength: setBooleanProps()
 } as const

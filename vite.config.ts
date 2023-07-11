@@ -160,7 +160,7 @@ const move = (): void => {
   ] as const
 
   files.forEach((item): void => {
-    copyFileSync(item.input, item.outDir)
+    copyFileSync(item.input, item.outDir) // 同步拷贝文件
   })
 
   console.warn('\n' + `${name} ${version} 版本打包成功🎇🎇🎇🎇🎇🎇🎇🎇🎇🎇🎇` + '\n')
