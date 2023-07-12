@@ -144,10 +144,15 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     getBorder(border)
 
     const defaultStyle: Record<string, string> = {
-      '--input-align': align || 'left',
-      '--input-border': inputBorder,
-      '--input-hover-border': hoverBorder,
-      '--input-focus-border': focusColor
+      '--input-align': align || 'left'
+    }
+
+    if (focusBorderColor) {
+      defaultStyle['--input-focus-border'] = focusColor
+    }
+    if (borderColor) {
+      defaultStyle['--input-border'] = inputBorder
+      defaultStyle['--input-hover-border'] = hoverBorder
     }
     if (width) {
       defaultStyle['--input-width'] = setSize(width)
@@ -165,11 +170,11 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       defaultStyle['--input-border-radius'] = setSize(borderRadius)
     }
 
-    if (textColor) { 
+    if (textColor) {
       defaultStyle['--input-text-color'] = getColor(textColor).getDeepen(0)
     }
 
-    if (iconSize) { 
+    if (iconSize) {
       defaultStyle['--input-icon-size'] = setSize(iconSize)
     }
     return defaultStyle
