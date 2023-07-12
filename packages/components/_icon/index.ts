@@ -171,6 +171,8 @@ import i_Edit from './src/i-edit/index.vue'
 import i_Add1 from './src/i-Add1/index.vue'
 import i_Reduce1 from './src/i-Reduce1/index.vue'
 import i_searchSmall from './src/i-searchSmall/index.vue'
+import i_ArrowTop from './src/i-ArrowTop/index.vue'
+import i_ArrowBottom from './src/i-ArrowBottom/index.vue'
 export const IconShanchu1 = withInstall(i_shanchu1)
 export const IconShanchu2 = withInstall(i_Shanchu2)
 export const IconRefresh = withInstall(i_Refresh)
@@ -343,6 +345,8 @@ export const IconEdit = withInstall(i_Edit)
 export const IconAdd1 = withInstall(i_Add1)
 export const IconReduce1 = withInstall(i_Reduce1)
 export const IconSearchSmall = withInstall(i_searchSmall)
+export const IconArrowTop = withInstall(i_ArrowTop)
+export const IconArrowBottom = withInstall(i_ArrowBottom)
 import * as svgList from './default'
 export * from './default'
 export default svgList

@@ -15,7 +15,7 @@ export interface DataType {
    * @param { string } type [left]
    * @default right
    */
-  position: DkPlusPosition
+  position: DkPlusPosition & 'right' | 'left'
   /**
    * @name readonly
    * @description Native readonly attribute

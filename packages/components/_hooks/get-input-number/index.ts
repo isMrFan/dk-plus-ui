@@ -3,6 +3,7 @@ import { getStyleList } from '..'
 import type { ComputedRef, CSSProperties } from 'vue'
 import type { ClassListName } from '../../_interface'
 import type { DkInputNumberProps } from '../../dkinputNumber/src/props'
+import { DK_INPUT_NUMBER_POSITION } from '../../_tokens'
 
 interface inputNumberType {
   classList: ComputedRef<ClassListName>
@@ -13,7 +14,11 @@ export const getInputNumber = (props: DkInputNumberProps): inputNumberType => {
   const data = { ...toRaw(props) }
 
   const { classes } = getStyleList(data, 'input-number')
-  const defaultClass = ['disabled', 'position']
+  let defaultClass: string[] = ['disabled']
+
+  if (data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
+    defaultClass = [...defaultClass, 'position']
+  }
   const classList = classes([...defaultClass], 'dk-input-number')
 
   const styleList = computed((): CSSProperties => {
