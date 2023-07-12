@@ -214,7 +214,7 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
 
     watch(() => inputValue.value, (val) => {
       const len = val.toString().length
-
+ 
       // maxlength
       if (propData.maxlengthProp) {
         lengthLimit.value = `${len}/${propData.maxlengthProp}`
