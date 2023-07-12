@@ -8,7 +8,15 @@
    * @function getBooleanAnd Obtaining Results from Relationships
    * @example
    */
-  import { defineComponent, computed, ref, shallowRef, nextTick, reactive, watch } from 'vue'
+  import {
+    defineComponent,
+    computed,
+    ref,
+    shallowRef,
+    nextTick,
+    reactive,
+    watch
+  } from 'vue'
   import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'vue'
   import { dkInputProps } from './props'
   import { getInputGlobal } from '../../_hooks'
@@ -31,7 +39,7 @@
       const inputClassList = computed(() => getInput(props).classList)
       const modelValueProp = ref<string | number>(props.modelValue)
       const isFocus = ref<boolean>(false)
-      
+
       const propData = reactive<propDataModel>({
         prependText: props.prependText,
         appendText: props.appendText,
@@ -162,15 +170,15 @@
           !data.isAppendIcon
         ])
       })
-      
+
       const prependClassList = (): string[] => ['dk-input_prepend', 'dk-input_pend']
-      
+
       const appendClassList = (): string[] => ['dk-input_append', 'dk-input_pend']
-      
+
       const valueLength = ref<number>(0)
-      
-      const {pendStyleList} = getInput(props)
-      
+
+      const { pendStyleList } = getInput(props)
+
       const getValue = (value: string | number): string => {
         value = value.toString()
         let val = value
@@ -178,7 +186,7 @@
           const reg = new RegExp(`^${propData.prependText}`)
           val = val.replace(reg, '')
         }
-        
+
         if (propData.appendText && !propData.appendIcon) {
           const reg = new RegExp(`${propData.appendText}$`)
           val = val.replace(reg, '')
@@ -195,7 +203,7 @@
             val = propData.prependText + value
           }
         }
-        
+
         if (propData.appendText && !propData.appendIcon) {
           const reg = new RegExp(`${propData.appendText}$`)
           if (!reg.test(value)) {
@@ -205,36 +213,42 @@
         return val
       }
 
-      watch(() => props.modelValue, () => {
-        inputValue.value = getValue(props.modelValue)
-        modelValueProp.value = inputValue.value
-      })
-
-      watch(() => inputValue.value, (val) => {
-        const len = val.toString().length
-
-        // maxlength
-        if (propData.maxlengthProp) {
-          lengthLimit.value = `${len}/${propData.maxlengthProp}`
+      watch(
+        () => props.modelValue,
+        () => {
+          inputValue.value = getValue(props.modelValue)
+          modelValueProp.value = inputValue.value
         }
+      )
 
-        // autoSize
-        if (getTextareaRows().autosize) {
-          const textarea = _ref.value as HTMLTextAreaElement
-          textarea.style.height = 'auto'
-          textarea.style.height = `${textarea.scrollHeight + 2}px`
-        }
+      watch(
+        () => inputValue.value,
+        val => {
+          const len = val.toString().length
 
-        // length-count
-        if (data.showLength) {
-          valueLength.value = len
+          // maxlength
+          if (propData.maxlengthProp) {
+            lengthLimit.value = `${len}/${propData.maxlengthProp}`
+          }
+
+          // autoSize
+          if (getTextareaRows().autosize) {
+            const textarea = _ref.value as HTMLTextAreaElement
+            textarea.style.height = 'auto'
+            textarea.style.height = `${textarea.scrollHeight + 2}px`
+          }
+
+          // length-count
+          if (data.showLength) {
+            valueLength.value = len
+          }
+          if (propData.typeProp === 'number') {
+            emit('update:modelValue', Number(val))
+          } else {
+            emit('update:modelValue', getPendValue(val))
+          }
         }
-        if(propData.typeProp === 'number') {
-          emit('update:modelValue', Number(val))
-        } else {
-          emit('update:modelValue', getPendValue(val))
-        }
-      })
+      )
 
       const update = (e: Event): void => {
         const target = e.target as HTMLInputElement
@@ -270,7 +284,9 @@
       let showPasswordIcon = ref<string>('IconPasswordSee')
       const togglePassword = (): void => {
         passwordShowOrHide.value = !passwordShowOrHide.value
-        showPasswordIcon.value = passwordShowOrHide.value ? 'IconPasswordShow' : 'IconPasswordSee'
+        showPasswordIcon.value = passwordShowOrHide.value
+          ? 'IconPasswordShow'
+          : 'IconPasswordSee'
         inputType.value = passwordShowOrHide.value ? 'text' : 'password'
         if (passwordShowOrHide.value) {
           _ref.value?.setAttribute('type', 'text')
@@ -281,9 +297,7 @@
       }
 
       const showPasswordClass = (): string[] => {
-        return [
-          'dk-input_password-icon'
-        ]
+        return ['dk-input_password-icon']
       }
 
       const onfocus = (event: Event): void => {
@@ -317,7 +331,7 @@
         const isAutosize = propData.autosizeProp
         const rows = +propData.rowsProp
         const isRows = rows > 0
-        
+
         if (isTextarea && isRows) {
           row = rows
         }
@@ -464,7 +478,11 @@
 
       <!-- show-password -->
       <template v-if="isShowPassword">
-        <dk-icon :class="showPasswordClass" :icon="showPasswordIcon" @click="togglePassword"></dk-icon>
+        <dk-icon
+          :class="showPasswordClass"
+          :icon="showPasswordIcon"
+          @click="togglePassword"
+        ></dk-icon>
       </template>
     </div>
 
