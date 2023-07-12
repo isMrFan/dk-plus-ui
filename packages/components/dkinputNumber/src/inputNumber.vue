@@ -7,7 +7,7 @@
    * @function setParseFloat Retain Decimal Places
    * @function getModelValue Get the value of the input box
    * @type [string | number] modelValue The value of the input box
-   * @params [boolean] disabled Whether to disable the input box 
+   * @params [boolean] disabled Whether to disable the input box
    * @params [boolean] reduceDisabled Whether to disable the reduce button
    * @params [boolean] plusDisabled Whether to disable the plus button
    * @function reduce Reduce the value of the input box
@@ -22,6 +22,7 @@
   import { dkInputNumberProps } from './props'
   import type { DataType } from './type'
   import { getInputNumber } from '../../_hooks'
+  import { DK_INPUT_NUMBER_POSITION } from '../../_tokens'
 
   export default defineComponent({
     name: 'DkInputNumber',
@@ -36,7 +37,7 @@
         small: 16,
         mini: 12
       }
-      
+
       const data = reactive<DataType>({
         step: Number(props.step),
         min: props.min,
@@ -46,21 +47,37 @@
         strict: props.strict,
         precision: Number(props.precision),
         readonly: props.readonly,
-        position: props.position,
-        placeholder: props.placeholder
+        placeholder: props.placeholder,
+        position: props.position
       })
+
+      const reduceIcon = (): string => {
+        if (data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
+          data.iconSize -= 2
+          return 'IconArrowBottom'
+        }
+        return 'IconReduce1'
+      }
       
+      const plusIcon = (): string => {
+        if (data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
+          return 'IconArrowTop'
+        }
+        return 'IconAdd1'
+      }
+      console.log(data.iconSize)
+
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)
         const floatValue = targetValue.toFixed(data.precision)
         return parseFloat(floatValue)
       }
-      
+
       const modelValue = ref<number>(props.modelValue)
       const showValue = ref<string | number>('')
-      
+
       const disabled = ref<boolean>(props.disabled)
-      
+
       const reduceDisabled = ref<boolean>(modelValue.value <= data.min)
       const plusDisabled = ref<boolean>(modelValue.value >= data.max)
 
@@ -114,9 +131,9 @@
         (): number => modelValue.value,
         (val): void => {
           if (disabled.value) return
-          
+
           let value: number = val
-          
+
           reduceDisabled.value = value <= data.min
           plusDisabled.value = value >= data.max
 
@@ -177,7 +194,9 @@
         handleInputChange,
         handleMouseDown,
         handleMouseLeave,
-        handleMouseUp
+        handleMouseUp,
+        reduceIcon: reduceIcon(),
+        plusIcon: plusIcon()
       }
     }
   })
@@ -186,13 +205,14 @@
 <template>
   <div :class="classList" :style="styleList">
     <dk-button
+      class="dk-input-number_reduce"
       :disabled="disabled || reduceDisabled"
       :size="size"
       @mousedown="handleMouseDown($event, () => reduce)"
       @mouseleave="handleMouseLeave"
       @mouseup="handleMouseUp"
     >
-      <dk-icon :size="iconSize" icon="IconReduce1"></dk-icon>
+      <dk-icon :size="iconSize" :icon="reduceIcon"></dk-icon>
     </dk-button>
     <dk-input
       ref="input"
@@ -208,13 +228,14 @@
       @change="handleInputChange"
     />
     <dk-button
+      class="dk-input-number_plus"
       :disabled="disabled || plusDisabled"
       :size="size"
       @mousedown="handleMouseDown($event, () => plus)"
       @mouseleave="handleMouseLeave"
       @mouseup="handleMouseUp"
     >
-      <dk-icon :size="iconSize" icon="IconAdd1"></dk-icon>
+      <dk-icon :size="iconSize" :icon="plusIcon"></dk-icon>
     </dk-button>
   </div>
 </template>

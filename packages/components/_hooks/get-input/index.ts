@@ -1,4 +1,4 @@
-import { computed, reactive, toRaw, useSlots } from 'vue'
+import { computed, toRaw, useSlots } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
@@ -65,9 +65,6 @@ export interface iSGetInputType {
  * @returns
  */
 export const getInput = (props: DkInputProps): iSGetInputType => {
-  // const { namespace, commonSeparator, elementSeparator, modifierSeparator } =
-  //   getSassConfig()
-
   /**
    * @name defaultClassList
    * @description 期望转换的类名
@@ -75,10 +72,10 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   let defaultClassList = ['type', 'size']
 
   /**
-   * @name cloneProps
+   * @name data
    * @description 创建一个新的props对象 用于修改props
    */
-  const cloneProps = { ...toRaw(props) }
+  const data = { ...toRaw(props) }
 
   const slot: Slots = useSlots()
 
@@ -86,14 +83,14 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const append = props.appendText || props.appendIcon || slot.append
 
   if (append && prepend) {
-    cloneProps.appendText = 'wrapper-pend_text'
-    cloneProps.prependText = ''
+    data.appendText = 'wrapper-pend_text'
+    data.prependText = ''
   } else {
     if (append) {
-      cloneProps.appendText = 'wrapper-append_text'
+      data.appendText = 'wrapper-append_text'
     }
     if (prepend) {
-      cloneProps.prependText = 'wrapper-prepend_text'
+      data.prependText = 'wrapper-prepend_text'
     }
   }
 
@@ -101,16 +98,14 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name params
    * @description 组件传来的props和准备特殊类名合并的处理
    */
-  const params = reactive({
-    ...cloneProps
-  })
+  const params = data
 
   /**
    * @name isDisabled
    * @description 是否禁用
    */
   const isDisabled = computed((): boolean => {
-    return cloneProps.disabled
+    return data.disabled
   })
   if (isDisabled.value) {
     defaultClassList = [...defaultClassList, 'disabled']
@@ -132,7 +127,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       borderColor,
       focusBorderColor,
       border
-    } = cloneProps
+    } = data
 
     type BorderColorType = string | number | undefined | null
     let inputBorder: BorderColorType = 'transparent'
@@ -147,20 +142,36 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       focusColor = focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null
     }
     getBorder(border)
-    
-    const defaultStyle = {
-      '--input-width': width ? setSize(width) : null,
-      '--input-height': height ? setSize(height) : null,
-      '--input-font-size': fontSize ? setSize(fontSize) : null,
-      '--input-border-radius': borderRadius ? setSize(borderRadius) : null,
-      '--input-text-color': textColor ? getColor(textColor).getDeepen(0) : null,
-      '--input-icon-size': iconSize ? setSize(iconSize) : null,
+
+    const defaultStyle: Record<string, string> = {
       '--input-align': align || 'left',
       '--input-border': inputBorder,
       '--input-hover-border': hoverBorder,
       '--input-focus-border': focusColor
-    } as CSSProperties
+    }
+    if (width) {
+      defaultStyle['--input-width'] = setSize(width)
+    }
 
+    if (height) {
+      defaultStyle['--input-height'] = setSize(height)
+    }
+
+    if (fontSize) {
+      defaultStyle['--input-font-size'] = setSize(fontSize)
+    }
+
+    if (borderRadius) {
+      defaultStyle['--input-border-radius'] = setSize(borderRadius)
+    }
+
+    if (textColor) { 
+      defaultStyle['--input-text-color'] = getColor(textColor).getDeepen(0)
+    }
+
+    if (iconSize) { 
+      defaultStyle['--input-icon-size'] = setSize(iconSize)
+    }
     return defaultStyle
   })
 
@@ -188,8 +199,8 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const clearableClassList = clearableClass([...defaultClearableStyleList], 'dk-input')
 
   const pendStyleList = computed((): CSSProperties => {
-    const { appendBackground, appendColor } = cloneProps
-    const defaultStyle = {
+    const { appendBackground, appendColor } = data
+    const pendStyleList = {
       '--pend-background': appendBackground
         ? getColor(appendBackground).getDeepen(0)
         : null,
@@ -198,7 +209,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
         : null,
       '--pend-color': appendColor ? getColor(appendColor).getDeepen(0) : null
     } as CSSProperties
-    return defaultStyle
+    return pendStyleList
   })
 
   return {

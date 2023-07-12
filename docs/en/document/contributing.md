@@ -181,10 +181,6 @@ pnpm install
 
 ps: Note that the federation directive is referenced here
 
-If the cnpm is not installed, install the cnpm first
-
-Foreign user package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
-
 # CNPM安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
@@ -303,6 +299,13 @@ Before submitting your PR, make sure your local branch is based on the latest ma
 PR commits should be as small as possible, and each PR should contain only one set of related changes. This makes auditing easier and also makes the code easier to maintain.
 
 Add a description to your PR to let other developers know about the changes you've made and their purpose
+
+8.Set submission email
+
+```shell
+git config --global user.email "your-email@example.com"  //Global mailbox
+git config user.email "your-email@example.com"           //Project specific mailbox
+```
 
 ## 📦 NPM Release process
 

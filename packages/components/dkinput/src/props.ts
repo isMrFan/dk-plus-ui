@@ -1,6 +1,6 @@
 import type { ExtractPropTypes } from 'vue'
 import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
-import type { DkPlusAlign } from '../../_interface';
+import type { DkPlusAlign } from '../../_interface'
 
 import {
   setBooleanProps,
@@ -23,7 +23,7 @@ export const dkInputProps = {
   onAppendClick: setFunction<MouseEventType>(),
   iconSize: setStringNumberProps(),
   /** textColor */
-  textColor: setStringNumberProps(),
+  textColor: setStringProp(),
 
   /** borderRadius */
   borderRadius: setStringNumberProps(),
