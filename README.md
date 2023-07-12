@@ -14,7 +14,7 @@
   <a href="https://www.npmjs.com/package/dk-plus">
     <img src="https://badgen.net/npm/v/dk-plus" />
   </a>
-  <a href="https://dk-plus-uis.com">
+  <a href="https://dk-plus.com">
     <img src="https://img.shields.io/badge/dk--plus-Docs-blue" />
   </a>
   <a href="https://github.com/dk-plus-ui/dk-plus-ui/blob/master/CUpdateLog.md">
