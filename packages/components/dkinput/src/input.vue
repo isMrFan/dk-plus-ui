@@ -9,7 +9,7 @@
  * @example
  */
 import { defineComponent, computed, ref, shallowRef, nextTick, reactive, watch } from 'vue'
-import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'vue'
+import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes, CSSProperties } from 'vue'
 // eslint-disable-next-line
 import { DkInputProps, dkInputProps } from './props'
 import { getInputGlobal } from '../../_hooks'
@@ -29,7 +29,8 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
     const input = shallowRef<HTMLInputElement>()
     const textarea = shallowRef<HTMLTextAreaElement>()
     const _ref = computed(() => input.value || textarea.value)
-    const { styleList, wrapperClassList, innerClassList } = getInput(props)
+    const { styleList, wrapperClassList, innerClassList, pendStyleList } = getInput(props)
+    const styleListRef: CSSProperties = styleList.value
     const inputClassList = computed(() => getInput(props).classList)
     const modelValueProp = ref<string | number>(props.modelValue)
     const isFocus = ref<boolean>(false)
@@ -171,8 +172,6 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
 
     const valueLength = ref<number>(0)
 
-    const pendStyleLis = (): {} => getInput(props).pendStyleList
-
     const getValue = (value: string | number): string => {
       value = value.toString()
       let val = value
@@ -214,7 +213,7 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
 
     watch(() => inputValue.value, (val) => {
       const len = val.toString().length
- 
+
       // maxlength
       if (propData.maxlengthProp) {
         lengthLimit.value = `${len}/${propData.maxlengthProp}`
@@ -358,13 +357,13 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
       rows: getTextareaRows().row,
       readonly: propData.readonlyProp
     } as TextareaHTMLAttributes)
-
+    
     return {
       // ...propData,
       ...data,
       ...pendData,
       classList: inputClassList.value,
-      styleList,
+      styleList: styleListRef,
       wrapperClassList,
       value: modelValueProp,
       inputAttrs: inputAttrs,
@@ -379,7 +378,7 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
       prependClassList: prependClassList(),
       isAppend: data.isAppend,
       appendClassList: appendClassList(),
-      pendStyleList: pendStyleLis(),
+      pendStyleList,
       AppendIconEventClick,
       PrependIconEventClick,
       onKeydownEnter,
@@ -395,10 +394,10 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
 </script>
 
 <template>
-  <div v-if="type !== 'textarea'" :class="classList" :style="styleList">
+  <div v-if="type !== 'textarea'" :class="classList" :style="(styleList as CSSProperties)">
     <!-- append -->
     <template v-if="isPrepend">
-      <div :class="prependClassList" :style="pendStyleList">
+      <div :class="prependClassList" :style="(pendStyleList as CSSProperties)">
         <slot name="prepend"></slot>
         <dk-icon v-if="isPrependIcon" :icon="prependIcon" @click="PrependIconEventClick"></dk-icon>
         <span v-if="isPrependText">{{ prependText }}</span>
@@ -413,10 +412,10 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
           <slot name="prefix" />
           <dk-icon v-if="isPrefixIcon" :class="prefixIconClass" :icon="prefixIcon" size="19px"></dk-icon>
         </span>
-      </template>：
+      </template>
 
       <!-- inner -->
-      <input ref="input" v-model="value" :type="inputType" v-bind="inputAttrs" @keydown.enter="onKeydownEnter" />
+      <input ref="input" v-model="value" :type="inputType" v-bind="inputAttrs" @keydown.enter="(onKeydownEnter as  KeyboardEvent)" />
 
       <!-- length-limit -->
       <template v-if="isLength">
@@ -454,14 +453,14 @@ export default defineComponent<typeof dkInputProps, Record<string, unknown>, DkI
 
     <!-- prepend -->
     <template v-if="isAppend">
-      <div :class="appendClassList" :style="pendStyleList">
+      <div :class="appendClassList" :style="(pendStyleList as CSSProperties)">
         <slot name="append"></slot>
         <dk-icon v-if="isAppendIcon" :icon="appendIcon" @click="AppendIconEventClick"></dk-icon>
         <span v-if="isAppendText">{{ appendText }}</span>
       </div>
     </template>
   </div>
-  <div v-else :class="classList" :style="styleList">
+  <div v-else :class="classList" :style="(styleList as CSSProperties)">
     <textarea ref="textarea" :type="inputType" v-bind="textareaAttrs"></textarea>
     <!-- length limit -->
     <template v-if="isLength">
