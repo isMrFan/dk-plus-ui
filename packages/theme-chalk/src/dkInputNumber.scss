@@ -54,25 +54,43 @@
 
     border: none;
   }
-  @include element(disabled){
+  @include element(disabled) {
     background-color: var(--input-number-background-color);
-    &:hover *{
+    &:hover * {
       cursor: not-allowed;
     }
   }
 
-  // @include element(left){
-  //   .dk-button{
-  //     float: left;
-  //   }
-  //   @include block('*input-number'){
-  //     @include block(wrapper){
-  //       float: right;
-  //       @include element(inner){
-  //         border-right: none;
-  //         background-color: #f00;
-  //       }
-  //     }
-  //   }
-  // }
+  @include element(left) {
+    position: relative;
+    .dk-input-number_reduce,
+    .dk-input-number_plus {
+      position: absolute;
+      right: -1px;
+      height: 42%;
+      overflow: hidden;
+      --input-number-height: 100%;
+      display: flex;
+      .dk-button-box{
+        --button-padding: 6px 15px;
+        .dk-icon{
+          --icon-size: 13px;
+        }
+        &:hover{
+          --button-hover-borderColor: transparent;
+        }
+      }
+    }
+    .dk-input-number_reduce {
+      bottom: -1px;
+      align-items: end;
+      padding-bottom: 2px;
+    }
+    
+    .dk-input-number_plus {
+      top: -1px;
+      align-items: start;
+      padding-top: 2px;
+    }
+  }
 }

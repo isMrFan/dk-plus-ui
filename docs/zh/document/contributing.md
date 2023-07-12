@@ -177,12 +177,6 @@ cd dk-ui
 # 安装依赖项
 pnpm install
 
-ps: 注意这里引用了联合指令
-
-如没安装 cnpm 请先安装cnpm
-
-国外用户 package.json scripts 里的 postinstall 命令 cnpm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3 改为 npm install --no-save @commitlint/cli@17.6.3 @commitlint/config-conventional@17.6.3
-
 # CNPM安装
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
@@ -329,6 +323,13 @@ git config --global --get https.proxy
 ```shell
 git config --global --unset http.proxy
 git config --global --unset https.proxy
+```
+
+8.设置提交邮箱
+
+```shell
+git config --global user.email "your-email@example.com"  //全局邮箱
+git config user.email "your-email@example.com"           //特定项目邮箱
 ```
 
 ## 📦 NPM 发布流程

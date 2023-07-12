@@ -21,7 +21,7 @@ export default (): UserConfigExport => {
       }
     },
     build: {
-      outDir: resolve(__dirname, 'dist/dist'),
+      outDir: resolve(__dirname, 'dist/dkPlus'),
       emptyOutDir: false,
       rollupOptions: {
         input: resolve(__dirname, 'packages/theme-chalk/index.scss'),

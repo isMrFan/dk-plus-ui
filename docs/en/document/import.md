@@ -9,7 +9,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import dkPlus from 'dk-plus'
-import 'dk-plus/dist/index.css'
+import 'dk-plus/dkPlus/index.css'
 
 createApp(App).use(dkPlus).mount('#app')
 ```
@@ -42,7 +42,7 @@ You can also use the `UMD` mode to include `dk-plus` in your `*.html` file and q
 <head>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/dk-plus/dist/index.css"
+    href="https://cdn.jsdelivr.net/npm/dk-plus/dkPlus/index.css"
   />
 </head>
 
@@ -55,11 +55,11 @@ You can also use the `UMD` mode to include `dk-plus` in your `*.html` file and q
     <dk-button type="warning">Warning Button</dk-button>
   </div>
   <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dk-plus/dist/index.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dk-plus/dkPlus/index.umd.js"></script>
   <script type="module">
     const { createApp, ref } = Vue
     const app = createApp({
-      setup() {
+      setup() {dkPlusdkPlus
         const visible = ref(false)
         return { visible }
       }

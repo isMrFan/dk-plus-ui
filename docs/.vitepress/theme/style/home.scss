@@ -4,7 +4,6 @@
 .home {
   width: 100%;
   padding: 0 50px 10px 50px;
- 
   box-sizing: border-box;
 
   .main {
@@ -59,12 +58,11 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
         flex-wrap: wrap;
         gap: 1%;
 
         .list-item {
-          flex-basis: calc(100% / 4 - 1%);
+          flex: 1;
           background-color: var(--vp-c-bg-soft);
           border-radius: 10px;
           padding: 20px;
@@ -173,17 +171,14 @@
       flex-direction: column;
       gap: 10px;
       overflow: auto;
-
+      height: 175px;
       &-title {
         font-size: 13px;
         color: var(--text-color);
       }
-
-
-
       &-list {
         width: 100%;
-        height: fit-content;
+        height:130px;
         flex: 1;
         margin-top: auto;
         display: flex;
@@ -192,8 +187,8 @@
 
         .friendship-item {
           width: fit-content;
-          width: 150px;
-          height: 50px;
+          width: 173px;
+          height: 60px;
           overflow: hidden;
           cursor: pointer;
           display: flex;
@@ -278,7 +273,7 @@
   .home {
     width: 100%;
     min-width: 100%;
-    padding-left: 20px;
+    padding: 0 10px 10px 10px;
     height: auto;
 
     .main {

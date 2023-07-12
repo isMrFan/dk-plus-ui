@@ -40,6 +40,11 @@ export default (): UserConfigExport => {
        */
       dts({
         skipDiagnostics: true,
+        // todo 如果丢失了声明文件 打开下面两行
+        // skipDiagnostics: false,
+        // afterDiagnostic: diagnostics => {
+        //   console.log(diagnostics)
+        // },
         staticImport: true,
         outputDir: ['./dist/lib', './dist/es'],
         insertTypesEntry: true,
@@ -108,7 +113,7 @@ export default (): UserConfigExport => {
             format: 'umd',
             exports: 'named',
             sourcemap: false,
-            dir: 'dist/dist',
+            dir: 'dist/dkPlus',
             entryFileNames: 'index.umd.js',
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
@@ -160,7 +165,7 @@ const move = (): void => {
   ] as const
 
   files.forEach((item): void => {
-    copyFileSync(item.input, item.outDir)
+    copyFileSync(item.input, item.outDir) // 同步拷贝文件
   })
 
   console.warn('\n' + `${name} ${version} 版本打包成功🎇🎇🎇🎇🎇🎇🎇🎇🎇🎇🎇` + '\n')

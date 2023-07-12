@@ -21,6 +21,7 @@ const install = (app: App): App => {
   objectEntries(components).forEach(([key, value]): void => {
     app.component(key, value)
   })
+
   objectEntries(componentsIcon).forEach(([key, value]): void => {
     app.component(key, value)
   })
