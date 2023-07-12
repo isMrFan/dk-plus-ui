@@ -37,7 +37,8 @@ export const sidebar = {
         { text: 'Container 页面布局', link: '/zh/components/container' },
         { text: 'Space 间距', link: '/zh/components/space' },
         { text: 'Button 按钮', link: '/zh/components/button' },
-        { text: 'Shadow 盒子', link: '/zh/components/shadow' }
+        { text: 'Shadow 盒子', link: '/zh/components/shadow' },
+        { text: 'Alert 警示', link: '/zh/components/alert' }
       ]
     },
     {

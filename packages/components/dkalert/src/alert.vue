@@ -31,7 +31,7 @@
 
       return {
         dkAlertRef,
-        type: type.value || 'success',
+        type: type.value || 'info',
         title,
         description,
         center: center.value || false,
