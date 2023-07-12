@@ -17,13 +17,12 @@ export const getAlert = (props: DkAlertProps): getAlertType => {
   const styleList = computed((): CSSProperties => {
 
     const defaultStyle = {
-      '--alert-color': 'red',
-      '--alert-font-size': 14,
-      '--alert-background': 'blue'
+      // '--alert-color': 'red',
+      // '--alert-font-size': 14,
+      // '--alert-background': 'blue'
     }
     return defaultStyle
   })
-  console.log('styleList', styleList);
 
   return {
     isSuccess,

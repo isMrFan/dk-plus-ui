@@ -7,21 +7,21 @@
    **/
   import { defineComponent, ref, toRefs } from 'vue'
   import { dkAlertProps } from './props'
-  import { getAlert, getReturn } from '../../_hooks'
+  import { getAlert } from '../../_hooks'
   export default defineComponent({
     name: 'DkAlert',
     props: dkAlertProps,
-    setup(Props) {
+    emits: ['close'],
+    setup(Props, { emit }) {
       const dkAlertRef = ref<HTMLElement>()
       const alertVisible = ref<boolean>(true)
-      const { type, title, description, center, closable, closeText, icon, closeIcon } =
+      const { type, title, description, center, closable, icon, closeIcon } =
         toRefs(Props)
 
       const { isSuccess, styleList } = getAlert(Props)
-     
-      const { getRun } = getReturn()
-      const EventClick = (evt: MouseEvent): void => {
-        getRun(Props.onClick, evt)
+
+      const EventClick = (): void => {
+        emit('close', onClose())
       }
 
       //关闭aler组件
@@ -31,14 +31,13 @@
 
       return {
         dkAlertRef,
-        type,
+        type: type.value || 'success',
         title,
         description,
-        center,
-        closable,
-        closeText,
+        center: center.value || false,
+        closable: closable.value,
         icon,
-        closeIcon,
+        closeIcon: closeIcon.value || 'IconShanchu1',
         EventClick,
         alertVisible,
         onClose,
@@ -50,17 +49,25 @@
 </script>
 <template>
   <template v-if="alertVisible">
-    <div ref="dkAlertRef" :class="['dk-alert']" :style="[styleList]">
+    <div
+      ref="dkAlertRef"
+      :class="[`dk-alert-${type}`, center ? `dk-alert-is-center` : '']"
+      :style="[styleList]"
+    >
       <slot v-if="icon === '' || icon === null" name="icon"></slot>
-      <div>
+      <div v-if="icon">
         <dk-icon :icon="icon"></dk-icon>
       </div>
-      <slot></slot>
 
-      <div v-if="closable">
+      <div class="dk-alert-content">
+        <div :class="[description ? 'dk-alert-is-bold' : '']"><slot></slot></div>
+        <div v-if="description" class="dk-alert-description">{{ description }}</div>
+      </div>
+
+      <div v-if="!closable">
         <slot v-if="closeIcon === '' || closeIcon === null" name="closeIcon"></slot>
-        <div>
-          <dk-icon :icon="closeIcon" @click="onClose"></dk-icon>
+        <div class="dk-alert-close-btn">
+          <dk-icon :icon="closeIcon" @click="EventClick"></dk-icon>
         </div>
       </div>
     </div>
