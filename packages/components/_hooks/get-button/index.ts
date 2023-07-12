@@ -45,8 +45,8 @@ export interface getButtonType {
  * @return personalityStylist 个性按钮style
  */
 interface Params {
-  iconSlot: boolean
-  afterIconSlot: boolean
+  iconSlot?: boolean
+  afterIconSlot?: boolean
 }
 type MergedParams = Params & DkButtonProps
 

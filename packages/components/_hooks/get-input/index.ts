@@ -147,7 +147,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       focusColor = focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null
     }
     getBorder(border)
-    
+
     const defaultStyle = {
       '--input-width': width ? setSize(width) : null,
       '--input-height': height ? setSize(height) : null,
