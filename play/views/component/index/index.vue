@@ -58,6 +58,10 @@
           {
             name: '计数器组件',
             path: '/DkNumber'
+          },
+          {
+            name: '提示组件',
+            path: '/DkAlert'
           }
         ]
       })

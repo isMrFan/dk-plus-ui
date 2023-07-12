@@ -36,3 +36,6 @@ export * from './dkshadow'
 
 export { DkSpace } from './dkspace'
 export * from './dkspace'
+
+export { DkAlert } from './dkalert'
+export * from './dkalert'
