@@ -16,6 +16,8 @@
    * @function handleMouseDown Mouse down event
    * @function handleMouseUp Mouse up event
    * @function handleMouseLeave Mouse leave event
+   * @function reduceIcon Set icon for the reduce button
+   * @function plusIcon Set icon for the plus button
    * @example
    */
   import { defineComponent, ref, reactive, shallowRef, watch } from 'vue'
@@ -52,20 +54,21 @@
       })
 
       const reduceIcon = (): string => {
-        if (data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
+        // Verify legality or set default
+        if (!!data.position && DK_INPUT_NUMBER_POSITION.includes(data.position) || typeof data.position === 'string') {
           data.iconSize -= 2
           return 'IconArrowBottom'
         }
         return 'IconReduce1'
       }
-
+      
       const plusIcon = (): string => {
-        if (data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
+        // Verify legality or set default
+        if (!!data.position && DK_INPUT_NUMBER_POSITION.includes(data.position) || typeof data.position === 'string') {
           return 'IconArrowTop'
         }
         return 'IconAdd1'
       }
-      console.log(data.iconSize)
 
       const setParseFloat = (value: number | string): number => {
         const targetValue = Number(value)
