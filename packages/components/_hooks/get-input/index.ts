@@ -2,8 +2,7 @@ import { computed, toRaw, useSlots, reactive } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
-import type { dataType, propDataModel } from '../../dkinput/src/type'
-import { DK_INPUT_TYPE } from '../../_tokens'
+import type { DataType, propDataModel } from '../../dkinput/src/type'
 import type { dkInputType, ClassListName } from '../../_interface'
 
 /**
@@ -15,39 +14,6 @@ import type { dkInputType, ClassListName } from '../../_interface'
 
 export interface getInputGlobalType {
   type?: dkInputType | null
-}
-
-export interface getInputType {
-  getInputType: (value?: dkInputType) => ComputedRef<dkInputType>
-}
-
-/**
- * @name getInput
- * @Time 2023年05月05日
- * @function getInputType 获取input组件的类型
- * @returns input组件hooks
- */
-export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
-  /**
-   * @name getInputType
-   * @returns 获取input组件的类型
-   */
-  const getInputType = (
-    value: string | dkInputType = 'text'
-  ): ComputedRef<dkInputType> => {
-    return computed((): dkInputType => {
-      if (!props) {
-        return value as dkInputType
-      }
-      if (props.type && !DK_INPUT_TYPE.includes(props.type as dkInputType)) {
-        return value as dkInputType
-      }
-      return (props.type || value) as dkInputType
-    })
-  }
-  return {
-    getInputType
-  }
 }
 
 export interface iSGetInputType {
@@ -341,7 +307,9 @@ export const getValue = (
   appendText: string,
   appendIcon: string
 ): string => {
-  value = value.toString()
+  if (typeof value === 'number') {
+    value = value.toString()
+  }
   let val = value
   if (prependText && !prependIcon) {
     const reg = new RegExp(`^${prependText}`)
@@ -373,7 +341,9 @@ export const getPendValue = (
   appendText: string,
   appendIcon: string
 ): string => {
-  value = value.toString()
+  if (typeof value === 'number') {
+    value = value.toString()
+  }
   let val = value
   if (prependText && !prependIcon) {
     const reg = new RegExp(`^${prependText}`)
@@ -395,9 +365,9 @@ export const getPendValue = (
  * @name getShowLengthProp
  * @time July 13, 2023
  * @description Whether to display the length
- * @param propData 
- * @param inputType 
- * @returns 
+ * @param propData
+ * @param inputType
+ * @returns
  */
 const getShowLengthProp = (propData: propDataModel, inputType: dkInputType): boolean => {
   const isShowLen = propData.showLengthProp
@@ -414,10 +384,9 @@ const getShowLengthProp = (propData: propDataModel, inputType: dkInputType): boo
 export const setData = (
   propData: propDataModel,
   slots: Slots,
-  inputType: dkInputType,
-  type: string
-): dataType => {
-  const data = reactive<dataType>({
+  inputType: dkInputType
+): DataType => {
+  const data = reactive<DataType>({
     isPrepend: getBooleanOr([
       !!slots.prepend,
       getNull(propData.prependText),
@@ -434,10 +403,10 @@ export const setData = (
     isAppendTextLen: getNull(propData.appendText),
     isPrefix: getBooleanOr([!!slots.prefix, !!propData.prefixIcon]),
     isClear: getIsClear(propData.clearable, propData.disabledProp, inputType),
-    inputmode: type === 'number' ? 'numeric' : 'text',
+    inputmode: inputType === 'number' ? 'numeric' : 'text',
     isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
     isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
-    isShowPassword: getBooleanAnd([type === 'password', propData.showPassword]),
+    isShowPassword: getBooleanAnd([inputType === 'password', propData.showPassword]),
     isLength: isShowLength(
       propData.maxlengthProp,
       propData.minlengthProp,
@@ -447,4 +416,35 @@ export const setData = (
     showLength: getShowLengthProp(propData, inputType)
   })
   return data
+}
+
+/**
+ * @name setPropData
+ * @time July 14, 2023
+ * @description Set props data
+ * @param props
+ * @returns {propDataModel}
+ */
+export const setPropData = (props: DkInputProps): propDataModel => {
+  const propData = reactive<propDataModel>({
+    prependText: props.prependText,
+    appendText: props.appendText,
+    placeholder: props.placeholder,
+    clearable: props.clearable,
+    showPassword: props.showPassword,
+    prependIcon: props.prependIcon,
+    appendIcon: props.appendIcon,
+    disabledProp: props.disabled,
+    typeProp: props.type,
+    prefixIcon: props.prefixIcon,
+    suffixIcon: props.suffixIcon,
+    maxlengthProp: props.maxlength,
+    minlengthProp: props.minlength,
+    autosizeProp: props.autosize,
+    rowsProp: props.rows,
+    readonlyProp: props.readonly,
+    showLengthProp: props.showLength
+  })
+
+  return propData
 }
