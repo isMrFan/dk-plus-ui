@@ -1,8 +1,8 @@
-import { computed, toRaw, useSlots } from 'vue'
+import { computed, toRaw, useSlots, reactive } from 'vue'
 import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
-import { DK_INPUT_TYPE } from '../../_tokens'
+import type { DataType, propDataModel } from '../../dkinput/src/type'
 import type { dkInputType, ClassListName } from '../../_interface'
 
 /**
@@ -14,39 +14,6 @@ import type { dkInputType, ClassListName } from '../../_interface'
 
 export interface getInputGlobalType {
   type?: dkInputType | null
-}
-
-export interface getInputType {
-  getInputType: (value?: dkInputType) => ComputedRef<dkInputType>
-}
-
-/**
- * @name getInput
- * @Time 2023年05月05日
- * @function getInputType 获取input组件的类型
- * @returns input组件hooks
- */
-export const getInputGlobal = (props?: getInputGlobalType): getInputType => {
-  /**
-   * @name getInputType
-   * @returns 获取input组件的类型
-   */
-  const getInputType = (
-    value: string | dkInputType = 'text'
-  ): ComputedRef<dkInputType> => {
-    return computed((): dkInputType => {
-      if (!props) {
-        return value as dkInputType
-      }
-      if (props.type && !DK_INPUT_TYPE.includes(props.type as dkInputType)) {
-        return value as dkInputType
-      }
-      return (props.type || value) as dkInputType
-    })
-  }
-  return {
-    getInputType
-  }
 }
 
 export interface iSGetInputType {
@@ -144,10 +111,15 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     getBorder(border)
 
     const defaultStyle: Record<string, string> = {
-      '--input-align': align || 'left',
-      '--input-border': inputBorder,
-      '--input-hover-border': hoverBorder,
-      '--input-focus-border': focusColor
+      '--input-align': align || 'left'
+    }
+
+    if (focusBorderColor) {
+      defaultStyle['--input-focus-border'] = focusColor
+    }
+    if (borderColor) {
+      defaultStyle['--input-border'] = inputBorder
+      defaultStyle['--input-hover-border'] = hoverBorder
     }
     if (width) {
       defaultStyle['--input-width'] = setSize(width)
@@ -165,11 +137,11 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       defaultStyle['--input-border-radius'] = setSize(borderRadius)
     }
 
-    if (textColor) { 
+    if (textColor) {
       defaultStyle['--input-text-color'] = getColor(textColor).getDeepen(0)
     }
 
-    if (iconSize) { 
+    if (iconSize) {
       defaultStyle['--input-icon-size'] = setSize(iconSize)
     }
     return defaultStyle
@@ -260,4 +232,219 @@ export const getNull = (target: string | [] | number): boolean => {
     }
   }
   return true
+}
+
+/**
+ * @name verifyInputType Get input type
+ * @time July 12, 2023
+ * @returns {dkInputType}
+ * @param {dkInputType} typeProp input type
+ * @param {boolean} passwordShowOrHide password show or hide
+ */
+export const verifyInputType = (
+  typeProp: dkInputType,
+  passwordShowOrHide: boolean
+): dkInputType => {
+  let type = typeProp
+  if (typeProp === 'password') {
+    if (passwordShowOrHide) {
+      type = 'text'
+    } else {
+      type = 'password'
+    }
+  } else {
+    type = typeProp
+  }
+  return type
+}
+
+/**
+ * @name isShowLength
+ * @time July 12, 2023
+ * @param maxlengthProp The maximum length
+ * @param minlengthProp  The minimum length
+ * @param disabledProp  Whether to disable
+ * @returns
+ */
+export const isShowLength = (
+  maxlengthProp: number | string,
+  minlengthProp: number | string,
+  disabledProp: boolean
+): boolean => {
+  const isLength = getBooleanOr([getNull(maxlengthProp), getNull(minlengthProp)])
+  return getBooleanAnd([isLength, !disabledProp])
+}
+
+/**
+ * @name getIsClear Whether to display the clear button
+ * @time July 13, 2023
+ * @param clearable Whether to display the clear button
+ * @param disabledProp Whether to disable
+ * @param value input type
+ * @returns {boolean}
+ */
+export const getIsClear = (
+  clearable: boolean,
+  disabledProp: boolean,
+  value: dkInputType
+): boolean => {
+  const isTextarea = value !== 'textarea'
+  const isPassword = value !== 'password'
+  return getBooleanAnd([!disabledProp, isTextarea, isPassword, clearable])
+}
+
+/**
+ * @name getValue
+ * @time July 13, 2023
+ * @description Get the value of the input box
+ * @param value
+ * @returns
+ */
+export const getValue = (
+  value: string | number,
+  prependText: string,
+  prependIcon: string,
+  appendText: string,
+  appendIcon: string
+): string => {
+  if (typeof value === 'number') {
+    value = value.toString()
+  }
+  let val = value
+  if (prependText && !prependIcon) {
+    const reg = new RegExp(`^${prependText}`)
+    val = val.replace(reg, '')
+  }
+
+  if (appendText && !appendIcon) {
+    const reg = new RegExp(`${appendText}$`)
+    val = val.replace(reg, '')
+  }
+  return val
+}
+
+/**
+ * @name getPendValue
+ * @time July 13, 2023
+ * @description Get the value of prepend and append
+ * @param value input value
+ * @param prependText prepend text
+ * @param prependIcon prepend icon
+ * @param appendText append text
+ * @param appendIcon append icon
+ * @returns
+ */
+export const getPendValue = (
+  value: string | number,
+  prependText: string,
+  prependIcon: string,
+  appendText: string,
+  appendIcon: string
+): string => {
+  if (typeof value === 'number') {
+    value = value.toString()
+  }
+  let val = value
+  if (prependText && !prependIcon) {
+    const reg = new RegExp(`^${prependText}`)
+    if (!reg.test(value)) {
+      val = prependText + value
+    }
+  }
+
+  if (appendText && !appendIcon) {
+    const reg = new RegExp(`${appendText}$`)
+    if (!reg.test(value)) {
+      val = val + appendText
+    }
+  }
+  return val
+}
+
+/**
+ * @name getShowLengthProp
+ * @time July 13, 2023
+ * @description Whether to display the length
+ * @param propData
+ * @param inputType
+ * @returns
+ */
+const getShowLengthProp = (propData: propDataModel, inputType: dkInputType): boolean => {
+  const isShowLen = propData.showLengthProp
+  if (!isShowLen) return false
+  let result = false
+  const isTextarea = inputType === 'textarea'
+  const isText = inputType === 'text'
+  const textOrTextarea = getBooleanOr([isTextarea, isText])
+  const isMaxlength = !propData.maxlengthProp
+  result = getBooleanAnd([textOrTextarea, isMaxlength])
+  return result
+}
+
+export const setData = (
+  propData: propDataModel,
+  slots: Slots,
+  inputType: dkInputType
+): DataType => {
+  const data = reactive<DataType>({
+    isPrepend: getBooleanOr([
+      !!slots.prepend,
+      getNull(propData.prependText),
+      !!propData.prependIcon
+    ]),
+    isPrependIcon: getBooleanAnd([getNull(propData.prependIcon), !slots.prepend]),
+    isAppendIcon: getBooleanAnd([!slots.append, !!propData.appendIcon]),
+    isAppend: getBooleanOr([
+      !!slots.append,
+      getNull(propData.appendText),
+      !!propData.appendIcon
+    ]),
+    isPrefixIcon: getBooleanAnd([!!propData.prefixIcon, !slots.prefix]),
+    isAppendTextLen: getNull(propData.appendText),
+    isPrefix: getBooleanOr([!!slots.prefix, !!propData.prefixIcon]),
+    isClear: getIsClear(propData.clearable, propData.disabledProp, inputType),
+    inputmode: inputType === 'number' ? 'numeric' : 'text',
+    isSuffix: getBooleanOr([!!slots.suffix, !!propData.suffixIcon]),
+    isSuffixIcon: getBooleanAnd([!!propData.suffixIcon, !slots.suffix]),
+    isShowPassword: getBooleanAnd([inputType === 'password', propData.showPassword]),
+    isLength: isShowLength(
+      propData.maxlengthProp,
+      propData.minlengthProp,
+      propData.disabledProp
+    ),
+    rows: propData.rowsProp || 2,
+    showLength: getShowLengthProp(propData, inputType)
+  })
+  return data
+}
+
+/**
+ * @name setPropData
+ * @time July 14, 2023
+ * @description Set props data
+ * @param props
+ * @returns {propDataModel}
+ */
+export const setPropData = (props: DkInputProps): propDataModel => {
+  const propData = reactive<propDataModel>({
+    prependText: props.prependText,
+    appendText: props.appendText,
+    placeholder: props.placeholder,
+    clearable: props.clearable,
+    showPassword: props.showPassword,
+    prependIcon: props.prependIcon,
+    appendIcon: props.appendIcon,
+    disabledProp: props.disabled,
+    typeProp: props.type,
+    prefixIcon: props.prefixIcon,
+    suffixIcon: props.suffixIcon,
+    maxlengthProp: props.maxlength,
+    minlengthProp: props.minlength,
+    autosizeProp: props.autosize,
+    rowsProp: props.rows,
+    readonlyProp: props.readonly,
+    showLengthProp: props.showLength
+  })
+
+  return propData
 }

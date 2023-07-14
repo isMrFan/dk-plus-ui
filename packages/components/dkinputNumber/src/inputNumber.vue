@@ -58,7 +58,7 @@
         }
         return 'IconReduce1'
       }
-      
+
       const plusIcon = (): string => {
         if (data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
           return 'IconArrowTop'
@@ -216,7 +216,7 @@
     </dk-button>
     <dk-input
       ref="input"
-      :model-value="value"
+      v-model="value"
       type="number"
       align="center"
       border="none"
