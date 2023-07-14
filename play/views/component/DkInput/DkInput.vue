@@ -57,8 +57,8 @@
 
 <template>
   msg: {{ msg }}
-  <dk-input v-model="msg" @change="handleChange" @enter="handleChange" @focus="handleChange" @blur="handleChange"></dk-input>
-  <div v-if="false" class="input">
+  <dk-input v-if="false" v-model="msg" @change="handleChange" @enter="handleChange" @focus="handleChange" @blur="handleChange"></dk-input>
+  <div v-if="true" class="input">
     <h4>前后置内容</h4>
     <dk-input v-model="msg" prepend-text="http://" append-text=".com"></dk-input>
 
