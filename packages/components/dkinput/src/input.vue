@@ -212,7 +212,7 @@ const onblur = (event: FocusEvent): void => {
     const rows = +propData.rowsProp
     const isRows = rows > 0
 
-    if (isTextarea && isRows) {
+    if (isTextarea && isRows) { 
       row = rows
     }
 
