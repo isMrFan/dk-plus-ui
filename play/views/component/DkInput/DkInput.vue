@@ -18,7 +18,7 @@
       const handleFixClick = (): void => {
         console.log('handleFixClick')
       }
-      const msg = ref('asdf')
+      const msg = ref<string | number>('asdf')
       const input = ref(null)
 
       const handlePendClick = (): void => {
@@ -34,6 +34,10 @@
       }
 
       const isDisabled = ref(true)
+      const handleChange = (val: string): void => {
+        msg.value = val
+        console.log('msg=', msg.value)
+      }
       return {
         oncopy,
         handleFixClick,
@@ -44,7 +48,8 @@
         isDisabled,
         handlePendClick,
         handleKeydown,
-        onFocus
+        onFocus,
+        handleChange
       }
     }
   })
@@ -52,7 +57,8 @@
 
 <template>
   msg: {{ msg }}
-  <div class="input">
+  <dk-input v-model="msg" @change="handleChange" @enter="handleChange" @focus="handleChange" @blur="handleChange"></dk-input>
+  <div v-if="false" class="input">
     <h4>前后置内容</h4>
     <dk-input v-model="msg" prepend-text="http://" append-text=".com"></dk-input>
 
@@ -63,7 +69,7 @@
 
     <dk-input clearable placeholder="prefix插槽形式">
       <template #prefix>
-        <dk-icon class="icon-shanchu1" />
+        <dk-icon icon="IconShanchu1" />
       </template>
     </dk-input>
 
@@ -108,7 +114,7 @@
     <dk-input type="number" placeholder="数字框" />
 
     <h4>密码框</h4>
-    <dk-input v-model='msg' type="password" placeholder="密码框" show-password />
+    <dk-input v-model="msg" type="password" placeholder="密码框" show-password />
 
     <h4>前后缀</h4>
     <dk-input></dk-input>

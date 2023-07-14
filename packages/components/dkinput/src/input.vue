@@ -23,7 +23,7 @@
     getValue,
     getPendValue,
     setData,
-  setPropData
+    setPropData
   } from '../../_hooks'
   import type { dkInputType } from '../../_interface'
 
@@ -34,7 +34,8 @@
   const input = shallowRef<HTMLInputElement>()
   const textarea = shallowRef<HTMLTextAreaElement>()
   const _ref = computed(() => input.value || textarea.value)
-  const { classList, styleList, wrapperClassList, innerClassList, pendStyleList } = getInput(props)
+  const { classList, styleList, wrapperClassList, innerClassList, pendStyleList } =
+    getInput(props)
   const modelValueProp = ref<string | number>(props.modelValue)
   const isFocus = ref<boolean>(false)
 
@@ -178,12 +179,12 @@
     return ['dk-input_password-icon']
   }
 
-  const onfocus = (event: Event): void => {
-    isFocus.value = true
-    emit('focus', event)
-  }
+const onfocus = (event: FocusEvent): void => {
+  isFocus.value = true
+  emit('focus', event)
+}
 
-  const onblur = (event: Event): void => {
+const onblur = (event: FocusEvent): void => {
     isFocus.value = false
     emit('blur', event)
   }
@@ -198,7 +199,8 @@
 
   const onKeydownEnter = (event: KeyboardEvent): void => {
     if (event.which === 13) {
-      getRun(props.onEnter, event)
+      const target = event.target as HTMLInputElement
+      getRun(props.onEnter, target.value)
     }
   }
 
@@ -220,6 +222,11 @@
     }
   }
 
+  const onChange = (event: Event): void => {
+    const target = event.target as HTMLInputElement
+    emit('change', target.value)
+  }
+
   const inputAttrs = reactive<InputHTMLAttributes>({
     class: innerClassList.value,
     placeholder: propData.placeholder,
@@ -228,6 +235,7 @@
     inputmode: data.inputmode,
     onfocus,
     onblur,
+    onChange,
     maxlength: propData.maxlengthProp,
     minlength: propData.minlengthProp,
     readonly: propData.readonlyProp
@@ -240,6 +248,7 @@
     onInput: update,
     onfocus,
     onblur,
+    onChange,
     disabled: propData.disabledProp,
     maxlength: propData.maxlengthProp,
     minlength: propData.minlengthProp,

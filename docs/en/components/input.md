@@ -218,10 +218,10 @@ Simple and not simple input  components
 
 | Event Name | explain | Callback Arguments |
 | --- | --- | --- |
-| `focus` | Triggered when the input  is focused | `event: Event` |
-| `blur` | Triggered when the input  is out of focus | `event: Event` |
+| `focus` | Triggered when the input  is focused | `(event: FocusEvent) => void` |
+| `blur` | Triggered when the input  is out of focus | `(event: FocusEvent) => void` |
 | `clear` | Triggered when the clear button is clicked | - |
-| `enter` | Triggered when the Enter key is pressed | `event: Event` |
+| `enter` | Triggered when the Enter key is pressed | `(value: string | number) => void` |
 <!-- | `change` | 输入框内容变化时触发 | `value: string` | -->
 
 ## slot 
