@@ -11,7 +11,6 @@
    */
   import { computed, ref, shallowRef, nextTick, reactive, watch, useSlots } from 'vue'
   import type { InputHTMLAttributes, ComputedRef, TextareaHTMLAttributes } from 'vue'
-  // eslint-disable-next-line
   import { dkInputProps } from './props'
   import type { PendType } from './type'
   import { inputEmits } from './emit'
