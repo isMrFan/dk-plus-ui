@@ -236,10 +236,10 @@
 
 | 事件名称 | 说明 | 回调参数 |
 | --- | --- | --- |
-| `focus` | 输入框聚焦时触发 | `event: Event` |
-| `blur` | 输入框失焦时触发 | `event: Event` |
+| `focus` | 输入框聚焦时触发 | `(event: FocusEvent) => void` |
+| `blur` | 输入框失焦时触发 | `(event: FocusEvent) => void` |
 | `clear` | 点击清空按钮时触发 | - |
-| `enter` | 按下回车键时触发 | `event: Event` |
+| `enter` | 按下回车键时触发 | `(value: string | number) => void` |
 <!-- | `change` | 输入框内容变化时触发 | `value: string` | -->
 
 ## <a id='插槽'>插槽</a>
