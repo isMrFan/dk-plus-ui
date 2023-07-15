@@ -24,7 +24,7 @@
         emit('close', onClose())
       }
 
-      //关闭aler组件
+      //关闭alert组件
       const onClose = (): void => {
         alertVisible.value = false
       }
@@ -51,7 +51,7 @@
   <template v-if="alertVisible">
     <div
       ref="dkAlertRef"
-      :class="[`dk-alert-${type}`, center ? `dk-alert-is-center` : '']"
+      :class="[`dk-alert`, `is-alert-${type}`, center ? `dk-alert-is-center` : '']"
       :style="[styleList]"
     >
       <slot v-if="icon === '' || icon === null" name="icon"></slot>
