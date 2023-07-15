@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   export default defineComponent({
     name: 'Alert',
     setup() {
@@ -9,12 +9,22 @@
         // eslint-disable-next-line no-alert
         alert('自定义关闭!')
       }
-      return { handleClose }
+      const isShow = ref(false)
+      const handleShowAlertClick = (): void => {
+        isShow.value = !isShow.value
+      }
+      return {
+        handleClose,
+        handleShowAlertClick,
+        isShow
+      }
     }
   })
 </script>
 <template>
   <div class="alert">
+    <dk-alert v-show="isShow">info alert</dk-alert>
+    <dk-button @click="handleShowAlertClick">点击展示alert</dk-button>
     <h2>Dk-Alert 组件</h2>
 
     <h4>基本展示</h4>
