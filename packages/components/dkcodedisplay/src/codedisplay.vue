@@ -40,7 +40,7 @@
         data.dkCodeDisplayStyleList = {
           '--dkcodedisplay-text-left': data.isShow ? '50%' : '52%',
           '--dkcodedisplay-text-opacity': data.isShow ? '.5' : '0.0',
-          '--dkcodedisplay-border': data.open ? 'transparent' : 'var(--vp-badge-info-border)',
+          '--dkcodedisplay-border': data.open ? 'transparent' : 'var(--vp-c-border)',
           '--dkcodedisplay-margin-top': data.open ? '0' : '10px'
         }
       }
