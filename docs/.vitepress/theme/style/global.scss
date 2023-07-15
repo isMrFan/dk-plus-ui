@@ -136,6 +136,13 @@ $dark-border-color: #8a8a8e; // 暗黑边框题色
         color: #ccc;
       }
     }
+    &input.dk-input_disabled{
+      .dk-input-wrapper,
+      .dk-input_pend{
+        background-color: var(--vp-code-tab-text-color);
+        border-color: var(--vp-c-border);
+      }
+    }
     &number{
       border-color: var(--vp-c-border);
       .dk-input{
