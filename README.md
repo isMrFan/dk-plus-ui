@@ -2,7 +2,7 @@
    <img height="160px"  src="https://oss.cadwaladerss.com/dk-plus/images/isicon.jpg">
 </p>
 <p align="center" style="margin-top:-50px">
-  DK-plus 可在 vue3 的web应用中快速构建交互界面,全面的组件和便捷的工具会让您信手拈来，如鱼得水
+  DK-plus 可在 vue3 的web应用中快速构建交互界面,全面的组件和便捷的工具会让您信手拈来，如鱼得水.
 </p>
 <p align="center">
   中文 | <a href="https://github.com/dk-plus-ui/dk-plus-ui/blob/master/README.en-US.md">English</a>
@@ -14,7 +14,7 @@
   <a href="https://www.npmjs.com/package/dk-plus">
     <img src="https://badgen.net/npm/v/dk-plus" />
   </a>
-  <a href="https://dk-plus-uis.com">
+  <a href="https://dk-plus.com">
     <img src="https://img.shields.io/badge/dk--plus-Docs-blue" />
   </a>
   <a href="https://github.com/dk-plus-ui/dk-plus-ui/blob/master/CUpdateLog.md">
