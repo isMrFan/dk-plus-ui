@@ -1,0 +1,28 @@
+@use '../mixins/configuration/var-alert.scss' as *;
+@use '../mixins/mixin.scss' as *;
+
+
+.#{$namespace}-alert {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  color: var(--alert-color);
+  border-radius: var(--alert-border-radius);
+  font-size: var(--alert-font-size);
+  background: var(--alert-background);
+  // border: 1px solid red;
+  
+  // .#{$success}{
+  //   background-color: #f6ffed;
+  //   border: 1px solid #b7eb8f;
+  //   margin: 0;
+  //   padding: 8px 12px;
+  //   font-size: 14px;
+  //   color: rgba(0, 0, 0, 0.88);
+  //   display: flex;
+  //   align-items: center;
+  //   word-wrap: break-word;
+  // }
+}

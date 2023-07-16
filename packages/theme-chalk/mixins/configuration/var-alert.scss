@@ -1,0 +1,81 @@
+@use '../mixin.scss' as *;
+
+
+
+.#{$namespace}-alert {
+  &-success{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #67c23a;
+    background: #f0f9eb;
+    position: relative;
+  }
+
+  &-info {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #909399;
+    background: #f4f4f5;
+    position: relative;
+  }
+
+  &-warning {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #e6a23c;
+    background: #fdf6ec;
+    position: relative;
+  }
+
+  &-error {   
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #f56c6c;
+    background: #fef0f0;
+    position: relative;
+  }
+
+  
+  &-close-btn{
+    opacity: 1;
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  &-content{
+    padding: 0 8px;
+    display: table-cell;
+  }
+
+  &-description {
+    margin: 5px 0 0;
+    white-space: normal;
+  }
+
+  &-is-center{
+    justify-content: center;
+  }
+
+  &-is-bold {
+    font-weight: 700;
+  }
+  
+}
