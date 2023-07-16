@@ -13,6 +13,7 @@
  * get-return 执行方法函数 (getReturn)
  * set-size 尺寸用的hooks (setSize)
  * get-ripples 波纹用的hooks  (getRipples)
+ * get-alert   alert用的hooks
  */
 export * from './get-button'
 export * from './get-input'

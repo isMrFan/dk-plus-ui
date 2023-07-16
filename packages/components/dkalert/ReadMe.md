@@ -1,18 +1,10 @@
 ## alert 组件
 
-type： success、info、warning、error
+何时使用？
 
-title：string
-
-description-------描述性文本
-
-center-----文字是否居中
-
-closable-----是否可以关闭
-close-text-----自定义关闭按钮文本
-show-icon----是否显示类型图标
-
-onClose-----关闭时触发的回调函数
+- 当某个页面需要向用户显示警告的信息时。
+- 非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。
 
 todo:
-后续渐渐消失效果
+1:后续渐渐消失效果
+2:实现消息轮播通知栏
