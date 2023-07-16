@@ -12,10 +12,10 @@
 组件提供四种类型，由 type 属性指定，默认值为 info。
 ::: module
 <template #code>
-<dk-alert>info alert</dk-alert>
-<dk-alert type="success">success alert</dk-alert>
-<dk-alert type="warning">warning alert</dk-alert>
-<dk-alert type="error">error alert</dk-alert>
+<dk-alert class='docs-alert'>info alert</dk-alert>
+<dk-alert class='docs-alert' type="success">success alert</dk-alert>
+<dk-alert class='docs-alert' type="warning">warning alert</dk-alert>
+<dk-alert class='docs-alert' type="error">error alert</dk-alert>
 </template>
 
 ```html
@@ -34,8 +34,8 @@
 ::: module
 
 <template #code>
-<dk-alert :icon="'IconSysInformation'">dk-plus-alert</dk-alert>
-<dk-alert :closeIcon="'IconCollectActive'">dk-plus-alert</dk-alert>
+<dk-alert class='docs-alert' :icon="'IconSysInformation'">dk-plus-alert</dk-alert>
+<dk-alert class='docs-alert' :closeIcon="'IconCollectActive'">dk-plus-alert</dk-alert>
 </template>
 
 ```html
@@ -52,7 +52,7 @@
 ::: module
 
 <template #code>
-<dk-alert :icon="'IconSysInformation'" center>dk-plus-alert </dk-alert>
+<dk-alert class='docs-alert' :icon="'IconSysInformation'" center>dk-plus-alert </dk-alert>
 </template>
 
 ```html
@@ -71,6 +71,7 @@
 <dk-alert
       :icon="'IconSysInformation'"
       description="dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description..."
+      class='docs-alert'
     >
 dk-plus-alert
 </dk-alert>
@@ -95,7 +96,7 @@ dk-plus-alert
 ::: module
 
 <template #code>
-<dk-alert :icon="'IconSysInformation'" @close="handleClose">dk-plus-alert </dk-alert>
+<dk-alert class='docs-alert' :icon="'IconSysInformation'" @close="handleClose">dk-plus-alert </dk-alert>
 </template>
 
 ```html
