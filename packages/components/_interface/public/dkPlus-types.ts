@@ -89,3 +89,23 @@ export type DkPlusAlign = 'left' | 'center' | 'right';
  */
 
 export type DkPlusPosition = 'top' | 'right' | 'bottom' | 'left';
+
+/**
+ * @name dkPlusBasicType
+ * @Time 2023年07月07日
+ * @param { string }  [success] 成功
+ * @param { string }  [info] 信息
+ * @param { string }  [warning] 警告
+ * @description 不同的组件基本类型公共类型
+ */
+
+// export type dkPlusBasicType = 'success' | 'info' | 'warning';
+
+/**
+ * @name dkPlusAlertType
+ * @Time 2023年07月07日
+ * @param { string }  [error] 错误
+ * @description 拓展Alert类型
+ */
+// export type dkPlusAlertType = dkPlusBasicType & 'error';
+export type dkPlusAlertType = 'success' | 'info' | 'warning' | 'error';
