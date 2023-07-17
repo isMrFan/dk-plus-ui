@@ -72,7 +72,8 @@ if (typeof window !== 'undefined') {
         '--grey-background-color': isDark ? '#252525' : '#f6f6f6',
         '--dark-grey-background-color': isDark ? '#1e1e20' : '#e3e3e6',
         '--border-color': isDark ? '#333' : '#eaecef',
-        '--hover-border-color': isDark ? '#656464' : '#eaecef'
+        '--hover-border-color': isDark ? '#656464' : '#eaecef',
+        '--dk-alert-bg-color': isDark ? '#f00' : '#0f0',
       }
       const keyList: string[] = Object.keys(homeStyleList)
       const len: number = keyList.length
