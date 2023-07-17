@@ -60,11 +60,8 @@
 ::: module
 <template #code>
 <VueDomeInputNumber class='docs-number docs-input' size='large'></VueDomeInputNumber>
-<div style='margin-top: 10px'></div>
 <VueDomeInputNumber class='docs-number docs-input' size="medium"></VueDomeInputNumber>
-<div style='margin-top: 10px'></div>
 <VueDomeInputNumber class='docs-number docs-input' size="small"></VueDomeInputNumber>
-<div style='margin-top: 10px'></div>
 <VueDomeInputNumber class='docs-number docs-input' size="mini"></VueDomeInputNumber>
 </template>
 

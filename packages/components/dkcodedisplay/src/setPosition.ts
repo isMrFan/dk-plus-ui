@@ -11,65 +11,62 @@ export class SetPosition {
     this.dom = dom
   }
 
-  getClientHeight = (): number => {
-    return document.documentElement.clientHeight
-  }
+  getDom = (target: string, dom: HTMLElement): HTMLElement => {
+    const sourceTarget = dom.childNodes as unknown as HTMLElement[]
+    const targetNodeList: HTMLElement[] = Array.from(sourceTarget)
+    let i = 0;
 
-  getScrollTop = (): number => {
-    return document.documentElement.scrollTop
+    while (target !== targetNodeList[i].className && i < targetNodeList.length) {
+      i++
+    }
+
+    return targetNodeList[i]
   }
 
   setStyle = (): void => {
-    const box = this.dom.value as HTMLElement
-    const boxBottom = box.clientHeight + box.offsetTop - this.getScrollTop() + 36
+    try {
+      const targetDom = this.dom.value as HTMLElement
+      const innerHeight = window.innerHeight
+      const dkShadowDom = this.getDom('dk-shadow', targetDom)
+      const dkBoxDom = this.getDom('dk-box', dkShadowDom)
+      const dkCodeDisplayCodeDom = this.getDom('dkcodedisplay_code', dkBoxDom)
+      const buttonDom = this.getDom('dkcodedisplay_open', dkBoxDom)
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const buttonOffset = targetDom.offsetTop + targetDom.clientHeight - scrollTop
 
-    // console.log(boxBottom, this.dom)
-    
-    const clientHeight = this.getClientHeight()
+      // Button position exceeds viewport height
+      const isOverTop = buttonOffset > innerHeight
+      const isOffsetOverTop =  targetDom.offsetTop - scrollTop + dkCodeDisplayCodeDom.clientHeight < innerHeight
+      
+      if (
+        isOverTop &&
+        isOffsetOverTop &&
+        this.open
+      ) {
+        const firstParent = targetDom.parentNode as HTMLElement
+        const vpDocDom = firstParent.parentNode as HTMLElement
+        const mainDom = vpDocDom.parentNode as HTMLElement
+        const mainParentDom = mainDom.parentNode as HTMLAnchorElement
+        const contentContainerDom = mainParentDom.parentNode as HTMLElement
+        const containerDom = contentContainerDom.parentNode as HTMLElement
+        const VPDocDom = containerDom.parentNode as HTMLElement
 
-    const styleElementId = 'dynamic-media-query'
-    if (boxBottom > clientHeight && this.open) {
-      const mediaQuery = `
-      body {
-        .dkcodedisplay {
-          .dkcodedisplay_open {
-            position: fixed;
-            bottom: 0;
-            z-index: 999;
-          }
-        }
-      }`
+        buttonDom.style.position = 'fixed'
+        buttonDom.style.left = vpDocDom.offsetLeft + VPDocDom.offsetLeft + 'px'
 
-      const styleElement = document.createElement('style')
-      styleElement.id = styleElementId
-      styleElement.innerHTML = mediaQuery
-      document.head.appendChild(styleElement)
-    } else {
-      const dynamicStyleElement = document.getElementById(styleElementId)
-      if (dynamicStyleElement) {
-        dynamicStyleElement.remove()
+        buttonDom.style.width = targetDom.clientWidth + 'px'
+      } else {
+        buttonDom.style.position = 'absolute'
+        buttonDom.style.left = 0 + 'px'
       }
+    } catch (err) {
+      // console.log(err)
     }
   }
 
   init = (dom: Ref<HTMLElement | undefined>, open: boolean): void => {
-    this.dom = dom
     this.open = open
+    this.dom = dom
     this.setStyle()
-    // this.scrollChange()
   }
-
-  resize = (): void => {
-    return
-    window.addEventListener('resize', () => {
-      this.init(this.dom, this.open)
-    })
-  }
-
-  // scrollChange = (): void => {
-  //   window.addEventListener('scroll', (): void => {
-  //     console.log('scroll')
-  //     this.setStyle()
-  //   })
-  // }
 }
