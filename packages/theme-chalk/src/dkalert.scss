@@ -4,25 +4,30 @@
 
 .#{$namespace}-alert {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 5px;
-  color: var(--alert-color);
+  margin: var(--alert-margin);
   border-radius: var(--alert-border-radius);
   font-size: var(--alert-font-size);
-  background: var(--alert-background);
-  // border: 1px solid red;
-  
-  // .#{$success}{
-  //   background-color: #f6ffed;
-  //   border: 1px solid #b7eb8f;
-  //   margin: 0;
-  //   padding: 8px 12px;
-  //   font-size: 14px;
-  //   color: rgba(0, 0, 0, 0.88);
-  //   display: flex;
-  //   align-items: center;
-  //   word-wrap: break-word;
-  // }
+  padding: var(--alert-padding);
+}
+
+.is-alert-success{
+  color: var(--alert-success-color);
+  background: var(--alert-success-background-color);
+}
+
+.is-alert-info {
+  color: var(--alert-info-color);
+  background: var(--alert-info-background-color);
+}
+
+.is-alert-warning {
+  color: var(--alert-warning-color);
+  background: var(--alert-warning-background-color);
+}
+
+.is-alert-error {
+  color: var(--alert-error-color);
+  background: var(--alert-error-background-color);
 }
