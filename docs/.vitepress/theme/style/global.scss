@@ -161,8 +161,21 @@ $dark-border-color: #8a8a8e; // 暗黑边框题色
     }
     &alert {
       background-color: var(--dk-alert-bg-color);
-      color: var(--vp-c-text-1);
-      border-color: var(--vp-c-border);
+      // color: var(--vp-c-text-1);
+      // border-color: var(--vp-c-border);
+      &_success{
+        background-color: var(--dk-alert-success-bg-color);
+        // color: var(--vp-c-text-1);
+      }
+      &_warning{
+        background-color: var(--dk-alert-warning-bg-color);
+        // color: var(--vp-c-text-1);
+      }
+      &_error{
+        background-color: var(--dk-alert-error-bg-color);
+        // color: var(--vp-c-text-1);
+      }
+
     }
   }
 }

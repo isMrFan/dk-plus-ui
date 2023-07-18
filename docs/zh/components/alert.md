@@ -13,9 +13,9 @@
 ::: module
 <template #code>
 <dk-alert class='docs-alert'>info alert</dk-alert>
-<dk-alert class='docs-alert' type="success">success alert</dk-alert>
-<dk-alert class='docs-alert' type="warning">warning alert</dk-alert>
-<dk-alert class='docs-alert' type="error">error alert</dk-alert>
+<dk-alert class='docs-alert_success' type="success">success alert</dk-alert>
+<dk-alert class='docs-alert_warning' type="warning">warning alert</dk-alert>
+<dk-alert class='docs-alert_error' type="error">error alert</dk-alert>
 </template>
 
 ```html
