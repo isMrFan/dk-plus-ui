@@ -189,6 +189,25 @@
 
 :::
 
+## <a id='个性化'>个性化</a>
+
+`personality` 开启个性化，`personality-type` 支持个性化类型。
+
+::: module
+<template #code>
+<dk-input class='docs-input' placeholder="请输入内容" personality personality-type="underline"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="请输入内容" personality personality-type="borderRadius"></dk-input>
+</template>
+
+```html
+<dk-input placeholder="请输入内容" personality personality-type="underline"></dk-input>
+<dk-input placeholder="请输入内容" personality personality-type="borderRadius"></dk-input>
+```
+
+:::
+
+
 ## <a id='属性'>属性</a>
 
 | 属性 | 说明 | 类型 | 可选值 | 默认值 | 
