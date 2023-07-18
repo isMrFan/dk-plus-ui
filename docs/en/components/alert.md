@@ -13,10 +13,10 @@ The component provides four types, specified by the type attribute, with a defau
 
 ::: module
 <template #code>
-<dk-alert>info alert</dk-alert>
-<dk-alert type="success">success alert</dk-alert>
-<dk-alert type="warning">warning alert</dk-alert>
-<dk-alert type="error">error alert</dk-alert>
+<dk-alert class='docs-alert'>info alert</dk-alert>
+<dk-alert class='docs-alert_success' type="success">success alert</dk-alert>
+<dk-alert class='docs-alert_warning' type="warning">warning alert</dk-alert>
+<dk-alert class='docs-alert_error' type="error">error alert</dk-alert>
 </template>
 
 ```html
@@ -35,8 +35,8 @@ The component provides four types, specified by the type attribute, with a defau
 ::: module
 
 <template #code>
-<dk-alert :icon="'IconSysInformation'">dk-plus-alert</dk-alert>
-<dk-alert :closeIcon="'IconCollectActive'">dk-plus-alert</dk-alert>
+<dk-alert class='docs-alert' :icon="'IconSysInformation'">dk-plus-alert</dk-alert>
+<dk-alert class='docs-alert' :closeIcon="'IconCollectActive'">dk-plus-alert</dk-alert>
 </template>
 
 ```html
@@ -53,7 +53,7 @@ use `center` Attribute to center text horizontally.
 ::: module
 
 <template #code>
-<dk-alert :icon="'IconSysInformation'" center>dk-plus-alert </dk-alert>
+<dk-alert class='docs-alert' :icon="'IconSysInformation'" center>dk-plus-alert </dk-alert>
 </template>
 
 ```html
@@ -72,6 +72,7 @@ use `center` Attribute to center text horizontally.
 <dk-alert
       :icon="'IconSysInformation'"
       description="dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description,dk-plus-alert-description..."
+      class='docs-alert'
     >
 dk-plus-alert
 </dk-alert>
@@ -95,7 +96,7 @@ dk-plus-alert
 ::: module
 
 <template #code>
-<dk-alert :icon="'IconSysInformation'" @close="handleClose">dk-plus-alert </dk-alert>
+<dk-alert class='docs-alert' :icon="'IconSysInformation'" @close="handleClose">dk-plus-alert </dk-alert>
 </template>
 
 ```html
@@ -109,7 +110,7 @@ const handleClose = (): void => { console.log('close') }
 ## API
 
 | argument                    | Instructions                         | type                    | Optional value                | Default value |
-| --------------------------- | ------------------------------------ | ----------------------- | ----------------------------- | ------------- | --- | --- |
+| --------------------------- | ------------------------------------ | ----------------------- | ----------------------------- | ------------- | 
 | [type](#type)               | Specify the style of warning prompts | String                  | success、info、warning、error | info          |
 | [icon、closeIcon](#icon)    | Front prompt icon, close icon        | String                  | —                             | —             |
 | [center](#center)           | Is the text centered                 | Boolean                 | —                             | false         |
@@ -119,10 +120,7 @@ const handleClose = (): void => { console.log('close') }
 ## Contributors
 
 <div style='display: flex;'>
-  <a href="https://github.com/dk-plus-ui" target="_blank">
-    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
-  </a>
-  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-left:20px;'>
-    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
+  <a href="https://github.com/usertutu" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/54882060?v=4" /> 
   </a>
 </div>
