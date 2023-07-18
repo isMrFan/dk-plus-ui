@@ -121,6 +121,6 @@ const handleClose = (): void => { console.log('close') }
 
 <div style='display: flex;'>
   <a href="https://github.com/usertutu" target="_blank">
-    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/54882060?v=4" />
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/54882060?v=4" /> 
   </a>
 </div>
