@@ -68,6 +68,13 @@ export type DkIcon = VNode | Component
 export type KeyboardEventType = (evt: KeyboardEvent) => void
 
 /**
+ * @name dkInputPersonalityType
+ * @Time July 18, 2023
+ * @param { string }  [underline]
+ */
+export type dkInputPersonalityType = 'underline' | 'borderRadius'
+
+/**
  * @name DkPlusAlign
  * @Time 2023年04月28日
  * @param { string }  [left] 居左

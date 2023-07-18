@@ -8,3 +8,10 @@
  * @returns Input 组件的全局配置
  */
 export const DK_INPUT_TYPE = ['text', 'textarea', 'password', 'number'] as const
+
+/**
+ * @name DK_INPUT_PERSONALITY_TYPE
+ * @Time July 18, 2023
+ * @param { string }  [underline]
+ */
+export const DK_INPUT_PERSONALITY_TYPE = ['underline', 'borderRadius'] as const

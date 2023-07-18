@@ -1,0 +1,23 @@
+@use '../../mixins/mixin.scss' as *;
+@use '../../mixins/configuration/var-input.scss' as *;
+
+@include block('input-personality_underline') {
+  margin-bottom: 2px;
+  @include block('>*input-personality-wrapper') {
+    border-bottom: 2px solid var(--input-border);
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: var(--input-focus-border);
+      transition: width 0.3s ease;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+    }
+    &:focus-within::after {
+      width: 100%;
+    }
+  }
+}
