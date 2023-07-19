@@ -4,7 +4,7 @@ import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
 import type { DataType, propDataModel } from '../../dkinput/src/type'
 import type { dkInputType, ClassListName } from '../../_interface'
-import { DK_INPUT_PERSONALITY_TYPE } from '../../_tokens'
+import { DK_INPUT_PERSONALITY_TYPE, DK_INPUT_STATUS } from '../../_tokens'
 
 /**
  * @name getInputGlobalType
@@ -45,21 +45,19 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    */
   const data = { ...toRaw(props) }
 
-  console.log(data.personality)
-
   const slot: Slots = useSlots()
 
   const prepend = props.prependText || props.prependIcon || slot.prepend
   const append = props.appendText || props.appendIcon || slot.append
 
-  if (data.personality && append && prepend) {
+  if (!data.personality && append && prepend) {
     data.appendText = 'wrapper-pend_text'
     data.prependText = ''
   } else {
-    if (data.personality && append) {
+    if (!data.personality && append) {
       data.appendText = 'wrapper-append_text'
     }
-    if (data.personality && prepend) {
+    if (!data.personality && prepend) {
       data.prependText = 'wrapper-prepend_text'
     }
   }
@@ -104,6 +102,19 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       labelText
     } = data
 
+    let borderColorCopy = borderColor;
+    let focusBorderColorCopy = focusBorderColor;
+
+    const statusColorList = {
+      warning: '#faad14',
+      error: '#ff4d4f'
+    }
+
+    if (data.status && DK_INPUT_STATUS.includes(data.status)) {
+      borderColorCopy = statusColorList[data.status];
+      focusBorderColorCopy = statusColorList[data.status];
+    }
+
     type BorderColorType = string | number | undefined | null
     let inputBorder: BorderColorType = 'transparent'
     let hoverBorder: BorderColorType = 'transparent'
@@ -112,9 +123,9 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       if (value === 'none') {
         return
       }
-      inputBorder = borderColor ? getColor(borderColor).getDeepen(0) : null
-      hoverBorder = borderColor ? getColor(borderColor).getDeepen(0.4) : null
-      focusColor = focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null
+      inputBorder = borderColorCopy ? getColor(borderColorCopy).getDodge(0) : null
+      hoverBorder = borderColorCopy ? getColor(borderColorCopy).getDodge(0.4) : null
+      focusColor = focusBorderColorCopy ? getColor(focusBorderColorCopy).getDodge(0) : null
     }
     getBorder(border)
 
@@ -125,10 +136,10 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     if (labelText) {
       defaultStyle['--input-margin-top'] = fontSize ? setSize(fontSize) : '18px'
     }
-    if (focusBorderColor) {
+    if (focusBorderColorCopy) {
       defaultStyle['--input-focus-border'] = focusColor
     }
-    if (borderColor) {
+    if (borderColorCopy) {
       defaultStyle['--input-border'] = inputBorder
       defaultStyle['--input-hover-border'] = hoverBorder
     }
@@ -162,7 +173,13 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultWrapperClassList
    * @description 期望被转换的wrapper类名
    */
-  const defaultWrapperClassList = ['appendText', 'prependText', 'readonly']
+  let defaultWrapperClassList = ['appendText', 'prependText', 'readonly']
+
+  if (data.status && DK_INPUT_STATUS.includes(data.status)) { 
+    defaultWrapperClassList = [...defaultWrapperClassList, 'status']
+  }
+  console.log(data.status)
+  
   const wrapperClassList = classes(
     [...defaultWrapperClassList],
     `dk-${inputClassName}-wrapper`

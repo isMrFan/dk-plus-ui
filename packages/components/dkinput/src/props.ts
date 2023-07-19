@@ -1,5 +1,10 @@
 import type { ExtractPropTypes } from 'vue'
-import { DK_SIZE, DK_INPUT_TYPE, DK_INPUT_PERSONALITY_TYPE } from '../../_tokens'
+import {
+  DK_SIZE,
+  DK_INPUT_TYPE,
+  DK_INPUT_PERSONALITY_TYPE,
+  DK_INPUT_STATUS
+} from '../../_tokens'
 import type { DkPlusAlign } from '../../_interface'
 
 import {
@@ -13,10 +18,19 @@ import type {
   dkInputType,
   MouseEventType,
   KeyboardEventType,
-  dkInputPersonalityType
+  dkInputPersonalityType,
+  dkInputStatusType
 } from '../../_interface'
 
 export const dkInputProps = {
+  /**
+   * @name status
+   * @property Set status of the input box.
+   * @default default
+   */
+  status: setStringProp<dkInputStatusType>(null, (val: dkInputStatusType): boolean => {
+    return DK_INPUT_STATUS.includes(val)
+  }),
   /**
    * @name jumpLabelText
    * @type {string}
@@ -35,7 +49,7 @@ export const dkInputProps = {
    * @default underline
    */
   personalityType: setStringProp<dkInputPersonalityType>(
-    'underline',
+    null,
     (val: dkInputPersonalityType): boolean => {
       return DK_INPUT_PERSONALITY_TYPE.includes(val)
     }

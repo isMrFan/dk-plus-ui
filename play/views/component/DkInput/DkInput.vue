@@ -166,10 +166,14 @@
   </div>
   <div class="input">
     <dk-input 
-      personality 
-      personality-type="borderRadius" 
-      jump-label-text="dk-ui"
-      placeholder="个性-下划线+圆角转换"
+      placeholder="warning"
+      prefix-icon="IconSysInformation"
+      status="warning"
+    ></dk-input>
+    <dk-input 
+      placeholder="error"
+      prefix-icon="IconSysInformation"
+      status="error"
     ></dk-input>
   </div>
 </template>

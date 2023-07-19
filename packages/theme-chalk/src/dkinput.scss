@@ -12,7 +12,7 @@
   transition: all 0.2s;
 
   @include block('>*icon') {
-    color: var(--input-icon-color);
+    color: var(--input-border);
     width: var(--input-icon-size);
     height: var(--input-icon-size);
 

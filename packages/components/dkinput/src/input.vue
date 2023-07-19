@@ -262,7 +262,7 @@ const onblur = (event: FocusEvent): void => {
 <template>
   <div v-if="type !== 'textarea'" :class="classList" class="dk-input" :style="styleList">
     <!-- append -->
-    <template v-if="isPersonality && data.isPrepend">
+    <template v-if="!isPersonality && data.isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
         <slot name="prepend"></slot>
         <dk-icon
@@ -348,7 +348,7 @@ const onblur = (event: FocusEvent): void => {
     </div>
 
     <!-- prepend -->
-    <template v-if="isPersonality && data.isAppend">
+    <template v-if="!isPersonality && data.isAppend">
       <div :class="appendClassList" :style="pendStyleList">
         <slot name="append"></slot>
         <dk-icon
