@@ -1,6 +1,5 @@
 @use '../mixins/mixin.scss' as *;
 @use '../mixins/configuration/var-input.scss' as *;
-@use './dkinputPersonality/index.scss' as *;
 
 @include block(('input')) {
   width: var(--input-width, 100%);

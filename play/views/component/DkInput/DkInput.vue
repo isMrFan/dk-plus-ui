@@ -58,7 +58,7 @@
 <template>
   <!-- msg: {{ msg }} -->
   <dk-input v-if="false" v-model="msg" @change="handleChange" @enter="handleChange" @focus="handleChange" @blur="handleChange"></dk-input>
-  <div v-if="false" class="input">
+  <div v-if="!false" class="input">
     <h4>前后置内容</h4>
     <dk-input v-model="msg" prepend-text="http://" append-text=".com"></dk-input>
 
@@ -163,8 +163,6 @@
       placeholder="个性-下划线+圆角转换"
       prefix-icon="IconFile"
     ></dk-input>
-  </div>
-  <div class="input">
     <dk-input 
       placeholder="warning"
       prefix-icon="IconSysInformation"
@@ -175,6 +173,8 @@
       prefix-icon="IconSysInformation"
       status="error"
     ></dk-input>
+  </div>
+  <div class="input">
   </div>
 </template>
 
