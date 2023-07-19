@@ -24,7 +24,7 @@
     width: inherit;
     border: 1px solid var(--input-border);
     border-radius: var(--input-border-radius, 4px);
-    box-sizing: border-box;
+    box-sizing: content-box;
     display: inline-flex;
     align-items: center;
     background-color: var(--input-color);
@@ -146,7 +146,7 @@
     background-color: var(--pend-background);
     font-size: inherit;
     border: 1px solid var(--input-border);
-    box-sizing: border-box;
+    box-sizing: content-box;
 
     &:hover {
       background-color: var(--pend-hover-background);

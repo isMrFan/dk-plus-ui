@@ -7,7 +7,7 @@
 
 ## <a id='基础输入框'>基础输入框</a>
 
-`type` 输入框类型 type 设置 text | password | email | number | tel | url 默认:text
+`type` 输入框类型 `type` 设置 `text` `password` `number` 默认:`text`
 
 ::: module
 <template #code>
@@ -189,6 +189,30 @@
 
 :::
 
+## <a id='状态'>状态</a>
+
+`status` 属性可以设置输入框的状态，`status` 属性支持 `warning` `error` 两种状态。
+
+::: module
+<template #code>
+<dk-input class='docs-input' placeholder="请输入内容" status="warning"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="请输入内容" status="error"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="请输入内容" status="warning" prefix-icon='IconSysInformation'></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="请输入内容" status="error" prefix-icon='IconSysInformation'></dk-input>
+</template>
+
+```html
+<dk-input placeholder="请输入内容" status="warning"></dk-input>
+<dk-input placeholder="请输入内容" status="error"></dk-input>
+<dk-input placeholder="请输入内容" status="warning" prefix-icon='IconSysInformation'></dk-input>
+<dk-input placeholder="请输入内容" status="error" prefix-icon='IconSysInformation'></dk-input>
+```
+
+:::
+
 ## <a id='个性化'>个性化</a>
 
 `personality` 开启个性化，`personality-type` 支持个性化类型。
@@ -242,6 +266,8 @@
 | `append-color` | 输入框前后置内容字体颜色 | `string` | - | - |
 | `align` | 输入框内容对齐方式 | `string` | `left` `center` `right` | `left` |
 | `border` | 输入框边框 | `string` | `auto` `none` | `auto` |
+| `status` | [输入框状态](#状态) | `string` | `warning` `error` | - |
+| `personality` | [个性化](#个性化) | `boolean` | - | `false` |
 <!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
 <!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
 <!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->

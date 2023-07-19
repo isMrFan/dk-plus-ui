@@ -7,7 +7,7 @@ Simple and not simple input  components
 
 ## Basic Input 
 
-`type` Input  `type` set up `text` | `password` | `email` | `number` | `tel` | `url` default:`text`
+`type` Input  `type` set up `text` `password` `email` `number` `tel` `url` default:`text`
 
 ::: module
 <template #code>
@@ -171,6 +171,66 @@ Simple and not simple input  components
 
 :::
 
+## <a id='Length limit'>Length limit</a>
+
+The `maxlength` and `minlength` attributes can limit the maximum and minimum length of input boxes, `show-length` property can display the length of the input box.
+
+::: module
+<template #code>
+<dk-input class='docs-input' placeholder="Please enter content" show-length maxlength="10"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="Please enter content" minlength="10"></dk-input>
+</template>
+
+```html
+<dk-input placeholder="Please enter content" show-length maxlength="10"></dk-input>
+<dk-input placeholder="Please enter content" minlength="10"></dk-input>
+```
+
+:::
+
+## <a id='status'>status</a>
+
+The `status` attribute can set the status of the input box, The `status` attribute supports two states: `warning` and `error`.
+
+::: module
+<template #code>
+<dk-input class='docs-input' placeholder="Please enter content" status="warning"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="Please enter content" status="error"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="Please enter content" status="warning" prefix-icon='IconSysInformation'></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="Please enter content" status="error" prefix-icon='IconSysInformation'></dk-input>
+</template>
+
+```html
+<dk-input placeholder="Please enter content" status="warning"></dk-input>
+<dk-input placeholder="Please enter content" status="error"></dk-input>
+<dk-input placeholder="Please enter content" status="warning" prefix-icon='IconSysInformation'></dk-input>
+<dk-input placeholder="Please enter content" status="error" prefix-icon='IconSysInformation'></dk-input>
+```
+
+:::
+
+## <a id='personality'>personality</a>
+
+`personality` Enables personalization, and `personal-type` supports personalization types.
+
+::: module
+<template #code>
+<dk-input class='docs-input' placeholder="Please enter content" personality personality-type="underline"></dk-input>
+<div style='margin-top: 10px;'></div>
+<dk-input class='docs-input' placeholder="Please enter content" personality personality-type="borderRadius"></dk-input>
+</template>
+
+```html
+<dk-input placeholder="Please enter content" personality personality-type="underline"></dk-input>
+<dk-input placeholder="Please enter content" personality personality-type="borderRadius"></dk-input>
+```
+
+:::
+
 ## attribute
 
 | attribute | explain | type | Optional values | Default value | 
@@ -205,6 +265,8 @@ Simple and not simple input  components
 | `append-color` | Input  front and back content font color | `string` | - | - |
 | `align` | Input  content alignment | `string` | `left` `center` `right` | `left` |
 | `border` | Input  Border | `string` | `auto` `none` | `auto` |
+| `status` | [status](#status) | `string` | `warning` `error` | - |
+| `personality` | [personality](#personality) | `boolean` | - | `false` |
 <!-- | `max-rows` | 输入框最大行数（只对textarea生效） | `number` | - | `6` | -->
 <!-- | `max` | 输入框最大值（只对number生效） | `number` | - | - | -->
 <!-- | `min` | 输入框最小值（只对number生效） | `number` | - | - | -->
