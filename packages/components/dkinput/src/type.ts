@@ -31,6 +31,8 @@ export interface UseEmitType {
 }
 
 export interface propDataModel {
+  personalityProp: boolean
+  labelTextProp: string
   prependText: string
   appendText: string
   placeholder: string
@@ -57,6 +59,8 @@ export interface propDataModel {
 }
 
 export interface DataType {
+  personality: boolean
+  labelText: string
   /**
    * @description Is there prepend text
    * @type {boolean} [true | false]
