@@ -4,6 +4,7 @@ import { getColor, setSize, getStyleList } from '..'
 import type { DkInputProps } from './../../dkinput/src/props'
 import type { DataType, propDataModel } from '../../dkinput/src/type'
 import type { dkInputType, ClassListName } from '../../_interface'
+import { DK_INPUT_PERSONALITY_TYPE, DK_INPUT_STATUS } from '../../_tokens'
 
 /**
  * @name getInputGlobalType
@@ -36,7 +37,7 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultClassList
    * @description 期望转换的类名
    */
-  let defaultClassList = ['type', 'size']
+  let defaultClassList = ['type', 'size', 'personality', 'personalityType']
 
   /**
    * @name data
@@ -49,14 +50,14 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   const prepend = props.prependText || props.prependIcon || slot.prepend
   const append = props.appendText || props.appendIcon || slot.append
 
-  if (append && prepend) {
+  if (!data.personality && append && prepend) {
     data.appendText = 'wrapper-pend_text'
     data.prependText = ''
   } else {
-    if (append) {
+    if (!data.personality && append) {
       data.appendText = 'wrapper-append_text'
     }
-    if (prepend) {
+    if (!data.personality && prepend) {
       data.prependText = 'wrapper-prepend_text'
     }
   }
@@ -78,9 +79,13 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     defaultClassList = [...defaultClassList, 'disabled']
   }
 
-  const { classes } = getStyleList(params, 'input')
+  let inputClassName = 'input'
+  if (data.personality && DK_INPUT_PERSONALITY_TYPE.includes(data.personalityType)) {
+    inputClassName = 'input-personality'
+  }
+  const { classes } = getStyleList(params, inputClassName)
 
-  const classList = classes([...defaultClassList], 'dk-input')
+  const classList = classes([...defaultClassList], 'dk-' + inputClassName)
 
   const styleList = computed((): CSSProperties => {
     const {
@@ -93,8 +98,22 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       align,
       borderColor,
       focusBorderColor,
-      border
+      border,
+      labelText
     } = data
+
+    let borderColorCopy = borderColor;
+    let focusBorderColorCopy = focusBorderColor;
+
+    const statusColorList = {
+      warning: '#faad14',
+      error: '#ff4d4f'
+    }
+
+    if (data.status && DK_INPUT_STATUS.includes(data.status)) {
+      borderColorCopy = statusColorList[data.status];
+      focusBorderColorCopy = statusColorList[data.status];
+    }
 
     type BorderColorType = string | number | undefined | null
     let inputBorder: BorderColorType = 'transparent'
@@ -104,20 +123,23 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       if (value === 'none') {
         return
       }
-      inputBorder = borderColor ? getColor(borderColor).getDeepen(0) : null
-      hoverBorder = borderColor ? getColor(borderColor).getDeepen(0.4) : null
-      focusColor = focusBorderColor ? getColor(focusBorderColor).getDeepen(0) : null
+      inputBorder = borderColorCopy ? getColor(borderColorCopy).getDodge(0) : null
+      hoverBorder = borderColorCopy ? getColor(borderColorCopy).getDodge(0.4) : null
+      focusColor = focusBorderColorCopy ? getColor(focusBorderColorCopy).getDodge(0) : null
     }
     getBorder(border)
 
     const defaultStyle: Record<string, string> = {
       '--input-align': align || 'left'
     }
-
-    if (focusBorderColor) {
+    
+    if (labelText) {
+      defaultStyle['--input-margin-top'] = fontSize ? setSize(fontSize) : '18px'
+    }
+    if (focusBorderColorCopy) {
       defaultStyle['--input-focus-border'] = focusColor
     }
-    if (borderColor) {
+    if (borderColorCopy) {
       defaultStyle['--input-border'] = inputBorder
       defaultStyle['--input-hover-border'] = hoverBorder
     }
@@ -151,8 +173,17 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    * @name defaultWrapperClassList
    * @description 期望被转换的wrapper类名
    */
-  const defaultWrapperClassList = ['appendText', 'prependText', 'readonly']
-  const wrapperClassList = classes([...defaultWrapperClassList], 'dk-input-wrapper')
+  let defaultWrapperClassList = ['appendText', 'prependText', 'readonly']
+
+  if (data.status && DK_INPUT_STATUS.includes(data.status)) { 
+    defaultWrapperClassList = [...defaultWrapperClassList, 'status']
+  }
+  console.log(data.status)
+  
+  const wrapperClassList = classes(
+    [...defaultWrapperClassList],
+    `dk-${inputClassName}-wrapper`
+  )
 
   /**
    * @name defaultInnerClassList
@@ -160,7 +191,10 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    */
   const innerClasses = getStyleList(params, 'input').classes
   const defaultInnerClassList: string[] = []
-  const innerClassList = innerClasses([...defaultInnerClassList], 'dk-input_inner')
+  const innerClassList = innerClasses(
+    [...defaultInnerClassList],
+    `dk-${inputClassName}_inner`
+  )
 
   /**
    * @name defaultClearableStyleList
@@ -413,7 +447,9 @@ export const setData = (
       propData.disabledProp
     ),
     rows: propData.rowsProp || 2,
-    showLength: getShowLengthProp(propData, inputType)
+    showLength: getShowLengthProp(propData, inputType),
+    labelText: propData.labelTextProp,
+    personality: propData.personalityProp
   })
   return data
 }
@@ -443,7 +479,9 @@ export const setPropData = (props: DkInputProps): propDataModel => {
     autosizeProp: props.autosize,
     rowsProp: props.rows,
     readonlyProp: props.readonly,
-    showLengthProp: props.showLength
+    showLengthProp: props.showLength,
+    labelTextProp: props.labelText,
+    personalityProp: props.personality
   })
 
   return propData
