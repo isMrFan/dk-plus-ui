@@ -63,11 +63,11 @@
           {
             name: '提示组件',
             path: '/DkAlert'
+          },
+          {
+            name: 'ScrollBar滚动条',
+            path: '/DkScrollBar'
           }
-          // {
-          //   name: '链接组件',
-          //   path: '/DkLink'
-          // }
         ]
       })
       const active = reactive({

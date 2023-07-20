@@ -14,7 +14,7 @@ const DkLoading: Object = () => import('../views/component/DkLoading/DkLoading.v
 const DKcollapse: Object = () => import('../views/component/DKcollapse/DKcollapse.vue')
 const DkAlert: Object = () => import('../views/component/DkAlert/DkAlert.vue')
 const DkNumber: Object = () => import('../views/component/DkNumber/dkNumber.vue')
-const DkLink: Object = () => import('../views/component/DkLink/DkLink.vue')
+const DkScrollBar: Object = () => import('../views/component/DkScrollBar/DkScrollBar.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -135,11 +135,11 @@ const routes: RouteRecordRaw[] = [
         }
       },
       {
-        path: '/DkLink',
-        name: 'DkLink',
-        component: DkLink,
+        path: '/DkScrollBar',
+        name: 'DkScrollBar',
+        component: DkScrollBar,
         meta: {
-          title: 'link 链接',
+          title: 'DkScrollBar滚动条',
           keepAlive: false,
           isunnewList: false
         }

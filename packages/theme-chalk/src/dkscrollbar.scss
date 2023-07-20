@@ -1,0 +1,26 @@
+@use '../mixins/mixin.scss' as *;
+@use '../mixins/configuration/var-scroll-bar.scss' as *;
+
+@include block('scroll-bar') {
+  width: var(--scroll-bar-width);
+  height: var(--scroll-bar-height);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  @include block(wrapper) {
+    width: 100%;
+    height: fit-content;
+  }
+  
+  &::-webkit-scrollbar {
+    width: var(--scroll-bar-bar-width);
+    height: var(--scroll-bar-bar-width);
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--scroll-bar-track-color);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--scroll-bar-thumb-radius);
+    background-color: var(--scroll-bar-thumb-color);
+  }
+}
