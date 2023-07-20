@@ -68,7 +68,13 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:description',
-      content: '面向设计人员和开发人员的基于Vue 3的组件库'
+      // content: '面向设计人员和开发人员的基于Vue 3的组件库'
+      content: `
+        ✨ Vue 3 组件库，专为设计师与开发者而生 ✨
+        🛠️ 简单集成，开发无压力 🛠️
+        🚀 加速开发，效率倍增 🚀
+        立即体验，开启全新的前端之旅！🚀
+      `
     }
   ],
   /** OG 页面所在网站名 */

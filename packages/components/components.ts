@@ -39,3 +39,6 @@ export * from './dkspace'
 
 export { DkAlert } from './dkalert'
 export * from './dkalert'
+
+export { DkLink } from './dklink'
+export * from './dklink'

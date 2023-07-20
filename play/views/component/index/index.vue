@@ -1,5 +1,6 @@
 <script lang="ts">
   import { defineComponent, toRefs, reactive } from 'vue'
+  import { useRouter } from 'vue-router'
   export default defineComponent({
     name: 'Index',
     setup() {
@@ -63,6 +64,10 @@
             name: '提示组件',
             path: '/DkAlert'
           }
+          // {
+          //   name: '链接组件',
+          //   path: '/DkLink'
+          // }
         ]
       })
       const active = reactive({
@@ -81,9 +86,13 @@
           title.scrollIntoView({ behavior: 'smooth' })
         }
       }
+
+      const route = useRouter()
+
       return {
         ...toRefs(data),
         ...toRefs(active),
+        route,
         handleChildItemClick
       }
     }
