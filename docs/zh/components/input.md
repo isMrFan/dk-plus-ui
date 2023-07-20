@@ -15,7 +15,7 @@
 </template>
 
 ```html
-<dk-input placeholder="请输入内容"></dk-input>
+<dk-input placeholder="请输入内容"></dk-input> 
 ```
 
 :::

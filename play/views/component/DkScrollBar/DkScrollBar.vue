@@ -9,11 +9,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="link">
+  <div class="scroll-box">
     <dk-scroll-bar 
       height="200px"
       bar-width="6px"
       thumb-color="#1cb1a4"
+      track-color="#fcb1a1"
     >
       <div v-for="item in 20" :key="item" class="scrollbar-list-item">{{ item }}</div>
     </dk-scroll-bar>

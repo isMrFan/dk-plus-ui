@@ -11,7 +11,9 @@
 </template>
 
 ```html
-<dk-input-number></dk-input-number>
+<template>
+  <dk-input-number></dk-input-number>
+</template>
 <script>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -37,7 +39,9 @@
 </template>
 
 ```html
-<dk-input-number v-model='value' disabled></dk-input-number>
+<template>
+  <dk-input-number v-model='value' disabled></dk-input-number>
+</template>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -85,7 +89,9 @@
 </template>
 
 ```html
-<dk-input-number :max="10" :min="0"></dk-input-number>
+<template>
+  <dk-input-number :max="10" :min="0"></dk-input-number>
+</template>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -111,7 +117,9 @@
 </template>
 
 ```html
-<dk-input-number :step="2"></dk-input-number>
+<template>
+  <dk-input-number :step="2"></dk-input-number>
+</template>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -137,7 +145,9 @@
 </template>
 
 ```html
-<dk-input-number :precision="2"></dk-input-number>
+<template>
+  <dk-input-number :precision="2"></dk-input-number>
+</template>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -163,7 +173,9 @@
 </template>
 
 ```html
-<dk-input-number :step="2" strict></dk-input-number>
+<template>
+  <dk-input-number :step="2" strict></dk-input-number>
+</template>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({
@@ -192,7 +204,9 @@
 </template>
 
 ```html
-<dk-input-number position="left"></dk-input-number>
+<template>
+  <dk-input-number position="left"></dk-input-number>
+</template>
 <script lang='ts'>
   import { defineComponent, ref } from 'vue'
   export default defineComponent({

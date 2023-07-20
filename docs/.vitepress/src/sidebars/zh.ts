@@ -38,7 +38,8 @@ export const sidebar = {
         { text: 'Space 间距', link: '/zh/components/space' },
         { text: 'Button 按钮', link: '/zh/components/button' },
         { text: 'Shadow 盒子', link: '/zh/components/shadow' },
-        { text: 'Alert 警示', link: '/zh/components/alert' }
+        { text: 'Alert 警示', link: '/zh/components/alert' },
+        { text: 'ScrollBar 滚动条', link: '/zh/components/scrollBar' }
       ]
     },
     {

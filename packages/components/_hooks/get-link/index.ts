@@ -20,6 +20,7 @@ export const getDkLink = (props: DkScrollBar): LinkType => {
 
   const styleList = (): CSSProperties => {
     const { width, height, barWidth, trackColor, thumbColor, thumbRadios } = data
+    const thumb = thumbColor || '#c1c1c1'
 
     return {
       '--scroll-bar-width': width && setSize(width),
@@ -27,8 +28,7 @@ export const getDkLink = (props: DkScrollBar): LinkType => {
       '--scroll-bar-bar-width': barWidth && setSize(barWidth),
       '--scroll-bar-track-color': trackColor && getColor(trackColor).getDodge(0.7),
       '--scroll-bar-thumb-radius': thumbRadios && setSize(thumbRadios),
-      '--scroll-bar-thumb-color':
-        thumbColor && hexToRgba(getColor(thumbColor).getDodge(0), 0)
+      '--scroll-bar-thumb-color': hexToRgba(getColor(thumb).getDodge(0), 0)
     }
   }
 

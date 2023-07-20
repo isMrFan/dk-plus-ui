@@ -1,7 +1,7 @@
 @use '../mixin.scss' as *;
 
 @include block('scroll-bar') {
-  --scroll-bar-width: 100%
+  --scroll-bar-width: 100%;
   --scroll-bar-height: 100%;
   --scroll-bar-max-height: 100%;
   --scroll-bar-bar-width: 6px;
