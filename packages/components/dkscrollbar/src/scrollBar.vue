@@ -1,23 +1,23 @@
 <script lang="ts">
   /**
-   * @name DkScrollBar
+   * @name DkScrollbar
    * @description ScrollBar
    * @date July 20, 2023
    * @user WangYingJay <https://github.com/WangYingJay>
    */
   import { defineComponent, reactive, toRefs, ref } from 'vue'
   import type { CSSProperties, Ref } from 'vue'
-  import { dkScrollBar } from './props'
+  import { dkScrollbar } from './props'
   import { getDkLink } from '../../_hooks'
   export default defineComponent({
-    name: 'DkScrollBar',
-    props: dkScrollBar,
+    name: 'DkScrollbar',
+    props: dkScrollbar,
     emits: ['scroll'],
     setup(props, { emit }) {
       const { classList, styleList, wrapperClassList } = getDkLink(props)
       const data = props
       const scrollBarStyle = ref(styleList) as Ref<CSSProperties>
-      const color: string = scrollBarStyle.value['--scroll-bar-thumb-color'] as string
+      const color: string = scrollBarStyle.value['--scrollbar-thumb-color'] as string
       const thumbColor =
         color && color.replace(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/, '$1, $2, $3')
 
@@ -25,7 +25,7 @@
         transition(step: number, init: number) {
           let opacity = init
           const setOpacity = (): void => {
-            scrollBarStyle.value['--scroll-bar-thumb-color'] = `rgba(${thumbColor}, ${opacity})`
+            scrollBarStyle.value['--scrollbar-thumb-color'] = `rgba(${thumbColor}, ${opacity})`
           }
           const animate = (): void => {
             opacity += step

@@ -1,8 +1,14 @@
-import scrollBar from './src/scrollBar.vue';
-import { withInstall } from '../_utils/index';
+import scrollbar from './src/scrollbar.vue'
 
-export const DkScrollBar = withInstall(scrollBar);
+import { DirectiveScroll } from '../_hooks/_directive/scroll'
+import { withInstall, installDirective } from '../_utils/index'
 
-export type linkInstance = InstanceType<typeof scrollBar>;
+export const DkScrollbar = withInstall(scrollbar)
 
-export default DkScrollBar;
+export const DkScroll = withInstall({
+  directive: installDirective(DirectiveScroll(), 'dk-scroll')
+})
+
+export type linkInstance = InstanceType<typeof scrollbar>
+
+export default DkScrollbar

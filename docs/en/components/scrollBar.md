@@ -11,16 +11,16 @@ Scroll bar component
 
 ::: module
 <template #code>
-<ScrollBarComp class='docs-scroll-bar' height="200px"></ScrollBarComp>
+<ScrollBarComp class='docs-scrollbar' height="200px"></ScrollBarComp>
 </template>
 
 ```html
 <template>
-  <dk-scroll-bar height="200px">
+  <dk-scrollbar height="200px">
     <div class="content">
       <div class="item" v-for="item in 20" :key="item">{{item}}</div>
     </div>
-  </dk-scroll-bar>
+  </dk-scrollbar>
 </template>
 <style lang="scss" scoped>
   .item {
@@ -45,16 +45,16 @@ When the width of the element is greater than the width of the scrolling area, t
 
 ::: module
 <template #code>
-<ScrollBarComp class='docs-scroll-bar' transverse='true' height="80px"></ScrollBarComp>
+<ScrollBarComp class='docs-scrollbar' transverse='true' height="80px"></ScrollBarComp>
 </template>
 
 ```html
 <template>
-  <dk-scroll-bar height="200px">
+  <dk-scrollbar height="200px">
     <div class="content">
       <div class="item" v-for="item in 20" :key="item">{{item}}</div>
     </div>
-  </dk-scroll-bar>
+  </dk-scrollbar>
 </template>
 <style lang="scss" scoped>
   .content {
@@ -76,28 +76,63 @@ When the width of the element is greater than the width of the scrolling area, t
 </style>
 ```
 
+:::
+
+## <a id='v-dk-scroll'>v-dk-scroll instructions</a>
+
+Setting the `v-dk-scroll` instruction can also achieve scrolling style, with the same attributes and components.
+
+::: module
+<template #code>
+<ScrollBarComp class='docs-scrollbar' height="200px"></ScrollBarComp>
+</template>
+
+```html
+<template>
+  <div v-dk-scroll="true" height="200px">
+    <div class="item" v-for="item in 20" :key="item">{{item}}</div>
+  </div>
+</template>
+<style lang="scss" scoped>
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
+    background: rgba($color: #1cb1a4, $alpha: 0.5);
+    color: #fff;
+  }
+</style>
+```
+
+:::
+
 ## <a id='属性'>属性</a>
 
-| parameter      | explain                           | type     | Optional values | Default value |
-| -------------- | --------------------------------- | -------- | --------------- | ------------- |
-| `height`       | Scrolling area height             | `string` | -               | -             |
-| `width`        | Scrolling area width              | `string` | -               | -             |
-| `bar-width`    | Scroll bar width                  | `string` | -               | `6px`         |
-| `track-color`  | Scroll bar track color            | `string` | -               | `transparent` |
-| `thumb-color`  | Scroll bar slider color           | `string` | -               | `#c1c1c1`     |
-| `thumb-radius` | Scroll bar slider rounded corners | `string` | -               | `4px`         |
+| parameter      | explain                           | type      | Optional values | Default value |
+| -------------- | --------------------------------- | --------- | --------------- | ------------- |
+| `height`       | Scrolling area height             | `string`  | -               | -             |
+| `width`        | Scrolling area width              | `string`  | -               | -             |
+| `bar-width`    | Scroll bar width                  | `string`  | -               | `6px`         |
+| `track-color`  | Scroll bar track color            | `string`  | -               | `transparent` |
+| `thumb-color`  | Scroll bar slider color           | `string`  | -               | `#c1c1c1`     |
+| `thumb-radius` | Scroll bar slider rounded corners | `string`  | -               | `4px`         |
+| `v-dk-scroll`  | [instructions](#v-dk-scroll)      | `boolean` | -               | `false`       |
 
 ## <a id='Slots'>Slots</a>
 
-| name     | explain         |
-| -------- | ------------ |
+| name      | explain             |
+| --------- | ------------------- |
 | `default` | Scroll Area Content |
 
 ## <a id='事件'>事件</a>
 
-| Event Name | explain             | Callback Arguments  |
-| -------- | ---------------- | -------- |
-| `scroll` | Triggered when the scroll bar scrolls | `({ scrollTop: number, scrollTop: number}): => void` |
+| Event Name | explain                               | Callback Arguments                                   |
+| ---------- | ------------------------------------- | ---------------------------------------------------- |
+| `scroll`   | Triggered when the scroll bar scrolls | `({ scrollTop: number, scrollTop: number}): => void` |
 
 ## <a id='Contributors'>Contributors</a>
 

@@ -10,11 +10,11 @@ export default defineComponent({
 
 <template>
   <div class="docs-scroll">
-    <dk-scroll-bar v-bind="$attrs">
+    <dk-scrollbar v-bind="$attrs">
       <div :class="$attrs.transverse === 'true' ? 'item-list' : ''">
         <div v-for="item in 20" :key="item" class="item">{{ item }}</div>
       </div>
-    </dk-scroll-bar>
+    </dk-scrollbar>
   </div>
 </template>
 

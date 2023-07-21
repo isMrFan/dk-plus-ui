@@ -1,7 +1,7 @@
 import type { ExtractPropTypes } from 'vue'
 import { setStringProp } from '../../_utils'
 
-export const dkScrollBar = {
+export const dkScrollbar = {
   /**
    * @name width
    * @type string
@@ -44,4 +44,4 @@ export const dkScrollBar = {
   thumbColor: setStringProp()
 }
 
-export type DkScrollBar = ExtractPropTypes<typeof dkScrollBar>
+export type DkScrollbarType = ExtractPropTypes<typeof dkScrollbar>

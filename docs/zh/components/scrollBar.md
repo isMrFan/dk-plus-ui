@@ -11,14 +11,14 @@
 
 ::: module
 <template #code>
-<ScrollBarComp class='docs-scroll-bar' height="200px"></ScrollBarComp>
+<ScrollBarComp class='docs-scrollbar' height="200px"></ScrollBarComp>
 </template>
 
 ```html
 <template>
-  <dk-scroll-bar height="200px">
+  <dk-scrollbar height="200px">
     <div class="item" v-for="item in 20" :key="item">{{item}}</div>
-  </dk-scroll-bar>
+  </dk-scrollbar>
 </template>
 <style lang="scss" scoped>
   .item {
@@ -43,16 +43,16 @@
 
 ::: module
 <template #code>
-<ScrollBarComp class='docs-scroll-bar' transverse='true' height="80px"></ScrollBarComp>
+<ScrollBarComp class='docs-scrollbar' transverse='true' height="80px"></ScrollBarComp>
 </template>
 
 ```html
 <template>
-  <dk-scroll-bar height="200px">
+  <dk-scrollbar height="200px">
     <div class="content">
       <div class="item" v-for="item in 20" :key="item">{{item}}</div>
     </div>
-  </dk-scroll-bar>
+  </dk-scrollbar>
 </template>
 <style lang="scss" scoped>
   .content {
@@ -74,16 +74,50 @@
 </style>
 ```
 
+:::
+
+## <a id='v-dk-scroll'>v-dk-scroll 指令</a>
+
+设置 `v-dk-scroll` 指令也可以实现滚动样式， 属性和组件相同。
+
+::: module
+<template #code>
+<ScrollBarComp class='docs-scrollbar' height="200px"></ScrollBarComp>
+</template>
+
+```html
+<template>
+  <div v-dk-scroll="true" height="200px">
+    <div class="item" v-for="item in 20" :key="item">{{item}}</div>
+  </div>
+</template>
+<style lang="scss" scoped>
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
+    background: rgba($color: #1cb1a4, $alpha: 0.5);
+    color: #fff;
+  }
+</style>
+```
+:::
+
 ## <a id='属性'>属性</a>
 
-| 参数           | 说明           | 类型     | 可选值 | 默认值        |
-| -------------- | -------------- | -------- | ------ | ------------- |
-| `height`       | 滚动区域高度   | `string` | -      | -             |
-| `width`        | 滚动区域宽度   | `string` | -      | -             |
-| `bar-width`    | 滚动条宽度     | `string` | -      | `6px`         |
-| `track-color`  | 滚动条轨道颜色 | `string` | -      | `transparent` |
-| `thumb-color`  | 滚动条滑块颜色 | `string` | -      | `#c1c1c1`     |
-| `thumb-radius` | 滚动条滑块圆角 | `string` | -      | `4px`         |
+| 参数           | 说明                 | 类型      | 可选值 | 默认值        |
+| -------------- | -------------------- | --------- | ------ | ------------- |
+| `height`       | 滚动区域高度         | `string`  | -      | -             |
+| `width`        | 滚动区域宽度         | `string`  | -      | -             |
+| `bar-width`    | 滚动条宽度           | `string`  | -      | `6px`         |
+| `track-color`  | 滚动条轨道颜色       | `string`  | -      | `transparent` |
+| `thumb-color`  | 滚动条滑块颜色       | `string`  | -      | `#c1c1c1`     |
+| `thumb-radius` | 滚动条滑块圆角       | `string`  | -      | `4px`         |
+| `v-dk-scroll`  | [指令](#v-dk-scroll) | `boolean` | -      | `false`       |
 
 ## <a id='插槽'>Slots 插槽</a>
 

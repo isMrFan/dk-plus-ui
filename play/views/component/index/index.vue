@@ -65,7 +65,7 @@
             path: '/DkAlert'
           },
           {
-            name: 'ScrollBar滚动条',
+            name: '滚动条',
             path: '/DkScrollBar'
           }
         ]
