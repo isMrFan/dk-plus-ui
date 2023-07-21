@@ -22,12 +22,12 @@ export const dkScrollBar = {
    */
   barWidth: setStringProp(),
   /**
-   * @name thumbRadios
+   * @name thumbRadius
    * @type string
    * @default 4px
    * @description Set radius of the scroll bar thumb
    */
-  thumbRadios: setStringProp(),
+  thumbRadius: setStringProp(),
   /**
    * @name trackColor
    * @type string

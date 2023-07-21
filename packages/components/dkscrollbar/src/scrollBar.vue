@@ -12,7 +12,8 @@
   export default defineComponent({
     name: 'DkScrollBar',
     props: dkScrollBar,
-    setup(props) {
+    emits: ['scroll'],
+    setup(props, { emit }) {
       const { classList, styleList, wrapperClassList } = getDkLink(props)
       const data = props
       const scrollBarStyle = ref(styleList) as Ref<CSSProperties>
@@ -34,6 +35,14 @@
             }
           }
           animate()
+        },
+        handleScrollChange(evt: Event){
+          const target = evt.target as HTMLElement
+          const prams = {
+            scrollTop: target.scrollTop,
+            scrollLeft: target.scrollLeft
+          }
+          emit('scroll', prams)
         }
       })
       return {
@@ -54,6 +63,7 @@
     :style="scrollBarStyle"
     @mouseenter="transition(0.1, 0)"
     @mouseleave="transition(-0.1, 1)"
+    @scroll="handleScrollChange"
   >
     <div :class="wrapperClassList">
       <slot></slot>

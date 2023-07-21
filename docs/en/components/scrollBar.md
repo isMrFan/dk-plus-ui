@@ -1,13 +1,13 @@
-# scrollBar 滚动条
+# scrollBar
 
-滚动条组件
+Scroll bar component
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkscrollbar)
 - [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/scrollBar.md)
 
-## <a id='基础使用'>基础使用</a>
+## <a id='Basic usage'>Basic usage</a>
 
-`height` 设置滚动区域高度
+`height` Set the height of the scrolling area
 
 ::: module
 <template #code>
@@ -17,7 +17,9 @@
 ```html
 <template>
   <dk-scroll-bar height="200px">
-    <div class="item" v-for="item in 20" :key="item">{{item}}</div>
+    <div class="content">
+      <div class="item" v-for="item in 20" :key="item">{{item}}</div>
+    </div>
   </dk-scroll-bar>
 </template>
 <style lang="scss" scoped>
@@ -37,9 +39,9 @@
 
 :::
 
-## <a id='横向滚动'>横向滚动</a>
+## <a id='Horizontal scrolling'>Horizontal scrolling</a>
 
-元素宽度大于滚动区域宽度时，滚动条会自动出现横向滚动条。
+When the width of the element is greater than the width of the scrolling area, the scrollbar will automatically appear as a horizontal scrollbar.
 
 ::: module
 <template #code>
@@ -76,26 +78,26 @@
 
 ## <a id='属性'>属性</a>
 
-| 参数           | 说明           | 类型     | 可选值 | 默认值        |
-| -------------- | -------------- | -------- | ------ | ------------- |
-| `height`       | 滚动区域高度   | `string` | -      | -             |
-| `width`        | 滚动区域宽度   | `string` | -      | -             |
-| `bar-width`    | 滚动条宽度     | `string` | -      | `6px`         |
-| `track-color`  | 滚动条轨道颜色 | `string` | -      | `transparent` |
-| `thumb-color`  | 滚动条滑块颜色 | `string` | -      | `#c1c1c1`     |
-| `thumb-radius` | 滚动条滑块圆角 | `string` | -      | `4px`         |
+| parameter      | explain                           | type     | Optional values | Default value |
+| -------------- | --------------------------------- | -------- | --------------- | ------------- |
+| `height`       | Scrolling area height             | `string` | -               | -             |
+| `width`        | Scrolling area width              | `string` | -               | -             |
+| `bar-width`    | Scroll bar width                  | `string` | -               | `6px`         |
+| `track-color`  | Scroll bar track color            | `string` | -               | `transparent` |
+| `thumb-color`  | Scroll bar slider color           | `string` | -               | `#c1c1c1`     |
+| `thumb-radius` | Scroll bar slider rounded corners | `string` | -               | `4px`         |
 
-## <a id='插槽'>Slots 插槽</a>
+## <a id='Slots'>Slots</a>
 
-| name      | 说明         |
-| --------- | ------------ |
-| `default` | 滚动区域内容 |
+| name     | explain         |
+| -------- | ------------ |
+| `default` | Scroll Area Content |
 
 ## <a id='事件'>事件</a>
 
-| 事件名称 | 说明             | 回调参数                                             |
-| -------- | ---------------- | ---------------------------------------------------- |
-| `scroll` | 滚动条滚动时触发 | `({ scrollTop: number, scrollTop: number}): => void` |
+| Event Name | explain             | Callback Arguments  |
+| -------- | ---------------- | -------- |
+| `scroll` | Triggered when the scroll bar scrolls | `({ scrollTop: number, scrollTop: number}): => void` |
 
 ## <a id='Contributors'>Contributors</a>
 

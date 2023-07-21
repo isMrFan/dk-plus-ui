@@ -3,7 +3,7 @@
   export default defineComponent({
     name: 'ScrollBarComp',
     setup() {
-      return {}
+      return { }
     }
   })
 </script>
@@ -11,13 +11,22 @@
 <template>
   <div class="docs-scroll">
     <dk-scroll-bar v-bind="$attrs">
-      <div v-for="item in 20" :key="item" class="item">{{ item }}</div>
+      <div :class="$attrs.transverse === 'true' ? 'item-list' : ''">
+        <div v-for="item in 20" :key="item" class="item">{{ item }}</div>
+      </div>
     </dk-scroll-bar>
   </div>
 </template>
 
 <style lang="scss" scoped>
   .docs-scroll {
+    .item-list{
+      width: fit-content;
+      display: flex;
+      .item{
+        width: 50px;
+      }
+    }
     .item {
       display: flex;
       align-items: center;

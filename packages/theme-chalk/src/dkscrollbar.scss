@@ -6,11 +6,7 @@
   height: var(--scroll-bar-height);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  @include block(wrapper) {
-    width: 100%;
-    height: fit-content;
-  }
+  overflow: auto; 
   
   &::-webkit-scrollbar {
     width: var(--scroll-bar-bar-width);
