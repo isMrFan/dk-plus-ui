@@ -2,6 +2,7 @@ import type { RouteRecordRaw, RouteLocationNormalized } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+
 const Index: Object = () => import('../views/component/index/index.vue')
 const DkShadow: Object = () => import('../views/component/DkShadow/DkShadow.vue')
 const DkIcon: Object = () => import('../views/component/icon/icon.vue')
@@ -12,6 +13,8 @@ const DkInput: Object = () => import('../views/component/DkInput/DkInput.vue')
 const DkLoading: Object = () => import('../views/component/DkLoading/DkLoading.vue')
 const DKcollapse: Object = () => import('../views/component/DKcollapse/DKcollapse.vue')
 const DkAlert: Object = () => import('../views/component/DkAlert/DkAlert.vue')
+const DkNumber: Object = () => import('../views/component/DkNumber/dkNumber.vue')
+const DkScrollbar: Object = () => import('../views/component/DkScrollbar/DkScrollbar.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -124,9 +127,19 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/DkNumber',
         name: 'DkNumber',
-        component: () => import('../views/component/DkNumber/dkNumber.vue'),
+        component: DkNumber,
         meta: {
           title: '数字输入框DkNumber',
+          keepAlive: false,
+          isunnewList: false
+        }
+      },
+      {
+        path: '/DkScrollbar',
+        name: 'DkScrollbar',
+        component: DkScrollbar,
+        meta: {
+          title: 'DkScrollBar滚动条',
           keepAlive: false,
           isunnewList: false
         }

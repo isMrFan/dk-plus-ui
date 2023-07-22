@@ -178,7 +178,6 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
   if (data.status && DK_INPUT_STATUS.includes(data.status)) { 
     defaultWrapperClassList = [...defaultWrapperClassList, 'status']
   }
-  console.log(data.status)
   
   const wrapperClassList = classes(
     [...defaultWrapperClassList],

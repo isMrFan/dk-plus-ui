@@ -39,3 +39,6 @@ export * from './dkspace'
 
 export { DkAlert } from './dkalert'
 export * from './dkalert'
+
+export { DkScrollbar, DkScroll } from './dkscrollbar'
+export * from './dkscrollbar'

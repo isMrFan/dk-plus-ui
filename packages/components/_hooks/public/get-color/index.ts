@@ -239,3 +239,40 @@ export const getColor = (color: Color): getColorType => {
     getDodge
   }
 }
+
+/**
+ * @name hexToRgba
+ * @description Hex convert to rgba
+ * @param { string } color Hex color
+ * @param { number } opacity Opacity
+ * @returns { string } rgba color
+ */
+export const hexToRgba = (color: string, opacity: number): string => {
+  const hexColor = color.replace('#', '')
+  const r = parseInt(hexColor.substring(0, 2), 16)
+  const g = parseInt(hexColor.substring(2, 4), 16)
+  const b = parseInt(hexColor.substring(4, 6), 16)
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`
+}
+
+/**
+ * @name rgbaToHex
+ * @description Rgba to hex
+ * @param { string } rgba
+ * @returns
+ */
+export const rgbaToHex = (rgba: string): string => {
+  const rgbaValues = rgba.replace(/[rgba()]/g, '').split(',')
+
+  const r = parseInt(rgbaValues[0])
+  const g = parseInt(rgbaValues[1])
+  const b = parseInt(rgbaValues[2])
+
+  const rHex = r.toString(16).padStart(2, '0')
+  const gHex = g.toString(16).padStart(2, '0')
+  const bHex = b.toString(16).padStart(2, '0')
+
+  const hexColor = `#${rHex}${gHex}${bHex}`
+
+  return hexColor
+}

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="DkInput">
   /**
    * @name dk-input
    * @author WangYingJie
