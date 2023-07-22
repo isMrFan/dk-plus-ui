@@ -38,7 +38,8 @@ export const sidebar = {
         { text: 'Space', link: '/en/components/space' },
         { text: 'Button', link: '/en/components/button' },
         { text: 'Shadow', link: '/en/components/shadow' },
-        { text: 'Alert', link: '/en/components/alert' }
+        { text: 'Alert', link: '/en/components/alert' },
+        { text: 'ScrollBar', link: '/en/components/scrollBar' }
       ]
     },
     {
