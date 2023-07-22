@@ -8,13 +8,13 @@
   import { defineComponent, reactive, toRefs, ref } from 'vue'
   import type { CSSProperties, Ref } from 'vue'
   import { dkScrollbar } from './props'
-  import { getDkLink } from '../../_hooks'
+  import { getDkScroll } from '../../_hooks'
   export default defineComponent({
     name: 'DkScrollbar',
     props: dkScrollbar,
     emits: ['scroll'],
     setup(props, { emit }) {
-      const { classList, styleList, wrapperClassList } = getDkLink(props)
+      const { classList, styleList, wrapperClassList } = getDkScroll(props)
       const data = props
       const scrollBarStyle = ref(styleList) as Ref<CSSProperties>
       const color: string = scrollBarStyle.value['--scrollbar-thumb-color'] as string
