@@ -5,7 +5,7 @@
  */
 export const setSize = (size: number | string): string => {
   let siz = size.toString()
-  const IS_APPEND = /px|em|rem/.test(siz)
+  const IS_APPEND = /px|em|rem|vh|vw|\%/.test(siz)
   if (!IS_APPEND) {
     siz += 'px'
   }

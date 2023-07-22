@@ -68,6 +68,22 @@ export type DkIcon = VNode | Component
 export type KeyboardEventType = (evt: KeyboardEvent) => void
 
 /**
+ * @name dkInputPersonalityType
+ * @Time July 18, 2023
+ * @param { string }  [underline]
+ * @param { string }  [borderRadius]
+ */
+export type dkInputPersonalityType = 'underline' | 'borderRadius'
+
+/**
+ * @name dkInputStatusType
+ * @Time July 19, 2023
+ * @param { string } [warning]
+ * @param { string } [error]
+ */
+export type dkInputStatusType = 'warning' | 'error'
+
+/**
  * @name DkPlusAlign
  * @Time 2023年04月28日
  * @param { string }  [left] 居左
@@ -89,3 +105,23 @@ export type DkPlusAlign = 'left' | 'center' | 'right';
  */
 
 export type DkPlusPosition = 'top' | 'right' | 'bottom' | 'left';
+
+/**
+ * @name dkPlusBasicType
+ * @Time 2023年07月07日
+ * @param { string }  [success] 成功
+ * @param { string }  [info] 信息
+ * @param { string }  [warning] 警告
+ * @description 不同的组件基本类型公共类型
+ */
+
+// export type dkPlusBasicType = 'success' | 'info' | 'warning';
+
+/**
+ * @name dkPlusAlertType
+ * @Time 2023年07月07日
+ * @param { string }  [error] 错误
+ * @description 拓展Alert类型
+ */
+// export type dkPlusAlertType = dkPlusBasicType & 'error';
+export type dkPlusAlertType = 'success' | 'info' | 'warning' | 'error';

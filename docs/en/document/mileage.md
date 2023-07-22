@@ -1,5 +1,13 @@
 # milestone
 
+## 2023-07-18
+The team welcomes the fourth contributor <XuXiaoYing@1436633896@qq.com> <br/>
+`dk-alert` Component birth
+
+## 2023-07-15
+
+The warehouse has welcomed a third contributor [usertutu](https://github.com/usertutu)
+
 ## 2023-07-10
 
 Because the next technical gulp packaging declaration file is always set doll leafing through a lot of documents failed to solve so changed to vite packaging

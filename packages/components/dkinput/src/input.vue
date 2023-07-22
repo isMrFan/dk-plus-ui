@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup name="DkInput">
   /**
    * @name dk-input
    * @author WangYingJie
@@ -38,6 +38,7 @@
     getInput(props)
   const modelValueProp = ref<string | number>(props.modelValue)
   const isFocus = ref<boolean>(false)
+  const isPersonality = ref<boolean>(false)
 
   const propData = setPropData(props)
 
@@ -259,9 +260,9 @@ const onblur = (event: FocusEvent): void => {
 </script>
 
 <template>
-  <div v-if="type !== 'textarea'" :class="classList" :style="styleList">
+  <div v-if="type !== 'textarea'" :class="classList" class="dk-input" :style="styleList">
     <!-- append -->
-    <template v-if="data.isPrepend">
+    <template v-if="!isPersonality && data.isPrepend">
       <div :class="prependClassList" :style="pendStyleList">
         <slot name="prepend"></slot>
         <dk-icon
@@ -275,6 +276,12 @@ const onblur = (event: FocusEvent): void => {
 
     <!-- wrapper -->
     <div :class="wrapperClassList">
+      <!-- label text -->
+      <template v-if="!!data.labelText">
+        <div class="dk-input_label-text">
+          <span>{{ data.labelText }}</span>
+        </div>
+      </template>
       <!-- prefix -->
       <template v-if="data.isPrefix">
         <span class="dk-input_prefix">
@@ -341,7 +348,7 @@ const onblur = (event: FocusEvent): void => {
     </div>
 
     <!-- prepend -->
-    <template v-if="data.isAppend">
+    <template v-if="!isPersonality && data.isAppend">
       <div :class="appendClassList" :style="pendStyleList">
         <slot name="append"></slot>
         <dk-icon
