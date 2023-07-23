@@ -4,6 +4,7 @@
    * @description ScrollBar
    * @date July 20, 2023
    * @user WangYingJay <https://github.com/WangYingJay>
+   * @function handleScrollChange Scroll bar scrolling event
    */
   import { defineComponent, reactive, toRefs, ref } from 'vue'
   import type { CSSProperties, Ref } from 'vue'
