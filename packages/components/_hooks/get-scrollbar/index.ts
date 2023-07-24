@@ -2,7 +2,7 @@ import { toRaw } from 'vue'
 import type { ComputedRef, CSSProperties } from 'vue'
 import type { DkScrollbarType } from '../../dkscrollbar/src/props'
 import type { ClassListName } from '../../_interface'
-import { getStyleList, setSize, getColor, hexToRgba } from '..'
+import { getStyleList, setSize, getColor } from '..'
 
 interface LinkType {
   classList: ComputedRef<ClassListName>
@@ -10,7 +10,7 @@ interface LinkType {
   wrapperClassList: ComputedRef<ClassListName>
 }
 
-export const getDkLink = (props: DkScrollbarType): LinkType => {
+export const getDkScroll = (props: DkScrollbarType): LinkType => {
   const data = { ...toRaw(props) }
 
   const { classes } = getStyleList(data, 'scrollbar')
@@ -28,7 +28,7 @@ export const getDkLink = (props: DkScrollbarType): LinkType => {
       '--scrollbar-bar-width': barWidth && setSize(barWidth),
       '--scrollbar-track-color': trackColor && getColor(trackColor).getDodge(0),
       '--scrollbar-thumb-radius': thumbRadius && setSize(thumbRadius),
-      '--scrollbar-thumb-color': hexToRgba(getColor(thumb).getDodge(0), 0)
+      '--scrollbar-thumb-color': getColor(thumb).hexToRgba(0)
     }
   }
 
