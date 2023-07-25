@@ -1,5 +1,9 @@
 # Update log
 
+## 1.0.24-alpha.1 (2023-07-10)
+
+- Added `Dk-alert` alert
+
 ## 1.0.22-alpha.1 (2023-07-10)
 
 - Change the packaging method. Change the reference method. See the Getting Started documentation

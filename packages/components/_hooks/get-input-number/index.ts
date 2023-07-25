@@ -1,8 +1,9 @@
 import { toRaw, computed } from 'vue'
 import { getStyleList } from '..'
 import type { ComputedRef, CSSProperties } from 'vue'
-import type { ClassListName } from '../../_interface'
+import type { ClassListName, dkInputNumberPosition } from '../../_interface'
 import type { DkInputNumberProps } from '../../dkinputNumber/src/props'
+import { DK_INPUT_NUMBER_POSITION } from '../../_tokens'
 
 interface inputNumberType {
   classList: ComputedRef<ClassListName>
@@ -13,7 +14,18 @@ export const getInputNumber = (props: DkInputNumberProps): inputNumberType => {
   const data = { ...toRaw(props) }
 
   const { classes } = getStyleList(data, 'input-number')
-  const defaultClass = ['disabled', 'position']
+  let defaultClass: string[] = ['disabled']
+  
+  /**
+   * @description 检测是否有 position 属性, 且是否合法, 合法则添加 position 类名
+   */
+  if (!!data.position && DK_INPUT_NUMBER_POSITION.includes(data.position)) {
+    data.position = `${data.position} dk-input-number_position` as dkInputNumberPosition
+    defaultClass = [...defaultClass, 'position']
+  } else if (typeof data.position === 'string') {
+    data.position = 'right dk-input-number_position' as dkInputNumberPosition
+    defaultClass = [...defaultClass, 'position']
+  }
   const classList = classes([...defaultClass], 'dk-input-number')
 
   const styleList = computed((): CSSProperties => {

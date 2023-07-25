@@ -7,7 +7,7 @@
 
 ::: module
 <template #code>
-<VueDomeInputNumber class='docs-number'></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input'></VueDomeInputNumber>
 </template>
 
 ```html
@@ -33,7 +33,7 @@
 
 ::: module
 <template #code>
-<VueDomeInputNumber class='docs-number' disabled></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' disabled></VueDomeInputNumber>
 </template>
 
 ```html
@@ -59,13 +59,10 @@
 
 ::: module
 <template #code>
-<VueDomeInputNumber class='docs-number' size="large"></VueDomeInputNumber>
-<div style='margin-top: 10px'></div>
-<VueDomeInputNumber class='docs-number' size="medium"></VueDomeInputNumber>
-<div style='margin-top: 10px'></div>
-<VueDomeInputNumber class='docs-number' size="small"></VueDomeInputNumber>
-<div style='margin-top: 10px'></div>
-<VueDomeInputNumber class='docs-number' size="mini"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' size="large"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' size="medium"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' size="small"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' size="mini"></VueDomeInputNumber>
 </template>
 
 ```html
@@ -84,7 +81,7 @@
 ::: module
 
 <template #code>
-<VueDomeInputNumber class='docs-number' :max="10" :min="0"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' :max="10" :min="0"></VueDomeInputNumber>
 </template>
 
 ```html
@@ -110,7 +107,7 @@
 
 ::: module
 <template #code>
-<VueDomeInputNumber class='docs-number' :step="2"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' :step="2"></VueDomeInputNumber>
 </template>
 
 ```html
@@ -136,7 +133,7 @@
 
 ::: module
 <template #code>
-<VueDomeInputNumber class='docs-number' :precision="2" step="0.2"></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' :precision="2" step="0.2"></VueDomeInputNumber>
 </template>
 
 ```html
@@ -162,7 +159,7 @@
 
 ::: module
 <template #code>
-<VueDomeInputNumber class='docs-number' :step="2" strict></VueDomeInputNumber>
+<VueDomeInputNumber class='docs-number docs-input' :step="2" strict></VueDomeInputNumber>
 </template>
 
 ```html

@@ -40,8 +40,8 @@
 
   .dk-button {
     margin: 0;
-
     @include block(box) {
+      --button-width: var(--input-number-button-width);
       --button-height: var(--input-number-height);
       --button-padding: 6px 20px;
       --button-border-radius: 0px;
@@ -50,29 +50,89 @@
       // --button-hover-background: transparent;
       --button-active-borderColor: transparent;
       --button-background: transparent;
+      &:hover {
+        --button-hover-background: transparent;
+      }
     }
 
     border: none;
   }
-  @include element(disabled){
+  @include element(disabled) {
     background-color: var(--input-number-background-color);
-    &:hover *{
+    &:hover * {
       cursor: not-allowed;
     }
   }
 
-  // @include element(left){
-  //   .dk-button{
-  //     float: left;
-  //   }
-  //   @include block('*input-number'){
-  //     @include block(wrapper){
-  //       float: right;
-  //       @include element(inner){
-  //         border-right: none;
-  //         background-color: #f00;
-  //       }
-  //     }
-  //   }
-  // }
+  @include element(position) {
+    position: relative;
+    @include block('>*input-number') {
+      @include element(('reduce', 'plus')) {
+        position: absolute;
+        height: 42%;
+        overflow: hidden;
+        --input-number-height: 100%;
+        display: flex;
+        .dk-button-box {
+          --button-padding: 6px 15px;
+          .dk-icon {
+            --icon-size: 13px;
+          }
+          &:hover {
+            --button-hover-borderColor: transparent;
+          }
+          &:active {
+            --button-active-background: transparent;
+          }
+        }
+      }
+
+      @include element(reduce) {
+        bottom: -1px;
+        align-items: end;
+        padding-bottom: 1px;
+      }
+
+      @include element(plus) {
+        top: -1px;
+        align-items: start;
+        padding-top: 1px;
+      }
+    }
+    @include block('>*input') {
+      width: calc(var(--input-number-width) - var(--input-number-button-width) - 1px);
+      @include block(wrapper) {
+        border: none;
+        padding: 0;
+      }
+    }
+  }
+
+  @include element(left) {
+    justify-content: end;
+    @include block('>*input-number') {
+      @include element(('reduce', 'plus')) {
+        left: -1px;
+      }
+    }
+    @include block('>*input') {
+      @include block(wrapper) {
+        border-left: solid 1px var(--input-number-border-color);
+      }
+    }
+  }
+  
+  @include element(right) {
+    justify-content: start;
+    @include block('>*input-number') {
+      @include element(('reduce', 'plus')) {
+        right: -1px;
+      }
+    }
+    @include block('>*input') {
+      @include block(wrapper) {
+        border-right: solid 1px var(--input-number-border-color);
+      }
+    }
+  }
 }

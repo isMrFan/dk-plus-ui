@@ -1,12 +1,15 @@
 import type { ExtractPropTypes } from 'vue'
-import { DK_SIZE, DK_INPUT_TYPE } from '../../_tokens'
+import {
+  DK_SIZE,
+  DK_INPUT_TYPE,
+  DK_INPUT_PERSONALITY_TYPE,
+  DK_INPUT_STATUS
+} from '../../_tokens'
 import type { DkPlusAlign } from '../../_interface'
 
 import {
   setBooleanProps,
   setStringProp,
-  setNumberProps,
-  setObjectProps,
   setFunction,
   setStringNumberProps
 } from '../../_utils'
@@ -14,28 +17,67 @@ import type {
   dkPlusSize,
   dkInputType,
   MouseEventType,
-  KeyboardEventType
+  KeyboardEventType,
+  dkInputPersonalityType,
+  dkInputStatusType
 } from '../../_interface'
 
 export const dkInputProps = {
+  /**
+   * @name status
+   * @property Set status of the input box.
+   * @default default
+   */
+  status: setStringProp<dkInputStatusType>(null, (val: dkInputStatusType): boolean => {
+    return DK_INPUT_STATUS.includes(val)
+  }),
+  /**
+   * @name jumpLabelText
+   * @type {string}
+   * @description Set jump label text
+   */
+  // jumpLabelText: setStringProp(),
+  /**
+   * @name labelText
+   * @description Set label text
+   * @default ''
+   */
+  labelText: setStringProp(),
+  /**
+   * @name personalityType
+   * @description Set personality type of the input box
+   * @default underline
+   */
+  personalityType: setStringProp<dkInputPersonalityType>(
+    null,
+    (val: dkInputPersonalityType): boolean => {
+      return DK_INPUT_PERSONALITY_TYPE.includes(val)
+    }
+  ),
+  /**
+   * @name personality
+   * @description Set personality properties of the input box
+   * @default false
+   */
+  personality: setBooleanProps(),
   border: setStringProp(),
   align: setStringProp<DkPlusAlign>('left'),
   onEnter: setFunction<KeyboardEventType>(),
   onPrependClick: setFunction<MouseEventType>(),
   onAppendClick: setFunction<MouseEventType>(),
-  iconSize: setStringProp() || setNumberProps(),
+  iconSize: setStringNumberProps(),
   /** textColor */
-  textColor: setStringProp() || setNumberProps(),
+  textColor: setStringProp(),
 
   /** borderRadius */
-  borderRadius: setStringProp() || setNumberProps(),
+  borderRadius: setStringNumberProps(),
   /** fontSize */
-  fontSize: setStringProp() || setNumberProps(),
+  fontSize: setStringNumberProps(),
   /** input width */
-  width: setStringProp() || setNumberProps(),
+  width: setStringNumberProps(),
 
   /** input height */
-  height: setStringProp() || setNumberProps(),
+  height: setStringNumberProps(),
   /** input border color */
   borderColor: setStringProp(),
   /** input focus border color */
@@ -115,10 +157,10 @@ export const dkInputProps = {
   prefixIcon: setStringProp(),
   /** Suffix icon */
   suffixIcon: setStringProp(),
-  rows: setStringProp() || setNumberProps(),
-  maxRows: setStringProp() || setNumberProps(),
+  rows: setStringNumberProps(),
+  maxRows: setStringNumberProps(),
   /** Auto height */
-  autosize: setBooleanProps() || setObjectProps(),
+  autosize: setBooleanProps(),
   /** Whether display character statistics */
   showLength: setBooleanProps()
 } as const
