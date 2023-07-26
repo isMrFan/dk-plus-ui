@@ -1,7 +1,7 @@
 # Custom Box Model
 
 - [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkshadow)
-- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/shadow.md)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/shadow.md)
 
 ## introduce
 

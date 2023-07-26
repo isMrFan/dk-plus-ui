@@ -1,3 +1,4 @@
+import type { ExtractPropTypes } from 'vue'
 import { setStringNumberProps } from '../../_utils'
 
 export const dkColProps = {
@@ -8,3 +9,5 @@ export const dkColProps = {
    */
   span: setStringNumberProps()
 }
+
+export type DkColPropsType = ExtractPropTypes<typeof dkColProps>

@@ -1,10 +1,10 @@
 import { computed, toRaw, useSlots, reactive } from 'vue'
-import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
+import { DK_INPUT_PERSONALITY_TYPE, DK_INPUT_STATUS } from '../../_tokens'
+import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import type { DkInputProps } from './../../dkinput/src/props'
 import type { DataType, propDataModel } from '../../dkinput/src/type'
 import type { dkInputType, ClassListName } from '../../_interface'
-import { DK_INPUT_PERSONALITY_TYPE, DK_INPUT_STATUS } from '../../_tokens'
 
 /**
  * @name getInputGlobalType
