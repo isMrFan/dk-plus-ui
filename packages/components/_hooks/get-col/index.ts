@@ -18,9 +18,10 @@ export const getCol = (props: DkColPropsType): DkColType => {
   const classList = classes(defaultClassList, 'dk-col')
 
   const styleList = (): CSSProperties => {
-    const { span } = data
+    const { span, offset } = data
     const style: Record<string, number | string> = {
-      '--col-span': span || '1'
+      '--col-span': Math.abs(Number(span)) / 24 * 100 + '%' || '100%',
+      '--col-margin-left': (Math.abs(Number(offset)) / 24) * 100 + '%' || 0
     }
     return style
   }
