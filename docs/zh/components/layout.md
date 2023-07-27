@@ -12,20 +12,35 @@
 ::: module
 
 <template #code>
-<rowComp class="docs-row">
-<dk-col>
-<div class="dark"></div>
-</dk-col>
-</rowComp>
+<LayoutComp class="docs-row">
+  <dk-col>
+    <div class="dark"></div>
+  </dk-col>
+</LayoutComp>
 </template>
 
 ```html
-
+<template>
+  <dk-row>
+    <dk-col>
+      <div class="dark"></div>
+    </dk-col>
+  </dk-row>
+</template>
+<style>
+  .dark {
+    height: 100%;
+    height: 32px;
+    border-radius: 4px;
+    background-color: #ccc;
+  }
+</style>
 ```
 
 :::
 
+## <a id='尺寸'></a>
 
-<script lang='ts' setup>
-  import rowComp from './vueDome/layout/index.vue'
+<script setup>
+  import LayoutComp from './vueDome/layout/index.vue'
 </script>

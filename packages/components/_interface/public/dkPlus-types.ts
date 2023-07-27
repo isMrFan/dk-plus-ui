@@ -45,6 +45,30 @@ export type dkPlusSize = 'large' | 'medium' | 'small' | 'mini'
 export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
 
 /**
+ * @name dkPlusJustify
+ * @Time July 27, 2023
+ * @param { string }  [center] Center
+ * @param { string }  [end] End
+ * @param { string } [flex-end] Flex end
+ * @param { string }  [flex-start] Flex start
+ * @param { string }  [inherit] Inherit
+ * @param { string }  [initial] Initial
+ * @param { string }  [left] Left
+ * @param { string }  [normal] Normal 
+ * @param { string }  [revert] Revert
+ * @param { string }  [right] Right
+ * @param { string }  [space-around] Around
+ * @param { string }  [space-between] Between
+ * @param { string } [space-evenly] Evenly
+ * @param { string }  [start] Starting from scratch
+ * @param { string }  [stretch] Stretch
+ * @param { string }  [unset] Unset
+ * @description Different component justification public type
+ */
+
+export type dkPlusJustify = 'center' | 'end' | 'flex-end' | 'flex-start' | 'inherit' | 'initial' | 'left' | 'normal' | 'revert' | 'right' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch' | 'unset'
+
+/**
  * @name MouseEventType
  * @see MouseEvent https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/MouseEvent
  * @param { Object } evt 事件对象
