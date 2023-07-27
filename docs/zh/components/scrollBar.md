@@ -3,7 +3,7 @@
 滚动条组件
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkscrollbar)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/scrollBar.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/scrollBar.md)
 
 ## <a id='基础使用'>基础使用</a>
 

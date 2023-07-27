@@ -42,3 +42,9 @@ export * from './dkalert'
 
 export { DkScrollbar, DkScroll } from './dkscrollbar'
 export * from './dkscrollbar'
+
+export { DkRow } from './dkrow'
+export * from './dkrow'
+
+export { DkCol } from './dkcol'
+export * from './dkcol'

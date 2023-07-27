@@ -67,6 +67,10 @@
           {
             name: '滚动条',
             path: '/DkScrollBar'
+          },
+          {
+            name: 'layout 布局',
+            path: '/DkLayout'
           }
         ]
       })

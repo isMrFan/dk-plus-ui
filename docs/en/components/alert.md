@@ -1,9 +1,9 @@
-# Alert 警示提示
+# Alert Warning prompt
 
 - [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkalert)
-- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/alert.md)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/alert.md)
 
-## 介绍
+## introduce
 
 `DkAlert` Used for warning prompts to display information that needs attention.
 
@@ -62,7 +62,7 @@ use `center` Attribute to center text horizontally.
 
 :::
 
-## <a id='description'>文字描述</a>
+## <a id='description'>Text description</a>
 
 `description` Attribute to center the text horizontally to add a more detailed description to the Alert component to help users learn more information, in addition to the mandatory title attribute，You can set the `description` attribute to help you better introduce it, which we call auxiliary text. Auxiliary text can only store text content. When the content exceeds the length limit, Line wrap and word wrap will be displayed.
 

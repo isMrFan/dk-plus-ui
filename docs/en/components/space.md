@@ -1,9 +1,9 @@
-# space 间距
+# spacing
 
 The most basic use of this component is to provide uniform spacing between components。
 
 - [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkspace)
-- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/space.md)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/space.md)
 
 ## Basic use
 
