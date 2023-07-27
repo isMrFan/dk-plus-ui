@@ -1,7 +1,7 @@
 # Alert 警示提示
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkalert)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/alert.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/alert.md)
 
 ## 介绍
 

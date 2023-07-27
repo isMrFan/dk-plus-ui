@@ -1,7 +1,7 @@
 # input-number Number input box
 
 - [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinputNumber)
-- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/inputNumber.md)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/inputNumber.md)
 
 ## Basic usage
 
@@ -153,7 +153,7 @@
 
 :::
 
-## 严格模式
+## Strict mode
 
 `strict` Property is used to set the strict mode of the numeric input box, when `strict` Attribute is `true` , The value in the input box can only enter the set step size value.
 

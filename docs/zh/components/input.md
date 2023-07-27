@@ -3,7 +3,7 @@
 简易且不简单的输入框组件
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinput)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/input.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/input.md)
 
 ## <a id='基础输入框'>基础输入框</a>
 

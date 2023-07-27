@@ -3,7 +3,7 @@
 Simple and not simple input components
 
 - [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkinput)
-- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/input.md)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/input.md)
 
 ## Basic Input
 
