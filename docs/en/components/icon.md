@@ -68,11 +68,23 @@ Using an SVG icon library can reduce project size and improve loading speed.
 ## Contributors
 
 <div style='display: flex;'>
-  <a href="https://github.com/dk-plus-ui" target="_blank">
+  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-right:10px;'>
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
   </a>
-  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-left:20px;'>
-    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
+  <a href="https://github.com/WangYingJay" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4"/>
+  </a>
+  <a href="https://github.com/bugfix2020" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/29813979?v=4"/>
+  </a>
+  <a href="https://github.com/usertutu" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/54882060?v=4"/>
+  </a>
+  <a href="https://github.com/Jiajie-Zhao" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/95927228?v=4"/>
+  </a>
+  <a href="https://github.com/XuXiaoyingy" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/140246146?v=4"/>
   </a>
 </div>
 
