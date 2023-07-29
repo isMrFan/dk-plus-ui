@@ -1,13 +1,13 @@
-# Layout 布局
+# Layout
 
-迅速简便的创建布局的容器。
+Create a container for layout quickly and easily.
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkrow)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/layout.md)
+- [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkrow)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/layout.md)
 
-## <a id='基础使用'>基础使用</a>
+## <a id='Basic usage'>Basic usage</a>
 
-通过 `row` 和 `col` 组件，就可以创建出基础的栅格布局。
+By using the `row` and `col` components, a basic grid layout can be created.
 
 ::: module
 
@@ -67,9 +67,9 @@
 
 :::
 
-## <a id='栅格间隔'>栅格间隔</a>
+## <a id='GridSpacing'>Grid spacing</a>
 
-通过 `gutter` 属性设置栅格间隔。
+Set the grid interval through the `gutter` attribute.
 
 ::: module
 
@@ -108,9 +108,9 @@
 
 :::
 
-## <a id='混合布局'>混合布局</a>
+## <a id='MixedLayout'>Mixed layout</a>
 
-设置不用的 `span` 值，来创建不同的布局。
+Set unused `span` values to create different layouts.
 
 ::: module
 
@@ -158,9 +158,9 @@
 
 :::
 
-## <a id='列偏移'>列偏移</a>
+## <a id='ColumnOffset'>Column offset</a>
 
-通过 `offset` 属性设置列偏移。
+Set the column offset through the `offset` attribute.
 
 ::: module
 
@@ -199,14 +199,14 @@
 
 :::
 
-## <a id="属性">属性</a>
+## <a id="attribute">attribute</a>
 
-| 参数      | 说明                      | 类型     | 可选值                                                | 默认值  |
+| parameter      | explain                      | type     | Optional values                                                | Default value  |
 | --------- | ------------------------- | -------- | ----------------------------------------------------- | ------- |
-| `gutter`  | 栅格间隔                  | `number` | —                                                     | `0`     |
-| `justify` | flex 布局下的水平排列方式 | `string` | `start` `end` `center` `space-around` `space-between` | `start` |
-| `span`    | [栅格占据的列数](#混合布局)            | `number` | -                                                     | —       |
-| `offset`  | [栅格左侧的间隔格数](#列偏移)        | `number` | -                                                     | —       |
+| `gutter`  | [Grid spacing](#GridSpacing)                  | `number` | —                                                     | `0`     |
+| `justify` | Horizontal arrangement under `flex` layout | `string` | `start` `end` `center` `space-around` `space-between` | `start` |
+| `span`    | [Number of columns occupied by the grid](#MixedLayout)            | `number` | -                                                     | —       |
+| `offset`  | [Number of spacing cells on the left side of the grid](#ColumnOffset)        | `number` | -                                                     | —       |
 
 <script setup>
   import LayoutComp from './vueDome/layout/index.vue'
