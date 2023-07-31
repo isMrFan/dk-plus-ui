@@ -71,6 +71,10 @@
           {
             name: 'layout 布局',
             path: '/DkLayout'
+          },
+          {
+            name: 'checkbox 多选框',
+            path: '/DkCheckbox'
           }
         ]
       })

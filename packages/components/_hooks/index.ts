@@ -16,6 +16,7 @@
  * get-alert   alert用的hooks
  * get-scrollbar 滚动条用的hooks
  * get-row  row用的hooks
+ * get-checkbox checkbox用的hooks
  */
 export * from './get-button'
 export * from './get-input'
@@ -32,3 +33,4 @@ export * from './get-alert'
 export * from './get-scrollbar'
 export * from './get-row'
 export * from './get-col'
+export * from './get-checkbox'

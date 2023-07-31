@@ -9,6 +9,6 @@ export const DkScroll = withInstall({
   directive: installDirective(DirectiveScroll(), 'dk-scroll')
 })
 
-export type linkInstance = InstanceType<typeof scrollbar>
+export type scrollbarInstance = InstanceType<typeof scrollbar>
 
 export default DkScrollbar
