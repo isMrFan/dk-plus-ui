@@ -64,6 +64,15 @@
       <dk-col :span="5"><div class="dark"></div></dk-col>
     </dk-row>
   </div>
+  <h4>列偏移</h4>
+  <div class="border">
+    <dk-row>
+      <dk-col :span="10" :offset="6"><div class="dark"></div></dk-col>
+      <dk-col :offset="1"><div class="light"></div></dk-col>
+      <dk-col><div class="dark"></div></dk-col>
+      <dk-col><div class="light"></div></dk-col>
+    </dk-row>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -81,10 +90,10 @@
         height: 32px;
         border-radius: 4px;
       }
-      .dark{
+      .dark {
         background-color: #ccc;
       }
-      .light{
+      .light {
         background-color: #eee;
       }
     }

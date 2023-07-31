@@ -39,7 +39,8 @@ export const sidebar = {
         { text: 'Button 按钮', link: '/zh/components/button' },
         { text: 'Shadow 盒子', link: '/zh/components/shadow' },
         { text: 'Alert 警示', link: '/zh/components/alert' },
-        { text: 'ScrollBar 滚动条', link: '/zh/components/scrollBar' }
+        { text: 'ScrollBar 滚动条', link: '/zh/components/scrollBar' },
+        { text: 'Layout 布局', link: '/zh/components/layout' }
       ]
     },
     {

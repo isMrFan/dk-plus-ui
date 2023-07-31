@@ -18,10 +18,11 @@ export const getRow = (props: DkRowPropsType): DkRowType => {
   const classList = classes(defaultClassList, 'dk-row')
 
   const styleList = (): CSSProperties => {
-    const { gutter } = data
+    const { gutter, justify } = data
     const style: Record<string, string> = {
       '--row-width': '100%',
-      '--row-gutter': setSize(gutter || '0px')
+      '--row-gutter': setSize(gutter || '0px'),
+      '--row-justify': justify
     }
     return style
   }

@@ -7,7 +7,13 @@ export const dkColProps = {
    * @description Number of columns occupied by the grid
    * @type number | string
    */
-  span: setStringNumberProps()
+  span: setStringNumberProps(),
+  /**
+   * @name offset
+   * @description Number of columns that the grid moves to the right
+   * @type number | string
+   */
+  offset: setStringNumberProps()
 }
 
 export type DkColPropsType = ExtractPropTypes<typeof dkColProps>
