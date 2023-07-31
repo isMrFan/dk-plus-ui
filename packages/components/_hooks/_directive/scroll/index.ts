@@ -23,10 +23,9 @@ export const DirectiveScroll = (): Directive => {
     color: string
   ): void => {
     color = getColor(color).rgbaToHex()
-    const thumbColor = getColor(color).hexToRgba(opacity).replace(
-      /rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/,
-      '$1, $2, $3'
-    )
+    const thumbColor = getColor(color)
+      .hexToRgba(opacity)
+      .replace(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/, '$1, $2, $3')
 
     const animate = (): void => {
       opacity += step
