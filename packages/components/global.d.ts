@@ -16,9 +16,15 @@ declare module '@vue/runtime-core' {
     DkSpace: typeof components.DkSpace
     IconRefresh: typeof componentsIcon.IconRefresh
     DkAlert: typeof components.DkAlert
+    DkRow: typeof components.DkRow
+    DkCol: typeof components.DkCol
+    DkCheckbox: typeof components.DkCheckbox
+    DkCollapse: typeof components.DkCollapse
+    DkCollapseItem: typeof components.DkCollapseItem
   }
   interface ComponentCustomProperties {
     DkLoading: typeof components.DkLoading
+    DkScroll: typeof components.DkScroll
   }
 }
 

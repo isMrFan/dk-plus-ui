@@ -10,7 +10,8 @@
     name: 'DKcollapse',
     setup() {
       const state = reactive({
-        name: 'DKcollapse'
+        NackName: 'DKcollapse',
+        value: 'value'
       })
       return {
         ...toRefs(state)
@@ -19,5 +20,10 @@
   })
 </script>
 <template>
-  <div>折叠面板</div>
+  <div>
+    折叠面板
+    <dk-collapse :model-name="NackName">
+      <dk-collapse-item> </dk-collapse-item>
+    </dk-collapse>
+  </div>
 </template>
