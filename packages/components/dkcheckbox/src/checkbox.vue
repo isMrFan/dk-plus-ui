@@ -34,7 +34,7 @@
 </script>
 <template>
   <div :class="classList" :style="styleList" @click="handleClick">
-    <input ref="checkbox" v-model="value" class="dk-checkbox_inner" type="checkbox" @change="change" />
+    <input ref="checkbox" v-model="value" class="dk-checkbox_inner center" type="checkbox" @change="change" />
     <label>
       <span class="dk-checkbox_text">
         <slot></slot>

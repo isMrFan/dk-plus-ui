@@ -18,8 +18,7 @@ export const getCheckbox = (prop: DkCheckboxType): CheckboxType => {
       '--checkbox-border-radius': '4px',
       '--checkbox-border': '1px solid #BEBEBE',
       '--checkbox-checked-color': '#3894ff',
-      '--checkbox-bg-color': '#fff',
-      '--checkbox-icon': '\u{2713}'
+      '--checkbox-bg-color': '#fff'
     }
     return {
       ...style

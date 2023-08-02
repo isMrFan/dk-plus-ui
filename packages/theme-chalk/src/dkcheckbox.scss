@@ -1,5 +1,9 @@
 @use '../mixins/mixin.scss' as *;
 
+@mixin icon-content {
+  content: var(--checkbox-icon);
+}
+
 @include block(checkbox) {
   color: var(--checkbox-color);
   font-size: var(--checkbox-font-size);
@@ -21,9 +25,10 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: calc(var(--checkbox-font-size) + 1px);
-      height: calc(var(--checkbox-font-size) + 1px);
+      width: 18px;
+      height: 18px;
       border: 2px solid var(--checkbox-color);
+      box-sizing: border-box;
       background-color: var(--checkbox-bg-color);
       border-radius: var(--checkbox-border-radius);
     }
@@ -35,12 +40,21 @@
 
     &[type='checkbox']:checked + label:after {
       content: '\2713';
-      position: absolute; 
+      position: absolute;
       left: calc(var(--checkbox-font-size) / 3);
       top: 50%;
       transform: translateY(-50%);
       color: #fff;
       font-size: var(--checkbox-font-size);
+    }
+    
+    &[type='checkbox']:checked.center:checked + label:after{
+      content: '';
+      width: 13px;
+      height: 3px;
+      background-color: #fff;
+      left: 1px;
+      // line-height: 2px;
     }
   }
 }
