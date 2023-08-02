@@ -16,6 +16,7 @@ const DkAlert: Object = () => import('../views/component/DkAlert/DkAlert.vue')
 const DkNumber: Object = () => import('../views/component/DkNumber/dkNumber.vue')
 const DkScrollbar: Object = () => import('../views/component/DkScrollbar/DkScrollbar.vue')
 const DkLayout: Object = () => import('../views/component/DkLayout/DkLayout.vue')
+const DkCheckbox: Object = () => import('../views/component/DkCheckbox/DkCheckbox.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -151,6 +152,16 @@ const routes: RouteRecordRaw[] = [
         component: DkLayout,
         meta: {
           title: 'layout 布局',
+          keepAlive: false,
+          isunnewList: false
+        }
+      },
+      {
+        path: '/DkCheckbox',
+        name: 'DkCheckbox',
+        component: DkCheckbox,
+        meta: {
+          title: 'checkbox 多选框',
           keepAlive: false,
           isunnewList: false
         }

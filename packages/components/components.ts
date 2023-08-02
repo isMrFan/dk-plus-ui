@@ -48,3 +48,6 @@ export * from './dkrow'
 
 export { DkCol } from './dkcol'
 export * from './dkcol'
+
+export { DkCheckbox } from './dkcheckbox'
+export * from './dkcheckbox'

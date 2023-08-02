@@ -26,18 +26,20 @@
         transition(step: number, init: number) {
           let opacity = init
           const setOpacity = (): void => {
-            scrollBarStyle.value['--scrollbar-thumb-color'] = `rgba(${thumbColor}, ${opacity})`
+            scrollBarStyle.value[
+              '--scrollbar-thumb-color'
+            ] = `rgba(${thumbColor}, ${opacity})`
           }
           const animate = (): void => {
             opacity += step
-            if(opacity < 1 && opacity > 0) {
+            if (opacity < 1 && opacity > 0) {
               setOpacity()
               requestAnimationFrame(animate)
             }
           }
           animate()
         },
-        handleScrollChange(evt: Event){
+        handleScrollChange(evt: Event) {
           const target = evt.target as HTMLElement
           const prams = {
             scrollTop: target.scrollTop,

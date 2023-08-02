@@ -1,0 +1,13 @@
+@use '../mixins/mixin.scss' as *;
+
+@include block(checkbox){
+  color: var(--checkbox-color);
+  font-size: var(--checkbox-font-size);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  @include element(inner){
+    border: var(--checkbox-border);
+  }
+}
