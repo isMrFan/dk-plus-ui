@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import { setStringProp } from '../../_utils'
+import { setArrayProps } from '../../_utils'
 
 /**
  * @name dk-alert
@@ -8,7 +8,7 @@ import { setStringProp } from '../../_utils'
  * @property {string} type 指定警告提示的样式，有四种选择 success、info、warning、error
  * */
 export const dkcollapse = {
-  modelName: setStringProp()
+  modelName: setArrayProps()
 } as const
 
 /** Collapse 组件 props 类型 */

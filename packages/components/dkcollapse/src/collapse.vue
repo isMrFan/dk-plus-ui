@@ -8,17 +8,17 @@
   import { defineComponent, toRefs } from 'vue'
   import { dkcollapse } from './props'
   export default defineComponent({
-    name: 'Collapse',
+    name: 'DkCollapse',
     props: dkcollapse,
-    setup(props) {
-      const { modelName } = toRefs(props)
-      console.log('modelName', modelName)
+    setup(Props) {
+      const { modelName } = toRefs(Props)
+      console.log('modelName', modelName.value)
       return {}
     }
   })
 </script>
 <template>
-  <div class="dk-collapse">
+  <div class="dk-collapse" role="tablist" aria-multiselectable="true">
     <slot />
   </div>
 </template>

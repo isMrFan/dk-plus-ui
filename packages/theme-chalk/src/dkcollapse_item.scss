@@ -1,5 +1,18 @@
 @use '../mixins/mixin.scss' as *;
 
-.#{$namespace}-collapseItem {
+.#{$namespace}-collapseItem_title{
   width: 100%;
+  display: flex;
+  padding: 10px 0px;
+  box-sizing: border-box;
+  .#{$namespace}-collapseItem_left{
+    width: 50%;
+  }
+  .#{$namespace}-collapseItem_right{
+    width: 50%;
+    display: flex;
+    padding-right: 10px;
+    box-sizing: border-box;
+    justify-content: flex-end;
+  }
 }

@@ -53,7 +53,7 @@ export { DkCheckbox } from './dkcheckbox'
 export * from './dkcheckbox'
 
 export { DkCollapse } from './dkcollapse'
-export * from './dkcheckbox'
+export * from './dkcollapse'
 
 export { DkCollapseItem } from './dkcollapse_item'
 export * from './dkcollapse_item'
