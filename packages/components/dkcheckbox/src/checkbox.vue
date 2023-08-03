@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, toRefs, ref } from 'vue'
   import { dkCheckboxProps } from './props'
   import { getCheckbox } from '../../_hooks'
   export default defineComponent({
@@ -13,20 +13,32 @@
 
       const { classList, styleList } = getCheckbox(props)
 
+      const checkbox = ref<HTMLInputElement>()
+      const methods = {
+        handleClick(): void {
+          const value = checkbox.value as HTMLInputElement
+          value.checked = !value.checked
+        }
+      }
+
       return {
         value: props.modelValue,
         change,
         classList,
-        styleList
+        styleList,
+        ...(toRefs(methods)),
+        checkbox
       }
     }
   })
 </script>
 <template>
-  <label :class="classList" :style="styleList">
-    <input v-model="value" class="checkbox_inner" type="checkbox" @change="change" />
-    <span class="dk-checkbox_text">
-      <slot></slot>
-    </span>
-  </label>
+  <div :class="classList" :style="styleList" @click="handleClick">
+    <input ref="checkbox" v-model="value" class="dk-checkbox_inner center" type="checkbox" @change="change" />
+    <label>
+      <span class="dk-checkbox_text">
+        <slot></slot>
+      </span>
+    </label>
+  </div>
 </template>

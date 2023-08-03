@@ -1,13 +1,60 @@
 @use '../mixins/mixin.scss' as *;
 
-@include block(checkbox){
+@mixin icon-content {
+  content: var(--checkbox-icon);
+}
+
+@include block(checkbox) {
   color: var(--checkbox-color);
   font-size: var(--checkbox-font-size);
-  display: flex;
-  align-items: center;
-  gap: 4px;
   user-select: none;
-  @include element(inner){
+  @include element(inner) {
     border: var(--checkbox-border);
+    &[type='checkbox'] {
+      display: none;
+    }
+
+    &[type='checkbox'] + label {
+      position: relative;
+      padding-left: calc(var(--checkbox-font-size) * 2);
+      cursor: pointer;
+    }
+
+    &[type='checkbox'] + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--checkbox-color);
+      box-sizing: border-box;
+      background-color: var(--checkbox-bg-color);
+      border-radius: var(--checkbox-border-radius);
+    }
+
+    &[type='checkbox']:checked + label:before {
+      border-color: var(--checkbox-checked-color);
+      background-color: var(--checkbox-checked-color);
+    }
+
+    &[type='checkbox']:checked + label:after {
+      content: '\2713';
+      position: absolute;
+      left: calc(var(--checkbox-font-size) / 3);
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: var(--checkbox-font-size);
+    }
+    
+    &[type='checkbox']:checked.center:checked + label:after{
+      content: '';
+      width: 13px;
+      height: 3px;
+      background-color: #fff;
+      left: 1px;
+      // line-height: 2px;
+    }
   }
 }
