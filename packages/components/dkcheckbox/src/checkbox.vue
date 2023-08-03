@@ -1,44 +1,50 @@
 <script lang="ts">
-  import { defineComponent, toRefs, ref } from 'vue'
+  import { defineComponent, ref } from 'vue'
   import { dkCheckboxProps } from './props'
   import { getCheckbox } from '../../_hooks'
   export default defineComponent({
     name: 'DkCheckbox',
     props: dkCheckboxProps,
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'change'],
     setup(props, { emit }) {
+      const checkedClass = ref<string>('')
+      const checkbox = ref<HTMLInputElement>()
       const change = (e: Event): void => {
-        emit('update:modelValue', (e.target as HTMLInputElement).checked)
+        const target = e.target as HTMLInputElement
+        if (target.checked) {
+          checkedClass.value = 'checked'
+        } else {
+          checkedClass.value = ''
+        }
+        emit('update:modelValue', target.checked)
+        emit('change', target.checked)
       }
 
       const { classList, styleList } = getCheckbox(props)
-
-      const checkbox = ref<HTMLInputElement>()
-      const methods = {
-        handleClick(): void {
-          const value = checkbox.value as HTMLInputElement
-          value.checked = !value.checked
-        }
-      }
 
       return {
         value: props.modelValue,
         change,
         classList,
         styleList,
-        ...(toRefs(methods)),
-        checkbox
+        checkbox,
+        checkedClass
       }
     }
   })
 </script>
 <template>
-  <div :class="classList" :style="styleList" @click="handleClick">
-    <input ref="checkbox" v-model="value" class="dk-checkbox_inner center" type="checkbox" @change="change" />
-    <label>
-      <span class="dk-checkbox_text">
-        <slot></slot>
-      </span>
+  <!-- <div :class="classList" class="dk-checkbox--center"> -->
+  <div :class="classList">
+    <label :style="styleList" :class="checkedClass" class="dk-checkbox-wrapper">
+      <input
+        ref="checkbox"
+        v-model="value"
+        class="dk-checkbox_inner center"
+        type="checkbox"
+        @change="change"
+      />
+      <slot></slot>
     </label>
   </div>
 </template>
