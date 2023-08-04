@@ -1,60 +1,80 @@
 @use '../mixins/mixin.scss' as *;
-
-@mixin icon-content {
-  content: var(--checkbox-icon);
-}
+@use '../mixins/configuration/var-checkbox.scss' as *;
 
 @include block(checkbox) {
+  width: fit-content;
   color: var(--checkbox-color);
   font-size: var(--checkbox-font-size);
   user-select: none;
+  position: relative;
+  @include block(wrapper){
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 4px;
+    color: var(--checkbox-color);
+    &.checked{
+      color: var(--checkbox-checked-color);
+    }
+  }
   @include element(inner) {
-    border: var(--checkbox-border);
     &[type='checkbox'] {
-      display: none;
-    }
-
-    &[type='checkbox'] + label {
       position: relative;
-      padding-left: calc(var(--checkbox-font-size) * 2);
+      width: 16px;
+      height: 16px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      border: 2px solid var(--checkbox-border-color);
+      border-radius: 4px;
+      background-color: var(--checkbox-background-color);
       cursor: pointer;
-    }
-
-    &[type='checkbox'] + label:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--checkbox-color);
-      box-sizing: border-box;
-      background-color: var(--checkbox-bg-color);
-      border-radius: var(--checkbox-border-radius);
-    }
-
-    &[type='checkbox']:checked + label:before {
-      border-color: var(--checkbox-checked-color);
-      background-color: var(--checkbox-checked-color);
-    }
-
-    &[type='checkbox']:checked + label:after {
-      content: '\2713';
-      position: absolute;
-      left: calc(var(--checkbox-font-size) / 3);
-      top: 50%;
-      transform: translateY(-50%);
-      color: #fff;
-      font-size: var(--checkbox-font-size);
+      transition: all .2s;
     }
     
-    &[type='checkbox']:checked.center:checked + label:after{
+    &[type='checkbox']:checked {
+      background-color: var(--checkbox-checked-color);
+      border-color: var(--checkbox-checked-color);
+    }
+    
+    &[type='checkbox']:checked::before {
+      content: '\2713';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 13px;
+      color: #fff;
+    }
+    &[type='checkbox']:indeterminate {
+      background-color: var(--checkbox-checked-color);
+      border-color: var(--checkbox-checked-color);
+    }
+    &[type='checkbox']:indeterminate::before{
       content: '';
-      width: 13px;
-      height: 3px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 2px;
       background-color: #fff;
-      left: 1px;
-      // line-height: 2px;
+      transition: all .2s;
+    }
+  }
+
+  @include element(disabled){
+    cursor: not-allowed;
+    @include block('>*checkbox'){
+      @include block('wrapper'){
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+      @include element(inner){
+        background-color: var(--checkbox-disabled-color);
+      }
     }
   }
 }
