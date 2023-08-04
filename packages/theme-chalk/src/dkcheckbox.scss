@@ -1,4 +1,5 @@
 @use '../mixins/mixin.scss' as *;
+@use '../mixins/configuration/var-checkbox.scss' as *;
 
 @include block(checkbox) {
   width: fit-content;
@@ -6,69 +7,73 @@
   font-size: var(--checkbox-font-size);
   user-select: none;
   position: relative;
-  @include block(wrapper) {
+  @include block(wrapper){
     cursor: pointer;
-    user-select: none;
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 4px;
-    font-size: var(--checkbox-font-size);
     color: var(--checkbox-color);
-    &::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      border: var(--checkbox-border);
-      border-radius: var(--checkbox-border-radius);
-      transition: all 0.2s;
-      box-sizing: border-box;
-    }
-  }
-  .checked {
-    transition: all 0.2s;
-    color: var(--checkbox-checked-color);
-    &::before {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      content: '\2713';
-      color: #fff;
-      width: 18px;
-      height: 18px;
-      border-radius: 4px;
-      background-color: var(--checkbox-checked-color);
-      border-color: var(--checkbox-checked-color);
-      transition: all 0.2s;
-    }
-    &::after {
-      display: block;
+    &.checked{
+      color: var(--checkbox-checked-color);
     }
   }
   @include element(inner) {
-    display: none;
+    &[type='checkbox'] {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      border: 2px solid var(--checkbox-border-color);
+      border-radius: 4px;
+      background-color: var(--checkbox-background-color);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    
+    &[type='checkbox']:checked {
+      background-color: var(--checkbox-checked-color);
+      border-color: var(--checkbox-checked-color);
+    }
+    
+    &[type='checkbox']:checked::before {
+      content: '\2713';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 13px;
+      color: #fff;
+    }
+    &[type='checkbox']:indeterminate {
+      background-color: var(--checkbox-checked-color);
+      border-color: var(--checkbox-checked-color);
+    }
+    &[type='checkbox']:indeterminate::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 2px;
+      background-color: #fff;
+      transition: all .2s;
+    }
   }
-  @include element(indeterminate) {
-    .checked {
-      transition: all 0.2s;
-      color: var(--checkbox-checked-color);
-      &::before {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        content: '\2014';
-        color: #fff;
-        width: 18px;
-        height: 18px;
-        font-size: 24px;
-        overflow: hidden;
-        border-radius: 4px;
-        background-color: var(--checkbox-checked-color);
-        border-color: var(--checkbox-checked-color);
-        transition: all 0.2s;
+
+  @include element(disabled){
+    cursor: not-allowed;
+    @include block('>*checkbox'){
+      @include block('wrapper'){
+        cursor: not-allowed;
+        pointer-events: none;
       }
-      &::after {
-        display: block;
+      @include element(inner){
+        background-color: var(--checkbox-disabled-color);
       }
     }
   }

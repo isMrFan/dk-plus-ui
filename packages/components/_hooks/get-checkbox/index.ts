@@ -9,7 +9,7 @@ interface CheckboxType {
 
 export const getCheckbox = (prop: DkCheckboxType): CheckboxType => {
   const { classes } = getStyleList(prop, 'checkbox')
-  const defaultClassList: string[] = ['indeterminate']
+  const defaultClassList: string[] = ['indeterminate', 'disabled']
 
   const classList = classes([...defaultClassList], 'dk-checkbox')
   const styleList = (): CSSProperties => {

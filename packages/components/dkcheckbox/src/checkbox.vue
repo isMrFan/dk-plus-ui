@@ -23,24 +23,26 @@
       const { classList, styleList } = getCheckbox(props)
 
       return {
-        value: props.modelValue,
+        modelValue: props.modelValue,
         change,
         classList,
         styleList,
         checkbox,
-        checkedClass
+        checkedClass,
+        indeterminate: props.indeterminate
       }
     }
   })
 </script>
 <template>
   <!-- <div :class="classList" class="dk-checkbox--center"> -->
-  <div :class="classList">
-    <label :style="styleList" :class="checkedClass" class="dk-checkbox-wrapper">
+  <div :class="classList" :style="styleList">
+    <label :class="checkedClass" class="dk-checkbox-wrapper">
       <input
         ref="checkbox"
-        v-model="value"
-        class="dk-checkbox_inner center"
+        v-model="modelValue"
+        class="dk-checkbox_inner"
+        :indeterminate="indeterminate"
         type="checkbox"
         @change="change"
       />
