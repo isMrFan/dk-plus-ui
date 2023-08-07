@@ -20,9 +20,15 @@
 </script>
 <template>
   <div>
-    折叠面板 {{ NackName }}
+    <div style="margin-bottom: 10px">折叠面板 {{ NackName }}</div>
     <dk-collapse :model-name="NackName">
-      <dk-collapse-item> </dk-collapse-item>
+      <dk-collapse-item
+        v-for="(item, ind) in 10"
+        :key="ind"
+        :title="'这是名字' + ind"
+        :name="ind"
+      >
+      </dk-collapse-item>
     </dk-collapse>
   </div>
 </template>

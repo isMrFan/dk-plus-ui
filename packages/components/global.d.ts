@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     DkCheckbox: typeof components.DkCheckbox
     DkCollapse: typeof components.DkCollapse
     DkCollapseItem: typeof components.DkCollapseItem
+    DkTransition: typeof components.DkTransition
   }
   interface ComponentCustomProperties {
     DkLoading: typeof components.DkLoading

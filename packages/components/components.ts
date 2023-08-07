@@ -57,3 +57,6 @@ export * from './dkcollapse'
 
 export { DkCollapseItem } from './dkcollapse_item'
 export * from './dkcollapse_item'
+
+export { DkTransition } from './dktransition'
+export * from './dktransition'

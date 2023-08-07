@@ -5,14 +5,21 @@
    * @Time 2023/08/02
    * @description 折叠面板-父组件
    **/
-  import { defineComponent } from 'vue'
+  import { defineComponent, reactive, toRefs } from 'vue'
+  import { dkCollapseItemProps } from './props'
   export default defineComponent({
     name: 'DkCollapseItem',
+    props: dkCollapseItemProps,
     setup(props) {
-      const title: string = '测试名字'
-      const icon: string = 'IconRightArrow1'
+      const { name, title, icon } = toRefs(props)
+      const data = reactive({ isActive: false, with: 0, height: 0 })
       console.log('props', props)
-      return { title, icon }
+      return {
+        ...toRefs(data),
+        title,
+        icon,
+        name
+      }
     }
   })
 </script>
@@ -26,5 +33,10 @@
         <dk-icon :icon="icon ? icon : 'IconRightArrow1'"></dk-icon>
       </div>
     </div>
+    <dk-transition>
+      <div>
+        <slot></slot>
+      </div>
+    </dk-transition>
   </div>
 </template>
