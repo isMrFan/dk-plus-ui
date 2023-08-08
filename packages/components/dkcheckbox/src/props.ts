@@ -8,7 +8,9 @@ export const dkCheckboxProps = {
   disabled: setBooleanProps(),
   size: setStringProp(null, (val: dkPlusSize) => {
     return DK_SIZE.includes(val)
-  })
+  }),
+  checkedLabel: setStringProp(),
+  uncheckedLabel: setStringProp()
 }
 
 export type DkCheckboxType = ExtractPropTypes<typeof dkCheckboxProps>
