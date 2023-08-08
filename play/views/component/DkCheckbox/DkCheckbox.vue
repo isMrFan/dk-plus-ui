@@ -21,9 +21,28 @@
     </div>
   </div>
   <div class="box">
+    <h4>中间状态</h4>
     <dk-checkbox :indeterminate="isIndeterMinate">中间状态</dk-checkbox>
+  </div>
+  <div class="box">
+    <h4>禁用状态</h4>
     <dk-checkbox disabled @change="handleChange">禁用状态</dk-checkbox>
+  </div>
+  <div class="box">
+    <h4>不同尺寸</h4>
+    <dk-checkbox size="large">large尺寸</dk-checkbox>
+    <dk-checkbox size="medium">medium尺寸</dk-checkbox>
+    <dk-checkbox>default尺寸</dk-checkbox>
+    <dk-checkbox size="small">small尺寸</dk-checkbox>
+    <dk-checkbox size="mini">mini尺寸</dk-checkbox>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box{
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+</style>
