@@ -23,6 +23,7 @@ $checkbox-theme-colors: (
   'background': #fff,
   // 禁用颜色
   'disabled': #f5f7fa,
+  'disabled-text': '#c0c4cc',
   // 默认颜色
   '': #c0c4cc
 );
@@ -35,6 +36,7 @@ $checkbox-theme-colors: (
   --checkbox-text-color: #{getInputColor('text')};
   --checkbox-checked-color: #{getInputColor('primary')};
   --checkbox-disabled-color: #{getInputColor('disabled')};
+  --checkbox-disabled-text-color: #{getInputColor('disabled-text')};
   --checkbox-hover-color: #{getInputColor('hover')};
   --checkbox-border-color: #{getInputColor('border')};
   --checkbox-background-color: #{getInputColor('background')};
