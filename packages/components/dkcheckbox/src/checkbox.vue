@@ -16,6 +16,10 @@
       })
       const isCheckLabel = data.checkedLabel || data.uncheckedLabel
       const labelValue = ref<string>('')
+      const setLabelValue = (): void => {
+        labelValue.value = props.modelValue ? data.checkedLabel : data.uncheckedLabel
+      }
+      setLabelValue()
       const change = (e: Event): void => {
         const target = e.target as HTMLInputElement
         if (target.checked) {

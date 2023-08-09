@@ -41,8 +41,8 @@
   <div class="box">
     <h4>选中值与为选中值</h4>
     <dk-checkbox v-model="checked" checked-label="选中了" unchecked-label="未选中">都设置</dk-checkbox>
-    <dk-checkbox v-model="checked" checked-label="选中了">设置checked-label</dk-checkbox>
-    <dk-checkbox v-model="checked" unchecked-label="未选中">设置unchecked-label</dk-checkbox>
+    <dk-checkbox v-model="checked" checked-label="设置checked-label">多选框</dk-checkbox>
+    <dk-checkbox v-model="checked" unchecked-label="设置unchecked-label">多选框</dk-checkbox>
   </div>
 </template>
 
