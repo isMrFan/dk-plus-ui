@@ -9,7 +9,7 @@ interface CheckboxType {
 
 export const getCheckbox = (prop: DkCheckboxType): CheckboxType => {
   const { classes } = getStyleList(prop, 'checkbox')
-  const defaultClassList: string[] = ['indeterminate', 'disabled']
+  const defaultClassList: string[] = ['indeterminate', 'disabled', 'border']
   
   if(prop.size){
     defaultClassList.push('size')

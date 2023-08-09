@@ -78,4 +78,15 @@
       }
     }
   }
+
+  @include element(border){
+    .dk-checkbox-wrapper{
+      padding: 6px 4px;
+      border: 1px solid var(--checkbox-border-color);
+      border-radius: var(--checkbox-border-radius);
+    }
+    .checked{
+      border-color: var(--checkbox-checked-color);
+    }
+  }
 }

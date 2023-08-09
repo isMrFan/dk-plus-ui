@@ -44,6 +44,13 @@
     <dk-checkbox v-model="checked" checked-label="设置checked-label">多选框</dk-checkbox>
     <dk-checkbox v-model="checked" unchecked-label="设置unchecked-label">多选框</dk-checkbox>
   </div>
+  <div class="box">
+    <h4>带有边框的checkbox</h4>
+    <dk-checkbox border size="large">large尺寸</dk-checkbox>
+    <dk-checkbox border size="medium">medium尺寸</dk-checkbox>
+    <dk-checkbox border size="small">small尺寸</dk-checkbox>
+    <dk-checkbox border size="mini">mini尺寸</dk-checkbox>
+  </div>
 </template>
 
 <style lang="scss" scoped>

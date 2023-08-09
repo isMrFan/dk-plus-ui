@@ -40,4 +40,5 @@ $checkbox-theme-colors: (
   --checkbox-hover-color: #{getInputColor('hover')};
   --checkbox-border-color: #{getInputColor('border')};
   --checkbox-background-color: #{getInputColor('background')};
+  --checkbox-border-radius: 4px;
 }
