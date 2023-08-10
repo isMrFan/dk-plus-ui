@@ -1,14 +1,16 @@
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   export default defineComponent({
     name: 'DkCheckboxComp',
     setup() {
       const handleChange = (value: boolean): void => {
         value
       }
+      const checked = ref<boolean>(false)
       return {
         handleChange,
-        isIndeterMinate: true
+        isIndeterMinate: true,
+        checked
       }
     }
   })
@@ -35,6 +37,19 @@
     <dk-checkbox>default尺寸</dk-checkbox>
     <dk-checkbox size="small">small尺寸</dk-checkbox>
     <dk-checkbox size="mini">mini尺寸</dk-checkbox>
+  </div>
+  <div class="box">
+    <h4>选中值与为选中值</h4>
+    <dk-checkbox v-model="checked" checked-label="选中了" unchecked-label="未选中">都设置</dk-checkbox>
+    <dk-checkbox v-model="checked" checked-label="设置checked-label">多选框</dk-checkbox>
+    <dk-checkbox v-model="checked" unchecked-label="设置unchecked-label">多选框</dk-checkbox>
+  </div>
+  <div class="box">
+    <h4>带有边框的checkbox</h4>
+    <dk-checkbox border size="large">large尺寸</dk-checkbox>
+    <dk-checkbox border size="medium">medium尺寸</dk-checkbox>
+    <dk-checkbox border size="small">small尺寸</dk-checkbox>
+    <dk-checkbox border size="mini">mini尺寸</dk-checkbox>
   </div>
 </template>
 

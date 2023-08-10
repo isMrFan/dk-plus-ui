@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
+  import { defineComponent, ref, reactive } from 'vue'
   import { dkCheckboxProps } from './props'
   import { getCheckbox } from '../../_hooks'
   export default defineComponent({
@@ -9,6 +9,17 @@
     setup(props, { emit }) {
       const checkedClass = ref<string>('')
       const checkbox = ref<HTMLInputElement>()
+
+      const data = reactive({
+        checkedLabel: props.checkedLabel,
+        uncheckedLabel: props.uncheckedLabel
+      })
+      const isCheckLabel = data.checkedLabel || data.uncheckedLabel
+      const labelValue = ref<string>('')
+      const setLabelValue = (): void => {
+        labelValue.value = props.modelValue ? data.checkedLabel : data.uncheckedLabel
+      }
+      setLabelValue()
       const change = (e: Event): void => {
         const target = e.target as HTMLInputElement
         if (target.checked) {
@@ -16,10 +27,12 @@
         } else {
           checkedClass.value = ''
         }
+        if(isCheckLabel){
+          labelValue.value = target.checked ? data.checkedLabel : data.uncheckedLabel
+        }
         emit('update:modelValue', target.checked)
         emit('change', target.checked)
       }
-
       const { classList, styleList } = getCheckbox(props)
 
       return {
@@ -29,7 +42,10 @@
         styleList,
         checkbox,
         checkedClass,
-        indeterminate: props.indeterminate
+        indeterminate: props.indeterminate,
+        ...data,
+        labelValue,
+        isCheckLabel
       }
     }
   })
@@ -46,7 +62,8 @@
         type="checkbox"
         @change="change"
       />
-      <slot></slot>
+      <span class="dk-checkbox-label"> {{ labelValue }} </span>
+      <slot v-if="!labelValue"></slot>
     </label>
   </div>
 </template>
