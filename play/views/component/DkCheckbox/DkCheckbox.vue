@@ -6,11 +6,17 @@
       const handleChange = (value: boolean): void => {
         value
       }
-      const checked = ref<boolean>(false)
+      const checked = ref<boolean>(true)
+      const checked1 = ref<boolean>(true)
+      const checked2 = ref<boolean>(true)
+      const checked3 = ref<boolean>(false)
       return {
         handleChange,
         isIndeterMinate: true,
-        checked
+        checked,
+        checked1,
+        checked2,
+        checked3
       }
     }
   })
@@ -50,6 +56,15 @@
     <dk-checkbox border size="medium">medium尺寸</dk-checkbox>
     <dk-checkbox border size="small">small尺寸</dk-checkbox>
     <dk-checkbox border size="mini">mini尺寸</dk-checkbox>
+  </div>
+  <div class="box">
+    <h4>group组</h4>
+    <dk-checkbox-group>
+      <dk-checkbox v-model="checked1">选项一</dk-checkbox>
+      <dk-checkbox v-model="checked2">选项二</dk-checkbox>
+      <dk-checkbox v-model="checked3">选项三</dk-checkbox>
+      <div class="aaa">我是捣乱的</div>
+    </dk-checkbox-group>
   </div>
 </template>
 

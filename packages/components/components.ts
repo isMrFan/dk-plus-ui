@@ -57,3 +57,6 @@ export * from './dkcollapse'
 
 export { DkCollapseItem } from './dkcollapse_item'
 export * from './dkcollapse_item'
+
+export { DkCheckboxGroup } from './dkcheckbox_group'
+export * from './dkcheckbox_group'
