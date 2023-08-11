@@ -10,13 +10,17 @@
       const checked1 = ref<boolean>(true)
       const checked2 = ref<boolean>(true)
       const checked3 = ref<boolean>(false)
+      const handleCheckboxChange = (value: string[]): void => {
+        console.log(value)
+      }
       return {
         handleChange,
         isIndeterMinate: true,
         checked,
         checked1,
         checked2,
-        checked3
+        checked3,
+        handleCheckboxChange
       }
     }
   })
@@ -59,7 +63,7 @@
   </div>
   <div class="box">
     <h4>group组</h4>
-    <dk-checkbox-group>
+    <dk-checkbox-group @change="handleCheckboxChange">
       <dk-checkbox v-model="checked1">选项一</dk-checkbox>
       <dk-checkbox v-model="checked2">选项二</dk-checkbox>
       <dk-checkbox v-model="checked3">选项三</dk-checkbox>

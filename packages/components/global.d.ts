@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     DkAlert: typeof components.DkAlert
     DkRow: typeof components.DkRow
     DkCol: typeof components.DkCol
+    DkCheckboxGroup: typeof components.DkCheckboxGroup
     DkCheckbox: typeof components.DkCheckbox
     DkCollapse: typeof components.DkCollapse
     DkCollapseItem: typeof components.DkCollapseItem
