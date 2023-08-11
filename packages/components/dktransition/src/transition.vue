@@ -5,18 +5,26 @@
    * @Time 2023/08/07
    * @description 过渡动画
    **/
-  import { defineComponent, reactive, toRefs } from 'vue'
+  import { defineComponent, ref, computed, toRefs } from 'vue'
+  import { dktransition } from './props'
   export default defineComponent({
     name: 'DkTransition',
-    setup() {
-      const data = reactive({
-        isActive: false,
-        with: 0,
-        height: 0
+    props: dktransition,
+    setup(props) {
+      const { isActive } = toRefs(props)
+      const dkTransition = ref<HTMLButtonElement>()
+      let codeHeight = computed((): string => {
+        const content = dkTransition.value as HTMLElement
+        if (content) {
+          const setHeight = (
+            content.querySelector('.dk-TransitionContent') as HTMLElement
+          )?.offsetHeight
+          return isActive.value ? setHeight + 'px' : '0px'
+        }
+        return '0px'
       })
-      const codeHeight = data.isActive ? `${data.height}px` : '0px'
       return {
-        ...toRefs(data),
+        dkTransition,
         codeHeight
       }
     }
@@ -24,6 +32,8 @@
 </script>
 <template>
   <div ref="dkTransition" class="dk-Transition" :style="{ height: codeHeight }">
-    <slot></slot>
+    <div class="dk-TransitionContent">
+      <slot></slot>
+    </div>
   </div>
 </template>
