@@ -60,3 +60,6 @@ export * from './dkcollapse_item'
 
 export { DkTransition } from './dktransition'
 export * from './dktransition'
+
+export { DkCheckboxGroup } from './dkcheckbox_group'
+export * from './dkcheckbox_group'
