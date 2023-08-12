@@ -6,14 +6,18 @@
     name: 'DkCheckbox',
     props: dkCheckboxProps,
     emits: ['update:modelValue', 'change'],
-    setup(props, { emit }) {
+    setup(props, { emit, slots }) {
       const checkedClass = ref<string>('')
       const checkbox = ref<HTMLInputElement>()
 
       const data = reactive({
         checkedLabel: props.checkedLabel,
-        uncheckedLabel: props.uncheckedLabel
+        uncheckedLabel: props.uncheckedLabel,
+        label: props.label,
+        value: props.value,
+        hasSlot: !!slots.default
       })
+
       const isCheckLabel = data.checkedLabel || data.uncheckedLabel
       const labelValue = ref<string>('')
       const setLabelValue = (): void => {
@@ -27,7 +31,7 @@
         } else {
           checkedClass.value = ''
         }
-        if(isCheckLabel){
+        if (isCheckLabel) {
           labelValue.value = target.checked ? data.checkedLabel : data.uncheckedLabel
         }
         emit('update:modelValue', target.checked)
@@ -63,7 +67,10 @@
         @change="change"
       />
       <span class="dk-checkbox-label"> {{ labelValue }} </span>
-      <slot v-if="!labelValue"></slot>
+      <span v-if="!labelValue">
+        <span v-if="!hasSlot">{{ label }}</span>
+        <slot v-else></slot>
+      </span>
     </label>
   </div>
 </template>

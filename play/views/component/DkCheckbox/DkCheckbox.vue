@@ -13,6 +13,11 @@
       const handleCheckboxChange = (value: string[]): void => {
         console.log(value)
       }
+      const checkList = [
+        { label: '选项1', value: '1' },
+        { label: '选项2', value: '2'},
+        { label: '选项3', value: '3' }
+      ]
       return {
         handleChange,
         isIndeterMinate: true,
@@ -20,13 +25,14 @@
         checked1,
         checked2,
         checked3,
-        handleCheckboxChange
+        handleCheckboxChange,
+        checkList
       }
     }
   })
 </script>
 <template>
-  <div class="box">
+  <!-- <div class="box">
     <h4>基础样式</h4>
     <div class="checkbox">
       <dk-checkbox>常规使用</dk-checkbox>
@@ -60,14 +66,11 @@
     <dk-checkbox border size="medium">medium尺寸</dk-checkbox>
     <dk-checkbox border size="small">small尺寸</dk-checkbox>
     <dk-checkbox border size="mini">mini尺寸</dk-checkbox>
-  </div>
+  </div> -->
   <div class="box">
     <h4>group组</h4>
-    <dk-checkbox-group @change="handleCheckboxChange">
-      <dk-checkbox v-model="checked1">选项一</dk-checkbox>
-      <dk-checkbox v-model="checked2">选项二</dk-checkbox>
-      <dk-checkbox v-model="checked3">选项三</dk-checkbox>
-      <div class="aaa">我是捣乱的</div>
+    <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">
+      <dk-checkbox v-for="item in checkList" :key="item.value" v-model="checked1" :label="item.label" :value="item.value"></dk-checkbox>
     </dk-checkbox-group>
   </div>
 </template>
