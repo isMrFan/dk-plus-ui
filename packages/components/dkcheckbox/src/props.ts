@@ -11,7 +11,9 @@ export const dkCheckboxProps = {
   }),
   checkedLabel: setStringProp(),
   uncheckedLabel: setStringProp(),
-  border: setBooleanProps()
+  border: setBooleanProps(),
+  label: setStringProp(),
+  value: setStringProp()
 }
 
 export type DkCheckboxType = ExtractPropTypes<typeof dkCheckboxProps>
