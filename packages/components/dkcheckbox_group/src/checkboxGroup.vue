@@ -10,7 +10,7 @@
       const handleChange = (e: Event): void => {
         const target = e.target as ComponentOptions
         // const checked = target._modelValue
-        if(target.type !== 'checkbox') return
+        if (target.type !== 'checkbox') return
         const labels = target.labels as NodeList
         const dom = labels[0] as HTMLLabelElement
         const value = dom.innerText
@@ -30,18 +30,19 @@
           const slot = slots.default() as ComponentOptions[]
           // console.log(slot)
           slot.forEach(item => {
-            if(typeof item.type === 'object'){
+            if (typeof item.type === 'object') {
               if (item.type.name !== 'DkCheckbox') {
-                console.warn('The sub component of the dk-checkbox-group component should be a dk-checkbox')
+                console.warn(
+                  'The sub component of the dk-checkbox-group component should be a dk-checkbox'
+                )
                 return
               }
-              if(item.props.modelValue){
+              if (item.props.modelValue) {
                 // console.log(item);
-                
+
                 checkedList.push(item.props.modelValue)
               }
               checkboxList.push(item.type.name)
-              
             }
           })
         }

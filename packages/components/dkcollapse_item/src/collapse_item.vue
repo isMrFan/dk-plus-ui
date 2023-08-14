@@ -18,6 +18,7 @@
       }
       return {
         ...toRefs(data),
+        data,
         title,
         icon,
         name,

@@ -2,13 +2,13 @@ import type { ExtractPropTypes } from 'vue'
 import { setArrayProps } from '../../_utils'
 
 /**
- * @name dk-alert
+ * @name dk-collapse
  * @author fanKai
- * @Time 2023/08/02
- * @property {string} type 指定警告提示的样式，有四种选择 success、info、warning、error
+ * @Time 2023/08/14
+ * @property {string} modelValue 折叠面板数组参数唯一标识
  * */
 export const dkcollapse = {
-  modelName: setArrayProps()
+  modelValue: setArrayProps()
 } as const
 
 /** Collapse 组件 props 类型 */

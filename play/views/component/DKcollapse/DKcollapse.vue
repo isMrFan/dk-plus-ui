@@ -21,7 +21,7 @@
 <template>
   <div>
     <div style="margin-bottom: 10px">折叠面板 {{ NackName }}</div>
-    <dk-collapse :model-name="NackName">
+    <dk-collapse v-model="NackName">
       <dk-collapse-item
         v-for="(item, ind) in 1"
         :key="ind"
