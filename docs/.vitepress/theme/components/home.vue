@@ -50,10 +50,10 @@
       const handleToGitUserClick = (item: Record<string, string | undefined>): void => {
         if (item.avatar) {
           window.open(item.avatar)
-        }else{
+        } else {
           const input = document.createElement('input')
           input.setAttribute('readonly', 'readonly')
-          const email = item.email ? item.email : '';
+          const email = item.email ? item.email : ''
           input.setAttribute('value', email)
           document.body.appendChild(input)
           input.select()
@@ -107,7 +107,7 @@
             :key="item.avatar"
             class="list-item"
             :title="item.name"
-            @click="handleToGitUserClick({avatar: item.avatar, email: item.email})"
+            @click="handleToGitUserClick({ avatar: item.avatar })"
           >
             <div class="avatar">
               <img :src="item.imgUrl" alt="avatar" />
