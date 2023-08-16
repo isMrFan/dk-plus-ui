@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import { setStringProp } from '../../_utils'
+import { setStringProp, setBooleanProps } from '../../_utils'
 
 export const dkCollapseItemProps = {
   /**
@@ -18,9 +18,14 @@ export const dkCollapseItemProps = {
    * @name icon
    * @param { string }  icon icon 图标展示
    * @returns 折叠面板子组建 图标展示
-
    */
-  icon: setStringProp()
+  icon: setStringProp(),
+  /**
+   * @name Active
+   * @param { string }  Active icon 图标展示
+   * @returns 折叠面板子组建 图标展示
+   */
+  Active: setBooleanProps()
 } as const
 
 export type DkCollapseItemProps = ExtractPropTypes<typeof dkCollapseItemProps>

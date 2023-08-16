@@ -43,7 +43,9 @@
       console.log('foldList', foldList)
       if (slots.default) {
         const slot = slots.default() as ComponentOptions[]
-        console.log('slot', slot)
+        const { data } = slot[0].children[0].type.setup
+        console.log('data', data)
+        console.log('slot', slot[0].children[0].type.setup)
       }
 
       return {}

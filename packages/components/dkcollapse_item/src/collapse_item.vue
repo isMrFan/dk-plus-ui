@@ -5,24 +5,22 @@
    * @Time 2023/08/02
    * @description 折叠面板-父组件
    **/
-  import { defineComponent, reactive, toRefs } from 'vue'
+  import { defineComponent, toRefs, computed } from 'vue'
   import { dkCollapseItemProps } from './props'
   export default defineComponent({
     name: 'DkCollapseItem',
     props: dkCollapseItemProps,
     setup(props) {
-      const { name, title, icon } = toRefs(props)
-      const data = reactive({ isActive: false, with: 0, height: 0 })
-      const onClickTitle = (): void => {
-        data.isActive = !data.isActive
-      }
+      const { name, title, icon, Active } = toRefs(props)
+      let isDisabled = computed((): boolean => {
+        return Active.value
+      })
+      console.log('isDisabled', isDisabled)
       return {
-        ...toRefs(data),
-        data,
         title,
         icon,
         name,
-        onClickTitle
+        isDisabled
       }
     }
   })
@@ -32,8 +30,7 @@
     <div
       role="tab"
       class="dk-collapseItem_title"
-      :class="{ 'dk-collapseItem_title_active': isActive }"
-      @click="onClickTitle"
+      :class="{ 'dk-collapseItem_title_active': isDisabled }"
     >
       <div class="dk-collapseItem_left">
         <slot name="title">{{ title }}</slot>
@@ -42,7 +39,7 @@
         <dk-icon :icon="icon ? icon : 'IconRightArrow1'"></dk-icon>
       </div>
     </div>
-    <dk-transition :is-active="isActive">
+    <dk-transition :is-active="isDisabled">
       <div>
         <slot></slot>
       </div>

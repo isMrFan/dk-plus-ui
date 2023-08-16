@@ -16,9 +16,9 @@
       "name": "@bugfix2019的中台工具包"
     },
     {
-      "logoImg": ".vitepress/json/image/dk-chat-gpt.png",
+      "logoImg": "https://oss.cadwaladerss.com/dk-plus/images/dk-chat-gpt.png",
       "logoSrc": "https://dk-chat-gpt.cadwaladerss.com",
-      "name": "@bugfix2019的中台工具包"
+      "name": "@Dk-ChatGpt"
     }
   ]
 }
