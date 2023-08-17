@@ -14,9 +14,9 @@
         console.log(value)
       }
       const checkList = [
-        { label: '选项1', value: '1' },
-        { label: '选项2', value: '2'},
-        { label: '选项3', value: '3' }
+        { label: '选项1(循环)', value: '1' },
+        { label: '选项2(循环)', value: '2' },
+        { label: '选项3(循环)', value: '3' }
       ]
       return {
         handleChange,
@@ -70,16 +70,25 @@
   <div class="box">
     <h4>group组</h4>
     <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">
-      <dk-checkbox v-for="item in checkList" :key="item.value" v-model="checked1" :label="item.label" :value="item.value"></dk-checkbox>
+      <dk-checkbox
+        v-for="item in checkList"
+        :key="item.value"
+        v-model="checked1"
+        :label="item.label"
+        :value="item.value"
+      ></dk-checkbox>
+      <dk-checkbox label="选项4(非循环)"></dk-checkbox>
+      <div>div标签</div>
+      <span>span标签</span>
     </dk-checkbox-group>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.box{
-  margin-bottom: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
+  .box {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
 </style>

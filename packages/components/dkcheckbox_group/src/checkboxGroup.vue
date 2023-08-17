@@ -1,11 +1,13 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
   import type { ComponentOptions } from 'vue'
+  import { getCheckboxGroup } from '../../_hooks'
+  import { checkboxGroup } from './prop'
   export default defineComponent({
     name: 'DkCheckboxGroup',
+    props: checkboxGroup,
     emits: ['change'],
     setup(props, { slots, emit }) {
-      props
       const checkedList: string[] = []
       const handleChange = (e: Event): void => {
         const target = e.target as ComponentOptions
@@ -23,33 +25,10 @@
         emit('change', checkedList)
       }
 
-      const checkboxList = [] as ComponentOptions[]
-      const getCheckboxList = (): void => {
-        // 获取插槽内容
-        if (slots.default) {
-          const slot = slots.default() as ComponentOptions[]
-          // console.log(slot)
-          slot.forEach(item => {
-            if (typeof item.type === 'object') {
-              if (item.type.name !== 'DkCheckbox') {
-                console.warn(
-                  'The sub component of the dk-checkbox-group component should be a dk-checkbox'
-                )
-                return
-              }
-              if (item.props.modelValue) {
-                // console.log(item);
+      const { getSlot } = getCheckboxGroup(props)
+      const { list } = getSlot(slots)
 
-                checkedList.push(item.props.modelValue)
-              }
-              checkboxList.push(item.type.name)
-            }
-          })
-        }
-      }
-
-      getCheckboxList()
-
+      console.log(list)
       return {
         handleChange
       }
