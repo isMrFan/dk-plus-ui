@@ -26,27 +26,29 @@
       setLabelValue()
       const change = (e: Event): void => {
         const target = e.target as HTMLInputElement
-        if (target.checked) {
-          checkedClass.value = 'checked'
-        } else {
-          checkedClass.value = ''
-        }
+        const isChecked = target.checked
+
+        checkedClass.value = isChecked ? 'checked' : ''
+
         if (isCheckLabel) {
-          labelValue.value = target.checked ? data.checkedLabel : data.uncheckedLabel
+          labelValue.value = isChecked ? data.checkedLabel : data.uncheckedLabel
         }
-        emit('update:modelValue', target.checked)
-        emit('change', target.checked)
-        if(props.value === null){
+
+        emit('update:modelValue', isChecked)
+        emit('change', isChecked)
+
+        if (props.value === null) {
           console.error('value is null')
           return
         }
+
         emit('detail-change', {
-          checked: target.checked,
-          value: props.value && props.value.toString(),
+          checked: isChecked,
+          value: props.value.toString(),
           label: props.label
         })
       }
-      
+
       const { classList, styleList } = getCheckbox(props)
 
       return {

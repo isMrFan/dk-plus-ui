@@ -1,6 +1,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
   import { getCheckboxGroup } from '../../_hooks'
+  import type { ComponentOptions } from 'vue'
   import { checkboxGroup } from './prop'
   import type { detailChangeType } from '../../dkcheckbox/src/type'
   export default defineComponent({
@@ -9,33 +10,28 @@
     emits: ['change'],
     setup(props, { slots, emit }) {
       const { getSlot } = getCheckboxGroup(props)
-      const slotList = getSlot(slots)      
+      const slotList = getSlot(slots)
 
-      console.log(slotList)
-      const checkedList: string[] = []
+      let checkedList: string[] = []
 
       const getCheckedList = (): void => {
-        const len = slotList.length
-        for (let i = 0; i < len; i++) {
-          const item = slotList[i]
-          if (item.props.modelValue) {
-            checkedList.push(item.props.value)
-          }
-        }
+        checkedList = slotList
+          .filter((item: ComponentOptions) => item.props.modelValue)
+          .map((item: ComponentOptions) => item.props.value)
       }
+
       getCheckedList()
-      
+
       const handleItemChange = (data: detailChangeType): void => {
-        const index = checkedList.indexOf(data.value)
-        if (data.checked) {
-          if (index === -1) {
-            checkedList.push(data.value.toString())
-          }
-        } else {
-          if (index !== -1) {
-            checkedList.splice(index, 1)
-          }
+        const { value, checked } = data
+        const index = checkedList.indexOf(value.toString())
+
+        if (checked && index === -1) {
+          checkedList.push(value.toString())
+        } else if (!checked && index !== -1) {
+          checkedList.splice(index, 1)
         }
+
         emit('change', checkedList)
       }
 
