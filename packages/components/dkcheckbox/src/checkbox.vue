@@ -5,7 +5,7 @@
   export default defineComponent({
     name: 'DkCheckbox',
     props: dkCheckboxProps,
-    emits: ['update:modelValue', 'change'],
+    emits: ['update:modelValue', 'change', 'detail-change'],
     setup(props, { emit, slots }) {
       const checkedClass = ref<string>('')
       const checkbox = ref<HTMLInputElement>()
@@ -36,7 +36,17 @@
         }
         emit('update:modelValue', target.checked)
         emit('change', target.checked)
+        if(props.value === null){
+          console.error('value is null')
+          return
+        }
+        emit('detail-change', {
+          checked: target.checked,
+          value: props.value && props.value.toString(),
+          label: props.label
+        })
       }
+      
       const { classList, styleList } = getCheckbox(props)
 
       return {
