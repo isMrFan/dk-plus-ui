@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, watch, ref } from 'vue'
   import { getCheckboxGroup } from '../../_hooks'
   import type { ComponentOptions } from 'vue'
   import { checkboxGroup } from './prop'
@@ -9,15 +9,24 @@
     props: checkboxGroup,
     emits: ['change'],
     setup(props, { slots, emit }) {
-      const { getSlot } = getCheckboxGroup(props)
-      const slotList = getSlot(slots)
+      const { getSlot, refresh } = getCheckboxGroup()
+      let slotList = ref(getSlot(slots))
+      watch(
+        () => props.modelValue,
+        () => {
+          slotList.value = refresh(slots)
+        },
+        {
+          deep: true
+        }
+      )
 
       let checkedList: string[] = []
 
       const getCheckedList = (): void => {
-        checkedList = slotList
-          .filter((item: ComponentOptions) => item.props.modelValue)
-          .map((item: ComponentOptions) => item.props.value)
+        checkedList = slotList.value
+          .filter((item: ComponentOptions) => item.modelValue)
+          .map((item: ComponentOptions) => item.value)
       }
 
       getCheckedList()
@@ -46,8 +55,9 @@
   <div class="dk-checkbox-group">
     <dk-checkbox
       v-for="item in slotList"
-      :key="item.props.value"
-      v-bind="item.props"
+      :key="item.value"
+      v-model="item.modelValue"
+      v-bind="item"
       @detail-change="handleItemChange"
     ></dk-checkbox>
   </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, ref, reactive } from 'vue'
+  import { defineComponent, ref, reactive, watch } from 'vue'
   import { dkCheckboxProps } from './props'
   import { getCheckbox } from '../../_hooks'
   export default defineComponent({
@@ -9,6 +9,8 @@
     setup(props, { emit, slots }) {
       const checkedClass = ref<string>('')
       const checkbox = ref<HTMLInputElement>()
+
+      const isChecked = ref<boolean>(props.modelValue)
 
       const data = reactive({
         checkedLabel: props.checkedLabel,
@@ -37,22 +39,28 @@
         emit('update:modelValue', isChecked)
         emit('change', isChecked)
 
-        if (props.value === null) {
-          console.error('value is null')
-          return
-        }
+        // if (props.value === null) {
+        //   console.error('[TypeError] value is not defined')
+        // }
 
         emit('detail-change', {
           checked: isChecked,
-          value: props.value.toString(),
+          value: props.value && props.value.toString() || props.label,
           label: props.label
         })
       }
 
       const { classList, styleList } = getCheckbox(props)
 
+      watch(
+        () => props.modelValue,
+        val => {
+          isChecked.value = val
+        }
+      )
+
       return {
-        modelValue: props.modelValue,
+        modelValue: isChecked,
         change,
         classList,
         styleList,

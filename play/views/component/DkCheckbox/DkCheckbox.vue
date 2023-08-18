@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
+  import { defineComponent, reactive, ref, watch } from 'vue'
   export default defineComponent({
     name: 'DkCheckboxComp',
     setup() {
@@ -10,14 +10,39 @@
       const checked1 = ref<boolean>(true)
       const checked2 = ref<boolean>(true)
       const checked3 = ref<boolean>(false)
-      const handleCheckboxChange = (value: string[]): void => {
-        console.log(value)
+      const checkList = reactive([
+        { label: '选项1(循环)', value: '1', checked: true },
+        { label: '选项2(循环)', value: '2', checked: false },
+        { label: '选项3(循环)', value: '3', checked: false }
+      ])
+
+      const allCheck = ref<boolean>(true)
+      const isIndeterminate = ref<boolean>(true)
+
+      const handleAllCheckChange = (val: boolean): void => {
+        checkList.forEach(item => {
+          item.checked = val
+        })
       }
-      const checkList = [
-        { label: '选项1(循环)', value: '1' },
-        { label: '选项2(循环)', value: '2' },
-        { label: '选项3(循环)', value: '3' }
-      ]
+      watch(checkList, () => {
+        // 监听 checkList 的变化
+        // console.log('checkList changed:', checkList)
+      })
+      const checkedList = ref<string[]>([])
+      const handleCheckboxChange = (value: string[]): void => {
+        console.log(value.length, checkList.length)
+        checkedList.value = value
+
+        allCheck.value = value.length === checkList.length
+        if(allCheck.value){
+          isIndeterminate.value = false 
+        }else{
+          if(value.length > 0){
+            isIndeterminate.value = true
+          }
+        }
+      }
+
       return {
         handleChange,
         isIndeterMinate: true,
@@ -26,7 +51,10 @@
         checked2,
         checked3,
         handleCheckboxChange,
-        checkList
+        checkList,
+        allCheck,
+        isIndeterminate,
+        handleAllCheckChange
       }
     }
   })
@@ -66,7 +94,7 @@
     <dk-checkbox border size="medium">medium尺寸</dk-checkbox>
     <dk-checkbox border size="small">small尺寸</dk-checkbox>
     <dk-checkbox border size="mini">mini尺寸</dk-checkbox>
-  </div> -->
+  </div>
   <div class="box">
     <h4>group组</h4>
     <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">
@@ -81,6 +109,23 @@
       <div>div标签</div>
       <span>span标签</span>
     </dk-checkbox-group>
+  </div> -->
+  <div class="box">
+    <h4>中间状态</h4>
+    <dk-checkbox
+      v-model="allCheck"
+      label="全选"
+      @change="handleAllCheckChange"
+    ></dk-checkbox>
+    <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">
+      <dk-checkbox
+        v-for="item in checkList"
+        :key="item.value"
+        v-model="item.checked"
+        :label="item.label"
+        :value="item.value"
+      ></dk-checkbox>
+    </dk-checkbox-group>
   </div>
 </template>
 
@@ -88,7 +133,8 @@
   .box {
     margin-bottom: 20px;
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    align-items: center;
+    // align-items: center;
   }
 </style>
