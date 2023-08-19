@@ -5,7 +5,7 @@
     setup() {
       const handleChange = (value: boolean): void => {
         value
-      }
+      } 
       const checked = ref<boolean>(true)
       const checked1 = ref<boolean>(true)
       const checked2 = ref<boolean>(true)
