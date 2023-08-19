@@ -13,7 +13,8 @@
       const checkList = reactive([
         { label: '选项1(循环)', value: '1', checked: true },
         { label: '选项2(循环)', value: '2', checked: false },
-        { label: '选项3(循环)', value: '3', checked: false }
+        { label: '选项3(循环)', value: '3', checked: false },
+        { label: '选项4(循环)', value: '4', checked: false }
       ])
 
       const allCheck = ref<boolean>(true)
