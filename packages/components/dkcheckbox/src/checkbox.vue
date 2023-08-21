@@ -46,8 +46,8 @@
 
         emit('detail-change', {
           checked: isChecked,
-          value: props.value && props.value.toString() || props.label,
-          label: props.label
+          value: (props.value && props.value.toString()) || data.label,
+          label: data.label
         })
       }
 
@@ -67,8 +67,12 @@
       watch(
         () => props.indeterminate,
         val => {
-          isIndeterminate.value = val 
-          checkedClass.value = val ? 'checked' : ''
+          isIndeterminate.value = val
+          if (isChecked.value) {
+            checkedClass.value = 'checked'
+          } else {
+            checkedClass.value = val ? 'checked' : ''
+          }
         }
       )
 

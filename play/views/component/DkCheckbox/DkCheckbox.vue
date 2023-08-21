@@ -5,7 +5,7 @@
     setup() {
       const handleChange = (value: boolean): void => {
         value
-      } 
+      }
       const checked = ref<boolean>(true)
       const checked1 = ref<boolean>(true)
       const checked2 = ref<boolean>(true)
@@ -34,11 +34,15 @@
       const handleCheckboxChange = (value: string[]): void => {
         checkedList.value = value
         allCheck.value = value.length === checkList.length
-        if(allCheck.value){
-          isIndeterminate.value = false 
-        }else{
+        if (allCheck.value) {
+          isIndeterminate.value = false
+        } else {
           isIndeterminate.value = value.length > 0
         }
+      }
+
+      const handleFenKaiChange = (val: string[]): void => {
+        console.log(val)
       }
 
       return {
@@ -52,13 +56,14 @@
         checkList,
         allCheck,
         isIndeterminate,
-        handleAllCheckChange
+        handleAllCheckChange,
+        handleFenKaiChange
       }
     }
   })
 </script>
 <template>
-  <!-- <div class="box">
+  <div class="box">
     <h4>基础样式</h4>
     <div class="checkbox">
       <dk-checkbox>常规使用</dk-checkbox>
@@ -107,7 +112,7 @@
       <div>div标签</div>
       <span>span标签</span>
     </dk-checkbox-group>
-  </div> -->
+  </div>
   <div class="box">
     <h4>中间状态</h4>
     <dk-checkbox
