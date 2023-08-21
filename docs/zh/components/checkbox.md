@@ -7,7 +7,7 @@
 
 ## 基础用法
 
-`size` 属性用来控制多选框的大小。
+`size` 属性用来控制多选框的大小, 默认 `small`。
 
 ::: module
 <template #code>
@@ -28,7 +28,7 @@
 </div>
 </template>
 
-```html
+```vue
 <template>
   <div class="box">
     <div class="box-item">
@@ -48,7 +48,7 @@
 <script>
   import { defineComponent, reactive, toRefs } from 'vue'
   export default defineComponent({
-    name: 'DocsLoading',
+    name: 'checkbox',
     setup() {
       const data = reactive({
         checked: true
@@ -96,7 +96,7 @@
 </dk-checkbox-group>
 </template>
 
-```html
+```vue
 <template>
   <dk-checkbox-group v-model="checkList">
     <dk-checkbox
@@ -110,7 +110,7 @@
 <script>
   import { defineComponent, reactive, toRefs } from 'vue'
   export default defineComponent({
-    name: 'DocsLoading',
+    name: 'checkbox',
     setup() {
       const data = reactive({
         checkList: [
@@ -139,33 +139,62 @@
 <VueDomeCheckbox></VueDomeCheckbox>
 </template>
 
-```html
+```vue
 <template>
-  <dk-checkbox indeterminate label="全选"></dk-checkbox>
-  <dk-checkbox-group>
+  <dk-checkbox
+    v-model="allCheck"
+    :indeterminate="isIndeterminate"
+    label="全选"
+    @change="handleAllCheckChange"
+  ></dk-checkbox>
+  <dk-checkbox-group v-model="checkList" @change="handleGroupChange">
     <dk-checkbox
       v-for="item in checkList"
       :key="item.value"
+      v-model="item.checked"
       :label="item.label"
       :value="item.value"
     ></dk-checkbox>
   </dk-checkbox-group>
 </template>
-<script>
+<script lang="ts">
   import { defineComponent, reactive, toRefs } from 'vue'
   export default defineComponent({
-    name: 'DocsLoading',
+    name: 'checkbox',
     setup() {
       const data = reactive({
+        allCheck: false,
+        isIndeterminate: true,
         checkList: [
-          { label: 'option1', value: '1' },
-          { label: 'option2', value: '2' },
-          { label: 'option3', value: '3' },
-          { label: 'option4', value: '4' }
+          { label: 'option1', value: '1', checked: false },
+          { label: 'option2', value: '2', checked: false },
+          { label: 'option3', value: '3', checked: false },
+          { label: 'option4', value: '4', checked: false }
         ]
       })
+      const methods = reactive({
+        handleAllCheckChange(val: boolean) {
+          data.checkList.forEach(item => {
+            item.checked = val
+          })
+          data.isIndeterminate = false
+        },
+        handleGroupChange(val: string[]) {
+          data.allCheck = val.length === data.checkList.length
+          data.isIndeterminate = val.length > 0 && val.length < data.checkList.length
+        },
+        getIndeterminate() {
+          const isChecked = data.checkList.find(item => item.checked)
+          if (isChecked !== undefined && data.allCheck === false) {
+            return true
+          }
+          return false
+        }
+      })
+      data.isIndeterminate = methods.getIndeterminate()
       return {
-        ...toRefs(data)
+        ...toRefs(data),
+        ...toRefs(methods)
       }
     }
   })
@@ -181,14 +210,14 @@
 ::: module
 <template #code>
 <dk-checkbox-group v-model='checkList' border>
-<dk-checkbox label='option1'></dk-checkbox>
-<dk-checkbox label='option2'></dk-checkbox>
-<dk-checkbox label='option3'></dk-checkbox>
-<dk-checkbox label='option4'></dk-checkbox>
+<dk-checkbox border label='option1'></dk-checkbox>
+<dk-checkbox border label='option2'></dk-checkbox>
+<dk-checkbox border label='option3'></dk-checkbox>
+<dk-checkbox border label='option4'></dk-checkbox>
 </dk-checkbox-group>
 </template>
 
-```html
+```vue
 <template>
   <dk-checkbox-group v-model="checkList" border>
     <dk-checkbox
@@ -196,13 +225,14 @@
       :key="item.value"
       :label="item.label"
       :value="item.value"
+      border
     ></dk-checkbox>
   </dk-checkbox-group>
 </template>
 <script>
   import { defineComponent, reactive, toRefs } from 'vue'
   export default defineComponent({
-    name: 'DocsLoading',
+    name: 'checkbox',
     setup() {
       const data = reactive({
         checkList: [

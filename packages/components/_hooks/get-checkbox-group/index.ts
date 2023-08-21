@@ -1,4 +1,5 @@
-import type { ComponentOptions, Slots } from 'vue'
+import { toRaw, type ComponentOptions, type Slots } from 'vue'
+import type { CheckboxGroupPropsType } from '../../dkcheckbox_group/src/prop'
 
 interface CheckBoxGroupReturns {
   getSlot: Function
@@ -11,15 +12,24 @@ type slotListType = ComponentOptions[]
  * @name getCheckboxGroup
  * @description Gets the checkboxGroup slot contents
  */
-export const getCheckboxGroup = (): CheckBoxGroupReturns => {
+export const getCheckboxGroup = (props: CheckboxGroupPropsType): CheckBoxGroupReturns => {
+  const data = toRaw(props)
   /**
    * @name refresh
    * @description refresh checkboxGroup
-   * @param props CheckboxGroupPropsType
+   * @param slots CheckboxGroup slots
    * @returns slotList
    */
-  const refresh = (slots: Slots): slotListType => {
+  const refresh = (slots: Slots, checkedList: string[]): slotListType => {
     const list = getSlot(slots)
+    if(data.max && checkedList.length === data.max) {
+      list.forEach((item: ComponentOptions) => {
+        const value = item.modelValue
+        if(!value){
+          item.disabled = true
+        }
+      })
+    }
     return list
   }
 
@@ -51,7 +61,8 @@ export const getCheckboxGroup = (): CheckBoxGroupReturns => {
     const handleObject = (data: ComponentOptions): void => {
       const type = data.type
       if (type.name === 'DkCheckbox') {
-        domList.push(data.props)
+        const item = data.props
+        domList.push(item)
       }
     }
 
@@ -107,6 +118,7 @@ export const getCheckboxGroup = (): CheckBoxGroupReturns => {
       return domList
     }
     const list = getCheckboxList(slots)
+    
     return list
   }
 

@@ -1,8 +1,10 @@
 import type { ExtractPropTypes } from 'vue'
-import { setArrayProps } from '../../_utils'
+import { setArrayProps, setNumberProps } from '../../_utils'
 
 export const checkboxGroup = {
-  modelValue: setArrayProps()
+  modelValue: setArrayProps(),
+  min: setNumberProps(),
+  max: setNumberProps()
 }
 
 export type CheckboxGroupPropsType = ExtractPropTypes<typeof checkboxGroup>

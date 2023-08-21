@@ -107,7 +107,7 @@
       <div>div标签</div>
       <span>span标签</span>
     </dk-checkbox-group>
-  </div> -->
+  </div>
   <div class="box">
     <h4>中间状态</h4>
     <dk-checkbox
@@ -117,6 +117,18 @@
       @change="handleAllCheckChange"
     ></dk-checkbox>
     <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">
+      <dk-checkbox
+        v-for="item in checkList"
+        :key="item.value"
+        v-model="item.checked"
+        :label="item.label"
+        :value="item.value"
+      ></dk-checkbox>
+    </dk-checkbox-group>
+  </div> -->
+  <div class="box">
+    <h4>选中数量限制</h4>
+    <dk-checkbox-group v-model="checkList" :min="1" :max="2" @change="handleCheckboxChange">
       <dk-checkbox
         v-for="item in checkList"
         :key="item.value"

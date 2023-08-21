@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, watch, ref } from 'vue'
+  import { defineComponent, watch, reactive, toRefs } from 'vue'
   import { getCheckboxGroup } from '../../_hooks'
   import type { ComponentOptions } from 'vue'
   import { checkboxGroup } from './prop'
@@ -9,47 +9,51 @@
     props: checkboxGroup,
     emits: ['change'],
     setup(props, { slots, emit }) {
-      const { getSlot, refresh } = getCheckboxGroup()
-      let slotList = ref(getSlot(slots))
-      let checkedList: string[] = []
+      const { getSlot, refresh } = getCheckboxGroup(props)
+      const data = reactive({
+        min: props.min,
+        max: props.max,
+        slotList: getSlot(slots),
+        checkedList: [] as string []
+      })
+
       watch(
         () => props.modelValue,
         () => {
-          slotList.value = refresh(slots)
-          checkedList = slotList.value
+          data.slotList = refresh(slots, data.checkedList)
+          data.checkedList = data.slotList
             .filter((item: ComponentOptions) => item.modelValue)
             .map((item: ComponentOptions) => item.value)
-          emit('change', checkedList)
+          emit('change', data.checkedList)
         },
         {
           deep: true
         }
       )
 
-      const getCheckedList = (): void => {
-        checkedList = slotList.value
-          .filter((item: ComponentOptions) => item.modelValue)
-          .map((item: ComponentOptions) => item.value)
-      }
-
-      getCheckedList()
-
-      const handleItemChange = (data: detailChangeType): void => {
-        const { value, checked } = data
-        const index = checkedList.indexOf(value.toString())
-
-        if (checked && index === -1) {
-          checkedList.push(value.toString())
-        } else if (!checked && index !== -1) {
-          checkedList.splice(index, 1)
+      const methods = reactive({
+        handleItemChange: (target: detailChangeType): void => {
+          const { value, checked } = target
+          const index = data.checkedList.indexOf(value.toString())
+          if (checked && index === -1) {
+            data.checkedList.push(value.toString())
+          } else if (!checked && index !== -1) {
+            data.checkedList.splice(index, 1)
+          }
+          emit('change', data.checkedList)
+        },
+        getCheckedList: (): void => {
+          data.checkedList = data.slotList
+            .filter((item: ComponentOptions) => item.modelValue)
+            .map((item: ComponentOptions) => item.value)
         }
+      })
 
-        emit('change', checkedList)
-      }
+      methods.getCheckedList()
 
       return {
-        slotList,
-        handleItemChange
+        ...toRefs(data),
+        ...toRefs(methods)
       }
     }
   })
@@ -61,6 +65,7 @@
       :key="item.value"
       v-model="item.modelValue"
       v-bind="item"
+      :disabled="item.disabled"
       @detail-change="handleItemChange"
     ></dk-checkbox>
   </div>
