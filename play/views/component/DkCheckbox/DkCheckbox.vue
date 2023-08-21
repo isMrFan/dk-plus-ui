@@ -32,22 +32,18 @@
       })
       const checkedList = ref<string[]>([])
       const handleCheckboxChange = (value: string[]): void => {
-        console.log(value.length, checkList.length)
         checkedList.value = value
-
         allCheck.value = value.length === checkList.length
         if(allCheck.value){
           isIndeterminate.value = false 
         }else{
-          if(value.length > 0){
-            isIndeterminate.value = true
-          }
+          isIndeterminate.value = value.length > 0
         }
       }
 
       return {
         handleChange,
-        isIndeterMinate: true,
+        isIndeterMinate: isIndeterminate,
         checked,
         checked1,
         checked2,
@@ -117,6 +113,7 @@
     <dk-checkbox
       v-model="allCheck"
       label="全选"
+      :indeterminate="isIndeterminate"
       @change="handleAllCheckChange"
     ></dk-checkbox>
     <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">

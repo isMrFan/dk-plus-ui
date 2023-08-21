@@ -11,17 +11,20 @@
     setup(props, { slots, emit }) {
       const { getSlot, refresh } = getCheckboxGroup()
       let slotList = ref(getSlot(slots))
+      let checkedList: string[] = []
       watch(
         () => props.modelValue,
         () => {
           slotList.value = refresh(slots)
+          checkedList = slotList.value
+            .filter((item: ComponentOptions) => item.modelValue)
+            .map((item: ComponentOptions) => item.value)
+          emit('change', checkedList)
         },
         {
           deep: true
         }
       )
-
-      let checkedList: string[] = []
 
       const getCheckedList = (): void => {
         checkedList = slotList.value
@@ -53,6 +56,7 @@
 </script>
 <template>
   <div class="dk-checkbox-group">
+    <!-- <slot></slot> -->
     <dk-checkbox
       v-for="item in slotList"
       :key="item.value"

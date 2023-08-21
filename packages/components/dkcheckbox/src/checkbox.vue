@@ -26,6 +26,7 @@
         labelValue.value = props.modelValue ? data.checkedLabel : data.uncheckedLabel
       }
       setLabelValue()
+
       const change = (e: Event): void => {
         const target = e.target as HTMLInputElement
         const isChecked = target.checked
@@ -56,6 +57,18 @@
         () => props.modelValue,
         val => {
           isChecked.value = val
+          checkedClass.value = props.modelValue ? 'checked' : ''
+        },
+        {
+          immediate: true
+        }
+      )
+      const isIndeterminate = ref<boolean>(props.indeterminate)
+      watch(
+        () => props.indeterminate,
+        val => {
+          isIndeterminate.value = val 
+          checkedClass.value = val ? 'checked' : ''
         }
       )
 
@@ -66,7 +79,7 @@
         styleList,
         checkbox,
         checkedClass,
-        indeterminate: props.indeterminate,
+        indeterminate: isIndeterminate,
         ...data,
         labelValue,
         isCheckLabel
