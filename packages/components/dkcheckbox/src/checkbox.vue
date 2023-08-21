@@ -1,14 +1,16 @@
 <script lang="ts">
-  import { defineComponent, ref, reactive } from 'vue'
+  import { defineComponent, ref, reactive, watch } from 'vue'
   import { dkCheckboxProps } from './props'
   import { getCheckbox } from '../../_hooks'
   export default defineComponent({
     name: 'DkCheckbox',
     props: dkCheckboxProps,
-    emits: ['update:modelValue', 'change'],
+    emits: ['update:modelValue', 'change', 'detail-change'],
     setup(props, { emit, slots }) {
       const checkedClass = ref<string>('')
       const checkbox = ref<HTMLInputElement>()
+
+      const isChecked = ref<boolean>(props.modelValue)
 
       const data = reactive({
         checkedLabel: props.checkedLabel,
@@ -26,21 +28,39 @@
       setLabelValue()
       const change = (e: Event): void => {
         const target = e.target as HTMLInputElement
-        if (target.checked) {
-          checkedClass.value = 'checked'
-        } else {
-          checkedClass.value = ''
-        }
+        const isChecked = target.checked
+
+        checkedClass.value = isChecked ? 'checked' : ''
+
         if (isCheckLabel) {
-          labelValue.value = target.checked ? data.checkedLabel : data.uncheckedLabel
+          labelValue.value = isChecked ? data.checkedLabel : data.uncheckedLabel
         }
-        emit('update:modelValue', target.checked)
-        emit('change', target.checked)
+
+        emit('update:modelValue', isChecked)
+        emit('change', isChecked)
+
+        // if (props.value === null) {
+        //   console.error('[TypeError] value is not defined')
+        // }
+
+        emit('detail-change', {
+          checked: isChecked,
+          value: props.value && props.value.toString() || props.label,
+          label: props.label
+        })
       }
+
       const { classList, styleList } = getCheckbox(props)
 
+      watch(
+        () => props.modelValue,
+        val => {
+          isChecked.value = val
+        }
+      )
+
       return {
-        modelValue: props.modelValue,
+        modelValue: isChecked,
         change,
         classList,
         styleList,
