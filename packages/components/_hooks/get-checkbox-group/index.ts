@@ -30,6 +30,7 @@ export const getCheckboxGroup = (props: CheckboxGroupPropsType): CheckBoxGroupRe
         }
       })
     }
+    
     return list
   }
 

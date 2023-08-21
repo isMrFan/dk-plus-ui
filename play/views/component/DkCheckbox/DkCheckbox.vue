@@ -128,7 +128,7 @@
   </div> -->
   <div class="box">
     <h4>选中数量限制</h4>
-    <dk-checkbox-group v-model="checkList" :min="1" :max="2" @change="handleCheckboxChange">
+    <dk-checkbox-group v-model="checkList" :max="2" @change="handleCheckboxChange">
       <dk-checkbox
         v-for="item in checkList"
         :key="item.value"

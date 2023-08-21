@@ -11,7 +11,6 @@
     setup(props, { slots, emit }) {
       const { getSlot, refresh } = getCheckboxGroup(props)
       const data = reactive({
-        min: props.min,
         max: props.max,
         slotList: getSlot(slots),
         checkedList: [] as string []

@@ -43,7 +43,7 @@
     @include block(box) {
       --button-width: var(--input-number-button-width);
       --button-height: var(--input-number-height);
-      --button-padding: 6px 20px;
+      --button-padding: 6px 0px;
       --button-border-radius: 0px;
       --button-borderColor: transparent;
       --button-hover-borderColor: transparent;

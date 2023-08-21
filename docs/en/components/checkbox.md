@@ -1,13 +1,13 @@
-# Checkbox 多选框
+# Checkbox
 
 在多个选项中进行多选。
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkcheckbox)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/checkbox.md)
+- [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkcheckbox)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/checkbox.md)
 
-## <a id='基础用法'>基础用法</a>
+## <a id='BasicUsage'>Basic usage</a>
 
-`size` 属性用来控制多选框的大小, 默认 `small`。
+The `size` attribute is used to control the size of the multi selection box, with a default of `small`.
 
 ::: module
 <template #code>
@@ -63,28 +63,28 @@
 
 :::
 
-## <a id='禁用状态'>禁用状态</a>
+## <a id='DisabledState'>Disabled state</a>
 
-通过 `disabled` 属性来禁用多选框。
+Disable the checkbox through the `disabled` attribute.
 
 ::: module
 <template #code>
-<dk-checkbox disabled label='已禁用'></dk-checkbox>
-<dk-checkbox label='未禁用'></dk-checkbox>
+<dk-checkbox disabled label='disabled'></dk-checkbox>
+<dk-checkbox label='Not disabled '></dk-checkbox>
 </template>
 
 ```html
 <template>
-  <dk-checkbox disabled label="已禁用"></dk-checkbox>
-  <dk-checkbox label="未禁用"></dk-checkbox>
+  <dk-checkbox disabled label="disabled"></dk-checkbox>
+  <dk-checkbox label="Not disabled "></dk-checkbox>
 </template>
 ```
 
 :::
 
-## <a id='组合'>组合</a>
+## <a id='group'>group</a>
 
-`dk-checkbox-group` 用于多选框组，将多个 `dk-checkbox` 放在 `dk-checkbox-group` 中即可。
+`dk-checkbox-group`is used for multiple selection box groups. Multiple`dk-checkboxes` can be placed in the `dk-checkbox-group`.
 
 ::: module
 <template #code>
@@ -130,9 +130,9 @@
 
 :::
 
-## <a id='中间状态'>中间状态</a>
+## <a id='Intermediate'>Intermediate</a>
 
-通过 `indeterminate` 属性来设置多选框的中间状态。
+Use the `indeterminate` attribute to set the intermediate state of the multi selection box.
 
 ::: module
 <template #code>
@@ -144,7 +144,7 @@
   <dk-checkbox
     v-model="allCheck"
     :indeterminate="isIndeterminate"
-    label="全选"
+    label="Select All"
     @change="handleAllCheckChange"
   ></dk-checkbox>
   <dk-checkbox-group v-model="checkList" @change="handleGroupChange">
@@ -203,9 +203,9 @@
 
 :::
 
-## <a id='选中数量限制'>选中数量限制</a>
+## <a id='SelectedQuantityLimit'>SelectedQuantityLimit</a>
 
-`max` 属性用来设置多选框的最大选中数量。
+The `max` attribute is used to set the maximum number of selected boxes.
 
 ::: module
 <template #code>
@@ -246,9 +246,9 @@
 
 :::
 
-## <a id='带有边框'>带有边框</a>
+## <a id='WithBorder'>With border</a>
 
-通过 `border` 属性来设置多选框的边框。
+Set the border of the multi-selection box through the `border` attribute.
 
 ::: module
 <template #code>
@@ -295,42 +295,42 @@
 
 :::
 
-## 属性
+## attribute
 
-| 参数            | 说明                                         | 类型      | 可选值                          | 默认值  |
-| --------------- | -------------------------------------------- | --------- | ------------------------------- | ------- |
-| `v-model`       | [绑定值](#基础用法)                          | `boolean` | `true` `false`                  | -       |
-| `label`         | [多选框文案](#基础用法)                      | `string`  | -                               | -       |
-| `value`         | [多选框的真实值(不设置默认为`label`)](#组合) | `string`  | -                               | -       |
-| `size`          | [多选框的大小](#基础用法)                    | `string`  | `large` `medium` `small` `mini` | `small` |
-| `disabled`      | [是否禁用](#禁用状态)                        | `boolean` | `true` `false`                  | `false` |
-| `indeterminate` | [是否为中间状态](#中间状态)                  | `boolean` | `true` `false`                  | `false` |
-| `border`        | [是否带有边框](#带有边框)                    | `boolean` | `true` `false`                  | `false` |
+| parameter       | explain                                                                              | type      | Optional values                 | Default value |
+| --------------- | ------------------------------------------------------------------------------------ | --------- | ------------------------------- | ------------- |
+| `v-model`       | [BindingValue](#BasicUsage)                                                          | `boolean` | `true` `false`                  | -             |
+| `label`         | [MultipleChoiceBoxCopy](#BasicUsage)                                                 | `string`  | -                               | -             |
+| `value`         | [The true value of the multiple selection box(Do not set default to`label`)](#group) | `string`  | -                               | -             |
+| `size`          | [Size of Multiple Selection Box](#BasicUsage)                                        | `string`  | `large` `medium` `small` `mini` | `small`       |
+| `disabled`      | [Is it disabled](#DisabledState)                                                     | `boolean` | `true` `false`                  | `false`       |
+| `indeterminate` | [Is it in an intermediate state](#Intermediate)                                      | `boolean` | `true` `false`                  | `false`       |
+| `border`        | [Is there a border](#WithBorder)                                                     | `boolean` | `true` `false`                  | `false`       |
 
-## 事件
+## Event
 
-| 事件名称 | 说明             | 回调参数        |
-| -------- | ---------------- | --------------- |
-| `change` | 绑定值变化时触发 | `() => boolean` |
+| Event Name | explain                                  | Callback Arguments |
+| ---------- | ---------------------------------------- | ------------------ |
+| `change`   | Triggered when the binding value changes | `() => boolean`    |
 
-## 插槽
+## Slot
 
-| 插槽名称          | 说明       |
-| ----------------- | ---------- |
-| `default`默认插槽 | 多选框文案 |
+| Slot Name             | explain                  |
+| --------------------- | ------------------------ |
+| `default`Default slot | Multiple Choice Box Copy |
 
-## checkbox-group 属性
+## checkbox-group attribute
 
-| 参数      | 说明                          | 类型       | 可选值 | 默认值 |
-| --------- | ----------------------------- | ---------- | ------ | ------ |
-| `max`     | [最大选中数量](#选中数量限制) | `number`   | -      | -      |
-| `v-model` | [绑定值](#组合)               | `string[]` | -      | -      |
+| parameter | explain                                             | type       | Optional values | Default value |
+| --------- | --------------------------------------------------- | ---------- | --------------- | ------------- |
+| `max`     | [Maximum selected quantity](#SelectedQuantityLimit) | `number`   | -               | -             |
+| `v-model` | [Binding value](#group)                             | `string[]` | -               | -             |
 
-## checkbox-group 事件
+## checkbox-group Event
 
-| 事件名称 | 说明             | 回调参数                    |
-| -------- | ---------------- | --------------------------- |
-| `change` | 绑定值变化时触发 | `(value: string[]) => void` |
+| Event Name | explain                                  | Callback Arguments          |
+| ---------- | ---------------------------------------- | --------------------------- |
+| `change`   | Triggered when the binding value changes | `(value: string[]) => void` |
 
 ## Contributors
 
