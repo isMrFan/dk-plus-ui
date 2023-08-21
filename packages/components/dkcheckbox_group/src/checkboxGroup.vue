@@ -55,8 +55,7 @@
   })
 </script>
 <template>
-  <div class="dk-checkbox-group">
-    <!-- <slot></slot> -->
+  <div class="dk-checkbox-group" v-bind="$attrs">
     <dk-checkbox
       v-for="item in slotList"
       :key="item.value"

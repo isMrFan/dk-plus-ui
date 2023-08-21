@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, reactive, ref, watch } from 'vue'
+  import { defineComponent, ref } from 'vue'
   export default defineComponent({
     name: 'DkCheckboxComp',
     setup() {
@@ -10,7 +10,7 @@
       const checked1 = ref<boolean>(true)
       const checked2 = ref<boolean>(true)
       const checked3 = ref<boolean>(false)
-      const checkList = reactive([
+      const checkList = ref([
         { label: '选项1(循环)', value: '1', checked: true },
         { label: '选项2(循环)', value: '2', checked: false },
         { label: '选项3(循环)', value: '3', checked: false },
@@ -22,18 +22,13 @@
       const isIndeterminate = ref<boolean>(true)
 
       const handleAllCheckChange = (val: boolean): void => {
-        checkList.forEach(item => {
+        checkList.value.forEach(item => {
           item.checked = val
         })
       }
-      watch(checkList, () => {
-        // 监听 checkList 的变化
-        // console.log('checkList changed:', checkList)
-      })
-      const checkedList = ref<string[]>([])
+
       const handleCheckboxChange = (value: string[]): void => {
-        checkedList.value = value
-        allCheck.value = value.length === checkList.length
+        allCheck.value = value.length === checkList.value.length
         if (allCheck.value) {
           isIndeterminate.value = false
         } else {
@@ -63,10 +58,10 @@
   })
 </script>
 <template>
-  <div class="box">
+  <!-- <div class="box">
     <h4>基础样式</h4>
     <div class="checkbox">
-      <dk-checkbox>常规使用</dk-checkbox>
+      <dk-checkbox title="常规使用" name="常规使用">常规使用</dk-checkbox>
     </div>
   </div>
   <div class="box">
@@ -112,7 +107,7 @@
       <div>div标签</div>
       <span>span标签</span>
     </dk-checkbox-group>
-  </div>
+  </div> -->
   <div class="box">
     <h4>中间状态</h4>
     <dk-checkbox

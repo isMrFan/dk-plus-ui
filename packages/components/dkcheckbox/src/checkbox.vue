@@ -101,6 +101,7 @@
         class="dk-checkbox_inner"
         :indeterminate="indeterminate"
         type="checkbox"
+        v-bind="$attrs"
         @change="change"
       />
       <span class="dk-checkbox-label"> {{ labelValue }} </span>

@@ -12,7 +12,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     color: var(--checkbox-color);
     &.checked {
       color: var(--checkbox-checked-color);
@@ -80,7 +80,7 @@
 
   @include element(border) {
     .dk-checkbox-wrapper {
-      padding: 6px 4px;
+      padding: 6px 8px 6px 4px;
       border: 1px solid var(--checkbox-border-color);
       border-radius: var(--checkbox-border-radius);
     }
