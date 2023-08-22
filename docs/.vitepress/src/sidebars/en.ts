@@ -47,7 +47,8 @@ export const sidebar = {
       text: 'Form',
       items: [
         { text: 'Input', link: '/en/components/input' },
-        { text: 'InputNumber', link: '/en/components/inputNumber' }
+        { text: 'InputNumber', link: '/en/components/inputNumber' },
+        { text: 'Checkbox', link: '/en/components/checkbox' },
       ]
     },
     {

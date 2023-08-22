@@ -26,6 +26,7 @@
         labelValue.value = props.modelValue ? data.checkedLabel : data.uncheckedLabel
       }
       setLabelValue()
+
       const change = (e: Event): void => {
         const target = e.target as HTMLInputElement
         const isChecked = target.checked
@@ -45,8 +46,8 @@
 
         emit('detail-change', {
           checked: isChecked,
-          value: props.value && props.value.toString() || props.label,
-          label: props.label
+          value: (props.value && props.value.toString()) || data.label,
+          label: data.label
         })
       }
 
@@ -56,6 +57,22 @@
         () => props.modelValue,
         val => {
           isChecked.value = val
+          checkedClass.value = props.modelValue ? 'checked' : ''
+        },
+        {
+          immediate: true
+        }
+      )
+      const isIndeterminate = ref<boolean>(props.indeterminate)
+      watch(
+        () => props.indeterminate,
+        val => {
+          isIndeterminate.value = val
+          if (isChecked.value) {
+            checkedClass.value = 'checked'
+          } else {
+            checkedClass.value = val ? 'checked' : ''
+          }
         }
       )
 
@@ -66,7 +83,7 @@
         styleList,
         checkbox,
         checkedClass,
-        indeterminate: props.indeterminate,
+        indeterminate: isIndeterminate,
         ...data,
         labelValue,
         isCheckLabel
@@ -84,6 +101,7 @@
         class="dk-checkbox_inner"
         :indeterminate="indeterminate"
         type="checkbox"
+        v-bind="$attrs"
         @change="change"
       />
       <span class="dk-checkbox-label"> {{ labelValue }} </span>

@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { defineComponent, reactive, ref, watch } from 'vue'
+  import { defineComponent, ref } from 'vue'
   export default defineComponent({
     name: 'DkCheckboxComp',
     setup() {
       const handleChange = (value: boolean): void => {
         value
-      } 
+      }
       const checked = ref<boolean>(true)
       const checked1 = ref<boolean>(true)
       const checked2 = ref<boolean>(true)
       const checked3 = ref<boolean>(false)
-      const checkList = reactive([
+      const checkList = ref([
         { label: '选项1(循环)', value: '1', checked: true },
         { label: '选项2(循环)', value: '2', checked: false },
         { label: '选项3(循环)', value: '3', checked: false },
@@ -22,32 +22,27 @@
       const isIndeterminate = ref<boolean>(true)
 
       const handleAllCheckChange = (val: boolean): void => {
-        checkList.forEach(item => {
+        checkList.value.forEach(item => {
           item.checked = val
         })
       }
-      watch(checkList, () => {
-        // 监听 checkList 的变化
-        // console.log('checkList changed:', checkList)
-      })
-      const checkedList = ref<string[]>([])
-      const handleCheckboxChange = (value: string[]): void => {
-        console.log(value.length, checkList.length)
-        checkedList.value = value
 
-        allCheck.value = value.length === checkList.length
-        if(allCheck.value){
-          isIndeterminate.value = false 
-        }else{
-          if(value.length > 0){
-            isIndeterminate.value = true
-          }
+      const handleCheckboxChange = (value: string[]): void => {
+        allCheck.value = value.length === checkList.value.length
+        if (allCheck.value) {
+          isIndeterminate.value = false
+        } else {
+          isIndeterminate.value = value.length > 0
         }
+      }
+
+      const handleFenKaiChange = (val: string[]): void => {
+        console.log(val)
       }
 
       return {
         handleChange,
-        isIndeterMinate: true,
+        isIndeterMinate: isIndeterminate,
         checked,
         checked1,
         checked2,
@@ -56,7 +51,8 @@
         checkList,
         allCheck,
         isIndeterminate,
-        handleAllCheckChange
+        handleAllCheckChange,
+        handleFenKaiChange
       }
     }
   })
@@ -65,7 +61,7 @@
   <!-- <div class="box">
     <h4>基础样式</h4>
     <div class="checkbox">
-      <dk-checkbox>常规使用</dk-checkbox>
+      <dk-checkbox title="常规使用" name="常规使用">常规使用</dk-checkbox>
     </div>
   </div>
   <div class="box">
@@ -111,15 +107,28 @@
       <div>div标签</div>
       <span>span标签</span>
     </dk-checkbox-group>
-  </div> -->
+  </div>
   <div class="box">
     <h4>中间状态</h4>
     <dk-checkbox
       v-model="allCheck"
       label="全选"
+      :indeterminate="isIndeterminate"
       @change="handleAllCheckChange"
     ></dk-checkbox>
     <dk-checkbox-group v-model="checkList" @change="handleCheckboxChange">
+      <dk-checkbox
+        v-for="item in checkList"
+        :key="item.value"
+        v-model="item.checked"
+        :label="item.label"
+        :value="item.value"
+      ></dk-checkbox>
+    </dk-checkbox-group>
+  </div> -->
+  <div class="box">
+    <h4>选中数量限制</h4>
+    <dk-checkbox-group v-model="checkList" :max="2" @change="handleCheckboxChange">
       <dk-checkbox
         v-for="item in checkList"
         :key="item.value"
