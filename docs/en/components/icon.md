@@ -13,7 +13,7 @@ Using an SVG icon library can reduce project size and improve loading speed.
       <dk-icon>
         <IconWeiXin></IconWeiXin>
       </dk-icon>
-      <dk-icon :size='24' :color="'red'">
+      <dk-icon :size='24' :color="'#18bb85'">
         <IconWeiXin></IconWeiXin>
       </dk-icon>
     </div>
@@ -24,7 +24,7 @@ Using an SVG icon library can reduce project size and improve loading speed.
     <dk-icon>
       <IconWeiXin></IconWeiXin>
     </dk-icon>
-    <dk-icon :size='24' :color="'red'">
+    <dk-icon :size='24' :color="'#18bb85'">
       <IconWeiXin></IconWeiXin>
   </dk-icon>
   </div>
@@ -47,7 +47,7 @@ Using an SVG icon library can reduce project size and improve loading speed.
 
 ## assemble
 
-`svg-icon` assemble，**Click to copy** income <span style="color: red;font-weight: bold;">{{svgListLength}}</span> ICONS
+`svg-icon` assemble，**Click to copy** income <span style="color: #18bb85;font-weight: bold;">{{svgListLength}}</span> ICONS
 
 <iconDom></iconDom>
 
