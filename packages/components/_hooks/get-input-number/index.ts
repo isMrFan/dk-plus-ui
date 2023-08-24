@@ -31,16 +31,18 @@ export const getInputNumber = (props: DkInputNumberProps): inputNumberType => {
   const styleList = computed((): CSSProperties => {
     const { size, disabled } = data
     const sizeTarget = {
-      large: ['240px', '45px'],
-      medium: ['180px', '36px'],
-      small: ['150px', '30px'],
-      mini: ['120px', '30px']
+      large: ['240px', '45px', '16px', '4px'],
+      medium: ['180px', '36px', '12px', '3px'],
+      small: ['150px', '30px', '10px', '-1px'],
+      mini: ['120px', '26px', '6px', '-3px']
     }
     const styleList = {
       '--input-number-width': sizeTarget[size][0],
       '--input-number-height': sizeTarget[size][1],
       '--input-number-background-color': disabled ? '#f5f7fa' : '#fff',
-      '--input-number-border-color--hover': disabled ? '#ccc' : '#409eff'
+      '--input-number-border-color--hover': disabled ? '#ccc' : '#409eff',
+      '--input-number-input-margin-right': sizeTarget[size][2],
+      '--input-number-position-button': sizeTarget[size][3]
     }
     return styleList
   })
