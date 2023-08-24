@@ -26,7 +26,7 @@
         v-for="(item, ind) in 1"
         :key="ind"
         :title="'这是名字zdc' + ind"
-        :name="ind"
+        :name="ind + ''"
       >
         <div>今天我休息</div>
         <div>今天我休息</div>
@@ -38,7 +38,7 @@
         v-for="(item, ind) in 10"
         :key="ind"
         :title="'这是名字' + ind"
-        :name="ind"
+        :name="ind + ''"
       >
         <div>今天我休息</div>
       </dk-collapse-item>

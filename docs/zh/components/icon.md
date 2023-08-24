@@ -13,7 +13,7 @@
       <dk-icon>
         <IconWeiXin></IconWeiXin>
       </dk-icon>
-      <dk-icon :size='24' :color="'red'">
+      <dk-icon :size='24' :color="'#18bb85'">
         <IconWeiXin></IconWeiXin>
       </dk-icon>
     </div>
@@ -24,7 +24,7 @@
     <dk-icon>
       <IconWeiXin></IconWeiXin>
     </dk-icon>
-    <dk-icon :size='24' :color="'red'">
+    <dk-icon :size='24' :color="'#18bb85'">
       <IconWeiXin></IconWeiXin>
   </dk-icon>
   </div>
@@ -47,7 +47,7 @@
 
 ## 集合
 
-`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: red;font-weight: bold;">{{svgListLength}}</span> 个图标
+`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: #18bb85;font-weight: bold;">{{svgListLength}}</span> 个图标
 
 <iconDom></iconDom>
 

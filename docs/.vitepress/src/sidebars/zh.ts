@@ -47,8 +47,8 @@ export const sidebar = {
       text: '表单组件',
       items: [
         { text: 'Input 输入框', link: '/zh/components/input' },
-        { text: 'InputNumber 数字输入框', link: '/zh/components/inputNumber' },
-        { text: 'Checkbox 多选框', link: '/zh/components/checkbox' },
+        { text: 'InputNumber 计数器', link: '/zh/components/inputNumber' },
+        { text: 'Checkbox 多选框', link: '/zh/components/checkbox' }
       ]
     },
     {
