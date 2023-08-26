@@ -1,8 +1,7 @@
 <script lang="ts">
   import { defineComponent, watch, reactive, toRefs } from 'vue'
-  import { getSlotList } from '../../_hooks'
+  import { getCheckboxGroupSlot } from '../../_hooks'
   import type { ComponentOptions } from 'vue'
-  import type { CheckboxGroupPropsType } from './prop'
   import { checkboxGroup } from './prop'
   import type { detailChangeType } from '../../dkcheckbox/src/type'
   export default defineComponent({
@@ -10,8 +9,7 @@
     props: checkboxGroup,
     emits: ['change'],
     setup(props, { slots, emit }) {
-      
-      const result: ReturnType<typeof getSlotList> = getSlotList<CheckboxGroupPropsType>(props)
+      const result: ReturnType<typeof getCheckboxGroupSlot> = getCheckboxGroupSlot(props)
       const { getSlot, refresh } = result
 
       const data = reactive({

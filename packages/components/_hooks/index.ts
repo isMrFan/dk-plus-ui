@@ -9,6 +9,7 @@
  * get-row  row用的hooks
  * get-scrollbar 滚动条用的hooks
  * get-alert   alert用的hooks
+ * get-checkbox-group checkbox-group用的hooks
  * **************公共hooks(public)**************
  * get-color   颜色用的hooks (getColor)
  * get-Global  全局用的hooks  (getGlobal)
@@ -36,3 +37,4 @@ export * from './get-row'
 export * from './get-col'
 export * from './get-checkbox'
 export * from './public/get-slot-list'
+export * from './get-checkbox-group'
