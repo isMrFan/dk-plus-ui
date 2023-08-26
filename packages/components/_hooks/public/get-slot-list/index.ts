@@ -1,5 +1,4 @@
 import { toRaw, type ComponentOptions, type Slots } from 'vue'
-import type { CheckboxGroupPropsType } from '../../dkcheckbox_group/src/prop'
 
 interface CheckBoxGroupReturns {
   getSlot: Function
@@ -9,15 +8,15 @@ interface CheckBoxGroupReturns {
 type slotListType = ComponentOptions[]
 
 /**
- * @name getCheckboxGroup
- * @description Gets the checkboxGroup slot contents
+ * @name getSlotList
+ * @description Gets the slot slot contents
  */
-export const getCheckboxGroup = (props: CheckboxGroupPropsType): CheckBoxGroupReturns => {
-  const data = toRaw(props)
+export const getSlotList = <T>(props: T): CheckBoxGroupReturns => {
+  const data: T = toRaw(props)
   /**
    * @name refresh
-   * @description refresh checkboxGroup
-   * @param slots CheckboxGroup slots
+   * @description refresh slot
+   * @param slots slots
    * @returns slotList
    */
   const refresh = (slots: Slots, checkedList: string[]): slotListType => {
@@ -36,7 +35,7 @@ export const getCheckboxGroup = (props: CheckboxGroupPropsType): CheckBoxGroupRe
 
   /**
    * @name getSlot
-   * @description Gets the checkboxGroup slot contents
+   * @description Gets the slot contents
    * @param slots CheckboxGroup slots
    * @returns slotList
    */

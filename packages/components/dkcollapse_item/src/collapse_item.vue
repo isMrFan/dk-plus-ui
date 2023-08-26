@@ -10,11 +10,19 @@
   export default defineComponent({
     name: 'DkCollapseItem',
     props: dkCollapseItemProps,
-    setup(props) {
-      const { name, title, icon } = toRefs(props)
+    emits: ['update:modelValue', 'change'],
+    setup(props, { emit }) {
+      const { name, title, icon, modelValue } = toRefs(props)
       const data = reactive({ isActive: false, with: 0, height: 0 })
+      data.isActive = modelValue.value
       const onClickTitle = (): void => {
         data.isActive = !data.isActive
+        emit('update:modelValue', data.isActive)
+        const changeData = {
+          name: name.value,
+          isActive: data.isActive
+        }
+        emit('change', changeData)
       }
       return {
         ...toRefs(data),
@@ -38,8 +46,11 @@
       <div class="dk-collapseItem_left">
         <slot name="title">{{ title }}</slot>
       </div>
-      <div class="dk-collapseItem_right">
-        <dk-icon :icon="icon ? icon : 'IconRightArrow1'"></dk-icon>
+      <div
+        class="dk-collapseItem_right"
+        :class="isActive ? 'dk-collapseItem_right-up' : 'dk-collapseItem_right-down'"
+      >
+        <dk-icon :icon="icon ? icon : 'IconRightArrow1'" size="13" color="#333"></dk-icon>
       </div>
     </div>
     <dk-transition :is-active="isActive">

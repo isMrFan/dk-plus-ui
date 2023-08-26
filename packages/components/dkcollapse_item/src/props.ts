@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import { setStringProp } from '../../_utils'
+import { setStringProp, setBooleanProps } from '../../_utils'
 
 export const dkCollapseItemProps = {
   /**
@@ -20,7 +20,14 @@ export const dkCollapseItemProps = {
    * @returns 折叠面板子组建 图标展示
 
    */
-  icon: setStringProp()
+  icon: setStringProp(),
+  /**
+   * @name modelValue
+   * @param { string }  modelValue 是否展开
+   * @type { boolean }
+   * @default false
+   */
+  modelValue: setBooleanProps(false)
 } as const
 
 export type DkCollapseItemProps = ExtractPropTypes<typeof dkCollapseItemProps>
