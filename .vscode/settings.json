@@ -42,5 +42,6 @@
     "Ying"
   ],
   "vue.codeActions.enabled": false,
-  "cSpell.languageSettings": []
+  "cSpell.languageSettings": [],
+  "editor.minimap.autohide": true
 }
