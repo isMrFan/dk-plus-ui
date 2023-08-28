@@ -20,6 +20,18 @@
     padding-right: 5px;
     box-sizing: border-box;
     justify-content: flex-end;
+    @include block(down){
+      .dk-icon{
+        transform: rotate(0deg);
+        transition: all 0.2s;
+      }
+    }
+    @include block(up){
+      .dk-icon{
+        transform: rotate(90deg);
+        transition: all 0.2s;
+      }
+    }
   }
 }
 .#{$namespace}-collapseItem_title_active{

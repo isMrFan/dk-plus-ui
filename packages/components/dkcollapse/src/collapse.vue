@@ -48,12 +48,18 @@
         console.log('slot', slot[0].children[0].type.setup)
       }
 
-      return {}
+      const handleChange = (e: Event): void => {
+        console.log('handleChange', e.target)
+      }
+
+      return {
+        handleChange
+      }
     }
   })
 </script>
 <template>
-  <div class="dk-collapse" role="tablist" aria-multiselectable="true">
+  <div class="dk-collapse" role="tablist" aria-multiselectable="true" @change="handleChange">
     <slot />
   </div>
 </template>

@@ -58,7 +58,7 @@
   })
 </script>
 <template>
-  <!-- <div class="box">
+  <div class="box">
     <h4>基础样式</h4>
     <div class="checkbox">
       <dk-checkbox title="常规使用" name="常规使用">常规使用</dk-checkbox>
@@ -125,7 +125,7 @@
         :value="item.value"
       ></dk-checkbox>
     </dk-checkbox-group>
-  </div> -->
+  </div>
   <div class="box">
     <h4>选中数量限制</h4>
     <dk-checkbox-group v-model="checkList" :max="2" @change="handleCheckboxChange">

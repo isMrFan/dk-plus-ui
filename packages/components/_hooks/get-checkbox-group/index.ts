@@ -1,130 +1,43 @@
 import { toRaw, type ComponentOptions, type Slots } from 'vue'
+
+import { getSlotList } from '../public/get-slot-list'
+
 import type { CheckboxGroupPropsType } from '../../dkcheckbox_group/src/prop'
 
-interface CheckBoxGroupReturns {
-  getSlot: Function
+interface checkboxReturnsType {
   refresh: Function
+  getSlot: Function
 }
 
-type slotListType = ComponentOptions[]
-
 /**
- * @name getCheckboxGroup
- * @description Gets the checkboxGroup slot contents
+ * @name refresh
+ * @description refresh slot
+ * @param slots slots
+ * @returns slotList
  */
-export const getCheckboxGroup = (props: CheckboxGroupPropsType): CheckBoxGroupReturns => {
+export const getCheckboxGroupSlot = (
+  props: CheckboxGroupPropsType
+): checkboxReturnsType => {
   const data = toRaw(props)
-  /**
-   * @name refresh
-   * @description refresh checkboxGroup
-   * @param slots CheckboxGroup slots
-   * @returns slotList
-   */
-  const refresh = (slots: Slots, checkedList: string[]): slotListType => {
-    const list = getSlot(slots)
-    if(data.max && checkedList.length === data.max) {
+  const refresh = (slots: Slots, checkedList: string[]): ComponentOptions[] => {
+    const list = getSlotList(slots, 'DkCheckbox')
+    if (data.max && checkedList.length === data.max) {
       list.forEach((item: ComponentOptions) => {
         const value = item.modelValue
-        if(!value){
+        if (!value) {
           item.disabled = true
         }
       })
     }
-    
+
     return list
   }
-
-  /**
-   * @name getSlot
-   * @description Gets the checkboxGroup slot contents
-   * @param slots CheckboxGroup slots
-   * @returns slotList
-   */
-  const getSlot = (slots: Slots): slotListType => {
-    const domList = [] as ComponentOptions[]
-    /**
-     * @name handleSymbol
-     * @description handle symbol type
-     * @param data
-     * @returns object
-     */
-    const handleSymbol = (data: ComponentOptions): void => {
-      const list = data.children as ComponentOptions[]
-      loop(list)
-    }
-
-    /**
-     * @name handleObject
-     * @description handle object type
-     * @param data
-     * @returns object
-     */
-    const handleObject = (data: ComponentOptions): void => {
-      const type = data.type
-      if (type.name === 'DkCheckbox') {
-        const item = data.props
-        domList.push(item)
-      }
-    }
-
-    /**
-     * @name targetMethod
-     * @description slot type method
-     */
-    const targetMethod: Record<string, Function> = {
-      symbol: handleSymbol,
-      object: handleObject,
-      string: (data: ComponentOptions): void => {
-        console.warn(
-          `[ReferenceError] The ${data.type} label is not supported, please use DkCheckbox.`
-        )
-      },
-      default: (data: ComponentOptions): void => {
-        console.warn(
-          `[ReferenceError] The ${data.type} label is not supported, please use DkCheckbox.`
-        )
-      }
-    }
-
-    /**
-     * @name loop
-     * @description loop slot
-     * @param slot
-     */
-    const loop = (slot: ComponentOptions[]): void => {
-      const len = slot.length
-      let i = 0
-      const defaultMethod = targetMethod['default']
-
-      while (i < len) {
-        const item = slot[i]
-        const slotType: string = typeof item.type
-        const method = targetMethod[slotType] || defaultMethod
-        method(item)
-        i++
-      }
-    }
-
-    /**
-     * @name getCheckboxList
-     * @description Gets the checkboxGroup slot contents
-     * @param slots
-     */
-    const getCheckboxList = (slots: Slots): slotListType => {
-      if (slots.default) {
-        const slot = slots.default() as ComponentOptions[]
-        loop(slot)
-      }
-
-      return domList
-    }
-    const list = getCheckboxList(slots)
-    
+  const getSlot = (slots: Slots): ComponentOptions[] => {
+    const list = getSlotList(slots, 'DkCheckbox')
     return list
   }
-
   return {
-    getSlot,
-    refresh
+    refresh,
+    getSlot
   }
 }
