@@ -15,7 +15,6 @@ export default defineComponent({
     let isDisabled = computed((): boolean => {
       return Active.value
     })
-    console.log('isDisabled', isDisabled)
     return {
       title,
       icon,
