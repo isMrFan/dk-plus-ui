@@ -16,7 +16,7 @@ createApp(App).use(dkPlus).mount('#app')
 
 ## 按需引入
 
-为了减小体积，只希望引入部分组件，可以使用按需引入的方式
+为了减小体积，只希望引入部分组件，可以使用按需引入的方式。
 
 ```ts
 import { createApp } from 'vue'
