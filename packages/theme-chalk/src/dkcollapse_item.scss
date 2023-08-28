@@ -7,6 +7,7 @@
   padding: 10px 0px;
   box-sizing: border-box;
   border-top:1px solid var(--title-border-color);
+  user-select: none;
   
   cursor: var(--title-cursor);
   .#{$namespace}-collapseItem_left{

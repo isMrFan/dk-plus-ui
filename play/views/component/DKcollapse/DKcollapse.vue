@@ -63,20 +63,25 @@
         <div>今天我休息</div>
       </dk-collapse-item>
     </dk-collapse> -->
-    <dk-collapse>
-      <dk-collapse-item
-        v-for="item in list"
-        :key="item.id"
-        v-model="item.isShow"
-        :title="item.title"
-        :name="item.name"
-      >
-        <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-        <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-        <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-        <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-        <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-      </dk-collapse-item>
-    </dk-collapse>
+    <div class="box">
+      <h2>手风琴效果</h2>
+      <dk-collapse>
+        <dk-collapse-item
+          v-for="item in list"
+          :key="item.id"
+          v-model="item.isShow"
+          :title="item.title"
+          :name="item.name"
+        >
+          <div>
+            <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
+          </div>
+          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
+          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
+          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
+          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
+        </dk-collapse-item>
+      </dk-collapse>
+    </div>
   </div>
 </template>

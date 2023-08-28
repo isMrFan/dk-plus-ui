@@ -5,7 +5,7 @@
    * @Time 2023/08/02
    * @description 折叠面板nextTick
    **/
-  import { defineComponent, toRefs } from 'vue'
+  import { defineComponent, toRefs, ref } from 'vue'
   // import type { ComponentOptions } from 'vue'
   import { dkcollapse } from './props'
   import { getCollapseSlot } from '../../_hooks'
@@ -13,14 +13,13 @@
     name: 'DkCollapse',
     props: dkcollapse,
     setup(Props, { slots }) {
+      const dkCollapse = ref<Element>()
+      dkCollapse.value = document.createElement('div')
       const { modelValue } = toRefs(Props)
       modelValue
 
-      const { getSlot } = getCollapseSlot(Props)
-      const slotList = getSlot(slots)
-      console.log(slots)
-
-      console.log('slotList', slotList)
+      const { getSlot, refresh } = getCollapseSlot(Props)
+      const slotList = ref(getSlot(slots))
 
       // /**
       //  * @name slot
@@ -55,22 +54,24 @@
       // }
 
       const handleChange = (e: Event): void => {
-        console.log('handleChange', e.target)
+        console.log('handleChange', e)
+        slotList.value = refresh(slots)
       }
 
       return {
         handleChange,
-        slotList
+        slotList,
+        dkCollapse
       }
     }
   })
 </script>
 <template>
   <div
+    ref="dkCollapse"
     class="dk-collapse"
     role="tablist"
     aria-multiselectable="true"
-    @change="handleChange"
   >
     <!-- <slot /> -->
     <dk-collapse-item
@@ -79,6 +80,27 @@
       v-model="item.modelValue"
       :title="item.title"
       :name="item.name"
-    ></dk-collapse-item>
+      @change="handleChange"
+    >
+      <!-- TODO: 这里需要兼容一下 -->
+      <component
+        :is="component.type"
+        v-for="(component, index) in item.children"
+        :key="index"
+      >
+        <template v-if="typeof component.children === 'object'">
+          <component
+            :is="childComponent.type"
+            v-for="(childComponent, childIndex) in component.children"
+            :key="childIndex"
+          >
+            {{ childComponent.children }}
+          </component>
+        </template>
+        <template v-else>
+          {{ component.children }}
+        </template>
+      </component>
+    </dk-collapse-item>
   </div>
 </template>

@@ -29,6 +29,10 @@ export const getSlotList = (slots: Slots, tagName: string): slotListType => {
     const type = data.type
     if (type.name === tagName) {
       const item = data.props
+      if (data.children) {
+        const children = data.children.default() as ComponentOptions[]
+        item.children = children
+      }
       domList.push(item)
     }
   }

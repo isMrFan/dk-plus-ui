@@ -5,7 +5,7 @@ import { getSlotList } from '../public/get-slot-list'
 import type { DkCollapseProps } from '../../dkcollapse/src/props'
 
 interface checkboxReturnsType {
-  // refresh: Function
+  refresh: Function
   getSlot: Function
 }
 
@@ -20,25 +20,32 @@ export const getCollapseSlot = (
 ): checkboxReturnsType => {
   const data = toRaw(props)
   data
-  // const refresh = (slots: Slots, checkedList: string[]): ComponentOptions[] => {
-  //   const list = getSlotList(slots, 'DkCheckbox')
-  //   // if (data.max && checkedList.length === data.max) {
-  //   //   list.forEach((item: ComponentOptions) => {
-  //   //     const value = item.modelValue
-  //   //     if (!value) {
-  //   //       item.disabled = true
-  //   //     }
-  //   //   })
-  //   // }
-
-  //   return list
-  // }
+  const refresh = (slots: Slots, name: string): ComponentOptions[] => {
+    const list = getSlotList(slots, 'DkCollapseItem')
+    list.forEach((item: ComponentOptions) => {
+      const value = item.modelValue
+      if (value === name) {
+        item.modelValue = true
+      } else {
+        item.modelValue = false
+      }
+    })
+    // if (data.max && checkedList.length === data.max) {
+    //   list.forEach((item: ComponentOptions) => {
+    //     const value = item.modelValue
+    //     if (!value) {
+    //       item.disabled = true
+    //     }
+    //   })
+    // }
+    return list
+  }
   const getSlot = (slots: Slots): ComponentOptions[] => {
     const list = getSlotList(slots, 'DkCollapseItem')
     return list
   }
   return {
-    // refresh,
+    refresh,
     getSlot
   }
 }
