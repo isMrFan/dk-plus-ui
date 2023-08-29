@@ -15,33 +15,27 @@ interface checkboxReturnsType {
  * @param slots slots
  * @returns slotList
  */
-export const getCollapseSlot = (
-  props: DkCollapseProps
-): checkboxReturnsType => {
+export const getCollapseSlot = (props: DkCollapseProps): checkboxReturnsType => {
   const data = toRaw(props)
-  data
-  const refresh = (slots: Slots, name: string): ComponentOptions[] => {
-    const list = getSlotList(slots, 'DkCollapseItem')
-    list.forEach((item: ComponentOptions) => {
-      const value = item.modelValue
-      if (value === name) {
-        item.modelValue = true
+  const refresh = (slotList: ComponentOptions[], name: string): ComponentOptions[] => {
+    const list: ComponentOptions[] = JSON.parse(JSON.stringify(slotList))
+    list.forEach(item => {
+      if (item.name === name) {
+        item.modelValue = !item.modelValue
       } else {
         item.modelValue = false
       }
     })
-    // if (data.max && checkedList.length === data.max) {
-    //   list.forEach((item: ComponentOptions) => {
-    //     const value = item.modelValue
-    //     if (!value) {
-    //       item.disabled = true
-    //     }
-    //   })
-    // }
     return list
   }
   const getSlot = (slots: Slots): ComponentOptions[] => {
     const list = getSlotList(slots, 'DkCollapseItem')
+    return setSlot(list, data.modelValue)
+  }
+  const setSlot = (list: ComponentOptions[], name: string): ComponentOptions[] => {
+    list.forEach(item => {
+      item.modelValue = item.name === name
+    })
     return list
   }
   return {

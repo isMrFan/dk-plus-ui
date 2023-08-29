@@ -12,11 +12,11 @@
     props: dkCollapseItemProps,
     emits: ['change'],
     setup(props, { emit }) {
-      const { name, title, icon } = toRefs(props)
-      const data = reactive({ isActive: false, with: 0, height: 0 })
+      const { name, title, icon, active, modelValue } = toRefs(props)
+      const data = reactive({ isActive: active.value || modelValue.value, with: 0, height: 0 })
       const onClickTitle = (): void => {
         data.isActive = !data.isActive
-        emit('change', title.value)
+        emit('change', name.value)
       }
       return {
         ...toRefs(data),
@@ -38,7 +38,7 @@
       @click="onClickTitle"
     >
       <div class="dk-collapseItem_left">
-        <slot name="title">{{ title }}</slot>
+        <slot name="title">{{ title }}{{ isActive }}</slot>
       </div>
       <div
         class="dk-collapseItem_right"

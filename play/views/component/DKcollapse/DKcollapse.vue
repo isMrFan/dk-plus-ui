@@ -5,7 +5,7 @@
    * @Time 2023/06/30
    * @description 面布局
    **/
-  import { defineComponent, reactive, toRefs } from 'vue'
+  import { defineComponent, reactive, toRefs, ref } from 'vue'
   export default defineComponent({
     name: 'DKcollapseS',
     setup() {
@@ -32,8 +32,14 @@
           }
         ]
       })
+      const activeName = ref('1')
+      const handleChange = (e: string): void => {
+        activeName.value = e
+      }
       return {
-        ...toRefs(state)
+        ...toRefs(state),
+        activeName,
+        handleChange
       }
     }
   })
@@ -65,21 +71,15 @@
     </dk-collapse> -->
     <div class="box">
       <h2>手风琴效果</h2>
-      <dk-collapse>
-        <dk-collapse-item
-          v-for="item in list"
-          :key="item.id"
-          v-model="item.isShow"
-          :title="item.title"
-          :name="item.name"
-        >
-          <div>
-            <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-          </div>
-          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
-          <div>996996996996996996996996🤬🤬🤬🤬🤬🤬</div>
+      <dk-collapse v-model="activeName" @change="handleChange">
+        <dk-collapse-item title="折叠1" name="1">
+          <div>996996996996996996🤬🤬🤬</div>
+        </dk-collapse-item>
+        <dk-collapse-item title="折叠2" name="2">
+          <div>996996996996996996🤬🤬🤬</div>
+        </dk-collapse-item>
+        <dk-collapse-item title="折叠3" name="3">
+          <div>996996996996996996🤬🤬🤬</div>
         </dk-collapse-item>
       </dk-collapse>
     </div>

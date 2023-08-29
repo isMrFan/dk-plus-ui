@@ -5,22 +5,25 @@
    * @Time 2023/08/02
    * @description 折叠面板nextTick
    **/
-  import { defineComponent, toRefs, ref } from 'vue'
+  import { defineComponent, toRefs, ref, reactive } from 'vue'
   // import type { ComponentOptions } from 'vue'
   import { dkcollapse } from './props'
   import { getCollapseSlot } from '../../_hooks'
   export default defineComponent({
     name: 'DkCollapse',
     props: dkcollapse,
-    setup(Props, { slots }) {
+    emits: ['change', 'update:modelValue'],
+    setup(props, { slots, emit }) {
       const dkCollapse = ref<Element>()
       dkCollapse.value = document.createElement('div')
-      const { modelValue } = toRefs(Props)
+      const { modelValue } = toRefs(props)
       modelValue
 
-      const { getSlot, refresh } = getCollapseSlot(Props)
-      const slotList = ref(getSlot(slots))
-
+      const { getSlot, refresh } = getCollapseSlot(props)
+      const data = reactive({
+        slotList: getSlot(slots)
+      })
+      
       // /**
       //  * @name slot
       //  * @description 获取当前组件的插槽
@@ -53,14 +56,15 @@
       //   data
       // }
 
-      const handleChange = (e: Event): void => {
-        console.log('handleChange', e)
-        slotList.value = refresh(slots)
+      const handleChange = (e: string): void => {
+        data.slotList = refresh(data.slotList, e)
+        console.log(data.slotList);
+        emit('update:modelValue', e)
       }
 
       return {
         handleChange,
-        slotList,
+        ...toRefs(data),
         dkCollapse
       }
     }
@@ -73,7 +77,6 @@
     role="tablist"
     aria-multiselectable="true"
   >
-    <!-- <slot /> -->
     <dk-collapse-item
       v-for="item in slotList"
       :key="item.key"
@@ -82,7 +85,7 @@
       :name="item.name"
       @change="handleChange"
     >
-      <!-- TODO: 这里需要兼容一下 -->
+      <!-- TODO: 这里需要兼容一下 兼容数据结构 -->
       <component
         :is="component.type"
         v-for="(component, index) in item.children"
