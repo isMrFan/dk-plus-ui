@@ -3,7 +3,7 @@
 使用 svg 的图标库，可以减少项目体积，提高加载速度。
 
 - [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkicon)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/icon.md)
+- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/icon.md)
 
 ## 1.基本使用
 
@@ -13,7 +13,7 @@
       <dk-icon>
         <IconWeiXin></IconWeiXin>
       </dk-icon>
-      <dk-icon :size='24' :color="'red'">
+      <dk-icon :size='24' :color="'#18bb85'">
         <IconWeiXin></IconWeiXin>
       </dk-icon>
     </div>
@@ -24,7 +24,7 @@
     <dk-icon>
       <IconWeiXin></IconWeiXin>
     </dk-icon>
-    <dk-icon :size='24' :color="'red'">
+    <dk-icon :size='24' :color="'#18bb85'">
       <IconWeiXin></IconWeiXin>
   </dk-icon>
   </div>
@@ -47,7 +47,7 @@
 
 ## 集合
 
-`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: red;font-weight: bold;">{{svgListLength}}</span> 个图标
+`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: #18bb85;font-weight: bold;">{{svgListLength}}</span> 个图标
 
 <iconDom></iconDom>
 
@@ -68,11 +68,14 @@
 ## Contributors
 
 <div style='display: flex;'>
-  <a href="https://github.com/dk-plus-ui" target="_blank">
+  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-right:10px;'>
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
   </a>
-  <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-left:20px;'>
-    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4">
+  <a href="https://github.com/WangYingJay" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4"/>
+  </a>
+  <a href="https://github.com/bugfix2020" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/29813979?v=4"/>
   </a>
 </div>
 

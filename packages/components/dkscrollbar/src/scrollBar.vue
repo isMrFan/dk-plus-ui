@@ -4,17 +4,18 @@
    * @description ScrollBar
    * @date July 20, 2023
    * @user WangYingJay <https://github.com/WangYingJay>
+   * @function handleScrollChange Scroll bar scrolling event
    */
   import { defineComponent, reactive, toRefs, ref } from 'vue'
   import type { CSSProperties, Ref } from 'vue'
   import { dkScrollbar } from './props'
-  import { getDkLink } from '../../_hooks'
+  import { getDkScroll } from '../../_hooks'
   export default defineComponent({
     name: 'DkScrollbar',
     props: dkScrollbar,
     emits: ['scroll'],
     setup(props, { emit }) {
-      const { classList, styleList, wrapperClassList } = getDkLink(props)
+      const { classList, styleList, wrapperClassList } = getDkScroll(props)
       const data = props
       const scrollBarStyle = ref(styleList) as Ref<CSSProperties>
       const color: string = scrollBarStyle.value['--scrollbar-thumb-color'] as string
@@ -25,18 +26,20 @@
         transition(step: number, init: number) {
           let opacity = init
           const setOpacity = (): void => {
-            scrollBarStyle.value['--scrollbar-thumb-color'] = `rgba(${thumbColor}, ${opacity})`
+            scrollBarStyle.value[
+              '--scrollbar-thumb-color'
+            ] = `rgba(${thumbColor}, ${opacity})`
           }
           const animate = (): void => {
             opacity += step
-            if(opacity < 1 && opacity > 0) {
+            if (opacity < 1 && opacity > 0) {
               setOpacity()
               requestAnimationFrame(animate)
             }
           }
           animate()
         },
-        handleScrollChange(evt: Event){
+        handleScrollChange(evt: Event) {
           const target = evt.target as HTMLElement
           const prams = {
             scrollTop: target.scrollTop,

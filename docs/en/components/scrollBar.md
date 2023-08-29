@@ -2,8 +2,8 @@
 
 Scroll bar component
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkscrollbar)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/components/scrollBar.md)
+- [source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkscrollbar)
+- [documents editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/scrollBar.md)
 
 ## <a id='Basic usage'>Basic usage</a>
 
@@ -110,7 +110,7 @@ Setting the `v-dk-scroll` instruction can also achieve scrolling style, with the
 
 :::
 
-## <a id='属性'>属性</a>
+## <a id='属性'>attribute</a>
 
 | parameter      | explain                           | type      | Optional values | Default value |
 | -------------- | --------------------------------- | --------- | --------------- | ------------- |
@@ -128,7 +128,7 @@ Setting the `v-dk-scroll` instruction can also achieve scrolling style, with the
 | --------- | ------------------- |
 | `default` | Scroll Area Content |
 
-## <a id='事件'>事件</a>
+## <a id='事件'>event</a>
 
 | Event Name | explain                               | Callback Arguments                                   |
 | ---------- | ------------------------------------- | ---------------------------------------------------- |
@@ -140,8 +140,11 @@ Setting the `v-dk-scroll` instruction can also achieve scrolling style, with the
   <a href="https://github.com/dk-plus-ui" target="_blank" style='margin-right:10px;'>
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/88755587?v=4" />
   </a>
-  <a href="https://github.com/dk-plus-ui" target="_blank">
+  <a href="https://github.com/WangYingJay" target="_blank">
     <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/117073291?s=64&v=4"/>
+  </a>
+  <a href="https://github.com/bugfix2020" target="_blank">
+    <img style='width:60px;height:60px;border-radius: 50%;' src="https://avatars.githubusercontent.com/u/29813979?v=4"/>
   </a>
 </div>
 

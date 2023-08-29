@@ -1,5 +1,5 @@
 import type { Directive, DirectiveBinding } from 'vue'
-import { hexToRgba, rgbaToHex } from '../..'
+// import { hexToRgba, rgbaToHex } from '../..'
 import { getColor } from '../..'
 import type { DkScrollbarType } from '../../../dkscrollbar/src/props'
 
@@ -22,11 +22,10 @@ export const DirectiveScroll = (): Directive => {
     step: number,
     color: string
   ): void => {
-    color = rgbaToHex(color)
-    const thumbColor = hexToRgba(getColor(color).getDeepen(0), opacity).replace(
-      /rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/,
-      '$1, $2, $3'
-    )
+    color = getColor(color).rgbaToHex()
+    const thumbColor = getColor(color)
+      .hexToRgba(opacity)
+      .replace(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/, '$1, $2, $3')
 
     const animate = (): void => {
       opacity += step
@@ -106,7 +105,7 @@ export const DirectiveScroll = (): Directive => {
     el.className = 'dk-scrollbar'
     const options = optionsController(el, binding)
 
-    const color = hexToRgba(getColor(options.thumbColor || '#c1c1c1').getDeepen(0), 0)
+    const color = getColor(options.thumbColor || '#c1c1c1').hexToRgba(0)
 
     options.width && el.style.setProperty('--scrollbar-width', options.width)
     options.height && el.style.setProperty('--scrollbar-height', options.height)

@@ -39,14 +39,16 @@ export const sidebar = {
         { text: 'Button', link: '/en/components/button' },
         { text: 'Shadow', link: '/en/components/shadow' },
         { text: 'Alert', link: '/en/components/alert' },
-        { text: 'ScrollBar', link: '/en/components/scrollBar' }
+        { text: 'ScrollBar', link: '/en/components/scrollBar' },
+        { text: 'Layout', link: '/en/components/layout' }
       ]
     },
     {
       text: 'Form',
       items: [
         { text: 'Input', link: '/en/components/input' },
-        { text: 'InputNumber', link: '/en/components/inputNumber' }
+        { text: 'InputNumber', link: '/en/components/inputNumber' },
+        { text: 'Checkbox', link: '/en/components/checkbox' }
       ]
     },
     {

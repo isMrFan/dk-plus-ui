@@ -81,3 +81,44 @@ export const DK_ALERTTYPE = [
   'warning',
   'error'
 ] as const
+
+/**
+ * @name DK_JUSTIFY
+ * @Time July 27, 2023
+ * @param { string }  [center] Center
+ * @param { string }  [end] End
+ * @param { string } [flex-end] Flex end
+ * @param { string }  [flex-start] Flex start
+ * @param { string }  [inherit] Inherit
+ * @param { string }  [initial] Initial
+ * @param { string }  [left] Left
+ * @param { string }  [normal] Normal 
+ * @param { string }  [revert] Revert
+ * @param { string }  [right] Right
+ * @param { string }  [space-around] Around
+ * @param { string }  [space-between] Between
+ * @param { string } [space-evenly] Evenly
+ * @param { string }  [start] Starting from scratch
+ * @param { string }  [stretch] Stretch
+ * @param { string }  [unset] Unset
+ * @description Different component justification public type
+ */
+
+export const DK_JUSTIFY = [
+  'center',
+  'end',
+  'flex-end',
+  'flex-start',
+  'inherit',
+  'initial',
+  'left',
+  'normal',
+  'revert',
+  'right',
+  'space-around',
+  'space-between',
+  'space-evenly',
+  'start',
+  'stretch',
+  'unset'
+] as const

@@ -8,19 +8,25 @@
     "dkbutton",
     "Dkbuttonsm",
     "dkcodedisplay",
+    "dkcol",
+    "dkcontainer",
     "dkfooter",
     "dkheader",
     "dkicon",
     "dkinput",
     "dklaside",
+    "dkleft",
     "dklink",
     "dkloading",
     "dkmain",
     "dkmenu",
+    "dkpersonalityinput",
     "dkraside",
+    "dkrow",
     "dkscrollbar",
     "dkshadow",
     "dkspace",
+    "dktransition",
     "gulpfile",
     "highlightjs",
     "IconShanchu1",
@@ -36,5 +42,6 @@
     "Ying"
   ],
   "vue.codeActions.enabled": false,
-  "cSpell.languageSettings": []
+  "cSpell.languageSettings": [],
+  "editor.minimap.autohide": true
 }

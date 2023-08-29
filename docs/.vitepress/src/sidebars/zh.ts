@@ -39,14 +39,16 @@ export const sidebar = {
         { text: 'Button 按钮', link: '/zh/components/button' },
         { text: 'Shadow 盒子', link: '/zh/components/shadow' },
         { text: 'Alert 警示', link: '/zh/components/alert' },
-        { text: 'ScrollBar 滚动条', link: '/zh/components/scrollBar' }
+        { text: 'ScrollBar 滚动条', link: '/zh/components/scrollBar' },
+        { text: 'Layout 布局', link: '/zh/components/layout' }
       ]
     },
     {
       text: '表单组件',
       items: [
         { text: 'Input 输入框', link: '/zh/components/input' },
-        { text: 'InputNumber 数字输入框', link: '/zh/components/inputNumber' }
+        { text: 'InputNumber 计数器', link: '/zh/components/inputNumber' },
+        { text: 'Checkbox 多选框', link: '/zh/components/checkbox' }
       ]
     },
     {
