@@ -22,10 +22,16 @@ export const dkCollapseItemProps = {
   icon: setStringProp(),
   /**
    * @name Active
-   * @param { string }  Active icon 图标展示
-   * @returns 折叠面板子组建 图标展示
+   * @param { string }  Active
+   * @returns 折叠面板子组建是否展开
    */
-  Active: setBooleanProps()
+  active: setBooleanProps(),
+  /**
+   * @name modelValue
+   * @param { string }  modelValue
+   * @returns 折叠面板子组建是否展开
+   */
+  modelValue: setBooleanProps()
 } as const
 
 export type DkCollapseItemProps = ExtractPropTypes<typeof dkCollapseItemProps>

@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import { setArrayProps } from '../../_utils'
+import { setStringProp } from '../../_utils'
 
 /**
  * @name dk-collapse
@@ -8,7 +8,7 @@ import { setArrayProps } from '../../_utils'
  * @property {string} modelValue 折叠面板数组参数唯一标识
  * */
 export const dkcollapse = {
-  modelValue: setArrayProps()
+  modelValue: setStringProp()
 } as const
 
 /** Collapse 组件 props 类型 */
