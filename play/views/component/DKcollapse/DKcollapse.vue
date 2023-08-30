@@ -34,7 +34,7 @@
       })
       const activeName = ref('1')
       const handleChange = (e: string): void => {
-        console.log('e', e)
+        console.log(e)
         activeName.value = e
       }
       return {
