@@ -10,7 +10,7 @@
     name: 'DKcollapseS',
     setup() {
       const state = reactive({
-        NackName: ['1', '2', '3'],
+        NackName: ['1', '3'],
         list: [
           {
             id: 1,
@@ -34,6 +34,7 @@
       })
       const activeName = ref('1')
       const handleChange = (e: string): void => {
+        console.log('e', e)
         activeName.value = e
       }
       return {
@@ -46,32 +47,10 @@
 </script>
 <template>
   <div>
-    <!-- <div style="margin-bottom: 10px">折叠面板 {{ NackName }}</div>
-    <dk-collapse v-model="NackName">
-      <dk-collapse-item
-        v-for="(item, ind) in 1"
-        :key="ind"
-        :title="'这是名字zdc' + ind"
-        :name="ind + ''"
-      >
-        <div>今天我休息</div>
-        <div>今天我休息</div>
-        <div>今天我休息</div>
-        <div>今天我休息</div>
-        <div>今天我休息</div>
-      </dk-collapse-item>
-      <dk-collapse-item
-        v-for="(item, ind) in 10"
-        :key="ind"
-        :title="'这是名字' + ind"
-        :name="ind + ''"
-      >
-        <div>今天我休息</div>
-      </dk-collapse-item>
-    </dk-collapse> -->
     <div class="box">
-      <h2>手风琴效果</h2>
-      <dk-collapse v-model="activeName" @change="handleChange">
+      <h2>手风琴效果 默认展开参数为数组 {{ NackName }}</h2>
+      <h2>关闭手风琴效果 设置accordion</h2>
+      <dk-collapse v-model="NackName" accordion @change="handleChange">
         <dk-collapse-item title="折叠1" name="1">
           <div>996996996996996996🤬🤬🤬</div>
         </dk-collapse-item>
@@ -79,7 +58,7 @@
           <div>996996996996996996🤬🤬🤬</div>
         </dk-collapse-item>
         <dk-collapse-item title="折叠3" name="3">
-          <div>996996996996996996🤬🤬🤬</div>
+          <div>9999999999🤬🤬🤬</div>
         </dk-collapse-item>
       </dk-collapse>
     </div>

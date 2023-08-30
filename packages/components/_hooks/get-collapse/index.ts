@@ -17,13 +17,19 @@ interface checkboxReturnsType {
  */
 export const getCollapseSlot = (props: DkCollapseProps): checkboxReturnsType => {
   const data = toRaw(props)
-  const refresh = (slotList: ComponentOptions[], name: string): ComponentOptions[] => {
+  const refresh = (
+    slotList: ComponentOptions[],
+    name: string,
+    type: boolean = true
+  ): ComponentOptions[] => {
     const list: ComponentOptions[] = JSON.parse(JSON.stringify(slotList))
     list.forEach(item => {
       if (item.name === name) {
         item.modelValue = !item.modelValue
       } else {
-        item.modelValue = false
+        if (type) {
+          item.modelValue = false
+        }
       }
     })
     return list

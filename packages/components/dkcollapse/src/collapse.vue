@@ -5,8 +5,8 @@
    * @Time 2023/08/02
    * @description 折叠面板nextTick
    **/
-  import { defineComponent, toRefs, ref, reactive } from 'vue'
-  // import type { ComponentOptions } from 'vue'
+  import { defineComponent, toRefs, ref, reactive, onMounted } from 'vue'
+
   import { dkcollapse } from './props'
   import { getCollapseSlot } from '../../_hooks'
   export default defineComponent({
@@ -16,52 +16,31 @@
     setup(props, { slots, emit }) {
       const dkCollapse = ref<Element>()
       dkCollapse.value = document.createElement('div')
-      const { modelValue } = toRefs(props)
-      modelValue
-
       const { getSlot, refresh } = getCollapseSlot(props)
+      const { modelValue, accordion } = toRefs(props)
       const data = reactive({
-        slotList: getSlot(slots)
+        slotList: getSlot(slots),
+        RenewalTime: new Date().getTime() as number
       })
-      
-      // /**
-      //  * @name slot
-      //  * @description 获取当前组件的插槽
-      //  */
-      // const foldList = [] as ComponentOptions[]
-      // const getFoldList = (): void => {
-      //   if (slots.default) {
-      //     const slot = slots.default() as ComponentOptions[]
-      //     for (const index in slot) {
-      //       const children = slot[index].children as ComponentOptions[]
-      //       for (const twoIndex in children) {
-      //         if (typeof children[twoIndex].type !== 'object') {
-      //           return
-      //         }
-      //         if (children[twoIndex].type.name !== 'DkCollapseItem') {
-      //           console.warn(
-      //             'The sub component of the dk-collapse component should be a dk-collapse-item'
-      //           )
-      //           return
-      //         }
-      //         foldList.push(children[twoIndex].props.name)
-      //       }
-      //     }
-      //   }
-      // }
-      // getFoldList()
-      // if (slots.default) {
-      //   const slot = slots.default() as ComponentOptions[]
-      //   const { data } = slot[0].children[0].type.setup
-      //   data
-      // }
-
       const handleChange = (e: string): void => {
-        data.slotList = refresh(data.slotList, e)
-        console.log(data.slotList);
+        data.slotList = refresh(data.slotList, e, accordion.value)
         emit('update:modelValue', e)
       }
-
+      onMounted(() => {
+        const InParameter = modelValue.value
+        if (typeof InParameter === 'string' || typeof InParameter === 'number') {
+          console.error('The parameter type must be an array.入参类型必须为数组')
+        } else {
+          let InParameterArray = modelValue.value ? modelValue.value : []
+          for (let oIndex = 0; oIndex < data.slotList.length; oIndex++) {
+            for (let tIndex = 0; tIndex < InParameterArray.length; tIndex++) {
+              if (data.slotList[oIndex].name === InParameterArray[tIndex]) {
+                data.slotList[oIndex].modelValue = true
+              }
+            }
+          }
+        }
+      })
       return {
         handleChange,
         ...toRefs(data),
@@ -71,15 +50,11 @@
   })
 </script>
 <template>
-  <div
-    ref="dkCollapse"
-    class="dk-collapse"
-    role="tablist"
-    aria-multiselectable="true"
-  >
+  <div ref="dkCollapse" class="dk-collapse" role="tablist" aria-multiselectable="true">
     <dk-collapse-item
-      v-for="item in slotList"
-      :key="item.key"
+      v-for="(item, ind) in slotList"
+      ref="dkCollapseItem"
+      :key="ind"
       v-model="item.modelValue"
       :title="item.title"
       :name="item.name"

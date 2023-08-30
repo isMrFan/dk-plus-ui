@@ -5,7 +5,7 @@
    * @Time 2023/08/02
    * @description 折叠面板-父组件
    **/
-  import { defineComponent, reactive, toRefs } from 'vue'
+  import { defineComponent, reactive, toRefs, watch } from 'vue'
   import { dkCollapseItemProps } from './props'
   export default defineComponent({
     name: 'DkCollapseItem',
@@ -13,11 +13,32 @@
     emits: ['change'],
     setup(props, { emit }) {
       const { name, title, icon, active, modelValue } = toRefs(props)
-      const data = reactive({ isActive: active.value || modelValue.value, with: 0, height: 0 })
+      const data = reactive({
+        isActive: false,
+        with: 0,
+        height: 0
+      })
       const onClickTitle = (): void => {
-        data.isActive = !data.isActive
         emit('change', name.value)
       }
+      watch(
+        () => modelValue.value,
+        val => {
+          data.isActive = val
+        },
+        {
+          immediate: true
+        }
+      )
+      watch(
+        () => active.value,
+        val => {
+          data.isActive = val
+        },
+        {
+          immediate: true
+        }
+      )
       return {
         ...toRefs(data),
         data,
