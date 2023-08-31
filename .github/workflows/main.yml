@@ -39,8 +39,9 @@ jobs:
       - name: Deploy to Web Server
         uses: easingthemes/ssh-deploy@v2
         with:
-          server: ${{ secrets.SERVER_ID }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
+          server: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.ACCESS_TOKEN }}
+          REMOTE_PORT: 22
           local_path: /docs/.vitepress/dist # 替换为你的构建输出路径
           remote_path: /www/wwwroot/dk-plus.com # 替换为你的服务器上的目标路径
