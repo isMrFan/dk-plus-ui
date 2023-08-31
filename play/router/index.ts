@@ -17,6 +17,7 @@ const DkNumber: Object = () => import('../views/component/DkNumber/dkNumber.vue'
 const DkScrollbar: Object = () => import('../views/component/DkScrollbar/DkScrollbar.vue')
 const DkLayout: Object = () => import('../views/component/DkLayout/DkLayout.vue')
 const DkCheckbox: Object = () => import('../views/component/DkCheckbox/DkCheckbox.vue')
+const DkRadio: Object = () => import('../views/component/DkRadio/DkRadio.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -162,6 +163,16 @@ const routes: RouteRecordRaw[] = [
         component: DkCheckbox,
         meta: {
           title: 'checkbox 多选框',
+          keepAlive: false,
+          isunnewList: false
+        }
+      },
+      {
+        path: '/DkRadio',
+        name: 'DkRadio',
+        component: DkRadio,
+        meta: {
+          title: 'radio 单选框',
           keepAlive: false,
           isunnewList: false
         }

@@ -34,7 +34,7 @@
           console.error('The parameter type must be an array. 入参类型必须为数组')
         } else {
           const InParameterArray = InParameter as string[]
-          const slotList = data.slotList as ComponentOptions[]
+          const slotList = data.slotList
 
           for (let oIndex = 0, oLen = slotList.length; oIndex < oLen; oIndex++) {
             const slot = slotList[oIndex] as ComponentOptions

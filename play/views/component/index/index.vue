@@ -75,6 +75,10 @@
           {
             name: 'checkbox 多选框',
             path: '/DkCheckbox'
+          },
+          {
+            name: 'radio 单选框',
+            path: '/DkRadio'
           }
         ]
       })
