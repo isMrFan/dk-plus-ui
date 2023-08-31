@@ -53,5 +53,11 @@ jobs:
 
       - name: Copy files to target directory
         run: |
+<<<<<<< HEAD
           ssh -i <(echo "${{ secrets.SSH_PRIVATE_KEY }}") -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist /www/wwwroot/dk-plus.com"
 >>>>>>> 821112c (perf: 1.设置自动部署)
+=======
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
+          chmod 600 ssh_key
+          ssh -i ssh_key -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist /www/wwwroot/dk-plus.com"
+>>>>>>> 92e5ea9 (perf: 1.设置自动部署)
