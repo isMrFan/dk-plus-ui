@@ -5,7 +5,14 @@
    * @Time 2023/08/02
    * @description 折叠面板nextTick
    **/
-  import { defineComponent, toRefs, ref, reactive, onMounted, type ComponentOptions } from 'vue'
+  import {
+    defineComponent,
+    toRefs,
+    ref,
+    reactive,
+    onMounted,
+    type ComponentOptions
+  } from 'vue'
 
   import { dkcollapse } from './props'
   import { getCollapseSlot } from '../../_hooks'
@@ -25,7 +32,6 @@
       const handleChange = (e: string): void => {
         data.slotList = refresh(data.slotList, e, accordion.value)
         emit('update:modelValue', e)
-        emit('change', e)
       }
       onMounted(() => {
         const InParameter = modelValue.value || []
