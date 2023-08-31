@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import type * as components from './components'
 import type * as componentsIcon from './components-icon'
 
