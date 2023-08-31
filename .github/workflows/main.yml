@@ -48,4 +48,6 @@ jobs:
 
       - name: Copy files to target directory
         run: |
-          ssh -i <(echo "${{ secrets.SSH_PRIVATE_KEY }}") -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist /www/wwwroot/dk-plus.com"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
+          chmod 600 ssh_key
+          ssh -i ssh_key -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist /www/wwwroot/dk-plus.com"
