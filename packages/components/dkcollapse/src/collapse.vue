@@ -5,7 +5,7 @@
    * @Time 2023/08/02
    * @description 折叠面板nextTick
    **/
-  import { defineComponent, toRefs, ref, reactive, onMounted } from 'vue'
+  import { defineComponent, toRefs, ref, reactive, onMounted, type ComponentOptions } from 'vue'
 
   import { dkcollapse } from './props'
   import { getCollapseSlot } from '../../_hooks'
@@ -28,16 +28,20 @@
         emit('change', e)
       }
       onMounted(() => {
-        const InParameter = modelValue.value
-        if (typeof InParameter === 'string' || typeof InParameter === 'number') {
-          console.error('The parameter type must be an array.入参类型必须为数组')
+        const InParameter = modelValue.value || []
+
+        if (!Array.isArray(InParameter)) {
+          console.error('The parameter type must be an array. 入参类型必须为数组')
         } else {
-          let InParameterArray = modelValue.value ? modelValue.value : []
-          for (let oIndex = 0; oIndex < data.slotList.length; oIndex++) {
-            for (let tIndex = 0; tIndex < InParameterArray.length; tIndex++) {
-              if (data.slotList[oIndex].name === InParameterArray[tIndex]) {
-                data.slotList[oIndex].modelValue = true
-              }
+          const InParameterArray = InParameter as string[]
+          const slotList = data.slotList as ComponentOptions[]
+
+          for (let oIndex = 0, oLen = slotList.length; oIndex < oLen; oIndex++) {
+            const slot = slotList[oIndex] as ComponentOptions
+            const name = slot.name || ''
+
+            if (InParameterArray.includes(name)) {
+              slot.modelValue = true
             }
           }
         }
