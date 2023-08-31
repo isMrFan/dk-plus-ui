@@ -3,10 +3,10 @@ name: Deploy Web App
 on:
   push:
     branches:
-      - master  # 部署 master 分支的提交
+      - master # 部署 master 分支的提交
   pull_request:
     branches:
-      - master  # 部署 master 分支的 Pull Request
+      - master # 部署 master 分支的 Pull Request
 
 jobs:
   deploy:
@@ -33,5 +33,5 @@ jobs:
           server: ${{ secrets.SERVER_ID }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          local_path: ./docs.vitepress/dist  # 替换为你的构建输出路径
-          remote_path: /www/wwwroot/dk-plus.com  # 替换为你的服务器上的目标路径
+          local_path: ./docs.vitepress/dist # 替换为你的构建输出路径
+          remote_path: /www/wwwroot/dk-plus.com # 替换为你的服务器上的目标路径
