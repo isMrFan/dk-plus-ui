@@ -25,7 +25,6 @@
       const handleChange = (e: string): void => {
         data.slotList = refresh(data.slotList, e, accordion.value)
         emit('update:modelValue', e)
-        emit('change', e)
       }
       onMounted(() => {
         const InParameter = modelValue.value
