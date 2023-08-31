@@ -45,3 +45,7 @@ jobs:
           REMOTE_PORT: 6098
           SOURCE: /docs/.vitepress/dist
           TARGET: /www/wwwroot/dk-plus.com
+
+      - name: Copy files to target directory
+        run: |
+          ssh -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist. /www/wwwroot/dk-plus.com"
