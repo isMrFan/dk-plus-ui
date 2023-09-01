@@ -47,6 +47,7 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           SOURCE: /docs/.vitepress/dist/*
           TARGET: /www/wwwWeb/dk-plus.com
+<<<<<<< HEAD
 =======
           REMOTE_PORT: 6098
 =======
@@ -95,3 +96,5 @@ jobs:
 =======
           mv /www/wwwWeb/dk-plus.com/dist/* /www/wwwWeb/dk-plus.com/
 >>>>>>> 6249866 (perf: 1.设置自动部署)
+=======
+>>>>>>> 098b3fd (perf: 1.设置自动部署)
