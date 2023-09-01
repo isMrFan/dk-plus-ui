@@ -47,18 +47,12 @@ jobs:
           TARGET: /www/wwwroot/dk-plus.com
 
       - name: Copy files to target directory
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          REMOTE_PORT: 6098
-          SOURCE: /www/wwwroot/dk-plus.com/dist
-          TARGET: /www/wwwroot/dk-plus.com
         run: |
-          # 连接到远程服务器并执行命令
           ssh -i "$SSH_PRIVATE_KEY" -p "$REMOTE_PORT" "$REMOTE_USER"@"$REMOTE_HOST" "
-          # 移动目录或文件到目标位置
-          mv \$SOURCE \$TARGET
-          # 获取当前时间并重命名目标位置的目录或文件为当前时间加 _docs_dist_git
-          current_time=\$(date +'%Y%m%d%H%M%S')
-          mv \$TARGET \$TARGET/\$current_time\_docs_dist_git
+            # 移动目录或文件到目标位置
+            mv \$SOURCE \$TARGET
+
+            # 获取当前时间并重命名目标位置的目录或文件为当前时间加 _docs_dist_git
+            current_time=\$(date +'%Y%m%d%H%M%S')
+            mv \$TARGET \$TARGET/\$current_time\_docs_dist_git
+          "
