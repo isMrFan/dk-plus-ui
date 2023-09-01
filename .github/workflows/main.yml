@@ -44,14 +44,14 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           SOURCE: /docs/.vitepress/dist
-          TARGET: /www/wwwroot/dk-plus.com
+          TARGET: /www/wwwWeb/dk-plus.com
 
       - name: Wait for files to be transferred
         run: sleep 10
 
       - name: List files in dist folder
-        run: ls -la /www/wwwroot/dk-plus.com/dist
+        run: ls -la /www/wwwWeb/dk-plus.com/dist
 
       - name: Move files
         run: |
-          mv /www/wwwroot/dk-plus.com/dist/* /www/wwwroot/dk-plus.com/
+          mv /www/wwwWeb/dk-plus.com/dist/* /www/wwwWeb/dk-plus.com/
