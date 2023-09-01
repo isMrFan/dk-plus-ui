@@ -3,22 +3,17 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-interface PageType {
-  path: string
-  title: string
-  order: number
-}
+// interface PageType {
+//   path: string
+//   title: string
+//   order: number
+// }
 
-const pageList: Record<string, PageType> = import.meta.glob(
-  '../views/component/**/page.ts',
-  {
-    eager: true,
-    import: 'default'
-  }
-)
-const componentList: Record<string, Object> = import.meta.glob(
-  '../views/component/**/**.vue'
-)
+const pageList = import.meta.glob('../views/component/**/page.ts', {
+  eager: true,
+  import: 'default'
+})
+const componentList = import.meta.glob('../views/component/**/**.vue', {})
 
 const routerList: RouteRecordRaw[] = []
 
@@ -28,6 +23,7 @@ for (const key in pageList) {
   const tPath = path.replace('/', '')
 
   const targetComponent = key.replace('page.ts', tPath + '.vue')
+  console.log('targetComponent', targetComponent)
 
   const route: RouteRecordRaw = {
     path: path,

@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - dev
 
 jobs:
   deploy:
@@ -36,7 +37,19 @@ jobs:
       - name: Build
         run: npm run build:docs
 
-      - name: Deploy to Web Server
+      - name: Deploy to Web Server (dev)
+        if: github.ref == 'refs/heads/dev'
+        uses: easingthemes/ssh-deploy@v2
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          SOURCE: /play/dist/*
+          TARGET: /www/wwwWeb/test.cadwaladerss.com
+
+      - name: Deploy to Web Server (master)
+        if: github.ref == 'refs/heads/master'
         uses: easingthemes/ssh-deploy@v2
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
