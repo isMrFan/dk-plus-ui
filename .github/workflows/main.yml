@@ -44,19 +44,4 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           SOURCE: /docs/.vitepress/dist
-          TARGET: ${{ secrets.TARGET }}
-
-      - name: Copy files to target directory
-        run: |
-          ssh -i "$SSH_PRIVATE_KEY" -p ${{ secrets.REMOTE_PORT }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
-            # 获取当前时间
-              current_time=\$(date +'%Y%m%d%H%M%S')
-            # 文件目录
-              rootPath=\${{ secrets.TARGET }}
-              path=\${{ secrets.path }}
-              rootFolder='BackupCopy'
-              cd \${rootPath}
-              mkdir -p _backUp/\${rootFolder}_\${current_time}
-              cp -r \${path} _backUp/\${rootFolder}_\${current_time}/
-              rm -rf \${path}
-          "
+          TARGET: /www/wwwroot/dk-plus.com
