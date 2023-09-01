@@ -54,6 +54,7 @@ jobs:
 >>>>>>> 4dece95 (perf: 1.设置自动部署)
           SOURCE: /docs/.vitepress/dist
 <<<<<<< HEAD
+<<<<<<< HEAD
           TARGET: ${{ secrets.TARGET }}
 
       - name: Copy files to target directory
@@ -76,14 +77,21 @@ jobs:
 <<<<<<< HEAD
 >>>>>>> 734ab9d (perf: 1.设置自动部署)
 =======
+=======
+          TARGET: /www/wwwWeb/dk-plus.com
+>>>>>>> 6249866 (perf: 1.设置自动部署)
 
       - name: Wait for files to be transferred
         run: sleep 10
 
       - name: List files in dist folder
-        run: ls -la /www/wwwroot/dk-plus.com/dist
+        run: ls -la /www/wwwWeb/dk-plus.com/dist
 
       - name: Move files
         run: |
+<<<<<<< HEAD
           mv /www/wwwroot/dk-plus.com/dist/* /www/wwwroot/dk-plus.com/
 >>>>>>> 33a4580 (perf: 1.设置自动部署)
+=======
+          mv /www/wwwWeb/dk-plus.com/dist/* /www/wwwWeb/dk-plus.com/
+>>>>>>> 6249866 (perf: 1.设置自动部署)
