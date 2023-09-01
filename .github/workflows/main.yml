@@ -34,8 +34,11 @@ jobs:
       - name: Install
         run: pnpm install
 
-      - name: Build
+      - name: Build(docs)
         run: npm run build:docs
+
+      - name: Build(play)
+        run: npm run build:play
 
       - name: Deploy to Web Server (dev)
         if: github.ref == 'refs/heads/dev'
