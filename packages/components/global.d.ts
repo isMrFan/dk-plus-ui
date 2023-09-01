@@ -26,10 +26,21 @@ declare module '@vue/runtime-core' {
     DkCollapseItem: typeof components.DkCollapseItem
     DkTransition: typeof components.DkTransition
   }
+  export interface ImportMetaEnv {
+    VITE_APP_BASE_API: string
+    // 添加以下声明
+    VITE_GLOB_APP_INDEX: string
+    VITE_GLOB_APP: string
+    VITE_GLOB_COMPONENTS: string
+    // 添加其他可能使用到的 glob 变量
+  }
   interface ComponentCustomProperties {
     DkLoading: typeof components.DkLoading
     DkScroll: typeof components.DkScroll
   }
+}
+export interface ImportMeta {
+  glob: <T>(pattern: string) => Promise<Record<string, () => Promise<T>>>
 }
 
 declare global {

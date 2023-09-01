@@ -1,111 +1,38 @@
 <script lang="ts">
-  import { defineComponent, toRefs, reactive } from 'vue'
-  import { useRouter } from 'vue-router'
+  import { defineComponent, toRefs, reactive, ref, onMounted } from 'vue'
+  import { useRouter, type RouteRecordNormalized } from 'vue-router'
   export default defineComponent({
     name: 'Index',
     setup() {
-      const data = reactive({
-        rooterList: [
-          {
-            name: '首页',
-            path: '/'
-          },
-          {
-            name: '自定义盒子模型',
-            path: '/DkShadow'
-          },
-          {
-            name: '图标',
-            path: '/DkIcon',
-            children: [
-              {
-                id: '2-1',
-                name: 'System'
-              },
-              {
-                id: '2-2',
-                name: 'other'
-              },
-              {
-                id: '2-3',
-                name: 'Arrow'
-              }
-            ]
-          },
-          {
-            name: '常见页面布局',
-            path: '/DkContainer'
-          },
-          {
-            name: '间距',
-            path: '/DkInterval'
-          },
-          {
-            name: '加载中',
-            path: '/DkLoading'
-          },
-          {
-            name: '折叠面板',
-            path: '/DKcollapse'
-          },
-          {
-            name: '按钮组件',
-            path: '/Dkbutton'
-          },
-          {
-            name: '输入框组件',
-            path: '/Dkinput'
-          },
-          {
-            name: '计数器组件',
-            path: '/DkNumber'
-          },
-          {
-            name: '提示组件',
-            path: '/DkAlert'
-          },
-          {
-            name: '滚动条',
-            path: '/DkScrollBar'
-          },
-          {
-            name: 'layout 布局',
-            path: '/DkLayout'
-          },
-          {
-            name: 'checkbox 多选框',
-            path: '/DkCheckbox'
-          },
-          {
-            name: 'radio 单选框',
-            path: '/DkRadio'
-          }
-        ]
-      })
-      const active = reactive({
-        childLiActiveIndex: '0'
-      })
-      // 子菜单点击事件 导航到对应的组件
-      interface ChildItem {
-        id: string
+      const allRoutes = ref<RouteRecordNormalized[]>([])
+      const router = useRouter()
+      interface Item {
         name: string
+        path: string
+        order: number
       }
-      const handleChildItemClick = (item: ChildItem, index: number): void => {
-        active.childLiActiveIndex = item.id
-        const title = document.querySelectorAll('.cont_template_icon_title')[index]
-        // 将 title scroll 到顶部
-        if (title?.innerHTML === item.name) {
-          title.scrollIntoView({ behavior: 'smooth' })
-        }
-      }
+      const data = reactive({
+        routerList: [] as Item[]
+      })
+      onMounted(() => {
+        allRoutes.value = router.getRoutes()
 
-      const route = useRouter()
+        data.routerList = allRoutes.value.map(item => {
+          if(item.path === '/index') return
+          return {
+            name: item.meta.title,
+            path: item.path,
+            order: item.meta.order || 0
+          }
+        }).filter(item => !!item) as Item[]
+        data.routerList.sort((a, b) => {
+          return a.order - b.order
+        })
+      })
 
       return {
         ...toRefs(data),
-        ...toRefs(active),
-        route,
-        handleChildItemClick
+        router
       }
     }
   })
@@ -116,26 +43,13 @@
     <div class="index-conten">
       <div class="index-conten-left">
         <ul>
-          <li v-for="(item, ind) in rooterList" :key="ind">
+          <li v-for="(item, ind) in routerList" :key="ind">
             <router-link
               :to="item.path"
               :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #ccc;'"
             >
               {{ item.name }}
             </router-link>
-            <ul v-if="item.children && $route.path === item.path">
-              <li
-                v-for="(child, index) in item.children"
-                :key="child.id"
-                @click="handleChildItemClick(child, index)"
-              >
-                <span
-                  :style="
-                    childLiActiveIndex === child.id ? 'color: #34ab98;' : 'color: #ccc;'
-                  "
-                >{{ child.name }}</span>
-              </li>
-            </ul>
           </li>
         </ul>
       </div>
