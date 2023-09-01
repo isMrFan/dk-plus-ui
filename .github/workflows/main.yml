@@ -40,6 +40,12 @@ jobs:
       - name: Build(play)
         run: npm run build:play
 
+      - name: Clear dk-plus.com directory
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          ssh-keyscan -t rsa ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} -p ${{ secrets.REMOTE_PORT }} "rm -rf /www/wwwWeb/test.cadwaladerss.com*"
+
       - name: Deploy to Web Server (dev)
         if: github.ref == 'refs/heads/dev'
         uses: easingthemes/ssh-deploy@v2
@@ -50,6 +56,12 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           SOURCE: /play/dist/*
           TARGET: /www/wwwWeb/test.cadwaladerss.com
+
+      - name: Clear dk-plus.com directory
+        if: github.ref == 'refs/heads/master'
+        run: |
+          ssh-keyscan -t rsa ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} -p ${{ secrets.REMOTE_PORT }} "rm -rf /www/wwwWeb/dk-plus.com/*"
 
       - name: Deploy to Web Server (master)
         if: github.ref == 'refs/heads/master'
