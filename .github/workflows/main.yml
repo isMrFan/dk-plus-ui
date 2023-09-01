@@ -73,4 +73,11 @@ jobs:
 >>>>>>> b348bd2 (perf: 1.设置自动部署)
 =======
           TARGET: /www/wwwroot/dk-plus.com
+<<<<<<< HEAD
 >>>>>>> 734ab9d (perf: 1.设置自动部署)
+=======
+
+      - name: Move files
+        run: |
+          mv /www/wwwroot/dk-plus.com/dist/* /www/wwwroot/dk-plus.com/
+>>>>>>> 33a4580 (perf: 1.设置自动部署)
