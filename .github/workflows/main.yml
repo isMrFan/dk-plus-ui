@@ -53,6 +53,7 @@ jobs:
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
 >>>>>>> 4dece95 (perf: 1.设置自动部署)
           SOURCE: /docs/.vitepress/dist
+<<<<<<< HEAD
           TARGET: ${{ secrets.TARGET }}
 
       - name: Copy files to target directory
@@ -70,3 +71,6 @@ jobs:
               rm -rf \${path}
           "
 >>>>>>> b348bd2 (perf: 1.设置自动部署)
+=======
+          TARGET: /www/wwwroot/dk-plus.com
+>>>>>>> 734ab9d (perf: 1.设置自动部署)
