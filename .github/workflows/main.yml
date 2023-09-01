@@ -46,6 +46,9 @@ jobs:
           SOURCE: /docs/.vitepress/dist
           TARGET: /www/wwwroot/dk-plus.com
 
+      - name: Wait for files to be transferred
+        run: sleep 10
+
       - name: List files in dist folder
         run: ls -la /www/wwwroot/dk-plus.com/dist
 
