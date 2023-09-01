@@ -30,10 +30,10 @@ jobs:
           cache: 'pnpm'
 
       # 安装依赖项
-      - name: pnpm Install
+      - name: Install
         run: pnpm install
 
-      - name: npm Build:docs
+      - name: Build
         run: npm run build:docs
 
       - name: Deploy to Web Server
@@ -42,39 +42,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-<<<<<<< HEAD
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           SOURCE: /docs/.vitepress/dist/*
           TARGET: /www/wwwWeb/dk-plus.com
-=======
-          REMOTE_PORT: 6098
-          SOURCE: /docs/.vitepress/dist
-          TARGET: /www/wwwroot/dk-plus.com
-
-      - name: Copy files to target directory
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          REMOTE_PORT: 6098
-          SOURCE: /www/wwwroot/dk-plus.com/dist
-          TARGET: /www/wwwroot/dk-plus.com
-        run: |
-<<<<<<< HEAD
-<<<<<<< HEAD
-          ssh -i <(echo "${{ secrets.SSH_PRIVATE_KEY }}") -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist /www/wwwroot/dk-plus.com"
->>>>>>> 821112c (perf: 1.设置自动部署)
-=======
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
-          chmod 600 ssh_key
-          ssh -i ssh_key -p 6098 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cp -R /www/wwwroot/dk-plus.com/dist /www/wwwroot/dk-plus.com"
->>>>>>> 92e5ea9 (perf: 1.设置自动部署)
-=======
-          # 连接到远程服务器并执行命令
-          ssh -i "$SSH_PRIVATE_KEY" -p "$REMOTE_PORT" "$REMOTE_USER"@"$REMOTE_HOST" "
-          # 移动目录或文件到目标位置
-          mv \$SOURCE \$TARGET
-          # 获取当前时间并重命名目标位置的目录或文件为当前时间加 _docs_dist_git
-          current_time=\$(date +'%Y%m%d%H%M%S')
-          mv \$TARGET \$TARGET/\$current_time\_docs_dist_git
->>>>>>> 10628ee (perf: 1.设置自动部署)
