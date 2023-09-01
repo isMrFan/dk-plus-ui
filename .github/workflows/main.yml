@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-      - dev
 
 jobs:
   deploy:
@@ -41,14 +40,14 @@ jobs:
         run: npm run build:play
 
       - name: Clear existing files (dev)
-        if: github.ref == 'refs/heads/dev'
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -p ${{ secrets.REMOTE_PORT }} ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
-          ssh -p ${{ secrets.REMOTE_PORT }} -i ${{ secrets.SSH_PRIVATE_KEY }} -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "rm -rf /www/wwwWeb/test.cadwaladerss.com/*"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -p ${{ secrets.REMOTE_PORT }} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "rm -rf /www/wwwWeb/test.cadwaladerss.com/*"
 
       - name: Deploy to Web Server (dev)
-        if: github.ref == 'refs/heads/dev'
         uses: easingthemes/ssh-deploy@v2
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -59,14 +58,14 @@ jobs:
           TARGET: /www/wwwWeb/test.cadwaladerss.com
 
       - name: Clear existing files (master)
-        if: github.ref == 'refs/heads/master'
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -p ${{ secrets.REMOTE_PORT }} ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
-          ssh -p ${{ secrets.REMOTE_PORT }} -i ${{ secrets.SSH_PRIVATE_KEY }} -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "rm -rf /www/wwwWeb/dk-plus.com/*"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -p ${{ secrets.REMOTE_PORT }} -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "rm -rf /www/wwwWeb/dk-plus.com/*"
 
       - name: Deploy to Web Server (master)
-        if: github.ref == 'refs/heads/master'
         uses: easingthemes/ssh-deploy@v2
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
