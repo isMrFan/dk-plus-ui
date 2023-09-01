@@ -30,10 +30,10 @@ jobs:
           cache: 'pnpm'
 
       # 安装依赖项
-      - name: pnpm Install
+      - name: Install
         run: pnpm install
 
-      - name: npm Build:docs
+      - name: Build
         run: npm run build:docs
 
       - name: Deploy to Web Server
