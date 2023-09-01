@@ -77,6 +77,9 @@ jobs:
 >>>>>>> 734ab9d (perf: 1.设置自动部署)
 =======
 
+      - name: List files in dist folder
+        run: ls -la /www/wwwroot/dk-plus.com/dist
+
       - name: Move files
         run: |
           mv /www/wwwroot/dk-plus.com/dist/* /www/wwwroot/dk-plus.com/
