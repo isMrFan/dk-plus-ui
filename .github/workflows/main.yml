@@ -42,59 +42,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-<<<<<<< HEAD
-<<<<<<< HEAD
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           SOURCE: /docs/.vitepress/dist/*
           TARGET: /www/wwwWeb/dk-plus.com
-<<<<<<< HEAD
-=======
-          REMOTE_PORT: 6098
-=======
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
->>>>>>> 4dece95 (perf: 1.设置自动部署)
-          SOURCE: /docs/.vitepress/dist
-<<<<<<< HEAD
-<<<<<<< HEAD
-          TARGET: ${{ secrets.TARGET }}
-
-      - name: Copy files to target directory
-        run: |
-          ssh -i "$SSH_PRIVATE_KEY" -p ${{ secrets.REMOTE_PORT }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
-            # 获取当前时间
-              current_time=\$(date +'%Y%m%d%H%M%S')
-            # 文件目录
-              rootPath=\${{ secrets.TARGET }}
-              path=\${{ secrets.path }}
-              rootFolder='BackupCopy'
-              cd \${rootPath}
-              mkdir -p _backUp/\${rootFolder}_\${current_time}
-              cp -r \${path} _backUp/\${rootFolder}_\${current_time}/
-              rm -rf \${path}
-          "
->>>>>>> b348bd2 (perf: 1.设置自动部署)
-=======
-          TARGET: /www/wwwroot/dk-plus.com
-<<<<<<< HEAD
->>>>>>> 734ab9d (perf: 1.设置自动部署)
-=======
-=======
-          TARGET: /www/wwwWeb/dk-plus.com
->>>>>>> 6249866 (perf: 1.设置自动部署)
-
-      - name: Wait for files to be transferred
-        run: sleep 10
-
-      - name: List files in dist folder
-        run: ls -la /www/wwwWeb/dk-plus.com/dist
-
-      - name: Move files
-        run: |
-<<<<<<< HEAD
-          mv /www/wwwroot/dk-plus.com/dist/* /www/wwwroot/dk-plus.com/
->>>>>>> 33a4580 (perf: 1.设置自动部署)
-=======
-          mv /www/wwwWeb/dk-plus.com/dist/* /www/wwwWeb/dk-plus.com/
->>>>>>> 6249866 (perf: 1.设置自动部署)
-=======
->>>>>>> 098b3fd (perf: 1.设置自动部署)
