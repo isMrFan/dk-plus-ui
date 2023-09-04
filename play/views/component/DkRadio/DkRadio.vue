@@ -8,5 +8,5 @@
   });
 </script>
 <template>
-  <dk-radio></dk-radio>
+  <dk-radio>aaa</dk-radio>
 </template>

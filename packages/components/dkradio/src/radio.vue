@@ -8,5 +8,10 @@
   });
 </script>
 <template>
-  <div class="dk-radio">dk-radio</div>
+  <div class="dk-radio">
+    <label class="dk-radio-wrapper">
+      <input class="dk-radio_inner" type="radio" />
+      <slot></slot>
+    </label>
+  </div>
 </template>
