@@ -284,7 +284,7 @@ const textareaAttrs = reactive({
           <slot name="prefix" />
           <dk-icon v-if="data.isPrefixIcon" :class="prefixIconClass" :icon="prefixIcon" size="19px"></dk-icon>
         </span>
-      </template>：
+      </template>
 
       <!-- inner -->
       <input ref="input" v-model="modelValueProp" :type="inputType" v-bind="inputAttrs" @keydown.enter="onKeydownEnter" />
