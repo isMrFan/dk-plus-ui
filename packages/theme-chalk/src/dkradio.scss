@@ -5,24 +5,22 @@
   display: inline-block;
   user-select: none;
 
-  input[type='radio'] {
+  &:hover{
     cursor: pointer;
   }
 
   @include block(wrapper){
-    height: var(--radio-font-size);
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: var(--radio-font-size);
     font-size: var(--radio-font-size);
   }
 
-  @include element(inner) {
-    width: var(--radio-font-size);
-    height: var(--radio-font-size);
-    &:checked{
-      color: #f00;
-    }
-  }
+  // @include element(inner) {
+  //   width: var(--radio-font-size);
+  //   height: var(--radio-font-size);
+  //   &:checked{
+  //     color: #f00;
+  //   }
+  // }
 }
