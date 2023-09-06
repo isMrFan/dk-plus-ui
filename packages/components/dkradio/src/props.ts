@@ -7,7 +7,7 @@ export const dkRadioProps = {
    * @name modelValue
    * @param { boolean } modelValue  [false]
    */
-  modelValue: setBooleanProps(false),
+  modelValue: setStringProp(),
   /**
    * @name disabled
    * @param { boolean } disabled  [false]
@@ -21,12 +21,12 @@ export const dkRadioProps = {
    * @name name
    * @param { string } name Value when selected
    */
-  name: String,
+  name: setStringProp(),
   /**
    * @name label
    * @param { string } label Copy of Radio
    */
-  label: String,
+  label: setStringProp(),
   /**
    * @name size
    * @param { string }  [large]

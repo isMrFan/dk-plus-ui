@@ -4,23 +4,24 @@
 @include block(radio) {
   display: inline-block;
   user-select: none;
-
-  &:hover{
-    cursor: pointer;
-  }
-
+  margin-right: 10px;
+  
   @include block(wrapper){
+    cursor: pointer;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 4px;
     font-size: var(--radio-font-size);
   }
-
-  // @include element(inner) {
-  //   width: var(--radio-font-size);
-  //   height: var(--radio-font-size);
-  //   &:checked{
-  //     color: #f00;
-  //   }
-  // }
+  
+  @include element(inner) {
+    cursor: pointer;
+    height: 100%;
+    transform: translateY(10%);
+    &:checked{
+      color: #f00;
+    }
+  }
 }
