@@ -1,0 +1,26 @@
+@use '../mixins/mixin.scss' as *;
+@use '../mixins//configuration/var-radio.scss' as *;
+
+@include block(radio) {
+  display: inline-block;
+  user-select: none;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  @include block(wrapper){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--radio-font-size);
+  }
+
+  // @include element(inner) {
+  //   width: var(--radio-font-size);
+  //   height: var(--radio-font-size);
+  //   &:checked{
+  //     color: #f00;
+  //   }
+  // }
+}
