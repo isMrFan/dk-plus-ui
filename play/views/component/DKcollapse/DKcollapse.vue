@@ -52,7 +52,7 @@
       <h2>关闭手风琴效果 设置accordion</h2>
       <dk-collapse v-model="NackName" accordion @change="handleChange">
         <dk-collapse-item title="折叠1" name="1">
-          <div >996996996996996996🤬🤬🤬</div>
+          <div>996996996996996996🤬🤬🤬</div>
         </dk-collapse-item>
         <dk-collapse-item title="折叠2" name="2">
           <div>996996996996996996🤬🤬🤬</div>

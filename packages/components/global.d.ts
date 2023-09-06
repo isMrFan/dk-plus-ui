@@ -39,9 +39,6 @@ declare module '@vue/runtime-core' {
     DkScroll: typeof components.DkScroll
   }
 }
-export interface ImportMeta {
-  glob: <T>(pattern: string) => Promise<Record<string, () => Promise<T>>>
-}
 
 declare global {
   const isDev: boolean
