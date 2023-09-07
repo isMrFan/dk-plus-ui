@@ -56,6 +56,7 @@
 <template>
   <div :class="classList">
     <label class="dk-radio-wrapper" @change="handleChange">
+      <div class="dk-radio_circle"></div>
       <input ref="radio" class="dk-radio_inner" type="radio" :disabled="disabled" />
       <span>{{ label }}</span>
     </label>

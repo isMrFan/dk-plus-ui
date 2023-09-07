@@ -17,4 +17,5 @@
 <template>
   <dk-radio v-model="radioValue" label="option 1" name="radio1" disabled @change="handleChange" />
   <dk-radio v-model="radioValue" label="option 2" name="radio2" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 3" name="radio3" @change="handleChange" />
 </template>

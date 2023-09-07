@@ -5,31 +5,85 @@
   display: inline-block;
   user-select: none;
   margin-right: 10px;
-  
-  @include block(wrapper){
+
+  @include block(wrapper) {
     cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-size: var(--radio-font-size);
-  }
-  
-  @include element(inner) {
+    // font-size: var(--radio-font-size);
+    display: inline-block;
+    margin-right: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
     cursor: pointer;
-    height: 100%;
-    transform: translateY(10%);
-    &:checked{
-      color: #f00;
+    position: relative;
+    span {
+      position: relative;
+      padding-left: 20px;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #409eff;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.2s ease-in-out;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 1px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #409eff;
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+      }
     }
   }
 
-  @include element(disabled){
+  @include element(circle) {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #409eff;
+    border-radius: 50%;
+  }
+
+  @include element(inner) {
+    display: none;
+    &:checked + span:before {
+      background-color: #409eff;
+      transform: scale(1);
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 3px;
+      z-index: 1;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #fff;
+      transform: scale(1);
+      transition: transform 0.2s ease-in-out;
+    }
+    &:checked + span:after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @include element(disabled) {
     cursor: not-allowed;
     opacity: 0.5;
-    @include block('>*radio'){
-      @include block(wrapper){
+    @include block('>*radio') {
+      @include block(wrapper) {
         cursor: not-allowed;
       }
     }
