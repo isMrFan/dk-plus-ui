@@ -5,6 +5,17 @@
   user-select: none;
   margin-right: 10px;
 
+  &:hover{
+    .dk-radio_circle {
+      border-color: var(--radio-hover-color);
+    }
+    &.dk-radio_disabled {
+      .dk-radio_circle {
+        border-color: var(--radio-unchecked-color);
+      }
+    }
+  }
+
   @include block(wrapper) {
     cursor: pointer;
     display: inline-block;
