@@ -15,7 +15,10 @@
   });
 </script>
 <template>
-  <dk-radio v-model="radioValue" label="option 1" name="radio1" disabled @change="handleChange" />
-  <dk-radio v-model="radioValue" label="option 2" name="radio2" @change="handleChange" />
-  <dk-radio v-model="radioValue" label="option 3" name="radio3" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 1 - disabled" name="radio1-disabled" disabled size="large" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 1 - large" name="radio1" size="large" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 2 - medium" name="radio2" size="medium" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 3 - small" name="radio3" size="small" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 3 - default" name="radio3" size="default" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 4 - mini" name="radio4" size="mini" @change="handleChange" />
 </template>
