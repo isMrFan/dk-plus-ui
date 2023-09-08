@@ -3,5 +3,6 @@
 @include block(radio-group){
   @include element(list){
     display: flex;
+    flex-wrap: wrap;
   }
 }

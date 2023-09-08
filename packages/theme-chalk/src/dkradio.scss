@@ -8,6 +8,7 @@
   @include block(wrapper) {
     cursor: pointer;
     display: inline-block;
+    white-space: nowrap;
     margin-right: 10px;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -18,6 +19,7 @@
       padding-left: calc(var(--radio-size) + 10px);
       font-size: var(--radio-size);
       transition: all 0.1s ease-in-out;
+      color: #666;
     }
   }
 
@@ -28,9 +30,10 @@
     left: 0;
     width: var(--radio-size);
     height: var(--radio-size);
-    border: 2px solid #409eff;
+    border: 2px solid var(--radio-unchecked-color);
     border-radius: 50%;
-    &:before{
+    transition: all 0.1s ease-in-out;
+    &:before {
       content: '';
       width: 100%;
       height: 100%;
@@ -38,11 +41,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0);
-      border: 2px solid #409eff;
+      border: 2px solid var(--radio-unchecked-color);
       border-radius: 50%;
       transition: all 0.1s ease-in-out;
     }
-    &:after{
+    &:after {
       content: '';
       width: 100%;
       height: 100%;
@@ -51,26 +54,29 @@
       left: 50%;
       transform: translate(-50%, -50%) scale(0);
       border-radius: 50%;
-      background-color: #409eff;
+      background-color: var(--radio-unchecked-color);
       opacity: 0;
       transition: all 0.1s ease-in-out;
     }
-
   }
 
   @include element(inner) {
     display: none;
-    &:checked + .dk-radio_circle:before{
-      background-color: #fff;
-      z-index: 1;
-      transform: translate(-50%, -50%) scale(.4);
-    }
-    &:checked + .dk-radio_circle:after{
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.15);
-    }
-    &:checked + .dk-radio_circle + span{
-      color: #409eff;
+    &:checked + .dk-radio_circle {
+      border-color: var(--radio-checked-color);
+      &:before {
+        background-color: #fff;
+        z-index: 1;
+        transform: translate(-50%, -50%) scale(0.4);
+      }
+      &:after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.15);
+        background-color: var(--radio-checked-color);
+      }
+      & + span {
+        color: var(--radio-checked-color);
+      }
     }
   }
 

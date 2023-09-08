@@ -17,14 +17,16 @@
       onMounted(() => {
         allRoutes.value = router.getRoutes()
 
-        data.routerList = allRoutes.value.map(item => {
-          if(item.path === '/index') return
-          return {
-            name: item.meta.title,
-            path: item.path,
-            order: item.meta.order || 0
-          }
-        }).filter(item => !!item) as Item[]
+        data.routerList = allRoutes.value
+          .map(item => {
+            if (item.path === '/index') return
+            return {
+              name: item.meta.title,
+              path: item.path,
+              order: item.meta.order || 0
+            }
+          })
+          .filter(item => !!item) as Item[]
         data.routerList.sort((a, b) => {
           return a.order - b.order
         })
@@ -108,7 +110,7 @@
       display: flex;
 
       .index-conten-left {
-        width: 124px;
+        width: 200px;
 
         ul {
           list-style: none;

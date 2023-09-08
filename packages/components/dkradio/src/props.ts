@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import { setBooleanProps, setStringProp } from '../../_utils'
+import { setBooleanProps, setStringProp, setColorProp } from '../../_utils'
 import { DK_SIZE } from '../../_tokens'
 import type { dkPlusSize } from '../../_interface'
 export const dkRadioProps = {
@@ -34,11 +34,11 @@ export const dkRadioProps = {
    * @param { string }  [small]
    * @param { string }  [mini]
    */
-  size: setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
-    return DK_SIZE.includes(value)
-  })
-  // checkedColor: String,
-  // uncheckedColor: String
+  size: setStringProp<dkPlusSize>(null, (val: dkPlusSize) => {
+    return DK_SIZE.includes(val)
+  }),
+  checkedColor: setColorProp(),
+  uncheckedColor: setColorProp()
 }
 
 export type DkRadioType = ExtractPropTypes<typeof dkRadioProps>

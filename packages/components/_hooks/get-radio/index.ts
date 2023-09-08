@@ -18,7 +18,7 @@ export const getRadio = (props: DkRadioType): RadioReturnsType => {
   const classList = classes([...defaultClassList], 'dk-radio')
 
   const styleList = (): CSSProperties => {
-    const { size } = data
+    const { size, checkedColor, uncheckedColor } = data
     const targetSize: Record<string, string> = {
       large: '18px',
       medium: '16px',
@@ -27,7 +27,9 @@ export const getRadio = (props: DkRadioType): RadioReturnsType => {
     }
     
     const style: CSSProperties = {
-      '--radio-size': targetSize[size] || targetSize['small']
+      '--radio-size': targetSize[size] || targetSize['small'],
+      '--radio-checked-color': checkedColor || '#409eff',
+      '--radio-unchecked-color': uncheckedColor || '#dcdfe6'
     }
     return {
       ...style
