@@ -23,7 +23,6 @@ for (const key in pageList) {
   const tPath = path.replace('/', '')
 
   const targetComponent = key.replace('page.ts', tPath + '.vue')
-  console.log('targetComponent', targetComponent)
 
   const route: RouteRecordRaw = {
     path: path,

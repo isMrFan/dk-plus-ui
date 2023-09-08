@@ -3,7 +3,7 @@
   export default defineComponent({
     name: 'DkRadioComp',
     setup() {
-      const radioValue = ref(false);
+      const radioValue = ref('radio2');
       const handleChange = (name: string): void => {
         console.log(name);
       }
@@ -15,6 +15,7 @@
   });
 </script>
 <template>
-  <dk-radio v-model="radioValue" label="option 1" name="radio1" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 1" name="radio1" disabled @change="handleChange" />
   <dk-radio v-model="radioValue" label="option 2" name="radio2" @change="handleChange" />
+  <dk-radio v-model="radioValue" label="option 3" name="radio3" @change="handleChange" />
 </template>
