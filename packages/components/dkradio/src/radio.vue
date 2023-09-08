@@ -28,8 +28,10 @@
 
       const methods = {
         handleChange: (): void => {
-          emit('update:modelValue', data.name)
-          emit('change', data.name)
+          let value = data.name || data.label
+
+          emit('update:modelValue', value)
+          emit('change', value)
         }
       }
 
