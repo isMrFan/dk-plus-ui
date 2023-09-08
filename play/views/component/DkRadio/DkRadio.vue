@@ -73,7 +73,7 @@
     <h4>group 组</h4>
     <dk-radio-group v-model="groupValue" @change="handleGroupChange">
       <dk-radio label="option 1" name="radio1" disabled />
-      <dk-radio label="option 2" name="radio2" />
+      <dk-radio label="option 2" name="radio2" border />
       <dk-radio label="option 3" name="radio3" checked-color="#ee4f4f" unchecked-color="#ce853f" />
     </dk-radio-group>
   </div>

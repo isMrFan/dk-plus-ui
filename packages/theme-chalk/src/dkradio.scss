@@ -4,6 +4,8 @@
   display: inline-block;
   user-select: none;
   margin-right: 10px;
+  font-family: Arial, sans-serif;
+  align-items: center;
 
   &:hover{
     .dk-radio_circle {
@@ -97,6 +99,31 @@
     @include block('>*radio') {
       @include block(wrapper) {
         cursor: not-allowed;
+      }
+    }
+  }
+  
+  @include element(border){
+    padding: 5px 10px;
+    span{
+      &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+        border: 1px solid var(--radio-unchecked-color);
+        border-radius: 4px;
+        transition: all 0.1s ease-in-out;
+      }
+    }
+    .dk-radio_inner{
+      &:checked + .dk-radio_circle + span{
+        &:before{
+          border-color: var(--radio-checked-color);
+        }
       }
     }
   }

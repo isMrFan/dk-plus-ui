@@ -37,8 +37,27 @@ export const dkRadioProps = {
   size: setStringProp<dkPlusSize>(null, (val: dkPlusSize) => {
     return DK_SIZE.includes(val)
   }),
+  /**
+   * @name checkedColor
+   * @param { string } checkedColor  [null]
+   * @description Color when selected
+   * @default null
+   */
   checkedColor: setColorProp(),
-  uncheckedColor: setColorProp()
+  /**
+   * @name uncheckedColor
+   * @param { string } uncheckedColor  [null]
+   * @description Color when unselected
+   */
+  uncheckedColor: setColorProp(),
+  /**
+   * @name border
+   * @param { boolean } border  [false]
+   * @description Whether to display border
+   * @default false
+   * @type boolean
+   */
+  border: setBooleanProps(false)
 }
 
 export type DkRadioType = ExtractPropTypes<typeof dkRadioProps>
