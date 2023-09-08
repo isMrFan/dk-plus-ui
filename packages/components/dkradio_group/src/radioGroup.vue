@@ -36,19 +36,15 @@
 </script>
 <template>
   <div class="dk-radio-group">
-    <div class="dk-radio-group__inner">
-      <div class="dk-radio-group__content">
-        <div class="dk-radio-group__list">
-          <div v-for="item in slotList" :key="item.name" class="dk-radio-group__item">
-            <dk-radio
-              v-model="checkValue"
-              :label="item.label"
-              :name="item.name"
-              v-bind="item"
-              @change="handleChange"
-            />
-          </div>
-        </div>
+    <div class="dk-radio-group_list">
+      <div v-for="item in slotList" :key="item.name" class="dk-radio-group__item">
+        <dk-radio
+          v-model="checkValue"
+          :label="item.label"
+          :name="item.name"
+          v-bind="item"
+          @change="handleChange"
+        />
       </div>
     </div>
   </div>

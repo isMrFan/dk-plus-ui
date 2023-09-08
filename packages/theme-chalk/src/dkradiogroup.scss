@@ -1,0 +1,7 @@
+@use '../mixins/mixin.scss' as *;
+
+@include block(radio-group){
+  @include element(list){
+    display: flex;
+  }
+}
