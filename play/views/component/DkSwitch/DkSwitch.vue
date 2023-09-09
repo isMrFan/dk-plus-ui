@@ -14,28 +14,52 @@
   <div class="box">
     <h4>基础使用</h4>
     <div class="switch-list">
-      <dk-switch v-model="checked" disabled size="large" />
-      <dk-switch
-        v-model="checked"
-        size="medium"
-        checked-color="#359a35"
-        unchecked-color="#d33f3f"
-      />
+      <dk-switch v-model="checked" />
+    </div>
+  </div>
+  <div class="box">
+    <h4>尺寸</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" size="large" />
+      <dk-switch v-model="checked" size="medium" />
       <dk-switch v-model="checked" size="small" />
-      <dk-switch v-model="checked" size="mini" />
+      <dk-switch v-model="checked" size="mini"></dk-switch>
+    </div>
+  </div>
+  <div class="box">
+    <h4>选中颜色</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" checked-color="#359a35" unchecked-color="#d33f3f" />
+    </div>
+  </div>
+  <div class="box">
+    <h4>禁用</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" disabled />
+    </div>
+  </div>
+  <div class="box">
+    <h4>文案设置</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" checked-text="是" unchecked-text="否" />
+    </div>
+    <div class="switch-list">
+      <dk-switch v-model="checked" checked-text="Y" unchecked-text="N" width="100px" />
+      <dk-switch v-model="checked" checked-text="是是是是是是" unchecked-text="否否否否否否" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
   .box {
-    padding: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .switch-list {
       display: flex;
       align-items: center;
-      .dk-switch {
-        margin-right: 20px;
-      }
+      gap: 10px;
     }
   }
 </style>

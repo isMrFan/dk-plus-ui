@@ -41,7 +41,28 @@ export const switchProps = {
    * @default #C0CCDA
    * @description Switch off color
    */
-  uncheckedColor: setColorProp('#C0CCDA')
+  uncheckedColor: setColorProp('#C0CCDA'),
+  /**
+   * @name checkedText
+   * @type string
+   * @default ''
+   * @description Checked text
+   */
+  checkedText: setStringProp(''),
+  /**
+   * @name unCheckedText
+   * @type string
+   * @default ''
+   * @description Unchecked text
+   */
+  uncheckedText: setStringProp(''),
+  /**
+   * @name width 
+   * @type string | number
+   * @default 40px
+   * @description Switch width
+   */
+  width: setStringProp('40px')
 }
 
 export type SwitchPropsType = ExtractPropTypes<typeof switchProps>

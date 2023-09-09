@@ -1,27 +1,44 @@
 @use '../mixins/mixin.scss' as *;
 
 @include block(switch) {
-  width: var(--switch-size);
-  height: calc(var(--switch-size) / 2);
+  width: var(--switch-width);
+  height: var(--switch-height);
   cursor: pointer;
   @include block(wrapper) {
-    width: var(--switch-size);
-    height: calc(var(--switch-size) / 2);
+    width: var(--switch-width);
+    height: var(--switch-height);
     position: absolute;
   }
   @include element(slider) {
-    width: inherit;
+    width: var(--switch-width);
+    // width: fit-content;
+    // min-width: var(--switch-width);
     height: inherit;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border-radius: var(--switch-height);
+    overflow: hidden;
+    
+    .dk-switch_title{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transform: translateX(30%);
+      transition: all 0.2s;
+    }
+
     &:before {
       content: '';
       display: inline-block;
-      width: var(--switch-size);
-      height: calc(var(--switch-size) / 2);
-      border-radius: calc(var(--switch-size) / 2);
+      width: 100%;
+      height: var(--switch-height);
+      border-radius: var(--switch-height);
       position: absolute;
       top: 0;
       background-color: var(--switch-unchecked-color);
@@ -29,11 +46,12 @@
       transition: all 0.2s;
       cursor: pointer;
     }
+
     &:after {
       content: '';
       display: inline-block;
-      width: calc(var(--switch-size) / 2 - 4px);
-      height: calc(var(--switch-size) / 2 - 4px);
+      width: calc(var(--switch-height) - 4px);
+      height: calc(var(--switch-height) - 4px);
       background-color: #fff;
       border-radius: 50%;
       position: absolute;
@@ -41,13 +59,13 @@
       transform: translateY(-50%);
       left: 2px;
       transition: all 0.2s;
-      z-index: 1;
+      z-index: 2;
       cursor: pointer;
     }
   }
   @include element(inner) {
-    width: var(--switch-size);
-    height: calc(var(--switch-size) / 2);
+    width: var(--switch-width);
+    height: var(--switch-height);
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -55,13 +73,25 @@
     z-index: 2;
     opacity: 0;
     &:checked + .dk-switch_slider {
+      .dk-switch_title{
+        transform: translateX(-30%);
+      }
       &:before {
         background-color: var(--switch-checked-color);
       }
       &:after {
-        left: calc(100% - var(--switch-size) / 2 + 2px);
+        left: calc(100% - var(--switch-height) + 2px);
       }
     }
+  }
+
+  @include element(title){
+    position: relative;
+    z-index: 1;
+    font-size: 12px;
+    color: #fff;
+    padding: 0 6px;
+    transition: all 0.2s;
   }
 
   @include element(disabled){

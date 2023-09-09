@@ -11,7 +11,10 @@
 
       const data = reactive({
         modelValue: props.modelValue,
-        disabled: props.disabled
+        disabled: props.disabled,
+        checkedText: props.checkedText,
+        uncheckedText: props.uncheckedText,
+        checkText: props.uncheckedText
       })
 
       const methods = {
@@ -29,8 +32,9 @@
       watch(
         () => props.modelValue,
         val => {
-          if(data.disabled) return
+          if (data.disabled) return
           data.modelValue = val
+          data.checkText = val ? data.checkedText : data.uncheckedText
 
           if (switchRef.value) {
             switchRef.value.checked = val
@@ -54,11 +58,13 @@
 <template>
   <div :class="classList" :style="styleList">
     <label class="dk-switch-wrapper" @change="handleChange">
-      <input ref="switchRef" type="checkbox" class="dk-switch_inner" />
-      <span class="dk-switch_slider"></span>
-      <span class="dk-switch_title">
-        <slot></slot>
-      </span>
+      <input ref="switchRef" type="checkbox" class="dk-switch_inner" v-bind="$attrs" />
+      <div class="dk-switch_slider" area-hidden="true">
+        <span class="dk-switch_title">
+          {{ checkText }}
+          <slot></slot>
+        </span>
+      </div>
     </label>
   </div>
 </template>
