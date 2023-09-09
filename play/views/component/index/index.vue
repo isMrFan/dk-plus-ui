@@ -48,7 +48,7 @@
           <li v-for="(item, ind) in routerList" :key="ind">
             <router-link
               :to="item.path"
-              :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #ccc;'"
+              :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #aaa;'"
             >
               {{ item.name }}
             </router-link>

@@ -48,7 +48,8 @@ export const sidebar = {
       items: [
         { text: 'Input 输入框', link: '/zh/components/input' },
         { text: 'InputNumber 计数器', link: '/zh/components/inputNumber' },
-        { text: 'Checkbox 多选框', link: '/zh/components/checkbox' }
+        { text: 'Checkbox 多选框', link: '/zh/components/checkbox' },
+        { text: 'Radio 单选框', link: '/zh/components/radio' },
       ]
     },
     {

@@ -9,7 +9,6 @@
     setup(props, { slots, emit }) {
       const { getSlot } = getRadioGroup(props)
       const slotList = getSlot(slots)
-      console.log(slotList)
 
       const checkValue = ref('radio2')
 
