@@ -18,10 +18,9 @@
         handleChange: (e: Event): void => {
           if (data.disabled) return
           const target = e.target as HTMLInputElement
-          data.modelValue = target.checked
 
-          emit('update:modelValue', data.modelValue)
-          emit('change', data.modelValue)
+          emit('update:modelValue', target.checked)
+          emit('change', target.checked)
         }
       }
 
@@ -30,6 +29,7 @@
       watch(
         () => props.modelValue,
         val => {
+          if(data.disabled) return
           data.modelValue = val
 
           if (switchRef.value) {

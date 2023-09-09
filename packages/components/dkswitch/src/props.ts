@@ -1,4 +1,4 @@
-import { setBooleanProps, setStringProp } from '../../_utils'
+import { setBooleanProps, setColorProp, setStringProp } from '../../_utils'
 import { type ExtractPropTypes } from 'vue'
 import type { dkPlusSize } from '../../_interface'
 import { DK_SIZE } from '../../_tokens'
@@ -27,7 +27,21 @@ export const switchProps = {
    */
   size: setStringProp<dkPlusSize>(null, (val: dkPlusSize) => {
     return DK_SIZE.includes(val)
-  })
+  }),
+  /**
+   * @name checkedColor
+   * @type string
+   * @default #409EFF
+   * @description Switch on color
+   */
+  checkedColor: setColorProp('#409EFF'),
+  /**
+   * @name unCheckedColor
+   * @type string
+   * @default #C0CCDA
+   * @description Switch off color
+   */
+  uncheckedColor: setColorProp('#C0CCDA')
 }
 
 export type SwitchPropsType = ExtractPropTypes<typeof switchProps>

@@ -24,7 +24,7 @@
       border-radius: calc(var(--switch-size) / 2);
       position: absolute;
       top: 0;
-      background-color: #dcdfe6;
+      background-color: var(--switch-unchecked-color);
       left: 0;
       transition: all 0.2s;
       cursor: pointer;
@@ -56,7 +56,7 @@
     opacity: 0;
     &:checked + .dk-switch_slider {
       &:before {
-        background-color: #409eff;
+        background-color: var(--switch-checked-color);
       }
       &:after {
         left: calc(100% - var(--switch-size) / 2 + 2px);

@@ -1,6 +1,6 @@
 import { toRaw, type CSSProperties, type ComputedRef } from 'vue'
 import type { SwitchPropsType } from '../../dkswitch/src/props'
-import { getStyleList } from '..'
+import { getColor, getStyleList } from '..'
 import type { ClassListName } from '../../_interface'
 
 interface GetSwitchReturnsType {
@@ -19,9 +19,7 @@ export const getSwitch = (props: SwitchPropsType): GetSwitchReturnsType => {
   const classList = classes([...defaultClass], 'dk-switch')
 
   const styleList = (): CSSProperties => {
-    const {
-      size
-    } = data
+    const { size, checkedColor, uncheckedColor } = data
 
     const targetSize: Record<string, string> = {
       large: '56px',
@@ -31,7 +29,9 @@ export const getSwitch = (props: SwitchPropsType): GetSwitchReturnsType => {
     }
 
     const style = {
-      '--switch-size': targetSize[size] || targetSize['small']
+      '--switch-size': targetSize[size] || targetSize['small'],
+      '--switch-checked-color': getColor(checkedColor || '#409EFF').getDeepen(0),
+      '--switch-unchecked-color': getColor(uncheckedColor || '#C0CCDA').getDeepen(0)
     }
 
     return {
