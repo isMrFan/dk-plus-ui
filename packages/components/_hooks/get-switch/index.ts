@@ -1,8 +1,7 @@
 import { toRaw, type CSSProperties, type ComputedRef } from 'vue'
 import type { SwitchPropsType } from '../../dkswitch/src/props'
-import { getColor, getStyleList } from '..'
+import { getColor, getStyleList, setSize } from '..'
 import type { ClassListName } from '../../_interface'
-import { setSize } from '..'
 
 interface GetSwitchReturnsType {
   classList: ComputedRef<ClassListName>
@@ -29,16 +28,11 @@ export const getSwitch = (props: SwitchPropsType): GetSwitchReturnsType => {
       mini: ['36px', '18px']
     }
 
-    let switchWidth = size
-      ? targetSize[size][0] || targetSize['small'][0]
-      : targetSize['small'][0]
-
-    if (width) {
-      switchWidth = setSize(width || '40px')
-    }
-
     const style = {
-      '--switch-width': switchWidth,
+      '--switch-width': width ? setSize(width) : 'fit-content',
+      '--switch-min-width': size
+        ? targetSize[size][0] || targetSize['small'][0]
+        : targetSize['small'][0],
       '--switch-height': size
         ? targetSize[size][1] || targetSize['small'][1]
         : targetSize['small'][1],
