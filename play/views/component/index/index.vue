@@ -50,7 +50,7 @@
               :to="item.path"
               :style="$route.path === item.path ? 'color: #34ab98;' : 'color: #aaa;'"
             >
-              {{ item.name }}
+              {{ ind + 1 }} - {{ item.name }}
             </router-link>
           </li>
         </ul>

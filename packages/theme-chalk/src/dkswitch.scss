@@ -1,0 +1,83 @@
+@use '../mixins/mixin.scss' as *;
+
+@include block(switch) {
+  width: var(--switch-size);
+  height: calc(var(--switch-size) / 2);
+  cursor: pointer;
+  @include block(wrapper) {
+    width: var(--switch-size);
+    height: calc(var(--switch-size) / 2);
+    position: absolute;
+  }
+  @include element(slider) {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &:before {
+      content: '';
+      display: inline-block;
+      width: var(--switch-size);
+      height: calc(var(--switch-size) / 2);
+      border-radius: calc(var(--switch-size) / 2);
+      position: absolute;
+      top: 0;
+      background-color: #dcdfe6;
+      left: 0;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    &:after {
+      content: '';
+      display: inline-block;
+      width: calc(var(--switch-size) / 2 - 4px);
+      height: calc(var(--switch-size) / 2 - 4px);
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2px;
+      transition: all 0.2s;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+  @include element(inner) {
+    width: var(--switch-size);
+    height: calc(var(--switch-size) / 2);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    &:checked + .dk-switch_slider {
+      &:before {
+        background-color: #409eff;
+      }
+      &:after {
+        left: calc(100% - var(--switch-size) / 2 + 2px);
+      }
+    }
+  }
+
+  @include element(disabled){
+    opacity: 0.6;
+    * {
+      cursor: not-allowed;
+    }
+    .dk-switch_inner{
+      &:checked + .dk-switch_slider{
+        &:before {
+          background-color: #dcdfe6;
+        }
+        &:after {
+          left: 2px;
+        }
+      }
+    }
+  }
+}
