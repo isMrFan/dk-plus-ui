@@ -53,12 +53,16 @@
     </div>
   </div>
   <div class="box">
-    <h4>带有图标的滑块</h4>
+    <h4>带有图标的开关</h4>
     <div class="switch-list">
       <dk-switch v-model="checked" checked-text="是" unchecked-text="否" />
-    </div>
-    <div class="switch-list">
       <dk-switch v-model="checked" checked-icon="IconCheck" unchecked-icon="IconClose" />
+    </div>
+  </div>
+  <div class="box">
+    <h4>加载效果的开关</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" :loading="checked" />
     </div>
   </div>
 </template>

@@ -15,16 +15,37 @@
         checkedText: props.checkedText,
         uncheckedText: props.uncheckedText,
         checkText: props.uncheckedText,
-        checkIcon: props.uncheckedIcon
+        checkIcon: props.uncheckedIcon,
+        loading: props.loading
       })
 
       const methods = {
         handleChange: (e: Event): void => {
-          if (data.disabled) return
           const target = e.target as HTMLInputElement
+          
+          if (data.disabled) {
+            target.checked = !target.checked
+            classList.value.push('dk-switch_disabled')
+            return
+          }
 
-          emit('update:modelValue', target.checked)
-          emit('change', target.checked)
+          let value = target.checked
+
+          if (props.disabled) {
+            value = !value
+          }
+          target.checked = value
+
+          emit('update:modelValue', value)
+          emit('change', value)
+        },
+        refreshStatus: (): void => {
+          data.disabled = props.disabled || props.loading
+          if (data.disabled) {
+            classList.value.push('dk-switch_disabled')
+          }else{
+            classList.value.splice(classList.value.indexOf('dk-switch_disabled'), 1)
+          }
         }
       }
 
@@ -33,15 +54,39 @@
       watch(
         () => props.modelValue,
         val => {
-          if (data.disabled) return
           data.modelValue = val
           data.checkText = val ? data.checkedText : data.uncheckedText
 
           if (switchRef.value) {
             switchRef.value.checked = val
+            console.log(switchRef.value.checked)
           }
 
           data.checkIcon = val ? props.checkedIcon : props.uncheckedIcon
+
+          methods.refreshStatus()
+        },
+        {
+          immediate: true
+        }
+      )
+
+      watch(
+        () => props.loading,
+        val => {
+          data.loading = val
+          methods.refreshStatus()
+        },
+        {
+          immediate: true
+        }
+      )
+
+      watch(
+        () => props.disabled,
+        val => {
+          data.disabled = val
+          methods.refreshStatus()
         },
         {
           immediate: true
@@ -61,8 +106,15 @@
 <template>
   <div :class="classList" :style="styleList">
     <label class="dk-switch-wrapper" @change="handleChange">
-      <input ref="switchRef" type="checkbox" class="dk-switch_inner" v-bind="$attrs" />
+      <input
+        v-show="!disabled || !loading"
+        ref="switchRef"
+        type="checkbox"
+        class="dk-switch_inner"
+        v-bind="$attrs"
+      />
       <div class="dk-switch_slider">
+        <dk-icon v-if="loading" icon="IconLoading"></dk-icon>
         <span class="dk-switch_title">
           <dk-icon v-if="checkIcon" :icon="checkIcon" size="14"></dk-icon>
           {{ checkText }}

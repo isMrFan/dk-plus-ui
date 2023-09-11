@@ -4,13 +4,16 @@
   width: var(--switch-width);
   min-width: var(--switch-min-width);
   height: var(--switch-height);
+  border-radius: var(--switch-height);
+  overflow: hidden;
   cursor: pointer;
+  user-select: none;
   @include block(wrapper) {
     display: block;
     width: var(--switch-width);
     min-width: var(--switch-min-width);
     height: var(--switch-height);
-    position: absolute;
+    position: relative;
   }
   @include element(slider) {
     width: calc(var(--switch-width) - 20px);
@@ -62,6 +65,18 @@
       z-index: 2;
       cursor: pointer;
     }
+    
+    &>.dk-icon{
+      font-size: calc(var(--switch-height) - 6px);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 3px;
+      z-index: 3;
+      color: var(--switch-unchecked-color);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
   }
   @include element(inner) {
     width: 100%;
@@ -81,6 +96,9 @@
       }
       &:after {
         left: calc(100% - var(--switch-height) + 2px);
+      }
+      &>.dk-icon{
+        left: calc(100% - var(--switch-height) + 3px);
       }
     }
   }
@@ -102,10 +120,7 @@
     .dk-switch_inner{
       &:checked + .dk-switch_slider{
         &:before {
-          background-color: #dcdfe6;
-        }
-        &:after {
-          left: 2px;
+          cursor: not-allowed;
         }
       }
     }
