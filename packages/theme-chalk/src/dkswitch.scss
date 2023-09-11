@@ -13,14 +13,11 @@
     position: absolute;
   }
   @include element(slider) {
-    width: var(--switch-width);
+    width: calc(var(--switch-width) - 20px);
     min-width: calc(var(--switch-min-width) - 20px);
     height: inherit;
     padding: 0 10px;
     position: relative;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;

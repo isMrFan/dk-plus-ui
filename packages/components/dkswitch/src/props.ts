@@ -62,7 +62,7 @@ export const switchProps = {
    * @default 40px
    * @description Switch width
    */
-  width: setStringProp('40px')
+  width: setStringProp()
 }
 
 export type SwitchPropsType = ExtractPropTypes<typeof switchProps>

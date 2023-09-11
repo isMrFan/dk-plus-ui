@@ -59,7 +59,7 @@
   <div :class="classList" :style="styleList">
     <label class="dk-switch-wrapper" @change="handleChange">
       <input ref="switchRef" type="checkbox" class="dk-switch_inner" v-bind="$attrs" />
-      <div class="dk-switch_slider" area-hidden="true">
+      <div class="dk-switch_slider">
         <span class="dk-switch_title">
           {{ checkText }}
           <slot></slot>

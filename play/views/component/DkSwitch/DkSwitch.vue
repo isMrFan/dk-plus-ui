@@ -45,7 +45,11 @@
     </div>
     <div class="switch-list">
       <dk-switch v-model="checked" checked-text="Y" unchecked-text="N" width="100px" />
-      <dk-switch v-model="checked" checked-text="是是是是是是" unchecked-text="否否否否否否否否否否否否否否否否否否" width="100px" />
+      <dk-switch
+        v-model="checked"
+        checked-text="是是是是是是"
+        unchecked-text="否否否否否否否否否否否否否否否否否否"
+      />
     </div>
   </div>
 </template>
