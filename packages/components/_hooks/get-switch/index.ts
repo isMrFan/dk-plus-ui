@@ -27,7 +27,7 @@ export const getSwitch = (props: SwitchPropsType): GetSwitchReturnsType => {
       small: ['40px', '20px'],
       mini: ['36px', '18px']
     }
-    console.log(width)
+
     const style = {
       '--switch-width': width ? setSize(width) : 'fit-content',
       '--switch-min-width': size

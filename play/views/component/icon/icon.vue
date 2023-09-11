@@ -12,6 +12,8 @@
         zidingyis: '<dkIcon :size="50" :color="\'red\'" :icon="IconShanchu1"></dkIcon>'
       }
       const iconList = [
+        ['IconClose', '叉'],
+        ['IconCheck', '勾'],
         ['IconArrowTop', '上箭头'],
         ['IconArrowBottom', '下箭头'],
         ['IconShanchu1', '删除1'],

@@ -44,12 +44,21 @@
       <dk-switch v-model="checked" checked-text="是" unchecked-text="否" />
     </div>
     <div class="switch-list">
-      <dk-switch v-model="checked" checked-text="Y" unchecked-text="N" width="100px" />
+      <dk-switch v-model="checked" checked-text="设置了宽度" unchecked-text="超出的部分显示省略号" width="100px" />
       <dk-switch
         v-model="checked"
-        checked-text="是是是是是是"
-        unchecked-text="否否否否否否否否否否否否否否否否否否"
+        checked-text="不设置宽度"
+        unchecked-text="自适应"
       />
+    </div>
+  </div>
+  <div class="box">
+    <h4>带有图标的滑块</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" checked-text="是" unchecked-text="否" />
+    </div>
+    <div class="switch-list">
+      <dk-switch v-model="checked" checked-icon="IconCheck" unchecked-icon="IconClose" />
     </div>
   </div>
 </template>

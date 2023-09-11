@@ -14,7 +14,8 @@
         disabled: props.disabled,
         checkedText: props.checkedText,
         uncheckedText: props.uncheckedText,
-        checkText: props.uncheckedText
+        checkText: props.uncheckedText,
+        checkIcon: props.uncheckedIcon
       })
 
       const methods = {
@@ -39,6 +40,8 @@
           if (switchRef.value) {
             switchRef.value.checked = val
           }
+
+          data.checkIcon = val ? props.checkedIcon : props.uncheckedIcon
         },
         {
           immediate: true
@@ -61,6 +64,7 @@
       <input ref="switchRef" type="checkbox" class="dk-switch_inner" v-bind="$attrs" />
       <div class="dk-switch_slider">
         <span class="dk-switch_title">
+          <dk-icon :icon="checkIcon" size="14"></dk-icon>
           {{ checkText }}
           <slot></slot>
         </span>
