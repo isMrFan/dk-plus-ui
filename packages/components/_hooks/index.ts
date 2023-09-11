@@ -11,6 +11,9 @@
  * get-alert   alert用的hooks
  * get-checkbox-group checkbox-group用的hooks
  * get-collapse collapse用的hooks
+ * get-radio radio用的hooks
+ * get-radio-group radio-group用的hooks
+ * get-switch switch用的hooks
  * **************公共hooks(public)**************
  * get-color   颜色用的hooks (getColor)
  * get-Global  全局用的hooks  (getGlobal)
@@ -40,3 +43,6 @@ export * from './get-checkbox'
 export * from './public/get-slot-list'
 export * from './get-checkbox-group'
 export * from './get-collapse'
+export * from './get-radio'
+export * from './get-radio-group'
+export * from './get-switch'

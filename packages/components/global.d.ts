@@ -25,6 +25,8 @@ declare module '@vue/runtime-core' {
     DkCollapse: typeof components.DkCollapse
     DkCollapseItem: typeof components.DkCollapseItem
     DkTransition: typeof components.DkTransition
+    DkRadio: typeof components.DkRadio
+    DkRadioGroup: typeof components.DkRadioGroup
   }
   export interface ImportMetaEnv {
     VITE_APP_BASE_API: string

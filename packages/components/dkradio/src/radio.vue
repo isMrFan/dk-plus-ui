@@ -1,6 +1,7 @@
 <script lang="ts">
   import { defineComponent, reactive, toRefs, watch, ref, nextTick } from 'vue'
   import { dkRadioProps } from './props'
+  import { getRadio } from '../../_hooks'
   export default defineComponent({
     name: 'DkRadio',
     props: dkRadioProps,
@@ -8,27 +9,29 @@
     setup(props, { emit }) {
       const radio = ref<HTMLInputElement>()
 
-      const getClassList = (): string[] => {
-        const list = ['dk-radio']
-        if (props.disabled) {
-          list.push('dk-radio_disabled')
-        }
-        return list
-      }
+      // const getClassList = (): string[] => {
+      //   const list = ['dk-radio']
+      //   if (props.disabled) {
+      //     list.push('dk-radio_disabled')
+      //   }
+      //   return list
+      // }
 
       const data = reactive({
         name: props.name,
         check: props.modelValue,
         disabled: props.disabled,
-        label: props.label,
-        classList: getClassList()
+        label: props.label
       })
+
+      const { classList, styleList } = getRadio(props)
 
       const methods = {
         handleChange: (): void => {
-          // const target = e.target as HTMLInputElement;
-          emit('update:modelValue', data.name)
-          emit('change', data.name)
+          let value = data.name || data.label
+
+          emit('update:modelValue', value)
+          emit('change', value)
         }
       }
 
@@ -48,16 +51,18 @@
       return {
         radio,
         ...toRefs(data),
-        ...methods
+        ...methods,
+        classList,
+        styleList
       }
     }
   })
 </script>
 <template>
-  <div :class="classList">
+  <div :class="classList" :style="styleList">
     <label class="dk-radio-wrapper" @change="handleChange">
-      <div class="dk-radio_circle"></div>
       <input ref="radio" class="dk-radio_inner" type="radio" :disabled="disabled" />
+      <div class="dk-radio_circle"></div>
       <span>{{ label }}</span>
     </label>
   </div>
