@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, reactive, toRefs, watch, ref } from 'vue'
+  import { defineComponent, reactive, toRefs, watch, ref, nextTick } from 'vue'
   import { switchProps } from './props'
   import { getSwitch } from '../../_hooks'
   export default defineComponent({
@@ -23,19 +23,12 @@
       const methods = {
         handleChange: (e: Event): void => {
           const target = e.target as HTMLInputElement
-          
-          if (data.disabled) {
-            target.checked = !target.checked
-            // classList.value.push('dk-switch_disabled')
-            methods.refreshStatus()
-            return
-          }
 
           let value = target.checked
 
-          if (props.disabled) {
-            value = !value
-          }
+          // if (props.disabled) {
+          //   value = !value
+          // }
           target.checked = value
 
           emit('update:modelValue', value)
@@ -44,9 +37,12 @@
         refreshStatus: (): void => {
           data.disabled = props.disabled || props.loading
           if (data.disabled) {
+            if(classList.value.includes('dk-switch_disabled')) return
             classList.value.push('dk-switch_disabled')
           }else{
-            classList.value.splice(classList.value.indexOf('dk-switch_disabled'), 1)
+            const index = classList.value.indexOf('dk-switch_disabled')
+            if(index === -1) return
+            classList.value.splice(index, 1)
           }
         }
       }
@@ -58,16 +54,17 @@
         val => {
           data.modelValue = val
           data.checkText = val ? data.checkedText : data.uncheckedText
-
-          if (switchRef.value) {
-            switchRef.value.checked = val
-          }
-
+          
           data.checkIcon = val ? props.checkedIcon : props.uncheckedIcon
-
-          methods.refreshStatus()
-
+          
           data.customIcon = val ? props.checkedCustomIcon : props.uncheckedCustomIcon
+          methods.refreshStatus()
+          
+          nextTick(() => {
+            if (switchRef.value) {
+              switchRef.value.checked = val
+            }
+          })
         },
         {
           immediate: true
@@ -78,17 +75,6 @@
         () => props.loading,
         val => {
           data.loading = val
-          methods.refreshStatus()
-        },
-        {
-          immediate: true
-        }
-      )
-
-      watch(
-        () => props.disabled,
-        val => {
-          data.disabled = val
           methods.refreshStatus()
         },
         {
@@ -110,7 +96,6 @@
   <div :class="classList" :style="styleList">
     <label class="dk-switch-wrapper" @change="handleChange">
       <input
-        v-show="!disabled || !loading"
         ref="switchRef"
         type="checkbox"
         class="dk-switch_inner"

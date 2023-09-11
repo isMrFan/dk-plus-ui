@@ -3,7 +3,7 @@
   export default defineComponent({
     name: 'DkSwitchComp',
     setup() {
-      const checked = ref(false)
+      const checked = ref(true)
       return {
         checked
       }
