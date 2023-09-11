@@ -82,7 +82,21 @@ export const switchProps = {
    * @type boolean
    * @default false
    */
-  loading: setBooleanProps(false)
+  loading: setBooleanProps(false),
+  /**
+   * @name checkedCustomIcon
+   * @type string
+   * @default ''
+   * @description Custom checked icon
+   */
+  checkedCustomIcon: setStringProp(''),
+  /**
+   * @name uncheckedCustomIcon
+   * @type string
+   * @default ''
+   * @description Custom unchecked icon
+  */
+  uncheckedCustomIcon: setStringProp('')
 }
 
 export type SwitchPropsType = ExtractPropTypes<typeof switchProps>

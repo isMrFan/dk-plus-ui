@@ -16,7 +16,8 @@
         uncheckedText: props.uncheckedText,
         checkText: props.uncheckedText,
         checkIcon: props.uncheckedIcon,
-        loading: props.loading
+        loading: props.loading,
+        customIcon: props.checkedIcon
       })
 
       const methods = {
@@ -25,7 +26,8 @@
           
           if (data.disabled) {
             target.checked = !target.checked
-            classList.value.push('dk-switch_disabled')
+            // classList.value.push('dk-switch_disabled')
+            methods.refreshStatus()
             return
           }
 
@@ -59,12 +61,13 @@
 
           if (switchRef.value) {
             switchRef.value.checked = val
-            console.log(switchRef.value.checked)
           }
 
           data.checkIcon = val ? props.checkedIcon : props.uncheckedIcon
 
           methods.refreshStatus()
+
+          data.customIcon = val ? props.checkedCustomIcon : props.uncheckedCustomIcon
         },
         {
           immediate: true
@@ -115,6 +118,7 @@
       />
       <div class="dk-switch_slider">
         <dk-icon v-if="loading" icon="IconLoading"></dk-icon>
+        <dk-icon v-if="!loading && customIcon" :icon="customIcon"></dk-icon>
         <span class="dk-switch_title">
           <dk-icon v-if="checkIcon" :icon="checkIcon" size="14"></dk-icon>
           {{ checkText }}

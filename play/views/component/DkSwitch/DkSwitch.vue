@@ -62,7 +62,13 @@
   <div class="box">
     <h4>加载效果的开关</h4>
     <div class="switch-list">
-      <dk-switch v-model="checked" :loading="checked" />
+      <dk-switch v-model="checked" :loading="checked" checked-color="#359a35" unchecked-color="#d33f3f" />
+    </div>
+  </div>
+  <div class="box">
+    <h4>自定义图标开关</h4>
+    <div class="switch-list">
+      <dk-switch v-model="checked" checked-custom-icon="LeftFastForward" unchecked-custom-icon="RightFastForward" />
     </div>
   </div>
 </template>
