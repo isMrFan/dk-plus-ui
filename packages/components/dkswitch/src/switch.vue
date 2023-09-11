@@ -64,7 +64,7 @@
       <input ref="switchRef" type="checkbox" class="dk-switch_inner" v-bind="$attrs" />
       <div class="dk-switch_slider">
         <span class="dk-switch_title">
-          <dk-icon :icon="checkIcon" size="14"></dk-icon>
+          <dk-icon v-if="checkIcon" :icon="checkIcon" size="14"></dk-icon>
           {{ checkText }}
           <slot></slot>
         </span>
