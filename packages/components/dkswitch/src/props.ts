@@ -57,12 +57,46 @@ export const switchProps = {
    */
   uncheckedText: setStringProp(''),
   /**
-   * @name width 
+   * @name width
    * @type string | number
    * @default 40px
    * @description Switch width
    */
-  width: setStringProp('40px')
+  width: setStringProp(),
+  /**
+   * @name checkedIcon
+   * @type string
+   * @default ''
+   * @description Checked icon
+   */
+  checkedIcon: setStringProp(''),
+  /**
+   * @name unCheckedIcon
+   * @type string
+   * @default ''
+   * @description Unchecked icon
+   */
+  uncheckedIcon: setStringProp(''),
+  /**
+   * @name loading
+   * @type boolean
+   * @default false
+   */
+  loading: setBooleanProps(false),
+  /**
+   * @name checkedCustomIcon
+   * @type string
+   * @default ''
+   * @description Custom checked icon
+   */
+  checkedCustomIcon: setStringProp(''),
+  /**
+   * @name uncheckedCustomIcon
+   * @type string
+   * @default ''
+   * @description Custom unchecked icon
+  */
+  uncheckedCustomIcon: setStringProp('')
 }
 
 export type SwitchPropsType = ExtractPropTypes<typeof switchProps>
