@@ -1,0 +1,49 @@
+@use '../mixins/mixin.scss' as *;
+
+@include block(popover) {
+  width: fit-content;
+  position: relative;
+  @include block(wrapper) {
+    font-size: 13px;
+    color: #333;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    width: 240px;
+    height: auto;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    @include element(arrow) {
+      // 三角形
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      margin-left: -5px;
+      width: 10px;
+      height: 10px;
+      border-top: 1px solid #eaeaea;
+      border-left: 1px solid #eaeaea;
+      transform: rotate(45deg);
+      background-color: #fff;
+    }
+  }
+  &:hover {
+    .dk-popover-wrapper {
+      opacity: 1;
+      z-index: 2023;
+    }
+  }
+
+  @include element(inner){
+    width: fit-content;
+    
+  }
+
+}

@@ -72,3 +72,6 @@ export * from './dkradio_group'
 
 export { DkSwitch } from './dkswitch'
 export * from './dkswitch'
+
+export { DkPopover } from './dkpopover'
+export * from './dkpopover'
