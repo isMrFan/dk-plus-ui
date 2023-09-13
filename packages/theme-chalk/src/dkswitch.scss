@@ -102,6 +102,7 @@
       }
       & > .dk-icon {
         left: calc(100% - var(--switch-height) + 3px);
+        transform: translateY(-50%);
       }
     }
   }
