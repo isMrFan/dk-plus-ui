@@ -3,7 +3,10 @@
 @include block(popover) {
   width: fit-content;
   position: relative;
+  overflow: hidden;
   @include block(wrapper) {
+    width: var(--popover-width);
+    height: auto;
     font-size: 13px;
     color: #333;
     opacity: 0;
@@ -12,8 +15,6 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    width: 240px;
-    height: auto;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #eaeaea;
@@ -34,16 +35,23 @@
       background-color: #fff;
     }
   }
-  &:hover {
+  // &:hover {
+  //   overflow: visible;
+  //   .dk-popover-wrapper {
+  //     opacity: 1;
+  //     z-index: 2023;
+  //   }
+  // }
+
+  @include block(active) {
+    overflow: visible;
     .dk-popover-wrapper {
       opacity: 1;
       z-index: 2023;
     }
   }
 
-  @include element(inner){
+  @include element(inner) {
     width: fit-content;
-    
   }
-
 }

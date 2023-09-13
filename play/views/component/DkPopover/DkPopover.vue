@@ -1,9 +1,12 @@
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   export default defineComponent({
     name: 'DkPopoverComp',
     setup() {
-      return {}
+      const visible = ref(true)
+      return {
+        visible
+      }
     }
   })
 </script>
@@ -12,7 +15,7 @@
   </div> -->
   <div class="box" style="margin-left: 200px">
     <h4>基本使用</h4>
-    <dk-popover>
+    <dk-popover v-model="visible" :visible="visible" trigger="click">
       <template #popup>
         <div>popup</div>
         <p>我是弹出的内容 </p>

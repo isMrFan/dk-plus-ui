@@ -1,6 +1,6 @@
 import type { ClassListName } from '../../_interface'
-import { type CSSProperties, type ComputedRef } from 'vue'
-import { getStyleList } from '..'
+import { toRaw, type CSSProperties, type ComputedRef } from 'vue'
+import { getStyleList, setSize } from '..'
 import type { PopoverPropsType } from '../../dkpopover/src/props'
 
 interface GetPopoverReturnType {
@@ -9,14 +9,20 @@ interface GetPopoverReturnType {
 }
 
 export const getPopover = (props: PopoverPropsType): GetPopoverReturnType => {
+  const data = toRaw(props)
   const { classes } = getStyleList(props, 'popover')
   const defaultClass = ['dk-popover']
   const classList = classes([...defaultClass], 'dk-popover')
-  const styleList = {
-    width: '100%'
+
+  const styleList = (): CSSProperties => {
+    const { width } = data
+    const styleList = {
+      '--popover-width': setSize(width || '240px')
+    }
+    return styleList
   }
   return {
     classList,
-    styleList
+    styleList: styleList()
   }
 }
