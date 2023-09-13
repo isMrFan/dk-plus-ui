@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import { setBooleanProps, setStringProp } from '../../_utils'
+import { setBooleanProps, setStringProp, setColorProp } from '../../_utils'
 import { DK_SIZE } from '../../_tokens'
 import type { dkPlusSize } from '../../_interface'
 export const dkRadioProps = {
@@ -7,7 +7,7 @@ export const dkRadioProps = {
    * @name modelValue
    * @param { boolean } modelValue  [false]
    */
-  modelValue: setBooleanProps(false),
+  modelValue: setStringProp(),
   /**
    * @name disabled
    * @param { boolean } disabled  [false]
@@ -21,12 +21,12 @@ export const dkRadioProps = {
    * @name name
    * @param { string } name Value when selected
    */
-  name: String,
+  name: setStringProp(),
   /**
    * @name label
    * @param { string } label Copy of Radio
    */
-  label: String,
+  label: setStringProp(),
   /**
    * @name size
    * @param { string }  [large]
@@ -34,11 +34,30 @@ export const dkRadioProps = {
    * @param { string }  [small]
    * @param { string }  [mini]
    */
-  size: setStringProp<dkPlusSize>(null, (value: dkPlusSize): boolean => {
-    return DK_SIZE.includes(value)
-  })
-  // checkedColor: String,
-  // uncheckedColor: String
+  size: setStringProp<dkPlusSize>(null, (val: dkPlusSize) => {
+    return DK_SIZE.includes(val)
+  }),
+  /**
+   * @name checkedColor
+   * @param { string } checkedColor  [null]
+   * @description Color when selected
+   * @default null
+   */
+  checkedColor: setColorProp(),
+  /**
+   * @name uncheckedColor
+   * @param { string } uncheckedColor  [null]
+   * @description Color when unselected
+   */
+  uncheckedColor: setColorProp(),
+  /**
+   * @name border
+   * @param { boolean } border  [false]
+   * @description Whether to display border
+   * @default false
+   * @type boolean
+   */
+  border: setBooleanProps(false)
 }
 
 export type DkRadioType = ExtractPropTypes<typeof dkRadioProps>

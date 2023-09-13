@@ -48,7 +48,9 @@ export const sidebar = {
       items: [
         { text: 'Input', link: '/en/components/input' },
         { text: 'InputNumber', link: '/en/components/inputNumber' },
-        { text: 'Checkbox', link: '/en/components/checkbox' }
+        { text: 'Checkbox', link: '/en/components/checkbox' },
+        { text: 'Radio', link: '/en/components/radio' },
+        { text: 'Switch', link: '/en/components/switch' }
       ]
     },
     {

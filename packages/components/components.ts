@@ -66,3 +66,9 @@ export * from './dkcheckbox_group'
 
 export { DkRadio } from './dkradio'
 export * from './dkradio'
+
+export { DkRadioGroup } from './dkradio_group'
+export * from './dkradio_group'
+
+export { DkSwitch } from './dkswitch'
+export * from './dkswitch'

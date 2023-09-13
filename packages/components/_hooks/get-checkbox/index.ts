@@ -16,6 +16,7 @@ export const getCheckbox = (prop: DkCheckboxType): CheckboxType => {
   }
 
   const classList = classes([...defaultClassList], 'dk-checkbox')
+  
   const styleList = (): CSSProperties => {
     const { size } = prop
     const targetSize: Record<string, string> = {
