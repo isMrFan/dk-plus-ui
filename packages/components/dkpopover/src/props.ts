@@ -1,3 +1,5 @@
+import { DK_PLACEMENT } from '../../_tokens'
+import type { dkPlusPlaceMent } from '../../_interface'
 import { setBooleanProps, setStringProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 
@@ -28,7 +30,28 @@ export const popoverProps = {
    * @description Trigger method
    * @type {string} [hover, click]
    */
-  trigger: setStringProp('hover')
+  trigger: setStringProp('hover'),
+  /**
+   * @name placement
+   * @description Position of the popover
+   * @type {string} [ top,
+   *                  bottom,
+   *                  left,
+   *                  right,
+   *                  topLeft,
+   *                  top-right,
+   *                  bottom-left,
+   *                  bottom-right,
+   *                  left-top,
+   *                  left-bottom,
+   *                  right-top,
+   *                  right-bottom
+   *                 ]
+   * @default top
+   */
+  placement: setStringProp<dkPlusPlaceMent>(null, (value: dkPlusPlaceMent): boolean => {
+    return DK_PLACEMENT.includes(value)
+  })
 }
 
 export type PopoverPropsType = ExtractPropTypes<typeof popoverProps>
