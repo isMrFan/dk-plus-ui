@@ -143,8 +143,8 @@ export const DK_PLACEMENT = [
   'bottom',
   'left',
   'right',
-  'left-top',
-  'bottom-top',
+  'top-left',
+  'top-right',
   'bottom-left',
   'bottom-right'
 ] as const

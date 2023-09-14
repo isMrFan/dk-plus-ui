@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defineComponent, reactive, toRefs, watch } from 'vue'
+  import { defineComponent, onMounted, reactive, toRefs, watch } from 'vue'
   import { popoverProps } from './props'
   import { getPopover } from '../../_hooks'
   export default defineComponent({
@@ -7,23 +7,36 @@
     props: popoverProps,
     emits: ['update:modelValue', 'hidden'],
     setup(props, { emit }) {
-      const { classList, styleList } = getPopover(props)
+      const { classList, styleList, wrapperClassList, setTop } = getPopover(props)
       const data = reactive({
         visible: props.visible,
-        trigger: props.trigger
+        trigger: props.trigger,
+        wrapperRef: null,
+        placement: props.placement,
+        top: '0px',
+        left: '0px'
+      })
+
+      onMounted(() => {
+        const { height, width } = setTop(data.wrapperRef)
+        // console.log("🚀 ~ file: popover.vue:22 ~ onMounted ~ height, width:", height, width)
+        data.top = height
+        data.left = width
       })
 
       const methods = {
         handleMouseEnter: (): void => {
-          if(data.trigger !== 'hover') return
+          if (data.trigger !== 'hover') return
           if (!classList.value.includes('dk-popover-active')) {
             classList.value.push('dk-popover-active')
           }
+
           emit('update:modelValue', true)
           emit('hidden', true)
         },
         handleMouseLeave: (): void => {
-          if(data.trigger !== 'hover') return
+          // return
+          if (data.trigger !== 'hover') return
           if (classList.value.includes('dk-popover-active')) {
             classList.value.splice(classList.value.indexOf('dk-popover-active'), 1)
           }
@@ -35,7 +48,7 @@
             if (!classList.value.includes('dk-popover-active')) {
               classList.value.push('dk-popover-active')
             }
-          }else{
+          } else {
             if (classList.value.includes('dk-popover-active')) {
               classList.value.splice(classList.value.indexOf('dk-popover-active'), 1)
             }
@@ -56,13 +69,13 @@
         {
           immediate: true
         }
-        )
-        
-        watch(
-          () => props.modelValue,
-          val => {
-            data.visible = val
-            methods.setClassName(val)
+      )
+
+      watch(
+        () => props.modelValue,
+        val => {
+          data.visible = val
+          methods.setClassName(val)
         },
         {
           immediate: true
@@ -71,9 +84,10 @@
 
       return {
         ...toRefs(data),
-        ...toRefs(methods),
+        ...methods,
         classList,
-        styleList
+        styleList,
+        wrapperClassList
       }
     }
   })
@@ -86,9 +100,14 @@
     @mouseleave="handleMouseLeave"
     @click="handleClick"
   >
-    <div class="dk-popover-wrapper">
+    <div
+      :class="wrapperClassList"
+      :style="{ '--popover-top': top, '--popover-left': left }"
+    >
       <div class="dk-popover-wrapper_arrow"></div>
-      <slot name="popup"></slot>
+      <div ref="wrapperRef" class="dk-popover-wrapper_container">
+        <slot name="popup"></slot>
+      </div>
     </div>
     <div class="dk-popover_inner">
       <slot name="default"></slot>
