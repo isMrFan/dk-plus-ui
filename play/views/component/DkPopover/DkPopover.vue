@@ -27,9 +27,13 @@
     <dk-popover v-model="visible">
       <template #popup>
         <div>popup</div>
-        <p>我是弹出的内容 </p>
+        <p>
+          弹出确认框
+          <dk-button size="mini">取消</dk-button>
+          <dk-button size="mini" type="primary">确认</dk-button>
+        </p>
       </template>
-      <template #default> hover </template>
+      <template #default> <dk-button>hover</dk-button> </template>
     </dk-popover>
   </div>
   <div class="box" style="margin-left: 200px">
@@ -39,7 +43,7 @@
         <div>popup</div>
         <p>trigger="click"</p>
       </template>
-      <template #default> click </template>
+      <template #default> <dk-button>click</dk-button> </template>
     </dk-popover>
   </div>
   <div class="box" style="margin-left: 200px">
@@ -62,14 +66,14 @@
         <div>popup</div>
         <p>visible4 = true placement='left'</p>
       </template>
-      <template #default> left </template>
+      <template #default> <dk-button>left</dk-button> </template>
     </dk-popover>
     <dk-popover v-model="visible5" placement="right" width="120px">
       <template #popup>
         <div>popup</div>
         <p>placement='right'</p>
       </template>
-      <template #default> right </template>
+      <template #default> <dk-button>right</dk-button> </template>
     </dk-popover>
     <div style="margin-top: 80px"></div>
     <dk-popover v-model="visible6" placement="top" width="120px">
@@ -77,14 +81,14 @@
         <div>popup</div>
         <p>placement='top'</p>
       </template>
-      <template #default> top </template>
+      <template #default> <dk-button>top</dk-button> </template>
     </dk-popover>
     <dk-popover v-model="visible7" placement="bottom" width="120px">
       <template #popup>
         <div>popup</div>
         <p>placement='bottom'</p>
       </template>
-      <template #default> bottom </template>
+      <template #default> <dk-button>bottom</dk-button> </template>
     </dk-popover>
     <div style="margin-top: 80px"></div>
     <dk-popover v-model="visible8" placement="top-left" width="120px">
@@ -92,7 +96,32 @@
         <div>popup</div>
         <p>placement='top-left'</p>
       </template>
-      <template #default> top-left </template>
+      <template #default> <dk-button>top-left</dk-button> </template>
+    </dk-popover>
+    <div style="margin-top: 80px"></div>
+    <dk-popover v-model="visible8" placement="top-right" width="120px">
+      <template #popup>
+        <div>popup</div>
+        <p>placement='top-right'</p>
+      </template>
+      <template #default> <dk-button>top-right</dk-button> </template>
+    </dk-popover>
+    <dk-popover v-model="visible8" placement="bottom-left" width="120px">
+      <template #popup>
+        <div>popup</div>
+        <p>placement='bottom-left'</p>
+      </template>
+      <template #default> <dk-button>bottom-left</dk-button> </template>
+    </dk-popover>
+    <div style="margin-top: 80px"></div>
+    <dk-popover v-model="visible8" placement="bottom-right" width="120px">
+      <template #popup>
+        <div>popup</div>
+        <p>placement='bottom-right'</p>
+      </template>
+      <template #default> 
+        <dk-button>bottom-right</dk-button>
+      </template>
     </dk-popover>
   </div>
 </template>

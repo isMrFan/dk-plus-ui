@@ -72,7 +72,7 @@
   }
 
   @include element(top){
-    inset: calc(var(--popover-top) - 24px) 0 0 50%;
+    inset: calc(-1 * var(--popover-top) - 24px) 0 0 50%;
     transform: translateX(-50%);
     .dk-popover-wrapper_arrow{
       inset: 100% auto auto 50%;
@@ -81,11 +81,34 @@
   }
 
   @include element(top-left){
-    inset: calc(var(--popover-top) - 24px) auto 0 0;
-    transform: translateY(-50%);
+    inset: calc(-1 * var(--popover-top) - 24px) 0 0 100%;
     .dk-popover-wrapper_arrow{
       inset: 100% auto auto calc(25% + 6px);
       transform: translate(-50%, -50%) rotate(225deg);
+    }
+  }
+
+  @include element(top-right){
+    inset: calc(-1 * var(--popover-top) - 24px) 0 0 0;
+    .dk-popover-wrapper_arrow{
+      inset: 100% auto auto calc(75% - 6px);
+      transform: translate(-50%, -50%) rotate(225deg);
+    }
+  }
+
+  @include element(bottom-left){
+    inset: calc(100% + 4px) 0 0 100%;
+    .dk-popover-wrapper_arrow{
+      inset: auto auto calc(100% - 10px) calc(25% + 6px);
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  @include element(bottom-right){
+    inset: calc(100% + 4px) 0 0 0;
+    .dk-popover-wrapper_arrow{
+      inset: auto auto calc(100% - 10px) calc(75% - 6px);
+      transform: translate(-50%, -50%) rotate(45deg);
     }
   }
 }

@@ -51,7 +51,14 @@ export const popoverProps = {
    */
   placement: setStringProp<dkPlusPlaceMent>(null, (value: dkPlusPlaceMent): boolean => {
     return DK_PLACEMENT.includes(value)
-  })
+  }),
+  /**
+   * @name showArrow
+   * @description Whether to display arrow
+   * @type { boolean }
+   * @default true
+   */
+  showArrow: setBooleanProps(true)
 }
 
 export type PopoverPropsType = ExtractPropTypes<typeof popoverProps>

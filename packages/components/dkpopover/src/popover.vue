@@ -14,14 +14,16 @@
         wrapperRef: null,
         placement: props.placement,
         top: '0px',
-        left: '0px'
+        left: '0px',
+        showArrow: props.showArrow
       })
 
       onMounted(() => {
         const { height, width } = setTop(data.wrapperRef)
-        // console.log("🚀 ~ file: popover.vue:22 ~ onMounted ~ height, width:", height, width)
-        data.top = height
-        data.left = width
+        // console.log(height, width);
+        
+        data.top = height + 'px'
+        data.left = width + 'px'
       })
 
       const methods = {
@@ -35,7 +37,7 @@
           emit('hidden', true)
         },
         handleMouseLeave: (): void => {
-          // return
+          // return 
           if (data.trigger !== 'hover') return
           if (classList.value.includes('dk-popover-active')) {
             classList.value.splice(classList.value.indexOf('dk-popover-active'), 1)
@@ -104,7 +106,7 @@
       :class="wrapperClassList"
       :style="{ '--popover-top': top, '--popover-left': left }"
     >
-      <div class="dk-popover-wrapper_arrow"></div>
+      <div v-if="showArrow" class="dk-popover-wrapper_arrow"></div>
       <div ref="wrapperRef" class="dk-popover-wrapper_container">
         <slot name="popup"></slot>
       </div>
