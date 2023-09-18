@@ -54,7 +54,7 @@ export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
  * @param { string }  [inherit] Inherit
  * @param { string }  [initial] Initial
  * @param { string }  [left] Left
- * @param { string }  [normal] Normal 
+ * @param { string }  [normal] Normal
  * @param { string }  [revert] Revert
  * @param { string }  [right] Right
  * @param { string }  [space-around] Around
@@ -66,7 +66,23 @@ export type dkTarget = '_blank' | '_self' | '_parent' | '_top'
  * @description Different component justification public type
  */
 
-export type dkPlusJustify = 'center' | 'end' | 'flex-end' | 'flex-start' | 'inherit' | 'initial' | 'left' | 'normal' | 'revert' | 'right' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch' | 'unset'
+export type dkPlusJustify =
+  | 'center'
+  | 'end'
+  | 'flex-end'
+  | 'flex-start'
+  | 'inherit'
+  | 'initial'
+  | 'left'
+  | 'normal'
+  | 'revert'
+  | 'right'
+  | 'space-around'
+  | 'space-between'
+  | 'space-evenly'
+  | 'start'
+  | 'stretch'
+  | 'unset'
 
 /**
  * @name MouseEventType
@@ -86,7 +102,7 @@ export type DkIcon = VNode | Component
 /**
  * @name KeyboardEventType
  * @param { Object } evt 事件对象
- * 
+ *
  */
 
 export type KeyboardEventType = (evt: KeyboardEvent) => void
@@ -116,7 +132,7 @@ export type dkInputStatusType = 'warning' | 'error'
  * @description 不同的组件对齐方式公共类型
  */
 
-export type DkPlusAlign = 'left' | 'center' | 'right';
+export type DkPlusAlign = 'left' | 'center' | 'right'
 
 /**
  * @name DkPlusPosition
@@ -128,7 +144,7 @@ export type DkPlusAlign = 'left' | 'center' | 'right';
  * @description Different component position public type
  */
 
-export type DkPlusPosition = 'top' | 'right' | 'bottom' | 'left';
+export type DkPlusPosition = 'top' | 'right' | 'bottom' | 'left'
 
 /**
  * @name dkPlusBasicType
@@ -148,4 +164,28 @@ export type DkPlusPosition = 'top' | 'right' | 'bottom' | 'left';
  * @description 拓展Alert类型
  */
 // export type dkPlusAlertType = dkPlusBasicType & 'error';
-export type dkPlusAlertType = 'success' | 'info' | 'warning' | 'error';
+export type dkPlusAlertType = 'success' | 'info' | 'warning' | 'error'
+
+/**
+ * @name dkPlusPlaceMent
+ * @Time September 14, 2023
+ * @param { string }  [top] on the top
+ * @param { string }  [bottom] on the bottom
+ * @param { string }  [left] on the left
+ * @param { string }  [right] on the right
+ * @param { string }  [left-top] on the top left
+ * @param { string }  [bottom-top] on the top right
+ * @param { string }  [bottom-left] on the bottom left
+ * @param { string }  [bottom-right] on the bottom right
+ * @description The position of the component
+ */
+
+export type dkPlusPlaceMent =
+  | 'top'
+  | 'bottom'
+  | 'left'
+  | 'right'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'

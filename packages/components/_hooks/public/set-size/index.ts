@@ -9,17 +9,24 @@ export const setSize = (size: number | string = 0): string => {
   if (typeof size === 'number' && !isNaN(size)) {
     siz = `${size}px`
   } else if (typeof size === 'string') {
-    switch (siz.substr(-2)) {
-      case 'px':
-      case 'em':
-      case 'rem':
-      case 'vh':
-      case 'vw':
-      case '%':
-        break
-      default:
-        siz += 'px'
+    const units = ['px', 'em', 'rem', 'vh', 'vw', '%']
+    const containsUnit = units.some(unit => siz.includes(unit))
+
+    if (!containsUnit) {
+      siz += 'px'
     }
+
+    // switch (siz.substr(-2)) {
+    //   case 'px':
+    //   case 'em':
+    //   case 'rem':
+    //   case 'vh':
+    //   case 'vw':
+    //   case '%':
+    //     break
+    //   default:
+    //     siz += 'px'
+    // }
   } else {
     throw new Error(`dk-plus -> getSize -> ${siz} is not a size`)
   }

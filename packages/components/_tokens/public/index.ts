@@ -122,3 +122,29 @@ export const DK_JUSTIFY = [
   'stretch',
   'unset'
 ] as const
+
+/**
+ * @name DK_PLACEMENT
+ * @Time September 14, 2023
+ * @param { string }  [top] on the top
+ * @param { string }  [bottom] on the bottom
+ * @param { string }  [left] on the left
+ * @param { string }  [right] on the right
+ * @param { string }  [left-top] on the top left
+ * @param { string }  [bottom-top] on the top right
+ * @param { string }  [bottom-left] on the bottom left
+ * @param { string }  [bottom-right] on the bottom right
+ * @description The position of the component
+ * @description 组件的位置
+ */
+
+export const DK_PLACEMENT = [
+  'top',
+  'bottom',
+  'left',
+  'right',
+  'top-left',
+  'top-right',
+  'bottom-left',
+  'bottom-right'
+] as const
