@@ -177,6 +177,8 @@ import i_ArrowBottom from './src/i-ArrowBottom/index.vue'
 import i_check from './src/i-Check/index.vue'
 import i_close from './src/i-Close/index.vue'
 import i_loading from './src/i-Loading/index.vue'
+import i_star from './src/i-Star/index.vue'
+import i_stared from './src/i-Stared/index.vue'
 export const IconShanchu1 = withInstall(i_shanchu1)
 export const IconShanchu2 = withInstall(i_Shanchu2)
 export const IconRefresh = withInstall(i_Refresh)
@@ -354,6 +356,8 @@ export const IconArrowBottom = withInstall(i_ArrowBottom)
 export const IconCheck = withInstall(i_check)
 export const IconClose = withInstall(i_close)
 export const IconLoading = withInstall(i_loading)
+export const IconStar = withInstall(i_star)
+export const IconStared = withInstall(i_stared)
 
 import * as svgList from './default'
 export * from './default'
