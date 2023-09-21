@@ -27,6 +27,9 @@ declare module '@vue/runtime-core' {
     DkTransition: typeof components.DkTransition
     DkRadio: typeof components.DkRadio
     DkRadioGroup: typeof components.DkRadioGroup
+    DkPopover: typeof components.DkPopover
+    DkScrollbar: typeof components.DkScrollbar
+    DkRate: typeof components.DkRate
   }
   export interface ImportMetaEnv {
     VITE_APP_BASE_API: string

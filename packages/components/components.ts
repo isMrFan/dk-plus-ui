@@ -75,3 +75,6 @@ export * from './dkswitch'
 
 export { DkPopover } from './dkpopover'
 export * from './dkpopover'
+
+export { DkRate } from './dkrate'
+export * from './dkrate'
