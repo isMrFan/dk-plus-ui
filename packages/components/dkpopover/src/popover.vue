@@ -37,7 +37,6 @@
           emit('hidden', true)
         },
         handleMouseLeave: (): void => {
-          // return 
           if (data.trigger !== 'hover') return
           if (classList.value.includes('dk-popover-active')) {
             classList.value.splice(classList.value.indexOf('dk-popover-active'), 1)

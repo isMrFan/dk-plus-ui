@@ -120,7 +120,7 @@
         <p>placement='bottom-right'</p>
       </template>
       <template #default> 
-        <dk-button>bottom-right</dk-button>
+        <dk-button text>bottom-right</dk-button>
       </template>
     </dk-popover>
   </div>
