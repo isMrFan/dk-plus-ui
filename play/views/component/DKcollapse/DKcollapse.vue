@@ -7,7 +7,7 @@
    **/
   import { defineComponent, reactive, toRefs, ref } from 'vue'
   export default defineComponent({
-    name: 'DKcollapseS',
+    name: 'DKcollapseComp',
     setup() {
       const state = reactive({
         NackName: ['1', '3'],
