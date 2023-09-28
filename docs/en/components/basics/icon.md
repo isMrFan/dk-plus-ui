@@ -1,11 +1,11 @@
-# Icon 图标
+# Icon 
 
-使用 svg 的图标库，可以减少项目体积，提高加载速度。
+Using an SVG icon library can reduce project size and improve loading speed.
 
-- [源代码](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkicon)
-- [文档编辑](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/zh/components/icon.md)
+- [Source code](https://github.com/dk-plus-ui/dk-plus-ui/tree/master/packages/components/dkicon)
+- [Document editing](https://github.com/dk-plus-ui/dk-plus-ui/blob/master/docs/en/components/icon.md)
 
-## 1.基本使用
+## 1. Basic use
 
 ::: module
  <template #code>
@@ -28,42 +28,42 @@
       <IconWeiXin></IconWeiXin>
   </dk-icon>
   </div>
-  //方法一 传统写法
+  //Method 1 Traditional writing method
   <script lang="ts">
     import {svgList} from 'dk-plus'
     components: {
       IconShanchu1:svgList.IconShanchu1
     }
   </script>
-  //方法二 语法糖
+  //Method 2 Grammar sugar
   <script setup lang="ts">
     import { svgList } from '@dk-plus/components/_icon'
-    const { IconWeiXin } = svgList   //解构赋值
-    const expose = { IconWeiXin }   //可导出很多
+    const { IconWeiXin } = svgList   //Deconstruct assignment
+    const expose = { IconWeiXin }   //Much derivable
   </script>
 ```
 
 :::
 
-## 集合
+## assemble
 
-`svg-icon` 集合，**点击即可复制**，共收入 <span style="color: #18bb85;font-weight: bold;">{{svgListLength}}</span> 个图标
+`svg-icon` assemble，**Click to copy** income <span style="color: #18bb85;font-weight: bold;">{{svgListLength}}</span> ICONS
 
 <iconDom></iconDom>
 
-## 属性
+## Stats
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| argument | Instructions | type | Optional value | Default value |
 | --- | --- | --- | --- | --- |
-| `color` | icon 颜色 | string | --- | --- |
-| `size` | icon 大小 | string / number | --- | --- |
-| `icon` | icon 内容 | <a href='/components/icon.html#_1-基本使用'>IconType</a> | --- | --- |
+| `color` | icon colour | string | --- | --- |
+| `size` | icon size | string / number | --- | --- |
+| `icon` | icon content | <a href='/components/icon.html#_1-基本使用'>IconType</a> | --- | --- |
 
-## Slots(插槽)
+## Slots
 
-| 参数 | 说明 |
+| argument | Instructions |
 | --- | --- |
-| default | icon 内容 |
+| default | icon content |
 
 ## Contributors
 
@@ -80,7 +80,7 @@
 </div>
 
 <script setup lang="ts">
-  import iconDom from './vueDome/icon/index.vue'
+  import iconDom from '../vueDome/icon/index.vue'
   import svgList from 'isIcon'
   const svgListLength=Object.keys(svgList).length
 </script>

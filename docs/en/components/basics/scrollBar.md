@@ -149,5 +149,5 @@ Setting the `v-dk-scroll` instruction can also achieve scrolling style, with the
 </div>
 
 <script lang='ts' setup>
-  import ScrollBarComp from './vueDome/scrollbar/index.vue';
+  import ScrollBarComp from '../vueDome/scrollbar/index.vue';
 </script>

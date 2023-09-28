@@ -358,8 +358,8 @@
 </style>
 
 <script setup>
-  import VueDomeCheckbox from './vueDome/checkbox/index.vue';
-  import VueDomeCheckboxMax from './vueDome/checkbox/max.vue';
+  import VueDomeCheckbox from '../vueDome/checkbox/index.vue';
+  import VueDomeCheckboxMax from '../vueDome/checkbox/max.vue';
   import { ref } from 'vue'
   const checked = ref(true)
   const checkList = ref([

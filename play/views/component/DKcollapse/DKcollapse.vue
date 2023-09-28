@@ -7,7 +7,7 @@
    **/
   import { defineComponent, reactive, toRefs, ref } from 'vue'
   export default defineComponent({
-    name: 'DKcollapseComp',
+    name: 'DkContainer',
     setup() {
       const state = reactive({
         NackName: ['1', '3'],
@@ -48,7 +48,7 @@
 <template>
   <div>
     <div class="box">
-      <h2>手风琴效果 默认展开参数为数组 {{ NackName }}</h2>
+      <h2>手风琴效果 默认展开参数为数组 123 {{ NackName }}</h2>
       <h2>关闭手风琴效果 设置accordion</h2>
       <dk-collapse v-model="NackName" accordion @change="handleChange">
         <dk-collapse-item title="折叠1" name="1">

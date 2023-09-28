@@ -209,10 +209,10 @@ Set the column offset through the `offset` attribute.
 | `offset`  | [Number of spacing cells on the left side of the grid](#ColumnOffset)        | `number` | -                                                     | —       |
 
 <script setup>
-  import LayoutComp from './vueDome/layout/index.vue'
-  import LayoutCompGutter from './vueDome/layout/gutter.vue'
-  import LayoutCompBlend from './vueDome/layout/blend.vue'
-  import LayoutCompOffset from './vueDome/layout/offset.vue'
+  import LayoutComp from '../vueDome/layout/index.vue'
+  import LayoutCompGutter from '../vueDome/layout/gutter.vue'
+  import LayoutCompBlend from '../vueDome/layout/blend.vue'
+  import LayoutCompOffset from '../vueDome/layout/offset.vue'
 </script>
 
 <div style='display: flex;'>

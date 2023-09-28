@@ -209,10 +209,10 @@
 | `offset`  | [栅格左侧的间隔格数](#列偏移)        | `number` | -                                                     | —       |
 
 <script setup>
-  import LayoutComp from './vueDome/layout/index.vue'
-  import LayoutCompGutter from './vueDome/layout/gutter.vue'
-  import LayoutCompBlend from './vueDome/layout/blend.vue'
-  import LayoutCompOffset from './vueDome/layout/offset.vue'
+  import LayoutComp from '../vueDome/layout/index.vue'
+  import LayoutCompGutter from '../vueDome/layout/gutter.vue'
+  import LayoutCompBlend from '../vueDome/layout/blend.vue'
+  import LayoutCompOffset from '../vueDome/layout/offset.vue'
 </script>
 
 <div style='display: flex;'>

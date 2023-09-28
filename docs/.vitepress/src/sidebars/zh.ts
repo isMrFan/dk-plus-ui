@@ -33,29 +33,33 @@ export const sidebar = {
     {
       text: '基础组件',
       items: [
-        { text: 'Icon 图标', link: '/zh/components/icon' },
-        { text: 'Container 页面布局', link: '/zh/components/container' },
-        { text: 'Space 间距', link: '/zh/components/space' },
-        { text: 'Button 按钮', link: '/zh/components/button' },
-        { text: 'Shadow 盒子', link: '/zh/components/shadow' },
-        { text: 'Alert 警示', link: '/zh/components/alert' },
-        { text: 'ScrollBar 滚动条', link: '/zh/components/scrollBar' },
-        { text: 'Layout 布局', link: '/zh/components/layout' }
+        { text: 'Icon 图标', link: '/zh/components/basics/icon' },
+        { text: 'Container 页面布局', link: '/zh/components/basics/container' },
+        { text: 'Space 间距', link: '/zh/components/basics/space' },
+        { text: 'Button 按钮', link: '/zh/components/basics/button' },
+        { text: 'Shadow 盒子', link: '/zh/components/basics/shadow' },
+        { text: 'Alert 警示', link: '/zh/components/basics/alert' },
+        { text: 'ScrollBar 滚动条', link: '/zh/components/basics/scrollBar' },
+        { text: 'Layout 布局', link: '/zh/components/basics/layout' }
       ]
     },
     {
       text: '表单组件',
       items: [
-        { text: 'Input 输入框', link: '/zh/components/input' },
-        { text: 'InputNumber 计数器', link: '/zh/components/inputNumber' },
-        { text: 'Checkbox 多选框', link: '/zh/components/checkbox' },
-        { text: 'Radio 单选框', link: '/zh/components/radio' },
-        { text: 'Switch 开关', link: '/zh/components/switch' },
+        { text: 'Input 输入框', link: '/zh/components/form/input' },
+        { text: 'InputNumber 计数器', link: '/zh/components/form/inputNumber' },
+        { text: 'Checkbox 多选框', link: '/zh/components/form/checkbox' },
+        { text: 'Radio 单选框', link: '/zh/components/form/radio' },
+        { text: 'Switch 开关', link: '/zh/components/form/switch' }
       ]
     },
     {
+      text: 'Data展示组件',
+      items: []
+    },
+    {
       text: '反馈组件',
-      items: [{ text: 'Loading 加载', link: '/zh/components/loading' }]
+      items: [{ text: 'Loading 加载', link: '/zh/components/feedback/loading' }]
     }
   ],
   '/expansion/': expansionNav

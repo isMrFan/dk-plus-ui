@@ -143,5 +143,5 @@
 </div>
 
 <script lang='ts' setup>
-  import ScrollBarComp from './vueDome/scrollbar/index.vue';
+  import ScrollBarComp from '../vueDome/scrollbar/index.vue';
 </script>

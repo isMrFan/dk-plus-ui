@@ -358,8 +358,8 @@ Set the border of the multi-selection box through the `border` attribute.
 </style>
 
 <script setup>
-  import VueDomeCheckbox from './vueDome/checkbox/index.vue';
-  import VueDomeCheckboxMax from './vueDome/checkbox/max.vue';
+  import VueDomeCheckbox from '../vueDome/checkbox/index.vue';
+  import VueDomeCheckboxMax from '../vueDome/checkbox/max.vue';
   import { ref } from 'vue'
   const checked = ref(true)
   const checkList = ref([

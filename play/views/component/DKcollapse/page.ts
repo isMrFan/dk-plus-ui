@@ -1,5 +1,5 @@
 export default {
-  path: '/DkCollapse',
+  path: '/DKcollapse',
   order: 4,
   title: 'collapse 折叠面板'
 }

@@ -261,5 +261,5 @@
 </div>
 
 <script lang='ts' setup>
-  import VueDomeInputNumber from './vueDome/inputNumber/index.vue';
+  import VueDomeInputNumber from '../vueDome/inputNumber/index.vue';
 </script>
