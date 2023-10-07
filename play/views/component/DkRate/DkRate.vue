@@ -1,14 +1,17 @@
 <script lang='ts'>
-  import { defineComponent } from 'vue';
+  import { defineComponent, ref } from 'vue';
   export default defineComponent({
     name: 'RateComp',
     setup() {
-      return {};
+      const checked = ref(true);
+      return {
+        checked
+      };
     }
   });
 </script>
 <template>
   <div class="box">
-    <dk-rate></dk-rate>
+    <dk-rate v-model="checked"></dk-rate>
   </div>
 </template>
