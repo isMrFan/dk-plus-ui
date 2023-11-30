@@ -106,7 +106,7 @@ createApp(App).use(dkPlus).mount('#app')
 
 ## 🌈 加入 DK-plus
 
-添加微信请备注 `Github` 用户名
+添加微信请备注 `Github` 用户名(最近太忙暂停更新)
 
 <img height="200px"  src="https://oss.cadwaladerss.com/dk-plus/images/wxcrcoder.jpg">
 
