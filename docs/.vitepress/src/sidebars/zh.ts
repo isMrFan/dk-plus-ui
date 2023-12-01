@@ -3,7 +3,7 @@
  *
  * @see sidebar https://vitepress.vuejs.org/guide/theme-sidebar#sidebar
  */
-import { expansionNav } from '../../data/expansionNav'
+import { znExpansionNav } from '../../data/znExpansionNav'
 export const sidebar = {
   '/zh/document/': [
     {
@@ -62,5 +62,5 @@ export const sidebar = {
       items: [{ text: 'Loading 加载', link: '/zh/components/feedback/loading' }]
     }
   ],
-  '/expansion/': expansionNav
+  '/zh/expansion/': znExpansionNav
 }

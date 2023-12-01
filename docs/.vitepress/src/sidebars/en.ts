@@ -3,7 +3,7 @@
  *
  * @see sidebar https://vitepress.vuejs.org/guide/theme-sidebar#sidebar
  */
-import { expansionNav } from '../../data/expansionNav'
+import { enExpansionNav } from '../../data/enExpansionNav'
 export const sidebar = {
   '/en/document/': [
     {
@@ -58,5 +58,5 @@ export const sidebar = {
       items: [{ text: 'Loading', link: '/en/components/feedback/loading' }]
     }
   ],
-  '/expansion/': expansionNav
+  '/en/expansion/': enExpansionNav
 }
