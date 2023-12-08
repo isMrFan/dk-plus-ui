@@ -22,6 +22,11 @@ export default function getNavs() {
       ]
     },
     {
+      text: 'Electronic book',
+      activeMatch: '^/en/electronicBook/',
+      link: '/en/electronicBook/index'
+    },
+    {
       text: version,
       link: 'https://www.npmjs.com/package/dk-plus'
     }

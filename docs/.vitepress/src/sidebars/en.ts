@@ -58,5 +58,11 @@ export const sidebar = {
       items: [{ text: 'Loading', link: '/en/components/feedback/loading' }]
     }
   ],
-  '/en/expansion/': enExpansionNav
+  '/en/expansion/': enExpansionNav,
+  '/en/electronicBook/': [
+    {
+      text: 'Related ebook',
+      items: [{ text: 'Ebook home page', link: '/en/electronicBook/index' }]
+    }
+  ]
 }

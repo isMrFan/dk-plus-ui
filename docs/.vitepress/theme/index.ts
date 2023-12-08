@@ -4,7 +4,7 @@ import onSearch from './components/search.vue'
 import './style/vitepress.scss'
 import './style/global.scss'
 import dkPlus, { Dkcodedisplay } from '../../../packages/components/index'
-console.log('dkPlus', dkPlus)
+
 import '@dk-plus/theme-chalk/index.scss'
 
 import { loadStyle } from '../plugins/set-style'

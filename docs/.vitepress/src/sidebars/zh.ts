@@ -62,5 +62,11 @@ export const sidebar = {
       items: [{ text: 'Loading 加载', link: '/zh/components/feedback/loading' }]
     }
   ],
-  '/zh/expansion/': znExpansionNav
+  '/zh/expansion/': znExpansionNav,
+  '/zh/electronicBook/': [
+    {
+      text: '相关电子书',
+      items: [{ text: '电子书首页', link: '/zh/electronicBook/index' }]
+    }
+  ]
 }
