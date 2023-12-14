@@ -28,7 +28,7 @@ export const head: HeadConfig[] = [
     {
       name: 'Keywords',
       content:
-        '前端,前端开发,组件库,vue3组件库,vue,vue.js,javascript,typescript,vite,css3,css,html,html5,js,ts,scss,sass,design,setup,eslint,es6,components,vitepress,vitest,element,element-ui,ui,element-plus,go,web-components,web,jquery,less,eslint,commitlint,cli,types,uviewui,uniapp,uni-app,uni,vue-admin-beautiful,dk-ui,dkui,dk'
+        '前端,前端开发,组件库,vue3组件库,vue,vue.js,javascript,typescript,vite,css3,css,html,html5,js,ts,scss,sass,design,setup,eslint,es6,components,vitepress,vitest,element,element-ui,ui,element-plus,go,web-components,web,jquery,less,eslint,commitlint,cli,types,uviewui,uniapp,uni-app,uni,vue-admin-beautiful,dk-ui,dkui,dk,dk-plus,dk-plus-ui'
     }
   ],
   /** 网站作者 */

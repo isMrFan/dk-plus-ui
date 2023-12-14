@@ -23,9 +23,14 @@ export default function getNavs() {
       ]
     },
     {
-      text: '电子书',
-      activeMatch: '^/zh/electronicBook/',
-      link: '/zh/electronicBook/index'
+      text: '其他',
+      items: [
+        {
+          text: '1.电子书',
+          activeMatch: '^/zh/electronicBook/',
+          link: '/zh/electronicBook/index'
+        }
+      ]
     },
     {
       text: version,

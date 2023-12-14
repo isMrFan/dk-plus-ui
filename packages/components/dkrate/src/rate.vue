@@ -8,10 +8,11 @@
     setup(props, { emit }) {
       const data = reactive({
         modelValue: props.modelValue,
+        numberValue: props.numberValue,
         icon: 'IconStar',
         isMouseEnter: false
       })
-
+      console.log('data.numberValue', data.numberValue)
       const methods = {
         handleMouseEnter: (): void => {
           data.isMouseEnter = true
@@ -34,11 +35,11 @@
       watch(
         () => props.modelValue,
         val => {
-          if(!val){
+          if (!val) {
             data.isMouseEnter = false
             // data.icon = 'IconStar'
           }
-          
+          console.log('props.modelValue', val)
           data.modelValue = val
           methods.handleState()
         },
@@ -61,6 +62,6 @@
     @mouseleave="handleMouseLeave"
     @click="handleClick"
   >
-    <dk-icon :icon="icon"></dk-icon>
+    <dk-icon v-for="(item, ind) in numberValue" :key="ind" :icon="icon"></dk-icon>
   </div>
 </template>

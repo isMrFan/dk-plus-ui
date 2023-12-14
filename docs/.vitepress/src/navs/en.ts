@@ -22,9 +22,14 @@ export default function getNavs() {
       ]
     },
     {
-      text: 'Electronic book',
-      activeMatch: '^/en/electronicBook/',
-      link: '/en/electronicBook/index'
+      text: 'other',
+      items: [
+        {
+          text: 'Electronic book',
+          activeMatch: '^/en/electronicBook/',
+          link: '/en/electronicBook/index'
+        }
+      ]
     },
     {
       text: version,

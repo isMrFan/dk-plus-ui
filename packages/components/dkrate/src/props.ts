@@ -1,4 +1,4 @@
-import { setBooleanProps } from '../../_utils'
+import { setBooleanProps, setStringNumberProps } from '../../_utils'
 
 export const dkRateProps = {
   /**
@@ -6,5 +6,11 @@ export const dkRateProps = {
    * @type boolean
    * @default false
    */
-  modelValue: setBooleanProps()
+  modelValue: setBooleanProps(),
+  /**
+   * @name numberValue
+   * @description Number of stars
+   * @type number | string
+   */
+  numberValue: setStringNumberProps(5)
 }
