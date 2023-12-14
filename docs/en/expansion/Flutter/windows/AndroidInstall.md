@@ -12,7 +12,7 @@
 - Specific installation process but more introduction will not please Baidu
 - in vs code  `Flutter`Execution under project `flutter doctor` command 
 - Android Studio After the installation is complete, configure according to the following figure
-  
+
 ### Android Studio First step
 
 - ![Android Studio](../../../../assets/expansion/image/flutter/installFlutter8.jpg)

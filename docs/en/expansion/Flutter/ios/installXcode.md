@@ -4,7 +4,7 @@
 - appStore Install
 ![appStore](../../../../assets/expansion/image/Xcode/1-appStoreSearch.png)
 
-## Contributors 
+## Contributors
 
 <div style='display: flex;'>
   <a href="https://github.com/isMrFan" title="Mr. Fan"  target="_blank" style='margin-right:10px;'>
