@@ -1,78 +1,48 @@
 <script lang="ts">
-  interface markListJson {
-    icon: string
-    modelValue: boolean
-  }
-  import { defineComponent, reactive, toRefs, watch } from 'vue'
+  import { defineComponent, reactive, toRefs, watch, computed } from 'vue'
+  import { getReturn } from '../../_hooks'
   import { dkRateProps } from './props'
+  import { isNumber } from '../../_utils'
+  import { model_Value } from '../../_tokens'
   export default defineComponent({
     name: 'DkRate',
     props: dkRateProps,
     emits: ['update:modelValue'],
     setup(props, { emit }) {
+      const { getRun } = getReturn()
+      const { numberValue, readonly, selectColor, noSelectColor } = toRefs(props)
       const data = reactive({
         modelValue: props.modelValue,
-        numberValue: props.numberValue,
+        numberValue: numberValue,
+        readonly: readonly,
+        selectColor: selectColor,
+        noSelectColor: noSelectColor,
         IsNumberValue: 0,
         icon: 'IconStar',
         isMouseEnter: false,
-        markList: [] as markListJson[]
+        markList: computed((): number => (isNumber(numberValue) ? numberValue : 5))
       })
-      if (typeof data.numberValue === 'string') {
-        data.IsNumberValue = Number(data.numberValue)
-      } else {
-        data.IsNumberValue = data.numberValue
-      }
-      for (let index = 0; index < data.IsNumberValue; index++) {
-        data.markList.push({
-          icon: 'IconStar',
-          modelValue: false
-        })
-      }
       const methods = {
-        handleMouseEnter: (): void => {
-          data.isMouseEnter = true
-          methods.handleState()
+        handleMouseEnter: (index: number): void => {
+          if (props.readonly) return
+          data.modelValue = index
         },
         handleMouseLeave: (): void => {
-          if (data.modelValue) return
-          data.isMouseEnter = false
-          data.icon = 'IconStar'
+          if (props.readonly) return
+          data.modelValue = props.modelValue
         },
-        handleClick: (item: markListJson, ind: number): void => {
-          item.modelValue = !item.modelValue
-          if (item.modelValue) {
-            for (let index = 0; index < ind; index++) {
-              data.markList[index].modelValue = true
-              data.markList[index].icon = data.markList[index].modelValue
-                ? 'IconStared'
-                : 'IconStar'
-            }
-          } else {
-            for (let index = ind; index < data.markList.length; index++) {
-              data.markList[index].modelValue = false
-              data.markList[index].icon = data.markList[index].modelValue
-                ? 'IconStared'
-                : 'IconStar'
-            }
-          }
-          item.icon = item.modelValue ? 'IconStared' : 'IconStar'
-          emit('update:modelValue', !data.modelValue)
-        },
-        handleState: (): void => {
-          data.icon = data.modelValue || data.isMouseEnter ? 'IconStared' : 'IconStar'
+        handleClick: (ind: number): void => {
+          if (props.readonly) return
+          data.modelValue = ind
+          emit(model_Value, data.modelValue)
+          getRun(props.onchange, ind)
         }
       }
 
       watch(
         () => props.modelValue,
         val => {
-          if (!val) {
-            data.isMouseEnter = false
-            // data.icon = 'IconStar'
-          }
           data.modelValue = val
-          methods.handleState()
         },
         {
           immediate: true
@@ -86,14 +56,22 @@
   })
 </script>
 <template>
-  <div class="dk-rate">
-    <dk-icon
-      v-for="(item, ind) in markList"
-      :key="ind"
-      :icon="item.icon"
-      @mouseenter="handleMouseEnter()"
-      @mouseleave="handleMouseLeave()"
-      @click="handleClick(item, ind)"
-    ></dk-icon>
+  <div class="dk-rate" role="slider">
+    <div class="dk-rate_list">
+      {{ modelValue }}
+      <div
+        v-for="(item, ind) in markList"
+        :key="ind"
+        :class="['dk-rate_star', { 'dk-rate_star-readonly': readonly }]"
+        @mouseenter="handleMouseEnter(ind + 1)"
+        @mouseleave="handleMouseLeave"
+        @click="handleClick(ind)"
+      >
+        <dk-icon
+          :icon="icon"
+          :color="modelValue > ind ? selectColor : noSelectColor"
+        ></dk-icon>
+      </div>
+    </div>
   </div>
 </template>

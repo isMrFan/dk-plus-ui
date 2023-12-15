@@ -55,7 +55,7 @@ export const sidebar = {
     },
     {
       text: 'Data展示组件',
-      items: []
+      items: [{ text: 'Rate 评分', link: '/zh/components/DataShow/rate' }]
     },
     {
       text: '反馈组件',

@@ -1,11 +1,29 @@
 @use '../mixins/mixin.scss' as *;
 
 @include block(rate){
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
   width: fit-content;
-  &:hover{
-    cursor: pointer;
-    animation: dkrate 0.2s ease-in-out;
+  &_list{
+    display: inline-flex;
+    .dk-rate_star{
+      cursor: pointer;
+      transition: 0.4s;
+      position: relative;
+      &:hover {
+        transform: scale(1.25);
+      }
+      &.dk-rate_star-readonly:hover{
+        transform: scale(1);
+      }
+    }
   }
+  // &:hover{
+  //   cursor: pointer;
+  //   animation: dkrate 0.2s ease-in-out;
+  // }
 
   &:active{
     cursor: pointer;
