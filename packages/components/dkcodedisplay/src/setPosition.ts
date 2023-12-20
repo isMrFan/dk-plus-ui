@@ -36,13 +36,19 @@ export class SetPosition {
 
       // Button position exceeds viewport height
       const isOverTop = buttonOffset > innerHeight
-      const isOffsetOverTop =  targetDom.offsetTop - scrollTop + dkCodeDisplayCodeDom.clientHeight < innerHeight
+      
+      const isOffsetOverTop =
+        targetDom.offsetTop -
+          scrollTop +
+          dkCodeDisplayCodeDom.clientHeight -
+          (targetDom.clientHeight / 2) <
+        innerHeight
       
       if (
-        isOverTop &&
         isOffsetOverTop &&
-        this.open
-      ) {
+        isOverTop
+        ) {
+        // this.open
         const firstParent = targetDom.parentNode as HTMLElement
         const vpDocDom = firstParent.parentNode as HTMLElement
         const mainDom = vpDocDom.parentNode as HTMLElement

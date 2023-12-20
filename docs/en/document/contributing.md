@@ -259,6 +259,22 @@ The type must be one of the following and be entered against the type descriptio
 
 Available by [Markdown Emoji](https://tianyuhao.cn/emoji) Add emoticons after "message"
 
+## 🪧 Routing specifications
+
+When you create a new component, you don't need to register in `router/index.ts`, just create a `page.ts` file in the `play/views/components/current component directory`. The content of the `page.ts` file is as follows:
+
+```ts 
+export default {
+  path: '/DkLoading',
+  order: 9,
+  title: 'loading'
+}
+```
+> Parameter Description:
+> - `path`: Routing address (must maintain consistency between the current component directory name and component file name)
+> - `order`: Routing sorting
+> - `title`: Route Title
+
 ## ✏️ About PR
 
 Before you commit `PR`, make sure that your `fork` repository is up to date to avoid conflicts.

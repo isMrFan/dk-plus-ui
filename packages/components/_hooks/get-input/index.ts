@@ -1,10 +1,10 @@
 import { computed, toRaw, useSlots, reactive } from 'vue'
-import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import { getColor, setSize, getStyleList } from '..'
+import { DK_INPUT_PERSONALITY_TYPE, DK_INPUT_STATUS } from '../../_tokens'
+import type { CSSProperties, ComputedRef, Slots } from 'vue'
 import type { DkInputProps } from './../../dkinput/src/props'
 import type { DataType, propDataModel } from '../../dkinput/src/type'
 import type { dkInputType, ClassListName } from '../../_interface'
-import { DK_INPUT_PERSONALITY_TYPE, DK_INPUT_STATUS } from '../../_tokens'
 
 /**
  * @name getInputGlobalType
@@ -102,8 +102,8 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       labelText
     } = data
 
-    let borderColorCopy = borderColor;
-    let focusBorderColorCopy = focusBorderColor;
+    let borderColorCopy = borderColor
+    let focusBorderColorCopy = focusBorderColor
 
     const statusColorList = {
       warning: '#faad14',
@@ -111,8 +111,8 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
     }
 
     if (data.status && DK_INPUT_STATUS.includes(data.status)) {
-      borderColorCopy = statusColorList[data.status];
-      focusBorderColorCopy = statusColorList[data.status];
+      borderColorCopy = statusColorList[data.status]
+      focusBorderColorCopy = statusColorList[data.status]
     }
 
     type BorderColorType = string | number | undefined | null
@@ -125,14 +125,16 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
       }
       inputBorder = borderColorCopy ? getColor(borderColorCopy).getDodge(0) : null
       hoverBorder = borderColorCopy ? getColor(borderColorCopy).getDodge(0.4) : null
-      focusColor = focusBorderColorCopy ? getColor(focusBorderColorCopy).getDodge(0) : null
+      focusColor = focusBorderColorCopy
+        ? getColor(focusBorderColorCopy).getDodge(0)
+        : null
     }
     getBorder(border)
 
     const defaultStyle: Record<string, string> = {
       '--input-align': align || 'left'
     }
-    
+
     if (labelText) {
       defaultStyle['--input-margin-top'] = fontSize ? setSize(fontSize) : '18px'
     }
@@ -175,10 +177,10 @@ export const getInput = (props: DkInputProps): iSGetInputType => {
    */
   let defaultWrapperClassList = ['appendText', 'prependText', 'readonly']
 
-  if (data.status && DK_INPUT_STATUS.includes(data.status)) { 
+  if (data.status && DK_INPUT_STATUS.includes(data.status)) {
     defaultWrapperClassList = [...defaultWrapperClassList, 'status']
   }
-  
+
   const wrapperClassList = classes(
     [...defaultWrapperClassList],
     `dk-${inputClassName}-wrapper`

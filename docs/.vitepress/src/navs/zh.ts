@@ -9,8 +9,8 @@ export default function getNavs() {
     },
     {
       text: '基础组件',
-      activeMatch: '^/zh/components/',
-      link: '/zh/components/icon'
+      activeMatch: '^/zh/components/basics/icon',
+      link: '/zh/components/basics/icon'
     },
     {
       text: '技术拓展',

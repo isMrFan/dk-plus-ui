@@ -16,6 +16,10 @@
     border: solid 1px var(--input-number-border-color--hover);
   }
 
+  .dk-input-wrapper{
+    border: none;
+  }
+
   @include element(inner) {
     width: calc(100%);
     height: 100%;
@@ -43,13 +47,14 @@
     @include block(box) {
       --button-width: var(--input-number-button-width);
       --button-height: var(--input-number-height);
-      --button-padding: 6px 20px;
+      --button-padding: 6px 0px;
       --button-border-radius: 0px;
       --button-borderColor: transparent;
       --button-hover-borderColor: transparent;
       // --button-hover-background: transparent;
       --button-active-borderColor: transparent;
       --button-background: transparent;
+      --button-font-size: 13px;
       &:hover {
         --button-hover-background: transparent;
       }
@@ -69,8 +74,9 @@
     @include block('>*input-number') {
       @include element(('reduce', 'plus')) {
         position: absolute;
-        height: 42%;
+        height: 50%;
         overflow: hidden;
+        z-index: 1;
         --input-number-height: 100%;
         display: flex;
         .dk-button-box {
@@ -88,7 +94,7 @@
       }
 
       @include element(reduce) {
-        bottom: -1px;
+        bottom: var(--input-number-position-button);
         align-items: end;
         padding-bottom: 1px;
       }
@@ -100,7 +106,8 @@
       }
     }
     @include block('>*input') {
-      width: calc(var(--input-number-width) - var(--input-number-button-width) - 1px);
+      height: 100%;
+      // width: 100%;
       @include block(wrapper) {
         border: none;
         padding: 0;
@@ -109,29 +116,32 @@
   }
 
   @include element(left) {
-    justify-content: end;
+    justify-content: flex-end;
     @include block('>*input-number') {
       @include element(('reduce', 'plus')) {
-        left: -1px;
       }
     }
     @include block('>*input') {
+      margin-right: var(--input-number-input-margin-right);
+      order: 1;
       @include block(wrapper) {
-        border-left: solid 1px var(--input-number-border-color);
+        border-right: solid 1px var(--input-number-border-color);
       }
     }
   }
   
   @include element(right) {
-    justify-content: start;
+    justify-content: flex-start;
     @include block('>*input-number') {
       @include element(('reduce', 'plus')) {
-        right: -1px;
+        order: 1;
       }
     }
+
     @include block('>*input') {
+      margin-left: var(--input-number-button-width);
       @include block(wrapper) {
-        border-right: solid 1px var(--input-number-border-color);
+        border-left: solid 1px var(--input-number-border-color);
       }
     }
   }

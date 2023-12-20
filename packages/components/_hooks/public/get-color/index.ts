@@ -255,7 +255,7 @@ export const getColor = (color: Color): getColorType => {
 
   /**
    * @name rgbaToHex
-   * @description Rgba to hex
+   * @description Rgba to hex 
    * @returns
    */
   const rgbaToHex = (): string => {

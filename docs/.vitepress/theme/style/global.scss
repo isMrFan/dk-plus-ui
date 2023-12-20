@@ -131,6 +131,9 @@ $dark-border-color: #8a8a8e; // 暗黑边框题色
       .dk-input_pend{
         background-color: var(--vp-c-bg);
         border-color: var(--vp-c-border);
+        &:focus-within{
+          border-color: #409eff;
+        }
       }
       .dk-input-wrapper.dk-input_warning{
         border-color: var(--input-border);

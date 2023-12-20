@@ -40,9 +40,9 @@ export default defineComponent({
     <dk-input-number v-model="value" :step="2"></dk-input-number>
     <h4>尺寸</h4>
     <dk-input-number v-model="value" position="left" size="large"></dk-input-number>
-    <dk-input-number v-model="value" size="medium"></dk-input-number>
-    <dk-input-number v-model="value" size="small"></dk-input-number>
-    <dk-input-number v-model="value" size="mini"></dk-input-number>
+    <dk-input-number v-model="value" position="left" size="medium"></dk-input-number>
+    <dk-input-number v-model="value" position="left" size="small"></dk-input-number>
+    <dk-input-number v-model="value" position="left" size="mini"></dk-input-number>
     父组件{{ value }}
   </div>
 </template>
