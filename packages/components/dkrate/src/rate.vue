@@ -40,7 +40,7 @@
       }
 
       watch(
-        () => props.modelValue,
+        () => props.modelValue, // 监听的值
         val => {
           data.modelValue = val
         },
