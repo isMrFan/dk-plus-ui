@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
+  import { defineComponent, reactive, toRefs } from 'vue'
   export default defineComponent({
     name: 'RateComp',
     setup() {
-      const checked = ref(3)
+      const data = reactive({
+        checked: 1
+      })
       return {
-        checked
+        ...toRefs(data)
       }
     }
   })
@@ -13,6 +15,6 @@
 <template>
   <div class="box">
     <p>checked:{{ checked }}</p>
-    <dk-rate v-model="checked" :number-value="9"></dk-rate>
+    <dk-rate v-model="checked" :number-value="5"></dk-rate>
   </div>
 </template>

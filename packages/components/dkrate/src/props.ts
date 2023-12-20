@@ -1,29 +1,27 @@
 import type { ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
-import type { DkIcon } from '../../_interface'
 import {
   setBooleanProps,
   setStringNumberProps,
   setNumberProps,
   setStringProp,
-  setFunctionProps,
-  setObjectProps
+  setFunctionProps
 } from '../../_utils'
 
 export const dkRateProps = {
   /**
    * @name modelValue
-   * @type boolean
+   * @type number
    * @default false
    */
-  modelValue: setNumberProps(3),
+  modelValue: setNumberProps(),
   /**
    * @name numberValue
    * @description Number of stars
    * @type number | string
    */
   numberValue: setStringNumberProps(5),
-  icon: setObjectProps<DkIcon>(),
+  icon: setStringProp<string>('IconStar'),
   /**
    * @name readonly
    * @description Read only or not

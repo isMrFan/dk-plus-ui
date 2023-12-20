@@ -14,7 +14,6 @@
     setup(props) {
       const { styles } = getStyleList(props, 'header')
       const style_List = styles(['height', 'padding'])
-      console.log('styleList', style_List)
       return { style_List }
     }
   })

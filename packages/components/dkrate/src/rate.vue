@@ -10,37 +10,41 @@
     emits: ['update:modelValue'],
     setup(props, { emit }) {
       const { getRun } = getReturn()
-      const { numberValue, readonly, selectColor, noSelectColor } = toRefs(props)
+      const { numberValue, readonly } = toRefs(props)
       const data = reactive({
-        modelValue: props.modelValue,
-        numberValue: numberValue,
-        readonly: readonly,
-        selectColor: selectColor,
-        noSelectColor: noSelectColor,
+        modelValue: 0,
         IsNumberValue: 0,
-        icon: 'IconStar',
         isMouseEnter: false,
-        markList: computed((): number => (isNumber(numberValue) ? numberValue : 5))
+        markList: computed((): number =>
+          isNumber(numberValue.value) ? numberValue.value : Number(numberValue.value)
+        ),
+        timestampTime: 0 as number
       })
       const methods = {
-        handleMouseEnter: (index: number): void => {
-          if (props.readonly) return
-          data.modelValue = index
-        },
-        handleMouseLeave: (): void => {
-          if (props.readonly) return
+        /**
+         * @description 鼠标移出
+         */
+        onMouseout: (): void => {
+          if (readonly.value) return
           data.modelValue = props.modelValue
         },
+        /**
+         * @description 鼠标移入
+         */
+        onMouseover: (index: number): void => {
+          if (readonly.value) return
+          data.modelValue = index
+        },
         handleClick: (ind: number): void => {
-          if (props.readonly) return
+          if (readonly.value) return
           data.modelValue = ind
-          emit(model_Value, data.modelValue)
+          emit(model_Value, ind)
           getRun(props.onchange, ind)
         }
       }
 
       watch(
-        () => props.modelValue,
+        (): number => props.modelValue,
         val => {
           data.modelValue = val
         },
@@ -48,29 +52,35 @@
           immediate: true
         }
       )
+      watch(
+        (): number => data.modelValue,
+        () => {
+          data.timestampTime = new Date().getTime()
+        },
+        {
+          immediate: true
+        }
+      )
       return {
         ...toRefs(data),
-        ...methods
+        ...toRefs(methods)
       }
     }
   })
 </script>
 <template>
   <div class="dk-rate" role="slider">
-    <div class="dk-rate_list">
-      {{ modelValue }}
+    <div :key="timestampTime" class="dk-rate_list">
       <div
-        v-for="(item, ind) in markList"
-        :key="ind"
+        v-for="(item, index) in markList"
+        :key="index"
         :class="['dk-rate_star', { 'dk-rate_star-readonly': readonly }]"
-        @mouseenter="handleMouseEnter(ind + 1)"
-        @mouseleave="handleMouseLeave"
-        @click="handleClick(ind)"
+        @mouseout="onMouseout"
+        @mouseover="onMouseover(index + 1)"
+        @click="handleClick(index + 1)"
       >
-        <dk-icon
-          :icon="icon"
-          :color="modelValue > ind ? selectColor : noSelectColor"
-        ></dk-icon>
+        <dk-icon :icon="icon" :color="modelValue > index ? selectColor : noSelectColor">
+        </dk-icon>
       </div>
     </div>
   </div>
