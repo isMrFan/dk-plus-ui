@@ -21,6 +21,12 @@ export const dkRateProps = {
    * @type number | string
    */
   numberValue: setStringNumberProps(5),
+  /**
+   * @name icon
+   * @description icon
+   * @type icon
+   */
+
   icon: setStringProp<string>('IconStar'),
   /**
    * @name readonly
