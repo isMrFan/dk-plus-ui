@@ -79,9 +79,14 @@
         @mouseover="onMouseover(index + 1)"
         @click="handleClick(index + 1)"
       >
-        <dk-icon :icon="icon" :color="modelValue > index ? selectColor : noSelectColor">
+        <dk-icon
+          :icon="icon"
+          :color="modelValue > index ? selectColor : noSelectColor"
+          :size="iconSize"
+        >
         </dk-icon>
       </div>
+      <div>asdas</div>
     </div>
   </div>
 </template>

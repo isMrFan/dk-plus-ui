@@ -15,6 +15,6 @@
 <template>
   <div class="box">
     <p>checked:{{ checked }}</p>
-    <dk-rate v-model="checked" :number-value="5"></dk-rate>
+    <dk-rate v-model="checked" :number-value="5" :icon-size="30"></dk-rate>
   </div>
 </template>

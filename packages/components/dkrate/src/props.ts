@@ -47,6 +47,12 @@ export const dkRateProps = {
    */
   noSelectColor: setStringProp<string>('#5E5E5E'),
   /**
+   * @name iconSize
+   * @description icon Size
+   * @type string
+   */
+  iconSize: setStringNumberProps(20),
+  /**
    * @name onChange
    * @description Triggered when the score changes
    * @type string
