@@ -26,6 +26,8 @@
         handleMouseEnter: (index: number): void => {
           if (props.readonly) return
           data.modelValue = index
+          console.log(index,data.markList);
+          
         },
         handleMouseLeave: (): void => {
           if (props.readonly) return
@@ -58,7 +60,7 @@
 <template>
   <div class="dk-rate" role="slider">
     <div class="dk-rate_list">
-      {{ modelValue }}
+      <!-- {{ modelValue }} -->
       <div
         v-for="(item, ind) in markList"
         :key="ind"
