@@ -62,7 +62,7 @@ export const sidebar = {
   '/en/electronicBook/': [
     {
       text: 'Related ebook',
-      items: [{ text: 'Ebook home page', link: '/en/electronicBook/index' }]
+      items: [{ text: 'Ebook home page', link: '/en/electronicBook/StereotypedWriting' }]
     }
   ]
 }
