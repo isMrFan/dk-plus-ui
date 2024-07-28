@@ -157,6 +157,9 @@ importers:
       search-insights:
         specifier: ^2.6.0
         version: 2.14.0
+      vite-plugin-copy:
+        specifier: ^0.1.6
+        version: 0.1.6
 
   packages/components: {}
 
@@ -4212,6 +4215,10 @@ packages:
     resolution: {integrity: sha512-CGC8DfIey0k4S4o54ylwFIzT1Mjb9s7cMmlXj6DMM1MZZIeWFjPCJc6YZWjnnS28ul3r7R1nmihvYvGg/lOYsQ==}
     peerDependencies:
       vite: '>=2.0.0'
+
+  vite-plugin-copy@0.1.6:
+    resolution: {integrity: sha512-bqIaefZOE2Jx8P5wJuHKL5GzCERa/pcwdUQWaocyTNXgalN2xkxXH7LmqRJ34V2OlKF2F9E/zj0zITS7U6PpUg==}
+    engines: {node: '>=14.8.0'}
 
   vite-plugin-dts@2.0.0-beta.3:
     resolution: {integrity: sha512-QrsbTxyt0choSYXPxPfmN9XcSvxcVZk0zticxLrI5DkECs9KhDrSVGok1YP/UPkoKpfF9ThtOJcM5Rjuesxv/w==}
@@ -8872,6 +8879,10 @@ snapshots:
       vite: 4.5.3(@types/node@18.19.39)(sass@1.77.6)(terser@5.31.1)
     transitivePeerDependencies:
       - supports-color
+
+  vite-plugin-copy@0.1.6:
+    dependencies:
+      fast-glob: 3.3.2
 
   vite-plugin-dts@2.0.0-beta.3(@types/node@18.19.39)(rollup@3.29.4)(vite@3.2.10(@types/node@18.19.39)(sass@1.77.6)(terser@5.31.1)):
     dependencies:
