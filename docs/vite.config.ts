@@ -23,13 +23,13 @@ export default (): UserConfigExport => {
         try {
           // 复制 robots.txt
           copyFileSync(
-            resolve(__dirname, './robots.txt'),
+            resolve(__dirname, './seo/robots.txt'),
             resolve(__dirname, './.vitepress/dist/robots.txt')
           );
 
           // 复制 sitemap.xml
           copyFileSync(
-            resolve(__dirname, './sitemap.xml'),
+            resolve(__dirname, './seo/sitemap.xml'),
             resolve(__dirname, './.vitepress/dist/sitemap.xml')
           );
 
