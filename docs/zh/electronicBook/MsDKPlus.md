@@ -1,11 +1,11 @@
-# MsDKPlus Public Account Articles
+# MsDKPlus 内公众号文章
 
-## 1. Latest Development News
+## 1.开发最新资讯
 
-[ESLint Team to Deprecate All Formatting Rules!](https://mp.weixin.qq.com/s/moXVg5yFLowedVtyITWyyQ)
+[ESLint 团队即将废除所有格式化规则！](https://mp.weixin.qq.com/s/moXVg5yFLowedVtyITWyyQ)
 
-## 2. Advanced Front-End Topics
+## 2.前端进阶
 
-[JS Series Part 1: var, let, const, Destructuring, Spread, Functions](https://mp.weixin.qq.com/s/XjmueehRAp6sX6Ulgwzqfw)
+[JS 系列一：var、let、const、解构、展开、函数](https://mp.weixin.qq.com/s/XjmueehRAp6sX6Ulgwzqfw)
 
-[Understanding Promise Execution Logic Thoroughly Through Visualization](https://mp.weixin.qq.com/s/k_KnABgu--I7gqyuQysZng)
+[通过可视化彻底搞懂 Promise执行逻辑](https://mp.weixin.qq.com/s/k_KnABgu--I7gqyuQysZng)

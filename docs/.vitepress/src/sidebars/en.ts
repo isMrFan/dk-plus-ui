@@ -62,7 +62,10 @@ export const sidebar = {
   '/en/electronicBook/': [
     {
       text: 'Related ebook',
-      items: [{ text: 'Ebook home page', link: '/en/electronicBook/StereotypedWriting' }]
+      items: [
+        { text: 'Ebook home page', link: '/en/electronicBook/StereotypedWriting' },
+        { text: 'MsDKPlus', link: '/en/electronicBook/MsDKPlus' }
+      ]
     }
   ]
 }
