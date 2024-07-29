@@ -1,9 +1,5 @@
 # 里程碑
 
-## 2023-07-18
-团队迎来第四位贡献者 <XuXiaoYing@1436633896@qq.com> <br/>
-`dk-alert` 组件诞生
-
 ## 2023-07-15
 
 仓库迎来第三位贡献者 [usertutu](https://github.com/usertutu)
