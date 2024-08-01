@@ -74,7 +74,7 @@
       <div
         v-for="(item, index) in markList"
         :key="index"
-        :class="['dk-rate_star', { 'dk-rate_star-readonly': readonly }]"
+        :class="['dk-rate_star', { 'dk-rate_star-readonly': readonly },{ 'dk-rate_star_forbidden': readonly }]"
         @mouseout="onMouseout"
         @mouseover="onMouseover(index + 1)"
         @click="handleClick(index + 1)"
@@ -86,7 +86,6 @@
         >
         </dk-icon>
       </div>
-      <div>asdas</div>
     </div>
   </div>
 </template>

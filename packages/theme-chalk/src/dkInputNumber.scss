@@ -44,6 +44,7 @@
 
   .dk-button {
     margin: 0;
+    border: none;
     @include block(box) {
       --button-width: var(--input-number-button-width);
       --button-height: var(--input-number-height);
@@ -59,8 +60,6 @@
         --button-hover-background: transparent;
       }
     }
-
-    border: none;
   }
   @include element(disabled) {
     background-color: var(--input-number-background-color);

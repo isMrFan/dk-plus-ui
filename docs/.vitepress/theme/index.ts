@@ -36,6 +36,7 @@ export default {
         'box-shadow': '0 0 10px #ccc',
         'text-align': 'center',
         'font-size': '14px',
+        'z-index': '9999',
         color: '#333',
         'line-height': '20px',
         'word-break': 'break-all',
