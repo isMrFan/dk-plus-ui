@@ -1,13 +1,13 @@
-# rate 评分
+# rate Rating
 
-用于评分或打星
+for rating or giving stars
 
-- [源代码](https://github.com/isMrFan/dk-plus-ui/blob/master/packages/components/dkrate/src/rate.vue)
-- [文档编辑](https://github.com/isMrFan/dk-plus-ui/blob/master/docs/zh/components/DataShow/rate.md)
+- [source code](https://github.com/isMrFan/dk-plus-ui/blob/master/packages/components/dkrate/src/rate.vue)
+- [document editing](https://github.com/isMrFan/dk-plus-ui/blob/master/docs/zh/components/DataShow/rate.md)
 
-## 1.基本使用
+## 1.basic usage
 
-通过 `v-model` 绑定一个值
+binding a value using `v-model`
 
 ::: module
 <template #code>
@@ -36,9 +36,9 @@
 
 :::
 
-## 2.自定义颜色
+## 2.custom color
 
-`select-color` 属性可以配置星星选中时的颜色，`no-select-color`属性可以配置星星未选中时的颜色
+`select-color` property can configure the color of the stars when selected, and the `no-select-color` property can configure the color of the stars when not selected.
 
 ::: module
 <template #code>
@@ -75,9 +75,9 @@
 
 :::
 
-## 3.自定义 icon
+## 3.custom icon
 
-`icon` 属性可以自定义 `icon` (目前只支持ICON图标组件库内图标)
+`icon` property can be used to customize the `icon` (currently only supports icons from the ICON component library).
 
 ::: module
 <template #code>
@@ -114,9 +114,9 @@
 
 :::
 
-## 4.图标大小
+## 4.icon size
 
-`iconSize` 属性可以定义ICON 大小
+`iconSize` property can define the size of the icon.小
 
 ::: module
 <template #code>
@@ -155,9 +155,9 @@
 
 :::
 
-## 5.是否禁用
+## 5.whether it is disabled
 
-`readonly` 评分是否禁用  true | false
+`readonly` determines whether the rating is disabled. It accepts `true` or `false` values.
 
 ::: module
 <template #code>
@@ -194,9 +194,9 @@
 
 :::
 
-## 6.监听事件
+## 6.listen to events
 
-`onchange` 监听事件
+`onchange` listen to events
 
 ::: module
 <template #code>
@@ -239,22 +239,22 @@
 
 :::
 
-## 属性
+## property
 
-| 参数| 说明 | 类型 | 可选值 | 默认值  |
+| parameter| description | type | possible values | default value  |
 | --------------- | -------------------------------------------- | --------- | ------------------------------- | ------- |
-| `v-model`       | [绑定值](#_1-基本使用)                          | `string  number` | -                  | -       |
-| `select-color`       | [选定的颜色](#_2.自定义颜色)                          | `string` | -               | #fcc202       |
-| `no-select-color`       | [没有选定的颜色](#_2.自定义颜色)                          | `string` | -               | #5E5E5E       |
-| `icon`       | [自定义 icon](#_3.自定义icon)                          | `string` | -               | IconAndroid       |
-| `iconSize`       | [图标大小](#_4.图标大小)                          | `string number` | -               | 20       |
-| `readonly`       | [是否禁用](#_4.是否禁用)                          | `boolean` | `true false`               | -       |
+| `v-model`       | [bound value](#_1-basicusage)                          | `string  number` | -                  | -       |
+| `select-color`       | [selected color](#_2.customColor)                          | `string` | -               | #fcc202       |
+| `no-select-color`       | [unselected color](#_2.customcolor)                          | `string` | -               | #5E5E5E       |
+| `icon`       | [custom icon](#_3.customicon)                          | `string` | -               | IconAndroid       |
+| `iconSize`       | [icon size](#_4.iconSize)                          | `string number` | -               | 20       |
+| `readonly`       | [whether disabled](#_4.whetherDisabled)                          | `boolean` | `true false`               | -       |
 
-## 事件
+## event
 
-| 事件名称 | 说明             | 回调参数        |
+| event name | description             | callback parameters        |
 | -------- | ---------------- | --------------- |
-| `change` | 绑定值变化时触发 | `() => number` |
+| `change` | triggered when the bound value changes | `() => number` |
 
 ## Contributors
 
