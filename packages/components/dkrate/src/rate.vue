@@ -42,7 +42,6 @@
           getRun(props.onchange, ind)
         }
       }
-
       watch(
         (): number => props.modelValue,
         val => {
