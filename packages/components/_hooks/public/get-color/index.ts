@@ -1,7 +1,7 @@
 /**
  * @name get-color
  * @Time 2023年05月05日
- * @author dk-plus-ui(范先生) <https://github.com/dk-plus-ui>
+ * @author dk-plus-ui(范先生) <https://github.com/isMrFan>
  * @param { Function } getDeepen 加深方法
  * @param { Function } getDodge 减淡方法
  * @description 颜色处理的hooks 主要用于颜色的加深和减淡 防止样式直接控制导致CSS样式嘎嘎多
