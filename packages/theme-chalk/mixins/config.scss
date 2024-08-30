@@ -46,9 +46,18 @@ $dk-info-light-active-color: #BCBEC4;
 
 //warning
 $dk-warning-color: #E17E29;
-$dk-warning-hover-color: #E79A42; // 提亮一点
-$dk-warning-active-color: #BB621F; // 加深一点
-$dk-warning-disabled-color: #EBB467; // 更淡一点
-$dk-warning-light-default: #FEF8EA; // 更淡、带有一点灰色
-$dk-warning-light-hover: #F7E3BC; // 比默认颜色稍微深一点
-$dk-warning-light-active-color: #F2CE90; // 加深的浅色
+$dk-warning-hover-color: #E79A42;
+$dk-warning-active-color: #BB621F; 
+$dk-warning-disabled-color: #EBB467;
+$dk-warning-light-default: #FEF8EA; 
+$dk-warning-light-hover: #F7E3BC; 
+$dk-warning-light-active-color: #F2CE90;
+
+//danger
+$dk-danger-color: #D4544A;
+$dk-danger-hover-color: #DB7167;
+$dk-danger-active-color: #B03B35; 
+$dk-danger-disabled-color: #E29086;
+$dk-danger-light-default: #FCEDE9; 
+$dk-danger-light-hover: #F3CEC6; 
+$dk-danger-light-active-color: #EAAFA5;

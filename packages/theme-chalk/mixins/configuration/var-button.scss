@@ -47,17 +47,17 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
   }
   &_warning.#{$text},
   &_warning.#{$link} {
-    --button-color: #e6a23c;
-    --button-background: #fcc202;
-    --button-hover: #fed348;
-    --button-active: #c99b02;
+    --button-color: #{$dk-warning-color};
+    --button-background:#{$dk-warning-color};
+    --button-hover: #{$dk-warning-hover-color};
+    --button-active: #{$dk-warning-active-color};
   }
   &_danger.#{$text},
   &_danger.#{$link} {
-    --button-color: #f56c6c;
-    --button-background: #ff0200;
-    --button-hover: #ff5857;
-    --button-active: #cc0200;
+    --button-color: #{$dk-danger-color};
+    --button-background: #{$dk-danger-active-color};
+    --button-hover: #{$dk-danger-hover-color};
+    --button-active:#{$dk-danger-active-color};
   }
   //文本按钮结束
   //盒子按钮开始
@@ -66,13 +66,13 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-background: #{$dk-font-active-color};
     --button-borderColor: #{$dk-font-5-color};
 
-    --button-hover: #{$dk-primary-hover-color};
-    --button-hover-borderColor:#{$dk-primary-light-hover};
-    --button-hover-background:#{$dk-primary-light-default};
+    --button-hover: #{$dk-primary-light-active-color};
+    --button-hover-borderColor:#{$dk-primary-hover-color};
+    --button-hover-background:#{$dk-font-5-color};
 
     --button-active: #{$dk-primary-active-color};
-    --button-active-borderColor: #{$dk-primary-active-color};
-    --button-active-background: #{$dk-primary-light-active-color};
+    --button-active-borderColor: #{$dk-primary-hover-color};
+    --button-active-background: #{$dk-font-5-color};
 
     --button-ripples-BgColor: #{$dk-font-5-color};
   }
@@ -104,7 +104,7 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-active-borderColor: #{$dk-success-active-color};
     --button-active-background: #{$dk-success-active-color};
 
-    --button-ripples-BgColor:#{$dk-font-active-color};
+    --button-ripples-BgColor:#{$dk-success-color};
   }
   &_info.#{$box} {
     --button-color:#{$dk-font-active-color};
@@ -122,51 +122,51 @@ $box: '#{$namespace}-button-box' !default; // 命名空间
     --button-ripples-BgColor:#{$dk-info-color};
   }
   &_warning.#{$box} {
-    --button-color: #ffffff;
-    --button-background: #e6a23c;
-    --button-borderColor: #e6a23c;
+    --button-color: #{$dk-font-active-color};
+    --button-background: #{$dk-warning-color};
+    --button-borderColor:  #{$dk-warning-color};
 
-    --button-hover: #ffffff;
-    --button-hover-borderColor: #ecc790;
-    --button-hover-background: #f3d19e;
+    --button-hover:#{$dk-font-active-color};
+    --button-hover-borderColor: #{$dk-warning-hover-color};
+    --button-hover-background:#{$dk-warning-hover-color};
 
-    --button-active: #ffffff;
-    --button-active-borderColor: #f5bd69;
-    --button-active-background: #f5bd69;
+    --button-active: #{$dk-font-active-color};
+    --button-active-borderColor: #{$dk-warning-active-color};
+    --button-active-background: #{$dk-warning-active-color};
 
-    --button-ripples-BgColor: #e6a23c;
+    --button-ripples-BgColor: #{$dk-warning-hover-color};
   }
   &_danger.#{$box} {
-    --button-color: #ffffff;
-    --button-background: #f56c6c;
-    --button-borderColor: #f56c6c;
+    --button-color: #{$dk-font-active-color};
+    --button-background: #{$dk-danger-color};
+    --button-borderColor: #{$dk-danger-color};
 
-    --button-hover: #ffffff;
-    --button-hover-borderColor: #fab6b6;
-    --button-hover-background: #fab6b6;
+    --button-hover:#{$dk-font-active-color};
+    --button-hover-borderColor: #{$dk-danger-hover-color};
+    --button-hover-background:#{$dk-danger-hover-color};
 
-    --button-active: #ffffff;
-    --button-active-borderColor: #d88383;
-    --button-active-background: #d88383;
+    --button-active:#{$dk-font-active-color};
+    --button-active-borderColor: #{$dk-danger-active-color};
+    --button-active-background:#{$dk-danger-active-color};
 
-    --button-ripples-BgColor: #f56c6c;
+    --button-ripples-BgColor: #{$dk-danger-hover-color};
   }
   &-box {
     --button-height: 40px;
     --button-padding: 15px 20px;
     --button-font-size: 16px;
 
-    --button-color: #606266;
-    --button-background: #ffffff;
-    --button-borderColor: #dcdfe6;
+    --button-color: #{$dk-font-2-color};
+    --button-background: #{$dk-font-active-color};
+    --button-borderColor: #{$dk-font-5-color};
 
-    --button-hover: #409eff;
-    --button-hover-borderColor: #79bbff;
-    --button-hover-background: #ecf5ff;
+    --button-hover: #{$dk-primary-color};
+    --button-hover-borderColor: #{$dk-primary-hover-color};
+    --button-hover-background: #{$dk-font-5-color};
 
-    --button-active: #409eff;
-    --button-active-borderColor: #409eff;
-    --button-active-background: #ecf5ff;
+    --button-active:#{$dk-primary-color};
+    --button-active-borderColor: #{$dk-primary-color};
+    --button-active-background:#{$dk-font-6-color};
   }
   //圆角按钮
   &_round {

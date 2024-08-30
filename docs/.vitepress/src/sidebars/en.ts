@@ -31,6 +31,12 @@ export const sidebar = {
   ],
   '/en/components/': [
     {
+      text: 'design',
+      items: [
+        {text:'Palette swatches',link:'/en/components/design/swatches'}
+      ]
+    },
+    {
       text: 'Base component',
       items: [
         { text: 'Icon', link: '/en/components/basics/icon' },

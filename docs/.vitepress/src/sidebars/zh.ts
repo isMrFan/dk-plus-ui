@@ -3,6 +3,7 @@
  *
  * @see sidebar https://vitepress.vuejs.org/guide/theme-sidebar#sidebar
  */
+import { link } from 'fs'
 import { znExpansionNav } from '../../data/znExpansionNav'
 export const sidebar = {
   '/zh/document/': [
@@ -30,6 +31,12 @@ export const sidebar = {
     }
   ],
   '/zh/components/': [
+    {
+      text: '设计',
+      items: [
+        {text:'Palette 色板',link:'/zh/components/design/swatches'}
+      ]
+    },
     {
       text: '基础组件',
       items: [
