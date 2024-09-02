@@ -53,4 +53,4 @@ export default defineComponent({
     flex-direction: column;
     gap: 10px;
   }
-</style>
+</style>./DkNumber.vue

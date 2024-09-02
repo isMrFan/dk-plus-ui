@@ -41,3 +41,15 @@
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+  .box {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .dk-shadow {
+      margin-bottom: 10px;
+      width: calc(50% - 10px);
+    }
+  }
+</style>

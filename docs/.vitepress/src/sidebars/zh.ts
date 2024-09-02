@@ -62,7 +62,10 @@ export const sidebar = {
     },
     {
       text: 'Data展示组件',
-      items: [{ text: 'Rate 评分', link: '/zh/components/DataShow/rate' }]
+      items: [
+        { text: 'Rate 评分', link: '/zh/components/DataShow/rate' },
+        { text: 'Watermark 水印', link: '/zh/components/DataShow/watermark' }
+      ]
     },
     {
       text: '反馈组件',

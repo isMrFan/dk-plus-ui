@@ -7,19 +7,24 @@
   export default defineComponent({
     name: 'DkRate',
     props: dkRateProps,
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'change'],
     setup(props, { emit }) {
       const { getRun } = getReturn()
-      const { numberValue, readonly } = toRefs(props)
+      const { numberValue, disabled, selectColor, noSelectColor, showScore, showText, readonly } = toRefs(props)
       const data = reactive({
-        modelValue: 0,
+        modelValue: props.modelValue,
+        numberValue: numberValue,
+        disabled: disabled,
+        selectColor: selectColor,
+        noSelectColor: noSelectColor,
         IsNumberValue: 0,
         isMouseEnter: false,
-        markList: computed((): number =>
-          isNumber(numberValue.value) ? numberValue.value : Number(numberValue.value)
-        ),
+        markList: computed((): number => (isNumber(numberValue.value) ? numberValue.value : 5)),
+        showScore: showScore,
+        showText: showText,
         timestampTime: 0 as number
       })
+      
       const methods = {
         /**
          * @description 鼠标移出
@@ -86,5 +91,7 @@
         </dk-icon>
       </div>
     </div>
+    <span v-if="showScore" class="dk-rate__text">{{ modelValue }}</span>
+    <span v-if="showText" class="dk-rate__text">{{ showText[modelValue - 1] }}</span>
   </div>
 </template>
