@@ -91,7 +91,6 @@
         >
         </dk-icon>
       </div>
-      <div>asdas</div>
     </div>
     <span v-if="showScore" class="dk-rate__text">{{ modelValue }}</span>
     <span v-if="showText" class="dk-rate__text">{{ showText[modelValue - 1] }}</span>
