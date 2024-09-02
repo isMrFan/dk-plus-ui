@@ -31,7 +31,7 @@
     </dk-scrollbar>
     <h4>v-scroll指令</h4>
     <div 
-      v-dk-scroll="true" 
+      v-dk-scroll="true"
       thumb-color="#1cb1a4" 
       class="instruct-box"
       thumb-radius="0"

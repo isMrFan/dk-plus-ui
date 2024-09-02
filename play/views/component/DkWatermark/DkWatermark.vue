@@ -2,5 +2,7 @@
 </script>
 
 <template>
-  <dk-watermark value="水印组件" rotate="-20"></dk-watermark>
+  <div class="dk-watermark-box">
+    <dk-watermark value="水印组件" rotate="-20"></dk-watermark>
+  </div>
 </template>
