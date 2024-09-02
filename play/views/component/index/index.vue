@@ -110,6 +110,8 @@
       display: flex;
 
       .index-conten-left {
+        height: calc(100vh - 80px);
+        overflow: scroll;
         width: 200px;
 
         ul {

@@ -5,7 +5,8 @@ import {
   setStringNumberProps,
   setNumberProps,
   setStringProp,
-  setFunctionProps
+  setFunctionProps,
+  setArrayProps
 } from '../../_utils'
 
 export const dkRateProps = {
@@ -57,7 +58,25 @@ export const dkRateProps = {
    * @description Triggered when the score changes
    * @type string
    */
-  onchange: setFunctionProps<RateChange>()
+  onchange: setFunctionProps<RateChange>(),
+  /**
+   * @name disabled
+   * @description Disabled or not
+   * @type boolean
+   */
+  disabled: setBooleanProps(),
+  /**
+   * @name showScore
+   * @description Show text
+   * @type boolean
+   */
+  showScore: setBooleanProps(),
+  /**
+   * @name showText
+   * @description Show text
+   * @type string array
+   */
+  showText: setArrayProps<string>()
 }
 
 /** rate 组件 props 类型 */

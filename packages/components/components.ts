@@ -78,3 +78,9 @@ export * from './dkpopover'
 
 export { DkRate } from './dkrate'
 export * from './dkrate'
+
+export { DkWatermark } from './dkwatermark'
+export * from './dkwatermark'
+
+export { DkDialog } from './dkdialog'
+export * from './dkdialog'
