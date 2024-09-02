@@ -68,8 +68,11 @@ export const sidebar = {
   '/zh/expansion/': znExpansionNav,
   '/zh/electronicBook/': [
     {
-      text: '相关电子书',
-      items: [{ text: '电子书首页', link: '/zh/electronicBook/index' }]
+      text: '其他知识点',
+      items: [
+        { text: '电子书首页', link: '/zh/electronicBook/StereotypedWriting' },
+        { text: 'MsDKPlus', link: '/zh/electronicBook/MsDKPlus' }
+      ]
     }
   ]
 }

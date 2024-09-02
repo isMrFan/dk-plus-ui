@@ -1,9 +1,5 @@
 # milestone
 
-## 2023-07-18
-The team welcomes the fourth contributor <XuXiaoYing@1436633896@qq.com> <br/>
-`dk-alert` Component birth
-
 ## 2023-07-15
 
 The warehouse has welcomed a third contributor [usertutu](https://github.com/usertutu)

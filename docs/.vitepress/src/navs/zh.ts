@@ -28,7 +28,7 @@ export default function getNavs() {
         {
           text: '1.电子书',
           activeMatch: '^/zh/electronicBook/',
-          link: '/zh/electronicBook/index'
+          link: '/zh/electronicBook/StereotypedWriting'
         }
       ]
     },

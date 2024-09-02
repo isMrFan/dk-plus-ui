@@ -11,7 +11,7 @@ export const head: HeadConfig[] = [
     'link',
     {
       rel: 'icon',
-      href: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png'
+      href: 'https://oss.cadwaladerss.com/dk-plus/images/isicon.png'
     }
   ],
   /** 解决移动端点击输入框自动放大的问题 */
@@ -22,13 +22,20 @@ export const head: HeadConfig[] = [
       content: 'width=device-width, initial-scale=1.0,user-scalable=no'
     }
   ],
+  [
+    'meta',
+    {
+      name: 'robots',
+      content: 'index, follow'
+    }
+  ],
   /** 网站关键词，有助于 SEO 优化 */
   [
     'meta',
     {
       name: 'Keywords',
       content:
-        '前端,前端开发,组件库,vue3组件库,vue,vue.js,javascript,typescript,vite,css3,css,html,html5,js,ts,scss,sass,design,setup,eslint,es6,components,vitepress,vitest,element,element-ui,ui,element-plus,go,web-components,web,jquery,less,eslint,commitlint,cli,types,uviewui,uniapp,uni-app,uni,vue-admin-beautiful,dk-ui,dkui,dk,dk-plus,dk-plus-ui'
+        'Vue3组件,dk-plus,dk-plus-ui,dk-plus组件库,dk-plus-ui组件库,Vue3组件库,Vue3组件,Vue3 UI组件库,Vue3 UI组件,Vue3 UI,dkPlus,dkPlusUI,dkPlus组件库,dkPlusUI组件库'
     }
   ],
   /** 网站作者 */
@@ -36,7 +43,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       name: 'author',
-      content: 'dk-plus dk-plus-ui'
+      content: 'Mr·Fan,isMrFan,范凯,刘宇轩,王英杰,bugfix2019'
     }
   ],
   /** OG 标题 */
@@ -60,7 +67,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:image',
-      content: 'https://oss.cadwaladerss.com/dk-plus/images/24ICON.png'
+      content: 'https://oss.cadwaladerss.com/dk-plus/images/isicon.png'
     }
   ],
   /** OG 描述 */
@@ -69,11 +76,7 @@ export const head: HeadConfig[] = [
     {
       property: 'og:description',
       // content: '面向设计人员和开发人员的基于Vue 3的组件库'
-      content: `
-        ✨ Vue 3 组件库，专为设计师与开发者而生 ✨
-        🛠️ 简单集成，开发无压力 🛠️
-        🚀 加速开发，效率倍增 🚀
-        立即体验，开启全新的前端之旅！🚀
+      content: `Vue 3 组件库，专为设计师与开发者而生简单集成，开发无压力加速开发，效率倍增立即体验，开启全新的前端之旅!
       `
     }
   ],

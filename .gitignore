@@ -21,3 +21,5 @@ docs/build.log
 # 特定文件或目录的忽略
 .DS_Store
 
+
+helper.json

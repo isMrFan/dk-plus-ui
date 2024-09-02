@@ -27,7 +27,7 @@ export default function getNavs() {
         {
           text: 'Electronic book',
           activeMatch: '^/en/electronicBook/',
-          link: '/en/electronicBook/index'
+          link: '/en/electronicBook/StereotypedWriting'
         }
       ]
     },

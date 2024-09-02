@@ -1,9 +1,14 @@
 {
   "contribution": [
     {
-      "avatar": "https://github.com/dk-plus-ui",
+      "avatar": "https://github.com/isMrFan/dk-plus-ui",
+      "imgUrl": "https://oss.cadwaladerss.com/dk-plus/images/isicon.png",
+      "name": "DK-plus"
+    },
+    {
+      "avatar": "https://github.com/isMrFan",
       "imgUrl": "https://avatars.githubusercontent.com/u/88755587?v=4",
-      "name": "Mr. Fan"
+      "name": "Mr.Fan"
     },
     {
       "avatar": "https://github.com/WangYingJay",
@@ -14,21 +19,6 @@
       "avatar": "https://github.com/bugfix2020",
       "imgUrl": "https://avatars.githubusercontent.com/u/29813979?v=4",
       "name": "bugfix2019"
-    },
-    {
-      "avatar": "https://github.com/usertutu",
-      "imgUrl": "https://avatars.githubusercontent.com/u/54882060?v=4",
-      "name": "usertutu"
-    },
-    {
-      "avatar": "https://github.com/Jiajie-Zhao",
-      "imgUrl": "https://avatars.githubusercontent.com/u/95927228?v=4",
-      "name": "Jiajie-Zhao"
-    },
-    {
-      "avatar": "https://github.com/XuXiaoyingy",
-      "imgUrl": "https://avatars.githubusercontent.com/u/140246146?v=4",
-      "name": "XuXiaoYing"
     }
   ]
 }
