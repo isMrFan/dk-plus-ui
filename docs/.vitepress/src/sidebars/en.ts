@@ -60,6 +60,13 @@ export const sidebar = {
       ]
     },
     {
+      text: 'Data Display element',
+      items: [
+        { text: 'Rate mark', link: '/en/components/DataShow/rate' },
+        { text: 'Watermark watermark', link: '/en/components/DataShow/watermark' }
+      ]
+    },
+    {
       text: 'Feedback element',
       items: [{ text: 'Loading', link: '/en/components/feedback/loading' }]
     }
