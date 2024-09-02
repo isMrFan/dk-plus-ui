@@ -15,6 +15,7 @@
  * get-radio-group radio-group用的hooks
  * get-switch switch用的hooks
  * get-popover popover用的hooks
+ * get - throttle  节流用的hooks
  * **************公共hooks(public)**************
  * get-color   颜色用的hooks (getColor)
  * get-Global  全局用的hooks  (getGlobal)
@@ -35,6 +36,7 @@ export * from './public/get-StyleList'
 export * from './public/get-return'
 export * from './public/set-size'
 export * from './public/get-ripples'
+export * from './public/get-throttle'
 export * from './_directive/loading'
 export * from './get-alert'
 export * from './get-scrollbar'

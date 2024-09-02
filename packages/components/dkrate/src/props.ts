@@ -1,30 +1,34 @@
 import type { ExtractPropTypes } from 'vue'
 import type { RateChange } from './interface'
-import type { DkIcon } from '../../_interface'
 import {
   setBooleanProps,
   setStringNumberProps,
   setNumberProps,
   setStringProp,
   setFunctionProps,
-  setObjectProps,
   setArrayProps
 } from '../../_utils'
 
 export const dkRateProps = {
   /**
    * @name modelValue
-   * @type boolean
+   * @type number
    * @default false
    */
-  modelValue: setNumberProps(3),
+  modelValue: setNumberProps(),
   /**
    * @name numberValue
    * @description Number of stars
    * @type number | string
    */
   numberValue: setStringNumberProps(5),
-  icon: setObjectProps<DkIcon>(),
+  /**
+   * @name icon
+   * @description icon
+   * @type icon
+   */
+
+  icon: setStringProp<string>('IconStar'),
   /**
    * @name readonly
    * @description Read only or not
@@ -43,6 +47,12 @@ export const dkRateProps = {
    * @type string
    */
   noSelectColor: setStringProp<string>('#5E5E5E'),
+  /**
+   * @name iconSize
+   * @description icon Size
+   * @type string
+   */
+  iconSize: setStringNumberProps(20),
   /**
    * @name onChange
    * @description Triggered when the score changes

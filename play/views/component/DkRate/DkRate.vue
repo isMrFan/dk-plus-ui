@@ -1,29 +1,21 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
-  const checked = ref(3)
-  const handleChange = (value: number): void => {
-    checked.value = value
-    alert(`当前评分为:${value}`)
-  }
+<script lang="ts">
+  import { defineComponent, reactive, toRefs } from 'vue'
+  export default defineComponent({
+    name: 'RateComp',
+    setup() {
+      const data = reactive({
+        checked: 1
+      })
+      return {
+        ...toRefs(data)
+      }
+    }
+  })
 </script>
 <template>
   <div class="box">
-    <dk-shadow>
-      <dk-rate v-model="checked" :number-value="9" @change="handleChange"></dk-rate><br />
-    </dk-shadow>
-    <dk-shadow>
-      <dk-rate v-model="checked" disabled :number-value="9"></dk-rate><br />
-    </dk-shadow>
-    <dk-shadow>
-      <dk-rate v-model="checked" show-score :number-value="9"></dk-rate><br />
-    </dk-shadow>
-    <dk-shadow>
-      文案展示<dk-rate
-        v-model="checked"
-        :show-text="['非常差', '差', '一般', '好', '非常好']"
-        :number-value="5"
-      ></dk-rate><br />
-    </dk-shadow>
+    <p>checked:{{ checked }}</p>
+    <dk-rate v-model="checked" :number-value="5" :icon-size="30"></dk-rate>
   </div>
 </template>
 <style lang="scss" scoped>

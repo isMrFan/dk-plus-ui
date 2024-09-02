@@ -10,7 +10,7 @@
     emits: ['update:modelValue', 'change'],
     setup(props, { emit }) {
       const { getRun } = getReturn()
-      const { numberValue, disabled, selectColor, noSelectColor, showScore, showText } = toRefs(props)
+      const { numberValue, disabled, selectColor, noSelectColor, showScore, showText, readonly } = toRefs(props)
       const data = reactive({
         modelValue: props.modelValue,
         numberValue: numberValue,
@@ -18,33 +18,38 @@
         selectColor: selectColor,
         noSelectColor: noSelectColor,
         IsNumberValue: 0,
-        icon: 'IconStar',
         isMouseEnter: false,
         markList: computed((): number => (isNumber(numberValue.value) ? numberValue.value : 5)),
         showScore: showScore,
-        showText: showText
+        showText: showText,
+        timestampTime: 0 as number
       })
       
       const methods = {
-        handleMouseEnter: (index: number): void => {
-          if (props.disabled) return
-          data.modelValue = index
-        },
-        handleMouseLeave: (): void => {
-          if (props.disabled) return
+        /**
+         * @description 鼠标移出
+         */
+        onMouseout: (): void => {
+          if (readonly.value) return
           data.modelValue = props.modelValue
         },
+        /**
+         * @description 鼠标移入
+         */
+        onMouseover: (index: number): void => {
+          if (readonly.value) return
+          data.modelValue = index
+        },
         handleClick: (ind: number): void => {
-          if (props.disabled) return
+          if (readonly.value) return
           data.modelValue = ind
-          emit(model_Value, data.modelValue + 1)
-          emit('change', data.modelValue + 1)
+          emit(model_Value, ind)
           getRun(props.onchange, ind)
         }
       }
 
       watch(
-        () => props.modelValue, // 监听的值
+        (): number => props.modelValue,
         val => {
           data.modelValue = val
         },
@@ -52,28 +57,41 @@
           immediate: true
         }
       )
+      watch(
+        (): number => data.modelValue,
+        () => {
+          data.timestampTime = new Date().getTime()
+        },
+        {
+          immediate: true
+        }
+      )
       return {
         ...toRefs(data),
-        ...methods
+        ...toRefs(methods)
       }
     }
   })
 </script>
 <template>
   <div class="dk-rate" role="slider">
-    <div class="dk-rate_list">
+    <div :key="timestampTime" class="dk-rate_list">
       <div
-        v-for="(item, ind) in markList"
-        :key="ind"
-        :class="['dk-rate_star', { 'dk-rate_star-disabled': disabled }]"
-        @mouseenter="handleMouseEnter(ind + 1)"
-        @mouseleave="handleMouseLeave"
-        @click="handleClick(ind)"
+        v-for="(item, index) in markList"
+        :key="index"
+        :class="['dk-rate_star', { 'dk-rate_star-readonly': readonly }]"
+        @mouseout="onMouseout"
+        @mouseover="onMouseover(index + 1)"
+        @click="handleClick(index + 1)"
       >
         <dk-icon
-          :icon="ind < modelValue ? 'IconStared' : 'IconStar'"
-        ></dk-icon>
+          :icon="icon"
+          :color="modelValue > index ? selectColor : noSelectColor"
+          :size="iconSize"
+        >
+        </dk-icon>
       </div>
+      <div>asdas</div>
     </div>
     <span v-if="showScore" class="dk-rate__text">{{ modelValue }}</span>
     <span v-if="showText" class="dk-rate__text">{{ showText[modelValue - 1] }}</span>
