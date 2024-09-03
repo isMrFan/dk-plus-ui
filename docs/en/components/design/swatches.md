@@ -28,124 +28,124 @@
   <div class="body_UI_ku_list">
     <h6>Feedback color[success]</h6>
     <div style='background:#47A43C;'>
-      $dk-primary-color
+      $dk-success-color
     </div>
     <div style='background:#56B551;'>
-      $dk-primary-hover-color
+      $dk-success-hover-color
     </div>
      <div style='background:#3D8E37;'>
-      $dk-primary-active-color
+      $dk-success-active-color
     </div>
     <div style='background:#6EC76C;'>
-      $dk-primary-disabled-color
+      $dk-success-disabled-color
     </div>
     <div style='background:#E5F6E5;'>
-      $dk-primary-light-default
+      $dk-success-light-default
     </div>
     <div style='background:#BAEBB9;'>
-      $dk-primary-light-hover
+      $dk-success-light-hover
     </div>
     <div style='background:#8FD98E;'>
-      $dk-primary-light-active-color
+      $dk-success-light-active-color
     </div>
   </div>
   <div class="body_UI_ku_list">
     <h6>Feedback color[info]</h6>
     <div style='background:#909399;'>
-      $dk-primary-color
+      $dk-info-color
     </div>
     <div style='background:#A0A3AC;'>
-      $dk-primary-hover-color
+      $dk-info-hover-color
     </div>
      <div style='background:#7E8086;'>
-      $dk-primary-active-color
+      $dk-info-active-color
     </div>
     <div style='background:#B5B7BD;'>
-      $dk-primary-disabled-color
+      $dk-info-disabled-color
     </div>
     <div style='background:#E8E8EA;'>
-      $dk-primary-light-default
+      $dk-info-light-default
     </div>
     <div style='background:#D3D4D9;'>
-      $dk-primary-light-hover
+      $dk-info-light-hover
     </div>
     <div style='background:#BCBEC4;'>
-      $dk-primary-light-active-color
+      $dk-info-light-active-color
     </div>
   </div>
   <div class="body_UI_ku_list">
     <h6>Feedback color[warning]</h6>
     <div style='background:#E17E29;'>
-      $dk-primary-color
+      $dk-warning-color
     </div>
     <div style='background:#E79A42;'>
-      $dk-primary-hover-color
+      $dk-warning-hover-color
     </div>
      <div style='background:#BB621F;'>
-      $dk-primary-active-color
+      $dk-warning-active-color
     </div>
     <div style='background:#EBB467;'>
-      $dk-primary-disabled-color
+      $dk-warning-disabled-color
     </div>
     <div style='background:#FEF8EA;'>
-      $dk-primary-light-default
+      $dk-warning-light-default
     </div>
     <div style='background:#F7E3BC;'>
-      $dk-primary-light-hover
+      $dk-warning-light-hover
     </div>
     <div style='background:#F2CE90;'>
-      $dk-primary-light-active-color
+      $dk-warning-light-active-color
     </div>
   </div>
   <div class="body_UI_ku_list">
     <h6>Feedback color[danger]</h6>
     <div style='background:#D4544A;'>
-      $dk-primary-color
+      $dk-danger-color
     </div>
     <div style='background:#DB7167;'>
-      $dk-primary-hover-color
+      $dk-danger-hover-color
     </div>
      <div style='background:#B03B35;'>
-      $dk-primary-active-color
+      $dk-danger-active-color
     </div>
     <div style='background:#E29086;'>
-      $dk-primary-disabled-color
+      $dk-danger-disabled-color
     </div>
     <div style='background:#FCEDE9;'>
-      $dk-primary-light-default
+      $dk-danger-light-default
     </div>
     <div style='background:#F3CEC6;'>
-      $dk-primary-light-hover
+      $dk-danger-light-hover
     </div>
     <div style='background:#EAAFA5;'>
-      $dk-primary-light-active-color
+      $dk-danger-light-active-color
     </div>
   </div>
   <div class="body_UI_ku_list">
     <h6>font</h6>
     <div style='background:#262626;color:#fff;'>
-      $dk-primary-color
+      $dk-font-1-color
     </div>
     <div style='background:#434343;'>
-      $dk-primary-hover-color
+      $dk-font-2-color
     </div>
      <div style='background:#595959;'>
-      $dk-primary-active-color
+      $dk-font-3-color
     </div>
     <div style='background:#8C8C8C;'>
-      $dk-primary-disabled-color
+      $dk-font-4-color
     </div>
     <div style='background:#BFBFBF;'>
-      $dk-primary-light-default
+      $dk-font-5-color
     </div>
     <div style='background:#D9D9D9;'>
-      $dk-primary-light-hover
+      $dk-font-6-color
     </div>
     <div style='background:#CCCCCC;'>
-      $dk-primary-light-active-color
+      $dk-font-disabled-color
     </div>
     <div style='background:#ffffff;'>
-      $dk-primary-light-active-color
+      $dk-font-active-color
     </div>
   </div>
 </div>
