@@ -75,6 +75,16 @@ jobs:
           SOURCE: /docs/.vitepress/dist/*
           TARGET: /www/wwwWeb/dk-plus.com
 
+      - name: Deploy to Web electronicBook (master)
+        uses: easingthemes/ssh-deploy@v2
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          SOURCE: /docs/.vitepress/assets/electronicBook/*
+          TARGET: /www/wwwWeb/dk-plus.com/assets/electronicBook/
+
       - name: Deploy to robots Server (master)
         uses: easingthemes/ssh-deploy@v2
         with:
