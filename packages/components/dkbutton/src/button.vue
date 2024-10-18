@@ -9,7 +9,7 @@
   import { getButton, getReturn, getGlobal, getRipples } from '../../_hooks'
   import type { RipplesType } from '../../_hooks'
   import { dkButtonProps } from './props'
-  export default defineComponent({
+export default defineComponent({
     name: 'DkButton',
     props: dkButtonProps,
     setup(Props) {

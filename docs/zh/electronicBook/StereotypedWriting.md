@@ -7,7 +7,7 @@
 [2023前端面试上岸手册（八股文）](../../assets/electronicBook/2023前端面试上岸手册（八股文）.pdf)
 
 
-[2023前端面试上岸手册（八股文）](../../assets/electronicBook/前端面试通关宝典.pdf)
+[前端面试通关宝典](../../assets/electronicBook/前端面试通关宝典.pdf)
 
 [P8大佬的算法解题笔记）](../../assets/electronicBook/P8大佬的算法解题笔记.pdf)
 

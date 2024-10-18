@@ -1,5 +1,10 @@
 {
   "friendlyList": [
+     {
+      "logoImg": "https://oss.cadwaladerss.com/dk-plus/images/uView.png",
+      "logoSrc": "https://uviewui.com/",
+      "name": "uView UI"
+    },
     {
       "logoImg": "https://oss.cadwaladerss.com/dk-plus/images/vue-admin-beautiful.png",
       "logoSrc": "https://vue-admin-beautiful.com/admin-plus/?hmsr=dk-plus&hmpl=&hmcu=&hmkw=&hmci=#/index",

@@ -56,7 +56,7 @@ export const getButton = (props: MergedParams): getButtonType => {
    * @description 获取当前组件的插槽
    */
   const slot: Slots = useSlots()
-  const isSlot = computed(
+  const isSlot= computed(
     (): boolean => !(slot.default && slot.default() && slot.default()[0].children)
   )
 
