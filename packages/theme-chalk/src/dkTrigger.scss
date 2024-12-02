@@ -1,0 +1,14 @@
+@use '../mixins/mixin.scss' as *;
+
+.#{$namespace}-Trigger{
+  height: inherit;
+  .#{$namespace}-Trigger__trigger{
+    height: inherit;
+  }
+  .#{$namespace}-Trigger__content-box{
+    width: 100%;
+    .#{$namespace}-Trigger__content{
+      width: 100%;
+    }
+  }
+}

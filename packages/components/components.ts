@@ -84,3 +84,9 @@ export * from './dkwatermark'
 
 export { DkDialog } from './dkdialog'
 export * from './dkdialog'
+
+export { DkSelect } from './dkselect'
+export * from './dkselect'
+
+export { DkTrigger } from './dktrigger'
+export * from './dktrigger'
