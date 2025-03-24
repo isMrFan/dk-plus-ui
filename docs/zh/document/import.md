@@ -54,7 +54,7 @@ createApp(App).use(DkIcon).use(DkShadow).use(DkButton).mount('#app')
     <dk-button type="danger">成功按钮</dk-button>
     <dk-button type="warning">警告按钮</dk-button>
   </div>
-  <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dk-plus/dkPlus/index.umd.js"></script>
   <script type="module">
     const { createApp, ref } = Vue

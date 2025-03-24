@@ -11,11 +11,14 @@ export default defineComponent({
   name: 'DkSelect',
   setup() {
     console.log('苏玉儿')
+    return{
+    
+    }
   }
 })
 </script>
 <template>
-  <div class="DkSelect">
+  <div class="Dk-select">
     <dk-trigger></dk-trigger>
   </div>
 </template>
